@@ -11,6 +11,7 @@ import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.ObjectBuilder;
 import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
+import org.crandor.game.world.map.zone.ZoneMonitor;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
@@ -19,6 +20,24 @@ import org.crandor.tools.RandomFunction;
 /**
  * Handle pyramid plunder object interactions
  * @author ceik
+ */
+/**
+ * PyramidPlunderOptions defines interactions for pyramid plunder
+ * Copyright (C) 2020  2009scape, et. al
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the modified GNU General Public License
+ * as published by the Free Software Foundation and included in this repository; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 @InitializablePlugin
@@ -70,50 +89,53 @@ public final class PyramidPlunderOptions extends OptionHandler {
     public boolean handle(Player player, Node node, String option) {
         PlunderObjectManager manager = player.getPlunderObjectManager();
         int NPCDeathTime = GameWorld.getTicks() + (1000 / 6);
-        Location room_entrance[] = {new Location(1927,4477), new Location(1927,4453), new Location(1943,4421), new Location(1954,4477), new Location(1974,4420), new Location(1977,4471), new Location(1927, 4424)};
-        int currentX = player.getLocation().getX();
-        int currentY = player.getLocation().getY();
+        Location room_entrance[] = {new Location(1927,4477), new Location(1927,4453), new Location(1943,4421), new Location(1954,4477), new Location(1974,4420), new Location(1977,4471), new Location(1927, 4424), new Location(1965,4444)};
         int level = player.getSkills().getLevel(Skills.THIEVING);
         int room = 0;
         int spearX = 0;
         int spearY = 0;
         double droom = 0.0;
-        if(currentX >= 1923 && currentX <= 1932 && currentY <= 4477 && currentY >= 4464 ){
+        ZoneMonitor zmon = player.getZoneMonitor();
+        if(zmon.isInZone("PR1")){
             room = 1;
             reqLevel = 21;
             spearX = 0;
             spearY = -2;
-
-        } else if(currentX >= 1925 && currentX <= 1941 && currentY <= 4458 && currentY >= 4449 ){
+        } else if(zmon.isInZone("PR2")){
             room = 2;
             reqLevel = 31;
             spearX = 2;
             spearY = 0;
-        } else if(currentX >= 1941 && currentX <= 1954 && currentY >=4421 && currentY <= 4432 ){
+        } else if(zmon.isInZone("PR3")){
             room = 3;
             reqLevel = 41;
             spearX = 0;
             spearY = 2;
-        } else if(currentX >= 1949 && currentX <= 1959 && currentY <= 4477 && currentY >= 4464){
+        } else if(zmon.isInZone("PR4")){
             room = 4;
             reqLevel = 51;
             spearX = 0;
             spearY = -2;
-        } else if(currentX >= 1968 && currentX <= 1978 && currentY <= 4436 && currentY >= 4420){
+        } else if(zmon.isInZone("PR5")){
             room = 5;
             reqLevel = 61;
             spearX = 0;
             spearY = 2;
-        } else if(currentX >= 1970 && currentX <= 1979 && currentY <= 4471 && currentY >= 4424){
+        } else if(zmon.isInZone("PR6")){
             room = 6;
             reqLevel = 71;
             spearX = 0;
             spearY = -2;
-        } else if(currentX >= 1923 && currentX <= 1931 && currentY <= 4439 && currentY >= 4424){
-            room = 8;
+        } else if(zmon.isInZone("PR7")){
+            room = 7;
             reqLevel = 81;
             spearX = 0;
             spearY = 2;
+        } else if(zmon.isInZone("PR8")){
+            room = 8;
+            reqLevel = 91;
+            spearX = -2;
+            spearY = 0;
         }
         PlunderObject object = new PlunderObject(node.asObject().getId(),node.asObject().getLocation(),player);
         droom = (double) room;
@@ -301,16 +323,12 @@ public final class PyramidPlunderOptions extends OptionHandler {
                     if (doesOpen) {
                         player.getPacketDispatch().sendMessage("The door opens!");
                         player.getProperties().setTeleportLocation(room_entrance[room]);
-                        player.getPacketDispatch().sendMessage("<col=7f03ff>Room: " + (room + 1) + " Level required: " + (reqLevel + 10));
-                        player.getPlunderObjectManager().resetObjectsFor(player);
                     } else {
                         player.getPacketDispatch().sendMessage("You fail to unlock the door.");
                     }
                 } else if(room == 8) {
                     ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, Location.create(3288, 2801, 0));
-                    player.getPlunderObjectManager().resetObjectsFor(player);
                 }
-                manager.resetObjectsFor(player);
                 break;
         }
         return true;
