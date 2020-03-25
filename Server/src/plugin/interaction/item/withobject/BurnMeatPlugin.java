@@ -5,8 +5,12 @@ import org.crandor.game.content.global.consumable.Food;
 import org.crandor.game.interaction.NodeUsageEvent;
 import org.crandor.game.interaction.UseWithHandler;
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.GameObject;
 import org.crandor.game.world.update.flag.context.Animation;
+import org.crandor.net.packet.PacketRepository;
+import org.crandor.net.packet.context.GameMessageContext;
+import org.crandor.net.packet.out.GameMessage;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 
@@ -45,6 +49,7 @@ public final class BurnMeatPlugin extends UseWithHandler {
 		for (int id : OBJECTS) {
 			addHandler(id, OBJECT_TYPE, this);
 		}
+		System.out.println("Burned meat plugin successfully initialized");
 		return this;
 	}
 
@@ -53,11 +58,14 @@ public final class BurnMeatPlugin extends UseWithHandler {
 		final Player player = event.getPlayer();
 		final Food food = Consumables.forFood(event.getUsedItem());
 		final GameObject object = (GameObject) event.getUsedWith();
+		final Item usedItem = event.getUsedItem();
 		if (food.getBurnt() == null) {
 			player.getPacketDispatch().sendMessage("You can't burn this piece of food.");
 			return true;
 		}
-		if (player.getInventory().remove(event.getUsedItem())) {
+		player.debug("Used Item: " + usedItem + " In inventory? " + player.getInventory().containsItem(usedItem));
+		if (player.getInventory().containsItem(usedItem)) {
+			player.getInventory().remove(usedItem);
 			player.lock(3);
 			player.animate(!object.getName().toLowerCase().equals("fire") ? RANGE_ANIMATION : FIRE_ANIMATION);
 			player.getInventory().add(food.getBurnt());
