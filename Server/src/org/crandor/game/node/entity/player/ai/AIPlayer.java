@@ -166,11 +166,12 @@ public class AIPlayer extends Player {
     }
 
     private void equipIfExists(Item e, int slot) {
-        if (e.getName().equalsIgnoreCase("null")) {
+        if (e == null || e.getName().equalsIgnoreCase("null")) {
             return;
         }
         if (e.getId() != 0)
             getEquipment().replace(e, slot);
+
     }
 
     /**

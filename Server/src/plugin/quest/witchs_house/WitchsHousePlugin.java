@@ -28,6 +28,8 @@ import org.crandor.tools.RandomFunction;
 public class WitchsHousePlugin extends OptionHandler {
 
     private static final Item LEATHER_GLOVES = new Item(1059);
+    private static final Item KEY = new Item(2411);
+    private static final Item MAGNET = new Item(2410);
 
     @Override
     public boolean handle(Player player, Node node, String option) {
@@ -66,7 +68,7 @@ public class WitchsHousePlugin extends OptionHandler {
                 player.sendMessage("You find nothing interesting in the boxes.");
                 break;
             case 2869:
-                if (player.getInventory().addIfDoesntHave(new Item(2410))) {
+                if (player.getInventory().addIfDoesntHave(MAGNET)) {
                     player.sendMessage("You find a magnet.");
                 } else {
                     player.sendMessage("You search the cupboard but find nothing interesting.");
@@ -97,6 +99,20 @@ public class WitchsHousePlugin extends OptionHandler {
             case 24721:
                 player.sendMessage("You decide to not attract the attention of the witch by playing the piano.");
                 break;
+            case 2863:
+                if (player.getInventory().containsItem(KEY)) {
+                    DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
+                } else {
+                    player.sendMessage("The door is locked.");
+                }
+                break;
+            case 2864:
+                if (player.getInventory().addIfDoesntHave(KEY)) {
+                    player.getDialogueInterpreter().sendDialogue("You search for the secret compartment mentioned in the diary.", "Inside it you find a small key. You take the key.");
+                } else {
+                    player.sendMessage("You search the fountain but find nothing.");
+                }
+                break;
         }
         return true;
     }
@@ -116,6 +132,8 @@ public class WitchsHousePlugin extends OptionHandler {
         ObjectDefinition.forId(24721).getConfigurations().put("option:play", this);
         ObjectDefinition.forId(24692).getConfigurations().put("option:search", this);
         ObjectDefinition.forId(2869).getConfigurations().put("option:search", this);
+        ObjectDefinition.forId(2863).getConfigurations().put("option:open", this);
+        ObjectDefinition.forId(2864).getConfigurations().put("option:check", this);
         return this;
     }
 
@@ -181,7 +199,6 @@ public class WitchsHousePlugin extends OptionHandler {
                 mouse.faceLocation(Location.create(2903, 3465, 0));
                 player.setAttribute("mouse_out", true);
             }
-
             return true;
         }
     }
