@@ -17,6 +17,7 @@ import org.crandor.net.packet.context.MinimapStateContext;
 import org.crandor.net.packet.out.MinimapState;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
+import org.reflections.vfs.Vfs;
 
 import java.util.List;
 
@@ -100,7 +101,6 @@ public class NoraTHaggNPC extends AbstractNPC {
                     player.graphics(new Graphics(110, 100));
                     player.getInterfaceManager().openOverlay(new Component(115));
                     PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 2));
-                    face(player);
                 } else if (delay == 6) {
                     player.getProperties().setTeleportLocation(Location.create(getRespawnLocation()));
                     PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 0));
