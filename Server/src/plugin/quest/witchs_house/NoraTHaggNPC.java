@@ -89,6 +89,7 @@ public final class NoraTHaggNPC extends AbstractNPC {
 
     @Override
     public void tick() {
+
         super.tick();
         List<Player> players = getViewport().getCurrentPlane().getPlayers();
         for (Player player : players) {
