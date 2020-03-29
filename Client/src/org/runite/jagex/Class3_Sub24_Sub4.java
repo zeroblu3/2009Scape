@@ -240,16 +240,16 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                            }
                         } else {
                            ++Class3_Sub23.anInt2540;
-                           RSString[] var11 = var10.inventoryOptions;
+                           RSString[] inventoryOptions = var10.inventoryOptions;
                            if(Class123.aBoolean1656) {
-                              var11 = Class3_Sub31.method822(19406, var11);
+                              inventoryOptions = Class3_Sub31.method822(19406, inventoryOptions);
                            }
 
                            int var12;
                            byte var13;
                            if(var9.method99(31595)) {
                               for(var12 = 4; ~var12 <= -4; --var12) {
-                                 if(null != var11 && null != var11[var12]) {
+                                 if(null != inventoryOptions && null != inventoryOptions[var12]) {
                                     ++Class3_Sub28_Sub14.anInt3670;
                                     if(-4 != ~var12) {
                                        var13 = 58;
@@ -257,7 +257,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                                        var13 = 35;
                                     }
 
-                                    Class54.method1177(-1, (long)var10.itemId, (byte)-65, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-66), var15, var13, var11[var12], var3.anInt279);
+                                    Class54.method1177(-1, (long)var10.itemId, (byte)-65, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-66), var15, var13, inventoryOptions[var12], var3.anInt279);
                                  }
                               }
                            }
@@ -267,9 +267,9 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                               Class54.method1177(Class99.anInt1403, (long)var10.itemId, (byte)-96, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-66), var15, (short)22, Class3_Sub13_Sub32.aClass94_3388, var3.anInt279);
                            }
 
-                           if(var9.method99(31595) && var11 != null) {
+                           if(var9.method99(31595) && inventoryOptions != null) {
                               for(var12 = 2; 0 <= var12; --var12) {
-                                 if(var11[var12] != null) {
+                                 if(inventoryOptions[var12] != null) {
                                     ++Class81.anInt1141;
                                     var13 = 0;
                                     if(~var12 == -1) {
@@ -284,19 +284,19 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                                        var13 = 43;
                                     }
 
-                                    Class54.method1177(-1, (long)var10.itemId, (byte)-82, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-119), var15, var13, var11[var12], var3.anInt279);
+                                    Class54.method1177(-1, (long)var10.itemId, (byte)-82, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-119), var15, var13, inventoryOptions[var12], var3.anInt279);
                                  }
                               }
                            }
 
-                           var11 = var3.options;
+                           inventoryOptions = var3.options;
                            if(Class123.aBoolean1656) {
-                              var11 = Class3_Sub31.method822(19406, var11);
+                              inventoryOptions = Class3_Sub31.method822(19406, inventoryOptions);
                            }
 
-                           if(var11 != null) {
+                           if(inventoryOptions != null) {
                               for(var12 = 4; var12 >= 0; --var12) {
-                                 if(null != var11[var12]) {
+                                 if(null != inventoryOptions[var12]) {
                                     ++Class3_Sub13_Sub35.anInt3420;
                                     var13 = 0;
                                     if(0 == var12) {
@@ -319,7 +319,8 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                                        var13 = 13;
                                     }
 
-                                    Class54.method1177(-1, (long)var10.itemId, (byte)-51, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-77), var15, var13, var11[var12], var3.anInt279);
+                                    Class54.method1177(-1, (long)var10.itemId, (byte)-51, RenderAnimationDefinition.method903(new RSString[]{
+                                            Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-77), var15, var13, inventoryOptions[var12], var3.anInt279);
                                  }
                               }
                            }
@@ -338,7 +339,9 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
             if(GameObject.aBoolean1837) {
                if(Client.method44(var3).method97(-20710) && ~(32 & Class164.anInt2051) != -1) {
                   ++Class29.anInt562;
-                  Class54.method1177(Class144.anInt1887, 0L, (byte)-113, RenderAnimationDefinition.method903(new RSString[]{Class40.aClass94_676, Class3_Sub28_Sub16.aClass94_3703, var3.aClass94_277}, (byte)-90), var3.anInt191, (short)12, Class3_Sub28_Sub9.aClass94_3621, var3.anInt279);
+                  Class54.method1177(Class144.anInt1887, 0L, (byte)-113, RenderAnimationDefinition.method903(new RSString[]{
+                          Class40.aClass94_676, Class3_Sub28_Sub16.aClass94_3703, var3.aClass94_277
+                  }, (byte)-90), var3.anInt191, (short)12, Class3_Sub28_Sub9.aClass94_3621, var3.anInt279);
                }
             } else {
                for(var15 = 9; var15 >= 5; --var15) {

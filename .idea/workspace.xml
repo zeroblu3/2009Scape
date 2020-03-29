@@ -2,60 +2,188 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfca1f7e-8542-4720-8cd4-dc28d3685749" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class67.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class67.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub24_Sub4.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub24_Sub4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub30_Sub1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub30_Sub1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub31.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub31.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class47.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/Class47.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/ame/AntiMacroDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/ame/AntiMacroDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/ClimbActionHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/ClimbActionHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/ClimbActionHandler$ClimbDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/ClimbActionHandler$ClimbDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/ClimbActionHandler$ClimbDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/ClimbActionHandler$ClimbDialogue$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/DoorActionHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/DoorActionHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/DoorActionHandler$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/DoorActionHandler$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/DoorActionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/action/DoorActionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/consumable/Consumables.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/global/consumable/Consumables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/skill/free/smithing/Bars.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/content/skill/free/smithing/Bars.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/Entity$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/CombatPulse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/CombatPulse$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/CombatPulse$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/CombatPulse$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/CombatPulse$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/CombatPulse$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/handlers/RangeSwingHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/combat/handlers/RangeSwingHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/npc/NPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/npc/NPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/AIPlayer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/AIPlayer$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/pvp/PVPAIPActions$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/pvp/PVPAIPActions$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/pvp/PVPAIPActions$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/pvp/PVPAIPActions$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/resource/ResourceAIPManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/ai/resource/ResourceAIPManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/link/PacketDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/node/entity/player/link/PacketDispatch$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/net/packet/in/ActionButtonPacket$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/net/packet/in/ActionButtonPacket$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/net/packet/in/InteractionPacket$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/net/packet/in/InteractionPacket$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/net/packet/in/InterfaceUseOnPacket$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/net/packet/in/InterfaceUseOnPacket$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub24_Sub4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub24_Sub4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub28_Sub1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub28_Sub1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub30_Sub1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub30_Sub1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub31.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class47.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class47.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class67.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class67.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/RenderAnimationDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/RenderAnimationDefinition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/ItemDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/ItemDefinition.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/barrows/BarrowsActivityPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/barrows/BarrowsActivityPlugin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/barrows/RewardChest.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/barrows/RewardChest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/bountyhunter/BountyLocateSpell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/bountyhunter/BountyLocateSpell$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$4$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/gwd/GodwarsMapzone$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/KolodionNPC$KolodionType$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/KolodionNPC$KolodionType$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/KolodionSession$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/KolodionSession$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaPlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaPlugin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaPlugin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaPlugin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaPlugin$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaZone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/magearena/MageArenaZone$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/mta/TelekineticGrabSpell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/mta/TelekineticGrabSpell$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/mta/impl/GraveyardZone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/mta/impl/GraveyardZone$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/pestcontrol/PestControlActivityPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/pestcontrol/PestControlActivityPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/pestcontrol/PestControlActivityPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/pestcontrol/PestControlActivityPlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/pestcontrol/monsters/PCShifterNPC$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/pestcontrol/monsters/PCShifterNPC$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/stronghold/StrongHoldSecurityPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/stronghold/StrongHoldSecurityPlugin$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/PlayerCommandPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/PlayerCommandPlugin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/stronghold/playersafety/GuardDialoguePlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/stronghold/playersafety/GuardDialoguePlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCaveNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCaveNPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCavesPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCavesPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCavesPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCavesPlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCavesPlugin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/tzhaar/TzhaarFightCavesPlugin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/wguild/cyclopes/CyclopesRoom$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/wguild/cyclopes/CyclopesRoom$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/wguild/shot/ShotPutRoom$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/wguild/shot/ShotPutRoom$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/wguild/shot/ShotPutRoom$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/activity/wguild/shot/ShotPutRoom$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/ChainhitSpecialHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/ChainhitSpecialHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/ChainhitSpecialHandler$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/ChainhitSpecialHandler$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/ChainhitSpecialHandler$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/ChainhitSpecialHandler$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/SnapshotSpecialHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/combat/special/SnapshotSpecialHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/AIPCommandPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/AIPCommandPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/DeveloperCommandPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/DeveloperCommandPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/DeveloperCommandPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/command/DeveloperCommandPlugin$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/consumable/PotionPlugin$CombatPotion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/consumable/PotionPlugin$CombatPotion$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/consumable/food/KebabFoodPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/consumable/food/KebabFoodPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/DBRCutscenePlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/DBRCutscenePlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/GECutscenePlugin$BrugsenBursenDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/GECutscenePlugin$BrugsenBursenDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/JulietDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/JulietDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/JulietDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/JulietDialogue$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/JulietDialogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/JulietDialogue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/RJCutscenePlugin$RomeoDialogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/RJCutscenePlugin$RomeoDialogue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/HettyDialogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/HettyDialogue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/SmithingApparenticeDialogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/SmithingApparenticeDialogue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/RJCutscenePlugin$RomeoDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/RJCutscenePlugin$RomeoDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/RJCutscenePlugin$RomeoDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/cutscene/RJCutscenePlugin$RomeoDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/AablaDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/AablaDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/CaptainBentleyDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/CaptainBentleyDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GertrudesCatDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GertrudesCatDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GertrudesCatDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GertrudesCatDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GertrudesCatDialogue$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GertrudesCatDialogue$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GnomeSpiritTreeDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/GnomeSpiritTreeDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/KittenInteractDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/KittenInteractDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/LokarSearunnerDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/LokarSearunnerDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/MithrilSeedsDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/MithrilSeedsDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/PrinceAliDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/PrinceAliDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/PrinceAliDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/PrinceAliDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/ProfessorOddensteinPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/ProfessorOddensteinPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/RugMerchantDialogue$RugDestination$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/RugMerchantDialogue$RugDestination$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/ShantayDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/ShantayDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/ShantayGuard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/ShantayGuard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/SilkMerchantPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/SilkMerchantPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/SorcceresDialouge$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/SorcceresDialouge$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/TownCrierDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/TownCrierDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/TraibornDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/dialogue/TraibornDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/christmas/ChristmasEvent$ChristmasEventOptionPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/christmas/ChristmasEvent$ChristmasEventOptionPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/christmas/ChristmasEvent$PeltOptionHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/christmas/ChristmasEvent$PeltOptionHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/christmas/ChristmasEvent$SnowmanItemHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/christmas/ChristmasEvent$SnowmanItemHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/easter/BasketofEggsEvent$EasterBunnyDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/easter/BasketofEggsEvent$EasterBunnyDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/easter/BasketofEggsEvent$EasterBunnyDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/easter/BasketofEggsEvent$EasterBunnyDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$DarkPortalHandler$DarkPortalDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$DarkPortalHandler$DarkPortalDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$GrimReaperDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$GrimReaperDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$MuncherDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$MuncherDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$MuncherDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$MuncherDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$MuncherDialogue$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/holiday/halloween/DeathMansionEvent$MuncherDialogue$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/DraynorManorPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/DraynorManorPlugin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/DraynorManorPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/DraynorManorPlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/DraynorNodePlugin$TelescopeCutscene$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/DraynorNodePlugin$TelescopeCutscene$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/FaladorNodePlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/FaladorNodePlugin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/FaladorNodePlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/FaladorNodePlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/GnomeStrongholdPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/GnomeStrongholdPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/GnomeStrongholdPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/GnomeStrongholdPlugin$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/TrollheimPlugin$WarningCutscene$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/TrollheimPlugin$WarningCutscene$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/VarrockNodePlugin$KnockatDoorDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/VarrockNodePlugin$KnockatDoorDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/WizardTowerPlugin$SedridorDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/WizardTowerPlugin$SedridorDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/WizardTowerPlugin$WizardMisgogDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/city/WizardTowerPlugin$WizardMisgogDialogue$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/item/withobject/PriestInPerilUsePlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/item/withobject/PriestInPerilUsePlugin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/item/GodBookPlugin$GodBookDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/item/GodBookPlugin$GodBookDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/item/PharoahSceptre$SceptreDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/item/PharoahSceptre$SceptreDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/BarcrawlPlugin$BarcrawlDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/BarcrawlPlugin$BarcrawlDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/BarcrawlPlugin$BarcrawlType$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/BarcrawlPlugin$BarcrawlType$9$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/ProbitaNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/ProbitaNPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/sorceress_app/SorceressApprenticeDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/npc/sorceress_app/SorceressApprenticeDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/BankingPlugin$BankDepositInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/BankingPlugin$BankDepositInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/BankingPlugin$BankingInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/BankingPlugin$BankingInterface$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/BrokenCartBypass$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/BrokenCartBypass$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ErnestTheChickenPlugin$LeverCacheExtension$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ErnestTheChickenPlugin$LeverCacheExtension$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ErnestTheChickenPlugin$LeverCacheExtension$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ErnestTheChickenPlugin$LeverCacheExtension$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin$FillPotHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin$FillPotHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin$FlourExtension.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin$FlourExtension.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin$GrainHopperPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin$GrainHopperPlugin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FlourMakingPlugin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/PriestInPerilOptionPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/PriestInPerilOptionPlugin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ReadSignPostPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ReadSignPostPlugin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FieldPickingPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/FieldPickingPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/LumbridgeBasementPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/LumbridgeBasementPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ShootingStarPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/ShootingStarPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/WildernessLeverPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/WildernessLeverPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/sorceress/GardenObjectsPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/sorceress/GardenObjectsPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/sorceress/GardenObjectsPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/sorceress/GardenObjectsPlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/sorceress/GardenObjectsPlugin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/interaction/object/sorceress/GardenObjectsPlugin$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/BunyipNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/BunyipNPC$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/quest/romeo__juliet/JulietNPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/quest/romeo__juliet/JulietNPC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/RomeoJuliet.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/RomeoJuliet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/DreadfowlNPC$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/DreadfowlNPC$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/MacawNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/MacawNPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/SpiritWolfNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/npc/familiar/SpiritWolfNPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/animal_mag/AliceHusbandDialogue$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/bkfortress/BKFortressPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/bkfortress/BKFortressPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/bkfortress/BKFortressPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/bkfortress/BKFortressPlugin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/DemonSlayerCutscene$DelrithDialoguePlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/DemonSlayerCutscene$DelrithDialoguePlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/DemonSlayerCutscene$DenathDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/DemonSlayerCutscene$DenathDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/GypsyArisDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/GypsyArisDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/GypsyArisDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/GypsyArisDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/SirPyrsinDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/SirPyrsinDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/TraibornDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/demonslayer/TraibornDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/DragonSlayerCutscene$DSNedDialogue$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/ElvargNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/ElvargNPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/ElvargNPC$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dragonslayer/ElvargNPC$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$2$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$ToolKitHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/dwarfcannon/DwarfCannonPlugin$ToolKitHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/gdiplomacy/GDiplomacyCutscene$GoblinGeneralDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/gdiplomacy/GDiplomacyCutscene$GoblinGeneralDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/lostcity/LostCityPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/lostcity/LostCityPlugin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/merlincrystal/MerlinCrystalPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/merlincrystal/MerlinCrystalPlugin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/AnaDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/AnaDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/DesertGuardDialogue$DesertGuardNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/DesertGuardDialogue$DesertGuardNPC$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/MaleSlaveDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/MaleSlaveDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/TouristTrapPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/TouristTrapPlugin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/TouristTrapPlugin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/TouristTrapPlugin$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/TouristTrapPlugin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/touristrap/TouristTrapPlugin$3.class" afterDir="false" />
@@ -79,22 +207,50 @@
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallPlugin$WaterfallUseWithHandler$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallPlugin$WaterfallUseWithHandler$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallPlugin$WaterfallUseWithHandler$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallPlugin$WaterfallUseWithHandler$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallPlugin$WaterfallUseWithHandler$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallPlugin$WaterfallUseWithHandler$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallTreeDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/waterfall/WaterfallTreeDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/witchs_house/NoraTHaggNPC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/witchs_house/NoraTHaggNPC$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/witchs_house/NoraTHaggNPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/witchs_house/NoraTHaggNPC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/witchs_house/WitchsHousePlugin$WitchsHouseUseWithHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/witchs_house/WitchsHousePlugin$WitchsHouseUseWithHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowCutscene$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/quest/wlbelow/WLBelowPlugin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/random/eviltwin/EvilTwinRandomEvent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/random/eviltwin/EvilTwinRandomEvent$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/random/eviltwin/EvilTwinRandomEvent$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/random/eviltwin/EvilTwinRandomEvent$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/random/eviltwin/EvilTwinRandomEvent$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/random/eviltwin/EvilTwinRandomEvent$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/BarbarianOutpostCourse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/BarbarianOutpostCourse$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/BarbarianOutpostCourse$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/BarbarianOutpostCourse$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/WildernessCourse$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/agility/pyramid/AgilityPyramidCourse$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/decoration/StaircasePlugin$ClimbPohLadder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/decoration/StaircasePlugin$ClimbPohLadder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/decoration/StaircasePlugin$ClimbPohLadder$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/decoration/StaircasePlugin$ClimbPohLadder$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/npc/HouseServantDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/npc/HouseServantDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/npc/HouseServantDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/npc/HouseServantDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/npc/HouseServantDialogue$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/construction/npc/HouseServantDialogue$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/magic/lunar/DreamSpell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/magic/lunar/DreamSpell$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/magic/lunar/DreamSpell$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/magic/lunar/DreamSpell$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/magic/lunar/SpellbookSwapSpell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/magic/lunar/SpellbookSwapSpell$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/summoning/SummoningTrainingRoom$FluffyCutscene$FluffyDialogue$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/thieving/ThievableChestPlugin$Chest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/skill/thieving/ThievableChestPlugin$Chest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/GrandExchangeZone$TeleporterDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/GrandExchangeZone$TeleporterDialogue$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/neitiznot/YakArmourPlugin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/neitiznot/YakArmourPlugin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/neitiznot/YakArmourPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/neitiznot/YakArmourPlugin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/phasmatys/PhasmatysZone.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/phasmatys/PhasmatysZone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/NoraTHaggNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/NoraTHaggNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/rellekka/JarvaldDialogue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/rellekka/JarvaldDialogue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/wbisland/WaterBirthDungeonZone$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/wbisland/WaterBirthDungeonZone$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/wbisland/WaterBirthDungeonZone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/plugin/zone/wbisland/WaterBirthDungeonZone$1.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -114,7 +270,80 @@
     <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub31.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="48" column="31" lean-forward="true" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-386">
+              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="44" column="14" lean-forward="true" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class38.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="704">
+              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class113.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub4.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub11.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="313" column="32" selection-start-line="313" selection-start-column="32" selection-end-line="313" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/InputStream_Sub1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -125,18 +354,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hans</find>
-      <find>sched</find>
-      <find>toggler</find>
-      <find>:35:</find>
-      <find>combat le</find>
-      <find>.getequipment().get(i</find>
-      <find>tost</find>
-      <find>magem</find>
-      <find>regionid</find>
-      <find>4359</find>
-      <find>js5 h</find>
-      <find>method25</find>
       <find>&lt;= 2</find>
       <find>packet</find>
       <find>(byte) -110</find>
@@ -150,11 +367,23 @@
       <find>136</find>
       <find>134</find>
       <find>144</find>
-      <find>item</find>
       <find>keypress</find>
       <find>keylis</find>
-      <find>&quot;</find>
       <find>string[]</find>
+      <find>system</find>
+      <find>method219</find>
+      <find>method1104</find>
+      <find>&quot;: &quot;</find>
+      <find>invent</find>
+      <find>rightcl</find>
+      <find>item</find>
+      <find>&quot;:</find>
+      <find>&quot;</find>
+      <find>ursor</find>
+      <find>option</find>
+      <find>pj.C(</find>
+      <find>{...}</find>
+      <find>&quot;:</find>
     </findStrings>
     <replaceStrings>
       <replace>5</replace>
@@ -166,6 +395,7 @@
       <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\plugin</dir>
       <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src</dir>
       <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\org\crandor\net\packet</dir>
+      <dir>C:\Users\split\Documents\GitHub\2009Scape\Client\src</dir>
       <dir>C:\Users\split\Documents\GitHub\2009Scape\Client\src\org\runite\jagex</dir>
     </dirStrings>
   </component>
@@ -200,6 +430,11 @@
         <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/NoraTHaggNPC.java" />
         <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java" />
         <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class67.java" />
+        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java" />
+        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub31.java" />
+        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub30_Sub1.java" />
+        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub1.java" />
+        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub24_Sub4.java" />
       </list>
     </option>
   </component>
@@ -207,9 +442,9 @@
     <option name="jrebelEnabledAutocompile" value="true" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="975" />
-    <option name="height" value="1060" />
+    <option name="x" value="-9" />
+    <option name="width" value="763" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -217,6 +452,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,11 +460,45 @@
               <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
               <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
+            <path>
+              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="runite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="runite" type="462c0819:PsiDirectoryNode" />
+              <item name="jagex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Client592" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Client592" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,8 +607,8 @@
       <list>
         <item itemvalue="Application.GameLaunch" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.GameLaunch (1)" />
         <item itemvalue="Application.Management" />
+        <item itemvalue="Application.GameLaunch (1)" />
         <item itemvalue="Application.Runner" />
       </list>
     </recent_temporary>
@@ -356,10 +626,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23355705" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2181208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="JRebel" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -369,17 +649,17 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47651008" visible="true" weight="0.33240223" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47516778" visible="true" weight="0.33240223" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32960895" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="JRebel Executor" order="10" sideWeight="0.457047" weight="0.325419" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.44966444" weight="0.3282123" />
-      <window_info anchor="bottom" id="JRebel Console" order="12" sideWeight="0.52348995" side_tool="true" visible="true" weight="0.33240223" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5248322" side_tool="true" weight="0.33240223" />
+      <window_info anchor="bottom" id="JRebel Executor" order="10" sideWeight="0.45637584" weight="0.325419" />
+      <window_info anchor="bottom" id="JRebel Console" order="11" sideWeight="0.54362416" side_tool="true" weight="0.325419" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4489933" weight="0.3282123" />
       <window_info anchor="bottom" id="Problems" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -392,378 +672,10 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/DemonSlayerCutscene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1056">
-          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/activity/magearena/MageArenaNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-930">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/activity/magearena/MageArenaPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2400">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/activity/magearena/KolodionSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-352">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/lostcity/TreeSpiritNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="101" selection-start-line="13" selection-start-column="32" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsHousePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsHouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/GameLaunch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/Configurations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-547">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class121.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="123" column="119" selection-start-line="123" selection-start-column="119" selection-end-line="123" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ClientLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2224">
-          <caret line="151" column="63" selection-start-line="151" selection-start-column="63" selection-end-line="151" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/GameShell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5149">
-          <caret line="455" column="25" selection-start-line="455" selection-start-column="25" selection-end-line="455" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/GameLaunch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-          <folding>
-            <element signature="e#1125#1126#0" expanded="true" />
-            <element signature="e#1157#1158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/Configurations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="174" column="21" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="21" />
-          <folding>
-            <element signature="e#3133#3134#0" expanded="true" />
-            <element signature="e#3156#3157#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/holiday/halloween/DeathMansionEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="583" column="113" selection-start-line="583" selection-start-column="30" selection-end-line="583" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/world/map/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/npc/NPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="556" column="54" selection-start-line="556" selection-start-column="54" selection-end-line="556" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/NoraTHaggNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2685#2686#0" expanded="true" />
-            <element signature="e#2710#2711#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/jagex/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12285">
-          <caret line="1044" column="91" selection-start-line="1044" selection-start-column="91" selection-end-line="1044" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsExperimentNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="53" column="43" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/activity/magearena/KolodionNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-585">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class235.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class20.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class65.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class248.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="480" column="54" selection-start-line="480" selection-start-column="54" selection-end-line="480" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub30_Sub1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="978">
-          <caret line="1095" column="45" lean-forward="true" selection-start-line="1095" selection-start-column="45" selection-end-line="1095" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class59_Sub5_Sub1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-494">
-          <caret line="366" column="67" lean-forward="true" selection-start-line="366" selection-start-column="67" selection-end-line="366" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub7.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="56" column="299" selection-start-line="56" selection-start-column="299" selection-end-line="56" selection-end-column="299" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3207">
-          <caret line="892" column="99" selection-start-line="892" selection-start-column="99" selection-end-line="892" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/net/packet/out/InteractionOption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class8.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#6683#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class126.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#4501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/jagex/Class148.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/awt/event/KeyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="50" column="25" lean-forward="true" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="33" column="30" lean-forward="true" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="e#835#836#0" expanded="true" />
-            <element signature="e#877#878#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class232_Sub1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1536">
-          <caret line="159" column="17" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/net/packet/in/ActionButtonPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="310" column="35" selection-start-line="310" selection-start-column="35" selection-end-line="310" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/PacketParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31232">
-          <caret line="1958" column="54" selection-start-line="1958" selection-start-column="54" selection-end-line="1958" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/GraphicDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/CS2Script.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27856">
-          <caret line="1743" column="52" selection-start-line="1743" selection-start-column="52" selection-end-line="1743" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub13_Sub30.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="70" column="57" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7296">
-          <caret line="456" column="31" selection-start-line="456" selection-start-column="31" selection-end-line="456" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class76.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class104.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -778,6 +690,344 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="169" column="33" selection-start-line="169" selection-start-column="33" selection-end-line="169" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class128.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="182" column="29" selection-start-line="182" selection-start-column="29" selection-end-line="182" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/jagex/Class67.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="170" column="18" lean-forward="true" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub13_Sub2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/jagex/ItemDefinition.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class47.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="857" column="234" selection-start-line="857" selection-start-column="234" selection-end-line="857" selection-end-column="234" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ObjectDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class20.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58">
+          <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class12.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class167.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="315" column="35" selection-start-line="315" selection-start-column="35" selection-end-line="315" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub13_Sub11.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="104" column="34" lean-forward="true" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub13_Sub12.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="112" column="46" lean-forward="true" selection-start-line="112" selection-start-column="46" selection-end-line="112" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/RSString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="826" column="9" lean-forward="true" selection-start-line="826" selection-start-column="9" selection-end-line="826" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class144.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub13_Sub13.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9395">
+          <caret line="238" column="21" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class134.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3616">
+          <caret line="228" column="47" selection-start-line="228" selection-start-column="47" selection-end-line="228" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class126.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#4501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ISAACCipher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="328" column="102" selection-start-line="328" selection-start-column="102" selection-end-line="328" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2832">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class54.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="2093" column="44" lean-forward="true" selection-start-line="2093" selection-start-column="44" selection-end-line="2093" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class104.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="296" column="51" selection-start-line="296" selection-start-column="51" selection-end-line="296" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="3126" column="16" selection-start-line="3126" selection-start-column="16" selection-end-line="3126" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Signlink.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1242">
+          <caret line="291" column="53" selection-start-line="291" selection-start-column="53" selection-end-line="291" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Sensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="118" column="38" lean-forward="true" selection-start-line="118" selection-start-column="38" selection-end-line="118" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class140_Sub3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub30_Sub1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1152">
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="102" column="27" lean-forward="true" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/NPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub22.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="157" column="31" selection-start-line="157" selection-start-column="31" selection-end-line="157" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/RuntimeException_Sub1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#6683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class165.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="206" column="65" selection-start-line="206" selection-start-column="65" selection-end-line="206" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class210_Sub2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="846" column="123" selection-start-line="846" selection-start-column="123" selection-end-line="846" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Client592/src/Class246_Sub35.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub24_Sub4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="322" column="44" selection-start-line="322" selection-start-column="44" selection-end-line="322" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class38.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub11.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="313" column="32" selection-start-line="313" selection-start-column="32" selection-end-line="313" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/InputStream_Sub1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class113.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386">
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="44" column="14" lean-forward="true" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class118.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class72.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="260" column="55" lean-forward="true" selection-start-line="260" selection-start-column="55" selection-end-line="260" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub31.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="48" column="31" lean-forward="true" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
         </state>
       </provider>
     </entry>
