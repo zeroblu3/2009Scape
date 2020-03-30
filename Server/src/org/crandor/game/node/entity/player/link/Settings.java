@@ -116,11 +116,6 @@ public final class Settings {
 	 * The current attack style index.
 	 */
 	private int attackStyleIndex = 0;
-	
-	/**
-	 * If the player is holding shift for shift drop.
-	 */
-	private boolean holdingShift = false;
 
 	/**
 	 * Constructs a new {@code Settings} {@code Object}.
@@ -670,14 +665,6 @@ public final class Settings {
 	 */
 	public void setAttackStyleIndex(int attackStyleIndex) {
 		this.attackStyleIndex = attackStyleIndex;
-	}
-
-	public boolean isHoldingShift() {
-		return holdingShift;
-	}
-
-	public void setHoldingShift(boolean holdingShift) {
-		this.holdingShift = holdingShift;
 	}
 
 }
