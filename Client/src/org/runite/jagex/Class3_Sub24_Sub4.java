@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import java.awt.event.MouseWheelListener;
+
 final class Class3_Sub24_Sub4 extends Class3_Sub24 {
 
    static RSString aClass94_3496 = RSString.createRSString("Spielwelt erstellt)3");
@@ -240,7 +242,11 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                            }
                         } else {
                            ++Class3_Sub23.anInt2540;
-                           RSString[] var11 = var10.inventoryOptions;
+                           RSString[] var11 = new RSString[var10.inventoryOptions.length];
+                           System.arraycopy(var10.inventoryOptions, 0, var11, 0, var10.inventoryOptions.length);
+						if (MouseWheel.shiftDown) {
+							var11[0] = var11[4];
+						}
                            if(Class123.aBoolean1656) {
                               var11 = Class3_Sub31.method822(19406, var11);
                            }
