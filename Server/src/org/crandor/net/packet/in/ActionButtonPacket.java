@@ -312,6 +312,9 @@ public class ActionButtonPacket implements IncomingPacket {
 			index = 4;
 			break;
 		}
+		if (player.getSettings().isHoldingShift() && (index == 0 || index == 1)) {
+			index = 4;
+		}
 		final Option option = item.getInteraction().get(index);
 		if (option == null || player.getLocks().isInteractionLocked()) {
 			return;
