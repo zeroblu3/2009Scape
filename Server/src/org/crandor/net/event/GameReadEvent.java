@@ -20,7 +20,7 @@ public final class GameReadEvent extends IoReadEvent {
 	 * The incoming packet sizes, sorted by opcode.
 	 */
 	public static final int[] PACKET_SIZES = { 
-			-3, 4, -3, 2, 2, -3, 8, -3, -3, 6, // 0-9
+			-3, -3, -3, 2, 2, -3, 8, -3, -3, 6, // 0-9
 			4, -3, -3, -3, -3, -3, -3, 0, -3, -3, // 10-19
 			4, 4, 1, 4, -3, -3, -3, 16, -3, -3, // 20-29
 			2, -3, -3, 6, 8, -3, -3, -3, -3, -1, // 30-39

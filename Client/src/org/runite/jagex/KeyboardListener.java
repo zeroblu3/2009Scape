@@ -27,12 +27,6 @@ final class KeyboardListener implements KeyListener, FocusListener {
          switch (var1.getKeyCode())
          {
             case 16:
-            	if (MouseWheel.shiftDown != true) {
-            		Class3_Sub13_Sub1.outgoingBuffer.putOpcode(1);
-                    ++Class23.anInt456;
-                    Class3_Sub13_Sub1.outgoingBuffer.putInt(-125, 1);
-            	}
-            	
                MouseWheel.shiftDown = true;
                break;
             case 17:
@@ -160,9 +154,6 @@ final class KeyboardListener implements KeyListener, FocusListener {
       {
          case 16:
             MouseWheel.shiftDown = false;
-            Class3_Sub13_Sub1.outgoingBuffer.putOpcode(1);
-            ++Class23.anInt456;
-            Class3_Sub13_Sub1.outgoingBuffer.putInt(-125, 0);
             break;
          case 17:
             MouseWheel.ctrlDown = false;
