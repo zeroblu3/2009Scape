@@ -1,9 +1,13 @@
 package plugin.quest.witchs_house;
 
 import org.crandor.cache.def.impl.ItemDefinition;
+import org.crandor.cache.def.impl.NPCDefinition;
 import org.crandor.cache.def.impl.ObjectDefinition;
 import org.crandor.game.content.global.action.DoorActionHandler;
+import org.crandor.game.content.global.action.PickupHandler;
+import org.crandor.game.content.skill.Skills;
 import org.crandor.game.interaction.NodeUsageEvent;
+import org.crandor.game.interaction.Option;
 import org.crandor.game.interaction.OptionHandler;
 import org.crandor.game.interaction.UseWithHandler;
 import org.crandor.game.node.Node;
@@ -11,8 +15,11 @@ import org.crandor.game.node.entity.combat.ImpactHandler;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.quest.Quest;
+import org.crandor.game.node.item.GroundItem;
+import org.crandor.game.node.item.GroundItemManager;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.GameObject;
+import org.crandor.game.world.map.Direction;
 import org.crandor.game.world.map.Location;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
@@ -35,9 +42,32 @@ public class WitchsHousePlugin extends OptionHandler {
 
     @Override
     public boolean handle(Player player, Node node, String option) {
+        ExperimentNPC experiment = new ExperimentNPC(Location.create(2935, 3462, 0), Direction.WEST,0);
         final Quest quest = player.getQuestRepository().getQuest("Witch's House");
-        final int id = node instanceof Item ? ((Item) node).getId() : node instanceof GameObject ? ((GameObject) node).getId() : ((NPC) node).getId();
+        final GroundItem ball = GroundItemManager.get(2407, new Location(2935,3460,0),null);
+        final int id = node instanceof Item ? ((Item) node).getId() : node instanceof GameObject ? ((GameObject) node).getId() : node instanceof NPC ? ((NPC) node).getId() : ((ExperimentNPC) node).getId();
         switch(id) {
+            case 2407:
+                if(player.getAttribute("killedExperiment",false) == true){
+                    PickupHandler.take(player, ball);
+                    player.debug("Using default item handler, option: " + new Option("take",0));
+                } else {
+                    int[] skillsToDecrease = {Skills.DEFENCE, Skills.ATTACK, Skills.STRENGTH, Skills.RANGE, Skills.MAGIC};
+                    for (int i = 0; i < skillsToDecrease.length; i++) {
+                        player.getSkills().setLevel(i, player.getSkills().getStaticLevel(i) > 5 ? player.getSkills().getStaticLevel(i) - 5 : 1);
+                    }
+                    player.getPacketDispatch().sendMessage("<col=ff0000>The experiment glares at you, and you feel yourself weaken.</col>");
+                }
+                break;
+            case 897:
+            case 898:
+            case 899:
+            case 900:
+                player.debug("Option is: " + option);
+                if(option.equals("attack")) {
+                    player.getProperties().getCombatPulse().attack(node);
+                }
+                break;
             case 24692:
                 int[] items = {1733, 1059, 1061, 1965, 1734};
                 for (int item : items) {
@@ -94,6 +124,9 @@ public class WitchsHousePlugin extends OptionHandler {
                 if (player.getAttribute("attached_magnet") != null || player.getLocation().getY() < 3466) {
                     DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
                     player.removeAttribute("attached_magnet");
+                    if(player.getAttribute("killedExperiment",false) == false){
+                        experiment.init();
+                    }
                 } else {
                     player.getDialogueInterpreter().sendDialogue("This door is locked.");
                 }
@@ -154,6 +187,8 @@ public class WitchsHousePlugin extends OptionHandler {
         ObjectDefinition.forId(2869).getConfigurations().put("option:search", this);
         ObjectDefinition.forId(2863).getConfigurations().put("option:open", this);
         ObjectDefinition.forId(2864).getConfigurations().put("option:check", this);
+        ItemDefinition.forId(2407).getConfigurations().put("option:take",this);
+
         return this;
     }
 

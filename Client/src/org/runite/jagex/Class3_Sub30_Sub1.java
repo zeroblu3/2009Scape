@@ -254,6 +254,19 @@ final class Class3_Sub30_Sub1 extends RSByteBuffer {
 				}
 
 				if(~var4 == -48) {
+					if (MouseWheel.shiftDown) {
+					
+							Class3_Sub13_Sub1.outgoingBuffer.putOpcode(135);
+							Class3_Sub13_Sub1.outgoingBuffer.putShortA(var5, -268435456);
+							++Class3_Sub13_Sub21.anInt3255;
+							Class3_Sub13_Sub1.outgoingBuffer.putShortA(var2, -268435456);
+							Class3_Sub13_Sub1.outgoingBuffer.putIntB(-68, var3);
+							Class3_Sub9.anInt2330 = 0;
+							Class151.aClass11_1933 = Class7.getRSInterface((byte)117, var3);
+							KeyboardListener.anInt1918 = var2;
+						
+						
+					} else {
 					Class3_Sub13_Sub1.outgoingBuffer.putOpcode(156);
 					Class3_Sub13_Sub1.outgoingBuffer.putLEShortA(var2);
 					Class3_Sub13_Sub1.outgoingBuffer.putShortA(var5, -268435456);
@@ -261,6 +274,7 @@ final class Class3_Sub30_Sub1 extends RSByteBuffer {
 					Class3_Sub9.anInt2330 = 0;
 					Class151.aClass11_1933 = Class7.getRSInterface((byte)109, var3);
 					KeyboardListener.anInt1918 = var2;
+					}
 				}
 
 				if(-4 == ~var4) {
@@ -346,6 +360,17 @@ final class Class3_Sub30_Sub1 extends RSByteBuffer {
 				}
 
 				if(-6 == ~var4) {
+					if (MouseWheel.shiftDown) {
+							Class3_Sub13_Sub1.outgoingBuffer.putOpcode(135);
+							Class3_Sub13_Sub1.outgoingBuffer.putShortA(var5, -268435456);
+							++Class3_Sub13_Sub21.anInt3255;
+							Class3_Sub13_Sub1.outgoingBuffer.putShortA(var2, -268435456);
+							Class3_Sub13_Sub1.outgoingBuffer.putIntB(-68, var3);
+							Class3_Sub9.anInt2330 = 0;
+							Class151.aClass11_1933 = Class7.getRSInterface((byte)117, var3);
+							KeyboardListener.anInt1918 = var2;
+						
+					} else {
 					Class3_Sub13_Sub1.outgoingBuffer.putOpcode(55);
 					Class3_Sub13_Sub1.outgoingBuffer.putLEShort(-1, var5);
 					Class3_Sub13_Sub1.outgoingBuffer.putShortA(var2, -268435456);
@@ -354,6 +379,8 @@ final class Class3_Sub30_Sub1 extends RSByteBuffer {
 					Class3_Sub9.anInt2330 = 0;
 					Class151.aClass11_1933 = Class7.getRSInterface((byte)116, var3);
 					KeyboardListener.anInt1918 = var2;
+				
+					}
 				}
 
 				if(-22 == ~var4) {
