@@ -558,6 +558,18 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                     player.getQuestRepository().setStage(quest,stageId);
                     player.getQuestRepository().syncronizeTab(player);
                 }
+                break;
+            case "finishtask":
+                player.debug("Kill the npc that spawned to finish your task.");
+                player.getSlayer().setAmount(1);
+                NPC finisher = new NPC(player.getSlayer().getTask().getNpcs()[0],player.getLocation());
+                finisher.setRespawn(false);
+                finisher.init();
+                break;
+            case "setslayerpoints":
+                player.getSlayer().setSlayerPoints(toInteger(args[1]));
+                player.debug("Set slayer points to " + args[1]);
+                break;
             }
         return false;
     }
