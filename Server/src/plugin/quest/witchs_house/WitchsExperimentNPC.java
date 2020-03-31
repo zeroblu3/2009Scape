@@ -51,7 +51,7 @@ public class WitchsExperimentNPC  extends AbstractNPC {
     @Override
     public void clear() {
         super.clear();
-        player.removeAttribute("treeSpawned");
+        player.removeAttribute("experimentSpawned");
     }
 
     @Override
@@ -81,7 +81,7 @@ public class WitchsExperimentNPC  extends AbstractNPC {
 
     @Override
     public int[] getIds() {
-        return new int[] { 655 };
+        return new int[] { 897 };
     }
 
     /**

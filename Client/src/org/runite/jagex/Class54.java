@@ -71,6 +71,8 @@ final class Class54 {
                Class117.anIntArray1613[Class3_Sub13_Sub34.anInt3415] = var5;
                Class27.anIntArray512[Class3_Sub13_Sub34.anInt3415] = var8;
                ++Class3_Sub13_Sub34.anInt3415;
+               System.out.println("var4 = " + var4);
+               System.out.println("var7 = " + var7);
             }
 
          }

@@ -1,5 +1,6 @@
 package plugin.quest.witchs_house;
 
+import org.crandor.cache.def.impl.ItemDefinition;
 import org.crandor.cache.def.impl.ObjectDefinition;
 import org.crandor.game.content.global.action.DoorActionHandler;
 import org.crandor.game.interaction.NodeUsageEvent;
@@ -29,6 +30,7 @@ public class WitchsHousePlugin extends OptionHandler {
 
     private static final Item LEATHER_GLOVES = new Item(1059);
     private static final Item KEY = new Item(2411);
+    private static final Item DOOR_KEY = new Item(2409);
     private static final Item MAGNET = new Item(2410);
 
     @Override
@@ -69,15 +71,24 @@ public class WitchsHousePlugin extends OptionHandler {
                 break;
             case 2869:
                 if (player.getInventory().addIfDoesntHave(MAGNET)) {
-                    player.sendMessage("You find a magnet.");
+                    player.getDialogueInterpreter().sendDialogue("You find a magnet in the cupboard.");
                 } else {
                     player.sendMessage("You search the cupboard but find nothing interesting.");
                 }
                 break;
             case 2867:
+                if (player.getInventory().addIfDoesntHave(DOOR_KEY)) {
+                    player.getDialogueInterpreter().sendDialogue("You find a key hidden under the flower pot.");
+                } else {
+                    player.sendMessage("You search under the flower pot and find nothing.");
+                }
                 break;
             case 2861:
-                DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
+                if (player.getInventory().containsItem(DOOR_KEY) || player.getLocation().getX() >= 2901) {
+                    DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
+                } else {
+                    player.sendMessage("The door is locked.");
+                }
                 break;
             case 2862:
                 if (player.getAttribute("attached_magnet") != null || player.getLocation().getY() < 3466) {
@@ -112,6 +123,15 @@ public class WitchsHousePlugin extends OptionHandler {
                 } else {
                     player.sendMessage("You search the fountain but find nothing.");
                 }
+                break;
+            case 24724:
+                player.sendMessage("The gramophone doesn't have a record on it.");
+                break;
+            case 24672:
+                player.teleport(Location.create(2906, 3472, 1));
+                break;
+            case 24673:
+                player.teleport(Location.create(2906, 3468, 0));
                 break;
         }
         return true;

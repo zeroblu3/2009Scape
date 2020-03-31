@@ -241,22 +241,28 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                         } else {
                            ++Class3_Sub23.anInt2540;
                            RSString[] inventoryOptions = var10.inventoryOptions;
+//                           System.out.println("inventoryOptions[0] = " + inventoryOptions[4]);
                            if(Class123.aBoolean1656) {
                               inventoryOptions = Class3_Sub31.method822(19406, inventoryOptions);
                            }
-
                            int var12;
                            byte var13;
+                           final boolean bool_0 = MouseWheel.shiftDown;
                            if(var9.method99(31595)) {
                               for(var12 = 4; ~var12 <= -4; --var12) {
                                  if(null != inventoryOptions && null != inventoryOptions[var12]) {
                                     ++Class3_Sub28_Sub14.anInt3670;
+                                    if (bool_0) {
+                                       System.out.println("hehehe");
+                                       var12 = var10.getShiftClickActionIndex();
+                                       inventoryOptions[var12] = inventoryOptions[4];
+
+                                    }
                                     if(-4 != ~var12) {
                                        var13 = 58;
                                     } else {
                                        var13 = 35;
                                     }
-
                                     Class54.method1177(-1, (long)var10.itemId, (byte)-65, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub2.aClass94_3042, var10.name}, (byte)-66), var15, var13, inventoryOptions[var12], var3.anInt279);
                                  }
                               }
