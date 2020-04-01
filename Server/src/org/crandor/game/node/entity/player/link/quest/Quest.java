@@ -126,6 +126,7 @@ public abstract class Quest implements Plugin<Object> {
 		player.getPacketDispatch().sendString("" + player.getQuestRepository().getPoints() + "", 277, 7);
 		player.getPacketDispatch().sendString("You have completed the " + getName() + " Quest!", 277, 4);
 		player.getPacketDispatch().sendMessage("Congratulations! Quest complete!");
+		player.getPacketDispatch().sendTempMusic(152);
 	}
 
 	/**
