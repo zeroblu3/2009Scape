@@ -16,6 +16,8 @@ import org.crandor.plugin.InitializablePlugin;
 @InitializablePlugin
 public class BoyDialoguePlugin extends DialoguePlugin {
 
+    private static final Item BALL = new Item(2407);
+
     public BoyDialoguePlugin() {
     }
 
@@ -31,11 +33,22 @@ public class BoyDialoguePlugin extends DialoguePlugin {
     @Override
     public boolean open(Object... args) {
         final Quest quest = player.getQuestRepository().getQuest("Witch's House");
-        if (!quest.isStarted(player)) {
+        player.debug(quest.isStarted(player) + " " + quest.getStage(player) );
+        if (!quest.isStarted(player) && quest.getStage(player) < 10) {
             player("Hello young man.");
             setStage(1);
+            return true;
         }
-        npc("Have you gotten my ball back yet?");
+        if (quest.isCompleted(player) || quest.getStage(player) == 100) {
+            sendDialogue("The boy is too busy playing with his ball to talk.");
+            finish();
+            return true;
+        }
+        if (!player.getInventory().containsItem(BALL)) {
+            npc("Have you gotten my ball back yet?");
+        } else {
+            player("Hi, I have got your ball back. It was MUCH harder", "than I thought it would be.");
+        }
         setStage(11);
         return true;
     }
@@ -105,16 +118,26 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 quest.start(player);
                 break;
             case 11:
-                if (!player.getInventory().containsItem(new Item(2407))) {
+                if (!player.getInventory().containsItem(BALL)) {
                     player("Not yet.");
                     next();
                 } else {
-                    player("Yes I have it here.");
-                    finish();//TODO
+                    if (player.getInventory().remove(BALL))
+                        sendDialogue("You give the ball back.");
+                    setStage(13);
                 }
                 break;
             case 12:
                 npc("Well it's in the shed in that garden.");
+                finish();
+                break;
+            case 13:
+                npc("Thank you so much!");
+                next();
+                break;
+            case 14:
+                quest.finish(player);
+                quest.setStage(player, 100);
                 finish();
                 break;
         }
@@ -123,6 +146,6 @@ public class BoyDialoguePlugin extends DialoguePlugin {
 
     @Override
     public int[] getIds() {
-        return new int[] {895};
+        return new int[] { 895 };
     }
 }
