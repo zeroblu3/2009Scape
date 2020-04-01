@@ -260,7 +260,6 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                                  if(null != inventoryOptions && null != inventoryOptions[var12]) {
                                     ++Class3_Sub28_Sub14.anInt3670;
                                     if (bool_0) {
-                                       System.out.println("hehehe");
                                        var12 = var10.getShiftClickActionIndex();
                                        inventoryOptions[var12] = inventoryOptions[4];
 

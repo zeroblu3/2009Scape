@@ -25,7 +25,6 @@ public class BookreadOption extends OptionHandler {
         ItemDefinition.forId(9003).getConfigurations().put("option:read", this);
         ItemDefinition.forId(9004).getConfigurations().put("option:read", this);
         ItemDefinition.forId(11710).getConfigurations().put("option:read", this);
-        ItemDefinition.forId(2408).getConfigurations().put("option:read", this);
         return this;
     }
 
@@ -61,8 +60,6 @@ public class BookreadOption extends OptionHandler {
                 return 183764;
             case 1856:
                 return 387454;
-            case 2408:
-                return 4501993;
         }
         return -1;
     }

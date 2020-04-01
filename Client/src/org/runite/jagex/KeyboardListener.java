@@ -28,8 +28,6 @@ final class KeyboardListener implements KeyListener, FocusListener {
          {
             case 16:
                MouseWheel.shiftDown = true;
-               Class3_Sub13_Sub1.outgoingBuffer.putOpcode(255);
-               Class3_Sub13_Sub1.outgoingBuffer.putInt(-127, 1);
                break;
             case 17:
                MouseWheel.ctrlDown = true;

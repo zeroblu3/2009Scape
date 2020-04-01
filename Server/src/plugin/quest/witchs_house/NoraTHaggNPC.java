@@ -29,12 +29,14 @@ import java.util.List;
 
 @InitializablePlugin
 public class NoraTHaggNPC extends AbstractNPC {
+
     boolean walkdir;
+
     public NoraTHaggNPC() {
         super(896, Location.create(2904, 3463, 0));
     }
     private Location getRespawnLocation() {
-        return Location.create(2901, 3466, 0);
+        return Location.create(2900, 3473, 0);
     }
 
     private NoraTHaggNPC(int id, Location location) {
@@ -86,7 +88,6 @@ public class NoraTHaggNPC extends AbstractNPC {
         super.configure();
         setWalks(false);
         setPathBoundMovement(true);
-
     }
 
     private void sendTeleport(final Player player) {
@@ -97,15 +98,20 @@ public class NoraTHaggNPC extends AbstractNPC {
             @Override
             public boolean pulse() {
                 if (delay == 0) {
+                    face(player);
+                    player.getInventory().remove(WitchsHousePlugin.BALL);
+                    player.getInventory().remove(WitchsHousePlugin.KEY);
+                    player.getInventory().remove(WitchsHousePlugin.DOOR_KEY);
+                    sendChat("Stop! Thief!");
                     player.getPacketDispatch().sendMessage("You've been spotted by the witch.");
                     player.graphics(new Graphics(110, 100));
-                    player.getInterfaceManager().openOverlay(new Component(115));
                     PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 2));
-                } else if (delay == 6) {
+                } else if (delay == 2) {
+                    sendChat("Klarata... Seppteno... Valkan!");
+                    face(null);
+                } else if (delay == 4) {
                     player.getProperties().setTeleportLocation(Location.create(getRespawnLocation()));
                     PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 0));
-                    player.getInterfaceManager().closeOverlay();
-                    player.getInterfaceManager().close();
                     face(null);
                     player.unlock();
                     return true;

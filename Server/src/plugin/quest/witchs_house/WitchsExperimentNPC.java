@@ -6,7 +6,7 @@ import org.crandor.game.node.entity.npc.AbstractNPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.game.world.map.Location;
-import plugin.quest.lostcity.TreeSpiritNPC;
+import org.crandor.plugin.InitializablePlugin;
 
 /**
  * Created for 2009Scape
@@ -14,13 +14,11 @@ import plugin.quest.lostcity.TreeSpiritNPC;
  * Date: March 25, 2020
  * Time: 8:28 PM
  */
-public class WitchsExperimentNPC  extends AbstractNPC {
+@InitializablePlugin
+public class WitchsExperimentNPC extends AbstractNPC {
 
-    /**
-     * The player.
-     */
     private Player player;
-
+    private ExperimentType type;
     /**
      * Constructs a new {@code TreeSpiritNPC} {@code Object}.
      * @param id the id.
@@ -37,21 +35,28 @@ public class WitchsExperimentNPC  extends AbstractNPC {
         super(0, null);
     }
 
+
+    public WitchsExperimentNPC(ExperimentType type, Location location) {
+        super(type.getId(), location);
+        this.type = type;
+
+    }
+
     @Override
     public void handleTickActions() {
         super.handleTickActions();
         if (!inCombat()) {
             attack(player);
         }
-        if (!player.isActive() || player.getLocation().getDistance(getLocation()) > 15) {
+        if (player != null && !player.isActive() || player.getLocation().getDistance(getLocation()) > 15) {
             clear();
+            player.removeAttribute("experimentSpawned");
         }
     }
 
     @Override
     public void clear() {
         super.clear();
-        player.removeAttribute("experimentSpawned");
     }
 
     @Override
@@ -67,21 +72,33 @@ public class WitchsExperimentNPC  extends AbstractNPC {
         super.finalizeDeath(killer);
         if (killer instanceof Player) {
             Player player = (Player) killer;
-            Quest quest = player.getQuestRepository().getQuest("Witch's House");
-//            if (quest.getStage(player) == 20) {
-//                quest.setStage(player, 21);
-//                player.getDialogueInterpreter().sendPlainMessage(false, "With the Tree Spirit defeated you can now chop the tree.");
+            if(type != ExperimentType.FOURTH) {
+                WitchsExperimentNPC experiment = new WitchsExperimentNPC(type.next(), getLocation());
+                for (String message : type.getMessage()) {
+                    if (message.length() > 0)
+                        player.sendMessage(message);
+                }
+                experiment.setPlayer(player);
+                experiment.setRespawn(false);
+                experiment.init();
+                experiment.attack(player);
+                player.setAttribute("/save:killedExperiment", false);
+                return;
+            }
+            player.setAttribute("/save:killedExperiment", true);
+            player.removeAttribute("experimentSpawned");
         }
     }
 
+
     @Override
     public AbstractNPC construct(int id, Location location, Object... objects) {
-        return new TreeSpiritNPC(id, location);
+        return new WitchsExperimentNPC(id, location);
     }
 
     @Override
     public int[] getIds() {
-        return new int[] { 897 };
+        return new int[] { 897, 898, 899, 900 };
     }
 
     /**
@@ -100,15 +117,39 @@ public class WitchsExperimentNPC  extends AbstractNPC {
         return player;
     }
 
+    public ExperimentType getType() {
+        return type;
+    }
+
     public enum ExperimentType {
-        FIRST(897, "");
+        FIRST(897, ""),
+        SECOND(898, "The shapeshifters' body begins to deform!", "The shapeshifter turns into a spider!"),
+        THIRD(899, "The shapeshifters' body begins to twist!", "The shapeshifter turns into a bear!"),
+        FOURTH(900, "The shapeshifters' body pulses!", "The shapeshifter turns into a wolf!"),
+
+        ;
 
         private int id;
-        private String message;
+        private String[] message;
 
-        ExperimentType(int id, String message) {
+        ExperimentType(int id, String... message) {
             this.id = id;
             this.message = message;
+        }
+
+        private static ExperimentType[] experimentTypes = values();
+
+        public ExperimentType next()
+        {
+            return experimentTypes[(this.ordinal()+1) % experimentTypes.length];
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String[] getMessage() {
+            return message;
         }
     }
 
