@@ -102,6 +102,7 @@ import org.crandor.plugin.Plugin;
 import org.crandor.tools.StringUtils;
 
 import plugin.activity.pyramidplunder.PlunderObjectManager;
+import plugin.interaction.item.brawling_gloves.BrawlingGloveManager;
 
 /**
  * Represents a player entity.
@@ -309,6 +310,11 @@ public class Player extends Entity {
 	 * The statistics manager.
 	 */
 	private final PlayerStatisticsManager statisticsManager = new PlayerStatisticsManager(this);
+
+	/**
+	 * Brawling gloves manager
+	 */
+	private final BrawlingGloveManager brawlingGloveManager = new BrawlingGloveManager(this);
 
 	/**
 	 * The logout plugins.
@@ -1357,4 +1363,6 @@ public class Player extends Entity {
 	public PlayerStatisticsManager getStatisticsManager() {
 		return statisticsManager;
 	}
+
+	public BrawlingGloveManager getBrawlingGloveManager() { return brawlingGloveManager;}
 }

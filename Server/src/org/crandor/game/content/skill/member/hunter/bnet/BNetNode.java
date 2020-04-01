@@ -8,6 +8,7 @@ import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.info.portal.Perks;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.world.update.flag.context.Graphics;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * A butterfly net node.
@@ -77,7 +78,13 @@ public class BNetNode {
 				final Item item = getReward();
 			    player.getInventory().add(item);
 				Perks.addDouble(player, item);
-				player.getSkills().addExperience(Skills.HUNTER, getExperience(player), true);
+				double experience = getExperience(player);
+				//handle hunter brawlers
+				if(player.getEquipment().containsItem(new Item(BrawlingGloves.HUNTER.getId()))){
+					experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
+					player.getBrawlingGloveManager().updateCharges(BrawlingGloves.HUNTER.getId(),1);
+				}
+				player.getSkills().addExperience(Skills.HUNTER, experience, true);
 			}
 		} else {
 			player.graphics(graphics[0]);

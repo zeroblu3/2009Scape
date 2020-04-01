@@ -11,6 +11,7 @@ import org.crandor.game.node.entity.player.link.diary.DiaryType;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.tools.StringUtils;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Represents the pulse used to smith a bar.
@@ -83,7 +84,13 @@ public class SmithingPulse extends SkillPulse<Item> {
 		final Item item = new Item(node.getId(), bar.getSmithingType().getProductAmount());
 	    player.getInventory().add(item);
 		Perks.addDouble(player, item);
-		player.getSkills().addExperience(Skills.SMITHING, bar.getBarType().getExperience() * bar.getSmithingType().getRequired(), true);
+		double experience = bar.getBarType().getExperience() * bar.getSmithingType().getRequired();
+		//handle Smithing brawlers
+		if(player.getEquipment().containsItem(new Item(BrawlingGloves.SMITHING.getId()))){
+			experience += experience * player.getBrawlingGloveManager().getExperienceBonus();
+			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.SMITHING.getId(),1);
+		}
+		player.getSkills().addExperience(Skills.SMITHING, experience, true);
 		String message = StringUtils.isPlusN(ItemDefinition.forId(bar.getProduct()).getName().toLowerCase()) == true ? "an" : "a";
 		player.getPacketDispatch().sendMessage("You hammer the " + bar.getBarType().getBarName().toLowerCase().replace("smithing", "") + "and make " + message + " " + ItemDefinition.forId(bar.getProduct()).getName().toLowerCase() + ".");
 		if (TutorialSession.getExtension(player).getStage() == 42) {
