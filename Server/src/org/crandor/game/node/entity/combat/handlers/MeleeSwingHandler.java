@@ -20,6 +20,7 @@ import org.crandor.game.node.item.Item;
 import org.crandor.game.world.map.Location;
 import org.crandor.game.world.map.path.Pathfinder;
 import org.crandor.tools.RandomFunction;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handles a melee combat swing.
@@ -349,6 +350,12 @@ public class MeleeSwingHandler extends CombatSwingHandler {
 			}
 			double experience = hit * EXPERIENCE_MOD;
 			Player p = (Player) entity;
+			//handle brawling gloves
+			if(p.getEquipment().containsItem(new Item(BrawlingGloves.MELEE.getId()))){
+				experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
+				p.getBrawlingGloveManager().updateCharges(BrawlingGloves.MELEE.getId(),1);
+			}
+
 			boolean famExp = entity.getAttribute("fam-exp", false) && p.getFamiliarManager().hasFamiliar();
 			if (!famExp) {
 				entity.getSkills().addExperience(Skills.HITPOINTS, hit * 1.33, true);

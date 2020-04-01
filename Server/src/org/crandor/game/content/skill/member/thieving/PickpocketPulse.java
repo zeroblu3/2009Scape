@@ -16,6 +16,7 @@ import org.crandor.game.node.item.Item;
 import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.tools.RandomFunction;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Represents the pulse used to pickpocket an npc.
@@ -101,7 +102,13 @@ public final class PickpocketPulse extends SkillPulse<NPC> {
 			if (type == Pickpocket.MARTIN_THE_MASTER_GARDENER && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(1, 6)) {
 				player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 1, 6, true);
 			}
-		    player.getSkills().addExperience(Skills.THIEVING, type.getExperience(), true);
+			//handle thieving brawlers
+			double experience = type.getExperience();
+			if(player.getEquipment().containsItem(new Item(BrawlingGloves.THIEVING.getId()))){
+				experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
+				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.THIEVING.getId(),1);
+			}
+		    player.getSkills().addExperience(Skills.THIEVING, experience, true);
 		    Item loot = type.getRandomLoot(player);
 		    player.getInventory().add(loot);
 		    Perks.addDouble(player, loot, true);

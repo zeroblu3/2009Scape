@@ -15,6 +15,7 @@ import org.crandor.game.world.map.RegionManager;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.tools.RandomFunction;
 import org.crandor.tools.StringUtils;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Represents the pulse used to thieve a stall.
@@ -108,6 +109,12 @@ public final class StallThiefPulse extends SkillPulse<GameObject> {
 			final Item item = stall.getRandomLoot();
 		    player.getInventory().add(item);
 			Perks.addDouble(player, item, true);
+			double experience = stall.getExperience();
+			//handle thieving brawlers
+			if(player.getEquipment().containsItem(new Item(BrawlingGloves.THIEVING.getId()))){
+				experience += experience * player.getBrawlingGloveManager().getExperienceBonus();
+				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.THIEVING.getId(),1);
+			}
 			player.getSkills().addExperience(Skills.THIEVING, stall.getExperience(), true);
 			if (item.getId() == 1987) {
 				player.getPacketDispatch().sendMessage("You steal grapes from the grape stall.");

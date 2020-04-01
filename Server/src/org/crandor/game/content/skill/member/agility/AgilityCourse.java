@@ -3,7 +3,9 @@ package org.crandor.game.content.skill.member.agility;
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.interaction.OptionHandler;
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.game.node.item.Item;
 import org.crandor.plugin.Plugin;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Represents an agility course.
@@ -87,6 +89,11 @@ public abstract class AgilityCourse extends OptionHandler {
 	 * Finishes the lap by checking for completion and resetting.
 	 */
 	public void finish() {
+		//handles agility brawler gloves
+		if(player.getEquipment().containsItem(new Item(BrawlingGloves.AGILITY.getId()))){
+			completionExperience += player.getBrawlingGloveManager().getExperienceBonus() * completionExperience;
+			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.AGILITY.getId(),1);
+		}
 		if (isCompleted()) {
 			player.getSkills().addExperience(Skills.AGILITY, completionExperience, true);
 		}

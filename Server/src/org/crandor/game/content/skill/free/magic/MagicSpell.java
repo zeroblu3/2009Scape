@@ -19,6 +19,7 @@ import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.game.world.update.flag.context.Graphics;
 import org.crandor.plugin.Plugin;
 import org.crandor.tools.RandomFunction;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,10 @@ public abstract class MagicSpell implements Plugin<SpellType> {
 	/**
 	 * The experience gained.
 	 */
-	private final double experience;
+	private static double experience;
+
+	double EXPERIENCE_MOD  = 4;
+
 
 	/**
 	 * Constructs a new {@code MagicSpell} {@code Object}.
@@ -130,7 +134,13 @@ public abstract class MagicSpell implements Plugin<SpellType> {
 				p.getInterfaceManager().openTab(new Component(SpellBook.LUNAR.getInterfaceId()));
 			}
 			if (!combatSpell) {
-				p.getSkills().addExperience(Skills.MAGIC, spell.getExperience(p), true);
+				//handle brawling gloves
+				experience = spell.getExperience(p);
+				if(p.getEquipment().containsItem(new Item(BrawlingGloves.MAGIC.getId()))){
+					experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
+					p.getBrawlingGloveManager().updateCharges(BrawlingGloves.MAGIC.getId(),1);
+				}
+				p.getSkills().addExperience(Skills.MAGIC, experience, true);
 			}
 			if (p.getAttribute("magic-delay", 0) <= GameWorld.getTicks()) {
 				p.setAttribute("magic-delay", GameWorld.getTicks() + spell.getDelay());
@@ -291,16 +301,23 @@ public abstract class MagicSpell implements Plugin<SpellType> {
 	 * @param hit The hit.
 	 */
 	public void addExperience(Entity entity, int hit) {
+		experience = hit * EXPERIENCE_MOD;
+		//handle brawling gloves
+		Player p = entity.asPlayer();
+		if(p.getEquipment().containsItem(new Item(BrawlingGloves.MAGIC.getId()))){
+			experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
+			p.getBrawlingGloveManager().updateCharges(BrawlingGloves.MAGIC.getId(),1);
+		}
 		if (!(entity instanceof Player) || hit < 1) {
 			return;
 		}
 		entity.getSkills().addExperience(Skills.HITPOINTS, hit * 1.33, true);
 		if (entity.getProperties().getAttackStyle().getStyle() == WeaponInterface.STYLE_DEFENSIVE_CAST) {
-			entity.getSkills().addExperience(Skills.DEFENCE, hit, true);
-			entity.getSkills().addExperience(Skills.MAGIC, 1.33 * hit, true);
+			entity.getSkills().addExperience(Skills.DEFENCE, experience / 4, true);
+			entity.getSkills().addExperience(Skills.MAGIC, experience / 4, true);
 			return;
 		}
-		entity.getSkills().addExperience(Skills.MAGIC, hit * (CombatSwingHandler.EXPERIENCE_MOD / 2), true);
+		entity.getSkills().addExperience(Skills.MAGIC, experience / 2, true);
 	}
 
 	/**
