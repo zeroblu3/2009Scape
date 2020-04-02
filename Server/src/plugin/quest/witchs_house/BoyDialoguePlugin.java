@@ -1,6 +1,7 @@
 package plugin.quest.witchs_house;
 
 import org.crandor.game.content.dialogue.DialoguePlugin;
+import org.crandor.game.content.dialogue.FacialExpression;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.quest.Quest;
@@ -45,7 +46,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
             return true;
         }
         if (!player.getInventory().containsItem(BALL)) {
-            npc("Have you gotten my ball back yet?");
+            npc( FacialExpression.OSRS_NORMAL, "Have you gotten my ball back yet?");
         } else {
             player("Hi, I have got your ball back. It was MUCH harder", "than I thought it would be.");
         }
@@ -85,7 +86,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 5:
-                npc("I've kicked my ball over that hedge, into that garden!", "The old lady who lives there is scary... She's locked the","ball in her wooden shed! Can you get my ball back for", "me please?");
+                npc(FacialExpression.OSRS_NORMAL, "I've kicked my ball over that hedge, into that garden!", "The old lady who lives there is scary... She's locked the","ball in her wooden shed! Can you get my ball back for", "me please?");
                 next();
                 break;
             case 6:
@@ -105,7 +106,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 }
                 break;
             case 8:
-                npc("You're a meany.");
+                npc(FacialExpression.OSRS_NORMAL, "You're a meany.");
                 next();
                 break;
             case 9:
@@ -113,7 +114,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 10:
-                npc("Thanks mister!");
+                npc(FacialExpression.OSRS_NORMAL, "Thanks mister!");
                 finish();
                 quest.start(player);
                 break;
@@ -128,16 +129,16 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 }
                 break;
             case 12:
-                npc("Well it's in the shed in that garden.");
+                npc(FacialExpression.OSRS_NORMAL, "Well it's in the shed in that garden.");
                 finish();
                 break;
             case 13:
-                npc("Thank you so much!");
+                npc(FacialExpression.OSRS_NORMAL, "Thank you so much!");
                 next();
                 break;
             case 14:
-                quest.finish(player);
                 quest.setStage(player, 100);
+                quest.finish(player);
                 finish();
                 break;
         }
