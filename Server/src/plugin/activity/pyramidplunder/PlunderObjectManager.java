@@ -15,11 +15,11 @@ public class PlunderObjectManager{
     public PlunderObjectManager(Player player){
         this.player = player;
     }
-    public List<PlunderObject> ObjectList = new ArrayList<PlunderObject>();
+    public final List<PlunderObject> objectList = new ArrayList<PlunderObject>();
     int originalIndex;
     public boolean resetObjectsFor(Player player){
         //Completely clear the list
-        ObjectList.clear();
+    	objectList.clear();
         /*ListIterator oliter = ObjectList.listIterator();
         int i = 0;
         while(oliter.hasNext()){
@@ -35,6 +35,6 @@ public class PlunderObjectManager{
     }
 
     public void register(PlunderObject object){
-        ObjectList.add(object);
+    	objectList.add(object);
     }
 }

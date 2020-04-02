@@ -36,21 +36,21 @@ import org.crandor.plugin.Plugin;
 
 @InitializablePlugin
 public class PlunderZones implements Plugin<Object> {
-    PlunderZone[] ROOMS = {
-            new PlunderZone("PR1", 1,1923, 4464, 1932, 4474),
-            new PlunderZone("PR2", 2,1925, 4449, 1941, 4458),
-            new PlunderZone("PR3", 3,1941, 4421, 1954, 4432),
-            new PlunderZone("PR4", 4,1949, 4464, 1959, 4477),
-            new PlunderZone("PR5", 5,1968, 4420, 1978, 4436),
-            new PlunderZone("PR6", 6,1969, 4452, 1980, 4473),
-            new PlunderZone("PR7", 7,1923, 4424, 1931, 4439),
-            new PlunderZone("PR8", 8, 1950, 4442, 1969, 4455)
+    private final PlunderZone[] ROOMS = {
+            new PlunderZone("plunder:room1", 1,1923, 4464, 1932, 4474),
+            new PlunderZone("plunder:room2", 2,1925, 4449, 1941, 4458),
+            new PlunderZone("plunder:room3", 3,1941, 4421, 1954, 4432),
+            new PlunderZone("plunder:room4", 4,1949, 4464, 1959, 4477),
+            new PlunderZone("plunder:room5", 5,1968, 4420, 1978, 4436),
+            new PlunderZone("plunder:room6", 6,1969, 4452, 1980, 4473),
+            new PlunderZone("plunder:room7", 7,1923, 4424, 1931, 4439),
+            new PlunderZone("plunder:room8", 8, 1950, 4442, 1969, 4455)
     };
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        for(PlunderZone ROOM : ROOMS){
-            ZoneBuilder.configure(ROOM);
+        for(PlunderZone room : ROOMS){
+            ZoneBuilder.configure(room);
         }
         return this;
     }
@@ -60,11 +60,11 @@ public class PlunderZones implements Plugin<Object> {
     }
 
     public class PlunderZone extends MapZone {
-        int swx, swy, nex, ney;
-        String name;
-        int roomnum;
+        final int swx, swy, nex, ney;
+        final String name;
+        final int roomnum;
 
-        public PlunderZone(String name, int roomnum, int swx, int swy, int nex, int ney) {
+        public PlunderZone(final String name, final int roomnum, final int swx, final int swy, final int nex, final int ney) {
             super(name, true);
             this.name = name;
             this.swx = swx;
