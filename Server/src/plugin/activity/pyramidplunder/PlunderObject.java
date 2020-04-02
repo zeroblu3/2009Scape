@@ -26,7 +26,7 @@ public class PlunderObject extends GameObject {
         try {
             //manager.loadList("plunder.tmp");
             PlunderObjectManager manager = player.getPlunderObjectManager();
-            return manager.ObjectList.get(manager.ObjectList.indexOf(this)).playerOpened;
+            return manager.objectList.get(manager.objectList.indexOf(this)).playerOpened;
         } catch (Exception e){
             return false;
         }
