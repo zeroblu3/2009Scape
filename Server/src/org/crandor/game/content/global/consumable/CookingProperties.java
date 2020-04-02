@@ -7,6 +7,7 @@ import org.crandor.game.node.entity.player.info.portal.Perks;
 import org.crandor.game.node.entity.player.link.audio.Audio;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.GameObject;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 import java.security.SecureRandom;
 
@@ -179,7 +180,13 @@ public class CookingProperties {
 			} else {
 				player.getInventory().add(food.getBurnt());
 			}
-			player.getSkills().addExperience(Skills.COOKING, burned ? 0 : getExperience(), true);
+			//handle cooking brawlers
+			double rewardXp = experience;
+			if(player.getEquipment().containsItem(new Item(BrawlingGloves.COOKING.getId())) && !burned){
+				rewardXp += experience * player.getBrawlingGloveManager().getExperienceBonus();
+				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.COOKING.getId(),1);
+			}
+			player.getSkills().addExperience(Skills.COOKING, burned ? 0 : rewardXp, true);
 			player.getPacketDispatch().sendMessage(getMessage(food, player, object, burned));
 			player.getAudioManager().send(SOUND);
 			return true;

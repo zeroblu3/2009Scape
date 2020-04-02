@@ -148,7 +148,7 @@ public final class LandscapeParser {
 	 * @param localY The local y-coordinate.
 	 * @param landscape The landscape.
 	 */
-	private static void addPlaneObject(RegionPlane plane, GameObject object, int localX, int localY, boolean landscape, boolean storeAll) {
+	public static void addPlaneObject(RegionPlane plane, GameObject object, int localX, int localY, boolean landscape, boolean storeAll) {
 		if (landscape && !storeAll) {
 			GameObject current = plane.getObjects()[localX][localY];
 			if (current != null && current.getDefinition().getChildObject(null).hasOptions(!object.getDefinition().getChildObject(null).hasOptions(false))) {

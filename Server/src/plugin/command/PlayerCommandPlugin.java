@@ -425,14 +425,14 @@ public final class PlayerCommandPlugin extends CommandPlugin {
 		}
 		
 		//stats
-		player.getPacketDispatch().sendString("<col=ecf0f1>(Since 27/03/2020)</col> Al kharid passes: " + target.getStatisticsManager().getAL_KHARID_GATE_PASSES().getStatisticalAmount(), 275, lineId++);
-		player.getPacketDispatch().sendString("<col=ecf0f1>(Since 27/03/2020)</col> Logs chopped: " +  target.getStatisticsManager().getLOGS_OBTAINED().getStatisticalAmount(), 275, lineId++);
-		player.getPacketDispatch().sendString("<col=ecf0f1>(Since 27/03/2020)</col> Flax picked: " +  target.getStatisticsManager().getFLAX_PICKED().getStatisticalAmount(), 275, lineId++);
-		player.getPacketDispatch().sendString("<col=ecf0f1>(Since 27/03/2020)</col> Clue scrolls completed: " +  target.getStatisticsManager().getCLUES_COMPLETED().getStatisticalAmount(), 275, lineId++);
-		player.getPacketDispatch().sendString("<col=ecf0f1>(Since 27/03/2020)</col> Enemies killed: " +  target.getStatisticsManager().getENTITIES_KILLED().getStatisticalAmount(), 275, lineId++);
-		player.getPacketDispatch().sendString("<col=ecf0f1>(Since 27/03/2020)</col> Deaths: " +  target.getStatisticsManager().getDEATHS().getStatisticalAmount(), 275, lineId++);
 		player.getPacketDispatch().sendString("Music tracks unlocked: " +  target.getMusicPlayer().getUnlocked().size() + "/" + MusicEntry.getSongs().size(), 275, lineId++);
-		
+		player.getPacketDispatch().sendString("Clue scrolls completed: " +  target.getStatisticsManager().getCLUES_COMPLETED().getStatisticalAmount(), 275, lineId++);
+		player.getPacketDispatch().sendString("Slayer tasks completed: " + target.getSlayer().getTotalTasks(),275,lineId++);
+		player.getPacketDispatch().sendString("Al kharid passes: " + target.getStatisticsManager().getAL_KHARID_GATE_PASSES().getStatisticalAmount(), 275, lineId++);
+		player.getPacketDispatch().sendString("Enemies killed: " +  target.getStatisticsManager().getENTITIES_KILLED().getStatisticalAmount(), 275, lineId++);
+		player.getPacketDispatch().sendString("Logs chopped: " +  target.getStatisticsManager().getLOGS_OBTAINED().getStatisticalAmount(), 275, lineId++);
+		player.getPacketDispatch().sendString("Flax picked: " +  target.getStatisticsManager().getFLAX_PICKED().getStatisticalAmount(), 275, lineId++);
+		player.getPacketDispatch().sendString("Deaths: " +  target.getStatisticsManager().getDEATHS().getStatisticalAmount(), 275, lineId++);
 		
 		//quests
 		player.getPacketDispatch().sendString("", 275, lineId++);
