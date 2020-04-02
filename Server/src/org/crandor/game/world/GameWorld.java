@@ -31,13 +31,10 @@ import org.crandor.plugin.PluginManager;
 import org.crandor.tools.RandomFunction;
 import org.crandor.tools.mysql.DatabaseManager;
 import org.crandor.worker.MajorUpdateWorker;
-import plugin.interaction.city.keldagrim.KeldagrimZone;
 
 import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import static plugin.interaction.city.keldagrim.KeldagrimZone.UNRIDEABLE_LOCATIONS;
 
 /**
  * Represents the game world.
