@@ -350,11 +350,6 @@ public class MeleeSwingHandler extends CombatSwingHandler {
 			}
 			double experience = hit * EXPERIENCE_MOD;
 			Player p = (Player) entity;
-			//handle brawling gloves
-			if(p.getEquipment().containsItem(new Item(BrawlingGloves.MELEE.getId()))){
-				experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
-				p.getBrawlingGloveManager().updateCharges(BrawlingGloves.MELEE.getId(),1);
-			}
 
 			boolean famExp = entity.getAttribute("fam-exp", false) && p.getFamiliarManager().hasFamiliar();
 			if (!famExp) {

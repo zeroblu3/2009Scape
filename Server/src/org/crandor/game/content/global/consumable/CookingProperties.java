@@ -182,10 +182,6 @@ public class CookingProperties {
 			}
 			//handle cooking brawlers
 			double rewardXp = experience;
-			if(player.getEquipment().containsItem(new Item(BrawlingGloves.COOKING.getId())) && !burned){
-				rewardXp += experience * player.getBrawlingGloveManager().getExperienceBonus();
-				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.COOKING.getId(),1);
-			}
 			player.getSkills().addExperience(Skills.COOKING, burned ? 0 : rewardXp, true);
 			player.getPacketDispatch().sendMessage(getMessage(food, player, object, burned));
 			player.getAudioManager().send(SOUND);

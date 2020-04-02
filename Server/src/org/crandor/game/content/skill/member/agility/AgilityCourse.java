@@ -89,11 +89,6 @@ public abstract class AgilityCourse extends OptionHandler {
 	 * Finishes the lap by checking for completion and resetting.
 	 */
 	public void finish() {
-		//handles agility brawler gloves
-		if(player.getEquipment().containsItem(new Item(BrawlingGloves.AGILITY.getId()))){
-			completionExperience += player.getBrawlingGloveManager().getExperienceBonus() * completionExperience;
-			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.AGILITY.getId(),1);
-		}
 		if (isCompleted()) {
 			player.getSkills().addExperience(Skills.AGILITY, completionExperience, true);
 		}

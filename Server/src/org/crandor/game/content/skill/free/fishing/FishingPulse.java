@@ -187,11 +187,6 @@ public final class FishingPulse extends SkillPulse<NPC> {
 			    player.getInventory().add(item);
 				Perks.addDouble(player, item);
 				double experience = fish.getExperience();
-				//handle fishing brawlers
-				if(player.getEquipment().containsItem(new Item(BrawlingGloves.FISHING.getId()))){
-					experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
-					player.getBrawlingGloveManager().updateCharges(BrawlingGloves.FISHING.getId(),1);
-				}
 				player.getSkills().addExperience(Skills.FISHING, experience, true);
 				message(2);
 				if (TutorialSession.getExtension(player).getStage() == 13) {

@@ -167,11 +167,6 @@ public class BoneOfferPlugin extends UseWithHandler {
 		if (isRight) {
 			total += 50.0;
 		}
-		//handle brawling gloves
-		if(player.getEquipment().containsItem(new Item(BrawlingGloves.PRAYER.getId()))){
-			total += player.getBrawlingGloveManager().getExperienceBonus() * 100;
-			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.PRAYER.getId(),1);
-		}
 		return (total / 100);
 	}
 	

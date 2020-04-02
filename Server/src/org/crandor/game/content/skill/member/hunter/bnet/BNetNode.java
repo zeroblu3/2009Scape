@@ -79,11 +79,6 @@ public class BNetNode {
 			    player.getInventory().add(item);
 				Perks.addDouble(player, item);
 				double experience = getExperience(player);
-				//handle hunter brawlers
-				if(player.getEquipment().containsItem(new Item(BrawlingGloves.HUNTER.getId()))){
-					experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
-					player.getBrawlingGloveManager().updateCharges(BrawlingGloves.HUNTER.getId(),1);
-				}
 				player.getSkills().addExperience(Skills.HUNTER, experience, true);
 			}
 		} else {

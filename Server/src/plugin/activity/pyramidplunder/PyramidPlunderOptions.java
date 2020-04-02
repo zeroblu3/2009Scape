@@ -140,11 +140,7 @@ public final class PyramidPlunderOptions extends OptionHandler {
             spearY = 0;
         }
         PlunderObject object = new PlunderObject(node.asObject().getId(),node.asObject().getLocation(),player);
-        //handle thieving brawlers
-        if(player.getEquipment().containsItem(new Item(BrawlingGloves.THIEVING.getId())) && !manager.ObjectList.contains(object) && object.getId() != 16495){
-            EXPERIENCE_MOD = player.getBrawlingGloveManager().getExperienceBonus();
-            player.getBrawlingGloveManager().updateCharges(BrawlingGloves.THIEVING.getId(),1);
-        }
+
         droom = (double) room;
         switch (object.getId()) {
             case 16517:

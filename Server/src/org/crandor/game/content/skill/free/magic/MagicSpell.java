@@ -136,10 +136,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
 			if (!combatSpell) {
 				//handle brawling gloves
 				experience = spell.getExperience(p);
-				if(p.getEquipment().containsItem(new Item(BrawlingGloves.MAGIC.getId()))){
-					experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
-					p.getBrawlingGloveManager().updateCharges(BrawlingGloves.MAGIC.getId(),1);
-				}
 				p.getSkills().addExperience(Skills.MAGIC, experience, true);
 			}
 			if (p.getAttribute("magic-delay", 0) <= GameWorld.getTicks()) {

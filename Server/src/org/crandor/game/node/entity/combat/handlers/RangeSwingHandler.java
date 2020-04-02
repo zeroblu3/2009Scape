@@ -156,10 +156,6 @@ public class RangeSwingHandler extends CombatSwingHandler {
 			double experience = hit * EXPERIENCE_MOD;
 			double famExperience = hit * EXPERIENCE_MOD;
 			//handle range brawlers
-			if(p.getEquipment().containsItem(new Item(BrawlingGloves.RANGED.getId()))){
-				experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
-				p.getBrawlingGloveManager().updateCharges(BrawlingGloves.RANGED.getId(),1);
-			}
 			boolean famExp = entity.getAttribute("fam-exp", false) && p.getFamiliarManager().hasFamiliar();
 			if (famExp) {
 				Familiar fam = p.getFamiliarManager().getFamiliar();

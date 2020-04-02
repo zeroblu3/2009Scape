@@ -285,10 +285,6 @@ public class MagicSwingHandler extends CombatSwingHandler {
 				}
 				double experience = hit * EXPERIENCE_MOD;
 				//handle brawling gloves
-				if(p.getEquipment().containsItem(new Item(BrawlingGloves.MAGIC.getId()))){
-					experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
-					p.getBrawlingGloveManager().updateCharges(BrawlingGloves.MAGIC.getId(),1);
-				}
 				entity.getSkills().addExperience(Skills.MAGIC, experience, true);
 			}
 		}

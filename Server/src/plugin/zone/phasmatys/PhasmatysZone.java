@@ -351,10 +351,7 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
 		if (player.getInventory().remove(bone.getBoneMeal(), new Item(4286, 1))) {
 			double experience = bone.getExperience() * 4;
 			//handle prayer brawling gloves
-			if(player.getEquipment().containsItem(new Item(BrawlingGloves.PRAYER.getId()))){
-				experience += experience * player.getBrawlingGloveManager().getExperienceBonus();
-				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.PRAYER.getId(),1);
-			}
+
 			player.lock(1);
 			player.animate(Animation.create(1651));
 			player.getInventory().add(new Item(1925), new Item(1931));

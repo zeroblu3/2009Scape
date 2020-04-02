@@ -141,11 +141,6 @@ public final class FireMakingPulse extends SkillPulse<Item> {
 		GroundItemManager.destroy(groundItem);
 		player.moveStep();
 		double experience = fire.getXp();
-		//handle firemaking brawlers
-		if(player.getEquipment().containsItem(new Item (BrawlingGloves.FIREMAKING.getId()))){
-			experience += experience * player.getBrawlingGloveManager().getExperienceBonus();
-			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.FIREMAKING.getId(),1);
-		}
 		player.getSkills().addExperience(Skills.FIREMAKING, experience, true);
 		player.faceLocation(FaceLocationFlag.getFaceLocation(player, object));
 		if (TutorialSession.getExtension(player).getStage() == 9) {

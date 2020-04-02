@@ -7,11 +7,13 @@ import org.crandor.game.node.entity.combat.ImpactHandler;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.request.assist.AssistSession;
+import org.crandor.game.node.item.Item;
 import org.crandor.game.world.repository.Repository;
 import org.crandor.game.world.update.flag.player.AppearanceFlag;
 import org.crandor.net.packet.PacketRepository;
 import org.crandor.net.packet.context.SkillContext;
 import org.crandor.net.packet.out.SkillLevel;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 import java.nio.ByteBuffer;
 
@@ -212,7 +214,15 @@ public final class Skills {
 			return;
 		}
 		boolean hadMax = this.experience[slot] != 200000000;
-		final double experienceAdd = (int) (experience * mod);
+		double experienceAdd = (int) (experience * mod);
+		//check if a player has brawling gloves and, if equipped, modify xp
+		if(!player.getBrawlingGloveManager().GloveCharges.isEmpty()){
+			Item gloves = new Item(BrawlingGloves.forSkill(slot).getId());
+			if(player.getEquipment().containsItem(gloves)){
+				experienceAdd += experienceAdd * player.getBrawlingGloveManager().getExperienceBonus();
+				player.getBrawlingGloveManager().updateCharges(gloves.getId(),1);
+			}
+		}
 		this.experience[slot] += experienceAdd;
 		player.getAntiMacroHandler().monitors[slot].setExperienceAmount((int)experienceAdd);
 		if (this.experience[slot] > 200000000) {

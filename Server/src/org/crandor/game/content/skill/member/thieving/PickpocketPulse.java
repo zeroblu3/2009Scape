@@ -104,10 +104,6 @@ public final class PickpocketPulse extends SkillPulse<NPC> {
 			}
 			//handle thieving brawlers
 			double experience = type.getExperience();
-			if(player.getEquipment().containsItem(new Item(BrawlingGloves.THIEVING.getId()))){
-				experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
-				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.THIEVING.getId(),1);
-			}
 		    player.getSkills().addExperience(Skills.THIEVING, experience, true);
 		    Item loot = type.getRandomLoot(player);
 		    player.getInventory().add(loot);

@@ -85,11 +85,6 @@ public class SmithingPulse extends SkillPulse<Item> {
 	    player.getInventory().add(item);
 		Perks.addDouble(player, item);
 		double experience = bar.getBarType().getExperience() * bar.getSmithingType().getRequired();
-		//handle Smithing brawlers
-		if(player.getEquipment().containsItem(new Item(BrawlingGloves.SMITHING.getId()))){
-			experience += experience * player.getBrawlingGloveManager().getExperienceBonus();
-			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.SMITHING.getId(),1);
-		}
 		player.getSkills().addExperience(Skills.SMITHING, experience, true);
 		String message = StringUtils.isPlusN(ItemDefinition.forId(bar.getProduct()).getName().toLowerCase()) == true ? "an" : "a";
 		player.getPacketDispatch().sendMessage("You hammer the " + bar.getBarType().getBarName().toLowerCase().replace("smithing", "") + "and make " + message + " " + ItemDefinition.forId(bar.getProduct()).getName().toLowerCase() + ".");

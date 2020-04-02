@@ -81,10 +81,6 @@ public final class TrapDismantlePulse extends SkillPulse<GameObject> {
 				}
 				//handle hunter Brawling gloves
 				double experience = wrapper.getReward().getExperience();
-				if(player.getEquipment().containsItem(new Item(BrawlingGloves.HUNTER.getId()))){
-					experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
-					player.getBrawlingGloveManager().updateCharges(BrawlingGloves.HUNTER.getId(),1);
-				}
 				player.getSkills().addExperience(Skills.HUNTER, experience, true);
 			}			
 			player.getPacketDispatch().sendMessage("You dismantle the trap.");
