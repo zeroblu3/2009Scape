@@ -18,7 +18,6 @@ import org.crandor.game.world.map.Location;
 import org.crandor.game.world.map.path.Pathfinder;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.tools.RandomFunction;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handles a fishing pulse.
@@ -186,13 +185,7 @@ public final class FishingPulse extends SkillPulse<NPC> {
 				final Item item = fish.getItem();
 			    player.getInventory().add(item);
 				Perks.addDouble(player, item);
-				double experience = fish.getExperience();
-				//handle fishing brawlers
-				if(player.getEquipment().containsItem(new Item(BrawlingGloves.FISHING.getId()))){
-					experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
-					player.getBrawlingGloveManager().updateCharges(BrawlingGloves.FISHING.getId(),1);
-				}
-				player.getSkills().addExperience(Skills.FISHING, experience, true);
+				player.getSkills().addExperience(Skills.FISHING, fish.getExperience(), true);
 				message(2);
 				if (TutorialSession.getExtension(player).getStage() == 13) {
 					TutorialStage.load(player, 14, false);

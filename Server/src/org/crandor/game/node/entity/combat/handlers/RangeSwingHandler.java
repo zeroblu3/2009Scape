@@ -27,7 +27,6 @@ import org.crandor.game.world.map.Location;
 import org.crandor.game.world.map.RegionManager;
 import org.crandor.game.world.update.flag.context.Graphics;
 import org.crandor.tools.RandomFunction;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 import java.util.ArrayList;
 
@@ -153,13 +152,6 @@ public class RangeSwingHandler extends CombatSwingHandler {
 				hit += state.getSecondaryHit();
 			}
 			Player p = entity.asPlayer();
-			double experience = hit * EXPERIENCE_MOD;
-			double famExperience = hit * EXPERIENCE_MOD;
-			//handle range brawlers
-			if(p.getEquipment().containsItem(new Item(BrawlingGloves.RANGED.getId()))){
-				experience += experience * p.getBrawlingGloveManager().getExperienceBonus();
-				p.getBrawlingGloveManager().updateCharges(BrawlingGloves.RANGED.getId(),1);
-			}
 			boolean famExp = entity.getAttribute("fam-exp", false) && p.getFamiliarManager().hasFamiliar();
 			if (famExp) {
 				Familiar fam = p.getFamiliarManager().getFamiliar();
@@ -178,10 +170,11 @@ public class RangeSwingHandler extends CombatSwingHandler {
 					skill = Skills.RANGE;
 					break;
 				case WeaponInterface.STYLE_CONTROLLED:
-					famExperience /= 3;
-					entity.getSkills().addExperience(Skills.ATTACK, famExperience, true);
-					entity.getSkills().addExperience(Skills.STRENGTH, famExperience, true);
-					entity.getSkills().addExperience(Skills.DEFENCE, famExperience, true);
+					double experience = hit * EXPERIENCE_MOD;
+					experience /= 3;
+					entity.getSkills().addExperience(Skills.ATTACK, experience, true);
+					entity.getSkills().addExperience(Skills.STRENGTH, experience, true);
+					entity.getSkills().addExperience(Skills.DEFENCE, experience, true);
 					return;
 				case WeaponInterface.STYLE_CAST:
 					skill = Skills.MAGIC;
@@ -192,10 +185,10 @@ public class RangeSwingHandler extends CombatSwingHandler {
 			}
 			entity.getSkills().addExperience(Skills.HITPOINTS, hit * 1.33, true);
 			if (entity.getProperties().getAttackStyle().getStyle() == WeaponInterface.STYLE_LONG_RANGE) {
-				entity.getSkills().addExperience(Skills.RANGE, experience / 2, true);
-				entity.getSkills().addExperience(Skills.DEFENCE, experience / 2, true);
+				entity.getSkills().addExperience(Skills.RANGE, hit * (EXPERIENCE_MOD / 2), true);
+				entity.getSkills().addExperience(Skills.DEFENCE, hit * (EXPERIENCE_MOD / 2), true);
 			} else {
-				entity.getSkills().addExperience(Skills.RANGE, experience, true);
+				entity.getSkills().addExperience(Skills.RANGE, hit * EXPERIENCE_MOD, true);
 			}
 		}
 	}
