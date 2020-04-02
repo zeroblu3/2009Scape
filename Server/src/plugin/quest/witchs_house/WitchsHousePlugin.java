@@ -40,21 +40,20 @@ public class WitchsHousePlugin extends OptionHandler {
     public static final Item BALL = new Item(2407);
     private static final Item CHEESE = new Item(1985);
 
+    private WitchsExperimentNPC exeriment;
+
     @Override
     public boolean handle(Player player, Node node, String option) {
-        boolean killedExperiment = player.getAttribute("killedExperiment", false);
-        boolean experimentAlive = player.getAttribute("experimentSpawned", false);
-        boolean readBook = player.getAttribute("readWitchsBook", false);
-        boolean magnetAttatched = player.getAttribute("attached_magnet", false);
-        WitchsExperimentNPC experiment = new WitchsExperimentNPC(WitchsExperimentNPC.ExperimentType.FIRST, Location.create(2935, 3462, 0));
-        experiment.setPlayer(player);
-        experiment.setRespawn(false);
         final Quest quest = player.getQuestRepository().getQuest("Witch's House");
         final GroundItem ball = GroundItemManager.get(2407, new Location(2935, 3460, 0), null);
         final int id = node instanceof Item ? ((Item) node).getId() : node instanceof GameObject ? ((GameObject) node).getId() : node instanceof NPC ? ((NPC) node).getId() : node.getId();
+        boolean killedExperiment = player.getSavedData().getQuestData().isWitchsExerimentKilled();
+        boolean experimentAlive = player.getAttribute("exerimentAlive", false);
+        boolean readBook = player.getAttribute("readWitchsBook", false);
+        boolean magnetAttatched = player.getAttribute("attached_magnet", false);
         switch (id) {
             case 2407:
-                player.debug("Killed experiment " + player.getAttribute("killedExperiment", false));
+                player.debug("Killed experiment " + killedExperiment);
                 if (killedExperiment) {
                     if (player.getInventory().containsItem(BALL)) {
                         player.sendMessage("You already have the ball.");
@@ -63,21 +62,17 @@ public class WitchsHousePlugin extends OptionHandler {
                     PickupHandler.take(player, ball);
                     player.debug("Using default item handler, option: " + new Option("take", 0));
                     return true;
-                }
-                if (experimentAlive) {
+                } else {
+                    if (experimentAlive) {
+                        return true;
+                    }
                     int[] skillsToDecrease = {Skills.DEFENCE, Skills.ATTACK, Skills.STRENGTH, Skills.RANGE, Skills.MAGIC};
                     for (int i = 0; i < skillsToDecrease.length; i++) {
-                        player.getSkills().setLevel(i, player.getSkills().getStaticLevel(i) > 5 ? player.getSkills().getStaticLevel(i) - 5 : 1);
+                        player.getSkills().setLevel(i, player.getSkills().getLevel(i) > 5 ? player.getSkills().getLevel(i) - 5 : 1);
                     }
                     player.getPacketDispatch().sendMessage("<col=ff0000>The experiment glares at you, and you feel yourself weaken.</col>");
-                    ((NPC) experiment).
-                            attack(player);
-                    return true;
+                    startFight(player);
                 }
-                experiment = new WitchsExperimentNPC(WitchsExperimentNPC.ExperimentType.FIRST, Location.create(2935, 3462, 0));
-                experiment.init();
-                player.setAttribute("/save:killedExperiment", false);
-                player.setAttribute("experimentSpawned", true);
                 break;
             case 897:
             case 898:
@@ -171,13 +166,6 @@ public class WitchsHousePlugin extends OptionHandler {
                 }
                 if (player.getInventory().containsItem(KEY)) {
                     DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
-                    if (killedExperiment || experimentAlive) {
-                        return true;
-                    }
-                    experiment = new WitchsExperimentNPC(WitchsExperimentNPC.ExperimentType.FIRST, Location.create(2935, 3462, 0));
-                    experiment.init();
-                    player.setAttribute("/save:killedExperiment", false);
-                    player.setAttribute("experimentSpawned", true);
                 } else {
                     player.sendMessage("The door is locked.");
                 }
@@ -228,6 +216,12 @@ public class WitchsHousePlugin extends OptionHandler {
         ItemDefinition.forId(2408).getConfigurations().put("option:read", this);
 
         return this;
+    }
+
+    private void startFight(final Player player) {
+        player.setAttribute("exerimentAlive", true);
+        player.getSavedData().getQuestData().setWitchsExerimentKilled(false);
+        ExperimentSession.create(player).start();
     }
 
     public static class WitchsHouseUseWithHandler extends UseWithHandler {
