@@ -1,3 +1,4 @@
+/*
 package plugin.activity.pyramidplunder;
 
 import org.crandor.cache.def.impl.ObjectDefinition;
@@ -11,6 +12,7 @@ import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.ObjectBuilder;
 import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
+import org.crandor.game.world.map.zone.RegionZone;
 import org.crandor.game.world.map.zone.ZoneMonitor;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.plugin.InitializablePlugin;
@@ -18,10 +20,13 @@ import org.crandor.plugin.Plugin;
 import org.crandor.tools.RandomFunction;
 import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
+*/
 /**
  * Handle pyramid plunder object interactions
  * @author ceik
- */
+ *//*
+
+*/
 /**
  * PyramidPlunderOptions defines interactions for pyramid plunder
  * Copyright (C) 2020  2009scape, et. al
@@ -39,13 +44,16 @@ import plugin.interaction.item.brawling_gloves.BrawlingGloves;
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+ *//*
+
 
 @InitializablePlugin
 public final class PyramidPlunderOptions extends OptionHandler {
     Item[][] ARTIFACTS = { {new Item(9032),new Item(9036), new Item(9026)}, {new Item(9042), new Item(9030), new Item(9038)}, {new Item(9040), new Item(9028), new Item(9034)} };
     private static final Animation[] animations = new Animation[] { new Animation(2247), new Animation(2248), new Animation(1113), new Animation(2244) };
     int reqLevel;
+    private static Location room_entrance[] = {new Location(1927,4477), new Location(1927,4453), new Location(1943,4421), new Location(1954,4477), new Location(1974,4420), new Location(1977,4471), new Location(1927, 4424), new Location(1965,4444)};
+
     //Player player;
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
@@ -86,82 +94,39 @@ public final class PyramidPlunderOptions extends OptionHandler {
         }
         return false;
     }
+    public final boolean checkRequirements(final Player player, final int skill){
+
+    }
     @Override
     public boolean handle(Player player, Node node, String option) {
         double EXPERIENCE_MOD = 0;
         PlunderObjectManager manager = player.getPlunderObjectManager();
-        int NPCDeathTime = GameWorld.getTicks() + (1000 / 6);
-        Location room_entrance[] = {new Location(1927,4477), new Location(1927,4453), new Location(1943,4421), new Location(1954,4477), new Location(1974,4420), new Location(1977,4471), new Location(1927, 4424), new Location(1965,4444)};
         int level = player.getSkills().getLevel(Skills.THIEVING);
         int room = 0;
         int spearX = 0;
         int spearY = 0;
         double droom = 0.0;
         ZoneMonitor zmon = player.getZoneMonitor();
-        if(zmon.isInZone("PR1")){
-            room = 1;
-            reqLevel = 21;
-            spearX = 0;
-            spearY = -2;
-        } else if(zmon.isInZone("PR2")){
-            room = 2;
-            reqLevel = 31;
-            spearX = 2;
-            spearY = 0;
-        } else if(zmon.isInZone("PR3")){
-            room = 3;
-            reqLevel = 41;
-            spearX = 0;
-            spearY = 2;
-        } else if(zmon.isInZone("PR4")){
-            room = 4;
-            reqLevel = 51;
-            spearX = 0;
-            spearY = -2;
-        } else if(zmon.isInZone("PR5")){
-            room = 5;
-            reqLevel = 61;
-            spearX = 0;
-            spearY = 2;
-        } else if(zmon.isInZone("PR6")){
-            room = 6;
-            reqLevel = 71;
-            spearX = 0;
-            spearY = -2;
-        } else if(zmon.isInZone("PR7")){
-            room = 7;
-            reqLevel = 81;
-            spearX = 0;
-            spearY = 2;
-        } else if(zmon.isInZone("PR8")){
-            room = 8;
-            reqLevel = 91;
-            spearX = -2;
-            spearY = 0;
-        }
-        PlunderObject object = new PlunderObject(node.asObject().getId(),node.asObject().getLocation(),player);
-
+        RegionZone room = zmon.
         droom = (double) room;
         switch (object.getId()) {
             case 16517:
-                if (option.equals("Pass") || option.equals("pass")) {
-                    if (reqLevel > level){
-                        player.getPacketDispatch().sendMessage("You need to be at least level " + reqLevel + " thieving.");
-                        break;
-                    }
-                    boolean success = success(player, Skills.THIEVING);
-                    player.animate(animations[success ? 1 : 0]);
-                    if (success) {
-                        player.getPacketDispatch().sendMessage("You successfully pass the spears.");
-                        player.getSkills().addExperience(Skills.THIEVING, (30 + (room * 20)) + ((30 + (room * 20)) * EXPERIENCE_MOD), true);
-                        int moveX = player.getLocation().getX();
-                        int moveY = player.getLocation().getY();
-                        Location moveto = new Location(moveX + spearX, moveY + spearY);
-                        player.getProperties().setTeleportLocation(moveto);
-                        //player.moveStep();
-                    } else {
-                        player.getPacketDispatch().sendMessage("You fail to pass the spears.");
-                    }
+                if (reqLevel > level){
+                    player.getPacketDispatch().sendMessage("You need to be at least level " + reqLevel + " thieving.");
+                    break;
+                }
+                boolean success = success(player, Skills.THIEVING);
+                player.animate(animations[success ? 1 : 0]);
+                if (success) {
+                    player.getPacketDispatch().sendMessage("You successfully pass the spears.");
+                    player.getSkills().addExperience(Skills.THIEVING, (30 + (room * 20)) + ((30 + (room * 20)) * EXPERIENCE_MOD), true);
+                    int moveX = player.getLocation().getX();
+                    int moveY = player.getLocation().getY();
+                    Location moveto = new Location(moveX + spearX, moveY + spearY);
+                    player.getProperties().setTeleportLocation(moveto);
+                    //player.moveStep();
+                } else {
+                    player.getPacketDispatch().sendMessage("You fail to pass the spears.");
                 }
                 break;
             case 16503:
@@ -336,4 +301,4 @@ public final class PyramidPlunderOptions extends OptionHandler {
         }
         return true;
     }
-}
+}*/
