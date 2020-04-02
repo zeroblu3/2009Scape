@@ -52,14 +52,13 @@ public class WitchsHouse extends Quest {
         player.getConfigManager().set(101, player.getQuestRepository().getPoints());
         player.getPacketDispatch().sendString("4 Quest Point", 277, 8 + 2);
         player.getPacketDispatch().sendString("6325 Hitpoints XP", 277, 9 + 2);
-        player.getSkills().addExperience(Skills.HITPOINTS, 325);
+        player.getSkills().addExperience(Skills.HITPOINTS, 6325);
         player.getInterfaceManager().closeChatbox();
         player.getPacketDispatch().sendItemZoomOnInterface(2407, 240, 277, 3 + 2);
     }
 
     @Override
     public Quest newInstance(Object object) {
-        // TODO Auto-generated method stub
         return this;
     }
 }
