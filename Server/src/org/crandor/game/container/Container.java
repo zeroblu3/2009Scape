@@ -438,6 +438,11 @@ public class Container {
         }
         event = new ContainerEvent(capacity);
     }
+    
+    public void refresh(ContainerListener listener) {
+    	listener.refresh(this);
+    	event = new ContainerEvent(capacity);
+    }
 
     /**
      * Gets the item on the given slot.

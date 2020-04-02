@@ -16,7 +16,6 @@ import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 import org.crandor.tools.RandomFunction;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handle pyramid plunder object interactions
@@ -88,7 +87,6 @@ public final class PyramidPlunderOptions extends OptionHandler {
     }
     @Override
     public boolean handle(Player player, Node node, String option) {
-        double EXPERIENCE_MOD = 0;
         PlunderObjectManager manager = player.getPlunderObjectManager();
         int NPCDeathTime = GameWorld.getTicks() + (1000 / 6);
         Location room_entrance[] = {new Location(1927,4477), new Location(1927,4453), new Location(1943,4421), new Location(1954,4477), new Location(1974,4420), new Location(1977,4471), new Location(1927, 4424), new Location(1965,4444)};
@@ -140,11 +138,6 @@ public final class PyramidPlunderOptions extends OptionHandler {
             spearY = 0;
         }
         PlunderObject object = new PlunderObject(node.asObject().getId(),node.asObject().getLocation(),player);
-        //handle thieving brawlers
-        if(player.getEquipment().containsItem(new Item(BrawlingGloves.THIEVING.getId())) && !manager.ObjectList.contains(object) && object.getId() != 16495){
-            EXPERIENCE_MOD = player.getBrawlingGloveManager().getExperienceBonus();
-            player.getBrawlingGloveManager().updateCharges(BrawlingGloves.THIEVING.getId(),1);
-        }
         droom = (double) room;
         switch (object.getId()) {
             case 16517:
@@ -157,7 +150,7 @@ public final class PyramidPlunderOptions extends OptionHandler {
                     player.animate(animations[success ? 1 : 0]);
                     if (success) {
                         player.getPacketDispatch().sendMessage("You successfully pass the spears.");
-                        player.getSkills().addExperience(Skills.THIEVING, (30 + (room * 20)) + ((30 + (room * 20)) * EXPERIENCE_MOD), true);
+                        player.getSkills().addExperience(Skills.THIEVING, 30 + (room * 20), true);
                         int moveX = player.getLocation().getX();
                         int moveY = player.getLocation().getY();
                         Location moveto = new Location(moveX + spearX, moveY + spearY);
@@ -185,7 +178,7 @@ public final class PyramidPlunderOptions extends OptionHandler {
                     player.lock(2);
                     if (manager.ObjectList.contains(object) ? manager.ObjectList.get(manager.ObjectList.indexOf(object)).snakeCharmed : success) {
                         player.getPacketDispatch().sendMessage("You successfully search the urn...");
-                        player.getSkills().addExperience(Skills.THIEVING, (25 + (room * 20)) + (EXPERIENCE_MOD * (25 + (room * 20))), true);
+                        player.getSkills().addExperience(Skills.THIEVING, 25 + (room * 20), true);
                         player.getInventory().add(ARTIFACTS[((int)Math.floor(droom / 3))][RandomFunction.random(3)]);
                         rollSceptre(player);
                         if(!manager.ObjectList.contains(object)) {
@@ -273,7 +266,7 @@ public final class PyramidPlunderOptions extends OptionHandler {
                         player.getInventory().add(ARTIFACTS[RandomFunction.random(1, 3)][RandomFunction.random(3)]);
                         rollSceptre(player);
                         player.getPacketDispatch().sendMessage("And you find an artifact!");
-                        player.getSkills().addExperience(Skills.THIEVING, (40 + (room * 20)) + (EXPERIENCE_MOD * (40 + (room * 20))));
+                        player.getSkills().addExperience(Skills.THIEVING, 40 + (room * 20));
                     }
                     ObjectBuilder.replace(node.asObject(), node.asObject().transform(16474), 5);
                     if(!manager.ObjectList.contains(object)) {

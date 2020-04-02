@@ -12,7 +12,6 @@ import org.crandor.game.node.entity.player.link.audio.Audio;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.world.GameWorld;
 import org.crandor.plugin.Plugin;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Represents the equipment equipping handler plugin.
@@ -58,9 +57,7 @@ public class EquipHandler extends OptionHandler {
 			TutorialStage.load(player, 47, false);
 		}
 		Plugin<Object> plugin = item.getDefinition().getConfiguration("equipment", null);
-		player.debug("Trying to equip: " + item.getId() + " plugin null? " + plugin == null ? "yes" : "no");
 		if (plugin != null) {
-			player.debug("Boop");
 			Boolean bool = (Boolean) plugin.fireEvent("equip", player, item);
 			if (bool != null && !bool) {
 				return true;
@@ -75,13 +72,6 @@ public class EquipHandler extends OptionHandler {
 		}
 		player.setAttribute("equipLock:" + item.getId(), GameWorld.getTicks() + 2);
 		if (player.getEquipment().add(item, item.getSlot(), true, true)) {
-
-			//check if a brawling glove is being equipped and register it
-			if(item.getId() >= 13845 && item.getId() <= 13857) {
-				player.debug("Registering gloves... ID: " + item.getId());
-				player.getBrawlingGloveManager().registerGlove(item.getId());
-			}
-
 			player.getDialogueInterpreter().close();
 			player.getAudioManager().send(SOUND);
 		}
