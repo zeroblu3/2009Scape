@@ -67,7 +67,11 @@ public final class DoorActionHandler {
 			handleAutowalkDoor(player, object);
 			return;
 		}
-		player.getAudioManager().send(new Audio(81));
+		if (d.isMetal() || DoorConfigSQLHandler.forId(d.getReplaceId()).isMetal()) {
+			player.getAudioManager().send(new Audio(71));
+		} else {
+			player.getAudioManager().send(new Audio(81));
+		}
 		if (second != null) {
 			Door s = DoorConfigSQLHandler.forId(second.getId());
 			open(object, second, d.getReplaceId(), s == null ? second.getId() : s.getReplaceId(), true, 500, d.isFence());
