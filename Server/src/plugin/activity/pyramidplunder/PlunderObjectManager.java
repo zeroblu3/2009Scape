@@ -17,10 +17,6 @@ import java.util.ListIterator;
  */
 
 public class PlunderObjectManager{
-    Player player;
-    public PlunderObjectManager(Player player){
-        this.player = player;
-    }
     public static HashMap<Location,Boolean> openedMap = new HashMap<>();
     public static HashMap<Location, Boolean> charmedMap = new HashMap<>();
 

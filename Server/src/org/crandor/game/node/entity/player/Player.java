@@ -219,7 +219,7 @@ public class Player extends Entity {
 	/**
 	 * Pyramid Plunder Object Manager
 	 */
-	private final PlunderObjectManager plunderObjectManager = new PlunderObjectManager(this);
+	private final PlunderObjectManager plunderObjectManager = new PlunderObjectManager();
 
 	/**
 	 * The config manager.

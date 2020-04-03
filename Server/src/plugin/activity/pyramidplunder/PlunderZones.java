@@ -5,6 +5,7 @@ import org.crandor.game.interaction.Option;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.Entity;
 import org.crandor.game.node.entity.combat.ImpactHandler;
+import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.ObjectBuilder;
@@ -186,13 +187,27 @@ public class PlunderZones implements Plugin<Object> {
 
         @Override
         public boolean interact(Entity e, Node target, Option option) {
+            System.out.println("Entity: " + e + " target: " + target);
             final Player player = e instanceof Player ? e.asPlayer() : null;
-            PlunderObject object = new PlunderObject(target.asObject()); //PlunderObject(target.getId(),target.getLocation());
+            String optionName = option.getName().toLowerCase();
+            if(target instanceof NPC){
+                if(target.getName().contains("Guardian")) {
+                    if (optionName.equals("talk-to")) {
+                        player.getDialogueInterpreter().open(target.getId(), target.asNpc(), 0);
+                    } else {
+                        player.getDialogueInterpreter().open(target.getId(), target.asNpc(), 1);
+                    }
+                }
+                if(optionName.equals("attack")){
+                    player.getProperties().getCombatPulse().attack(target);
+                }
+                return true;
+            }
+            PlunderObject object = target instanceof NPC ? null : new PlunderObject(target.asObject()); //PlunderObject(target.getId(),target.getLocation());
             PlunderObjectManager manager = player.getPlunderObjectManager();
             boolean alreadyOpened = manager.openedMap.getOrDefault(object.getLocation(),false);
             boolean charmed = manager.charmedMap.getOrDefault(object.getLocation(),false);
             boolean success = success(player, Skills.THIEVING);
-            String optionName = option.getName().toLowerCase();
             switch (object.getId()) {
                 case 16517: //Spear trap
                     if(!checkRequirements(player,room)){

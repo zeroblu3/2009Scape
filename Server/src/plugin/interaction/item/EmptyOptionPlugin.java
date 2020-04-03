@@ -12,9 +12,8 @@ import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 
 /**
- * Represents the plugin used to handle the emptying of an item.
- * @author 'Vexia
- * @date 23/12/2013
+ * Handles items with "empty" options
+ * @author ceik
  */
 @InitializablePlugin
 public final class EmptyOptionPlugin extends OptionHandler {
@@ -24,22 +23,23 @@ public final class EmptyOptionPlugin extends OptionHandler {
 	 */
 	private static final VialConsumable VIAL_CONSUMABLE = new VialConsumable();
 
+
 	@Override
 	public boolean handle(Player player, Node node, String option) {
-		if(node.getId() == 2329){
-			player.getInventory().remove(new Item(2329));
+		if(node.getName().contains("pie")){
+			player.getInventory().remove(node.asItem());
 			player.getInventory().add(new Item(2313));
 		}
+		Consumable item = Consumables.forConsumable(node.asItem());
 
-		Consumable consumable = Consumables.forConsumable(((Item) node));
-		if (consumable == null) {
+		if (item == null) {
 			String name = node.getName().toLowerCase();
 			if (name.contains("(unf)")) {
-				consumable = VIAL_CONSUMABLE;
+				item = VIAL_CONSUMABLE;
 			}
-			consumable = name.contains("potion") || name.contains("+") || name.contains("mix") || name.equals("plant cure") ? VIAL_CONSUMABLE : new Drink(((Item) node), null);
+			item = name.contains("potion") || name.contains("+") || name.contains("mix") || name.equals("plant cure") ? VIAL_CONSUMABLE : new Drink(((Item) node), null);
 		}
-		consumable.interact(player, node, option);
+		item.interact(player, node, option);
 		return true;
 	}
 
