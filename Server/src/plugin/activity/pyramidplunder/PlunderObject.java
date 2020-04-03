@@ -41,4 +41,5 @@ public class PlunderObject extends GameObject {
                 this.openId = 16474;
                 break;
         }
+    }
 }
