@@ -186,12 +186,27 @@ public class PlunderZones implements Plugin<Object> {
         @Override
         public boolean interact(Entity e, Node target, Option option) {
             final Player player = e instanceof Player ? e.asPlayer() : null;
-            PlunderObject object = new PlunderObject(target.asObject()); //PlunderObject(target.getId(),target.getLocation());
+            PlunderObject object = target instanceof NPC ? null : new PlunderObject(target.asObject()); //PlunderObject(target.getId(),target.getLocation());
             PlunderObjectManager manager = player.getPlunderObjectManager();
             boolean alreadyOpened = manager.openedMap.getOrDefault(object.getLocation(),false);
             boolean charmed = manager.charmedMap.getOrDefault(object.getLocation(),false);
             boolean success = success(player, Skills.THIEVING);
             String optionName = option.getName().toLowerCase();
+            if(target instanceof NPC){
+                if(target.getName().contains("Guardian")) {
+                    if (optionName.equals("talk-to")) {
+                        player.getDialogueInterpreter().open(target.getId(), target.asNpc(), 0);
+                        return true;
+                    } else {
+                        player.getDialogueInterpreter().open(target.getId(), target.asNpc(), 1);
+                        return true;
+                    }
+                }
+                if(optionName.equals("attack")){
+                        player.getProperties().getCombatPulse().attack(target);
+                        return true;
+                }
+            }
             switch (object.getId()) {
                 case 16517: //Spear trap
                     if(!checkRequirements(player,room)){
