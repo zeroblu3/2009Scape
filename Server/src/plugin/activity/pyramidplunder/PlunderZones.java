@@ -334,9 +334,9 @@ public class PlunderZones implements Plugin<Object> {
                         player.getLocks().lockInteractions(2);
                         boolean doesOpen = success(player, Skills.THIEVING);
                         if (doesOpen) {
+                            PyramidPlunderRoom nextRoom = PyramidPlunderRoom.forRoomNum(roomnum + 1);
                             player.getPacketDispatch().sendMessage("The door opens!");
-                            room = PyramidPlunderRoom.forRoomNum(roomnum + 1);
-                            player.getProperties().setTeleportLocation(room.entrance);
+                            player.getProperties().setTeleportLocation(nextRoom.entrance);
                         } else {
                             player.getPacketDispatch().sendMessage("You fail to unlock the door.");
                         }
