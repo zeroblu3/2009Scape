@@ -4,10 +4,7 @@ import org.crandor.game.content.global.SkillingPets;
 import org.crandor.game.content.skill.SkillPulse;
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.GameObject;
-import plugin.interaction.item.brawling_gloves.BrawlingGloveManager;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handles the dismantling of a trap.
@@ -79,9 +76,7 @@ public final class TrapDismantlePulse extends SkillPulse<GameObject> {
 						}
 					}
 				}
-				//handle hunter Brawling gloves
-				double experience = wrapper.getReward().getExperience();
-				player.getSkills().addExperience(Skills.HUNTER, experience, true);
+				player.getSkills().addExperience(Skills.HUNTER, wrapper.getReward().getExperience(), true);
 			}			
 			player.getPacketDispatch().sendMessage("You dismantle the trap.");
 		}

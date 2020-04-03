@@ -152,9 +152,6 @@ public final class PlayerParser {
 				case 47:
 					player.getStatisticsManager().parse(buffer);
 					break;
-				case 48:
-					player.getBrawlingGloveManager().parse(buffer);
-					break;
 				default:
 					System.err.println("[Player parsing] Unhandled opcode: " + opcode + " for " + player.getName() + " - [log=" + Arrays.toString(opcodeLog) + "].");
 					break;
@@ -307,14 +304,9 @@ public final class PlayerParser {
 			buffer.put((byte) 45).put((byte) player.getSkills().getCombatMilestone()).put((byte) player.getSkills().getSkillMilestone());
 		}
 
-		//xp rate
 		player.getSkills().saveExpRate(buffer.put((byte) 46));
-
-		//stat manager
+		
 		player.getStatisticsManager().save(buffer.put((byte)47));
-
-		//Brawling Gloves manager
-		player.getBrawlingGloveManager().save(buffer.put((byte)48));
 
 		buffer.put((byte) 0); // EOF opcode
 		buffer.flip();

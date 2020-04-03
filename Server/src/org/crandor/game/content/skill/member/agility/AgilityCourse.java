@@ -3,9 +3,7 @@ package org.crandor.game.content.skill.member.agility;
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.interaction.OptionHandler;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
 import org.crandor.plugin.Plugin;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Represents an agility course.
