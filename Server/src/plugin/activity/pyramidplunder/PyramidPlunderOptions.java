@@ -1,3 +1,4 @@
+/*
 package plugin.activity.pyramidplunder;
 
 import org.crandor.cache.def.impl.ObjectDefinition;
@@ -17,10 +18,13 @@ import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 import org.crandor.tools.RandomFunction;
 
+*/
 /**
  * Handle pyramid plunder object interactions
  * @author ceik
- */
+ *//*
+
+*/
 /**
  * PyramidPlunderOptions defines interactions for pyramid plunder
  * Copyright (C) 2020  2009scape, et. al
@@ -38,7 +42,8 @@ import org.crandor.tools.RandomFunction;
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+ *//*
+
 
 @InitializablePlugin
 public final class PyramidPlunderOptions extends OptionHandler {
@@ -333,4 +338,4 @@ public final class PyramidPlunderOptions extends OptionHandler {
         }
         return true;
     }
-}
+}*/

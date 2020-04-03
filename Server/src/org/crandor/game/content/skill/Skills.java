@@ -216,11 +216,11 @@ public final class Skills {
 		boolean hadMax = this.experience[slot] != 200000000;
 		double experienceAdd = (int) (experience * mod);
 		//check if a player has brawling gloves and, if equipped, modify xp
-		if(!player.getBrawlingGloveManager().GloveCharges.isEmpty()){
+		if(!player.getBrawlingGlovesManager().GloveCharges.isEmpty()){
 			Item gloves = BrawlingGloves.forSkill(slot) == null ? null : new Item(BrawlingGloves.forSkill(slot).getId());
 			if(gloves != null && player.getEquipment().containsItem(gloves)){
-				experienceAdd += experienceAdd * player.getBrawlingGloveManager().getExperienceBonus();
-				player.getBrawlingGloveManager().updateCharges(gloves.getId(),1);
+				experienceAdd += experienceAdd * player.getBrawlingGlovesManager().getExperienceBonus();
+				player.getBrawlingGlovesManager().updateCharges(gloves.getId(),1);
 			}
 		}
 		this.experience[slot] += experienceAdd;
