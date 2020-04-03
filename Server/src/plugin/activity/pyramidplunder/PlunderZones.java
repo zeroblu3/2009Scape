@@ -4,6 +4,7 @@ import org.crandor.game.content.skill.Skills;
 import org.crandor.game.interaction.Option;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.Entity;
+import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.combat.ImpactHandler;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.item.Item;
