@@ -13,9 +13,7 @@ import org.crandor.game.node.entity.combat.equipment.SpellType;
 import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
 import org.crandor.tools.RandomFunction;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handles the magic combat swings.
@@ -283,9 +281,7 @@ public class MagicSwingHandler extends CombatSwingHandler {
 					entity.getSkills().addExperience(skill, hit * EXPERIENCE_MOD, true);
 					return;
 				}
-				double experience = hit * EXPERIENCE_MOD;
-				//handle brawling gloves
-				entity.getSkills().addExperience(Skills.MAGIC, experience, true);
+				entity.getSkills().addExperience(Skills.MAGIC, hit * EXPERIENCE_MOD, true);
 			}
 		}
 	}

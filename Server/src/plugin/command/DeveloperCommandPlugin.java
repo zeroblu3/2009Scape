@@ -23,6 +23,7 @@ import org.crandor.game.node.entity.player.ai.AIPlayer;
 import org.crandor.game.node.entity.player.ai.pvp.PVPAIPActions;
 import org.crandor.game.node.entity.player.ai.pvp.PVPAIPBuilderUtils;
 import org.crandor.game.node.entity.player.ai.resource.ResourceAIPManager;
+import org.crandor.game.node.entity.player.info.PlayerDetails;
 import org.crandor.game.node.entity.player.info.login.PlayerParser;
 import org.crandor.game.node.entity.player.link.IronmanMode;
 import org.crandor.game.node.entity.player.link.appearance.Gender;
@@ -259,6 +260,27 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
 
                 });
                 break;
+               
+            case "tempsound":
+            	player.getPacketDispatch().sendTempMusic(Integer.parseInt(args[1]));
+            	break;
+            case "loopsounds":
+            	GameWorld.submit(new Pulse(5) {
+            		int i = Integer.parseInt(args[2]);
+            		int j = Integer.parseInt(args[1]);
+            		@Override
+            		public boolean pulse() {
+                		player.sendMessage("Sound: " + i);
+                		player.getPacketDispatch().sendTempMusic(i);
+            			i++;
+            			if (i >= j) {
+            				return true;
+            			}
+            			return false;
+            		}
+            	});
+            	break;
+                
             case "c":
                 for (Bar bar : Bar.values()) {
                     System.out.println(bar.getProduct().getId() + ",");
@@ -475,6 +497,20 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
             case "bank":
                 player.getBank().open();
                 return true;
+            case "peekbank":
+            	try {
+            		Player pl = new Player(PlayerDetails.getDetails(args[1]));
+            		player.sendMessage("penis");
+            		PlayerParser.parse(pl);
+            		pl.getBank().open(player);
+            		player.getPacketDispatch().sendString(pl.getUsername()+ "'s bank.",762,24);
+            	} catch (Exception e) {player.sendMessage("damn"); e.printStackTrace();}
+            	return true;
+            case "iii":
+            	for (int i = 0; i < Integer.parseInt(args[1]); ++i) {
+            		player.getPacketDispatch().sendString("" + i, Integer.parseInt(args[2]), i);
+            	}
+            	return true;
             case "debugil":
                 for (int itemIdv : ItemLimitation.getItems().keySet()) {
                     player.getPacketDispatch().sendMessage(itemIdv + ": " + ItemDefinition.forId(itemIdv).getName() + " is limited to " + ItemLimitation.getItems().get(itemIdv) + ".");

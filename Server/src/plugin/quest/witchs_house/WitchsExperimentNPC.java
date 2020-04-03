@@ -4,7 +4,8 @@ import org.crandor.game.node.entity.Entity;
 import org.crandor.game.node.entity.combat.CombatStyle;
 import org.crandor.game.node.entity.npc.AbstractNPC;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
+import org.crandor.game.system.task.Pulse;
+import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
 import org.crandor.plugin.InitializablePlugin;
 
@@ -17,83 +18,70 @@ import org.crandor.plugin.InitializablePlugin;
 @InitializablePlugin
 public class WitchsExperimentNPC extends AbstractNPC {
 
-    private Player player;
     private ExperimentType type;
-    /**
-     * Constructs a new {@code TreeSpiritNPC} {@code Object}.
-     * @param id the id.
-     * @param location the location.
-     */
-    public WitchsExperimentNPC(int id, Location location) {
-        super(id, location);
-    }
+    private ExperimentSession session;
+    private boolean commenced;
 
-    /**
-     * Constructs a new {@code TreeSpiritNPC} {@code Object}.
-     */
     public WitchsExperimentNPC() {
         super(0, null);
     }
 
-
-    public WitchsExperimentNPC(ExperimentType type, Location location) {
-        super(type.getId(), location);
-        this.type = type;
-
+    WitchsExperimentNPC(int id, Location location, ExperimentSession session) {
+        super(id, location);
+        this.setWalks(true);
+        this.session = session;
+        this.setRespawn(false);
+        this.type = WitchsExperimentNPC.ExperimentType.forId(id);
     }
 
     @Override
     public void handleTickActions() {
         super.handleTickActions();
-        if (!inCombat()) {
-            attack(player);
+        if (session == null) {
+            return;
         }
-        if (player != null && !player.isActive() || player.getLocation().getDistance(getLocation()) > 15) {
+        if (!session.getPlayer().isActive() || session.getPlayer().getLocation().getDistance(getLocation()) > 15) {
+            session.getPlayer().setAttribute("exerimentAlive", false);
             clear();
-            player.removeAttribute("experimentSpawned");
+            session.close();
+
+            return;
+        }
+        if (commenced && !getProperties().getCombatPulse().isAttacking()) {
+            getProperties().getCombatPulse().attack(session.getPlayer());
         }
     }
 
     @Override
-    public void clear() {
-        super.clear();
+    public void startDeath(Entity killer) {
+        if (killer == session.getPlayer()) {
+            type.transform(this, session.getPlayer());
+            return;
+        }
+        super.startDeath(killer);
     }
 
     @Override
     public boolean isAttackable(Entity entity, CombatStyle style) {
-        if (entity != player) {
+        if (session == null) {
             return false;
         }
-        return super.isAttackable(entity, style);
+        return session.getPlayer() == entity;
     }
 
     @Override
-    public void finalizeDeath(Entity killer) {
-        super.finalizeDeath(killer);
-        if (killer instanceof Player) {
-            Player player = (Player) killer;
-            if(type != ExperimentType.FOURTH) {
-                WitchsExperimentNPC experiment = new WitchsExperimentNPC(type.next(), getLocation());
-                for (String message : type.getMessage()) {
-                    if (message.length() > 0)
-                        player.sendMessage(message);
-                }
-                experiment.setPlayer(player);
-                experiment.setRespawn(false);
-                experiment.init();
-                experiment.attack(player);
-                player.setAttribute("/save:killedExperiment", false);
-                return;
-            }
-            player.setAttribute("/save:killedExperiment", true);
-            player.removeAttribute("experimentSpawned");
+    public boolean canSelectTarget(Entity target) {
+        if (target instanceof Player) {
+            Player p = (Player) target;
+            return p == session.getPlayer();
         }
+        return true;
     }
 
 
     @Override
     public AbstractNPC construct(int id, Location location, Object... objects) {
-        return new WitchsExperimentNPC(id, location);
+        return new WitchsExperimentNPC(id, location, null);
     }
 
     @Override
@@ -101,24 +89,16 @@ public class WitchsExperimentNPC extends AbstractNPC {
         return new int[] { 897, 898, 899, 900 };
     }
 
-    /**
-     * Sets the player.
-     * @param player the player.
-     */
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    /**
-     * Gets the player.
-     * @return The player.
-     */
-    public Player getPlayer() {
-        return player;
+    public void setType(ExperimentType type) {
+        this.type = type;
     }
 
     public ExperimentType getType() {
         return type;
+    }
+
+    public void setCommenced(boolean commenced) {
+        this.commenced = commenced;
     }
 
     public enum ExperimentType {
@@ -126,6 +106,7 @@ public class WitchsExperimentNPC extends AbstractNPC {
         SECOND(898, "The shapeshifters' body begins to deform!", "The shapeshifter turns into a spider!"),
         THIRD(899, "The shapeshifters' body begins to twist!", "The shapeshifter turns into a bear!"),
         FOURTH(900, "The shapeshifters' body pulses!", "The shapeshifter turns into a wolf!"),
+        END(-1, ""),
 
         ;
 
@@ -135,6 +116,58 @@ public class WitchsExperimentNPC extends AbstractNPC {
         ExperimentType(int id, String... message) {
             this.id = id;
             this.message = message;
+        }
+
+        /**
+         * Transforms the new npc.
+         */
+        public void transform(final WitchsExperimentNPC npc, final Player player) {
+            final ExperimentType newType = next();
+            npc.lock();
+            npc.getPulseManager().clear();
+            npc.getWalkingQueue().reset();
+            player.getSavedData().getQuestData().setWitchsExerimentStage(newType.ordinal());
+            GameWorld.submit(new Pulse(1, npc, player) {
+                int counter;
+
+                @Override
+                public boolean pulse() {
+                    switch (++counter) {
+
+                        case 1:
+                            npc.unlock();
+                            npc.getAnimator().reset();
+                            npc.fullRestore();
+                            npc.setType(newType);
+                            npc.transform(newType.getId());
+                            npc.getImpactHandler().setDisabledTicks(1);
+                            if (newType != END) {
+                                npc.getProperties().getCombatPulse().attack(player);
+                            }
+                            if (newType.getMessage() != null) {
+                                npc.sendChat(newType.getMessage()[0]);
+                            }
+                            if (newType == END) {
+                                player.getSavedData().getQuestData().setWitchsExerimentKilled(true);
+                                player.setAttribute("exerimentAlive", false);
+                                return false;
+                            }
+                            player.unlock();
+                            return true;
+                    }
+                    return false;
+                }
+
+            });
+        }
+
+        public static ExperimentType forId(int id) {
+            for (ExperimentType type : values()) {
+                if (type.getId() == id) {
+                    return type;
+                }
+            }
+            return null;
         }
 
         private static ExperimentType[] experimentTypes = values();
@@ -150,6 +183,10 @@ public class WitchsExperimentNPC extends AbstractNPC {
 
         public String[] getMessage() {
             return message;
+        }
+
+        public boolean hasSession(final Player player) {
+            return ExperimentSession.getSession(player) != null;
         }
     }
 

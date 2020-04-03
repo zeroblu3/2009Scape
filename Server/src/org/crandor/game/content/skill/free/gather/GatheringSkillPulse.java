@@ -22,7 +22,6 @@ import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
 import org.crandor.tools.RandomFunction;
 import org.crandor.tools.StringUtils;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -169,11 +168,6 @@ public final class GatheringSkillPulse extends SkillPulse<GameObject> {
 			Perks.addDouble(player, item);
 			// Apply the experience points
 			double experience = calculateExperience(reward, rewardAmount);
-			//handle mining/woodcutting brawling gloves
-			if(player.getEquipment().containsItem(new Item(BrawlingGloves.forSkill(resource.getSkillId()).getId()))){
-				experience += player.getBrawlingGloveManager().getExperienceBonus() * experience;
-				player.getBrawlingGloveManager().updateCharges(BrawlingGloves.forSkill(resource.getSkillId()).getId(),1);
-			}
 			player.getSkills().addExperience(resource.getSkillId(), experience, true);
 			// Send a message to the player
 			if (isMiningGems) {
