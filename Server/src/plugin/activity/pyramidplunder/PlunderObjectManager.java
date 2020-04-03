@@ -1,6 +1,5 @@
 package plugin.activity.pyramidplunder;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.object.GameObject;
 import org.crandor.game.node.object.ObjectBuilder;
