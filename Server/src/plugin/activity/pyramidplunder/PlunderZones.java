@@ -45,7 +45,7 @@ import org.crandor.tools.RandomFunction;
 
 @InitializablePlugin
 public class PlunderZones implements Plugin<Object> {
-    PlunderZone[] ROOMS = {
+    private final PlunderZone[] ROOMS = {
             new PlunderZone("plunder:room1", 1,1923, 4464, 1932, 4474),
             new PlunderZone("plunder:room2", 2,1925, 4449, 1941, 4458),
             new PlunderZone("plunder:room3", 3,1941, 4421, 1954, 4432),
@@ -58,8 +58,8 @@ public class PlunderZones implements Plugin<Object> {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        for(PlunderZone ROOM : ROOMS){
-            ZoneBuilder.configure(ROOM);
+        for(PlunderZone room : ROOMS){
+            ZoneBuilder.configure(room);
         }
         return this;
     }
@@ -69,15 +69,14 @@ public class PlunderZones implements Plugin<Object> {
     }
 
     public class PlunderZone extends MapZone {
-        int swx, swy, nex, ney;
-        String name;
-        int roomnum;
         PyramidPlunderRoom room;
         Location entrance;
         private final Animation[] animations = new Animation[] { new Animation(2247), new Animation(2248), new Animation(1113), new Animation(2244) };
+        final int swx, swy, nex, ney;
+        final String name;
+        final int roomnum;
 
-
-        public PlunderZone(String name, int roomnum, int swx, int swy, int nex, int ney) {
+        public PlunderZone(final String name, final int roomnum, final int swx, final int swy, final int nex, final int ney) {
             super(name, true);
             this.name = name;
             this.swx = swx;

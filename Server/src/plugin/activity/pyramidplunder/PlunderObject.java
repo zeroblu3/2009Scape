@@ -40,6 +40,13 @@ public class PlunderObject extends GameObject {
             case 16473:
                 this.openId = 16474;
                 break;
+    public boolean isOpenedBy(Player player){
+        try {
+            //manager.loadList("plunder.tmp");
+            PlunderObjectManager manager = player.getPlunderObjectManager();
+            return manager.objectList.get(manager.objectList.indexOf(this)).playerOpened;
+        } catch (Exception e){
+            return false;
         }
     }
 }
