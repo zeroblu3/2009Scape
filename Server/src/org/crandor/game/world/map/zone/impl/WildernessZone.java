@@ -107,9 +107,11 @@ public final class WildernessZone extends MapZone {
 			
 		}
 		
-		e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
-		if (!e.asNpc().isRespawn()) {
-			e.asNpc().clear();
+		if (e instanceof NPC) {
+			e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
+			if (!e.asNpc().isRespawn()) {
+				e.asNpc().clear();
+			}
 		}
 		
 		return true;
