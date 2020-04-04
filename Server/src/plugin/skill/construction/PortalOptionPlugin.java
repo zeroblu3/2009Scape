@@ -84,18 +84,13 @@ public final class PortalOptionPlugin extends OptionHandler {
 		@Override
 		public boolean open(Object... args) {
 			
-			//If the Player has a house, but does not have their house moved to the portal they are interacting with
-			if (player.getHouseManager().getLocation().getPortalId() != player.getAttribute("con:portal", -1)) {
-				player.getPacketDispatch().sendMessage("<col=FF0000>Your house is in " + player.getHouseManager().getLocation().getName() + ".");
-				player.sendMessage("<col=FF0000>Speak with an estate agent to change your house location.");
-			}
+			
 
-			//If the above do not qualify, give the player options for housing
-			else {
+			
 				options("Go to your house", "Go to your house (building mode)", "Go to a friend's house", "Never mind");
 				stage = 1;
 
-			}
+			
 			return true;
 		}
 
@@ -110,6 +105,12 @@ public final class PortalOptionPlugin extends OptionHandler {
 					//If the player does not have a house
 					if (!player.getHouseManager().hasHouse()) {
 						player.getPacketDispatch().sendMessage("<col=FF0000>You don't have a house, talk to an estate agent to purchase a house.");
+						break;
+					}
+					//If the Player has a house, but does not have their house moved to the portal they are interacting with
+					if (player.getHouseManager().getLocation().getPortalId() != player.getAttribute("con:portal", -1)) {
+						player.getPacketDispatch().sendMessage("<col=FF0000>Your house is in " + player.getHouseManager().getLocation().getName() + ".");
+						player.sendMessage("<col=FF0000>Speak with an estate agent to change your house location.");
 						break;
 					}
 					player.getHouseManager().enter(player, buttonId == 2, true);
