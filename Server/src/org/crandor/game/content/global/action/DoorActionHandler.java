@@ -67,7 +67,7 @@ public final class DoorActionHandler {
 			handleAutowalkDoor(player, object);
 			return;
 		}
-		if (d.isMetal() || DoorConfigSQLHandler.forId(d.getReplaceId()).isMetal()) {
+		if (d.isMetal()) {
 			player.getAudioManager().send(new Audio(71));
 		} else {
 			player.getAudioManager().send(new Audio(81));
