@@ -31,7 +31,7 @@ public class HouseTeleTabOptionPlugin extends OptionHandler {
 		Location location = player.getHouseManager().getLocation().getExitLocation();
 		if (player.getInventory().contains(node.asItem().getId(), 1)) {
 			if (player.getTeleporter().send(location.transform(0, RandomFunction.random(3), 0), TeleportType.TELETABS, 1)) {
-				player.getInventory().remove(node.asItem());
+				player.getInventory().remove(node.asItem().getId(),1);
 				return true;
 			}
 		}
