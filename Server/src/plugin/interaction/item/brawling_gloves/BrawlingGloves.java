@@ -4,6 +4,8 @@ import org.crandor.cache.def.impl.ItemDefinition;
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.node.item.Item;
 
+import java.util.HashMap;
+
 /**
  * Represents brawling gloves
  * @author ceik
@@ -37,33 +39,30 @@ public enum BrawlingGloves {
         this.skillSlot = skillSlot;
     }
 
+    public static HashMap<Integer,BrawlingGloves> glovesMap = new HashMap<>();
+    public static HashMap<Integer,BrawlingGloves> skillMap = new HashMap<>();
+    public static HashMap<Byte,BrawlingGloves> indicatorMap = new HashMap<>();
+
+    static {
+        for(BrawlingGloves gloves : BrawlingGloves.values()){
+            glovesMap.putIfAbsent(gloves.id, gloves);
+            skillMap.putIfAbsent(gloves.skillSlot,gloves);
+            indicatorMap.putIfAbsent(gloves.indicator,gloves);
+        }
+    }
+
 
 
     public static BrawlingGloves forId(int id){
-        for (BrawlingGloves glove : BrawlingGloves.values()){
-            if (glove.getId() == id){
-                return glove;
-            }
-        }
-        return null;
+        return glovesMap.get(id);
     }
 
     public static BrawlingGloves forIndicator(byte indicator){
-        for (BrawlingGloves glove : BrawlingGloves.values()){
-            if (glove.getIndicator() == indicator){
-                return glove;
-            }
-        }
-        return null;
+        return indicatorMap.get(indicator);
     }
 
     public static BrawlingGloves forSkill(int skillSlot){
-        for(BrawlingGloves glove : BrawlingGloves.values()){
-            if(glove.getSkillSlot() == skillSlot){
-                return glove;
-            }
-        }
-        return null;
+        return skillMap.get(skillSlot);
     }
 
     public int getId(){return id;}
