@@ -187,7 +187,6 @@ public class PlunderZones implements Plugin<Object> {
 
         @Override
         public boolean interact(Entity e, Node target, Option option) {
-            System.out.println("Entity: " + e + " target: " + target);
             final Player player = e instanceof Player ? e.asPlayer() : null;
             String optionName = option.getName().toLowerCase();
             if(target instanceof NPC){
@@ -336,9 +335,9 @@ public class PlunderZones implements Plugin<Object> {
                         player.getLocks().lockInteractions(2);
                         boolean doesOpen = success(player, Skills.THIEVING);
                         if (doesOpen) {
+                            PyramidPlunderRoom nextRoom = PyramidPlunderRoom.forRoomNum(roomnum + 1);
                             player.getPacketDispatch().sendMessage("The door opens!");
-                            room = PyramidPlunderRoom.forRoomNum(roomnum + 1);
-                            player.getProperties().setTeleportLocation(room.entrance);
+                            player.getProperties().setTeleportLocation(nextRoom.entrance);
                         } else {
                             player.getPacketDispatch().sendMessage("You fail to unlock the door.");
                         }
