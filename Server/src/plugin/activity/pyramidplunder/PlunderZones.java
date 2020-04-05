@@ -6,6 +6,7 @@ import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.Entity;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.combat.ImpactHandler;
+import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.item.Item;
 import org.crandor.game.node.object.ObjectBuilder;
