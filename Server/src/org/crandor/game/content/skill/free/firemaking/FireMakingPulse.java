@@ -143,6 +143,7 @@ public final class FireMakingPulse extends SkillPulse<Item> {
 		if (TutorialSession.getExtension(player).getStage() == 9) {
 			TutorialStage.load(player, 10, false);
 		}
+		player.getSkills().addExperience(Skills.FIREMAKING,fire.getXp());
 		setLastFire();
 	}
 
