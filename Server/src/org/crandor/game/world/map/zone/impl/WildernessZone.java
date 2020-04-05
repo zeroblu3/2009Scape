@@ -1,6 +1,7 @@
 package org.crandor.game.world.map.zone.impl;
 
 import org.crandor.game.component.Component;
+import org.crandor.game.content.ame.AntiMacroNPC;
 import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
 import org.crandor.game.interaction.Option;
 import org.crandor.game.node.Node;
@@ -117,7 +118,7 @@ public final class WildernessZone extends MapZone {
 			
 		}
 		
-		if (e instanceof NPC) {
+		if (e instanceof NPC || e instanceof AntiMacroNPC) {
 			e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
 			if (!e.asNpc().isRespawn()) {
 				e.asNpc().clear();
@@ -152,6 +153,7 @@ public final class WildernessZone extends MapZone {
 		if (e instanceof Player) {
 			Player p = (Player) e;
 			show(p);
+			p.getAntiMacroHandler().isDisabled = true;
 			for (int i = 0; i < 7; i++) {
 				if (i == 5 || i == 3) {
 					continue;
@@ -183,6 +185,7 @@ public final class WildernessZone extends MapZone {
 		if (!logout && e instanceof Player) {
 			Player p = (Player) e;
 			leave(p);
+			p.getAntiMacroHandler().isDisabled = false;
 			if (p.getFamiliarManager().hasFamiliar() && !p.getFamiliarManager().hasPet()) {
 				Familiar familiar = p.getFamiliarManager().getFamiliar();
 				if (familiar.isCombatFamiliar()) {
