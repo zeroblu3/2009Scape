@@ -8,6 +8,7 @@ import org.crandor.game.node.object.GameObject;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 
+//author: Ceik
 @InitializablePlugin
 public class CookingRewrite extends UseWithHandler {
     // fires/ranges
