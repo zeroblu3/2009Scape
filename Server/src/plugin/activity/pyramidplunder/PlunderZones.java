@@ -4,6 +4,7 @@ import org.crandor.game.content.skill.Skills;
 import org.crandor.game.interaction.Option;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.Entity;
+import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.combat.ImpactHandler;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
@@ -46,7 +47,7 @@ import org.crandor.tools.RandomFunction;
 
 @InitializablePlugin
 public class PlunderZones implements Plugin<Object> {
-    PlunderZone[] ROOMS = {
+    private final PlunderZone[] ROOMS = {
             new PlunderZone("plunder:room1", 1,1923, 4464, 1932, 4474),
             new PlunderZone("plunder:room2", 2,1925, 4449, 1941, 4458),
             new PlunderZone("plunder:room3", 3,1941, 4421, 1954, 4432),
@@ -59,8 +60,8 @@ public class PlunderZones implements Plugin<Object> {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        for(PlunderZone ROOM : ROOMS){
-            ZoneBuilder.configure(ROOM);
+        for(PlunderZone room : ROOMS){
+            ZoneBuilder.configure(room);
         }
         return this;
     }
@@ -70,15 +71,14 @@ public class PlunderZones implements Plugin<Object> {
     }
 
     public class PlunderZone extends MapZone {
-        int swx, swy, nex, ney;
-        String name;
-        int roomnum;
         PyramidPlunderRoom room;
         Location entrance;
         private final Animation[] animations = new Animation[] { new Animation(2247), new Animation(2248), new Animation(1113), new Animation(2244) };
+        final int swx, swy, nex, ney;
+        final String name;
+        final int roomnum;
 
-
-        public PlunderZone(String name, int roomnum, int swx, int swy, int nex, int ney) {
+        public PlunderZone(final String name, final int roomnum, final int swx, final int swy, final int nex, final int ney) {
             super(name, true);
             this.name = name;
             this.swx = swx;
@@ -198,15 +198,15 @@ public class PlunderZones implements Plugin<Object> {
                     }
                 }
                 if(optionName.equals("attack")){
-                    player.getProperties().getCombatPulse().attack(target);
+                        player.getProperties().getCombatPulse().attack(target); 
                 }
-                return true;
+               return true; 
             }
             PlunderObject object = target instanceof NPC ? null : new PlunderObject(target.asObject()); //PlunderObject(target.getId(),target.getLocation());
             PlunderObjectManager manager = player.getPlunderObjectManager();
             boolean alreadyOpened = manager.openedMap.getOrDefault(object.getLocation(),false);
             boolean charmed = manager.charmedMap.getOrDefault(object.getLocation(),false);
-            boolean success = success(player, Skills.THIEVING);
+            boolean success = success(player, Skills.THIEVING);           
             switch (object.getId()) {
                 case 16517: //Spear trap
                     if(!checkRequirements(player,room)){
