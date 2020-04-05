@@ -190,17 +190,17 @@ public final class ResourceManager {
 				handledResources.add(id);
 			}
 		}
-		for (Consumables c : Consumables.values()) {
-			if (c.getConsumable() instanceof Food) {
-				Food f = c.getConsumable().asFood();
-				if (f.getRaw() != null && !handledResources.contains(id = f.getRaw().getId())) {
-					handledResources.add(id);
-				}
-			}
-			if (!handledResources.contains(id = c.getConsumable().getItem().getId())) {
-				handledResources.add(id);
-			}
-		}
+//		for (Consumables c : Consumables.values()) {
+//			if (c.getConsumable() instanceof Food) {
+//				Food f = c.getConsumable().asFood();
+//				if (f.getRaw() != null && !handledResources.contains(id = f.getRaw().getId())) {
+//					handledResources.add(id);
+//				}
+//			}
+//			if (!handledResources.contains(id = c.getConsumable().getItem().getId())) {
+//				handledResources.add(id);
+//			}
+//		}
 		for (Recipe r : Recipe.RECIPES) {
 			for (Item item : r.getIngredients()) {
 				if (!handledResources.contains(id = item.getId())) {
