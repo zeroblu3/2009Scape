@@ -7,7 +7,9 @@ import org.crandor.net.packet.PacketRepository;
 import org.crandor.net.packet.context.ClearChunkContext;
 import org.crandor.net.packet.out.ClearRegionChunk;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,31 +26,29 @@ public final class MapChunkRenderer {
 		Viewport v = player.getViewport();
 		RegionChunk[][] last = player.getPlayerFlags().getLastViewport();
 		List<RegionChunk> updated = new ArrayList<>();
-		for (int x = 0; x < last.length; x++) {
-			RegionChunk[] chunks = last[x];
-			for (int y = 0; y < chunks.length; y++) {
-				RegionChunk previous = chunks[y];
-				if (previous == null) {
-					continue;
-				}
-				if (!containsChunk(v.getChunks(), previous)) {
-					PacketRepository.send(ClearRegionChunk.class, new ClearChunkContext(player, previous));
-				} else {
-					updated.add(previous);
+		if(!Arrays.equals(v.getChunks(),last)) { //don't update if the viewport hasn't changed
+			for (RegionChunk[] x : last) {
+				for (RegionChunk previous : x) {
+					if (previous == null) {
+						continue;
+					}
+					if (!containsChunk(v.getChunks(), previous)) {
+						PacketRepository.send(ClearRegionChunk.class, new ClearChunkContext(player, previous));
+					} else {
+						updated.add(previous);
+					}
 				}
 			}
-		}
-		for (int x = 0; x < v.getChunks().length; x++) {
-			RegionChunk[] chunks = v.getChunks()[x];
-			for (int y = 0; y < chunks.length; y++) {
-				RegionChunk chunk = chunks[y];
-				if (!updated.contains(chunk)) {
-					chunk.synchronize(player);
-				} else {
-					chunk.update(player);
+			for (RegionChunk[] chunks : v.getChunks()) {
+				for (RegionChunk chunk : chunks) {
+					if (!updated.contains(chunk)) {
+						chunk.synchronize(player);
+					} else {
+						chunk.update(player);
+					}
 				}
-				last[x][y] = chunk;
 			}
+			last = v.getChunks();
 		}
 	}
 
