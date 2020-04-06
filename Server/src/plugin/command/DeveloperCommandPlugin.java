@@ -112,6 +112,11 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
         		
         	break;
         	
+        	case "setlevel":
+        		player.getSkills().setLevel(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+        		player.getSkills().setStaticLevel(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+        		break;
+        	
         	case "playsong":
         		player.getMusicPlayer().play(MusicEntry.getSongs().get(Integer.parseInt(args[1])));
         		player.sendMessage("Playing song: " + MusicEntry.getSongs().get(Integer.parseInt(args[1])).getName());
