@@ -28,6 +28,7 @@ import org.crandor.tools.mysql.DatabaseManager;
 import org.crandor.worker.MajorUpdateWorker;
 
 import java.util.*;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -188,7 +189,6 @@ public final class GameWorld {
         SQLManager.postPlugin();
         parseObjects();
         CallbackHub.call();
-
         if (run) {
             SystemManager.flag(GameWorld.getSettings().isDevMode() ? SystemState.PRIVATE : SystemState.ACTIVE);
         }
@@ -197,6 +197,7 @@ public final class GameWorld {
 
     //39956
     private static void parseObjects() {
+        Executors.newSingleThreadExecutor().execute(() -> {
         /*
 		Removed Objects from port phastmatsysy
 		LandscapeParser.removeGameObject(new GameObject(11484, 2338, 3689, 0));
@@ -320,7 +321,7 @@ public final class GameWorld {
         for (NPC npc : npcs) {
             npc.setDirection(Direction.EAST);
         }
-
+        });
     }
 
 
