@@ -18,9 +18,14 @@ public enum FishingSpot {
 	public static HashMap<Integer,FishingSpot> spotMap = new HashMap<>();
 
 	static{
-		for (FishingSpot spot : FishingSpot.values()) {
-			for (int id : spot.ids) {
-				spotMap.putIfAbsent(id,spot);
+		FishingSpot[] spots = values();
+		int spotsLength = spots.length;
+		for (int x = 0; x < spotsLength; x++) {
+			FishingSpot spot = spots[x];
+			int[] spotIds = spot.ids;
+			int spotIdsLength = spotIds.length;
+			for (int y = 0; y < spotIdsLength; y++) {
+				spotMap.putIfAbsent(spotIds[y],spot);
 			}
 		}
 	}

@@ -103,7 +103,10 @@ public final class GameWorld {
         } finally {
             LOCK.unlock();
         }
-        for (Pulse pulse : pulses) {
+        Object[] pulseArray = pulses.toArray();
+        int pulsesLength = pulseArray.length;
+        for (int i = 0; i < pulsesLength; i++) {
+            Pulse pulse = (Pulse) pulseArray[i];
             if (pulse == null) {
                 continue;
             }
@@ -180,8 +183,8 @@ public final class GameWorld {
         SQLManager.prePlugin();
         ScriptManager.load();
         PluginManager.init();
-        ResourceAIPManager.get().init();
-        ResourceAIPManager.get().immerseWorld();
+        //ResourceAIPManager.get().init(); Commented out as we do not use Skilling Tasks, which is what this is for
+        ImmerseWorld.init();
         SQLManager.postPlugin();
         parseObjects();
         CallbackHub.call();

@@ -38,9 +38,13 @@ public enum FishSpots {
 	public static HashMap<Location,FishSpots> locationMap = new HashMap<>();
 
 	static{
-		for(FishSpots spot : FishSpots.values()){
-			for(Location l : spot.locations){
-				locationMap.putIfAbsent(l,spot);
+		FishSpots[] spots = values();
+		int spotsLength = spots.length;
+		for(int x = 0; x < spotsLength; x++){
+			Location[] locations = spots[x].locations;
+			int locationsLength = locations.length;
+			for(int y = 0; y < locationsLength; y++){
+				locationMap.putIfAbsent(locations[y],spots[x]);
 			}
 		}
 	}

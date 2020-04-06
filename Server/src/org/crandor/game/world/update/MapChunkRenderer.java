@@ -1,6 +1,7 @@
 package org.crandor.game.world.update;
 
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.game.world.map.Region;
 import org.crandor.game.world.map.RegionChunk;
 import org.crandor.game.world.map.Viewport;
 import org.crandor.net.packet.PacketRepository;
@@ -26,29 +27,36 @@ public final class MapChunkRenderer {
 		Viewport v = player.getViewport();
 		RegionChunk[][] last = player.getPlayerFlags().getLastViewport();
 		List<RegionChunk> updated = new ArrayList<>();
-		if(!Arrays.equals(v.getChunks(),last)) { //don't update if the viewport hasn't changed
-			for (RegionChunk[] x : last) {
-				for (RegionChunk previous : x) {
+		RegionChunk[][] current = v.getChunks();
+		if(!Arrays.equals(current,last)) { //don't update if the viewport hasn't changed
+			int sizeX = last.length;
+			for (int x = 0;  x < sizeX; x++) {
+				int sizeY = last[x].length;
+				for (int y = 0; y < sizeY; y++) {
+					RegionChunk previous = last[x][y];
 					if (previous == null) {
 						continue;
 					}
-					if (!containsChunk(v.getChunks(), previous)) {
+					if (!containsChunk(current, previous)) {
 						PacketRepository.send(ClearRegionChunk.class, new ClearChunkContext(player, previous));
 					} else {
 						updated.add(previous);
 					}
 				}
 			}
-			for (RegionChunk[] chunks : v.getChunks()) {
-				for (RegionChunk chunk : chunks) {
+			sizeX = current.length;
+			for (int x = 0; x < sizeX; x++) {
+				int sizeY = current[x].length;
+				for (int y = 0; y < sizeY; y++) {
+					RegionChunk chunk = current[x][y];
 					if (!updated.contains(chunk)) {
 						chunk.synchronize(player);
 					} else {
 						chunk.update(player);
 					}
+					last[x][y] = current[x][y];
 				}
 			}
-			last = v.getChunks();
 		}
 	}
 
@@ -59,9 +67,11 @@ public final class MapChunkRenderer {
 	 * @return {@code True} if so.
 	 */
 	private static boolean containsChunk(RegionChunk[][] list, RegionChunk c) {
-		for (RegionChunk[] l : list) {
-			for (RegionChunk chunk : l) {
-				if (chunk == c) {
+		int sizeList = list.length;
+		for (int x = 0; x < sizeList; x++) {
+			int chunkSize = list[x].length;
+			for (int y = 0; y < chunkSize; y++) {
+				if (list[x][y] == c) {
 					return true;
 				}
 			}
