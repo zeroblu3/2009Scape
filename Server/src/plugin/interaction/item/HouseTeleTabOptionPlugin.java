@@ -5,7 +5,7 @@ import org.crandor.game.interaction.OptionHandler;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
-import org.crandor.game.world.GameWorld;
+import org.crandor.game.node.item.Item;
 import org.crandor.game.world.map.Location;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
@@ -31,7 +31,7 @@ public class HouseTeleTabOptionPlugin extends OptionHandler {
 		Location location = player.getHouseManager().getLocation().getExitLocation();
 		if (player.getInventory().contains(node.asItem().getId(), 1)) {
 			if (player.getTeleporter().send(location.transform(0, RandomFunction.random(3), 0), TeleportType.TELETABS, 1)) {
-				player.getInventory().remove(node.asItem().getId(),1);
+				player.getInventory().remove(new Item(node.asItem().getId(),1));
 				return true;
 			}
 		}
