@@ -9,16 +9,21 @@ import org.crandor.game.node.entity.combat.CombatStyle;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.npc.agg.AggressiveBehavior;
 import org.crandor.game.node.entity.npc.agg.AggressiveHandler;
+import org.crandor.game.node.entity.npc.drop.NPCDropTables;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.info.Rights;
+import org.crandor.game.node.item.GroundItem;
 import org.crandor.game.node.item.GroundItemManager;
 import org.crandor.game.node.item.Item;
+import org.crandor.game.system.mysql.impl.NPCConfigSQLHandler;
+import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
 import org.crandor.game.world.map.zone.MapZone;
 import org.crandor.game.world.map.zone.RegionZone;
 import org.crandor.game.world.map.zone.ZoneBorders;
 import org.crandor.game.world.repository.Repository;
 import org.crandor.tools.RandomFunction;
+import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handles the wilderness zone.
@@ -95,7 +100,30 @@ public final class WildernessZone extends MapZone {
 				}
 			}
 		}
-		e.asNpc().getDefinition().getDropTables().drop(e.asNpc(),killer);
+		if (killer.isPlayer()) {
+			if (e instanceof NPC) {
+				boolean gloveDrop = RandomFunction.random(1,100) == 54;
+				if(gloveDrop){
+					byte glove = (byte) RandomFunction.random(1,13);
+					Item reward = new Item(BrawlingGloves.forIndicator(glove).getId());
+					GroundItemManager.create(reward,e.asNpc().getDropLocation(),killer.asPlayer());
+					Repository.sendNews(killer.getUsername() + " has received " + reward.getName().toLowerCase() + " from a " + e.asNpc().getName() +"!");
+				}
+				e.asNpc().getDefinition().getDropTables().drop(e.asNpc(),killer);
+				if (((NPC) e).getTask() != null && killer instanceof Player && ((Player) killer).getSlayer().getTask() == e.asNpc().getTask()) {
+					((Player) killer).getSlayer().finalizeDeath(killer.asPlayer(), e.asNpc());
+				}
+			}
+			
+		}
+		
+		if (e instanceof NPC) {
+			e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
+			if (!e.asNpc().isRespawn()) {
+				e.asNpc().clear();
+			}
+		}
+		
 		return true;
 	}
 
