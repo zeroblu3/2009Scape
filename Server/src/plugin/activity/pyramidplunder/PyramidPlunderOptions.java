@@ -1,3 +1,4 @@
+/*
 package plugin.activity.pyramidplunder;
 
 import org.crandor.cache.def.impl.ObjectDefinition;
@@ -16,12 +17,14 @@ import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 import org.crandor.tools.RandomFunction;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
+*/
 /**
  * Handle pyramid plunder object interactions
  * @author ceik
- */
+ *//*
+
+*/
 /**
  * PyramidPlunderOptions defines interactions for pyramid plunder
  * Copyright (C) 2020  2009scape, et. al
@@ -39,7 +42,8 @@ import plugin.interaction.item.brawling_gloves.BrawlingGloves;
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+ *//*
+
 
 @InitializablePlugin
 public final class PyramidPlunderOptions extends OptionHandler {
@@ -88,7 +92,6 @@ public final class PyramidPlunderOptions extends OptionHandler {
     }
     @Override
     public boolean handle(Player player, Node node, String option) {
-        double EXPERIENCE_MOD = 0;
         PlunderObjectManager manager = player.getPlunderObjectManager();
         int NPCDeathTime = GameWorld.getTicks() + (1000 / 6);
         Location room_entrance[] = {new Location(1927,4477), new Location(1927,4453), new Location(1943,4421), new Location(1954,4477), new Location(1974,4420), new Location(1977,4471), new Location(1927, 4424), new Location(1965,4444)};
@@ -98,57 +101,52 @@ public final class PyramidPlunderOptions extends OptionHandler {
         int spearY = 0;
         double droom = 0.0;
         ZoneMonitor zmon = player.getZoneMonitor();
-        if(zmon.isInZone("PR1")){
+        if(zmon.isInZone("plunder:room1")){
             room = 1;
             reqLevel = 21;
             spearX = 0;
             spearY = -2;
-        } else if(zmon.isInZone("PR2")){
+        } else if(zmon.isInZone("plunder:room2")){
             room = 2;
             reqLevel = 31;
             spearX = 2;
             spearY = 0;
-        } else if(zmon.isInZone("PR3")){
+        } else if(zmon.isInZone("plunder:room3")){
             room = 3;
             reqLevel = 41;
             spearX = 0;
             spearY = 2;
-        } else if(zmon.isInZone("PR4")){
+        } else if(zmon.isInZone("plunder:room4")){
             room = 4;
             reqLevel = 51;
             spearX = 0;
             spearY = -2;
-        } else if(zmon.isInZone("PR5")){
+        } else if(zmon.isInZone("plunder:room5")){
             room = 5;
             reqLevel = 61;
             spearX = 0;
             spearY = 2;
-        } else if(zmon.isInZone("PR6")){
+        } else if(zmon.isInZone("plunder:room6")){
             room = 6;
             reqLevel = 71;
             spearX = 0;
             spearY = -2;
-        } else if(zmon.isInZone("PR7")){
+        } else if(zmon.isInZone("plunder:room7")){
             room = 7;
             reqLevel = 81;
             spearX = 0;
             spearY = 2;
-        } else if(zmon.isInZone("PR8")){
+        } else if(zmon.isInZone("plunder:room8")){
             room = 8;
             reqLevel = 91;
             spearX = -2;
             spearY = 0;
         }
         PlunderObject object = new PlunderObject(node.asObject().getId(),node.asObject().getLocation(),player);
-        //handle thieving brawlers
-        if(player.getEquipment().containsItem(new Item(BrawlingGloves.THIEVING.getId())) && !manager.ObjectList.contains(object) && object.getId() != 16495){
-            EXPERIENCE_MOD = player.getBrawlingGloveManager().getExperienceBonus();
-            player.getBrawlingGloveManager().updateCharges(BrawlingGloves.THIEVING.getId(),1);
-        }
         droom = (double) room;
         switch (object.getId()) {
             case 16517:
-                if (option.equals("Pass") || option.equals("pass")) {
+                if (option.equalsIgnoreCase("pass")) {
                     if (reqLevel > level){
                         player.getPacketDispatch().sendMessage("You need to be at least level " + reqLevel + " thieving.");
                         break;
@@ -157,7 +155,7 @@ public final class PyramidPlunderOptions extends OptionHandler {
                     player.animate(animations[success ? 1 : 0]);
                     if (success) {
                         player.getPacketDispatch().sendMessage("You successfully pass the spears.");
-                        player.getSkills().addExperience(Skills.THIEVING, (30 + (room * 20)) + ((30 + (room * 20)) * EXPERIENCE_MOD), true);
+                        player.getSkills().addExperience(Skills.THIEVING, 30 + (room * 20), true);
                         int moveX = player.getLocation().getX();
                         int moveY = player.getLocation().getY();
                         Location moveto = new Location(moveX + spearX, moveY + spearY);
@@ -171,28 +169,28 @@ public final class PyramidPlunderOptions extends OptionHandler {
             case 16503:
             case 16502:
             case 16501:
-                if (option.equals("search") || option.equals("Search")) {
+                if (option.equalsIgnoreCase("search")) {
                     if (reqLevel > level){
                         player.getPacketDispatch().sendMessage("You need to be at least level " + reqLevel + " thieving.");
                         break;
                     }
-                    if (manager.ObjectList.contains(object) ? manager.ObjectList.get(manager.ObjectList.indexOf(object)).playerOpened : false){
+                    if (manager.objectList.contains(object) ? manager.objectList.get(manager.objectList.indexOf(object)).playerOpened : false){
                         player.getPacketDispatch().sendMessage("You've already looted this.");
                         break;
                     }
                     boolean success = success(player, Skills.THIEVING);
                     player.animate(animations[success ? 1 : 0]);
                     player.lock(2);
-                    if (manager.ObjectList.contains(object) ? manager.ObjectList.get(manager.ObjectList.indexOf(object)).snakeCharmed : success) {
+                    if (manager.objectList.contains(object) ? manager.objectList.get(manager.objectList.indexOf(object)).snakeCharmed : success) {
                         player.getPacketDispatch().sendMessage("You successfully search the urn...");
-                        player.getSkills().addExperience(Skills.THIEVING, (25 + (room * 20)) + (EXPERIENCE_MOD * (25 + (room * 20))), true);
+                        player.getSkills().addExperience(Skills.THIEVING, 25 + (room * 20), true);
                         player.getInventory().add(ARTIFACTS[((int)Math.floor(droom / 3))][RandomFunction.random(3)]);
                         rollSceptre(player);
-                        if(!manager.ObjectList.contains(object)) {
+                        if(!manager.objectList.contains(object)) {
                             object.playerOpened = true;
                             manager.register(object);
                         } else {
-                            manager.ObjectList.get(manager.ObjectList.indexOf(object)).playerOpened = true;
+                            manager.objectList.get(manager.objectList.indexOf(object)).playerOpened = true;
                         }
                         switch(object.getId()){
                             case 16501:
@@ -209,15 +207,15 @@ public final class PyramidPlunderOptions extends OptionHandler {
                         player.getPacketDispatch().sendMessage("You failed and got bit by a snake.");
                         player.getImpactHandler().manualHit(player,RandomFunction.random(2,8), ImpactHandler.HitsplatType.NORMAL);
                     }
-                } else if(option.equals("check for snakes")){
-                    if(manager.ObjectList.contains(object) && manager.ObjectList.get(manager.ObjectList.indexOf(object)).snakeCharmed){
+                } else if(option.equalsIgnoreCase("check for snakes")){
+                    if(manager.objectList.contains(object) && manager.objectList.get(manager.objectList.indexOf(object)).snakeCharmed){
                         player.getPacketDispatch().sendMessage("You already checked for snakes.");
                     } else {
                         player.getPacketDispatch().sendMessage("You check the urn for snakes...");
-                        if (!manager.ObjectList.contains(object)) {
+                        if (!manager.objectList.contains(object)) {
                             manager.register(object);
                         }
-                        manager.originalIndex = manager.ObjectList.indexOf(object);
+                        manager.originalIndex = manager.objectList.indexOf(object);
                         switch(object.getId()){
                             case 16501:
                                 ObjectBuilder.replace(node.asObject(), node.asObject().transform(16509), 5);
@@ -235,14 +233,14 @@ public final class PyramidPlunderOptions extends OptionHandler {
             case 16509:
             case 16510:
             case 16511:
-                if(option.equals("search") && player.getInventory().containsItem(new Item(4605))){
+                if(option.equalsIgnoreCase("search") && player.getInventory().containsItem(new Item(4605))){
                     player.animate(new Animation(1877));
                     player.getPacketDispatch().sendMessage("You charm the snake into docility.");
-                    if(!manager.ObjectList.contains(manager.ObjectList.get(manager.originalIndex))) {
+                    if(!manager.objectList.contains(manager.objectList.get(manager.originalIndex))) {
                         object.snakeCharmed = true;
                         manager.register(object);
                     } else {
-                        manager.ObjectList.get(manager.originalIndex).snakeCharmed = true;
+                        manager.objectList.get(manager.originalIndex).snakeCharmed = true;
                     }
                 } else {
                     player.getImpactHandler().manualHit(player, RandomFunction.random(2, 8), ImpactHandler.HitsplatType.NORMAL);
@@ -250,13 +248,13 @@ public final class PyramidPlunderOptions extends OptionHandler {
                 }
                 break;
             case 16473:
-                if(option.equals("search") || option.equals("Search")) {
+                if(option.equalsIgnoreCase("search")) {
                     boolean willSpawnSwarm = (RandomFunction.random(1,20) == 10);
                     if (reqLevel > level){
                         player.getPacketDispatch().sendMessage("You need to be at least level " + reqLevel + " thieving.");
                         break;
                     }
-                    if (manager.ObjectList.contains(object) ? manager.ObjectList.get(manager.ObjectList.indexOf(object)).playerOpened : false){
+                    if (manager.objectList.contains(object) ? manager.objectList.get(manager.objectList.indexOf(object)).playerOpened : false){
                         player.getPacketDispatch().sendMessage("You've already looted this.");
                         break;
                     }
@@ -273,24 +271,24 @@ public final class PyramidPlunderOptions extends OptionHandler {
                         player.getInventory().add(ARTIFACTS[RandomFunction.random(1, 3)][RandomFunction.random(3)]);
                         rollSceptre(player);
                         player.getPacketDispatch().sendMessage("And you find an artifact!");
-                        player.getSkills().addExperience(Skills.THIEVING, (40 + (room * 20)) + (EXPERIENCE_MOD * (40 + (room * 20))));
+                        player.getSkills().addExperience(Skills.THIEVING, 40 + (room * 20));
                     }
                     ObjectBuilder.replace(node.asObject(), node.asObject().transform(16474), 5);
-                    if(!manager.ObjectList.contains(object)) {
+                    if(!manager.objectList.contains(object)) {
                         object.playerOpened = true;
                         manager.register(object);
                     } else {
-                        manager.ObjectList.get(manager.ObjectList.indexOf(object)).playerOpened = true;
+                        manager.objectList.get(manager.objectList.indexOf(object)).playerOpened = true;
                     }
                 }
                 break;
             case 16495:
-                if(option.equals("open") || option.equals("Open")) {
+                if(option.equalsIgnoreCase("open")) {
                     if (reqLevel > level){
                         player.getPacketDispatch().sendMessage("You need to be at least level " + reqLevel + " thieving.");
                         break;
                     }
-                    if (manager.ObjectList.contains(object) ? manager.ObjectList.get(manager.ObjectList.indexOf(object)).playerOpened : false){
+                    if (manager.objectList.contains(object) ? manager.objectList.get(manager.objectList.indexOf(object)).playerOpened : false){
                         player.getPacketDispatch().sendMessage("You've already looted this.");
                         break;
                     }
@@ -310,11 +308,11 @@ public final class PyramidPlunderOptions extends OptionHandler {
                         player.getSkills().addExperience(Skills.STRENGTH,50 + (room * 20));
                     }
                     ObjectBuilder.replace(node.asObject(), node.asObject().transform(16496), 5);
-                    if(!manager.ObjectList.contains(object)) {
+                    if(!manager.objectList.contains(object)) {
                         object.playerOpened = true;
                         manager.register(object);
                     } else {
-                        manager.ObjectList.get(manager.ObjectList.indexOf(object)).playerOpened = true;
+                        manager.objectList.get(manager.objectList.indexOf(object)).playerOpened = true;
                     }
                 }
                 break;
@@ -340,4 +338,4 @@ public final class PyramidPlunderOptions extends OptionHandler {
         }
         return true;
     }
-}
+}*/

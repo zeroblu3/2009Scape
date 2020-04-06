@@ -1,6 +1,7 @@
 package org.crandor.game.world.map.zone.impl;
 
 import org.crandor.game.component.Component;
+import org.crandor.game.content.ame.AntiMacroNPC;
 import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
 import org.crandor.game.interaction.Option;
 import org.crandor.game.node.Node;
@@ -9,11 +10,14 @@ import org.crandor.game.node.entity.combat.CombatStyle;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.npc.agg.AggressiveBehavior;
 import org.crandor.game.node.entity.npc.agg.AggressiveHandler;
+import org.crandor.game.node.entity.npc.drop.NPCDropTables;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.info.Rights;
 import org.crandor.game.node.item.GroundItem;
 import org.crandor.game.node.item.GroundItemManager;
 import org.crandor.game.node.item.Item;
+import org.crandor.game.system.mysql.impl.NPCConfigSQLHandler;
+import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
 import org.crandor.game.world.map.zone.MapZone;
 import org.crandor.game.world.map.zone.RegionZone;
@@ -21,8 +25,6 @@ import org.crandor.game.world.map.zone.ZoneBorders;
 import org.crandor.game.world.repository.Repository;
 import org.crandor.tools.RandomFunction;
 import plugin.interaction.item.brawling_gloves.BrawlingGloves;
-
-import java.util.Random;
 
 /**
  * Handles the wilderness zone.
@@ -81,7 +83,6 @@ public final class WildernessZone extends MapZone {
 	 */
 	@Override
 	public boolean death(Entity e, Entity killer) {
-		boolean dropGlove = RandomFunction.random(1,100) == 56;
 		if(e instanceof NPC && killer instanceof Player && (e.asNpc().getName().contains("Revenant") || e.asNpc().getName().equals("Chaos elemental"))){
 			int combatLevel = e.asNpc().getDefinition().getCombatLevel();
 			int dropRate = getNewDropRate(combatLevel);
@@ -96,23 +97,34 @@ public final class WildernessZone extends MapZone {
 					}
 					Repository.sendNews(killer.asPlayer().getUsername() + " has received a " + reward.getName() + " from a " + e.asNpc().getName() + "!");
 					GroundItemManager.create(reward,((NPC) e).getDropLocation(),killer.asPlayer());
-					break;
+					return true;
 				}
 			}
 		}
-		if(dropGlove && killer instanceof Player){
-			int randomSkip = RandomFunction.random(0,13);
-			for(BrawlingGloves glove : BrawlingGloves.values()){
-				if(randomSkip == 0){
-					GroundItemManager.create(new Item(glove.getId()),((NPC) e).getDropLocation(),killer.asPlayer());
-					Repository.sendNews(killer.asPlayer().getUsername() + " has just received " + glove.getName() + " from a " + e.asNpc().getName() + "!");
-					break;
-				} else {
-					randomSkip -= 1;
+		if (killer.isPlayer()) {
+			if (e instanceof NPC) {
+				boolean gloveDrop = RandomFunction.random(1,100) == 54;
+				if(gloveDrop){
+					byte glove = (byte) RandomFunction.random(1,13);
+					Item reward = new Item(BrawlingGloves.forIndicator(glove).getId());
+					GroundItemManager.create(reward,e.asNpc().getDropLocation(),killer.asPlayer());
+					Repository.sendNews(killer.getUsername() + " has received " + reward.getName().toLowerCase() + " from a " + e.asNpc().getName() +"!");
+				}
+				e.asNpc().getDefinition().getDropTables().drop(e.asNpc(),killer);
+				if (((NPC) e).getTask() != null && killer instanceof Player && ((Player) killer).getSlayer().getTask() == e.asNpc().getTask()) {
+					((Player) killer).getSlayer().finalizeDeath(killer.asPlayer(), e.asNpc());
 				}
 			}
+			
 		}
-		e.asNpc().getDefinition().getDropTables().drop(e.asNpc(),killer);
+		
+		if (e instanceof NPC || e instanceof AntiMacroNPC) {
+			e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
+			if (!e.asNpc().isRespawn()) {
+				e.asNpc().clear();
+			}
+		}
+		
 		return true;
 	}
 
@@ -141,6 +153,7 @@ public final class WildernessZone extends MapZone {
 		if (e instanceof Player) {
 			Player p = (Player) e;
 			show(p);
+			p.getAntiMacroHandler().isDisabled = true;
 			for (int i = 0; i < 7; i++) {
 				if (i == 5 || i == 3) {
 					continue;
@@ -172,6 +185,7 @@ public final class WildernessZone extends MapZone {
 		if (!logout && e instanceof Player) {
 			Player p = (Player) e;
 			leave(p);
+			p.getAntiMacroHandler().isDisabled = false;
 			if (p.getFamiliarManager().hasFamiliar() && !p.getFamiliarManager().hasPet()) {
 				Familiar familiar = p.getFamiliarManager().getFamiliar();
 				if (familiar.isCombatFamiliar()) {

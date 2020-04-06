@@ -20,7 +20,6 @@ import org.crandor.game.world.map.path.Pathfinder;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.game.world.update.flag.context.Graphics;
 import org.crandor.tools.RandomFunction;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -385,8 +384,6 @@ public abstract class CombatSwingHandler {
 		}
 		if(victim.getId() == 757){
 			this.EXPERIENCE_MOD = 0.01;
-		}
-		if(entity instanceof Player){
 		}
 		if (state.getEstimatedHit() > 0) {
 			state.setEstimatedHit(getFormatedHit(entity, victim, state, state.getEstimatedHit()));

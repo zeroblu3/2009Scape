@@ -18,7 +18,6 @@ import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.game.world.update.flag.context.Graphics;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
-import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 
 /**
  * Handles the offering of bones on an altar.
@@ -101,7 +100,7 @@ public class BoneOfferPlugin extends UseWithHandler {
 						player.getAudioManager().send(new Audio(958));
 						player.getPacketDispatch().sendPositionedGraphics(GFX, altar.getLocation());
 						player.sendMessage(getMessage(isLit(left), isLit(right)));
-						player.getSkills().addExperience(Skills.PRAYER, b.getExperience() * getMod(altar, isLit(left), isLit(right), player));
+						player.getSkills().addExperience(Skills.PRAYER, b.getExperience() * getMod(altar, isLit(left), isLit(right)));
 					}
 				}
 				return !player.getLocation().equals(start) || !player.getInventory().containsItem(new Item(b.getItemId()));
@@ -159,18 +158,13 @@ public class BoneOfferPlugin extends UseWithHandler {
 	 * @param isRight if the right is lit.
 	 * @return the mod.
 	 */
-	private double getMod(GameObject altar, boolean isLeft, boolean isRight, Player player) {
+	private double getMod(GameObject altar, boolean isLeft, boolean isRight) {
 		double total = getBase(altar);
 		if (isLeft) {
 			total += 50.0;
 		}
 		if (isRight) {
 			total += 50.0;
-		}
-		//handle brawling gloves
-		if(player.getEquipment().containsItem(new Item(BrawlingGloves.PRAYER.getId()))){
-			total += player.getBrawlingGloveManager().getExperienceBonus() * 100;
-			player.getBrawlingGloveManager().updateCharges(BrawlingGloves.PRAYER.getId(),1);
 		}
 		return (total / 100);
 	}
