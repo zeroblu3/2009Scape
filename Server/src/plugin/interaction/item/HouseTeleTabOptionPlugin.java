@@ -6,6 +6,7 @@ import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
 import org.crandor.game.node.item.Item;
+import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.Location;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;

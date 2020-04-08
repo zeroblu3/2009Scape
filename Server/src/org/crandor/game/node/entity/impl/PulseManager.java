@@ -7,6 +7,7 @@ import org.crandor.game.node.entity.combat.DeathTask;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.system.task.Pulse;
 import org.crandor.game.world.GameWorld;
+import org.crandor.game.world.PulseRunner;
 
 /**
  * Represents an entity's pulse manager.
@@ -30,7 +31,7 @@ public final class PulseManager {
 		}
 		pulse.start();
 		if (pulse.isRunning()) {
-			GameWorld.submit(current = pulse);
+			PulseRunner.submit(current = pulse);
 		}
 	}
 
@@ -41,8 +42,9 @@ public final class PulseManager {
 	public boolean clear(String... pulseType) {
 		if (current != null && current.isRunning()) {
 			if (pulseType.length > 0) {
-				for (String type : pulseType) {
-					if (!current.removeFor(type)) {
+				int length = pulseType.length;
+				for (int i = 0; i < length; i++) {
+					if (!current.removeFor(pulseType[i])) {
 						return false;
 					}
 				}
