@@ -37,7 +37,7 @@ public class GEAutoStock {
 	public static void stock() {
 		if (itemsToStock.isEmpty()) {
 			try {
-			      File file = new File("itemstostock.txt");
+			      File file = new File("data/eco/itemstostock.txt");
 			      Scanner myReader = new Scanner(file);
 			      while (myReader.hasNextLine()) {
 			        String data = myReader.nextLine();
