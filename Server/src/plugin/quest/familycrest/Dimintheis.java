@@ -1,37 +1,46 @@
-package plugin.npc.city.varrock;
+package plugin.quest.familycrest;
 
 import org.crandor.game.content.dialogue.DialoguePlugin;
+import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.item.Item;
+import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.plugin.InitializablePlugin;
 
 /**
  * @author Austin
  * NPC: Dimintheis ID: 8172
  * Quest: Family Crest
- * TODO: Rewrite when Family Crest is functional
+ *
  */
 
 @InitializablePlugin
 public class Dimintheis extends DialoguePlugin {
-    public Dimintheis() {
         /**
-         * Empty
+         * The quest.
          */
+        private Quest quest;
+
+        /**
+         * Constructs a new {@code Dimintheis} {@code Object}.
+         */
+	public Dimintheis() {
+            /**
+             * empty.
+             */
     }
     public Dimintheis(Player player){ super(player);}
+
     @Override
     public DialoguePlugin newInstance(Player player){return new Dimintheis(player);}
 
     @Override
     public boolean open(Object... args){
-        player("I lost my gauntlets.");
+        player("Hello!");
         return true;
     }
 
     /**
-     * User can have unlimited Family Gauntlets
-     *
      * @param componentId
      * @param buttonId
      * @return
@@ -41,16 +50,10 @@ public class Dimintheis extends DialoguePlugin {
     public boolean handle(int componentId, int buttonId) {
         switch (stage) {
             case 0:
-                if(player.getInventory().freeSlots() > 0) {
-                    npc("Here you go!");
-                    player.getInventory().add(new Item(778));
-                    stage++;
-                    break;
-                } else {
-                    npc("You need to clear room in your inventory!");
-                    stage++;
-                    break;
-                }
+                npc("Can't you see I'm busy?");
+                stage++;
+                break;
+
             case 1:
                 end();
                 break;
