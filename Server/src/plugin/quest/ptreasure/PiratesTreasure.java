@@ -2,6 +2,8 @@ package plugin.quest.ptreasure;
 
 import org.crandor.game.component.Component;
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.game.node.entity.player.link.quest.NeoQuest;
+import org.crandor.game.node.entity.player.link.quest.NeoQuestRepository;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.game.node.item.GroundItemManager;
 import org.crandor.game.node.item.Item;
@@ -10,11 +12,11 @@ import org.crandor.plugin.PluginManager;
 
 /**
  * Represents the pirates treasure quest.
- * @author Vexia
+ * @author Ceikry
  * 
  */
 @InitializablePlugin
-public final class PiratesTreasure extends Quest {
+public final class PiratesTreasure extends NeoQuest {
 
 	/**
 	 * Represents the message component for pirates treasure quest.
@@ -49,94 +51,126 @@ public final class PiratesTreasure extends Quest {
 	/**
 	 * Constructs a new {@Code PiratesTreasure} {@Code Object}
 	 */
-	public PiratesTreasure() {
-		super("Pirate's Treasure", 23, 22, 2, 71, 0, 1, 4);
-	}
+	public PiratesTreasure() { super(71,22,"Pirate's Treasure",2,4);}
+	private boolean hasRum,hasNote,hasKey,hasRead,rumStashed,employed,rumSmuggled;
 
 	@Override
-	public Quest newInstance(Object object) {
+	public NeoQuest newInstance(Object object) {
+		NeoQuestRepository.register(buttonId,this);
 		PluginManager.definePlugin(new PiratesTreasurePlugin());
 		return this;
 	}
 
 	@Override
-	public void drawJournal(Player player, int stage) {
-		super.drawJournal(player, stage);
-		switch (stage) {
-		case 0:
-			player.getPacketDispatch().sendString(BLUE + "I can start this quest by speaking to " + RED + "Redbeard Frank " + BLUE + "who", 275, 4+ 7);
-			player.getPacketDispatch().sendString(BLUE + "is at " + RED + " Port Sarim.", 275, 5+ 7);
-			player.getPacketDispatch().sendString(BLUE + "There aren't any requirements for this quest.", 275, 7+ 7);
-			break;
-		case 10:
-			if (!player.getInventory().containsItem(KARAMJAN_RUM)) {
-				line(player, BLUE + "I have spoken to " + RED + " Redbeard Frank." + BLUE + " He has agreed to tell me", 4+ 7);
-				line(player, BLUE + "the location of some " + RED + " treasure " + BLUE + "for some " + RED + "Karamja Rum.", 5+ 7);
-				line(player, BLUE + "I have taken employment on the " + RED + "banana plantation " + BLUE + ", as the", 6+ 7);
-				line(player, RED + "Customs Officers " + BLUE + "might not notice the " + RED + "rum " + BLUE + "if it is covered", 7+ 7);
-				line(player, BLUE + "in " + RED + "bananas.", 8+ 7);
-				line(player, BLUE + "Now all I need is some " + RED + " rum " + BLUE + "to hide in the next crate", 10+ 7);
-				line(player, BLUE + "destined for " + RED + "Wydin's store" + BLUE + "...", 11+ 7);
-			} else {
-				line(player, BLUE + "I have spoken to " + RED + "Redbeard Frank " + BLUE + ". He has agreed to tell me", 5+ 7);
-				line(player, BLUE + "the location of some " + RED + "treasure " + BLUE + "for some " + RED + "Karamja Rum.", 6+ 7);
-				line(player, BLUE + "I have the " + RED + "Karamja Rum. " + BLUE + "I should take it to " + RED + "Redbeard Frank.", 8+ 7);
-			}
-			break;
-		case 20:
-			line(player, "<str>I have smuggled some rum off Karamja, and retrieved it", 4+ 7);
-			line(player, "<str>from the back room of Wydin's shop.", 5+ 7);
-			line(player, BLUE + "I have given the rum to " + RED + "Redbeard Frank." + BLUE + " He has told me", 7+ 7);
-			line(player, BLUE + "that the " + RED + "treasure " + BLUE + "is hidden in the chest in the upstairs", 8+ 7);
-			line(player, BLUE + "room of the " + RED + "Blue Moon Inn " + BLUE + "in " + RED + "Varrock.", 9+ 7);
-			if (player.getAttributes().containsKey("pirate-read")) {
-				line(player, BLUE + "The note reads " + RED + "'Visit the city of the White Knights. In the", 11+ 7);
-				line(player, RED + "park, Saradomin points to the X which marks the spot.'", 12+ 7);
-				if (!player.getInventory().containsItem(PIRATE_MESSAGE) && !player.getBank().containsItem(PIRATE_MESSAGE)) {
-					line(player, BLUE + "It's a good job I remembered that, as I have lost the " + RED + "note.", 14+ 7);
+	public void setLines(Player player) {
+		super.setLines(player);
+		int line = 10;
+		int stage = player.getNeoQuestRepository().getStage("Pirate's Treasure");
+		boolean started = stage > 0;
+		if(!started){
+			journal.addLine("I can start this quest by speaking to !!Redbeard Frank?? who",++line,false);
+			journal.addLine("is at !!Port Sarim??.",++line,false);
+			journal.addLine("There aren't any requirements for this quest.",++line,false);
+		} else {
+			if (stage == 10) {
+				journal.addLine("I have spoken to !!Redbeard Frank??. He has agreed to tell me",++line,false);
+				journal.addLine("the location of some !!treasure?? for some !!Karamja rum??.",++line,false);
+				if (hasRum && !rumStashed && !employed) {
+					journal.addLine("I have the !!Karamja rum??. I should take it to !!Redbeard Frank??.",++line,false);
 				}
-				return;
+				if(!rumStashed && employed){
+						journal.addLine("I have taken employment on the !!banana plantation?? as the", ++line, false);
+						journal.addLine("!!customs officers?? might not notice the !!rum?? if it is covered", ++line, false);
+						journal.addLine("in !!bananas??.", ++line, false);
+				}
+				if(rumStashed){
+					journal.addLine("I have stashed some rum in the crate.",++line,true);
+					journal.addLine("I should finish filling the !!crate?? and report to !!Luthas??.",++line,false);
+				}
+				if(rumSmuggled){
+					journal.addLine("I have hidden some rum in the banana crate.",++line,true);
+					journal.addLine("I should go retrieve it from !!Wydin's Shop??.",++line,false);
+				}
 			}
-			if (player.getInventory().containsItem(PIRATE_MESSAGE)) {
-				line(player, BLUE + "I have opened the chest in the " + RED + "Blue Moon" + BLUE + ", and found a", 11+ 7);
-				line(player, RED + "note " + BLUE + "inside. I think it will tell me where to dig.", 12+ 7);
-				return;
+			if(stage == 20) {
+				journal.addLine("I have smuggled some rum off Karamja, and retrieved it", ++line, true);
+				journal.addLine("from the back room of Wydin's shop.", ++line, true);
+				journal.addLine("I have given the rum to !!Redbreak Frank.?? He has told me", ++line, false);
+				journal.addLine("that the !!treasure?? is hidden in the chest in the upstairs", ++line, false);
+				journal.addLine("room of the !!Blue Moon Inn?? in !!Varrock??.", ++line, false);
+
+				if (!hasNote) {
+					if(!hasKey) {
+						journal.addLine("I have lost the key that !!Redbeard Frank?? gave me.",++line,false);
+						journal.addLine("I should see if he has another.",++line,false);
+					} else {
+						journal.addLine("I have a !!key?? that can be used to unlock the chest",++line,false);
+						journal.addLine("that holds the treasure.",++line,false);
+					}
+				} else {
+					if (!hasRead) {
+						journal.addLine("I have opened the chest in the !!Blue Moon Inn?? and found a", ++line, false);
+						journal.addLine("!!note?? inside. I think it will tell me where to dig.", ++line, false);
+					}
+				}
+				if (hasRead) {
+					journal.addLine("The note reads !!Visit the city of the White Knights. In the", ++line, false);
+					journal.addLine("!!park, Saradomin points to the X which marks the spot.", ++line, false);
+					if (!hasNote) {
+						journal.addLine("It's a good job I remembered that, as I have lost the !!note", ++line, false);
+					}
+				}
 			}
-			if (player.getInventory().containsItem(KEY)) {
-				line(player, BLUE + "I have a " + RED + "key " + BLUE + "that can be used to unlock the chest that", 11+ 7);
-				line(player, BLUE + "holds the treasure.", 12+ 7);
-			} else {
-				line(player, BLUE + "I have lost the " + RED + "key " + BLUE + "that " + RED + "Readbeard Frank " + BLUE + "gave me. I should", 11+ 7);
-				line(player, BLUE + "see if he has another.", 12+ 7);
+			if(stage == 100) {
+				journal.addLine("The note reads 'Visit the city of the White Knights. In the",++line,true);
+				journal.addLine("park, Saradomin points to the X which marks the spot.",++line,true);
+				journal.addLine("!!QUEST COMPLETE??!",++line,false);
+				journal.addLine("I've found a treasure, gained 2 Quest Points and gained",++line,false);
+				journal.addLine("access to the Pay-fare option to travel to and from",++line,false);
+				journal.addLine("Karamja!",++line,false);
 			}
-			break;
-		case 100:
-			line(player, "<str>The note reads 'Visit the city of the White Knights. In the", 4+ 7);
-			line(player, "<str>park, Saradomin points to the X which marks the spot.'", 5+ 7);
-			line(player, "<col=FF0000>QUEST COMPLETE!", 7+ 7);
-			line(player, BLUE + "I've found a treasure, gained 2 Quest Points and gained", 9+ 7);
-			line(player, BLUE + "access to the Pay-fare option to travel to and from", 10+ 7);
-			line(player, BLUE + "Karamja!", 11+ 7);
-			break;
 		}
+	}
+
+	@Override
+	public void updateConditionals(Player player) {
+		hasNote = player.getInventory().containsItem(PIRATE_MESSAGE);
+		hasKey = player.getInventory().containsItem(KEY);
+		hasRum = player.getInventory().containsItem(KARAMJAN_RUM);
+		hasRead = player.getAttribute("pirate-read",false);
+		rumStashed = player.getAttribute("stashed-rum",false);
+		rumSmuggled = player.getAttribute("wydin-rum",false);
+		employed = player.getAttribute("ptreasure-employed",false);
+	}
+
+	@Override
+	public int getConfig(Player player) {
+		int stage = player.getNeoQuestRepository().getStage("Pirate's Treasure");
+		if(stage >= 100){
+			return configs;
+		}
+		if(stage > 0){
+			return 1;
+		}
+		return 0;
 	}
 
 	@Override
 	public void finish(Player player) {
 		super.finish(player);
-		player.getPacketDispatch().sendString("2 Quest Points", 277, 8 + 2);
-		player.getPacketDispatch().sendString("One-Eyes Hector's Treasure", 277, 9 + 2);
-		player.getPacketDispatch().sendString("Chest", 277, 10 + 2);
-		player.getPacketDispatch().sendString("You can also use the Pay-", 277, 11 + 2);
-		player.getPacketDispatch().sendString("fare option to go to and from", 277, 12 + 2);
-		player.getPacketDispatch().sendString("Karamja", 277, 13 + 2);
-		player.getPacketDispatch().sendString("You have completed the Pirate's Treasure Quest!", 277, 2 + 2);
-		player.getPacketDispatch().sendItemZoomOnInterface(7956, 230, 277, 3 + 2);
+		int line = 10;
+		rewards.addLine("2 Quest Points",line++);
+		rewards.addLine("One-Eyed Hector's Treasure",line++);
+		rewards.addLine("Chest",line++);
+		rewards.addLine("You can also use the Pay-",line++);
+		rewards.addLine("fare option to go to and from",line++);
+		rewards.addLine("Karamja",line++);
+		rewards.setInterfaceItem(7956);
+		rewards.addRewardItem(CASKET);
+		rewards.draw(player);
 		player.removeAttribute("gardener-attack");
 		player.removeAttribute("pirate-read");
-		if (!player.getInventory().add(CASKET)) {
-			GroundItemManager.create(CASKET, player);
-		}
+		player.removeAttribute("rum-stashed");
+		player.removeAttribute("ptreasure-employed");
 	}
-
 }

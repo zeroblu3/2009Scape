@@ -62,6 +62,7 @@ import org.crandor.game.node.entity.player.link.grave.GraveManager;
 import org.crandor.game.node.entity.player.link.music.MusicPlayer;
 import org.crandor.game.node.entity.player.link.prayer.Prayer;
 import org.crandor.game.node.entity.player.link.prayer.PrayerType;
+import org.crandor.game.node.entity.player.link.quest.NeoQuestRepository;
 import org.crandor.game.node.entity.player.link.quest.QuestRepository;
 import org.crandor.game.node.entity.player.link.request.RequestManager;
 import org.crandor.game.node.entity.player.link.skillertasks.SkillerTasks;
@@ -110,6 +111,8 @@ import plugin.interaction.item.brawling_gloves.BrawlingGlovesManager;
  * @author Vexia
  */
 public class Player extends Entity {
+
+	private final NeoQuestRepository neoQuestRepository = new NeoQuestRepository(this);
 
 	/**
 	 * The details of the player.
@@ -1364,4 +1367,6 @@ public class Player extends Entity {
 	}
 
 	public BrawlingGlovesManager getBrawlingGlovesManager() { return brawlingGlovesManager;}
+
+	public NeoQuestRepository getNeoQuestRepository() {return neoQuestRepository;}
 }

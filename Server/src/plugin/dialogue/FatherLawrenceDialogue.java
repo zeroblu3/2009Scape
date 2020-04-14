@@ -32,15 +32,14 @@ public final class FatherLawrenceDialogue extends DialoguePlugin {
 		super(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		final Quest quest = player.getQuestRepository().getQuest("Romeo & Juliet");
-		if (quest.getStage(player) < 30) {
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Oh to be a father in the times of whiskey.");
-			stage = 0;
-		}
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Romeo & Juliet");
+
+		switch (questStage) {
 		case 30:
 			interpreter.sendDialogues(npc, null, "\"...and let Saradomin light the way for you... \"", "Urgh!");
 			stage = 41;
@@ -62,7 +61,11 @@ public final class FatherLawrenceDialogue extends DialoguePlugin {
 			player("Hi again!");
 			stage = 0;
 			break;
-		}
+		default:
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Oh to be a father in the times of whiskey.");
+			stage = 0;
+			break;
+	}
 		return true;
 	}
 
@@ -138,7 +141,7 @@ public final class FatherLawrenceDialogue extends DialoguePlugin {
 			stage = 55;
 			break;
 		case 55:
-			quest.setStage(player, 40);
+			player.getNeoQuestRepository().setStage("Romeo & Juliet", 40);
 			end();
 			break;
 		case 30:

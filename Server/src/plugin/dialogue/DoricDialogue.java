@@ -53,16 +53,16 @@ public final class DoricDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		final Quest quest = player.getQuestRepository().getQuest("Doric's Quest");
-		if (!quest.isStarted(player)) {
+		boolean questStarted = player.getNeoQuestRepository().hasStarted("Doric's Quest");
+		if (!questStarted) {
 			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Hello traveller, what brings you to my humble smithy?");
 			stage = 0;
 		}
-		if (quest.isStarted(player)) {
+		if (questStarted) {
 			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Have you got my materials yet, traveller?");
 			stage = 100;
 		}
-		if (quest.isCompleted(player)) {
+		if (player.getNeoQuestRepository().hasFinished("Doric's Quest")) {
 			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Hello traveller, how is your metalworking coming along?");
 			stage = 500;
 		}
@@ -133,8 +133,7 @@ public final class DoricDialogue extends DialoguePlugin {
 			stage = 16;
 			break;
 		case 16:
-			player.getQuestRepository().getQuest("Doric's Quest").setStage(player, 1);
-			player.getQuestRepository().syncronizeTab(player);
+			player.getNeoQuestRepository().start("Doric's Quest");
 			if (!player.getInventory().add(PICKAXE)) {
 				GroundItemManager.create(PICKAXE, player.getLocation());
 			}
@@ -236,7 +235,7 @@ public final class DoricDialogue extends DialoguePlugin {
 		case 202:
 			if (player.getInventory().remove(REQUIREMENTS)) {
 				end();
-				player.getQuestRepository().getQuest("Doric's Quest").finish(player);
+				player.getNeoQuestRepository().finish("Doric's Quest");
 			}
 			break;
 		case 500:

@@ -36,6 +36,8 @@ public class SirAmikVarzeDialogue extends DialoguePlugin {
 		super(player);
 	}
 
+	private int questStage;
+
 	@Override
 	public DialoguePlugin newInstance(Player player) {
 		return new SirAmikVarzeDialogue(player);
@@ -44,8 +46,8 @@ public class SirAmikVarzeDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("Black Knights' Fortress");
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Black Knights' Fortress");
+		switch (questStage) {
 		case 30:
 			interpreter.sendDialogues(player, null, "I have ruined the Black Knights' invincibility potion.");
 			stage = 0;
@@ -69,7 +71,7 @@ public class SirAmikVarzeDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 100:
 			switch (stage) {
 			case 0:
@@ -123,8 +125,7 @@ public class SirAmikVarzeDialogue extends DialoguePlugin {
 				if (!player.getInventory().add(new Item(995, 2500))) {
 					GroundItemManager.create(new Item(995, 2500), player);
 				}
-				quest.finish(player);
-				player.getQuestRepository().syncronizeTab(player);
+				player.getNeoQuestRepository().finish("Black Knights' Fortress");
 				end();
 				break;
 			}
@@ -171,7 +172,7 @@ public class SirAmikVarzeDialogue extends DialoguePlugin {
 		case 0:
 			switch (stage) {
 			case 0:
-				if (player.getQuestRepository().getPoints() < 12) {
+				if (player.getNeoQuestRepository().getPoints() < 12) {
 					interpreter.sendDialogues(player, null, "I don't I'm just looking around.");
 					stage = 2;
 				} else {
@@ -333,7 +334,7 @@ public class SirAmikVarzeDialogue extends DialoguePlugin {
 				break;
 			case 32:
 				if (player.getInventory().add(BlackKnightsFortress.DOSSIER)) {
-					quest.start(player);
+					player.getNeoQuestRepository().start("Black Knights' Fortress");
 				} else {
 					player.getPacketDispatch().sendMessage("You don't have enough inventory space.");
 				}

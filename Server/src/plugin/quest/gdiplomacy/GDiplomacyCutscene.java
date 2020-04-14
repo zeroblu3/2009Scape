@@ -29,6 +29,10 @@ import org.crandor.tools.StringUtils;
  * @author 'Vexia
  * @version 1.0
  */
+
+/**
+ * TODO: COMPLETELY REWRITE THIS DUMPSTER FIRE
+ */
 public final class GDiplomacyCutscene extends CutscenePlugin {
 
 	/**
@@ -48,8 +52,8 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 
 	@Override
 	public boolean start(final Player player, final boolean login, Object... args) {
-		Quest quest = player.getQuestRepository().getQuest(GoblinDiplomacy.NAME);
-		final NPC grubfoot = NPC.create(quest.getStage(player) == 10 ? 4495 : quest.getStage(player) == 20 ? 4497 : quest.getStage(player) == 30 ? 4498 : 4496, getBase().transform(10, 55, 0));
+		int questStage = player.getNeoQuestRepository().getStage("Goblin Diplomacy");
+		final NPC grubfoot = NPC.create(questStage == 10 ? 4495 : questStage == 20 ? 4497 : questStage == 30 ? 4498 : 4496, getBase().transform(10, 55, 0));
 		grubfoot.setWalks(false);
 		npcs.add(grubfoot);
 		npcs.add(NPC.create(4494, getBase().transform(14, 55, 0)));
@@ -165,14 +169,16 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 			return new GoblinGeneralDialogue(player);
 		}
 
+		private int questStage;
+
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
 			type = GrubFoot.forConfig(player);
 			dialIndex = RandomFunction.random(DIALOGUES.length);
 			other = Repository.findNPC(npc.getId() == 4494 ? 4493 : 4494);
-			quest = player.getQuestRepository().getQuest(GoblinDiplomacy.NAME);
-			switch (quest.getStage(player)) {
+			questStage = player.getNeoQuestRepository().getStage("Goblin Diplomacy");
+			switch (questStage) {
 			case 100:
 				npc("Now you've solved out argument we gotta think of", "something else to do.");
 				stage = 0;
@@ -192,7 +198,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
-			switch (quest.getStage(player)) {
+			switch (questStage) {
 			case 0:
 				handleStart(buttonId);
 				break;
@@ -229,7 +235,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 		 */
 		public void parseDialogue(String[] dialogue) {
 			if (index == DIALOGUES.length - 1) {
-				if (quest.getStage(player) == 0) {
+				if (questStage == 0) {
 					interpreter.sendOptions("Select an Option", "Why are you arguing about the colour of your armour?", "Wouldn't you prefer peace?", "Do you want me to pick an armour colour for you?");
 					stage = 1;
 				} else {
@@ -542,9 +548,12 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 				stage = 38;
 				break;
 			case 38:
-				quest.start(player);
+				player.getNeoQuestRepository().start("Goblin Diplomacy");
 				interpreter.sendDialogues(other, null, "Yes bring us orange armour.");
 				stage = 39;
+				break;
+			case 39:
+				end();
 				break;
 			default:
 				defaultOptions(buttonId);
@@ -558,14 +567,14 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 		private void handleFinishDialogues() {
 			if (stage == 120) {
 				if (player.getInventory().remove(type.getMail())) {
-					quest.setStage(player, quest.getStage(player) + 10);
+					player.getNeoQuestRepository().setStage("Goblin Diplomacy", player.getNeoQuestRepository().getStage("Goblin Diplomacy") + 10);
 				}
 				end();
 				cutscene.unpause();
 				type.setConfig(player);
 				return;
 			}
-			switch (quest.getStage(player)) {
+			switch (questStage) {
 			case 10:
 				switch (stage) {
 				case 100:
@@ -645,7 +654,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 					end();
 					cutscene.unpause();
 					if (player.getInventory().remove(GrubFoot.BROWN.getMail())) {
-						quest.finish(player);
+						player.getNeoQuestRepository().finish("Goblin Diplomacy");
 						GrubFoot.BROWN.setConfig(player);
 					}
 					break;

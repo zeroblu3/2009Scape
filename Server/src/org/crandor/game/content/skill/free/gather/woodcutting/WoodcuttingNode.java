@@ -11,151 +11,95 @@ import java.util.HashMap;
  */
 public enum WoodcuttingNode {
     //standard trees
-    STANDARD_TREE_1( 1276, 1342,  (byte) 1),
-    STANDARD_TREE_2( 1277, 1343,  (byte) 1),
-    STANDARD_TREE_3( 1278, 1342,  (byte) 1),
-    STANDARD_TREE_4( 1279, 1345,  (byte) 1),
-    STANDARD_TREE_5( 1280, 1343,  (byte) 1),
-    STANDARD_TREE_6( 1330, 1341,  (byte) 1),
-    STANDARD_TREE_7( 1331, 1341,  (byte) 1),
-    STANDARD_TREE_8( 1332, 1341,  (byte) 1),
-    STANDARD_TREE_9( 2409, 1342,  (byte) 1),
-    STANDARD_TREE_10(3033, 1345,  (byte) 1),
-    STANDARD_TREE_11(3034, 1345,  (byte) 1),
-    STANDARD_TREE_12(3035, 1347,  (byte) 1),
-    STANDARD_TREE_13(3036, 1351,  (byte) 1),
-    STANDARD_TREE_14(3879, 3880,  (byte) 1),
-    STANDARD_TREE_15(3881, 3880,  (byte) 1),
-    STANDARD_TREE_16(3882, 3880,  (byte) 1),
-    STANDARD_TREE_17(3883, 3884,  (byte) 1),
-    STANDARD_TREE_18(10041,1342,  (byte) 1),
-    STANDARD_TREE_19(14308,1342,  (byte) 1),
-    STANDARD_TREE_20(14309,1342,  (byte) 1),
-    STANDARD_TREE_21(16264,1342,  (byte) 1),
-    STANDARD_TREE_22(16265,1342,  (byte) 1),
-    STANDARD_TREE_23(30132,1342,  (byte) 1),
-    STANDARD_TREE_24(30133,1342,  (byte) 1),
-    STANDARD_TREE_25(37477,1342,  (byte) 1),
-    STANDARD_TREE_26(37478,37653, (byte) 1),
-    STANDARD_TREE_27(37652,37653, (byte) 1),
-    
-    //Dead trees
-    DEAD_TREE_1( 1282, 1347,  (byte) 2),
-    DEAD_TREE_2( 1283, 1347,  (byte) 2),
-    DEAD_TREE_3( 1284, 1348,  (byte) 2),
-    DEAD_TREE_4( 1285, 1349,  (byte) 2),
-    DEAD_TREE_5( 1286, 1351,  (byte) 2),
-    DEAD_TREE_6( 1289, 1353,  (byte) 2),
-    DEAD_TREE_7( 1290, 1354,  (byte) 2),
-    DEAD_TREE_8( 1291, 23054, (byte) 2),
-    DEAD_TREE_9( 1365, 1352,  (byte) 2),
-    DEAD_TREE_10(1383, 1358,  (byte) 2),
-    DEAD_TREE_11(1384, 1359,  (byte) 2),
-    DEAD_TREE_12(5902, 1347,  (byte) 2),
-    DEAD_TREE_13(5903, 1353,  (byte) 2),
-    DEAD_TREE_14(5904, 1353,  (byte) 2),
-    DEAD_TREE_15(32294,1353,  (byte) 2),
-    DEAD_TREE_16(37481,1347,  (byte) 2),
-    DEAD_TREE_17(37482,1351,  (byte) 2),
-    DEAD_TREE_18(37483,1358,  (byte) 2),
-    DEAD_TREE_19(24168,24169, (byte) 2),
-    
-    //Evergreen
-    EVERGREEN_1(1315,1342,(byte) 3),
-    EVERGREEN_2(1316,1355,(byte) 3),
-    EVERGREEN_3(1318,1355,(byte) 3),
-    EVERGREEN_4(1319,1355,(byte) 3),
+    STANDARD(new int[]{1276,1277,1278,1279,1280,1330,1331,1332,2409,3033,3034,3035,3036,3879,3881,3882,3883,10041,14308,14309,16264,16265,30132,30133,37477,37478,37652},
+             new int[]{1342,1343,1342,1345,1343,1341,1341,1341,1342,1345,1345,1347,1351,3880,3880,3880,3884,1342,1342,1342,1342,1342,1342,1342,1342,37653,37653}),
 
-    //Jungle stuff
-    JUNGLE_TREE_1(2887,0, (byte) 4),
-    JUNGLE_TREE_2(2889,0, (byte) 4),
-    JUNGLE_TREE_3(2890,0, (byte) 4),
-    JUNGLE_TREE_4(4818,0, (byte) 4),
-    JUNGLE_TREE_5(4820,0, (byte) 4),
+    DEAD    (new int[]{1282,1283,1284,1285,1286,1289,1290,1291,1365,1383,1384,5902,5903,5904,32294,37841,37842,37843,24168},
+             new int[]{1347,1347,1348,1349,1351,1353,1354,23054,1352,1358,1359,1347,1353,1353,1353,1347,1351,1358,24169}),
 
-    JUNGLE_BUSH_1(2892,2894, (byte) 5),
-    JUNGLE_BUSH_2(2893,2895, (byte) 5),
+    EVERGREEN(new int[]{1315,1316,1318,1319},
+              new int[]{1342,1355,1355,1355}),
 
-    //Achey
-    ACHEY_TREE(2023,3371, (byte) 6),
+    JUNGLE_TREE(new int[]{2887,2889,2890,4818,4820},
+                new int[]{0,0,0,0,0}),
 
-    //Oak
-    OAK_TREE_1(1281, 1356, (byte) 7),
-    OAK_TREE_2(3037, 1357, (byte) 7),
-    OAK_TREE_3(37479,1356, (byte) 7),
-    OAK_TREE_4(8467, 1356, (byte) 19, true),
+    JUNGLE_BUSH(new int[]{2892,2893},
+                new int[]{2894,2895}),
 
-    //Willow
-    WILLOW_TREE_1(1308, 7399, (byte) 8),
-    WILLOW_TREE_2(5551, 5554, (byte) 8),
-    WILLOW_TREE_3(5552, 5554, (byte) 8),
-    WILLOW_TREE_4(5553, 5554, (byte) 8),
-    WILLOW_TREE_5(37480,7399, (byte) 8),
-    WILLOW_TREE_6(8488,7399, (byte) 20, true),
+    ACHEY(new int[]{2023},
+          new int[]{3371}),
 
-    //Teak
-    TEAK_1(9036, 9037, (byte) 9),
-    TEAK_2(15062,9037, (byte) 9),
+    OAK(new int[]{1281,3037,37479},
+        new int[]{1356,1357,1356}),
 
-    //Maple
-    MAPLE_TREE_1(1307,7400, (byte) 10),
-    MAPLE_TREE_2(4674,7400, (byte) 10),
-    MAPLE_TREE_3(8444,7400, (byte) 21, true),
+    OAK_FARMING(new int[]{8467},
+                new int[]{1356}),
 
-    //Hollow
-    HOLLOW_TREE_1(2289,2310, (byte) 11),
-    HOLLOW_TREE_2(4060,4061, (byte) 11),
+    WILLOW(new int[]{1308,5551,5552,5553,37480},
+           new int[]{7399,5554,5554,5554,7399}),
 
-    //Mahogany
-    MAHOGANY(9034,9035, (byte) 12),
+    WILLOW_FARMING(new int[]{8488},
+                   new int[]{7399}),
+
+
+    TEAK(new int[]{9036,15062},
+         new int[]{9037,9037}),
+
+    MAPLE(new int[]{1307,4674},
+          new int[]{7400,7400}),
+
+    MAPLE_FARMING(new int[]{8444}, new int[]{7400}),
+
+    HOLLOW(new int[]{2289,4060},
+           new int[]{2310,4061}),
+
+    MAHOGANY(new int[]{9034}, new int[]{9035}),
+
 
     //Arctic pine
-    ARCTIC_PINE(21273,21274, (byte) 13),
+    ARCTIC_PINE(new int[]{21273},new int[]{21274}),
 
-    //Eucalyptus
-    EUCALYPTUS_1(28951,28954, (byte) 14),
-    EUCALYPTUS_2(28952,28955, (byte) 14),
-    EUCALYPTUS_3(28953,28956, (byte) 14),
+    EUCALYPTUS(new int[]{28951,28952,28953},
+               new int[]{28954,28955,28956}),
 
-    //Yew
-    YEW(1309,7402, (byte) 15),
-    YEW_1(8513,7402,(byte) 22, true),
+    YEW(new int[]{1309,8513},
+        new int[]{7402,7402}),
 
-    //Magic
-    MAGIC_TREE_1(1306,  7401, (byte) 16),
-    MAGIC_TREE_2(37823,37824, (byte) 16),
-    MAGIC_TREE_3(8409, 37824, (byte) 23, true),
+    YEW_FARMING(new int[]{8513},new int[]{7402}),
 
-    //Cursed Magic
-    CURSED_MAGIC_TREE(37821,37822, (byte) 17),
+    MAGIC(new int[]{1306,37823,8409},
+          new int[]{7401,37824,37824}),
 
-    //Dramen
-    DRAMEN_TREE(1292, -1, (byte) 18);
+    MAGIC_FARMING(new int[]{8409},new int[]{37824}),
+
+    CURSED_MAGIC_TREE(new int[]{37821},new int[]{37822}),
+
+    DRAMEN_TREE(new int[]{1292}, new int[]{-1});
 
 
 
-    int full,empty,reward,respawnRate,level, rewardAmount;
+    int reward,respawnRate,level,rewardAmount;
+    int[] full;
+    int[] empty;
     double experience,rate;
-    byte identifier;
     boolean farming;
-    WoodcuttingNode(int full, int empty,byte identifier){
+    WoodcuttingNode(int[] full, int[] empty){
         this.full = full;
         this.empty = empty;
-        this.identifier = identifier;
-        this.farming = false;
         this.rewardAmount = 1;
-        switch(identifier & 0xFF){
+        this.farming = false;
+        switch(ordinal()){
+            case 0:
             case 1:
             case 2:
             case 3:
-            case 4:
                 reward = 1511;
                 respawnRate = 50 | 100 << 16;
                 rate = 0.05;
                 experience = 25.0;
                 level = 1;
                 break;
-            case 5:
+            case 4:
                 reward = 1511;
                 respawnRate = 50 | 100 << 16;
                 rate = 0.15;
@@ -163,12 +107,20 @@ public enum WoodcuttingNode {
                 level = 1;
                 this.rewardAmount = 2;
                 break;
-            case 6:
+            case 5:
                 reward = 2862;
                 respawnRate = 50 | 100 << 16;
                 rate = 0.05;
                 experience = 25.0;
                 level = 1;
+                break;
+            case 6:
+                reward = 1521;
+                respawnRate = 14 | 22 << 16;
+                rate = 0.15;
+                experience = 37.5;
+                level = 15;
+                rewardAmount = 10;
                 break;
             case 7:
                 reward = 1521;
@@ -177,6 +129,7 @@ public enum WoodcuttingNode {
                 experience = 37.5;
                 level = 15;
                 rewardAmount = 10;
+                farming = true;
                 break;
             case 8:
                 reward = 1519;
@@ -187,6 +140,15 @@ public enum WoodcuttingNode {
                 rewardAmount = 20;
                 break;
             case 9:
+                reward = 1519;
+                respawnRate = 14 | 22 << 16;
+                rate = 0.3;
+                experience = 67.8;
+                level = 30;
+                rewardAmount = 20;
+                farming = true;
+                break;
+            case 10:
                 reward = 6333;
                 respawnRate = 35 | 60 << 16;
                 rate = 0.7;
@@ -194,7 +156,7 @@ public enum WoodcuttingNode {
                 level = 35;
                 rewardAmount = 25;
                 break;
-            case 10:
+            case 11:
                 reward = 1517;
                 respawnRate = 58 | 100 << 16;
                 rate = 0.65;
@@ -202,7 +164,16 @@ public enum WoodcuttingNode {
                 level = 45;
                 rewardAmount = 30;
                 break;
-            case 11:
+            case 12:
+                reward = 1517;
+                respawnRate = 58 | 100 << 16;
+                rate = 0.65;
+                experience = 100.0;
+                level = 45;
+                rewardAmount = 30;
+                farming = true;
+                break;
+            case 13:
                 reward = 3239;
                 respawnRate = 58 | 100 << 16;
                 rate = 0.6;
@@ -210,7 +181,7 @@ public enum WoodcuttingNode {
                 level = 45;
                 rewardAmount = 30;
                 break;
-            case 12:
+            case 14:
                 reward = 6332;
                 respawnRate = 62 | 115 << 16;
                 rate = 0.7;
@@ -218,7 +189,7 @@ public enum WoodcuttingNode {
                 level = 50;
                 rewardAmount = 35;
                 break;
-            case 13:
+            case 15:
                 reward = 10810;
                 respawnRate = 75 | 130 << 16;
                 rate = 0.73;
@@ -226,7 +197,7 @@ public enum WoodcuttingNode {
                 level = 54;
                 rewardAmount = 35;
                 break;
-            case 14:
+            case 16:
                 reward = 12581;
                 respawnRate = 80 | 140 << 16;
                 rate = 0.77;
@@ -234,7 +205,7 @@ public enum WoodcuttingNode {
                 level = 58;
                 rewardAmount = 35;
                 break;
-            case 15:
+            case 17:
                 reward = 1515;
                 respawnRate = 100 | 162 << 16;
                 rate = 0.8;
@@ -242,7 +213,16 @@ public enum WoodcuttingNode {
                 level = 60;
                 rewardAmount = 40;
                 break;
-            case 16:
+            case 18:
+                reward = 1515;
+                respawnRate = 100 | 162 << 16;
+                rate = 0.8;
+                experience = 175.0;
+                level = 60;
+                rewardAmount = 40;
+                farming = true;
+                break;
+            case 19:
                 reward = 1513;
                 respawnRate = 200 | 317 << 16;
                 rate = 0.9;
@@ -250,7 +230,16 @@ public enum WoodcuttingNode {
                 level = 75;
                 rewardAmount = 50;
                 break;
-            case 17:
+            case 20:
+                reward = 1513;
+                respawnRate = 200 | 317 << 16;
+                rate = 0.9;
+                experience = 250.0;
+                level = 75;
+                rewardAmount = 50;
+                farming = true;
+                break;
+            case 21:
                 reward = 1513;
                 respawnRate = 200 | 317 << 16;
                 rate = 0.95;
@@ -258,7 +247,7 @@ public enum WoodcuttingNode {
                 level = 82;
                 rewardAmount = 50;
                 break;
-            case 18:
+            case 22:
                 reward = 771;
                 respawnRate = -1;
                 rate = 0.05;
@@ -267,61 +256,25 @@ public enum WoodcuttingNode {
                 rewardAmount = Integer.MAX_VALUE;
                 break;
         }
-    }
-    WoodcuttingNode(int full, int empty, byte identifier, boolean farming){
-        this.full = full;
-        this.empty = empty;
-        this.identifier = identifier;
-        this.farming = farming;
-        switch(identifier & 0xFF){
-            case 19:
-                reward = 1521;
-                respawnRate = 14 | 22 << 16;
-                rate = 0.15;
-                experience = 37.5;
-                level = 15;
-                rewardAmount = 10;
-                break;
-            case 20:
-                reward = 1519;
-                respawnRate = 14 | 22 << 16;
-                rate = 0.3;
-                experience = 67.8;
-                level = 30;
-                rewardAmount = 20;
-                break;
-            case 21:
-                reward = 1517;
-                respawnRate = 58 | 100 << 16;
-                rate = 0.65;
-                experience = 100.0;
-                level = 45;
-                rewardAmount = 30;
-                break;
-            case 22:
-                reward = 1515;
-                respawnRate = 100 | 162 << 16;
-                rate = 0.8;
-                experience = 175.0;
-                level = 60;
-                rewardAmount = 40;
-                break;
-            case 23:
-                reward = 1513;
-                respawnRate = 200 | 317 << 16;
-                rate = 0.9;
-                experience = 250.0;
-                level = 75;
-                rewardAmount = 50;
-                break;
-        }
+
     }
     private static HashMap<Integer, WoodcuttingNode> NODE_MAP = new HashMap<>();
     private static HashMap<Integer, Integer> EMPTY_MAP = new HashMap<>();
     static{
-        for(WoodcuttingNode node : WoodcuttingNode.values()){
-            NODE_MAP.putIfAbsent(node.full,node);
-            EMPTY_MAP.putIfAbsent(node.empty,node.full);
+        WoodcuttingNode[] nodeArray = values();
+        int length = nodeArray.length;
+        for(int i = 0; i < length; i++){
+            WoodcuttingNode node = nodeArray[i];
+            int childLength = node.full.length;
+            for(int j = 0; j < childLength; j++) {
+                try {
+                    NODE_MAP.putIfAbsent(node.full[j], node);
+                    EMPTY_MAP.putIfAbsent(node.empty[j], node.full[j]);
+                } catch(Exception e){
+                    System.out.println("Error at ordinal " + node.ordinal());
+                    System.out.println("Empty length: " + node.empty.length + " Full length: " + node.full.length);
+                }
+            }
         }
     }
 
@@ -337,8 +290,8 @@ public enum WoodcuttingNode {
         return rewardAmount;
     }
 
-    public int getEmptyId() {
-        return empty;
+    public int getEmptyId(int i){
+        return EMPTY_MAP.get(i);
     }
 
     public int getReward() {
@@ -359,10 +312,6 @@ public enum WoodcuttingNode {
 
     public int getLevel() {
         return level;
-    }
-
-    public int getId() {
-        return full;
     }
 
     public int getMinimumRespawn() {

@@ -8,7 +8,10 @@ import org.crandor.game.node.item.Item;
  * @author Vexia
  */
 public enum GrubFoot {
-	NORMAL(4495, 1, new Item(288)), ORANGE(4497, 4, new Item(286)), BLUE(4498, 5, new Item(287)), BROWN(4496, 6, new Item(288));
+	NORMAL(4495, 1, new Item(288)),
+	ORANGE(4497, 4, new Item(286)),
+	BLUE(4498, 5, new Item(287)),
+	BROWN(4496, 6, new Item(288));
 
 	/**
 	 * The id.
@@ -43,7 +46,18 @@ public enum GrubFoot {
 	 * @return the grub foot.
 	 */
 	public static GrubFoot forConfig(final Player player) {
-		int config = player.getConfigManager().get(62);
+		int stage = player.getNeoQuestRepository().getStage("Goblin Diplomacy");
+		switch(stage){
+			case 10:
+				return ORANGE;
+			case 20:
+				return BLUE;
+			case 30:
+				return BROWN;
+			default:
+				return NORMAL;
+		}
+		/*int config = player.getConfigManager().get(62); //Why were you using configs for this, Vexia???? WTH
 		for (GrubFoot foot : values()) {
 			if (foot.getValue() == config) {
 				if (foot.ordinal() + 1 >= values().length) {
@@ -52,7 +66,7 @@ public enum GrubFoot {
 				return values()[foot.ordinal() + 1];
 			}
 		}
-		return NORMAL;
+		return NORMAL;*/
 	}
 
 	/**

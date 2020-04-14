@@ -10,11 +10,10 @@ import org.crandor.plugin.Plugin;
 
 /**
  * Represents the karamaja banna crate.
- * @author 'Vexia
- * @date 29/11/2013
+ * @author Ceikry
  */
 @InitializablePlugin
-public final class KaramajaBananaCrate extends UseWithHandler {
+public final class KaramjaBananaCrate extends UseWithHandler {
 
 	/**
 	 * Represents the banana item.
@@ -34,7 +33,7 @@ public final class KaramajaBananaCrate extends UseWithHandler {
 	/**
 	 * Constructs a new {@code KaramajaBananaCrate} {@code Object}.
 	 */
-	public KaramajaBananaCrate() {
+	public KaramjaBananaCrate() {
 		super(1963, 431);
 	}
 
@@ -47,7 +46,7 @@ public final class KaramajaBananaCrate extends UseWithHandler {
 	@Override
 	public boolean handle(NodeUsageEvent event) {
 		final Player player = event.getPlayer();
-		if (player.getSavedData().getGlobalData().isLuthasTask() && event.getUsedItem().getId() == 431) {
+		if (player.getAttribute("ptreasure-employed",false) && event.getUsedItem().getId() == 431) {
 			if (player.getAttribute("stashed-rum", false)) {
 				player.getPacketDispatch().sendMessage("There's already some rum in here...");
 				return true;

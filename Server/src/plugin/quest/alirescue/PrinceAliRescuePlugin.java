@@ -35,14 +35,14 @@ public class PrinceAliRescuePlugin extends OptionHandler {
 
 	@Override
 	public boolean handle(Player player, Node node, String option) {
-		final Quest quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
+		int questStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
 		final int id = node instanceof GameObject ? ((GameObject) node).getId() : node instanceof NPC ? ((NPC) node).getId() : 0;
 		switch (id) {
 		case 925:
 			player.getDialogueInterpreter().open(925, node);
 			break;
 		case 2881:
-			switch (quest.getStage(player)) {
+			switch (questStage) {
 			case 60:
 				DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
 				break;

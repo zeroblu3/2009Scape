@@ -39,11 +39,13 @@ public final class GrubfootDialogue extends DialoguePlugin {
 		return new GrubfootDialogue(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest(GoblinDiplomacy.NAME);
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Goblin Diplomacy");
+		switch (questStage) {
 		case 100:
 			npc("Me lonely.");
 			stage = 0;
@@ -66,7 +68,7 @@ public final class GrubfootDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 100:
 			switch (stage) {
 			case 0:
