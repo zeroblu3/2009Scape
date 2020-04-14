@@ -68,20 +68,20 @@ public final class BankingPlugin extends OptionHandler {
 		if (object.getName().contains("Bank") || object.getName().contains("Deposit")) {
 			switch (option) {
 			case "use":
-				final Location l = object.getLocation();
-				final Location p = player.getLocation();
-				final NPC npc = Repository.findNPC(l.transform(l.getX() - p.getX(), l.getY() - p.getY(), 0));
-				if (node.getId() == 4483) {
-					player.getBank().open();
-					return true;
-				}
-				if (npc != null && DialogueInterpreter.contains(npc.getId())) {
-					npc.faceLocation(node.getLocation());
-					player.getDialogueInterpreter().open(npc.getId(), npc.getId());
-				} else {
-					player.getDialogueInterpreter().open(494);
-				}
-				return true;
+//				final Location l = object.getLocation();
+//				final Location p = player.getLocation();
+//				final NPC npc = Repository.findNPC(l.transform(l.getX() - p.getX(), l.getY() - p.getY(), 0));
+//				if (node.getId() == 4483) {
+//					player.getBank().open();
+//					return true;
+//				}
+//				if (npc != null && DialogueInterpreter.contains(npc.getId())) {
+//					npc.faceLocation(node.getLocation());
+//					player.getDialogueInterpreter().open(npc.getId(), npc.getId());
+//				} else {
+//					player.getDialogueInterpreter().open(494);
+//				}
+//				return true;
 			case "use-quickly":
 			case "bank":
 				player.getBankPinManager().openType(1);
