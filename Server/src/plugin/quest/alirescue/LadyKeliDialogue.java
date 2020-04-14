@@ -50,6 +50,8 @@ public final class LadyKeliDialogue extends DialoguePlugin {
 		super(player);
 	}
 
+	int questStage;
+
 	@Override
 	public DialoguePlugin newInstance(Player player) {
 		return new LadyKeliDialogue(player);
@@ -58,18 +60,12 @@ public final class LadyKeliDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
+		switch (questStage) {
 		case 60:
 		case 100:
 			npc.sendChat("You tricked me, and tied me up, Guards kill this stranger!");
-			List<NPC> npcc = RegionManager.getLocalNpcs(player);
-			for (NPC n : npcc) {
-				if (n.getId() == 917) {
-					n.sendChat("Yes M'lady");
-					n.getProperties().getCombatPulse().attack(player);
-				}
-			}
+			RegionManager.getLocalNpcs(player).stream().filter(n -> n.getId() == 917).forEach(n -> {n.sendChat("Yes M'lady");  n.getProperties().getCombatPulse().attack(player);});
 			end();
 			break;
 		default:
@@ -82,7 +78,7 @@ public final class LadyKeliDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		default:
 			switch (stage) {
 			case 0:

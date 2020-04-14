@@ -41,7 +41,7 @@ public final class JulietNPC extends AbstractNPC {
 
 	@Override
 	public boolean isHidden(final Player player) {
-		return player.getQuestRepository().getQuest("Romeo & Juliet").getStage(player) > 60 && player.getQuestRepository().getQuest("Romeo & Juliet").getStage(player) < 100;
+		return player.getNeoQuestRepository().getStage("Romeo & Juliet") > 60 && player.getNeoQuestRepository().getStage("Romeo & Juliet") < 100;
 	}
 
 	@Override

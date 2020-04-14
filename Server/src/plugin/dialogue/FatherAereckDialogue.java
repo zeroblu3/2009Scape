@@ -38,44 +38,41 @@ public final class FatherAereckDialogue extends DialoguePlugin {
 		return new FatherAereckDialogue(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
+		questStage = player.getNeoQuestRepository().getStage("The Restless Ghost");
 		npc = (NPC) args[0];
-		if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 10) {
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Have you got rid of the ghost yet?");
-			stage = 520;
-			return true;
+		switch (questStage) {
+			case 10:
+				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Have you got rid of the ghost yet?");
+				stage = 520;
+				return true;
+			case 20:
+				interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I had a talk with Father Urhney. he has given me this", "funny amulet to talk to the ghost with.");
+				stage = 530;
+				return true;
+			case 30:
+				interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I've found out that the ghost's corpse has lost its skull.", "If I can find the skull, the ghost should leave.");
+				stage = 540;
+				return true;
+			case 40:
+				interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I've finally found the ghost's skull!");
+				stage = 550;
+				return true;
+			default:
+				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Welcome to the church of holy Saradomin, my", "friend! What can I do for you today?");
+				stage = 0;
+				return true;
 		}
-		if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 20) {
-			interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I had a talk with Father Urhney. he has given me this", "funny amulet to talk to the ghost with.");
-			stage = 530;
-			return true;
-		}
-		if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 30) {
-			interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I've found out that the ghost's corpse has lost its skull.", "If I can find the skull, the ghost should leave.");
-			stage = 540;
-			return true;
-		}
-		if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 40) {
-			interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I've finally found the ghost's skull!");
-			stage = 550;
-			return true;
-		}
-		if (player.getQuestRepository().isComplete("The Restless Ghost")) {
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Welcome to the church of holy Saradomin, my", "friend! What can I do for you today?");
-			stage = 0;
-			return true;
-		}
-		interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Welcome to the church of holy Saradomin, my", "friend! What can I do for you today?");
-		stage = 0;
-		return true;
 	}
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			if (player.getQuestRepository().isComplete("The Restless Ghost")) {
+			if (player.getNeoQuestRepository().hasFinished("The Restless Ghost")) {
 				interpreter.sendOptions("What would you like to say?", "Can you change my gravestone now?", "Who's Saradomin?", "Nice place you've got here.");
 				stage = 1;
 			} else {
@@ -131,8 +128,7 @@ public final class FatherAereckDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 510:
-			player.getQuestRepository().getQuest("The Restless Ghost").start(player);
-			player.getQuestRepository().syncronizeTab(player);
+			player.getNeoQuestRepository().start("The Restless Ghost");
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Thank you. The problem is, there is a ghost in the", "church graveyard. I would like you to get rid of it.");
 			stage = 511;
 			break;

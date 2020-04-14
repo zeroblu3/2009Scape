@@ -93,7 +93,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 
 	@Override
 	public void fade() {
-		player.getQuestRepository().getQuest("Romeo & Juliet").finish(player);
+		player.getNeoQuestRepository().finish("Romeo & Juliet");
 	}
 
 	@Override
@@ -169,7 +169,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
-			Quest quest = player.getQuestRepository().getQuest("Romeo & Juliet");
+			questStage = player.getNeoQuestRepository().getStage("Romeo & Juliet");
 			switch (stage) {
 			case 0:
 				interpreter.sendOptions("Select an Option", "No sorry. I haven't seen her.", "Perhaps I could help to find her for you?");
@@ -243,8 +243,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 				}
 				break;
 			case 100:
-				quest.setStage(player, 10);
-				player.getQuestRepository().syncronizeTab(player);
+				player.getNeoQuestRepository().start("Romeo & Juliet");
 				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Oh great! And tell her that I want to kiss her a give.");
 				stage = 101;
 				break;
@@ -429,8 +428,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 				stage = 422;
 				break;
 			case 422:
-				quest.setStage(player, 30);
-				player.getQuestRepository().syncronizeTab(player);
+				player.getNeoQuestRepository().setStage("Romeo & Juliet", 30);
 				player.getInventory().remove(new Item(755));
 				interpreter.sendDialogues(player, null, "FATHER LAWRENCE!");
 				stage = 423;
@@ -757,7 +755,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 			case 751:
 				end();
 				cutscene.stop(true);
-				quest.finish(player);
+				player.getNeoQuestRepository().finish("Romeo & Juliet");
 				break;
 			}
 			return true;
@@ -768,10 +766,11 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 
 			return new RomeoDialogue(player);
 		}
+		int questStage;
 
 		@Override
 		public boolean open(Object... args) {
-			Quest quest = player.getQuestRepository().getQuest("Romeo & Juliet");
+			questStage = player.getNeoQuestRepository().getStage("Romeo & Juliet");
 			npc = (NPC) args[0];
 			if (args.length > 1) {
 				cutscene = (RJCutscenePlugin) args[1];
@@ -779,7 +778,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 				stage = 740;
 				return true;
 			}
-			switch (quest.getStage(player)) {
+			switch (questStage) {
 			case 0:
 				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Juliet. Juliet, where art thou Juliet?", "Have you seen my Juliet?");
 				stage = 0;

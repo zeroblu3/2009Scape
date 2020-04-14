@@ -65,9 +65,11 @@ public final class JulietDialogue extends DialoguePlugin {
 		return new JulietDialogue(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
-		quest = player.getQuestRepository().getQuest("Romeo & Juliet");
+		questStage = player.getNeoQuestRepository().getStage("Romeo & Juliet");
 		npc = (NPC) args[0];
 		if (args.length > 1) {
 			cutscene = (JulietCutscenePlugin) args[1];
@@ -75,7 +77,7 @@ public final class JulietDialogue extends DialoguePlugin {
 			stage = 2000;
 			return true;
 		}
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 0:
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Romeo, Romeo, wherefore art thou Romeo? Bold", "adventurer, have you seen Romeo on your travels?", "Skinny guy, a bit wishy washy, head full of poetry.");
 			stage = 0;
@@ -123,7 +125,6 @@ public final class JulietDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		final Quest quest = player.getQuestRepository().getQuest("Romeo & Juliet");
 		final NPC phil = cutscene != null ? cutscene.getPhillipia() : (NPC) Repository.findNPC(3325);
 		final NPC dad = cutscene != null ? cutscene.getNPCS().get(2) : (NPC) Repository.findNPC(3324);
 		switch (stage) {
@@ -219,7 +220,7 @@ public final class JulietDialogue extends DialoguePlugin {
 			break;
 		case 2014:
 			if (player.getInventory().remove(POTION)) {
-				quest.setStage(player, 70);
+				player.getNeoQuestRepository().setStage("Romeo & Juliet", 70);
 				cutscene.stop(true);
 				end();
 			}
@@ -275,8 +276,7 @@ public final class JulietDialogue extends DialoguePlugin {
 			if (!player.getInventory().add(new Item(755))) {
 				GroundItemManager.create(new GroundItem(new Item(755), npc.getLocation(), player));
 			}
-			quest.setStage(player, 20);
-			player.getQuestRepository().syncronizeTab(player);
+			player.getNeoQuestRepository().setStage("Romeo & Juliet", 20);
 			interpreter.sendItemMessage(755, "Juliet gives you a message.");
 			stage = 34;
 			break;
@@ -315,8 +315,7 @@ public final class JulietDialogue extends DialoguePlugin {
 			if (!player.getInventory().add(new Item(755))) {
 				GroundItemManager.create(new GroundItem(new Item(755), npc.getLocation(), player));
 			}
-			quest.setStage(player, 20);
-			player.getQuestRepository().syncronizeTab(player);
+			player.getNeoQuestRepository().setStage("Romeo & Juliet", 20);
 			interpreter.sendItemMessage(755, "Juliet gives you another message.");
 			stage = 108;
 			break;
@@ -382,8 +381,7 @@ public final class JulietDialogue extends DialoguePlugin {
 			if (!player.getInventory().add(new Item(755))) {
 				GroundItemManager.create(new GroundItem(new Item(755), npc.getLocation(), player));
 			}
-			quest.setStage(player, 20);
-			player.getQuestRepository().syncronizeTab(player);
+			player.getNeoQuestRepository().setStage("Romeo & Juliet", 20);
 			interpreter.sendItemMessage(755, "Juliet gives you a message.");
 			stage = 707;
 			break;

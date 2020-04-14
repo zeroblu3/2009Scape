@@ -55,7 +55,7 @@ public final class LumbridgeCookDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		if (player.getQuestRepository().getQuest("Cook's Assistant").getStage(player) == 10) {
+		if (player.getNeoQuestRepository().getStage("Cook's Assistant") == 10) {
 			if (player.getSavedData().getQuestData().getCookAssist("milk") && player.getSavedData().getQuestData().getCookAssist("flour") && player.getSavedData().getQuestData().getCookAssist("egg")) {
 				interpreter.sendDialogues(npc, FacialExpression.HAPPY, "You've brought me everything I need! I am saved!", "Thank you!");
 				stage = 956;
@@ -64,11 +64,11 @@ public final class LumbridgeCookDialogue extends DialoguePlugin {
 			interpreter.sendDialogues(npc, FacialExpression.SAD, "How are you getting on with finding the ingredients?");
 			stage = 1000;
 			return true;
-		} if (player.getQuestRepository().getQuest("Cook's Assistant").getStage(player) == 0) {
+		} if (player.getNeoQuestRepository().getStage("Cook's Assistant") == 0) {
 			interpreter.sendDialogues(npc, FacialExpression.SAD, "What am I to do?");
 			stage = 1;
 			return true;
-		} if (player.getQuestRepository().getQuest("Cook's Assistant").getStage(player) == 100) {
+		} if (player.getNeoQuestRepository().getStage("Cook's Assistant") == 100) {
 			interpreter.sendDialogues(npc, FacialExpression.HAPPY,"Hello friend, how is the adventuring going?");
 			stage = 0;
 		}
@@ -84,7 +84,7 @@ public final class LumbridgeCookDialogue extends DialoguePlugin {
 				stage = 5000;
 				break;
 			case 1:
-				if (player.getQuestRepository().getQuest("Cook's Assistant").getStage(player) == 0) {
+				if (player.getNeoQuestRepository().getStage("Cook's Assistant") == 0) {
 					interpreter.sendOptions("Select an Option", "What's wrong?", "Can you make me a cake?", "You don't look very happy.", "Nice hat!");
 					stage++;
 					break;
@@ -188,7 +188,7 @@ public final class LumbridgeCookDialogue extends DialoguePlugin {
 
 			//If the Player does help the Chef
 			case 100:
-				player.getQuestRepository().getQuest("Cook's Assistant").start(player);
+				player.getNeoQuestRepository().start("Cook's Assistant");
 				interpreter.sendDialogues(npc, FacialExpression.HAPPY, "Oh thank you, thank you. I need milk, an egg and", "flour. I'd be very grateful if you can get them for me.");
 				stage++;
 				break;
@@ -378,7 +378,7 @@ public final class LumbridgeCookDialogue extends DialoguePlugin {
 			//End Quest 'Cook's Assistant'
 			case 960:
 				end();
-				player.getQuestRepository().getQuest("Cook's Assistant").finish(player);
+				player.getNeoQuestRepository().finish("Cook's Assistant");
 				break;
 
 			//Dialogue options after Cook's Assistant

@@ -1,25 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfca1f7e-8542-4720-8cd4-dc28d3685749" name="Default Changelist" comment="Working on debug of client shift drop">
+    <list default="true" id="dc3c1647-6f32-4149-aedf-7f1398ef53f0" name="Default Changelist" comment="The final solution(fix)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/world/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/crandor/game/world/GameWorld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub13_Sub13.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub13_Sub13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub24_Sub4.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub24_Sub4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub28_Sub1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub28_Sub1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub30_Sub1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub30_Sub1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub31.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class3_Sub31.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class47.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class47.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class67.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/Class67.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/GameShell.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/GameShell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/ItemDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/ItemDefinition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/KeyboardListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledServer/production/RS-2009/org/runite/jagex/KeyboardListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RS-2009.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RS-2009.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/data/eco/grand_exchange_db.emp" beforeDir="false" afterPath="$PROJECT_DIR$/Server/data/eco/grand_exchange_db.emp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/data/eco/offer_dispatch_db.emp" beforeDir="false" afterPath="$PROJECT_DIR$/Server/data/eco/offer_dispatch_db.emp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/game/world/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/game/world/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/cache/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/cache/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/game/content/skill/free/gather/woodcutting/WoodcuttingNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/game/content/skill/free/gather/woodcutting/WoodcuttingNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/game/content/skill/free/gather/woodcutting/WoodcuttingSkillPulse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/game/content/skill/free/gather/woodcutting/WoodcuttingSkillPulse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/npc/drop/NPCDropTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/npc/drop/NPCDropTables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/org/crandor/game/world/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/org/crandor/game/world/repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/cutscene/JulietDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/cutscene/JulietDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/cutscene/RJCutscenePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/cutscene/RJCutscenePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/ApothecaryDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/ApothecaryDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/BKListenDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/BKListenDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/DoricDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/DoricDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/ErnestDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/ErnestDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/FaladorSquireDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/FaladorSquireDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/FatherAereckDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/FatherAereckDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/FatherLawrenceDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/FatherLawrenceDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/FatherUhrneyDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/FatherUhrneyDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/HassanDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/HassanDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/KlarenseDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/KlarenseDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/LeelaDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/LeelaDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/LumbridgeCookDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/LumbridgeCookDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/LuthasDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/LuthasDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/PrinceAliDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/PrinceAliDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/ProfessorOddensteinPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/ProfessorOddensteinPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/ReadbeardFrankDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/ReadbeardFrankDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/RestlessGhostDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/RestlessGhostDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/ThuroDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/ThurgoDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/dialogue/VeronicaDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/dialogue/VeronicaDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/city/PortSarimPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/city/PortSarimPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/city/WizardTowerPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/city/WizardTowerPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/inter/QuestTabInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/inter/QuestTabInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/item/withobject/KaramajaBananaCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/item/withobject/KaramjaBananaCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/item/withobject/RestlessGhostSkull.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/item/withobject/RestlessGhostSkull.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/object/PortsObjectPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/object/PortsObjectPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/object/RestlessGhostPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/object/RestlessGhostPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/interaction/object/sorceress/GardenObjectsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/interaction/object/sorceress/GardenObjectsPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/npc/quest/romeo__juliet/JulietNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/npc/quest/romeo__juliet/JulietNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/CooksAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/CooksAssistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/DoricsQuest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/DoricsQuest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/ErnestTheChicken.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/ErnestTheChicken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/ImpCatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/ImpCatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/RomeoJuliet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/RomeoJuliet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/TheKnightsSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/TheKnightsSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/alirescue/LadyKeliDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/alirescue/LadyKeliDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/alirescue/PrinceAliRescue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/alirescue/PrinceAliRescue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/alirescue/PrinceAliRescuePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/alirescue/PrinceAliRescuePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/arravshield/ReldoDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/arravshield/ReldoDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/BKCabbagePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/BKCabbagePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/BlackKnightsFortress.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/BlackKnightsFortress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/SirAmikVarzeDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/SirAmikVarzeDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/DemonSlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/DemonSlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/DemonSlayerCutscene.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/DemonSlayerCutscene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/GypsyArisDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/GypsyArisDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/SirPyrsinDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/SirPyrsinDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/WallyCutscenePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/demonslayer/WallyCutscenePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DSMagicDoorPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DSMagicDoorPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DSNedNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DSNedNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DragonSlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DragonSlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DragonSlayerCutscene.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DragonSlayerCutscene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DragonSlayerPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DragonSlayerPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DukeHoracioDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/DukeHoracioDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/ElvargNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/ElvargNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/GuildmasterDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/GuildmasterDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/NedDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/NedDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/OziachDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/OziachDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/WormbrainDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/dragonslayer/WormbrainDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GDiplomacyCutscene.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GDiplomacyCutscene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GoblinDiplomacy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GoblinDiplomacy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GrubFoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GrubFoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GrubfootDialogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/gdiplomacy/GrubfootDialogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/ptreasure/PiratesTreasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/ptreasure/PiratesTreasure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/ptreasure/PiratesTreasurePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/ptreasure/PiratesTreasurePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/quest/restlessghost/RestlessGhost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/quest/restlessghost/RestlessGhost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/plugin/zone/phasmatys/PhasmatysZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/plugin/zone/phasmatys/PhasmatysZone.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,215 +91,46 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ErrorTreeViewConfiguration">
-    <option name="hideWarnings" value="true" />
-    <option name="HIDE_WARNINGS" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/world/GameWorld.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>sys</find>
-      <find>rsby</find>
-      <find>camera</find>
-      <find>putopcode(93</find>
-      <find>shift</find>
-      <find>putint</find>
-      <find>class3_sub24_sub4</find>
-      <find>book</find>
-      <find>2867</find>
-      <find>river</find>
-      <find>shiftdo</find>
-      <find>4501993</find>
-      <find>11710</find>
-      <find>9004</find>
-      <find>var7 = &quot;</find>
-      <find>00ffff</find>
-      <find>option</find>
-      <find>options</find>
-      <find>sql</find>
-      <find>print</find>
-      <find>stray</find>
-      <find>1955</find>
-      <find>reset</find>
-      <find>readWitchsBook</find>
-      <find>killedExperiment</find>
-      <find>1985</find>
-      <find>config&quot;</find>
-      <find>config</find>
-      <find>cook</find>
-      <find>player.getPacketDispatch().sendString</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>5</replace>
-      <replace>line(player,</replace>
-      <replace />
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\plugin\quest\dragonslayer</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\org\crandor\net\packet</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Client\src</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\org</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Client\src\org\runite</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\plugin\quest</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Client</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Client\src\org\runite\jagex</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\plugin\command</dir>
-      <dir>C:\Users\split\Documents\GitHub\2009Scape\Server\src\plugin</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Server/src/plugin/activity/pyramidplunder/TombDoorConfigs.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/activity/pyramidplunder/UrnConfig.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/activity/pyramidplunder/PyramidPlunderOptions.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/content/global/action/DoorActionHandler.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/container/Container.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/BoyDialogue.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/content/dialogue/DialoguePlugin.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/MouseNPC.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/worker/MajorUpdateWorker.java" />
-        <option value="$PROJECT_DIR$/Tools/Arios Editor/src/org/arios/cache/ServerStore.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/interaction/inter/PlayerExamineInterfacePlugin.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/ai/AIPlayer.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/interaction/object/RuneCraftingGuildObjects.java" />
-        <option value="$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/jagex/ClientLoader.java" />
-        <option value="$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/Configurations.java" />
-        <option value="$USER_HOME$/Desktop/Client ScapeHD/src/org/keldagrim/jagex/Client.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/RenderAnimationDefinition.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class67.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub31.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub30_Sub1.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub28_Sub1.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/system/script/ScriptCompiler.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/system/script/ScriptManager.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/link/music/MusicPlayer.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub13_Sub13.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsDiaryBook.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/KeyboardListener.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/ExperimentNPC.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class54.java" />
-        <option value="$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub24_Sub4.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/interaction/object/DoorManagingPlugin.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/NoraTHaggNPC.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/interaction/item/BookreadOption.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsHousePlugin.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsExperimentNPC.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/BoyDialoguePlugin.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/link/quest/Quest.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/link/quest/QuestRepository.java" />
-        <option value="$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsHouse.java" />
-        <option value="$PROJECT_DIR$/Server/src/org/crandor/game/world/GameWorld.java" />
-      </list>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="JRebelWorkspace">
     <option name="jrebelEnabledAutocompile" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="978" />
-    <option name="height" value="1050" />
-  </component>
+  <component name="ProjectId" id="1a48n73rxiyDZ0sdL3lu3aMA1gO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="crandor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="crandor" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2009Scape" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2009Scape" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="crandor" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="world" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Client592" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/Server/src/plugin/interaction/item" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.1646489" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
@@ -248,18 +139,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\split\Documents\GitHub\2009Scape\Tools\Arios Editor\data" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.GameLaunch">
     <configuration name="GameLaunch (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -275,7 +154,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameLaunch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GameLaunch" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.runite.GameLaunch" />
       <module name="RS-2009" />
       <extension name="coverage">
@@ -340,8 +219,8 @@
         <item itemvalue="Application.GameLaunch" />
         <item itemvalue="Application.Server" />
         <item itemvalue="Application.Management" />
-        <item itemvalue="Application.GameLaunch (1)" />
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.GameLaunch (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -350,7 +229,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dfca1f7e-8542-4720-8cd4-dc28d3685749" name="Default Changelist" comment="" />
+      <changelist id="dc3c1647-6f32-4149-aedf-7f1398ef53f0" name="Default Changelist" comment="" />
       <created>1584054963180</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -370,7 +249,119 @@
       <option name="project" value="LOCAL" />
       <updated>1585672869371</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merge branch 'master' of https://github.com/dginovker/2009Scape into dginovker-master&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Server/data/eco/offer_dispatch_db.emp&#10;#&#9;Server/src/org/crandor/game/content/global/consumable/CookingProperties.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/firemaking/FireMakingPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/fishing/FishingPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/magic/MagicSpell.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/smithing/SmithingPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/hunter/TrapDismantlePulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/hunter/bnet/BNetNode.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/thieving/PickpocketPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/thieving/StallThiefPulse.java&#10;#&#9;Server/src/org/crandor/game/node/entity/combat/handlers/MagicSwingHandler.java&#10;#&#9;Server/src/org/crandor/game/node/entity/combat/handlers/MeleeSwingHandler.java&#10;#&#9;Server/src/org/crandor/game/node/entity/combat/handlers/RangeSwingHandler.java&#10;#&#9;Server/src/plugin/activity/pyramidplunder/PyramidPlunderOptions.java&#10;#&#9;Server/src/plugin/zone/phasmatys/PhasmatysZone.java">
+      <created>1585873668051</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585873668051</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed brawling gloves completely">
+      <created>1585874621484</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585874621484</updated>
+    </task>
+    <task id="LOCAL-00005" summary="The final solution(fix)">
+      <created>1585891055017</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585891055017</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Completely rewrote cooking">
+      <created>1586051658084</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586051658084</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Hotfix of some minor bugs">
+      <created>1586065754184</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586065754184</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixed wilderness drops">
+      <created>1586068061271</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586068061271</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Disabled randoms in wilderness">
+      <created>1586098715550</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586098715550</updated>
+    </task>
+    <task id="LOCAL-00010" summary="disabled room rotation until construction is fixed">
+      <created>1586102799343</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586102799343</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fletching rewritten">
+      <created>1586139038962</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586139038962</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed a lot of inherent problems with fishing">
+      <created>1586148848589</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1586148848589</updated>
+    </task>
+    <task id="LOCAL-00013" summary="some rendering improvements">
+      <created>1586155291025</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1586155291025</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Various performance improvements">
+      <created>1586167497884</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1586167497884</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Some more small improvements">
+      <created>1586171241191</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1586171241191</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed the naming issues">
+      <created>1586196591625</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1586196591625</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Some more improvements for performance">
+      <created>1586201257073</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1586201257073</updated>
+    </task>
+    <task id="LOCAL-00018" summary="huge performance boost">
+      <created>1586388285734</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1586388285734</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -382,542 +373,132 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="JRebel" order="1" side_tool="true" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.20134228" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4738255" visible="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32960895" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5261745" side_tool="true" visible="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="JRebel Executor" order="10" sideWeight="0.46047157" weight="0.32909605" />
-      <window_info anchor="bottom" id="JRebel Console" order="11" sideWeight="0.54362416" side_tool="true" weight="0.325419" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.44563758" weight="0.32681563" />
-      <window_info anchor="bottom" id="Problems" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Working on debug of client shift drop" />
     <MESSAGE value="More Witch's house" />
     <MESSAGE value="Fixed kelda error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed kelda error" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/dginovker/2009Scape into dginovker-master&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Server/data/eco/offer_dispatch_db.emp&#10;#&#9;Server/src/org/crandor/game/content/global/consumable/CookingProperties.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/firemaking/FireMakingPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/fishing/FishingPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/magic/MagicSpell.java&#10;#&#9;Server/src/org/crandor/game/content/skill/free/smithing/SmithingPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/hunter/TrapDismantlePulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/hunter/bnet/BNetNode.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/thieving/PickpocketPulse.java&#10;#&#9;Server/src/org/crandor/game/content/skill/member/thieving/StallThiefPulse.java&#10;#&#9;Server/src/org/crandor/game/node/entity/combat/handlers/MagicSwingHandler.java&#10;#&#9;Server/src/org/crandor/game/node/entity/combat/handlers/MeleeSwingHandler.java&#10;#&#9;Server/src/org/crandor/game/node/entity/combat/handlers/RangeSwingHandler.java&#10;#&#9;Server/src/plugin/activity/pyramidplunder/PyramidPlunderOptions.java&#10;#&#9;Server/src/plugin/zone/phasmatys/PhasmatysZone.java" />
+    <MESSAGE value="Fixed brawling gloves completely" />
+    <MESSAGE value="The final solution(fix)" />
+    <MESSAGE value="Completely rewrote cooking" />
+    <MESSAGE value="Hotfix of some minor bugs" />
+    <MESSAGE value="Fixed wilderness drops" />
+    <MESSAGE value="Disabled randoms in wilderness" />
+    <MESSAGE value="disabled room rotation until construction is fixed" />
+    <MESSAGE value="Fletching rewritten" />
+    <MESSAGE value="Fixed a lot of inherent problems with fishing" />
+    <MESSAGE value="some rendering improvements" />
+    <MESSAGE value="Various performance improvements" />
+    <MESSAGE value="Some more small improvements" />
+    <MESSAGE value="Fixed the naming issues" />
+    <MESSAGE value="Some more improvements for performance" />
+    <MESSAGE value="huge performance boost" />
+    <option name="LAST_COMMIT_MESSAGE" value="huge performance boost" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/ItemDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2458">
-          <caret line="2662" column="99" lean-forward="true" selection-start-line="2662" selection-start-column="99" selection-end-line="2662" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Client592/src/jaggl/OpenGL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/alirescue/PrinceAliRescuePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/content/global/action/DoorActionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1776">
-          <caret line="127" column="41" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/arravshield/ShieldofArrav.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/arravshield/ShieldArravPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2144">
-          <caret line="156" column="65" selection-start-line="156" selection-start-column="65" selection-end-line="156" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/arravshield/ShieldofArravBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-          <folding>
-            <element signature="e#4263#4264#0" expanded="true" />
-            <element signature="e#4306#4307#0" expanded="true" />
-            <element signature="e#4343#4344#0" expanded="true" />
-            <element signature="e#4373#4374#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/lock/ActionLocks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
-          <folding>
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1574#1575#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/lock/Lock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/impl/WalkingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="365" column="16" selection-start-line="365" selection-start-column="16" selection-end-line="365" selection-end-column="16" />
-          <folding>
-            <element signature="e#9758#9759#0" expanded="true" />
-            <element signature="e#9779#9780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/content/dialogue/book/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="e#3304#3305#0" expanded="true" />
-            <element signature="e#3327#3328#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsDiaryBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/lostcity/LostCityPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="74" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/item/GroundItemManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1296">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class139.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class104.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="202" column="52" selection-start-line="202" selection-start-column="52" selection-end-line="202" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class144.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="160" column="44" lean-forward="true" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class54.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/RSInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="418" column="23" selection-start-line="418" selection-start-column="23" selection-end-line="418" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/system/mysql/impl/ShopSQLHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" lean-forward="true" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/system/mysql/impl/GroundSpawnSQLHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="124" column="15" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/src/org/runite/jagex/Class3_Sub24_Sub4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="245" column="45" selection-start-line="245" selection-start-column="40" selection-end-line="245" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/ExperimentNPC.java" />
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/world/map/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="155" column="19" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/interaction/object/DoorManagingPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="41" column="96" lean-forward="true" selection-start-line="41" selection-start-column="96" selection-end-line="41" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/MouseNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/NoraTHaggNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="103" column="77" lean-forward="true" selection-start-line="103" selection-start-column="77" selection-end-line="103" selection-end-column="77" />
-          <folding>
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/interaction/item/BookreadOption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/combat/CombatPulse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/npc/NPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="218" column="29" lean-forward="true" selection-start-line="218" selection-start-column="29" selection-end-line="218" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/npc/other/BorkNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="489" column="20" lean-forward="true" selection-start-line="489" selection-start-column="20" selection-end-line="489" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="294" column="20" lean-forward="true" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
-          <folding>
-            <element signature="e#8613#8614#0" expanded="true" />
-            <element signature="e#8632#8633#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/rovingelves/MossGiantGuardianNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/lostcity/TreeSpiritNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="41" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/lostcity/LostCity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsHousePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsExperimentNPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <element signature="e#1495#1496#0" expanded="true" />
-            <element signature="e#1524#1525#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/DoricsQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/DruidicRitual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/command/VisualCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="238" column="46" lean-forward="true" selection-start-line="238" selection-start-column="46" selection-end-line="238" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/command/DeveloperCommandPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/link/ConfigurationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
-          <folding>
-            <element signature="e#2839#2840#0" expanded="true" />
-            <element signature="e#2867#2868#0" expanded="true" />
-            <element signature="e#3680#3681#0" expanded="true" />
-            <element signature="e#3760#3761#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/dialogue/LumbridgeCookDialogue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="380" column="77" selection-start-line="380" selection-start-column="77" selection-end-line="380" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/link/quest/Quest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="116" column="25" lean-forward="true" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
-          <folding>
-            <element signature="e#5720#5721#0" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/node/entity/player/link/quest/QuestRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
-          <folding>
-            <element signature="e#6575#6576#0" expanded="true" />
-            <element signature="e#6626#6627#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/CooksAssistant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="66" column="8" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="66" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/BoyDialoguePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/waterfall/WaterFall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/WolfWhistle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/plugin/quest/witchs_house/WitchsHouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="43" column="66" selection-start-line="43" selection-start-column="66" selection-end-line="43" selection-end-column="66" />
-          <folding>
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/org/crandor/game/world/GameWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="88" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586321570621">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="88" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1586321570621" />
+    <state x="0" y="0" width="934" height="768" key="CommitChangelistDialog2" timestamp="1586388282558">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="0" width="934" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1586388282558" />
+    <state x="0" y="63" width="1094" height="647" key="DiffContextDialog" timestamp="1586167526802">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="63" width="1094" height="647" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1586167526802" />
+    <state x="173" y="142" width="426" height="487" key="FileChooserDialogImpl" timestamp="1586381134725">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="173" y="142" width="426" height="487" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1586381134725" />
+    <state width="952" height="190" key="GridCell.Tab.0.bottom" timestamp="1586832031418">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="952" height="190" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1586832031418" />
+    <state width="952" height="190" key="GridCell.Tab.0.center" timestamp="1586832031416">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="952" height="190" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1586832031416" />
+    <state width="952" height="190" key="GridCell.Tab.0.left" timestamp="1586832031414">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="952" height="190" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1586832031414" />
+    <state width="952" height="190" key="GridCell.Tab.0.right" timestamp="1586832031417">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="952" height="190" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1586832031417" />
+    <state x="92" y="100" width="578" height="570" key="MultipleFileMergeDialog" timestamp="1586065795693">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="92" y="100" width="578" height="570" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1586065795693" />
+    <state x="19" y="0" width="1026" height="768" key="SettingsEditor" timestamp="1586372297960">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="19" y="0" width="1026" height="768" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1586372297960" />
+    <state x="70" y="87" width="802" height="555" key="Vcs.Push.Dialog.v2" timestamp="1586388294446">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="70" y="87" width="802" height="555" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1586388294446" />
+    <state x="166" y="164" width="431" height="442" key="chooseDestDirectoryDialog" timestamp="1585874069798">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="166" y="164" width="431" height="442" key="chooseDestDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1585874069798" />
+    <state x="52" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1586892720106">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="52" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1586892720106" />
+    <state x="237" y="311" width="646" height="224" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586155858432">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="237" y="311" width="646" height="224" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1586155858432" />
+    <state x="163" y="304" width="445" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586149337504">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="163" y="304" width="445" height="163" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1586149337504" />
+    <state x="361" y="42" width="986" height="606" key="dock-window-1" timestamp="1586562963955">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="361" y="42" width="986" height="606" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1586562963955" />
+    <state x="604" y="0" width="641" height="728" key="dock-window-2" timestamp="1585883157365">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="604" y="0" width="641" height="728" key="dock-window-2/0.0.1366.768@0.0.1366.768" timestamp="1585883157365" />
+    <state x="507" y="209" width="730" height="516" key="dock-window-3" timestamp="1585941548994">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="507" y="209" width="730" height="516" key="dock-window-3/0.0.1366.768@0.0.1366.768" timestamp="1585941548994" />
+    <state x="44" y="132" width="849" height="564" key="find.popup" timestamp="1586893995780">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="44" y="132" width="849" height="564" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1586893995780" />
+    <state x="124" y="89" width="515" height="592" key="git4idea.branch.GitSmartOperationDialog" timestamp="1586051877084">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="124" y="89" width="515" height="592" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.768@0.0.1366.768" timestamp="1586051877084" />
+    <state x="0" y="0" width="1337" height="768" key="new project wizard" timestamp="1586374549069">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="0" width="1337" height="768" key="new project wizard/0.0.1366.768@0.0.1366.768" timestamp="1586374549069" />
+    <state x="53" y="168" key="run.anything.popup" timestamp="1586831406784">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="53" y="168" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1586831406784" />
+    <state x="80" y="73" width="672" height="678" key="search.everywhere.popup" timestamp="1586893545969">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="80" y="73" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1586893545969" />
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Arios Client</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/plugin/quest/bkfortress/BlackKnightsFortress.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

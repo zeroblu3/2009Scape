@@ -27,6 +27,8 @@ public class RestlessGhostDialogue extends DialoguePlugin {
 		return new RestlessGhostDialogue(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
@@ -37,23 +39,24 @@ public class RestlessGhostDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
+		questStage = player.getNeoQuestRepository().getStage("The Restless Ghost");
 		switch (stage) {
 		case 0:
 			if (!player.getEquipment().contains(552, 1)) {
 				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Wooo wooo wooooo!");
 				stage = 1;
 			} else {
-				if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 20) {
+				if (questStage == 20) {
 					interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Not very good actually.");
 					stage = 500;
 					break;
 				}
-				if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 30) {
+				if (questStage == 30) {
 					interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "How are you doing finding my skull?");
 					stage = 520;
 					break;
 				}
-				if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 40) {
+				if (questStage == 40) {
 					interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "How are you doing finding my skull?");
 					stage = 550;
 					break;
@@ -111,7 +114,7 @@ public class RestlessGhostDialogue extends DialoguePlugin {
 			break;
 		case 511:
 			interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "Ok. I will try and get the skull back for you, then you", "can rest in peace.");
-			player.getQuestRepository().getQuest("The Restless Ghost").setStage(player, 30);
+			player.getNeoQuestRepository().setStage("The Restless Ghost",30);
 			stage = 512;
 			break;
 		case 512:
