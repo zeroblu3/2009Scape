@@ -49,14 +49,11 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
 		super(player);
 	}
 
-	int questStage;
-
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
 		quest = player.getQuestRepository().getQuest("Pirate's Treasure");
-		questStage = player.getNeoQuestRepository().getStage("Pirate's Treasure");
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		default:
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Arr, Matey!");
 			stage = 0;
@@ -67,11 +64,11 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 20:
 			switch (stage) {
 			case 0:
-				if (questStage == 20 && !player.getInventory().containsItem(KEY) && !player.getBank().containsItem(KEY)) {
+				if (quest.getStage(player) == 20 && !player.getInventory().containsItem(KEY) && !player.getBank().containsItem(KEY)) {
 					interpreter.sendDialogues(player, null, "I seem to have lost my chest key...");
 					stage = 700;
 					return true;
@@ -189,16 +186,13 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
 				break;
 			case 13:
 				if (player.getInventory().remove(KARAMJAN_RUM) && player.getInventory().add(KEY)) {
-					player.getNeoQuestRepository().setStage("Pirate's Treasure",20);
+					quest.setStage(player, 20);
 					interpreter.sendItemMessage(KEY.getId(), "Frank happily takes the rum... ... and hands you a key");
 					stage = 14;
 				} else {
 					end();
 					player.getPacketDispatch().sendMessage("Not enough inventory space.");
 				}
-				break;
-			case 14:
-				end();
 				break;
 			}
 			break;
@@ -247,7 +241,7 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
 			case 15:
 				switch (buttonId) {
 				case 1:
-					player.getNeoQuestRepository().start("Pirate's Treasure");
+					quest.start(player);
 					interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "Ok, I will bring you some rum.");
 					stage = 17;
 					break;
@@ -300,7 +294,7 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
 		default:
 			switch (stage) {
 			case 0:
-				if (questStage == 20 && !player.getInventory().containsItem(KEY) && !player.getBank().containsItem(KEY)) {
+				if (quest.getStage(player) == 20 && !player.getInventory().containsItem(KEY) && !player.getBank().containsItem(KEY)) {
 					interpreter.sendDialogues(player, null, "I seem to have lost my chest key...");
 					stage = 700;
 					return true;

@@ -2,8 +2,6 @@ package plugin.quest.restlessghost;
 
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.NeoQuest;
-import org.crandor.game.node.entity.player.link.quest.NeoQuestRepository;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.game.node.item.Item;
 import org.crandor.plugin.InitializablePlugin;
@@ -11,11 +9,11 @@ import org.crandor.plugin.PluginManager;
 
 /**
  * Represents the restless ghost quest.
- * @author Ceikry
+ * @author Vexia
  * 
  */
 @InitializablePlugin
-public class RestlessGhost extends NeoQuest {
+public class RestlessGhost extends Quest {
 	
 	/**
 	 * The ghost speak amulet.
@@ -25,86 +23,87 @@ public class RestlessGhost extends NeoQuest {
 	/**
 	 * Constructs a new {@Code RestlessGhost} {@Code Object}
 	 */
-	public RestlessGhost() { super(107,24,"The Restless Ghost",1,5);}
+	public RestlessGhost() {
+		super("The Restless Ghost", 25, 24, 1, 107, 0, 4, 5);
+	}	
 
 	@Override
-	public NeoQuest newInstance(Object object) {
-		NeoQuestRepository.register(buttonId,this);
+	public Quest newInstance(Object object) {
 		PluginManager.definePlugin(new OldCronDialogue());
 		return this;
 	}
 
 	@Override
-	public void setLines(Player player) {
-		super.setLines(player);
-		int line = 10;
-		int stage = player.getNeoQuestRepository().getStage("The Restless Ghost");
-		boolean started = stage > 0;
-		if(!started){
-			journal.addLine("I can start this quest by speaking to !!Father Aereck?? in the",++line,false);
-			journal.addLine("!!church?? next to !!Lumbridge Castle??.",++line,false);
-			journal.addLine("I must be unafraid of a !!level 13 skeleton??.",++line,false);
-		} else {
-			if(stage >= 10){
-				journal.addLine("Father Aereck asked me to help hime deal with the ghost in",++line,true);
-				journal.addLine("the graveyard next to the church.",++line,true);
-			}
-			if(stage == 10) {
-				journal.addLine("I should find !!Father Urhney?? who is an expert on !!ghosts",++line,false);
-				journal.addLine("He lives in a !!shack?? in !!Lumbridge swamp.??",++line,false);
-			}
-			if(stage >= 20) {
-				journal.addLine("I found Father Urhney in the swamp south of Lumbridge. He",++line,true);
-				journal.addLine("gave me an Amulet of Ghostspeak to talk to the ghost.",++line,true);
-			}
-			if(stage == 20) {
-				journal.addLine("I should talk to the !!ghost?? to find out why it is haunting the",++line,false);
-				journal.addLine("graveyard crypt.",++line,false);
-			}
-			if(stage >= 30) {
-				journal.addLine("I spoke to the ghost and he told me he could not rest in",++line,true);
-				journal.addLine("peace because an evil wizard has stolen his skull.",++line,true);
-			}
-			if(stage == 30) {
-				journal.addLine("I should go and search the !!Wizard's Tower?? south west of",++line,false);
-				journal.addLine("!!Lumbridge?? for the !!ghost's skull??.",++line,false);
-			}
-			if(stage == 40) {
-				journal.addLine("I have recovered the !!ghost's skull??. I should bring it to him.",++line,false);
-			}
-			if(stage >= 100) {
-				journal.addLine("I found the ghost's skull in the basement of the Wizards'",++line,true);
-				journal.addLine("Tower. It was guarded by a skeleton, but I took it anyways.",++line,true);
-				journal.addLine("I placed the skull in the ghost's coffin, and allowed it to",++line,true);
-				journal.addLine("rest in peace once more, with gratitude for my help.",++line,true);
-				journal.addLine("!!QUEST COMPLETE??!",++line,false);
-			}
+	public void drawJournal(Player player, int stage) {
+		super.drawJournal(player, stage);
+		if (stage == 0) {
+			player.getPacketDispatch().sendString("<col=08088A>I can start this quest by speaking to <col=8A0808>Father Aereck</col> <col=08088A>in the", 275, 4+ 7);
+			player.getPacketDispatch().sendString("<col=8A0808>church</col> <col=08088A>next to <col=8A0808>Lumbridge Castle.<col=8A0808>", 275, 5+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>I must be unafraid of a <col=8A0808>Level 13 Skeleton ", 275, 6+ 7);
 		}
-	}
+		if (stage == 10) {
+			player.getPacketDispatch().sendString("<str>Father Aereck asked me to help him deal with the Ghost in", 275, 4+ 7);
+			player.getPacketDispatch().sendString("<str>the graveyard next to the church.", 275, 5+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>I should find <col=8A0808>Father Urhney</col><col=08088A> who is an expert on </col><col=8A0808>ghosts.</col>  ", 275, 6+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>He lives in a <col=8A0808>shack</col><col=08088A> in <col=8A0808>Lumbridge Swamp.", 275, 7+ 7);
 
-	@Override
-	public int getConfig(Player player) {
-		int stage = player.getNeoQuestRepository().getStage("The Restless Ghost");
-		if(stage >= 100){
-			return configs;
 		}
-		if(stage > 0){
-			return 1;
+		if (stage == 20) {
+			player.getPacketDispatch().sendString("<str>Father Aereck asked me to help him deal with the Ghost in", 275, 4+ 7);
+			player.getPacketDispatch().sendString("<str>the graveyard next to the church.", 275, 5+ 7);
+			player.getPacketDispatch().sendString("<str>I should find Father Urhney who is an expert on ghosts.</str>  ", 275, 6+ 7);
+			player.getPacketDispatch().sendString("<str>He lives in a shack in Lumbridge Swamp.</str>", 275, 7+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>I should talk to the</col> <col=8A0808>Ghost</col> <col=08088A>to find out why it is haunting the", 275, 8+ 7);
+			player.getPacketDispatch().sendString("<col=8A0808>graveyard crypt", 275, 9+ 7);
 		}
-		return 0;
+		if (stage == 30) {
+			player.getPacketDispatch().sendString("<str>Father Aereck asked me to help him deal with the Ghost in", 275, 4+ 7);
+			player.getPacketDispatch().sendString("<str>the graveyard next to the church.", 275, 5+ 7);
+			player.getPacketDispatch().sendString("<str>I found Father Urhney in the swamp south of Lumbridge.He</str>  ", 275, 6+ 7);
+			player.getPacketDispatch().sendString("<str>gave me an Amulet of Ghostspeak to talk to the ghost.</str>", 275, 7+ 7);
+			player.getPacketDispatch().sendString("<str>I spoke to the Ghost and he told me he could not rest in</str>", 275, 8+ 7);
+			player.getPacketDispatch().sendString("<str>peace because an evil wizard had stolen his skull.</str>", 275, 9+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>I should go and search the <col=8A0808>Wizard's Tower South West of", 275, 10+ 7);
+			player.getPacketDispatch().sendString("<col=8A0808>Lumbridge</col> <col=08088A>for the <col=8A0808>Ghost's Skull.", 275, 11+ 7);
+		} 
+		if (stage == 40) {
+			player.getPacketDispatch().sendString("<str>Father Aereck asked me to help him deal with the Ghost in", 275, 4+ 7);
+			player.getPacketDispatch().sendString("<str>the graveyard next to the church.", 275, 5+ 7);
+			player.getPacketDispatch().sendString("<str>I found Father Urhney in the swamp south of Lumbridge.He</str>  ", 275, 6+ 7);
+			player.getPacketDispatch().sendString("<str>gave me an Amulet of Ghostspeak to talk to the ghost.</str>", 275, 7+ 7);
+			player.getPacketDispatch().sendString("<str>I spoke to the Ghost and he told me he could not rest in</str>", 275, 8+ 7);
+			player.getPacketDispatch().sendString("<str>peace because an evil wizard had stolen his skull.</str>", 275, 9+ 7);
+			player.getPacketDispatch().sendString("<str>I found the Ghost's Skull in the basement of the Wizards'", 275, 10+ 7);
+			player.getPacketDispatch().sendString("<str>Tower. It was guarded by a skeleton, but I took it anyways.</str>", 275, 11+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>I should take the <col=8A0808>Skull</col> <col=08088A>back to the <col=8A0808>Ghost</col> <col=08088A>so it can rest.", 275, 12+ 7);
+		}
+		if (stage == 100) {
+			player.getPacketDispatch().sendString("<str>Father Aereck asked me to help him deal with the Ghost in", 275, 4+ 7);
+			player.getPacketDispatch().sendString("<str>the graveyard next to the church.", 275, 5+ 7);
+			player.getPacketDispatch().sendString("<str>I found Father Urhney in the swamp south of Lumbridge.He</str>  ", 275, 6+ 7);
+			player.getPacketDispatch().sendString("<str>gave me an Amulet of Ghostspeak to talk to the ghost.</str>", 275, 7+ 7);
+			player.getPacketDispatch().sendString("<str>I spoke to the Ghost and he told me he could not rest in</str>", 275, 8+ 7);
+			player.getPacketDispatch().sendString("<str>peace because an evil wizard had stolen his skull.</str>", 275, 9+ 7);
+			player.getPacketDispatch().sendString("<str>I found the Ghost's Skull in the basement of the Wizards'", 275, 10+ 7);
+			player.getPacketDispatch().sendString("<str>Tower. It was guarded by a skeleton, but I took it anyways.</str>", 275, 11+ 7);
+			player.getPacketDispatch().sendString("<str>I placed the Skull in the Ghost's coffin, and allowed it to", 275, 12+ 7);
+			player.getPacketDispatch().sendString("<str>rest in peace once more, with gratitude for my help.", 275, 13+ 7);
+			player.getPacketDispatch().sendString("<col=FF0000>QUEST COMPLETE!", 275, 16+ 7);
+		}
 	}
 
 	@Override
 	public void finish(Player player) {
 		super.finish(player);
-		int line = 10;
-		rewards.addLine("1 Quest Point",line++);
-		rewards.addLine("1125 Prayer XP",line++);
-		rewards.addRewardXP(Skills.PRAYER,1125);
-		rewards.setInterfaceItem(964);
-		rewards.draw(player);
+		player.getPacketDispatch().sendString("1 Quest Point", 277, 8 + 2);
+		player.getPacketDispatch().sendString("1125 Prayer XP", 277, 9 + 2);
+		player.getPacketDispatch().sendItemZoomOnInterface(964, 240, 277, 3 + 2);
+		player.getSkills().addExperience(Skills.PRAYER, 1125);
 		player.getInterfaceManager().closeChatbox();
+		player.getPacketDispatch().sendString("You have completed The Restless Ghost Quest!", 277, 2 + 2);
 		player.getConfigManager().set(728, 31, true);
+		player.getPacketDispatch().sendMessage("Congratulations! Quest complete!");
 		player.getGameAttributes().removeAttribute("restless-ghost:urhney");
 	}
+
 }

@@ -45,8 +45,6 @@ public class PrinceAliDialogue extends DialoguePlugin {
 		super(player);
 	}
 
-	int questStage;
-
 	@Override
 	public DialoguePlugin newInstance(Player player) {
 		return new PrinceAliDialogue(player);
@@ -55,8 +53,8 @@ public class PrinceAliDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
-		switch (questStage) {
+		quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
+		switch (quest.getStage(player)) {
 		case 50:
 			interpreter.sendDialogues(player, null, "Prince, I come to rescue you.");
 			stage = 0;
@@ -102,7 +100,7 @@ public class PrinceAliDialogue extends DialoguePlugin {
 			if (player.getInventory().remove(DISGUISE)) {
 				interpreter.sendDialogue("You hand the disguise and the key to the prince.");
 				stage = 4;
-				player.getNeoQuestRepository().setStage("Prince Ali Rescue",40);
+				quest.setStage(player, 60);
 				player.removeAttribute("guard-drunk");
 				player.getGameAttributes().removeAttribute("guard-drunk");
 			}

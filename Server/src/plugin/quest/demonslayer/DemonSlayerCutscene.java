@@ -120,9 +120,9 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
 			return true;
 		}
 		final Player player = ((Player) entity);
-		int questStage = player.getNeoQuestRepository().getStage("Demon Slayer");
+		final Quest quest = player.getQuestRepository().getQuest("Demon Slayer");
 		boolean in = player.getAttribute("demon-slayer:cutscene", false);
-		if (questStage == 30 && !in && (player.getEquipment().containsItem(DemonSlayer.SILVERLIGHT) || player.getInventory().containsItem(DemonSlayer.SILVERLIGHT))) {
+		if (quest.getStage(player) == 30 && !in && (player.getEquipment().containsItem(DemonSlayer.SILVERLIGHT) || player.getInventory().containsItem(DemonSlayer.SILVERLIGHT))) {
 			ActivityManager.start(player, "Demon Slayer Cutscene", false);
 			player.setAttribute("demon-slayer:cutscene", true);
 			return super.enter(entity);
@@ -421,7 +421,7 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
 						cutscene.end();
 						cutscene.delrith.clear();
 						player.getConfigManager().set(222, 5653570, true);
-						player.getNeoQuestRepository().finish("Demon Slayer");
+						player.getQuestRepository().getQuest("Demon Slayer").finish(player);
 						end();
 						return true;
 					}

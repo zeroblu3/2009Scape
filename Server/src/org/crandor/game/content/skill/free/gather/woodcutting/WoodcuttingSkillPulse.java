@@ -21,7 +21,6 @@ import org.crandor.game.system.task.Pulse;
 import org.crandor.game.world.map.Location;
 import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.tools.RandomFunction;
-import org.crandor.game.content.skill.free.gather.woodcutting.WoodcuttingNode;
 
 import java.util.concurrent.TimeUnit;
 
@@ -74,7 +73,6 @@ public class WoodcuttingSkillPulse extends Pulse {
 
     @Override
     public void start() {
-        System.out.println(WoodcuttingNode.forId(node.getId()));
         resource = WoodcuttingNode.forId(node.getId());
         if(resource == null){
             return;
@@ -186,8 +184,8 @@ public class WoodcuttingSkillPulse extends Pulse {
                     tree.getCycle().setGrowthTime(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(resource.getRespawnDuration() + 10));
                     return true;
                 }
-                if (resource.getEmptyId(node.getId()) > -1) {
-                    ObjectBuilder.replace(node, node.transform(resource.getEmptyId(node.getId())), resource.getRespawnDuration());
+                if (resource.getEmptyId() > -1) {
+                    ObjectBuilder.replace(node, node.transform(resource.getEmptyId()), resource.getRespawnDuration());
                 } else {
                     ObjectBuilder.replace(node, node.transform(0), resource.getRespawnDuration());
                 }

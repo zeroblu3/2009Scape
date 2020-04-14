@@ -38,7 +38,7 @@ public enum WoodcuttingNode {
     STANDARD_TREE_25(37477,1342,  (byte) 1),
     STANDARD_TREE_26(37478,37653, (byte) 1),
     STANDARD_TREE_27(37652,37653, (byte) 1),
-
+    
     //Dead trees
     DEAD_TREE_1( 1282, 1347,  (byte) 2),
     DEAD_TREE_2( 1283, 1347,  (byte) 2),
@@ -59,7 +59,7 @@ public enum WoodcuttingNode {
     DEAD_TREE_17(37482,1351,  (byte) 2),
     DEAD_TREE_18(37483,1358,  (byte) 2),
     DEAD_TREE_19(24168,24169, (byte) 2),
-
+    
     //Evergreen
     EVERGREEN_1(1315,1342,(byte) 3),
     EVERGREEN_2(1316,1355,(byte) 3),

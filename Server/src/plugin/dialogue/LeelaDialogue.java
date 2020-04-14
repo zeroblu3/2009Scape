@@ -73,13 +73,11 @@ public final class LeelaDialogue extends DialoguePlugin {
 		return new LeelaDialogue(player);
 	}
 
-	int questStage;
-
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
-		switch (questStage) {
+		quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
+		switch (quest.getStage(player)) {
 		case 60:
 		case 100:
 			interpreter.sendDialogues(npc, null, "Thank you, Al-Kharid will forever owe you for your", "help. I think that if there is every anything that needs to", "be done, you will be someone they can rely on.");
@@ -113,7 +111,7 @@ public final class LeelaDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 60:
 		case 100:
 			end();
@@ -216,7 +214,7 @@ public final class LeelaDialogue extends DialoguePlugin {
 				if (!player.getInventory().add(BRONZE_KEY)) {
 					GroundItemManager.create(BRONZE_KEY, player);
 				}
-				player.getNeoQuestRepository().setStage("Prince Ali Rescue",40);
+				quest.setStage(player, 40);
 				interpreter.sendDialogues(npc, null, "Good, you have all the basic equipment. Next to deal", "with the guard on the door. he is talkative, try to find", "a weakness in him.");
 				stage = 2;
 				break;

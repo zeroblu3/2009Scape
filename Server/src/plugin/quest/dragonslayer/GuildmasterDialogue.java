@@ -16,7 +16,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 	/**
 	 * Represents the quest instance.
 	 */
-	private int questStage;
+	private Quest quest;
 
 	/**
 	 * Constructs a new {@code GuildmasterDialogue} {@code Object}.
@@ -43,12 +43,12 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		if (player.getNeoQuestRepository().points < 32) {
+		if (player.getQuestRepository().getPoints() < 32) {
 			return true;
 		}
-		questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		quest = player.getQuestRepository().getQuest("Dragon Slayer");
 		npc("Greetings!");
-		if (questStage == 10) {
+		if (quest.getStage(player) == 10) {
 			stage = 0;
 		} else {
 			stage = 1;
@@ -58,7 +58,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 30:
 			end();
 			break;
@@ -352,7 +352,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 				stage = 20;
 				break;
 			case 20:
-				player.getNeoQuestRepository().setStage("Dragon Slayer", 20);
+				quest.setStage(player, 20);
 				end();
 				break;
 			case 99:
@@ -404,7 +404,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 				}
 				break;
 			case 11:
-				if (questStage == 10) {
+				if (quest.getStage(player) == 10) {
 					npc("You're already on a quest for me, if I recall correctly.", "Have you talked to Oziach yet?");
 					stage = 20;
 					return true;
@@ -434,7 +434,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 			case 17:
 				npc("Oziach lives in a hut, by the cliffs to the west of", "Edgeville. he can be a little...odd...sometimes, though.");
 				stage = 18;
-				player.getNeoQuestRepository().start("Dragon Slayer");
+				quest.start(player);
 				break;
 			case 18:
 				end();
@@ -470,7 +470,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 	public void handleDescription(int buttonId) {
 		switch (buttonId) {
 		case 1:
-			if (questStage == 10) {
+			if (quest.getStage(player) == 10) {
 				npc("You're already on a quest for me, if I recall correctly.", "Have you talked to Oziach yet?");
 				stage = 20;
 				return;

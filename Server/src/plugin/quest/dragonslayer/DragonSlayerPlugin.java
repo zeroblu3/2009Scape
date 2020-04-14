@@ -113,7 +113,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
 
 	@Override
 	public boolean handle(final Player player, Node node, String option) {
-		final int questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		final Quest quest = player.getQuestRepository().getQuest("Dragon Slayer");
 		final int id = node instanceof Item ? ((Item) node).getId() : node instanceof GameObject ? ((GameObject) node).getId() : ((NPC) node).getId();
 		switch (id) {
 		case 10560:
@@ -142,19 +142,19 @@ public final class DragonSlayerPlugin extends OptionHandler {
 		case 2653:
 		case 2661:
 		case 2669:
-			if (questStage != 100) {
+			if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) != 100) {
 				player.getPacketDispatch().sendMessage("You need to complete the Dragon Slayer Quest in order to wear this.");
 				return true;
 			}
 			EquipHandler.SINGLETON.handle(player, node, option);
 			break;
 		case 742:
-			if (questStage == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD) || player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
+			if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD) || player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
 				player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
 				player.getPacketDispatch().sendMessage("your reward!");
 				return true;
 			}
-			if (questStage > 40) {
+			if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) > 40) {
 				player.getPacketDispatch().sendMessage("You have already slain Elvarg the dragon.");
 				return true;
 			}
@@ -168,16 +168,16 @@ public final class DragonSlayerPlugin extends OptionHandler {
 				movement.run(player, 10);
 				return true;
 			}
- 			if (questStage == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD) || player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
+			if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD) || player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
 				player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
 				player.getPacketDispatch().sendMessage("your reward!");
 				return true;
 			}
-			if (questStage > 40) {
+			if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) > 40) {
 				player.getPacketDispatch().sendMessage("You have already slain the dragon.");
 				return true;
 			}
-			if (questStage == 40 && !player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD)) {
+			if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && !player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD)) {
 				ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(839));
 				movement.run(player, 10);
 				if (player.getLocation().getX() <= 2845) {
@@ -195,7 +195,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
 			ClimbActionHandler.climb(player, new Animation(828), new Location(2834, 3258, 0));
 			break;
 		case 2606:
-			if (player.getLocation().getY() < 9600 && !player.getSavedData().getQuestData().getDragonSlayerAttribute("memorized") && questStage != 100) {
+			if (player.getLocation().getY() < 9600 && !player.getSavedData().getQuestData().getDragonSlayerAttribute("memorized") && player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) != 100) {
 				player.getPacketDispatch().sendMessage("The door is securely locked.");
 			} else {
 				if (!player.getSavedData().getQuestData().getDragonSlayerAttribute("memorized")) {
@@ -274,7 +274,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
 			DragonSlayer.handleMagicDoor(player, true);
 			return true;
 		case 747:// oziach.
-			switch (questStage) {
+			switch (quest.getStage(player)) {
 			case 100:
 				node.asNpc().openShop(player);
 				break;
@@ -291,7 +291,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
 			}
 			break;
 		default:
-			handleMelzarMaze(player, node, option, id);
+			handleMelzarMaze(player, node, option, id, quest);
 			break;
 		}
 		return true;
@@ -306,7 +306,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
 	 * @param quest the quest.
 	 * @return <code>True</code> if so.
 	 */
-	private final boolean handleMelzarMaze(final Player player, final Node node, final String option, final int id) {
+	private final boolean handleMelzarMaze(final Player player, final Node node, final String option, final int id, final Quest quest) {
 		switch (id) {
 		case 2603:
 			player.getPacketDispatch().sendMessage("You open the chest.");

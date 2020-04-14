@@ -11,6 +11,7 @@ import org.crandor.plugin.PluginManager;
  * @author Vexia
  * 
  */
+@InitializablePlugin
 public final class BlackKnightsFortress extends Quest {
 
 	/**

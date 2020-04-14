@@ -38,7 +38,7 @@ public final class RestlessGhostSkull extends UseWithHandler {
 		}
 		if (event.getPlayer().getInventory().remove(new Item(964, 24))) {
 			event.getPlayer().getPacketDispatch().sendMessage("You put the skull in the coffin.");
-			event.getPlayer().getNeoQuestRepository().finish("The Restless Ghost");
+			event.getPlayer().getQuestRepository().getQuest("The Restless Ghost").finish(event.getPlayer());
 		}
 		return true;
 	}

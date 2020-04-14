@@ -30,8 +30,6 @@ public final class GypsyArisDialogue extends DialoguePlugin {
 	 */
 	private static final Item COINS = new Item(995, 1);
 
-	public int questStage;
-
 	/**
 	 * Represents the animation used to look into a crystal ball.
 	 */
@@ -77,8 +75,8 @@ public final class GypsyArisDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("Demon Slayer");
-		switch (questStage) {
+		quest = player.getQuestRepository().getQuest("Demon Slayer");
+		switch (quest.getStage(player)) {
 		case 100:
 			npc("Greetings young one.");
 			stage = 0;
@@ -92,7 +90,7 @@ public final class GypsyArisDialogue extends DialoguePlugin {
 				return true;
 			}
 			npc("Greetings. How goes the quest?");
-			if (questStage != 30) {
+			if (quest.getStage(player) != 30) {
 				stage = 1;
 			} else {
 				stage = 0;
@@ -114,7 +112,7 @@ public final class GypsyArisDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 100:
 			switch (stage) {
 			case 0:

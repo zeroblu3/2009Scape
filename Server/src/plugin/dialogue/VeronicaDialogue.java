@@ -39,8 +39,8 @@ public class VeronicaDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		questStage = player.getNeoQuestRepository().getStage("Ernest the Chicken");
-		switch (questStage) {
+		final Quest quest = player.getQuestRepository().getQuest("Ernest the Chicken");
+		switch (quest.getStage(player)) {
 		case 0:
 			switch (stage) {
 			case 0:
@@ -83,7 +83,8 @@ public class VeronicaDialogue extends DialoguePlugin {
 				stage = 8;
 				break;
 			case 8:
-				player.getNeoQuestRepository().start("Ernest the Chicken");
+				quest.start(player);
+				player.getQuestRepository().syncronizeTab(player);
 				interpreter.sendDialogues(npc, null, "Thank you, thank you. I'm very grateful.");
 				stage = 9;
 				break;
@@ -159,7 +160,6 @@ public class VeronicaDialogue extends DialoguePlugin {
 		}
 		return true;
 	}
-	int questStage;
 
 	@Override
 	public DialoguePlugin newInstance(Player player) {
@@ -169,8 +169,8 @@ public class VeronicaDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("Ernest the Chicken");
-		switch (questStage) {
+		final Quest quest = player.getQuestRepository().getQuest("Ernest the Chicken");
+		switch (quest.getStage(player)) {
 		case 0:
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Can you please help me? I'm in a terrible spot of", "trouble.");
 			stage = 0;

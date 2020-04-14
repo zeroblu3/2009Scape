@@ -92,13 +92,13 @@ public final class PiratesTreasurePlugin extends OptionHandler {
 
 		@Override
 		public void run(Player player) {
-			int questStage = player.getNeoQuestRepository().getStage("Pirate's Treasure");
+			final Quest quest = player.getQuestRepository().getQuest("Pirate's Treasure");
 			player.lock(2);
-			if (questStage== 20) {
+			if (quest.getStage(player) == 20) {
 				if (player.getSavedData().getQuestData().isGardenerAttack()) {
 					player.getPacketDispatch().sendMessage("You dig a hole in the ground...");
 					player.getPacketDispatch().sendMessage("and find a little chest of treasure.");
-					player.getNeoQuestRepository().finish("Pirate's Treasure");
+					quest.finish(player);
 				} else {
 					if (player.getAttribute("gardener-dug", false)) {
 						return;

@@ -53,12 +53,11 @@ public class ReldoDialogue extends DialoguePlugin {
 	public ReldoDialogue(Player player) {
 		super(player);
 	}
-	int tksStage;
 
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		tksStage = player.getNeoQuestRepository().getStage("The Knight's Sword");
+		knightSword = player.getQuestRepository().getQuest("The Knight's Sword");
 		shieldArrav = player.getQuestRepository().getQuest("Shield of Arrav");
 		if (args.length == 2 && ((String) args[1]).equals("book")) {
 			player("Aha! 'The Shield of Arrav'! Exactly what I was looking", "for.");
@@ -170,7 +169,7 @@ public class ReldoDialogue extends DialoguePlugin {
 			}
 			return true;
 		}
-		if (tksStage == 10) {
+		if (knightSword.getStage(player) == 10) {
 			switch (stage) {
 			default:
 				handleKnightSword(buttonId);
@@ -488,7 +487,7 @@ public class ReldoDialogue extends DialoguePlugin {
 			stage = 48;
 			break;
 		case 48:
-			player.getNeoQuestRepository().setStage("The Knight's Sword", 20);
+			knightSword.setStage(player, 20);
 			end();
 			break;
 		}
