@@ -5,11 +5,8 @@ import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.info.PlayerDetails;
 import org.crandor.game.node.entity.player.info.login.PlayerParser;
-import org.crandor.game.node.item.Item;
 import org.crandor.game.world.map.Location;
 import org.crandor.game.world.map.RegionManager;
-import org.crandor.tools.StringUtils;
-import org.keldagrim.Management;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -67,18 +64,17 @@ public final class Repository {
 	 * @param color The color of the text.
 	 */
 	public static void sendNews(String string, int icon, String color) {
-		PLAYERS.stream().filter(p -> p != null).forEach(p -> p.sendMessage("<img=" + icon + ">" + color + "News: " + string));
+		Object[] players = PLAYER_NAMES.values().toArray();
+		int size = players.length;
+		for (int i = 0; i < size; i++) {
+			Player player = (Player) players[i];
+			if (player == null) {
+				continue;
+			}
+			player.sendMessage("<img=" + icon + ">" + color + "News: " + string);
+		}
 	}
-
-	public static void sendRareDrop(Item item, Player player){
-		sendRareDrop(item,player,null);
-	}
-
-	public static void sendRareDrop(Item item, Player player, NPC from){
-		String message = "<img=12><col=CC6600>Drops: " + player.getName() + " has received " + item.getName() + "x" + item.getAmount() + from != null ? " from a " + from.getName() : "";
-		PLAYERS.stream().filter(p -> p != null).forEach(p -> p.sendMessage(message));
-	}
-
+	
 	/**
 	 * Send a news message to all players.
 	 * @param string The string.

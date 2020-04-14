@@ -44,8 +44,7 @@ public final class DukeHoracioDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		int questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
-		if (questStage == 20 && !player.getInventory().containsItem(DragonSlayer.SHIELD) && !player.getBank().containsItem(DragonSlayer.SHIELD) && !player.getEquipment().containsItem(DragonSlayer.SHIELD)) {
+		if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 20 && !player.getInventory().containsItem(DragonSlayer.SHIELD) && !player.getBank().containsItem(DragonSlayer.SHIELD) && !player.getEquipment().containsItem(DragonSlayer.SHIELD)) {
 			switch (stage) {
 			case 0:
 				player("I seek a shield that will protect me from dragonbreath.");
@@ -105,7 +104,7 @@ public final class DukeHoracioDialogue extends DialoguePlugin {
 			}
 			return true;
 		}
-		if (questStage == 20) {
+		if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 20) {
 			switch (stage) {
 			case 412:
 				npc("Take care out there. If you kill it...");

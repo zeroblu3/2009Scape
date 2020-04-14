@@ -2,8 +2,6 @@ package plugin.quest;
 
 import org.crandor.game.node.entity.npc.AbstractNPC;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.NeoQuest;
-import org.crandor.game.node.entity.player.link.quest.NeoQuestRepository;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.game.node.item.GroundItemManager;
 import org.crandor.game.node.item.Item;
@@ -13,10 +11,10 @@ import org.crandor.plugin.PluginManager;
 
 /**
  * Represents the ernest the chicken quest.
- * @author Ceikry
+ * @author 'Vexia
  */
 @InitializablePlugin
-public final class ErnestTheChicken extends NeoQuest {
+public final class ErnestTheChicken extends Quest {
 
 	/**
 	 * Represents the oil can item.
@@ -42,66 +40,42 @@ public final class ErnestTheChicken extends NeoQuest {
 	 * Constructs a new {@code ErnestTheChicken} {@code Object}.
 	 * @param player the player.
 	 */
-	public ErnestTheChicken() { super(32,18,"Ernest the Chicken",4,3);}
-
-	private boolean hasCan,hasGauge,hasTube;
+	public ErnestTheChicken() {
+		super("Ernest the Chicken", 19, 18, 4, 32, 0, 1, 3);
+	}
 
 	@Override
-	public NeoQuest newInstance(Object object) {
-		NeoQuestRepository.register(buttonId,this);
+	public Quest newInstance(Object object) {
 		PluginManager.definePlugin(new ErnestNPC(), new ErnestChickenNPC());
 		return this;
 	}
 
 	@Override
-	public void setLines(Player player) {
-		super.setLines(player);
-		int line = 10;
-		int stage = player.getNeoQuestRepository().getStage("Ernest the Chicken");
-		boolean started = stage > 0;
-		if(!started){
-			journal.addLine("I can start this quest by speaking to !!Veronica??, who is",++line,false);
-			journal.addLine("outside !!Draynor Manor??.",++line,false);
-			journal.addLine("There aren't any requirements for this quest.",++line,false);
-		} else {
-			journal.addLine("I have spoken to Veronica",++line,true);
-			if(stage == 10) {
-				journal.addLine("I need to find !!Ernest??. He went into !!Draynor Manor?? and hasn't returned.", ++line, false);
-			}
-			if(stage == 20){
-				journal.addLine("I've spoken to Dr Oddenstein, and discovered Ernest is a",++line,true);
-				journal.addLine("chicken.",++line,true);
-				journal.addLine("I need to bring !!Dr Oddenstein?? parts for his machine:",++line,false);
-				journal.addLine("An oil can.",++line,hasCan);
-				journal.addLine("A pressure gauge.",++line,hasGauge);
-				journal.addLine("A rubber tube",++line,hasTube);
-			}
-			if(stage == 100){
-				journal.addLine("I have collected all the parts for the machine.",++line,true);
-				journal.addLine("Dr Oddenstein thanked me for helping fix his machine.",++line,true);
-				journal.addLine("We turned Ernest back to normal and he rewarded me",++line,true);
-				journal.addLine("!!QUEST COMPLETE!??",++line,false);
-			}
+	public void drawJournal(Player player, int stage) {
+		super.drawJournal(player, stage);
+		if (getStage(player) == 0) {
+			player.getPacketDispatch().sendString(BLUE + "I can start this quest by speaking to " + RED+ "Veronica " + BLUE + "who is", 275, 4+ 7);
+			player.getPacketDispatch().sendString(BLUE + "outside " + RED+ "Draynor Manor", 275, 5+ 7);
+			player.getPacketDispatch().sendString(BLUE + "There aren't any requirements for this quest.", 275, 7+ 7);
+		} else if (stage == 10) {
+			line(player, "<str>I have spoken to Veronica", 4+ 7);
+			line(player, BLUE + "I need to find " + RED + "Ernest", 6+ 7);
+			line(player,  BLUE + "He went into " + RED+ "Draynor Manor " + BLUE + "and hasn't returned", 7+ 7);
+		} else if (stage == 20) {
+			line(player, "<str>I have spoken to Veronica", 4+ 7);
+			line(player, "<str>I've spoken to Dr Oddenstein, and discovered Ernest is a", 6+ 7);
+			line(player, "<str>chicken", 7+ 7);
+			line(player, BLUE + "I need to bring " + RED+ "Dr Oddenstein " + BLUE + "parts for his machine", 9+ 7);
+			line(player, player.getInventory().containsItem(OIL_CAN) ? "<str>1 Oil Can" : RED+ "1 Oil Can", 10);
+			line(player,  player.getInventory().containsItem(PRESSURE_GAUGE) ? "<str>1 Pressure Gauge" : RED+ "1 Pressure Gauge", 11);
+			line(player,  player.getInventory().containsItem(RUBBER_TUBE) ? "<str>1 Rubber Tube" : RED+ "1 Rubber Tube", 12);
+		} else if (stage == 100) {
+			line(player, "<str>I have spoken to Veronica", 4+ 7);
+			line(player, "<str>I have collected all the parts for the machine", 6+ 7);
+			line(player, "<str>Dr Oddenstein thanked me for helping fix his machine", 8+ 7);
+			line(player, "<str>We turned Ernest back to normal and he rewarded me", 9+ 7);
+			line(player, "<col=FF0000>QUEST COMPLETE!</col>", 10+ 7);
 		}
-	}
-
-	@Override
-	public void updateConditionals(Player player) {
-		hasCan = player.getInventory().containsItem(OIL_CAN);
-		hasTube = player.getInventory().containsItem(RUBBER_TUBE);
-		hasGauge = player.getInventory().containsItem(PRESSURE_GAUGE);
-	}
-
-	@Override
-	public int getConfig(Player player) {
-		int stage = player.getNeoQuestRepository().getStage("Ernest the Chicken");
-		if(stage >= 100){
-			return configs;
-		}
-		if(stage > 0){
-			return 1;
-		}
-		return 0;
 	}
 
 	@Override
@@ -109,14 +83,15 @@ public final class ErnestTheChicken extends NeoQuest {
 		player.unlock();
 		player.getPacketDispatch().sendMessage("Ernest hands you 300 coins.");
 		super.finish(player);
-		int line = 10;
-		rewards.addLine("4 Quest Points",line++);
-		rewards.addLine("300 coins",line++);
-		rewards.addRewardItem(COINS);
-		rewards.setInterfaceItem(314);
-		rewards.draw(player);
+		player.getPacketDispatch().sendString("4 Quest Points", 277, 8 + 2);
+		player.getPacketDispatch().sendString("300 coins", 277, 9 + 2);
+		player.getPacketDispatch().sendString("You have completed the Ernest The Chicken Quest!", 277, 2 + 2);
 		player.getGameAttributes().removeAttribute("piranhas-killed");
 		player.getGameAttributes().removeAttribute("pressure-gauge");
+		player.getPacketDispatch().sendItemZoomOnInterface(314, 230, 277, 3 + 2);
+		if (!player.getInventory().add(COINS)) {
+			GroundItemManager.create(COINS, player.getLocation(), player);
+		}
 	}
 	
 	/**
@@ -154,7 +129,7 @@ public final class ErnestTheChicken extends NeoQuest {
 
 		@Override
 		public boolean isHidden(final Player player) {
-			return player.getNeoQuestRepository().getStage("Ernest the Chicken") == 100 || player.getAttribute("ernest-hide", false);
+			return player.getQuestRepository().getQuest("Ernest the Chicken").getStage(player) == 100 || player.getAttribute("ernest-hide", false);
 		}
 
 		@Override
@@ -200,7 +175,7 @@ public final class ErnestTheChicken extends NeoQuest {
 		@Override
 		public boolean isHidden(final Player player) {
 			Player target = getAttribute("target", null);
-			if (target != null && target.getNeoQuestRepository().getStage("Ernest the Chicken") == 100) {
+			if (target != null && target.getQuestRepository().getQuest("Ernest the Chicken").getStage(player) == 100) {
 				clear();
 				return super.isHidden(player);
 			}

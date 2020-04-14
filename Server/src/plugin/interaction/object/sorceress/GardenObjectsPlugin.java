@@ -672,13 +672,11 @@ public final class GardenObjectsPlugin extends OptionHandler {
 			return new OsmanDialogue(player);
 		}
 
-		int questStage;
-
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			questStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
-			switch (questStage) {
+			quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
+			switch (quest.getStage(player)) {
 			case 100:
 				interpreter.sendDialogues(player, null, "I'd like to talk about sq'irks.");
 				stage = 0;
@@ -722,7 +720,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
-			switch (questStage) {
+			switch (quest.getStage(player)) {
 			case 100:
 				switch (stage) {
 				default:
@@ -814,7 +812,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 				case 81:
 					if (player.getInventory().remove(BRONZE_BAR) && player.getInventory().remove(KEY_PRINT)) {
 						interpreter.sendDialogues(npc, null, "Pick the key up from Leela.");
-						player.getNeoQuestRepository().setStage("Prince Ali Rescue",30);
+						quest.setStage(player, 30);
 						stage = 82;
 					}
 					break;
@@ -868,7 +866,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 					stage = 17;
 					break;
 				case 17:
-					player.getNeoQuestRepository().setStage("Prince Ali Rescue",20);
+					quest.setStage(player, 20);
 					interpreter.sendOptions("Select an Option", "Explain the first thing again.", "What is the second thing you need?", "Okay, I better go find some things.");
 					stage = 50;
 					break;
@@ -885,7 +883,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 					stage = 23;
 					break;
 				case 23:
-					player.getNeoQuestRepository().setStage("Prince Ali Rescue", 20);
+					quest.setStage(player, 20);
 					interpreter.sendOptions("Select an Option", "What is the first thing I must do?", "What exactly is the second thing you need?", "Okay, I better go find some things.");
 					stage = 24;
 					break;
@@ -981,7 +979,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 					stage = 17;
 					break;
 				case 17:
-					player.getNeoQuestRepository().setStage("Prince Ali Rescue", 20);
+					quest.setStage(player, 20);
 					interpreter.sendOptions("Select an Option", "Explain the first thing again.", "What is the second thing you need?", "Okay, I better go find some things.");
 					stage = 50;
 					break;
@@ -998,7 +996,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 					stage = 23;
 					break;
 				case 23:
-					player.getNeoQuestRepository().setStage("Prince Ali Rescue", 20);
+					quest.setStage(player, 20);
 					interpreter.sendOptions("Select an Option", "What is the first thing I must do?", "What exactly is the second thing you need?", "Okay, I better go find some things.");
 					stage = 24;
 					break;

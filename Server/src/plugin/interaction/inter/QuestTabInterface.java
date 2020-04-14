@@ -7,7 +7,6 @@ import org.crandor.game.content.global.tutorial.TutorialSession;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.diary.AchievementDiary;
 import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.node.entity.player.link.quest.NeoQuest;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
@@ -51,10 +50,6 @@ public class QuestTabInterface extends ComponentPlugin {
 								p.getInterfaceManager().open(new Component(275));
 								quest.drawJournal(p, quest.getStage(p));
 								return true;
-							} else {
-								NeoQuest nquest = p.getNeoQuestRepository().forButton(button);
-								nquest.setLines(p);
-								nquest.journal.draw(p);
 							}
 //						}
 						return false;

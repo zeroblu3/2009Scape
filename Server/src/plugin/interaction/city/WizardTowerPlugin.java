@@ -68,7 +68,7 @@ public final class WizardTowerPlugin extends OptionHandler {
 		ObjectDefinition.forId(11993).getConfigurations().put("option:open", this);
 		PluginManager.definePlugin(new WizardtowerWizardNPC());
 		PluginManager.definePlugin(new WizardTowerDialogue());
-		PluginManager.definePlugin(new WizardMizgogDialogue());
+		PluginManager.definePlugin(new WizardMisgogDialogue());
 		PluginManager.definePlugin(new WizardGrayzagDialogue());
 		PluginManager.definePlugin(new WizardDialogue());
 		PluginManager.definePlugin(new SedridorDialogue());
@@ -258,7 +258,7 @@ public final class WizardTowerPlugin extends OptionHandler {
 	 * @author 'Vexia
 	 * @version 1.0
 	 */
-	public static final class WizardMizgogDialogue extends DialoguePlugin {
+	public static final class WizardMisgogDialogue extends DialoguePlugin {
 
 		/**
 		 * Represents the black bead item.
@@ -288,7 +288,7 @@ public final class WizardTowerPlugin extends OptionHandler {
 		/**
 		 * Constructs a new {@code WizardMisgogDialogue} {@code Object}.
 		 */
-		public WizardMizgogDialogue() {
+		public WizardMisgogDialogue() {
 			/**
 			 * empty.
 			 */
@@ -298,21 +298,20 @@ public final class WizardTowerPlugin extends OptionHandler {
 		 * Constructs a new {@code WizardMisgogDialogue} {@code Object}.
 		 * @param player the player.
 		 */
-		public WizardMizgogDialogue(Player player) {
+		public WizardMisgogDialogue(Player player) {
 			super(player);
 		}
 
 		@Override
 		public DialoguePlugin newInstance(Player player) {
-			return new WizardMizgogDialogue(player);
+			return new WizardMisgogDialogue(player);
 		}
-		int questStage;
 
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			questStage = player.getNeoQuestRepository().getStage("Imp Catcher");
-			switch (questStage) {
+			Quest quest = player.getQuestRepository().getQuest("Imp Catcher");
+			switch (quest.getStage(player)) {
 			case 0:
 				interpreter.sendDialogues(player, null, "Give me a quest!");
 				stage = 0;
@@ -331,7 +330,8 @@ public final class WizardTowerPlugin extends OptionHandler {
 
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
-			switch (questStage) {
+			final Quest quest = player.getQuestRepository().getQuest("Imp Catcher");
+			switch (quest.getStage(player)) {
 			case 0:
 				switch (stage) {
 				case 0:
@@ -399,7 +399,8 @@ public final class WizardTowerPlugin extends OptionHandler {
 					stage = 19;
 					break;
 				case 19:
-					player.getNeoQuestRepository().start("Imp Catcher");
+					quest.start(player);
+					player.getQuestRepository().syncronizeTab(player);
 					end();
 					break;
 				case 18:
@@ -472,7 +473,8 @@ public final class WizardTowerPlugin extends OptionHandler {
 						PulseRunner.submit(new Pulse(3, player) {
 							@Override
 							public boolean pulse() {
-								player.getNeoQuestRepository().finish("Imp Catcher");
+								quest.finish(player);
+								player.getQuestRepository().syncronizeTab(player);
 								return true;
 							}
 

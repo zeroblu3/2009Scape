@@ -43,8 +43,6 @@ public final class KlarenseDialogue extends DialoguePlugin {
 		super(player);
 	}
 
-	int questStage;
-
 	@Override
 	public DialoguePlugin newInstance(Player player) {
 		return new KlarenseDialogue(player);
@@ -53,13 +51,13 @@ public final class KlarenseDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		quest = player.getQuestRepository().getQuest("Dragon Slayer");
 		if (args.length > 1) {
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hey, stay off my ship! That's private property!");
 			stage = 0;
 			return true;
 		}
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 100:
 			player("Hey, that's my ship!");
 			stage = -1;
@@ -83,7 +81,7 @@ public final class KlarenseDialogue extends DialoguePlugin {
 			end();
 			return true;
 		}
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 100:
 			switch (stage) {
 			case 0:

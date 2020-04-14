@@ -193,7 +193,7 @@ public final class NPCDropTables {
 			return;
 		}
 		if (item.getDefinition().getConfiguration(ItemConfigSQLHandler.RARE_ITEM, false)) {
-			Repository.sendRareDrop(item,player);
+			Repository.sendNews(player.getUsername() + " has just received: " + item.getAmount() + " x " + item.getName() + ".");
 		}
 		if(item.getId() == 6199 && player instanceof Player){
 		    player.sendMessage("<col=990000>A mystery box has fallen on the ground.</col>");

@@ -36,8 +36,6 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 		 */
 	}
 
-	int questStage;
-
 	/**
 	 * Constructs a new {@code FaladorSquireDialogue} {@code Object}.
 	 * @param player the player.
@@ -54,8 +52,8 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("The Knight's Sword");
-		switch (questStage) {
+		quest = player.getQuestRepository().getQuest("The Knight's Sword");
+		switch (quest.getStage(player)) {
 		case 0:
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hello. I am the squire to Sir Vyvin.");
 			stage = 0;
@@ -79,7 +77,7 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (questStage) {
+		switch (quest.getStage(player)) {
 		case 100:
 			switch (stage) {
 			case 0:
@@ -111,7 +109,7 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 				break;
 			case 4:
 				if (player.getInventory().remove(BLURITE_SWORD)) {
-					player.getNeoQuestRepository().finish("The Knight's Sword");
+					quest.finish(player);
 					end();
 				}
 				break;
@@ -160,7 +158,7 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 				stage = 4;
 				break;
 			case 4:
-				player.getNeoQuestRepository().setStage("The Knight's Sword",50);
+				quest.setStage(player, 50);
 				end();
 				break;
 			}
@@ -306,7 +304,8 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 			case 165:
 				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Thank you very much! As I say, the best place to start", "should be with Reldo...");
 				stage = 166;
-				player.getNeoQuestRepository().start("The Knight's Sword");
+				quest.setStage(player, 10);
+				player.getQuestRepository().syncronizeTab(player);
 				break;
 			case 166:
 				end();

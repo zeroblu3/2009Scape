@@ -65,18 +65,15 @@ public final class ApothecaryDialogue extends DialoguePlugin {
 		return new ApothecaryDialogue(player);
 	}
 
-	int questStage;
-
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		questStage = player.getNeoQuestRepository().getStage("Romeo & Juliet");
-		if (questStage == 40) {
+		if (player.getQuestRepository().getQuest("Romeo & Juliet").getStage(player) == 40) {
 			interpreter.sendDialogues(player, null, "Apothecary. Father Lawrence sent me.");
 			stage = 500;
 			return true;
 		}
-		if (questStage == 50) {
+		if (player.getQuestRepository().getQuest("Romeo & Juliet").getStage(player) == 50) {
 			if (!player.getInventory().contains(753, 1)) {
 				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Keep searching for those Cadavaberries. They're needed", "for the potion.");
 				stage = 507;
@@ -87,7 +84,7 @@ public final class ApothecaryDialogue extends DialoguePlugin {
 				return true;
 			}
 		}
-		if (questStage == 60) {
+		if (player.getQuestRepository().getQuest("Romeo & Juliet").getStage(player) == 60) {
 			if (!player.getInventory().contains(756, 1) && !player.getBank().contains(756, 1)) {
 				if (player.getInventory().contains(753, 1)) {
 					interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Well done. You have the berries.");
@@ -243,7 +240,7 @@ public final class ApothecaryDialogue extends DialoguePlugin {
 			stage = 506;
 			break;
 		case 506:
-			player.getNeoQuestRepository().setStage("Romeo & Juliet", 50);
+			player.getQuestRepository().getQuest("Romeo & Juliet").setStage(player, 50);
 			interpreter.sendDialogues(player, null, "Ok, thanks.");
 			stage = 507;
 			break;
@@ -268,7 +265,7 @@ public final class ApothecaryDialogue extends DialoguePlugin {
 			stage = 640;
 			break;
 		case 640:
-			player.getNeoQuestRepository().setStage("Romeo & Juliet", 60);
+			player.getQuestRepository().getQuest("Romeo & Juliet").setStage(player, 60);
 			end();
 			break;
 		}

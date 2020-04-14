@@ -29,8 +29,8 @@ public class BKCabbagePlugin extends UseWithHandler {
 	@Override
 	public boolean handle(NodeUsageEvent event) {
 		final Player player = event.getPlayer();
-		final int questStage = player.getNeoQuestRepository().getStage("Black Knights' Fortress");
-		if (questStage == 20) {
+		final Quest quest = player.getQuestRepository().getQuest("Black Knights' Fortress");
+		if (quest.getStage(player) == 20) {
 			if (event.getUsedItem().getId() == 1967) {
 				player.getDialogueInterpreter().sendDialogue("This is the wrong sort of cabbage!");
 				return true;

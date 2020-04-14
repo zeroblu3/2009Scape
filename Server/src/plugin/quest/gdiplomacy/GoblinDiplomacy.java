@@ -2,8 +2,6 @@ package plugin.quest.gdiplomacy;
 
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.NeoQuest;
-import org.crandor.game.node.entity.player.link.quest.NeoQuestRepository;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.game.node.item.GroundItemManager;
 import org.crandor.game.node.item.Item;
@@ -16,7 +14,7 @@ import org.crandor.plugin.PluginManager;
  * 
  */
 @InitializablePlugin
-public class GoblinDiplomacy extends NeoQuest {
+public class GoblinDiplomacy extends Quest {
 
 	/**
 	 * The name of the quest.
@@ -46,102 +44,116 @@ public class GoblinDiplomacy extends NeoQuest {
 	/**
 	 * Constructs a new {@Code GoblinDiplomacy} {@Code Object}
 	 */
-	public GoblinDiplomacy() { super(62,19,"Goblin Diplomacy",5,6);}
-	private boolean hasOrange, hasBlue, hasBrown;
+	public GoblinDiplomacy() {
+		super("Goblin Diplomacy", 20, 19, 5);
+	}
 	
 	@Override
-	public NeoQuest newInstance(Object object) {
-		NeoQuestRepository.register(buttonId,this);
+	public Quest newInstance(Object object) {
 		PluginManager.definePlugin(new GDiplomacyCutscene(), new GoblinDiplomacyPlugin(), new GrubfootDialogue());
 		return this;
 	}
 
 	@Override
-	public void setLines(Player player) {
-		super.setLines(player);
-		int line = 10;
-		int stage = player.getNeoQuestRepository().getStage("Goblin Diplomacy");
-		boolean started = stage > 0;
-		if(!started){
-			journal.addLine("I can start thiss quest by speaking to !!Generals Wartface and",++line,false);
-			journal.addLine("!!Bentnoze?? in the Goblin Village.",++line,false);
-			journal.addLine("There are no requirements for this quest.",++line,false);
-		} else {
-			journal.addLine("I spoke to Generals Wartface and Bentnoze in the Goblin",++line,true);
-			journal.addLine("Village and found that the goblins were on the brink of civil",++line,true);
-			journal.addLine("war over the colour of their armour. I offered to help the",++line,true);
-			journal.addLine("generals by finding another colour that they both like.",++line,true);
-			if(stage == 10){
-				journal.addLine(!hasOrange ? "I should bring the goblins some !!orange goblin armour.??":
-						                     "I have some !!orange goblin armour??. I should show it to the",
-						        ++line,false);
-				journal.addLine(!hasOrange ? "Maybe the generals will know where to get some.":
-						                     "generals.",
-						        ++line,false);
+	public void drawJournal(Player player, int stage) {
+		super.drawJournal(player, stage);
+		switch (stage) {
+		case 0:
+			player.getPacketDispatch().sendString(BLUE + "I can start this quest by speaking to " + RED + "Generals Wartface", 275, 4 + 7);
+			player.getPacketDispatch().sendString(RED + "and Bentnoze " + BLUE + "in the " + RED + " Goblin Village.", 275, 5+ 7);
+			player.getPacketDispatch().sendString(BLUE + "There are no requirements for this quest.", 275, 6+ 7);
+			break;
+		case 10:
+			line(player, "<str>I spoke to Generals Wartface and Bentnoze in the Goblin", 4+ 7);
+			line(player, "<str>Village and found that the goblins were on the bring of civil", 5+ 7);
+			line(player, "<str>war over the colour of their armour. I o dffered to help the", 6+ 7);
+			line(player, "<str>generals by finding another colour that they both like.", 7+ 7);
+			if (player.getInventory().containsItem(ORANGE_MAIL)) {
+				line(player, BLUE + "I have some " + RED + "Orange Goblin Armour. " + BLUE + "I should show it to the", 9+ 7);
+				line(player, BLUE + "generals.", 10+ 7);
+			} else {
+				line(player, BLUE + "I should bring the goblins some " + RED + "Orange Goblin Armour", 9+ 7);
+				line(player, BLUE + "Maybe the generals will know where to get some.", 10+ 7);
 			}
-			if(stage >= 20) {
-				journal.addLine("I brought the generals some orange goblin armour, but they", ++line, true);
-				journal.addLine("didn't like it.",++line,true);
+			break;
+		case 20:
+			line(player, "<str>I spoke to Generals Wartface and Bentnoze in the Goblin", 4+ 7);
+			line(player, "<str>Village and found that the goblins were on the bring of civil", 5+ 7);
+			line(player, "<str>war over the colour of their armour. I offered to help the", 6+ 7);
+			line(player, "<str>generals by finding another colour that they both like.", 7+ 7);
+			line(player, "<str>I brought the goblins some orange goblin armour, but they", 9+ 7);
+			line(player, "<str>didn't like it.", 10+ 7);
+			if (player.getInventory().containsItem(BLUE_MAIL)) {
+				line(player, BLUE + "I have some " + RED + "Blue Goblin Armour. " + BLUE + "I should show it to the", 12+ 7);
+				line(player, BLUE + "generals.", 13+ 7);
+			} else {
+				line(player, BLUE + "I should bring the goblins s+ 7+ 7);e " + RED + "Blue Goblin Armour", 12+ 7);
+				line(player, BLUE + "Maybe the generals will know where to get some.", 13+ 7);
 			}
-			if(stage == 20){
-				journal.addLine(!hasBlue ? "I should bring the goblins some !!blue goblin armour.??":
-						                   "I have some !!blue goblin armour??. I should show it to the",
-						        ++line,false);
-				journal.addLine(!hasBlue ? "Maybe the generals will know where to get some.":
-								           "generals.",
-						        ++line,false);
+			break;
+		case 30:
+			line(player, "<str>I spoke to Generals Wartface and Bentnoze in the Goblin", 4+ 7);
+			line(player, "<str>Village and found that the goblins were on the bring of civil", 5+ 7);
+			line(player, "<str>war over the colour of their armour. I offered to help the", 6+ 7);
+			line(player, "<str>generals by finding another colour that they both like.", 7+ 7);
+			line(player, "<str>I brought the goblins some orange goblin armour, but they", 9+ 7);
+			line(player, "<str>didn't like it.", 10+ 7);
+			line(player, "<str>I brought the goblins some blue goblin armour, but they", 12+ 7);
+			line(player, "<str>didn't like it.", 13+ 7);
+			if (player.getInventory().containsItem(GOBLIN_MAIL)) {
+				line(player, BLUE + "I have some " + RED + "Brown Goblin Armour. " + BLUE + "I should show it to the", 12+ 7);
+				line(player, BLUE + "generals.", 13+ 7);
+			} else {
+				line(player, BLUE + "I should bring the goblins some " + RED + "Brown Goblin Armour", 12+ 7);
+				line(player, BLUE + "Maybe the generals will know where to get some.", 13+ 7);
 			}
-			if(stage >= 30){
-				journal.addLine("I brought the generals some blue goblin armour, but they", ++line, true);
-				journal.addLine("didn't like it.",++line,true);
-			}
-			if(stage == 30){
-				journal.addLine(!hasBrown ? "I should bring the goblins some !!brown goblin armour.??":
-								"I have some !!brown goblin armour??. I should show it to the",
-						++line,false);
-				journal.addLine(!hasBrown ? "Maybe the generals will know where to get some.":
-								"generals.",
-						++line,false);
-			}
-			if(stage == 100){
-				journal.addLine("Unfortunately, the goblins were very stupid, and it turned out",++line,true);
-				journal.addLine("that they liked the original colour the most. That's goblins",++line,true);
-				journal.addLine("for you I guess.",++line,true);
-				journal.addLine("!!QUEST COMPLETE!??",++line,false);
-			}
+			break;
+		case 100:
+			line(player, "<str>I spoke to Generals Wartface and Bentnoze in the Goblin", 4+ 7);
+			line(player, "<str>Village and found that the goblins were on the bring of civil", 5+ 7);
+			line(player, "<str>war over the colour of their armour. I offered to help the", 6+ 7);
+			line(player, "<str>generals by finding another colour that they both like.", 7+ 7);
+			line(player, "<str>I brought the goblins some orange goblin armour, but they", 9+ 7);
+			line(player, "<str>didn't like it.", 10+ 7);
+			line(player, "<str>I brought the goblins some blue goblin armour, but they", 12+ 7);
+			line(player, "<str>didn't like it.", 13+ 7);
+			line(player, "<str>Unfortunately the goblins were very stupid, and it turned", 15+ 7);
+			line(player, "<str>out that they liked the original colour the most. That's goblins", 16+ 7);
+			line(player, "<str>for you I guess.", 17+ 7);
+			line(player, "<col=FF0000>QUEST COMPLETE!</col>", 18+ 7);
+			break;
 		}
-	}
-
-	@Override
-	public void updateConditionals(Player player) {
-		hasBlue = player.getInventory().containsItem(BLUE_MAIL);
-		hasOrange = player.getInventory().containsItem(ORANGE_MAIL);
-		hasBrown = player.getInventory().containsItem(GOBLIN_MAIL);
 	}
 
 	@Override
 	public void finish(Player player) {
 		super.finish(player);
-		int line = 10;
-		rewards.addLine("5 Quest Points",line++);
-		rewards.addLine("200 Crafting XP",line++);
-		rewards.addLine("A gold bar",line++);
-		rewards.addRewardItem(GOLD_BAR);
-		rewards.addRewardXP(Skills.CRAFTING,200);
-		rewards.setInterfaceItem(288);
-		rewards.draw(player);
+		player.getPacketDispatch().sendString("5 Quests Points", 277, 8 + 2);
+		player.getPacketDispatch().sendString("200 Crafting XP", 277, 9 + 2);
+		player.getPacketDispatch().sendString("A gold bar", 277, 10 + 2);
+		player.getPacketDispatch().sendString("You have completed the Goblin Diplomacy Quest!", 277, 2 + 2);
+		player.getPacketDispatch().sendItemZoomOnInterface(288, 230, 277, 3 + 2);
+		player.getSkills().addExperience(Skills.CRAFTING, 200);
+		if (!player.getInventory().add(GOLD_BAR)) {
+			GroundItemManager.create(GOLD_BAR, player);
+		}
 	}
 
 	@Override
-	public int getConfig(Player player) {
-		int stage = player.getNeoQuestRepository().getStage("Goblin Diplomacy");
-		if (stage == 100) {
-			return configs;
+	public int[] getConfig(Player player, int stage) {
+		if (stage == 0) {
+			return new int[] { 62, 0 };
 		}
-		if (stage > 0) {
-			return 1;
+		if (stage == 10) {
+			return new int[] { 62, 1 };
+		} else if (stage == 20) {
+			return new int[] { 62, 4 };
+		} else if (stage == 30) {
+			return new int[] { 62, 5 };
+		} else if (stage == 100) {
+			return new int[] { 62, 6 };
 		}
-		return 0;
+		return new int[] { 62, 0 };
 	}
 
 }

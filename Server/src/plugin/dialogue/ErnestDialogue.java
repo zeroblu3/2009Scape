@@ -73,12 +73,12 @@ public final class ErnestDialogue extends DialoguePlugin {
 	 * Method used to finish the quest.
 	 */
 	public void finish() {
-		if (player.getNeoQuestRepository().hasFinished("Ernest the Chicken")) {
+		if (player.getQuestRepository().isComplete("Ernest the Chicken")) {
 			npc.clear();
 			return;
 		}
 		npc.clear();
-		player.getNeoQuestRepository().finish("Ernest the Chicken");
+		player.getQuestRepository().getQuest("Ernest the Chicken").finish(player);
 	}
 
 	@Override
