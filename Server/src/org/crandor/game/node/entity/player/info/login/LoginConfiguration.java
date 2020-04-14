@@ -1,19 +1,25 @@
 package org.crandor.game.node.entity.player.info.login;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.crandor.game.component.CloseEvent;
 import org.crandor.game.component.Component;
 import org.crandor.game.content.global.tutorial.TutorialSession;
-
 import org.crandor.game.content.global.tutorial.TutorialStage;
 import org.crandor.game.interaction.Option;
 import org.crandor.game.interaction.OptionHandler;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.game.node.entity.player.link.appearance.Gender;
 import org.crandor.game.system.SystemManager;
 import org.crandor.game.world.GameWorld;
 import org.crandor.game.world.map.RegionManager;
 import org.crandor.game.world.repository.Repository;
 import org.crandor.game.world.update.UpdateSequence;
+import org.crandor.game.world.update.flag.context.Animation;
 import org.crandor.game.world.update.flag.player.AppearanceFlag;
 import org.crandor.net.amsc.MSPacketRepository;
 import org.crandor.net.amsc.WorldCommunicator;
@@ -21,13 +27,8 @@ import org.crandor.net.packet.PacketRepository;
 import org.crandor.net.packet.context.InterfaceContext;
 import org.crandor.net.packet.out.Interface;
 import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
-import plugin.interaction.inter.PlayerExamineInterfacePlugin;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import com.sun.xml.internal.ws.util.StringUtils;
 
 /**
  * Sends the login configuration packets.
@@ -85,8 +86,6 @@ public final class LoginConfiguration {
      * @param player The player.
      */
     public static void sendLobbyScreen(Player player) {
-        int random = RandomFunction.getRandom(50);
-
         Repository.getLobbyPlayers().add(player);
         player.getPacketDispatch().sendString(getLastLogin(player), 378, 116);
         player.getPacketDispatch().sendString("Welcome to " + GameWorld.getName(), 378, 115);
@@ -197,24 +196,37 @@ public final class LoginConfiguration {
         player.getInterfaceManager().close();
         player.getEmoteManager().refresh();
         player.getInterfaceManager().openInfoBars();
-        player.getInteraction().set(new Option("Examine", 7).setHandler(new OptionHandler() {
-            @Override
-            public Plugin<Object> newInstance(Object arg) throws Throwable {
-                return null;
-            }
-
-            @Override
-            public boolean handle(Player p, Node node, String option) {
-                PlayerExamineInterfacePlugin comp = new PlayerExamineInterfacePlugin();
-                comp.prepareInterface(p, (Player) node);
-                return true;
-            }
-
-            @Override
-            public boolean isWalk() {
-                return false;
-            }
-        }));
+	    player.getInteraction().set(new Option("Pat", 7).setHandler(new OptionHandler() {
+	            @Override
+	            public Plugin<Object> newInstance(Object arg) throws Throwable {
+	                return null;
+	            }
+	
+	            @Override
+	            public boolean handle(Player p, Node node, String option) { 
+	            	//player - interaction doer.
+	            	//node - node with the option on.
+	            	if (node.asPlayer().isArtificial()) {
+	            		player.getDialogueInterpreter().sendPlainMessage(false,"I don't think the bots would appreciate it as much as a human player!");
+	            		return true;
+	            	}
+	                player.lock(3);
+	                player.animate(Animation.create(2068));
+	                if (!node.asPlayer().getAnimator().isAnimating() && node.asPlayer().getStatisticsManager().getPATS().getStatisticalAmount()<10) {
+	                	node.asPlayer().animate(Animation.create(2105));
+	                }
+	                player.getDialogueInterpreter().sendPlainMessage(false,"You pat " + StringUtils.capitalize(node.asPlayer().getName()) + " on the head. " + (node.asPlayer().getAppearance().getGender() == Gender.MALE ? "He" : "She") + " " + (node.asPlayer().getStatisticsManager().getPATS().getStatisticalAmount() < 10 ? "confusingly" : "")+ " enjoys it.");
+	                node.asPlayer().sendMessage(StringUtils.capitalize(player.getName()) + " pats you, you feel good" + (node.asPlayer().getStatisticsManager().getPATS().getStatisticalAmount() < 10 ? ", yet confused." : "."));
+	                node.asPlayer().getStatisticsManager().getPATS().incrementAmount();
+	                return true;
+	            }
+	
+	            @Override
+	            public boolean isWalk() {
+	                return true;
+	            }
+	        }));
+        
     }
 
     /**

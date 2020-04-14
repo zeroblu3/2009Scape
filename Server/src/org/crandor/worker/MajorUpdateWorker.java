@@ -5,7 +5,6 @@ import java.util.concurrent.Executors;
 
 import org.crandor.game.system.SystemManager;
 import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.GameWorldThread;
 import org.crandor.game.world.repository.Repository;
 import org.crandor.game.world.update.UpdateSequence;
 import org.crandor.gui.tab.StatisticsTab;
