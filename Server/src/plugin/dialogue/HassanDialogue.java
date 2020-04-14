@@ -44,6 +44,8 @@ public final class HassanDialogue extends DialoguePlugin {
 		super(player);
 	}
 
+	int questStage;
+
 	@Override
 	public DialoguePlugin newInstance(Player player) {
 		return new HassanDialogue(player);
@@ -52,8 +54,8 @@ public final class HassanDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
+		switch (questStage) {
 		case 100:
 			interpreter.sendDialogues(npc, null, "You are a friend of the town of Al-Kharid. If we have", "more tasks to complete, we will ask you. Please, keep in", "contact. Good employees are not easy to find.");
 			stage = 0;
@@ -81,13 +83,13 @@ public final class HassanDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 100:
 			end();
 			break;
 		case 60:
 			end();
-			quest.finish(player);
+			player.getNeoQuestRepository().finish("Prince Ali Rescue");
 			break;
 		case 30:
 		case 40:
@@ -121,7 +123,7 @@ public final class HassanDialogue extends DialoguePlugin {
 				}
 				break;
 			case 10:
-				quest.start(player);
+				player.getNeoQuestRepository().start("Prince Ali Rescue");
 				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "I need the services of someone yes. If you are", "interested, see the spymaster, Osman. I manage the", "finances here. Come to me when you need payment.");
 				stage = 11;
 				break;

@@ -141,16 +141,11 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
 		}
 		return super.interact(e, target, option);
 	}
-	public Pulse emptyPulse = new Pulse(2){
+	public Pulse emptyPulse = new Pulse(5){
 		//the bin
 		GameObject emptyobj = new GameObject(11164,3658,3525,1);
 		@Override
 		public boolean pulse(){
-			try {
-				sleep(1800L);
-			}catch(Exception e){
-				System.out.println(e);
-			}
 			//player.getProperties().setTeleportLocation(new Location(3658,3524,1));
 			player.faceLocation(new Location(3658,3525,1));
 			empty(player,emptyobj);
@@ -160,16 +155,11 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
 			player.getPulseManager().run(fillPulse);
 			return true;}
 	};
-	public Pulse windPulse = new Pulse(2) {
+	public Pulse windPulse = new Pulse(5) {
 		//the crank
 		GameObject windobj = new GameObject(11163,3659,3525,1);
 		@Override
 		public boolean pulse() {
-			try {
-				sleep(1800L);
-			}catch(Exception e){
-				System.out.println(e);
-			}
 			//player.getProperties().setTeleportLocation(new Location(3659,3524,1));
 			player.faceLocation(new Location(3659,3525,1));
 			wind(player,windobj);
@@ -183,11 +173,8 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
 		@Override
 		public boolean pulse() {
 			if((boolean)player.getAttribute("bgfirst?",true) == false) {
-				try {
-					sleep(3000L);
-				} catch (Exception e) {
-					System.out.println(e);
-				}
+				setDelay(6);
+				return false;
 			}
 			if(hasBoneInInventory(player)){
 				bone = getBone(player);

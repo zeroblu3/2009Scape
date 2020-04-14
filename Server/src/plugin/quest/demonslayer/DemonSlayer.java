@@ -8,6 +8,8 @@ import org.crandor.game.content.dialogue.DialoguePlugin;
 import org.crandor.game.content.dialogue.FacialExpression;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.game.node.entity.player.link.quest.NeoQuest;
+import org.crandor.game.node.entity.player.link.quest.NeoQuestRepository;
 import org.crandor.game.node.entity.player.link.quest.Quest;
 import org.crandor.game.node.item.Item;
 import org.crandor.plugin.InitializablePlugin;
@@ -15,11 +17,11 @@ import org.crandor.plugin.PluginManager;
 
 /**
  * Represents the demon slayer quest.
- * @author Vexia
+ * @author Vexia, rewritten by Ceikry
  * 
  */
 @InitializablePlugin
-public class DemonSlayer extends Quest {
+public class DemonSlayer extends NeoQuest {
 
 	/**
 	 * Represents the silverlight item.
@@ -31,100 +33,103 @@ public class DemonSlayer extends Quest {
 	 */
 	private static final String[] INCANTATIONS = new String[] { "Carlem", "Aber", "Purchai", "Camerinthum", "Gabindo" };
 
-	/**
-	 * Represents the first key item.
-	 */
 	public static final Item FIRST_KEY = new Item(2401);
-
-	/**
-	 * Represents the second key item.
-	 */
 	public static final Item SECOND_KEY = new Item(2400);
-
-	/**
-	 * Represents the third key item.
-	 */
 	public static final Item THIRD_KEY = new Item(2399);
 
-	/**
-	 * Constructs a new {@Code DemonSlayer} {@Code Object}
-	 */
-	public DemonSlayer() {
-		super("Demon Slayer", 16, 15, 3, 222, 0, 1, 3);
-	}
+	public boolean hasFirst, hasSecond, hasThird, hasAll;
+
+	public DemonSlayer(){super(222,15,"Demon Slayer",5,3);}
 	
 	@Override
-	public Quest newInstance(Object object) {
+	public NeoQuest newInstance(Object object) {
+		NeoQuestRepository.register(15,this);
 		PluginManager.definePlugin(new DemonSlayerPlugin(), new DSlayerDrainPlugin(), new DemonSlayerCutscene(), new WallyCutscenePlugin(), new GypsyArisDialogue(), new SirPyrsinDialogue(), new TraibornDialogue(), new CaptainRovinDialogue());
 		return this;
-	} 
+	}
 
 	@Override
-	public void drawJournal(Player player, int stage) {
-		super.drawJournal(player, stage);
-		switch (getStage(player)) {
-		case 0:
-			player.getPacketDispatch().sendString(BLUE + "I can start this quest by speaking to the " + RED + "Gypsy " + BLUE + "in the " + RED + "tent", 275, 4 + 8);
-			player.getPacketDispatch().sendString(BLUE + "in " + RED + "Varrock's main square", 275, 5+ 8);
-			player.getPacketDispatch().sendString(BLUE + "I must be able to defeat a level 27 " + RED + "apocalyptic demon" + BLUE + "!", 275, 7+ 8);
-			break;
-		case 10:
-			line(player, "<str>I spoke to the Gypsy in Varrock Square who saw my future.", 4+ 8);
-			line(player, "<str>Unfortunately it involved killing a demon who nearly", 5+ 8);
-			line(player, "<str>destroyed Varrock over 150 years ago.", 6+ 7);
-			line(player, BLUE + "To defeat the " + RED + "demon " + BLUE + "I need the magical sword " + RED + "Silverlight.", 8+ 8);
-			line(player, BLUE + "I should ask " + RED + "Sir Prysin " + BLUE + "in " + RED + "Varrock Palace " + BLUE + "where it is.", 9+ 8);
-			break;
-		case 20:
-			line(player, "<str>I spoke to the Gypsy in Varrock Square who saw my future.", 4+ 8);
-			line(player, "<str>Unfortunately it involved killing a demon who nearly", 5+ 8);
-			line(player, "<str>destroyed Varrock over 150 years ago.", 6+ 8);
-			line(player, BLUE + "To defeat the " + RED + "demon " + BLUE + "I need the magical sword " + RED + "Silverlight.", 8+ 8);
-			line(player, RED + "Sir Prysin " + BLUE + "needs " + RED + "3 keys " + BLUE + "before he can give me " + RED + "Silverlight.", 9+ 8);
-			if (player.getInventory().containsItem(FIRST_KEY) && player.getInventory().containsItem(SECOND_KEY) && player.getInventory().containsItem(THIRD_KEY)) {
-				line(player, BLUE + "Now I have " + RED + "all 3 keys " + BLUE + "I should go and speak to " + RED + "Sir Prysin", 9+ 8);
-				line(player, BLUE + "and collect the magical sword " + RED + "Silverlight " + BLUE + "from him.", 10+ 8);
-			} else {
-				line(player, player.hasItem(FIRST_KEY) ? "<str>I have the 1st Key with me." : BLUE + "The " + RED + "1st Key " + BLUE + "was dropped down the palace kitchen drains.", 11+ 8);
-				line(player, player.hasItem(SECOND_KEY) ? "<str>I have the 2nd Key with me." : BLUE + "The " + RED + "2nd Key " + BLUE + "is with Captain Rovin in Varrock Palace.", 12+ 8);
-				line(player, player.hasItem(THIRD_KEY) ? "<str>I Have the 3rd key with me." : BLUE + "The " + RED + "3rd Key " + BLUE + "is with the Wizard Traiborn at the Wizards' Tower.", 13+ 8);
-				if (player.getAttribute("demon-slayer:traiborn", false)) {
-					line(player, BLUE + "The " + RED + "3rd Key " + BLUE + "is with Wizard Traiborn at the Wizards' Tower.", 13);
-					line(player, RED + "Traiborn " + BLUE + "needs " + RED + "25  " + BLUE + "more " + RED + "bones.", 14);
+	public void setLines(Player player) {
+		super.setLines(player);
+		int stage = player.getNeoQuestRepository().getStage("Demon Slayer");
+		boolean started = stage > 0;
+		int line = 10;
+		if(!started){
+			journal.addLine("I can start this quest by speaking to the !!Gypsy?? in the !!tent??",++line,false);
+			journal.addLine("in !!Varrock's main square??.",++line,false);
+			journal.addLine("I must be able to defeat a level 27 !!apocalyptic demon??!",++line,false);
+		} else {
+			journal.addLine("I spoke to the Gypsy in Varrock Square who saw my future",++line,true);
+			journal.addLine("Unforunately it involved killing a demon who nearly",++line,true);
+			journal.addLine("destroyed Varrock over 150 years ago.",++line,true);
+
+			if(stage >= 10){
+				journal.addLine(stage >= 30 ? "I reclaimed the magical sword silverlight from Sir Prisyn." : "To defeat the !!demon?? I need the magical sword !!Silverlight.??",++line,stage >= 30);
+				if(stage < 30) {
+					journal.addLine(stage < 20 ? "I should ask !!Sir Prysin?? in !!Varrock Palace?? where it is." :
+									!hasAll ? "!!Sir Prysin?? needs !!3 keys?? before he can give me !!Silverlight.??" :
+											  "Now I have all !!3 keys??. I should go and speak to !!Sir Prysin??",
+							        ++line, stage >= 30);
 				}
 			}
-			break;
-		case 30:
-			line(player, "<str>I spoke to the Gypsy in Varrock Square who saw my future.", 4+ 8);
-			line(player, "<str>Unfortunately it involved killing a demon who nearly", 5+ 8);
-			line(player, "<str>destroyed Varrock over 150 years ago.", 6+ 8);
-			line(player, "<str>I reclaimed the magical sword Silverlight from Sir Prysin.", 8+ 8);
-			line(player, BLUE + "Now I should go to the stone circle south of the city and", 9+ 8);
-			line(player, BLUE + "destroy " + RED + "Delrith " + BLUE + "using " + RED + "Silverlight" + BLUE + "!", 10+ 8);
-			break;
-		case 100:
-			line(player, "<str>I spoke to the Gypsy in Varrock Square who saw my future.", 4+ 8);
-			line(player, "<str>Unfortunately it involved killing a demon who nearly", 5+ 8);
-			line(player, "<str>destroyed Varrock over 150 years ago.", 6+ 7);
-			line(player, "<str>I reclaimed the magical sword Silverlight from Sir Prysin.", 8+ 8);
-			line(player, "<str>Using its power I managed to destroy the demon Delrith", 9+ 8);
-			line(player, "<str>like the great hero Wally did many years before.", 10+ 8);
-			line(player, "<col=FF0000>QUEST COMPLETE!", 12+ 7);
-			break;
+
+			if(stage == 20){
+				if(hasAll){
+					journal.addLine("and collect the magical sword !!Silverlight??.",++line,false);
+				} else {
+					journal.addLine(hasFirst ? "I have the first key with me." : "The !!first key?? was dropped down the palace kitchen drain.",++line,hasFirst);
+					journal.addLine(hasSecond ? "I have the second key with me." : "The !!second key?? is with !!Captain Rovin?? in !!Varrock Palace??.",++line,hasSecond);
+					journal.addLine(hasThird ? "I have the third key with me." : "The !!third key?? is with the wizard !!Traiborn?? at the !!Wizard's Tower??.",++line,hasThird);
+				}
+				if(player.getAttribute("demon-slayer:traiborn",false)){
+					journal.addLine("!!Traiborn?? needs !!25?? more !!bones??.",++line,false);
+				}
+			}
+
+			if(stage >= 30){
+				journal.addLine(stage != 100 ? "Now I should go to the stone circle south of the city and" : "Using its power I managed to destroy the demon Delrith" ,++line,stage == 100);
+				journal.addLine(stage != 100 ? "destroy !!Delrith?? using !!Silverlight??." : "like the great hero Wally did many years before.",++line,stage == 100);
+			}
+
+			if(stage == 100){
+				journal.addLine("!!QUEST COMPLETE!??",++line,false);
+			}
 		}
+	}
+
+	@Override
+	public void updateConditionals(Player player) {
+		hasFirst = player.getInventory().containsItem(FIRST_KEY);
+		hasSecond = player.getInventory().containsItem(SECOND_KEY);
+		hasThird = player.getInventory().containsItem(THIRD_KEY);
+		hasAll = hasFirst && hasSecond && hasThird;
 	}
 
 	@Override
 	public void finish(Player player) {
 		super.finish(player);
-		player.getPacketDispatch().sendString("3 Quests Points", 277, 8+ 2);
-		player.getPacketDispatch().sendString("Silverlight", 277, 9+ 2);
-		player.getPacketDispatch().sendItemZoomOnInterface(SILVERLIGHT.getId(), 230, 277, 5);
+		int line = 10;
+		rewards.addLine("3 Quest Points",line++);
+		rewards.addLine("Silverlight",line++);
+		rewards.setInterfaceItem(SILVERLIGHT.getId());
 		player.removeAttribute("demon-slayer:traiborn");
 		player.removeAttribute("demon-slayer:incantation");
 		player.removeAttribute("demon-slayer:poured");
 		player.removeAttribute("demon-slayer:received");
+		rewards.draw(player);
 		player.getQuestRepository().syncronizeTab(player);
+	}
+
+	@Override
+	public int getConfig(Player player) {
+		int stage = player.getNeoQuestRepository().getStage("Demon Slayer");
+		if(stage == 100){
+			return configs;
+		}
+		if(stage > 0){
+			return 1;
+		}
+		return 0;
 	}
 
 	/**

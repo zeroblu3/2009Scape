@@ -100,7 +100,7 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
 		player.animate(ANIMATION);
 		player.getDialogueInterpreter().close();
 		player.getDialogueInterpreter().sendDialogue("You are knocked unconscious and later awake on an ash-strewn", "beach.");
-		player.getQuestRepository().getQuest("Dragon Slayer").setStage(player, 40);
+		player.getNeoQuestRepository().setStage("Dragon Slayer",40);
 		player.getSavedData().getQuestData().setDragonSlayerAttribute("repaired", false);
 		player.getConfigManager().set(177, 8257540);
 		player.getConfigManager().set(176, 8);
@@ -286,17 +286,19 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
 			return new DSNedDialogue(player);
 		}
 
+		public int questStage;
+
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			quest = player.getQuestRepository().getQuest("Dragon Slayer");
+			questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
 			if (args.length > 1) {
 				cutscene = ((DragonSlayerCutscene) args[1]);
 				npc("Ah it's good to feel that salt spray on my face once", "again!");
 				stage = 500;
 				return true;
 			}
-			switch (quest.getStage(player)) {
+			switch (questStage) {
 			case 40:
 				if (!player.getSavedData().getQuestData().getDragonSlayerAttribute("repaired")) {
 					npc("The ship's in a sorry state. You'd better fix up the hole", "in the hull before we can go anywhere.");
@@ -318,7 +320,7 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
 
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
-			switch (quest.getStage(player)) {
+			switch (questStage) {
 			case 40:
 			case 30:
 				switch (stage) {

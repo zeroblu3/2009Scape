@@ -47,11 +47,13 @@ public final class WormbrainDialogue extends DialoguePlugin {
 		return new WormbrainDialogue(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("Dragon Slayer");
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		switch (questStage) {
 		default:
 			npc("Whut you want?");
 			stage = -1;
@@ -62,7 +64,7 @@ public final class WormbrainDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 20:
 			switch (stage) {
 			case -1:

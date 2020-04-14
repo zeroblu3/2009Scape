@@ -148,12 +148,13 @@ public final class ElvargNPC extends AbstractNPC {
 			return super.isAttackable(entity, style);
 		}
 		final Player player = (Player) entity;
-		if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD) || player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
+		int questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		if (questStage == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD) || player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
 			player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
 			player.getPacketDispatch().sendMessage("your reward!");
 			return true;
 		}
-		if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) > 40) {
+		if (questStage > 40) {
 			player.getPacketDispatch().sendMessage("You have already slain Elvarg.");
 			return false;
 		}

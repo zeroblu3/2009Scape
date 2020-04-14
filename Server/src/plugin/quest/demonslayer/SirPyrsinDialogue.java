@@ -16,11 +16,7 @@ import org.crandor.game.world.update.flag.context.Animation;
  */
 public class SirPyrsinDialogue extends DialoguePlugin {
 
-	/**
-	 * Represents the quest instance.
-	 */
-	private Quest quest;
-
+	int questStage;
 	/**
 	 * Represents the current npc id.
 	 */
@@ -56,8 +52,8 @@ public class SirPyrsinDialogue extends DialoguePlugin {
 		} else if (args[0] instanceof Integer) {
 			id = ((int) args[0]);
 		}
-		quest = player.getQuestRepository().getQuest("Demon Slayer");
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Demon Slayer");
+		switch (questStage) {
 		case 30:
 			npc(id, "Have you sorted that demon out yet?");
 			stage = 0;
@@ -81,7 +77,7 @@ public class SirPyrsinDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 30:
 			switch (stage) {
 			case 0:
@@ -212,7 +208,7 @@ public class SirPyrsinDialogue extends DialoguePlugin {
 								if (player.getInventory().add(DemonSlayer.SILVERLIGHT)) {
 									npc.animate(new Animation(4608));
 									player.animate(new Animation(4604));
-									quest.setStage(player, 30);
+									player.getNeoQuestRepository().setStage("Demon Slayer", 30);
 								}
 							}
 							break;
@@ -391,7 +387,7 @@ public class SirPyrsinDialogue extends DialoguePlugin {
 				stage = 131;
 				break;
 			case 131:
-				quest.setStage(player, 20);
+				player.getNeoQuestRepository().setStage("Demon Slayer", 20);
 				end();
 				break;
 			case 120:

@@ -22,7 +22,7 @@ import org.crandor.game.world.update.flag.context.Graphics;
  */
 @InitializablePlugin
 public class ProfessorOddensteinPlugin extends DialoguePlugin {
-
+	int questStage;
 	/**
 	 * Represents the oil can item.
 	 */
@@ -81,8 +81,8 @@ public class ProfessorOddensteinPlugin extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		final Quest quest = player.getQuestRepository().getQuest("Ernest the Chicken");
-		switch (quest.getStage(player)) {
+		questStage = player.getNeoQuestRepository().getStage("Ernest the Chicken");
+		switch (questStage) {
 		case 0:
 		case 10:
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Be careful in here, there's lots of dangerous equipment.");
@@ -102,8 +102,7 @@ public class ProfessorOddensteinPlugin extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		final Quest quest = player.getQuestRepository().getQuest("Ernest the Chicken");
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 0:
 		case 100:
 			switch (stage) {
@@ -234,7 +233,7 @@ public class ProfessorOddensteinPlugin extends DialoguePlugin {
 				stage = 18;
 				break;
 			case 18:
-				quest.setStage(player, 20);
+				player.getNeoQuestRepository().setStage("Ernest the Chicken",20);
 				end();
 				break;
 			}

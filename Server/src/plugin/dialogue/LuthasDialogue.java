@@ -94,6 +94,9 @@ public final class LuthasDialogue extends DialoguePlugin {
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "If you could go fill it up with bananas, I'll pay you 30", "gold.");
 			stage = 13;
 			player.getSavedData().getGlobalData().setLuthasTask(true);
+			if(player.getNeoQuestRepository().hasStarted("Pirate's Treasure")) {
+				player.setAttribute("/save:ptreasure-employed", true);
+			}
 			break;
 		case 13:
 			end();
@@ -130,6 +133,9 @@ public final class LuthasDialogue extends DialoguePlugin {
 			if (player.getAttribute("stashed-rum", false)) {
 				player.removeAttribute("stashed-rum");
 				player.setAttribute("/save:wydin-rum", true);
+			}
+			if(player.getAttribute("ptreasure-employed",false)){
+				player.removeAttribute("ptreasure-employed");
 			}
 			if (!player.getInventory().add(COINS)) {
 				GroundItemManager.create(new GroundItem(COINS, player.getLocation(), player));

@@ -44,11 +44,6 @@ public final class NedDialogue extends DialoguePlugin {
 	private static final Item WIG = new Item(2421);
 
 	/**
-	 * Represents the quest instance.
-	 */
-	private Quest quest;
-
-	/**
 	 * What quest option to use.
 	 */
 	private String q;
@@ -67,6 +62,8 @@ public final class NedDialogue extends DialoguePlugin {
 		 */
 	}
 
+	private int dsStage,parStage;
+
 	/**
 	 * Constructs a new {@code NedDialogue} {@code Object}.
 	 * @param player the player.
@@ -83,13 +80,14 @@ public final class NedDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("Prince Ali Rescue");
-		if (player.getQuestRepository().getQuest("Dragon Slayer").isStarted(player) && player.getQuestRepository().getQuest("Prince Ali Rescue").isStarted(player)) {
+		parStage = player.getNeoQuestRepository().getStage("Prince Ali Rescue");
+		dsStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		if (player.getNeoQuestRepository().hasStarted("Dragon Slayer") && player.getQuestRepository().getQuest("Prince Ali Rescue").isStarted(player)) {
 			options("Dragon Slayer", "Prince Ali Rescue");
 			stage = -400;
 			return true;
 		}
-		if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 20) {
+		if (dsStage == 20) {
 			if (player.getSavedData().getQuestData().getDragonSlayerAttribute("ned")) {
 				player("Will you take me to Crandor now, then?");
 				stage = 520;
@@ -99,12 +97,12 @@ public final class NedDialogue extends DialoguePlugin {
 			stage = 499;
 			return true;
 		}
-		if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 30) {
+		if (dsStage == 30) {
 			player("Will you take me to Crandor now, then?");
 			stage = 520;
 			return true;
 		}
-		switch (quest.getStage(player)) {
+		switch (parStage) {
 		case 20:// wig
 		case 30:
 		case 40:
@@ -126,7 +124,7 @@ public final class NedDialogue extends DialoguePlugin {
 		case -400:
 			switch (buttonId) {
 			case 1:
-				if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 20) {
+				if (dsStage == 20) {
 					if (player.getSavedData().getQuestData().getDragonSlayerAttribute("ned")) {
 						player("Will you take me to Crandor now, then?");
 						stage = 520;
@@ -136,7 +134,7 @@ public final class NedDialogue extends DialoguePlugin {
 					stage = 499;
 					return true;
 				}
-				if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 30) {
+				if (dsStage == 30) {
 					player("Will you take me to Crandor now, then?");
 					stage = 520;
 					return true;
@@ -144,7 +142,7 @@ public final class NedDialogue extends DialoguePlugin {
 				q = "dSlayer";
 				return true;
 			case 2:
-				switch (quest.getStage(player)) {
+				switch (parStage) {
 				case 40:
 				case 50:
 				case 20:// wig
@@ -161,7 +159,7 @@ public final class NedDialogue extends DialoguePlugin {
 				return true;
 			}
 		}
-		if ((q == null || q.equals("dSlayer")) && (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 20 || (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 30) && player.getSavedData().getQuestData().getDragonSlayerAttribute("repaired"))) {
+		if ((q == null || q.equals("dSlayer")) && (dsStage == 20 || (dsStage == 30) && player.getSavedData().getQuestData().getDragonSlayerAttribute("repaired"))) {
 			switch (stage) {
 			case 499:
 				player("You're a sailor? Could you take me to Crandor?");
@@ -245,7 +243,7 @@ public final class NedDialogue extends DialoguePlugin {
 			case 515:
 				if (player.getInventory().remove(DragonSlayer.CRANDOR_MAP)) {
 					interpreter.sendItemMessage(DragonSlayer.CRANDOR_MAP.getId(), "You hand the map to Ned.");
-					player.getQuestRepository().getQuest("Dragon Slayer").setStage(player, 30);
+					player.getNeoQuestRepository().setStage("Dragon Slayer", 30);
 					stage = 516;
 				}
 				break;
@@ -257,7 +255,7 @@ public final class NedDialogue extends DialoguePlugin {
 				end();
 				break;
 			case 520:
-				if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 30) {
+				if (dsStage == 30) {
 					npc("I Said I would and old Ned is a man of his word! I'll", "meet you on board the Lady Lumbridge in Port Sarim.");
 					stage = 517;
 					return true;

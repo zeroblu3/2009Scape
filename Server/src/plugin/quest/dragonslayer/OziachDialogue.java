@@ -35,6 +35,8 @@ public final class OziachDialogue extends DialoguePlugin {
 		super(player);
 	}
 
+	int questStage;
+
 	@Override
 	public DialoguePlugin newInstance(Player player) {
 		return new OziachDialogue(player);
@@ -43,9 +45,10 @@ public final class OziachDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("Dragon Slayer");
-		player.debug("" + quest.getStage(player));
-		switch (quest.getStage(player)) {
+		/*quest = player.getQuestRepository().getQuest("Dragon Slayer");
+		player.debug("" + quest.getStage(player));*/
+		questStage = player.getNeoQuestRepository().getStage("Dragon Slayer");
+		switch (questStage) {
 		case 100:
 			npc("Aye, 'tis a fair day, my mighty dragon-slaying friend.");
 			if (player.getInventory().containsItem(new Item(11286))) {// player.getEquipment().containsItem(new
@@ -90,7 +93,7 @@ public final class OziachDialogue extends DialoguePlugin {
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 30:
 		case 20:
 			if (stage == -1) {
@@ -260,8 +263,8 @@ public final class OziachDialogue extends DialoguePlugin {
 				break;
 			case 6:
 				end();
-				if (player.getInventory().remove(DragonSlayer.ELVARG_HEAD) && !player.getQuestRepository().getQuest("Dragon Slayer").isCompleted(player)) {
-					quest.finish(player);
+				if (player.getInventory().remove(DragonSlayer.ELVARG_HEAD) && !player.getNeoQuestRepository().hasFinished("Dragon Slayer")) {
+					player.getNeoQuestRepository().finish("Dragon Slayer");
 				}
 				break;
 			}
@@ -355,7 +358,7 @@ public final class OziachDialogue extends DialoguePlugin {
 				stage = 103;
 				break;
 			case 103:
-				quest.setStage(player, 15);
+				player.getNeoQuestRepository().setStage("Dragon Slayer", 15);
 				end();
 				break;
 			case 200:

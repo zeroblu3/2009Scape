@@ -1,4 +1,4 @@
-package plugin.dialogue;
+package plugin.quest.bkfortress;
 
 import org.crandor.game.content.dialogue.DialoguePlugin;
 import org.crandor.game.node.entity.player.Player;
@@ -116,7 +116,7 @@ public final class BKListenDialogue extends DialoguePlugin {
 			stage = 8;
 			break;
 		case 8:
-			player.getQuestRepository().getQuest("Black Knights' Fortress").setStage(player, 20);
+			player.getNeoQuestRepository().setStage("Black Knights' Fortress",20);
 			end();
 			break;
 		case 10:
@@ -141,7 +141,7 @@ public final class BKListenDialogue extends DialoguePlugin {
 			break;
 		case 15:
 			if (player.getInventory().remove(CABBAGE)) {
-				player.getQuestRepository().getQuest("Black Knights' Fortress").setStage(player, 30);
+				player.getNeoQuestRepository().setStage("Black Knights' Fortress",30);
 				interpreter.sendDialogues(player, null, "Looks like my work here is done. Seems like that's", "succesfully sabotaged their little secret weapon plan.");
 				stage = 16;
 			}

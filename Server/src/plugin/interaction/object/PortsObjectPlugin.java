@@ -206,7 +206,7 @@ public class PortsObjectPlugin extends OptionHandler {
 				player.getPacketDispatch().sendMessage("You disembark the ship.");
 				break;
 			case 2593:
-				if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 100) {
+				if (player.getNeoQuestRepository().getStage("Dragon Slayer") == 100) {
 					player.getDialogueInterpreter().open(744, Repository.findNPC(744), true);// lady
 					// lumbridge.
 					return true;

@@ -15,7 +15,7 @@ import org.crandor.game.node.item.Item;
  * @version 1.0
  */
 @InitializablePlugin
-public final class ThuroDialogue extends DialoguePlugin {
+public final class ThurgoDialogue extends DialoguePlugin {
 
 	/**
 	 * Represents the skillcape items.
@@ -55,7 +55,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 	/**
 	 * Constructs a new {@code ThuroDialogu} {@code Object}.
 	 */
-	public ThuroDialogue() {
+	public ThurgoDialogue() {
 		/**
 		 * empty.
 		 */
@@ -65,21 +65,23 @@ public final class ThuroDialogue extends DialoguePlugin {
 	 * Constructs a new {@code ThuroDialogue} {@code Object}.
 	 * @param player the player.
 	 */
-	public ThuroDialogue(Player player) {
+	public ThurgoDialogue(Player player) {
 		super(player);
 	}
 
 	@Override
 	public DialoguePlugin newInstance(Player player) {
-		return new ThuroDialogue(player);
+		return new ThurgoDialogue(player);
 	}
+
+	int questStage;
 
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		quest = player.getQuestRepository().getQuest("The Knight's Sword");
+		questStage = player.getNeoQuestRepository().getStage("The Knight's Sword");
 		player.removeAttribute("thurgo:1");
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		default:
 			interpreter.sendOptions("Ask a Question", "Skillcape of Smithing.", "Something else.");
 			stage = 0;
@@ -165,7 +167,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 			}
 			return true;
 		}
-		switch (quest.getStage(player)) {
+		switch (questStage) {
 		case 60:
 			switch (stage) {
 			case 0:
@@ -286,7 +288,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				break;
 			case 13:
 				if (player.getInventory().remove(new Item(666))) {
-					quest.setStage(player, 60);
+					player.getNeoQuestRepository().setStage("The Knight's Sword",60);
 					end();
 				}
 				break;
@@ -342,7 +344,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 6;
 				break;
 			case 6:
-				quest.setStage(player, 40);
+				player.getNeoQuestRepository().setStage("The Knight's Sword",40);
 				end();
 				break;
 			case 24:
@@ -418,7 +420,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				break;
 			case 23:
 				if (player.getInventory().remove(REDBERRY_PIE)) {
-					quest.setStage(player, 30);
+					player.getNeoQuestRepository().setStage("The Knight's Sword",30);
 					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "By Guthix! THAT was good pie! Anyone who makes pie", "like THAT has got to be alright!");
 					stage = 24;
 				}

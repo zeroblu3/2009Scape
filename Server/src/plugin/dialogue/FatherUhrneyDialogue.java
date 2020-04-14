@@ -37,8 +37,11 @@ public final class FatherUhrneyDialogue extends DialoguePlugin {
 		return new FatherUhrneyDialogue(player);
 	}
 
+	int questStage;
+
 	@Override
 	public boolean open(Object... args) {
+		questStage = player.getNeoQuestRepository().getStage("The Restless Ghost");
 		npc = (NPC) args[0];
 		interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Go away! I'm meditating!");
 		stage = 0;
@@ -49,10 +52,10 @@ public final class FatherUhrneyDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 0) {
+			if (questStage == 0) {
 				interpreter.sendOptions("Select an Option", "Well, that's friendly.", "I've come to respossess your house.");
 				stage = 1;
-			} else if (player.getQuestRepository().getQuest("The Restless Ghost").getStage(player) == 10) {
+			} else if (questStage == 10) {
 				interpreter.sendOptions("Select an Option", "Well, that's friendly.", "I've come to respossess your house.", "Father Aereck sent me to talk to you.");
 				stage = 500;
 			} else if (player.getGameAttributes().getAttributes().containsKey("restless-ghost:urhney") || player.getQuestRepository().isComplete("The Restless Ghost")) {
@@ -112,7 +115,7 @@ public final class FatherUhrneyDialogue extends DialoguePlugin {
 			}
 			interpreter.sendItemMessage(552, "Father Urhney hands you an amulet.");
 			player.getInventory().add(new Item(552, 1));
-			player.getQuestRepository().getQuest("The Restless Ghost").setStage(player, 20);
+			player.getNeoQuestRepository().setStage("The Restless Ghost", 20);
 			player.getGameAttributes().setAttribute("/save:restless-ghost:urhney", true);
 			stage = 509;
 			break;
