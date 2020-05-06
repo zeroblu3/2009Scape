@@ -36,7 +36,7 @@ Since this portion of the guide is operating-system specific, you will either ne
   - _Refer [here](https://www.thecodedeveloper.com/import-large-sql-files-xampp/) for help importing the `.sql` files_
 
 ### Linux Command Line
-- Instructions for various Linux distros can be found [here](https://github.com/dginovker/RS-2009/tree/master/CompiledServer/Guides)
+- Instructions for various Linux distros can be found [here](https://github.com/dginovker/2009Scape/tree/b7bffda1c787f0ad8e9da83f9de7616990927878/CompiledServer/Guides)
 
 
 ## Step 4: Running the Server & Client
