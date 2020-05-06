@@ -60,7 +60,7 @@ public class PVPAIPActions {
 			};
 			bot.getProperties().setRetaliating(true);
 			bot.setAttribute("dead", false);
-			GameWorld.submit(new Pulse(1, bot) {
+			GameWorld.Pulser.submit(new Pulse(1, bot) {
 				int ticks;
 				@Override
 				public boolean pulse() {
@@ -135,7 +135,7 @@ public class PVPAIPActions {
 		bot.sendChat("Ahh!");
 		bot.sendChat("GTFO M8");
 		bot.sendChat("Someone spec him!");
-		GameWorld.submit(new Pulse(1, bot) {
+		GameWorld.Pulser.submit(new Pulse(1, bot) {
 			int ticks;
 			@Override
 			public boolean pulse() {
@@ -171,7 +171,7 @@ public class PVPAIPActions {
 		if((bot.getSkills().getStaticLevel(Skills.HITPOINTS) > bot.getSkills().getLifepoints() * 3) && bot.getInventory().containsItem(shark)) {
 			bot.lock(3);
 			Item food = bot.getInventory().getItem(shark);
-			Consumable consumable = Consumables.forFood(food);
+			Consumable consumable = Consumables.forFood(food.getId());
 			if (consumable == null) {
 				consumable = new Food(food.getId(), new ConsumableProperties(1));
 			}
