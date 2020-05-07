@@ -62,6 +62,10 @@ public class SmithingPulse extends SkillPulse<Item> {
 			player.getDialogueInterpreter().sendDialogue("You need a hammer to work the metal with.");
 			return false;
 		}
+		if (!player.getQuestRepository().isComplete("The Tourist Trap") && bar.getSmithingType() == SmithingType.TYPE_DART_TIP){
+			player.getDialogueInterpreter().sendDialogue("You need to complete Tourist Trap to smith dart tips.");
+			return false;
+		}
 		if (TutorialSession.getExtension(player).getStage() < TutorialSession.MAX_STAGE && node.getId() != Bars.BRONZE_DAGGER.getProduct()) {
 			return false;
 		}
