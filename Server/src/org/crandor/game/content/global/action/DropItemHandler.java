@@ -52,9 +52,6 @@ public final class DropItemHandler {
 				player.getAudioManager().send(new Audio(item.getId() == 995 ? 10 : 2739, 1, 0));
 				GroundItemManager.create(item, player.getLocation(), player);
 				PlayerParser.dump(player);
-			} else {
-				GroundItemManager.create(item, player.getLocation(), player).setDecayTime(99);
-				PlayerParser.dump(player);
 			}
 			player.setAttribute("droppedItem:" + item.getId(), GameWorld.getTicks() + 2);
 			return true;
