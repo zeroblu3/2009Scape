@@ -37,7 +37,7 @@ public final class FishingOptionPlugin extends OptionHandler {
 		if (spot == null) {
 			return false;
 		}
-		FishingOption opt = FishingOption.forName(option);
+		FishingOption opt = spot.getOptionByName(option);
 
 		if (opt == null) {
 			return false;

@@ -1,5 +1,6 @@
 package org.crandor.game.content.skill.free.fishing;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -43,7 +44,7 @@ public enum FishingSpot {
 	/**
 	 * The fishing options.
 	 */
-	private FishingOption[] options;
+	private FishingOption options[];
 
 	/**
 	 * Constructs a new {@code FishingSpot} {@code Object}.
@@ -53,6 +54,14 @@ public enum FishingSpot {
 	private FishingSpot(int[] ids, FishingOption... options) {
 		this.ids = ids;
 		this.options = options;
+	}
+
+	public FishingOption getOptionByName(String name){
+		for(FishingOption o : this.options){
+			if(o.getName().equals(name)){return o;}
+		}
+		System.out.println("Unhandled fishing spot option, spot id: " + this.ids[0] + " desired fishing option: " + name);
+		return FishingOption.SMALL_NET; //safe, default return.
 	}
 
 	/**
