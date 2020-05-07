@@ -44,6 +44,10 @@ public final class DartPulse extends SkillPulse<Item> {
 			player.getDialogueInterpreter().sendDialogue("You need a fletching level of " + dart.level + " to do this.");
 			return false;
 		}
+		if (!player.getQuestRepository().isComplete("The Tourist Trap")){
+			player.getDialogueInterpreter().sendDialogue("You need to have completed Tourist Trap to fletch darts.");
+			return false;
+		}
 		return true;
 	}
 
