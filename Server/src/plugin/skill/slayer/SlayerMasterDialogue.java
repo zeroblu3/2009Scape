@@ -108,13 +108,6 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 			stage = -1;
 			return true;
 		}
-		if (master == Master.WISE_OLD_MAN) {
-			if (player.getQuestRepository().hasCompletedAll()) {
-				options("Ask about Skillcape", "Something else");
-				stage = 906;
-				return true;
-			}
-		}
 		interpreter.sendDialogues(master.getNpc(), getExpression(master), "'Ello, and what are you after, then?");
 		stage = 0;
 		return true;
@@ -330,7 +323,7 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 			stage = 502;
 			break;
 		case 502:
-			if (!master.hasRequirment(player)) {
+			if (!master.hasRequirements(player)) {
 				interpreter.sendDialogues(master.getNpc(), getExpression(master), "Sorry, but you're not strong enough to be taught by", "me.");
 				stage = 99;
 				break;
@@ -455,7 +448,7 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 701:
-			if (!master.hasRequirment(player)) {
+			if (!master.hasRequirements(player)) {
 				interpreter.sendDialogues(master.getNpc(), getExpression(master), "Sorry, but you're not strong enough to be taught by", "me.");
 				stage = 99;
 				break;
