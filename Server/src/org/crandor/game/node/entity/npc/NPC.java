@@ -18,6 +18,7 @@ import org.crandor.game.node.entity.combat.equipment.DefaultCombatSpell;
 import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
 import org.crandor.game.node.entity.npc.agg.AggressiveBehavior;
 import org.crandor.game.node.entity.npc.agg.AggressiveHandler;
+import org.crandor.game.node.entity.npc.drop.RareDropTable;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.SpellBookManager;
 import org.crandor.game.node.entity.player.link.audio.Audio;
