@@ -3,20 +3,221 @@ package org.crandor.game.content.skill.member.slayer;
 import org.crandor.game.content.skill.Skills;
 import org.crandor.game.node.entity.player.Player;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * A non-garbage way of representing slayer masters
  * @author ceik
  */
 public enum Master {
-	TURAEL(8273, 0, 0, new int[]{15, 50}, new int[]{0, 0, 0}, Tasks2.BANSHEE, Tasks2.BASILISKS, Tasks2.BATS, Tasks2.BEARS, Tasks2.BIRDS, Tasks2.CAVE_SLIMES, Tasks2.COWS, Tasks2.CRAWLING_HAND, Tasks2.DESERT_LIZARDS, Tasks2.DOG, Tasks2.DWARF, Tasks2.GHOSTS, Tasks2.GOBLINS, Tasks2.ICE_FIENDS, Tasks2.MINOTAURS, Tasks2.MONKEYS, Tasks2.RATS, Tasks2.SCORPIONS, Tasks2.SKELETONS, Tasks2.SPIDERS, Tasks2.WOLVES, Tasks2.ZOMBIES),
-	MAZCHNA(8274, 20, 0, new int[]{30, 70}, new int[]{2, 5, 15}, Tasks2.BANSHEE, Tasks2.BASILISKS, Tasks2.BATS, Tasks2.BEARS, Tasks2.CATABLEPONS, Tasks2.CAVE_CRAWLERS, Tasks2.CAVE_SLIMES, Tasks2.COCKATRICES, Tasks2.CRAWLING_HAND, Tasks2.CYCLOPES, Tasks2.DESERT_LIZARDS, Tasks2.DOG, Tasks2.FLESH_CRAWLERS, Tasks2.GHOSTS, Tasks2.GHOULS, Tasks2.HILL_GIANTS, Tasks2.HOBGOBLINS, Tasks2.ICE_WARRIOR, Tasks2.INFERNAL_MAGES, Tasks2.KALPHITES, Tasks2.PYREFIENDS, Tasks2.ROCK_SLUGS, Tasks2.SKELETONS, Tasks2.VAMPIRES, Tasks2.WATERFIENDS, Tasks2.WOLVES, Tasks2.ZOMBIES),
-	VANNAKA(1597, 40, 0, new int[]{30, 80}, new int[]{4, 20, 60}, Tasks2.ABERRANT_SPECTRES, Tasks2.ANKOU, Tasks2.BANSHEE, Tasks2.BASILISKS, Tasks2.BLOODVELDS, Tasks2.BRINE_RATS, Tasks2.COCKATRICES, Tasks2.CROCODILES, Tasks2.DAGANNOTHS, Tasks2.DUST_DEVILS, Tasks2.EARTH_WARRIORS, Tasks2.GREEN_DRAGON, Tasks2.HARPIE_BUG_SWARMS, Tasks2.HILL_GIANTS, Tasks2.ICE_GIANTS, Tasks2.ICE_WARRIOR, Tasks2.INFERNAL_MAGES, Tasks2.JELLIES, Tasks2.JUNGLE_HORRORS, Tasks2.LESSER_DEMONS, Tasks2.MOSS_GIANTS, Tasks2.OGRES, Tasks2.OTHERWORDLY_BEING, Tasks2.PYREFIENDS, Tasks2.SHADE, Tasks2.VAMPIRES, Tasks2.WEREWOLFS),
-	CHAELDAR(1598, 70, 25, new int[]{110, 170}, new int[]{10, 50, 150}, Tasks2.ABERRANT_SPECTRES, Tasks2.ABYSSAL_DEMONS, Tasks2.BANSHEE, Tasks2.BASILISKS, Tasks2.BLOODVELDS, Tasks2.BLUE_DRAGONS, Tasks2.BRINE_RATS, Tasks2.BRONZE_DRAGONS, Tasks2.CAVE_CRAWLERS, Tasks2.CAVE_HORRORS, Tasks2.CRAWLING_HAND, Tasks2.DUST_DEVILS, Tasks2.FIRE_GIANTS, Tasks2.GARGOYLES, Tasks2.GHOULS, Tasks2.GREATER_DEMONS, Tasks2.DAGANNOTHS, Tasks2.DUST_DEVILS, Tasks2.FIRE_GIANTS, Tasks2.HARPIE_BUG_SWARMS, Tasks2.INFERNAL_MAGES, Tasks2.JELLIES, Tasks2.JUNGLE_HORRORS, Tasks2.KALPHITES, Tasks2.KURASKS, Tasks2.LESSER_DEMONS, Tasks2.TROLLS, Tasks2.TUROTHS),
-	DURADEL(8275, 100, 50, new int[]{50, 199}, new int[]{15, 75, 225}, Tasks2.ABERRANT_SPECTRES, Tasks2.ABYSSAL_DEMONS, Tasks2.BLACK_DEMONS, Tasks2.BLACK_DRAGONS, Tasks2.BLOODVELDS, Tasks2.DAGANNOTHS, Tasks2.DARK_BEASTS, Tasks2.DUST_DEVILS, Tasks2.FIRE_GIANTS, Tasks2.GARGOYLES, Tasks2.GORAKS, Tasks2.GREATER_DEMONS, Tasks2.HELLHOUNDS, Tasks2.IRON_DRAGONS, Tasks2.KALPHITES, Tasks2.MITHRIL_DRAGON, Tasks2.NECHRYAELS, Tasks2.SKELETAL_WYVERN, Tasks2.SPIRTUAL_MAGES, Tasks2.STEEL_DRAGONS, Tasks2.WATERFIENDS);
+	TURAEL(8273, 0, 0, new int[]{15, 50}, new int[]{0, 0, 0},
+			new Task(Tasks.BANSHEE, 8),
+			new Task(Tasks.CRAWLING_HAND, 8),
+			new Task(Tasks.SKELETONS, 7),
+			new Task(Tasks.WOLVES, 7),
+			new Task(Tasks.GOBLINS, 7),
+			new Task(Tasks.DOG, 7),
+			new Task(Tasks.CAVE_SLIMES, 8),
+			new Task(Tasks.KALPHITES, 6),
+			new Task(Tasks.ICE_FIENDS, 8),
+			new Task(Tasks.MINOTAURS, 7),
+			new Task(Tasks.CAVE_CRAWLERS, 8),
+			new Task(Tasks.GHOSTS, 7),
+			new Task(Tasks.BEARS, 7),
+			new Task(Tasks.BATS, 7),
+			new Task(Tasks.ZOMBIES, 7),
+			new Task(Tasks.SCORPIONS, 7),
+			new Task(Tasks.CAVE_BUG, 8),
+			new Task(Tasks.DESERT_LIZARDS, 8),
+			new Task(Tasks.DWARF, 7),
+			new Task(Tasks.SPIDERS, 6),
+			new Task(Tasks.BIRDS, 6),
+			new Task(Tasks.COWS, 8),
+			new Task(Tasks.MONKEYS, 6),
+			new Task(Tasks.RATS, 7)),
+	MAZCHNA(8274, 20, 0, new int[]{30, 70}, new int[]{2, 5, 15},
+			new Task(Tasks.VAMPIRES, 6),
+			new Task(Tasks.GHOULS, 7),
+			new Task(Tasks.BANSHEE, 8),
+			new Task(Tasks.CRAWLING_HAND, 8),
+			new Task(Tasks.SKELETONS, 7),
+			//MOGRES -> new Task(Tasks2.Mogres, 8),
+			new Task(Tasks.PYREFIENDS, 8),
+			//KILLERWATTS -> new Task(Tasks2.KILLERWATTS, 6),
+			new Task(Tasks.SHADE,8),
+			new Task(Tasks.COCKATRICES, 8),
+			new Task(Tasks.HILL_GIANTS,7),
+			new Task(Tasks.ROCK_SLUGS,8),
+			new Task(Tasks.DESERT_LIZARDS, 8),
+			new Task(Tasks.CAVE_SLIMES, 8),
+			new Task(Tasks.HOBGOBLINS, 7),
+			new Task(Tasks.WOLVES, 7),
+			new Task(Tasks.DOG,7),
+			new Task(Tasks.FLESH_CRAWLERS,7),
+			new Task(Tasks.CATABLEPONS,8),
+			//WALL BEASTS -> new Task(Tasks2.WALL_BEASTS,7),
+			new Task(Tasks.KALPHITES,6),
+			new Task(Tasks.CAVE_CRAWLERS, 8),
+			new Task(Tasks.GHOSTS,7),
+			new Task(Tasks.BEARS,6),
+			new Task(Tasks.EARTH_WARRIORS,6),
+			new Task(Tasks.ZOMBIES,7),
+			new Task(Tasks.ICE_WARRIOR, 7),
+			new Task(Tasks.CAVE_BUG,8),
+			new Task(Tasks.BATS,7),
+			new Task(Tasks.SCORPIONS,7)),
+	VANNAKA(1597, 40, 0, new int[]{30, 80}, new int[]{4, 20, 60},
+			new Task(Tasks.HARPIE_BUG_SWARMS,8),
+			// SHADOW WARRIORS -> new Task(Tasks2.SHADOW_WARRIORS, 8),
+			new Task(Tasks.BLOODVELDS,8),
+			new Task(Tasks.DUST_DEVILS,8),
+			new Task(Tasks.ABERRANT_SPECTRES, 8),
+			new Task(Tasks.JUNGLE_HORRORS, 8),
+			new Task(Tasks.TUROTHS, 8),
+			new Task(Tasks.JELLIES,8),
+			new Task(Tasks.INFERNAL_MAGES,8),
+			new Task(Tasks.BASILISKS,8),
+			new Task(Tasks.PYREFIENDS,8),
+			new Task(Tasks.SHADE,8),
+			new Task(Tasks.COCKATRICES,8),
+			new Task(Tasks.OTHERWORDLY_BEING,8),
+			new Task(Tasks.SPIRTUAL_MAGES,3),
+			new Task(Tasks.SPIRTUAL_RANGERS, 3),
+			new Task(Tasks.SPIRTUAL_WARRIORS,3),
+			new Task(Tasks.DAGANNOTHS, 7),
+			//ELVES -> new Task(Tasks2.ELVES, 7),
+			new Task(Tasks.WEREWOLFS,7),
+			new Task(Tasks.KURASKS,7),
+			new Task(Tasks.KALPHITES,7),
+			new Task(Tasks.FIRE_GIANTS,7),
+			new Task(Tasks.OGRES,7),
+			new Task(Tasks.MOSS_GIANTS,7),
+			new Task(Tasks.TROLLS,7),
+			new Task(Tasks.HELLHOUNDS,7),
+			new Task(Tasks.BRONZE_DRAGONS,7),
+			new Task(Tasks.BLUE_DRAGONS,7),
+			new Task(Tasks.LESSER_DEMONS,7),
+			new Task(Tasks.ANKOU,7),
+			new Task(Tasks.ICE_GIANTS,7),
+			new Task(Tasks.BRINE_RATS,7),
+			//FEVER SPIDERS -> new Task(Tasks2.FEVER_SPIDERS,7),
+			new Task(Tasks.VAMPIRES,7),
+			//MOLANISKS -> new Task(Tasks2.MOLANISKS,7),
+			//MOGRES -> new Task(Tasks2.MOGRES,7),
+			new Task(Tasks.ICE_WARRIOR,7),
+			new Task(Tasks.GHOULS,7),
+			new Task(Tasks.DESERT_LIZARDS,7),
+			new Task(Tasks.ROCK_SLUGS,7),
+			new Task(Tasks.CAVE_SLIMES,7),
+			new Task(Tasks.CAVE_CRAWLERS,7),
+			new Task(Tasks.CAVE_BUG,7),
+			new Task(Tasks.HILL_GIANTS,7),
+			new Task(Tasks.HOBGOBLINS,7),
+			//KILLERWATTS -> new Task(Tasks2.KILLERWATTS,6),
+			new Task(Tasks.CROCODILES,6),
+			//SEA SNAKES -> new Task(Tasks2.SEA_SNAKES,6),
+			//TERROR DOGS -> new Task(Tasks2.TERROR_DOGS,6),
+			new Task(Tasks.GREEN_DRAGON,6),
+			//WALL BEAST -> new Task(Tasks2.WALL_BEAST,6),
+			new Task(Tasks.EARTH_WARRIORS,6),
+			new Task(Tasks.BANSHEE,6),
+			new Task(Tasks.CRAWLING_HAND,6),
+			new Task(Tasks.GARGOYLES, 5),
+			new Task(Tasks.NECHRYAELS, 5),
+			new Task(Tasks.ABYSSAL_DEMONS, 5)),
 
+	CHAELDAR(1598, 70, 25, new int[]{110, 170}, new int[]{10, 50, 150},
+			new Task(Tasks.ABYSSAL_DEMONS,12),
+			new Task(Tasks.IRON_DRAGONS,12),
+			new Task(Tasks.NECHRYAELS, 12),
+			new Task(Tasks.KURASKS, 12),
+			new Task(Tasks.FIRE_GIANTS, 12),
+			new Task(Tasks.SPIRTUAL_WARRIORS,4),
+			new Task(Tasks.SPIRTUAL_RANGERS,4),
+			new Task(Tasks.SPIRTUAL_MAGES,4),
+			new Task(Tasks.GARGOYLES,11),
+			new Task(Tasks.KALPHITES,11),
+			new Task(Tasks.DAGANNOTHS,11),
+			new Task(Tasks.BRONZE_DRAGONS,11),
+			new Task(Tasks.TROLLS,11),
+			new Task(Tasks.JUNGLE_HORRORS,10),
+			new Task(Tasks.BLACK_DEMONS,10),
+			new Task(Tasks.TUROTHS, 10),
+			new Task(Tasks.CAVE_HORRORS,10),
+			new Task(Tasks.JELLIES, 10),
+			new Task(Tasks.AVIANSIES,9),
+			new Task(Tasks.STEEL_DRAGONS,9),
+			new Task(Tasks.LESSER_DEMONS,9),
+			new Task(Tasks.GREATER_DEMONS,9),
+			new Task(Tasks.HELLHOUNDS,9),
+			new Task(Tasks.DUST_DEVILS,9),
+			new Task(Tasks.BLUE_DRAGONS,8),
+			//ELVES -> new Task(Tasks2.ELVES,8),
+			new Task(Tasks.ABERRANT_SPECTRES,8),
+			//SHADOW WARRIORS -> new Task(Tasks2.SHADOW_WARRIORS,8),
+			new Task(Tasks.BLOODVELDS,8),
+			new Task(Tasks.SKELETAL_WYVERN,7),
+			//MUTATED ZYGOMITE -> new Task(Tasks2.MUTATED_ZYGOMITES,7),
+			new Task(Tasks.INFERNAL_MAGES,7),
+			new Task(Tasks.BRINE_RATS,7),
+			//FEVER SPIDERS -> new Task(Tasks2.FEVER_SPIDERS,7),
+			new Task(Tasks.BASILISKS,7),
+			//WALL BEASTS -> new Task(Tasks2.WALL_BEASTS,6),
+			//MOLANISKS -> new Task(Tasks2.MOLANISKS,6),
+			//MOGRES -> new Task(Tasks2.MOGRES,6),
+			new Task(Tasks.PYREFIENDS,6),
+			new Task(Tasks.HARPIE_BUG_SWARMS,6),
+			new Task(Tasks.COCKATRICES,6),
+			new Task(Tasks.CAVE_SLIMES,6),
+			new Task(Tasks.DESERT_LIZARDS, 5),
+			new Task(Tasks.ROCK_SLUGS, 5),
+			new Task(Tasks.BANSHEE, 5),
+			new Task(Tasks.CAVE_CRAWLERS, 5)),
+	DURADEL(8275, 100, 50, new int[]{50, 199}, new int[]{15, 75, 225},
+			new Task(Tasks.JAD, 1),
+			new Task(Tasks.COMMANDER_ZILYANA,1),
+			new Task(Tasks.CHAOS_ELEMENTAL, 1),
+			new Task(Tasks.GENERAL_GRARDOOR,1),
+			new Task(Tasks.GIANT_MOLE,1),
+			new Task(Tasks.KING_BLACK_DRAGON,1),
+			new Task(Tasks.KRIL_TSUTSAROTH,1),
+			new Task(Tasks.KREE_ARRA,1),
+			new Task(Tasks.ABYSSAL_DEMONS,12),
+			new Task(Tasks.DARK_BEASTS,11),
+			new Task(Tasks.TZHAAR, 10),
+			new Task(Tasks.HELLHOUNDS, 10),
+			new Task(Tasks.KALPHITES,9),
+			new Task(Tasks.NECHRYAELS,9),
+			new Task(Tasks.MITHRIL_DRAGON,9),
+			new Task(Tasks.BLACK_DRAGONS,9),
+			new Task(Tasks.GREATER_DEMONS,9),
+			new Task(Tasks.DAGANNOTHS,9),
+			new Task(Tasks.GARGOYLES,8),
+			new Task(Tasks.BLACK_DEMONS,8),
+			//RED DRAGONS new Task(Tasks2.RED_DRAGONS,8),
+			new Task(Tasks.BLOODVELDS,8),
+			new Task(Tasks.AVIANSIES,8),
+			//SUQAHS new Task(Tasks2.SUQAHS,8),
+			new Task(Tasks.ABERRANT_SPECTRES,7),
+			new Task(Tasks.STEEL_DRAGONS,7),
+			new Task(Tasks.SPIRTUAL_MAGES,2),
+			new Task(Tasks.SPIRTUAL_RANGERS,2),
+			new Task(Tasks.SPIRTUAL_WARRIORS,2),
+			new Task(Tasks.SKELETAL_WYVERN,7),
+			new Task(Tasks.FIRE_GIANTS,7),
+			new Task(Tasks.TROLLS,6),
+			new Task(Tasks.IRON_DRAGONS,5),
+			new Task(Tasks.ANKOU,5),
+			new Task(Tasks.DUST_DEVILS,5),
+			new Task(Tasks.KURASKS,4),
+			new Task(Tasks.CAVE_HORRORS,4),
+			new Task(Tasks.BLUE_DRAGONS,4),
+			//ELVES new Task(Tasks2.ELVES,4),
+			//ZYGOMITES new Task(Tasks2.MUTATED_ZYGOMITES,2),
+			new Task(Tasks.WATERFIENDS,2));
 
 	private static HashMap<Integer,Master> idMap = new HashMap<>();
 
@@ -24,16 +225,16 @@ public enum Master {
 		Arrays.stream(Master.values()).forEach(m -> idMap.putIfAbsent(m.npc_id, m));
 	}
 
-	int npc_id,required_combat,required_slayer;
+	int npc_id,required_combat,required_slayer,taskWeightSum;
 	int[] assignment_range;
 	int[] streakPoints;
-	Tasks2[] tasks;
-
-	Master(int npc_id, int required_combat, int required_slayer, int[] assignment_range, int[] streakPoints, Tasks2... tasks) {
+	List<Task> tasks;
+	Master(int npc_id, int required_combat, int required_slayer, int[] assignment_range, int[] streakPoints, Task... tasks) {
 		this.npc_id = npc_id;
 		this.assignment_range = assignment_range;
 		this.streakPoints = streakPoints;
-		this.tasks = tasks;
+		this.tasks = new ArrayList<>(Arrays.asList(tasks));
+		this.tasks.stream().forEach(task -> taskWeightSum += task.weight);
 	}
 
 	public static Master forId(int id){
@@ -48,181 +249,20 @@ public enum Master {
 		return streakPoints;
 	}
 
-	public
-
 	public boolean hasRequirements(Player player){
 		return player.getProperties().getCurrentCombatLevel() >= this.required_combat && player.getSkills().getLevel(Skills.SLAYER) >= this.required_slayer;
 	}
+
+	public static boolean hasSameTask(Master master, Player player){
+		return master.tasks.stream().filter(task -> task.task == player.getSlayer().getTask()).count() != 0;
+	}
+
+	public static class Task{
+		Tasks task;
+		Integer weight;
+		Task(Tasks task, Integer weight){
+			this.task = task;
+			this.weight = weight;
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-package org.crandor.game.content.skill.member.slayer;
-
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-
-*
- * Represents a slayer master.
- * @author 'Vexia
-
-
-public enum Master {
-	TURAEL(8273, new int[] {15, 50}, new int[] {0, 0, 0}), 
-	MAZCHNA(8274, new int[] {30, 70}, new int[] {2, 5, 15}) {
-		@Override
-		public boolean hasRequirment(Player player) {
-			return player.getProperties().getCurrentCombatLevel() >= 20;
-		}
-	},
-	VANNAKA(1597, new int[] {30, 80}, new int[] {4, 20, 60}) {
-		@Override
-		public boolean hasRequirment(Player player) {
-			return player.getProperties().getCurrentCombatLevel() >= 40;
-		}
-	},
-	CHAELDAR(1598, new int[] {110, 170}, new int[] {10, 50, 150}) {
-		@Override
-		public boolean hasRequirment(Player player) {
-			return player.getProperties().getCurrentCombatLevel() >= 70 && player.getSkills().getLevel(Skills.SLAYER) >= 25;
-		}
-	},
-	
-	NIEVE(8649, new int[] {120, 185}, new int[] {12, 60, 180}) {
-		@Override
-		public boolean hasRequirment(Player player) {
-			return player.getProperties().getCurrentCombatLevel() >= 85;
-		}
-	},
-	
-	DURADEL(8275, new int[] {50, 199}, new int[] {15, 75, 225}) {
-		@Override
-		public boolean hasRequirment(Player player) {
-			return player.getProperties().getCurrentCombatLevel() >= 100 && player.getSkills().getLevel(Skills.SLAYER) >= 50;
-		}
-	},
-	WISE_OLD_MAN(3820, new int[] {20, 55}, new int[] {25, 90, 235}) {
-		@Override
-		public boolean hasRequirment(Player player) {
-			return player.getProperties().getCurrentCombatLevel() >= 105 && player.getSkills().getLevel(Skills.SLAYER) >= 75;
-		}
-	};
-
-*
-	 * Represents the npc id.
-
-
-	private final int npc;
-
-*
-	 * The ranges of task amts.
-
-
-	private final int[] ranges;
-	
-*
-	 * The points rewarded at task milestones.
-
-
-	private final int[] taskPoints;
-
-*
-	 * Constructs a new {@Code Master} {@Code Object}
-	 * @param npc The npc id.
-	 * @param ranges The ranges.
-	 * @param taskPoints The task points.
-
-
-	Master(int npc, int[] ranges, int[] taskPoints) {
-		this.npc = npc;
-		this.ranges = ranges;
-		this.taskPoints = taskPoints;
-	}
-
-*
-	 * Checks if the player has the requiremnts.
-	 * @param player the player.
-	 * @return {@code True} if so.
-
-
-	public boolean hasRequirment(Player player) {
-		return true;
-	}
-
-*
-	 * Gets the npc.
-	 * @return The npc.
-
-
-	public int getNpc() {
-		return npc;
-	}
-
-*
-	 * returns the value from the integer specification.
-	 * @param id the id.
-	 * @return @app value.
-
-
-	public static Master forId(int id) {
-		for (Master master : Master.values()) {
-			if (master == null) {
-				continue;
-			}
-			if (master.getNpc() == id) {
-				return master;
-			}
-		}
-		return null;
-	}
-
-*
-	 * Gets the ranges.
-	 * @return The ranges.
-
-
-	public int[] getRanges() {
-		return ranges;
-	}
-
-*
-	 * Checks if two masters share the same task.
-	 * @param master the master.
-	 * @param myMaster the players master.
-	 * @param player the player.
-	 * @return {@code True} if so.
-
-
-	public static boolean hasSameTask(Master master, Master myMaster, Player player) {
-		Task task = player.getSlayer().getTask();
-		if (master == myMaster) {
-			return true;
-		}
-		if (task.hasMaster(master)) {
-			return true;
-		}
-		return false;
-	}
-	
-
-*
-	 * Gets the taskPoints.
-	 * @return the taskPoints.
-
-
-	public int[] getTaskPoints() {
-		return taskPoints;
-	}
-	
-}
-*/

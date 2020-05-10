@@ -8,7 +8,6 @@ import org.crandor.game.content.skill.member.slayer.Master;
 import org.crandor.game.content.skill.member.slayer.Tasks;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.portal.Perks;
 import org.crandor.game.node.entity.player.link.diary.AchievementDiary;
 import org.crandor.game.node.entity.player.link.diary.DiaryType;
 import org.crandor.game.node.entity.player.link.quest.Quest;
@@ -455,25 +454,21 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 			}
 			if (!player.getSlayer().hasTask()) {
 				player.getSlayer().generate(master);
-				if (Tasks.forValue(player.getSlayer().getTask()) == Tasks.JAD) {
+				if (player.getSlayer().getTask() == Tasks.JAD) {
 					interpreter.sendDialogues(master.getNpc(), getExpression(master), "Excellent, you're doing great. Your new task is to", "defeat the almighty TzTok-Jad.");					
-				} else if (Tasks.forValue(player.getSlayer().getTask()) == Tasks.CAVE_KRAKEN) {
-					interpreter.sendDialogues(master.getNpc(), getExpression(master), "Excellent, you're doing great. Your new task is to kill ", "" + player.getSlayer().getAmount() + " cave krakens.");					
 				} else {
 					interpreter.sendDialogues(master.getNpc(), getExpression(master), "Excellent, you're doing great. Your new task is to kill", "" + player.getSlayer().getAmount() + " " + player.getSlayer().getTaskName() + "s.");
 				}
 				stage = 844;
 				break;
 			}
-			if (Master.hasSameTask(master, player.getSlayer().getMaster(), player) && !player.getDetails().getShop().hasPerk(Perks.SLAYER_BETRAYER)) {
+			if (Master.hasSameTask(master, player)) {
 				interpreter.sendDialogues(master.getNpc(), getExpression(master), "You're still hunting something. Come back when you've", "finished your task.");
 				stage = 99;
 			} else {
-				if (!player.getDetails().getShop().hasPerk(Perks.SLAYER_BETRAYER)) {
-					player.getSlayer().setTaskCount(0);
-				}
+				player.getSlayer().setTaskCount(0);
 				player.getSlayer().generate(master);
-				if (Tasks.forValue(player.getSlayer().getTask()) == Tasks.JAD) {
+				if (player.getSlayer().getTask() == Tasks.JAD) {
 					interpreter.sendDialogues(master.getNpc(), getExpression(master), "Excellent, you're doing great. Your new task is to", "defeat the almighty TzTok-Jad.");					
 				} else {
 				interpreter.sendDialogues(master.getNpc(), getExpression(master), "Excellent, you're doing great. Your new task is to kill", "" + player.getSlayer().getAmount() + " " + player.getSlayer().getTaskName() + "'s.");
@@ -613,7 +608,7 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 	 * @return the expression.
 	 */
 	private FacialExpression getExpression(Master master) {
-		if (master == Master.NIEVE || master == Master.CHAELDAR) {
+		if (master == Master.CHAELDAR) {
 			return FacialExpression.OSRS_NORMAL;
 		}
 		return FacialExpression.HALF_GUILTY;

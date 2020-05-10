@@ -315,7 +315,7 @@ public final class GameWorld {
      */
     public static GameSettings getSettings() {
         if (settings == null) {
-            return (settings = GameSettings.parse("server.properties"));
+            return (settings = GameSettings.parse("worldprops/server.properties"));
         }
         return settings;
     }
