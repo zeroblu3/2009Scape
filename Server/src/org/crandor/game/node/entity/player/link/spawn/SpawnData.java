@@ -241,7 +241,7 @@ public class SpawnData implements SavingModule {
 			sendString(player, PKPackage.values()[12].getName(), 38);*/
 			case 156:
 				Player player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				p.getSkills().setLevel(Skills.ATTACK, 99);
@@ -262,7 +262,7 @@ public class SpawnData implements SavingModule {
 				break;
 			case 32:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				p.getSkills().setLevel(Skills.ATTACK, 50);
@@ -283,7 +283,7 @@ public class SpawnData implements SavingModule {
 				break;
 			case 137:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				p.getSkills().setLevel(Skills.ATTACK, 90);
@@ -304,7 +304,7 @@ public class SpawnData implements SavingModule {
 				break;
 			case 146:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				p.getSkills().setLevel(Skills.ATTACK, 80);
@@ -325,7 +325,7 @@ public class SpawnData implements SavingModule {
 				break;
 			case 142:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				p.getSkills().setLevel(Skills.ATTACK, 60);
@@ -346,56 +346,56 @@ public class SpawnData implements SavingModule {
 				break;
 			case 33:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 5);
 				break;
 			case 34:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 6);
 				break;
 			case 35:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 7);
 				break;
 			case 36:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 8);
 				break;
 			case 147:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 9);
 				break;
 			case 37:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 10);
 				break;
 			case 131:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 11);
 				break;
 			case 38:
 				player = p;
-				if (!player.canSpawn()) {
+				if (player.canSpawn()) {
 					return;
 				}
 				loadGear(p, 12);

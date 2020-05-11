@@ -236,8 +236,8 @@ public class RandomFunction {
 	}
 
 	public static Item rollWeightedChanceTable(List<WeightedChanceItem> table){
-		int sumOfWeights = table.stream().mapToInt(item -> item.weight).sum();
-		int rand = random(sumOfWeights);
+		double sumOfWeights = table.stream().mapToDouble(item -> item.weight).sum();
+		double rand = random((int)Math.floor(sumOfWeights));
 		Collections.shuffle(table);
 		for(WeightedChanceItem item : table){
 			if(rand < item.weight)

@@ -160,6 +160,7 @@ public final class PacketRepository {
 		INCOMING_PACKETS.put(34, packet);
 		INCOMING_PACKETS.put(213, packet);
 		INCOMING_PACKETS.put(99, packet = new ReportAbusePacket());
+		INCOMING_PACKETS.put(98, packet = new MapClosedPacket()); // this packet is sent when the world map is closed by the client
 		// INCOMING_PACKETS.put(77, packet);
 		// INCOMING_PACKETS.put(191, packet);
 		// INCOMING_PACKETS.put(139, packet);

@@ -49,7 +49,7 @@ public final class SkillTabInterface extends ComponentPlugin {
 				p.getPacketDispatch().sendMessage("You cannot set a target level for this skill.");
 				return false;
 			}
-			if (!p.canSpawn()) {
+			if (p.canSpawn()) {
 				p.sendMessage("You must be inside Edgeville bank to set levels.");
 				return false;
 			}
