@@ -17,6 +17,7 @@ import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.diary.DiaryType;
 import org.crandor.game.node.item.ChanceItem;
 import org.crandor.game.node.item.Item;
+import org.crandor.game.node.item.WeightedChanceItem;
 import org.crandor.game.node.object.GameObject;
 import org.crandor.game.node.object.ObjectBuilder;
 import org.crandor.game.system.task.Pulse;
@@ -28,6 +29,7 @@ import org.crandor.tools.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Mining skill pulse
@@ -256,21 +258,7 @@ public class MiningSkillPulse extends Pulse {
 
         // Calculate a random gem for the player if mining gem rocks
         else if (isMiningGems) {
-            int random = RandomFunction.random(100);
-            List<Integer> gems = new ArrayList<>();
-            if (random < 2) {
-                gems.add(1617);
-            } else if (random < 25) {
-                gems.add(1619);
-                gems.add(1623);
-                gems.add(1621);
-            } else if (random < 40) {
-                gems.add(1629);
-            } else {
-                gems.add(1627);
-                gems.add(1625);
-            }
-            reward = gems.get(RandomFunction.random(gems.size()));
+            reward = RandomFunction.rollWeightedChanceTable(MiningNode.gemRockGems).getId();
         }
 
         return reward;
