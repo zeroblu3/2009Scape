@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import org.crandor.game.node.entity.npc.drop.DropFrequency;
 import org.crandor.game.node.item.ChanceItem;
 import org.crandor.game.node.item.Item;
+import org.crandor.game.node.item.WeightedChanceItem;
 
 /**
  * Represents a class used for random methods.
@@ -228,6 +229,23 @@ public class RandomFunction {
 
 	public static List<Item> rollChanceTable(boolean atLeastOne,ChanceItem... table){
 		return rollChanceTable(atLeastOne,Arrays.asList(table));
+	}
+
+	public static Item rollWeightedChanceTable(WeightedChanceItem... table){
+		return rollWeightedChanceTable(new ArrayList<>(Arrays.asList(table)));
+	}
+
+	public static Item rollWeightedChanceTable(List<WeightedChanceItem> table){
+		int sumOfWeights = table.stream().mapToInt(item -> item.weight).sum();
+		int rand = random(sumOfWeights);
+		Collections.shuffle(table);
+		for(WeightedChanceItem item : table){
+			if(rand < item.weight)
+				return item.getItem();
+			rand -= item.weight;
+		}
+		System.out.println("ERROR ROLLING WEIGHTED CHANCE: WEIGHT SUM AND INDIVIDUAL WEIGHTS DO NOT MATCH!!");
+		return null;
 	}
 
 	/**
