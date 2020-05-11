@@ -242,12 +242,15 @@ public final class SlayerManager implements SavingModule {
 	 * @param master the master to give the task.
 	 */
 	public void generate(Master master) {
-		final List<Master.Task> tasks = master.tasks;
+		final List<Master.Task> tasks = new ArrayList<>();
+		final int[] taskWeightSum = {0};
+		master.tasks.stream().filter(task -> canBeAssigned(task.task) && task.task.combatCheck <= player.getProperties().getCurrentCombatLevel()).forEach(task -> {
+					taskWeightSum[0] += task.weight;
+					tasks.add(task);
+		});
 		Collections.shuffle(tasks, RandomFunction.RANDOM);
-		int rnd = RandomFunction.random(master.taskWeightSum);
+		int rnd = RandomFunction.random(taskWeightSum[0]);
 		for(Master.Task task : tasks){
-			if(!canBeAssigned(task.task))
-				continue;
 			if(rnd < task.weight)
 				assign(task.task,master);
 			rnd -= task.weight;

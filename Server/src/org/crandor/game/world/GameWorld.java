@@ -169,7 +169,7 @@ public final class GameWorld {
         ScriptManager.load();
         PluginManager.init();
         RareDropTable.init();
-        SystemLogger.log("Initialized Rare Drop Table from " + RareDropTable.RDT_LOCATION);
+        //SystemLogger.log("Initialized Rare Drop Table from " + RareDropTable.RDT_LOCATION);
         //ResourceAIPManager.get().init(); Commented out as we do not use Skilling Tasks, which is what this is for
         //ImmerseWorld.init(); disabled until bots are rewritten to work with the new pulse system
         SQLManager.postPlugin();

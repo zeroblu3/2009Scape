@@ -225,7 +225,7 @@ public enum Master {
 		Arrays.stream(Master.values()).forEach(m -> idMap.putIfAbsent(m.npc_id, m));
 	}
 
-	int npc_id,required_combat,required_slayer,taskWeightSum;
+	int npc_id,required_combat,required_slayer;
 	int[] assignment_range;
 	int[] streakPoints;
 	List<Task> tasks;
@@ -234,7 +234,6 @@ public enum Master {
 		this.assignment_range = assignment_range;
 		this.streakPoints = streakPoints;
 		this.tasks = new ArrayList<>(Arrays.asList(tasks));
-		this.tasks.stream().forEach(task -> taskWeightSum += task.weight);
 	}
 
 	public static Master forId(int id){

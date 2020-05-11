@@ -50,7 +50,7 @@ public final class RareDropTable {
 				int id = Integer.parseInt(arg[0]);
 				int amount = 1;
 				int amount2 = amount;
-				System.out.println("Rare drop table: " + id);
+				//System.out.println("Rare drop table: " + id);
 				if (arg[2].contains("-")) {
 					String[] amt = arg[2].split("-");
 					amount = Integer.parseInt(amt[2]);
