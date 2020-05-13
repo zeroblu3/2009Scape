@@ -1,6 +1,7 @@
 package org.crandor.game.node.entity.npc;
 
 import org.crandor.cache.def.impl.NPCDefinition;
+import org.crandor.game.content.dialogue.DialoguePlugin;
 import org.crandor.game.content.global.jobs.impl.SlayingJob;
 import org.crandor.game.content.global.shop.Shop;
 import org.crandor.game.content.skill.Skills;
@@ -322,9 +323,9 @@ public class NPC extends Entity {
 		shop.open(player);
 		
 		//Fix for issue #11 for shops keeping dialogue open.
-		if (!player.getDialogueInterpreter().getDialogue().isFinished())
-			player.getDialogueInterpreter().getDialogue().end();
-		
+		DialoguePlugin dialogue = player.getDialogueInterpreter().getDialogue();
+		if (dialogue != null)
+			dialogue.end();
 		return true;
 	}
 
@@ -541,7 +542,7 @@ public class NPC extends Entity {
 	public boolean face(Entity entity) {
 		if (entity == null) {
 			if (getUpdateMasks().unregisterSynced(NPCFaceEntity.getOrdinal())) {
-				return getUpdateMasks().register(new NPCFaceEntity(entity));
+				return getUpdateMasks().register(new NPCFaceEntity(null));
 			}
 			return true;
 		}
