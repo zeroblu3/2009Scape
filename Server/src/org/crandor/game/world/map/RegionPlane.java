@@ -1,7 +1,6 @@
 package org.crandor.game.world.map;
 
 import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.item.GroundItem;
@@ -18,6 +17,7 @@ import org.crandor.net.packet.out.ConstructGroundItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -103,16 +103,7 @@ public final class RegionPlane {
 	 * Called at the end of the update sequence, if the region is active.
 	 */
 	public void pulse() {
-		int length = chunks.length;
-		for (int i = 0; i < length; i++) {
-			int rlength = chunks[i].length;
-			for (int j = 0; j < rlength; j++ ) {
-				RegionChunk chunk = chunks[i][j];
-				if (chunk != null) {
-					chunk.resetFlags();
-				}
-			}
-		}
+		Arrays.stream(chunks).forEach(regionChunks -> {Arrays.stream(regionChunks).filter(Objects::nonNull).forEach(RegionChunk::resetFlags);});
 	}
 
 	/**
@@ -181,12 +172,12 @@ public final class RegionPlane {
 	}
 	
 	/**
-	 * Sets an object on a chunk. 
+	 * Sets an object on a chunk.
 	 * @param x The regional x-coordinate.
 	 * @param y The regional y-coordinate.
 	 * @param object The object to set.
 	 */
-	private RegionChunk setChunkObject(int x, int y, GameObject object) {
+	private void setChunkObject(int x, int y, GameObject object) {
 		int chunkX = x / CHUNK_SIZE;
 		int chunkY = y / CHUNK_SIZE;
 		int offsetX = x - chunkX * CHUNK_SIZE;
@@ -194,10 +185,9 @@ public final class RegionPlane {
 		RegionChunk r = getRegionChunk(chunkX, chunkY);
 		if (r instanceof BuildRegionChunk) {
 			((BuildRegionChunk) r).store(object);
-			return r;
+			return;
 		}
 		r.getObjects()[offsetX][offsetY] = object;
-		return r;
 	}
 	
 	/**
@@ -330,11 +320,7 @@ public final class RegionPlane {
 	public List<Node> getEntities()
 	{
 	    List<Node> entities = new ArrayList<>(npcs);
-	    for (GameObject[] o : getObjects())
-		{
-			entities.addAll(Arrays.asList(o));
-		}
-
+		Arrays.stream(getObjects()).forEach(o -> entities.addAll(Arrays.asList(o)));
 	    return  entities;
 	}
 

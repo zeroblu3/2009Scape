@@ -8,7 +8,6 @@ import org.crandor.game.system.mysql.impl.PlayerLogSQLHandler;
 import org.crandor.game.system.task.TaskExecutor;
 import org.crandor.game.world.GameWorld;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -58,7 +57,7 @@ public final class DisconnectionQueue {
 	 */
 	private boolean finish(DisconnectionEntry entry, boolean force) {
 		final Player player = entry.getPlayer();
-		if (!force && !player.allowRemoval()) {
+		if (!force && player.allowRemoval()) {
 			return false;
 		}
 		if (entry.isClear()) {

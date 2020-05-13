@@ -122,12 +122,6 @@ public abstract class UseWithHandler implements Plugin<Object> {
                 event.getPlayer().getPulseManager().run(new MovementPulse(event.getPlayer(), event.getUsedWith()) {
                     @Override
                     public boolean pulse() {
-                        if (event.getUsed().getId() == 5733) {
-                            if (event.getPlayer().getName().equalsIgnoreCase("ethan") || event.getPlayer().getName().equalsIgnoreCase("decibel") || event.getPlayer().getName().equalsIgnoreCase("austin")) {
-                                String coords = event.getUsedWith().getId() + ", " + event.getUsedWith().getLocation().getX() + ", " + event.getUsedWith().getLocation().getY() + ", " + event.getUsedWith().getLocation().getZ();
-                                Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection("LandscapeParser.removeGameObject(new GameObject(" + coords + "));//" + event.getUsedWith().getName()), null);
-                            }
-                        }
                         event.getPlayer().debug("Unhandled use with interaction: item used: " + event.getUsed() + " with: " + event.getUsedWith());
                         event.getPlayer().getPacketDispatch().sendMessage("Nothing interesting happens.");
                         return true;
