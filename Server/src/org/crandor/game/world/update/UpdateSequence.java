@@ -11,6 +11,7 @@ import org.crandor.net.packet.PacketRepository;
 import org.crandor.net.packet.context.PlayerContext;
 import org.crandor.net.packet.out.ClearMinimapFlag;
 
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,8 +23,8 @@ import java.util.concurrent.TimeUnit;
  */
 public final class UpdateSequence {
 
-	Object[] lobbyArray, playersArray, npcArray;
-	int lobbySize, playerSize, npcSize;
+	List<Player> lobbyList, playersList;
+	List<NPC>    npcList;
 
 	/**
 	 * The list of active players.
@@ -49,32 +50,25 @@ public final class UpdateSequence {
 	 * @return {@code True} if we should continue.
 	 */
 	public void start() {
-		lobbyArray = Repository.getLobbyPlayers().toArray();
-		playersArray = getRenderablePlayers().toArray();
-		npcArray = Repository.getRenderableNpcs().toArray();
-		lobbySize = lobbyArray.length;
-		playerSize = playersArray.length;
-		npcSize = npcArray.length;
-		for (int i = 0; i < lobbySize; i++) {
-			Player p = (Player) lobbyArray[i];
-			PacketRepository.send(ClearMinimapFlag.class, new PlayerContext(p));
-		}
-		for (int i = 0; i < playerSize; i++) {
-			Player p = (Player) playersArray[i];
-			try {
-				p.tick();
-			} catch (Throwable t) {
-				t.printStackTrace();
+		lobbyList = Repository.getLobbyPlayers();
+		playersList = getRenderablePlayers();
+		npcList = Repository.getRenderableNpcs();
+
+		lobbyList.forEach(player -> PacketRepository.send(ClearMinimapFlag.class, new PlayerContext(player)));
+		playersList.forEach(player -> {
+			try{
+				player.tick();
+			} catch (Exception e){
+				e.printStackTrace();
 			}
-		}
-		for (int i = 0; i < npcSize; i++) {
-			NPC n = (NPC) npcArray[i];
-			try {
-				n.tick();
-			} catch (Throwable t) {
-				t.printStackTrace();
+		});
+		npcList.forEach(npc -> {
+			try{
+				npc.tick();
+			} catch (Exception e){
+				e.printStackTrace();
 			}
-		}
+		});
 	}
 
 	/**
@@ -82,22 +76,16 @@ public final class UpdateSequence {
 	 */
 	public void run() {
 		final CountDownLatch latch = new CountDownLatch(getRenderablePlayers().size());
-		for (int i = 0; i < playerSize; i++) {
-			Player p = (Player) playersArray[i];
-			EXECUTOR.execute(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						p.update();
-					} catch (Throwable t) {
-						t.printStackTrace();
-					}
-					latch.countDown();
-				}
-			});
-		}
+		playersList.forEach(player -> EXECUTOR.execute(() -> {
+			try {
+				player.update();
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+			latch.countDown();
+		}));
 		try {
-			latch.await(1000l, TimeUnit.MILLISECONDS);
+			latch.await(1000L, TimeUnit.MILLISECONDS);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -107,14 +95,8 @@ public final class UpdateSequence {
 	 * Ends the sequence, calls the {@link Entity#reset()} method..
 	 */
 	public void end() {
-		for (int i = 0; i < playerSize; i++) {
-			Player p = (Player) playersArray[i];
-			p.reset();
-		}
-		for (int i = 0; i < npcSize; i++) {
-			NPC npc = (NPC) npcArray[i];
-			npc.reset();
-		}
+		playersList.forEach(Player::reset);
+		npcList.forEach(NPC::reset);
 		getRenderablePlayers().sync();
 		RegionManager.pulse();
 		GroundItemManager.pulse();

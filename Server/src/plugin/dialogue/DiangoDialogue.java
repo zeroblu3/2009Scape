@@ -1,10 +1,16 @@
 package plugin.dialogue;
 
+import org.crandor.cache.def.impl.NPCDefinition;
 import org.crandor.game.content.dialogue.DialoguePlugin;
 import org.crandor.game.content.dialogue.FacialExpression;
+import org.crandor.game.interaction.OptionHandler;
+import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.npc.NPC;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.game.node.entity.player.Player;
+import org.crandor.plugin.Plugin;
+import org.crandor.plugin.PluginManager;
+import plugin.interaction.item.toys.DiangoReclaimInterface;
 
 /**
  * Represents the dialogue plugin used by diango.

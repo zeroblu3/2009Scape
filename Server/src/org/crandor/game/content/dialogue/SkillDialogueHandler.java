@@ -293,7 +293,7 @@ public class SkillDialogueHandler {
 				case 10:
 				case 14:
 				case 18:
-					return 5;
+					return 10;
 				case 5:
 				case 9:
 				case 13:

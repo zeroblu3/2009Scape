@@ -39,7 +39,6 @@ public final class PluginManager {
 	 */
 	public static void init() {
 		try {
-			//loadLocal(new File("plugin/"));
 			load("plugin");
 			loadedPlugins.clear();
 			loadedPlugins = null;
@@ -56,86 +55,14 @@ public final class PluginManager {
 		}
 		Reflections reflections = new Reflections(root);
 		Set<Class<?>> reflectionsSet = reflections.getTypesAnnotatedWith(InitializablePlugin.class);
-		Object[] reflectionsArray = reflectionsSet.toArray();
-		int reflectionsLength = reflectionsArray.length;
-		for (int i = 0; i < reflectionsLength; i++) {
-			Class c = (Class) reflectionsArray[i];
+		reflectionsSet.stream().filter(c -> !c.isMemberClass() && !c.isAnonymousClass()).forEach(c -> {
 			try {
-				if (!c.isMemberClass() && !c.isAnonymousClass()) {
-					final Plugin plugin = (Plugin) c.newInstance();
-					definePlugin(plugin);
-				}
-			} catch (Throwable t) {
-				t.printStackTrace();
+				definePlugin((Plugin)c.newInstance());
+			} catch (InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
 			}
-		}
+		});
 	}
-
-/*	*//**
-	 * Loads the plugins in the local directory.
-	 * @param directory The directory.
-	 * @throws Throwable When an exception occurs.
-	 *//*
-	@SuppressWarnings("rawtypes")
-	public static void loadLocal(File directory) throws Throwable {
-		final URL[] url = new URL[] { directory.toURI().toURL(), null };
-		URLClassLoader loader;
-		for (File file : directory.listFiles()) {
-			if (file.getName().equals(".DS_Store")) {
-				continue;
-			}
-			if (GameWorld.isEconomyWorld() && file.getPath().startsWith("plugin/pvp")) {
-				continue;
-			}
-			if (file.isDirectory()) {
-				loadLocal(file);
-				continue;
-			}
-			String fileName = file.getName().replace(".jar", "").replace(".class", "");
-			lastLoaded = fileName;
-			if (loadedPlugins.contains(fileName)) {
-				System.err.println("Duplicate plugin - " + fileName);
-				break;
-			}
-			loadedPlugins.add(fileName);
-			url[1] = file.toURI().toURL();
-			loader = new URLClassLoader(url);
-			JarFile jar = new JarFile(file);
-			Enumeration<JarEntry> entries = jar.entries();
-			boolean loaded = false;
-			while (entries.hasMoreElements()) {
-				JarEntry entry = entries.nextElement();
-				if (entry.getName().endsWith(fileName + ".class")) {
-					StringBuilder sb = new StringBuilder();
-					for (String path : entry.getName().split("/")) {
-						if (sb.length() != 0) {
-							sb.append(".");
-						}
-						sb.append(path);
-						if (path.endsWith(".class")) {
-							sb.setLength(sb.length() - 6);
-							break;
-						}
-					}
-					Files.write(new File("fuck.txt").toPath(), (sb.toString()+"\n").getBytes(), StandardOpenOption.APPEND);
-					System.out.println(sb);
-					try {
-						final Plugin plugin = (Plugin) loader.loadClass(sb.toString()).newInstance();
-						definePlugin(plugin);
-						loaded = true;
-					} catch (Throwable t) {
-						System.err.println("Error for class at " + entry.getName());
-						t.printStackTrace();
-					}
-				}
-			}
-			if (!loaded) {
-				System.err.println("Failed to load plugin " + fileName + "!");
-			}
-			 loader.close();
-			jar.close();
-		}
-	}*/
 
 	/**
 	 * Defines a list of plugins.

@@ -137,6 +137,7 @@ public enum Emotes {
 	EXPLORE(43, Animation.create(9990), Graphics.create(1734), "You can't use this emote yet. You must complete all the Lumbridge <br>and Draynor beginner tasks to unlock it."),
 	TRICK(44, Animation.create(10530), Graphics.create(1863), "This emote can be unlocked by playing a Halloween holiday event."),
 	FREEZE(45, Animation.create(11044), Graphics.create(1973), "This emote can be unlocked by playing a Christmas holiday event."),
+	FLAP_ENHANCED(999,Animation.create(3859)),
 	GIVE_THANKS(46, "This emote can be unlocked by playing a Thanksgiving holiday event."){
 		@Override
 		public void play(final Player player){
@@ -167,7 +168,7 @@ public enum Emotes {
 	/**
 	 * Represents the skillcape info.
 	 */
-	private static final int SKILLCAPE_INFO[][] = { { 9747, 9748, 823, 4959 }, { 9750, 9751, 828, 4981 }, { 9753, 9754, 824, 4961 }, { 9756, 9757, 832, 4973 }, { 9759, 9760, 829, 4979 }, { 9762, 9763, 813, 4939 }, { 9765, 9766, 817, 4947 }, { 9768, 9769, 833, 4971 }, { 9771, 9772, 830, 4977 }, { 9774, 9775, 835, 4969 }, { 9777, 9778, 826, 4965 }, { 9780, 9781, 818, 4949 }, { 9783, 9784, 812, 4937 }, { 9786, 9787, 1656, 4967 }, { 9789, 9790, 820, 4953 }, { 9792, 9793, 814, 4941 }, { 9795, 9796, 815, 4943 }, { 9798, 9799, 819, 4951 }, { 9801, 9802, 821, 4955 }, { 9804, 9805, 831, 4975 }, { 9807, 9808, 822, 4957 }, { 9810, 9811, 825, 4963 }, { 12169, 12170, 1515, 8525 }, { 9813, -1, 816, 4945 }, { 9948, 9949, 907, 5158 } };
+	private static final int[][] SKILLCAPE_INFO = { { 9747, 9748, 823, 4959 }, { 9750, 9751, 828, 4981 }, { 9753, 9754, 824, 4961 }, { 9756, 9757, 832, 4973 }, { 9759, 9760, 829, 4979 }, { 9762, 9763, 813, 4939 }, { 9765, 9766, 817, 4947 }, { 9768, 9769, 833, 4971 }, { 9771, 9772, 830, 4977 }, { 9774, 9775, 835, 4969 }, { 9777, 9778, 826, 4965 }, { 9780, 9781, 818, 4949 }, { 9783, 9784, 812, 4937 }, { 9786, 9787, 1656, 4967 }, { 9789, 9790, 820, 4953 }, { 9792, 9793, 814, 4941 }, { 9795, 9796, 815, 4943 }, { 9798, 9799, 819, 4951 }, { 9801, 9802, 821, 4955 }, { 9804, 9805, 831, 4975 }, { 9807, 9808, 822, 4957 }, { 9810, 9811, 825, 4963 }, { 12169, 12170, 1515, 8525 }, { 9813, -1, 816, 4945 }, { 9948, 9949, 907, 5158 } };
 
 	/**
 	 * The button id.
@@ -275,6 +276,10 @@ public enum Emotes {
 			}
 			player.getDialogueInterpreter().sendDialogue(message);
 			return;
+		}
+		//set flap to the enhanced version if player is wearing chicken costume
+		if(emote == FLAP && (player.getEquipment().contains(11019,1) && player.getEquipment().contains(11020,1) && player.getEquipment().contains(11021,1) && player.getEquipment().contains(11022,1))){
+			emote = FLAP_ENHANCED;
 		}
 		if (!player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(1, 3) && (buttonId >= 30 && buttonId <= 33)) {
 			if (!player.getAttribute("emote-" + buttonId, false)) {

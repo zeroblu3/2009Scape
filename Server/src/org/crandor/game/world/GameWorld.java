@@ -108,15 +108,8 @@ public final class GameWorld {
         if (GameWorld.ticks % 50 == 0) {
             TaskExecutor.execute(() -> {
                 NodeList<Player> player = Repository.getPlayers();
-                Node[] players = player.toArray();
-                int l = players.length;
                 try {
-                    for (int i = 0; i < l; i++) {
-                        Player p = (Player) players[i];
-                        if (p != null && !p.isArtificial() && p.isPlaying()) {
-                            DisconnectionQueue.save(p, false);
-                        }
-                    }
+                    player.stream().filter(Objects::nonNull).filter(p -> !p.isArtificial() && p.isPlaying()).forEach(p -> DisconnectionQueue.save(p,false));
                 } catch (Throwable t) {
                     t.printStackTrace();
                 }
@@ -169,7 +162,7 @@ public final class GameWorld {
         ScriptManager.load();
         PluginManager.init();
         RareDropTable.init();
-        //SystemLogger.log("Initialized Rare Drop Table from " + RareDropTable.RDT_LOCATION);
+        SystemLogger.log("Initialized Rare Drop Table from " + RareDropTable.RDT_LOCATION);
         //ResourceAIPManager.get().init(); Commented out as we do not use Skilling Tasks, which is what this is for
         //ImmerseWorld.init(); disabled until bots are rewritten to work with the new pulse system
         SQLManager.postPlugin();
@@ -278,9 +271,7 @@ public final class GameWorld {
         LandscapeParser.addGameObject(new GameObject(2646, new Location(2447, 3421, 0), 10,0));// Gnome Stronhold flax
 
         NPC[] npcs = new NPC[]{new NPC(494, new Location(2327, 3687, 0))};
-        for (NPC npc : npcs) {
-            npc.setDirection(Direction.EAST);
-        }
+        Arrays.stream(npcs).forEach(npc -> npc.setDirection(Direction.EAST));
     }
 
 
