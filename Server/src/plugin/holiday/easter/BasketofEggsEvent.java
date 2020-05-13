@@ -54,7 +54,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 	/**
 	 * The rubber chicken item.
 	 */
-	private static final Item RUBBER_CHICKEN = new Item(4566);
+	public static final Item RUBBER_CHICKEN = new Item(4566);
 
 	/**
 	 * The basket of eggs item.
@@ -478,6 +478,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 				player.face(target);
 				player.animate(Animation.create(1833));
 				player.getAudioManager().send(2257, true);
+				node.asPlayer().getPacketDispatch().sendMessage(player.getUsername() + " whacks you with a rubber chicken.");
 				return true;
 			case "dance":
 			case "operate":

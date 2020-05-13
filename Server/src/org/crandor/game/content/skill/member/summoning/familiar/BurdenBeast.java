@@ -4,6 +4,7 @@ import org.crandor.game.component.CloseEvent;
 import org.crandor.game.component.Component;
 import org.crandor.game.container.Container;
 import org.crandor.game.container.access.InterfaceContainer;
+import org.crandor.game.content.skill.member.summoning.SummoningPouch;
 import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.item.GroundItem;
@@ -91,9 +92,19 @@ public abstract class BurdenBeast extends Familiar {
 			owner.getPacketDispatch().sendMessage("You can't trade this item, not even to your familiar.");
 			return false;
 		}
-		if (item.getId() == 1436 || item.getId() == 7936 || !item.getDefinition().getConfiguration(ItemConfigSQLHandler.BANKABLE, true)) {
+		if ((!SummoningPouch.get(getPouchId()).abyssal && (item.getId() == 1436 || item.getId() == 7936))|| !item.getDefinition().getConfiguration(ItemConfigSQLHandler.BANKABLE, true)) {
 			owner.getPacketDispatch().sendMessage("You can't store " + item.getName().toLowerCase() + " in this familiar.");
 			return false;
+		}
+		if(SummoningPouch.get(this.getPouchId()).abyssal){
+			if(!item.getName().toLowerCase().contains("essence")) {
+				owner.getPacketDispatch().sendMessage("You can only give unnoted essence to this familiar.");
+				return false;
+			}
+			if(item.getId() == 1437 || item.getId() == 7937) {
+				owner.getPacketDispatch().sendMessage("You can't give noted essence to this familiar.");
+				return false;
+			}
 		}
 		return true;
 	}
