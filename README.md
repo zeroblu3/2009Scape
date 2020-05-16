@@ -61,7 +61,10 @@ Errors could not find library:
   - Add the following things:
     - `Client/lib` directory
     - `Client/clientlibs.jar` file
-    - `Management-server/lib` director 
+    - `Management-server/lib` directory
 
 Errors regarding java.nio.BufferUnderflowException in server:
 - Reclone the repository. This happened to me (Red Bracket) once, could never reproduce.
+
+Bridges not working/general compilation issues
+- This project uses JDK/OpenJDK 8. Make sure you are on version 8. Anything besides JDK or OpenJDK we will not help you troubleshoot.
