@@ -226,7 +226,53 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.FISHING_BAIT,7,20),
                     new WeightedChanceItem(ItemNames.EYE_OF_NEWT,1,4),
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,8)
-            });
+            }),
+    BASILISK(new int[] {1616,1617},0,0,0,0,0,0,140,0,
+            new Item[]{new Item(ItemNames.BONES_2530)},
+            new ChanceItem[]{
+                    new ChanceItem(12158,1,DropFrequency.COMMON),
+                    new ChanceItem(12159,1,DropFrequency.COMMON),
+                    new ChanceItem(12160,1,DropFrequency.UNCOMMON),
+                    new ChanceItem(12163,1,DropFrequency.RARE)
+            },
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.MITHRIL_AXE,1,12),
+                    new WeightedChanceItem(ItemNames.STEEL_BATTLEAXE,1,12),
+                    new WeightedChanceItem(ItemNames.MITHRIL_SPEAR,1,8),
+                    new WeightedChanceItem(ItemNames.ADAMANT_FULL_HELM,1,4),
+                    new WeightedChanceItem(ItemNames.MITHRIL_KITESHIELD,1,4),
+                    new WeightedChanceItem(ItemNames.RUNE_DAGGER,1,4),
+                    new WeightedChanceItem(ItemNames.MYSTIC_HAT_LIGHT,1,1),
+                    new WeightedChanceItem(ItemNames.WATER_RUNE,75,32),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,15,20),
+                    new WeightedChanceItem(ItemNames.LAW_RUNE,3,12),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,37,4),
+                    new WeightedChanceItem(ItemNames.ADAMANTITE_ORE,1,12),
+                    new WeightedChanceItem(ItemNames.COINS,44,115),
+                    new WeightedChanceItem(ItemNames.COINS,200,68),
+                    new WeightedChanceItem(ItemNames.COINS,132,20),
+                    new WeightedChanceItem(ItemNames.COINS,11,20),
+                    new WeightedChanceItem(ItemNames.COINS,440,4),
+                    new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,20)
+            }),
+    BATS(new int[]{412},0,0,0,0,0,0,0,0,new Item[]{new Item(ItemNames.BAT_BONES)},new ChanceItem[]{},new WeightedChanceItem[]{}),
+    GIANT_BATS(new int[]{78,3711,4345},0,0,0,0,0,0,0,0,
+            new Item[]{new Item(ItemNames.BAT_BONES)},
+            new ChanceItem[]{
+                    new ChanceItem(12158,1,DropFrequency.COMMON),
+                    new ChanceItem(12159,1,DropFrequency.COMMON),
+                    new ChanceItem(12160,1,DropFrequency.RARE),
+                    new ChanceItem(12163,1,DropFrequency.VERY_RARE)
+            },
+            new WeightedChanceItem[]{}),
+    BEARS(new int[]{106, 105, 1195, 3645, 3664, 1326, 1327},0,0,0,0,0,0,0,0,
+            new Item[]{
+                    new Item(ItemNames.BONES_2530),
+                    new Item(ItemNames.BEAR_FUR_948),
+                    new Item(ItemNames.RAW_BEAR_MEAT)},
+            new ChanceItem[]{},
+            new WeightedChanceItem[]{});
+    //BIRDS(new int[]{1475, 5120, 5121, 5122, 5123, 5133, 1475, 1476, 41, 951, 1017, 1401, 1402, 2313, 2314, 2315, 1016, 1550, 147, 1180, 1754, 1755, 1756, 2252, 4570, 4571, 1911, 6114, 46, 2693, 6113, 6112, 146, 149, 150, 450, 451, 1179, 1322, 1323, 1324, 1325, 1400, 2726, 2727, 3197, 138, 48, 4373, 4374, 4535, 139, 1751, 148, 1181, 6382, 2459, 2460, 2461, 2462, 2707, 2708, 6115, 6116, 3296, 6378, 1996, 3675, 3676, 6792, 6946, 7320, 7322, 7324, 7326, 7328, 1692, 6285, 6286, 6287, 6288, 6289, 6290, 6291, 6292, 6293, 6294, 6295, 6322, 6323, 6324, 6325, 6326, 6327, 6328, 6329, 6330, 6331, 6332})
 
 
     //map our npc ids to their drop table
