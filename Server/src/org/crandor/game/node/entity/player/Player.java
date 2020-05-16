@@ -1,7 +1,9 @@
 package org.crandor.game.node.entity.player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.crandor.ServerConstants;
 import org.crandor.game.component.Component;
@@ -165,7 +167,7 @@ public class Player extends Entity {
 	/**
 	 * The appearance.
 	 */
-	private Appearance appearance = new Appearance(this);
+	private final Appearance appearance = new Appearance(this);
 
 	/**
 	 * The settings of the player.
@@ -393,7 +395,7 @@ public class Player extends Entity {
 	 * @param force If we should force removal, a player engaged in combat will otherwise remain active until out of combat.
 	 */
 	public void clear(boolean force) {
-		if (!force && !allowRemoval()) {
+		if (!force && allowRemoval()) {
 			Repository.getDisconnectionQueue().add(this, true);
 			return;
 		}
@@ -407,19 +409,13 @@ public class Player extends Entity {
 			task.fire(this);
 		}
 		if (logoutPlugins != null && !logoutPlugins.isEmpty()) {
-			for (int i = 0; i < logoutPlugins.size(); i++) {
-				if (i == logoutPlugins.size()) {
-					break;
+			logoutPlugins.stream().filter(Objects::nonNull).forEach(plugin -> {
+				try {
+					plugin.newInstance(this);
+				} catch (Throwable throwable) {
+					throwable.printStackTrace();
 				}
-				Plugin<Player> plugin = logoutPlugins.get(i);
-				if (plugin != null) {
-					try {
-						plugin.newInstance(this);
-					} catch (Throwable e) {
-						e.printStackTrace();
-					}
-				}
-			}
+			});
 		}
 		if (familiarManager.hasFamiliar()) {
 			familiarManager.getFamiliar().clear();
@@ -720,9 +716,7 @@ public class Player extends Entity {
 		renderInfo.getLocalPlayers().clear();
 		renderInfo.setLastLocation(null);
 		renderInfo.setOnFirstCycle(true);
-		for (int i = 0; i < renderInfo.getAppearanceStamps().length; i++) {
-			renderInfo.getAppearanceStamps()[i] = 0;
-		}
+		Arrays.fill(renderInfo.getAppearanceStamps(),0);
 	}
 
 	/**
@@ -792,13 +786,13 @@ public class Player extends Entity {
 	public boolean canSpawn() {
 		if (!spawnZone()) {
 			sendMessage("You can only spawn items inside the edgeville bank.");
-			return false;
+			return true;
 		}
 		if (inCombat() || getLocks().isInteractionLocked() || getSkullManager().isWilderness() || getAttribute("activity", null) != null) {
 			sendMessage("<col=FF0000>You can't spawn items at the moment.");
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -825,10 +819,7 @@ public class Player extends Entity {
 	 */
 
 	public boolean isMale() {
-		if(this.getAppearance().getGender().ordinal() == 0)
-			return true;
-		else
-			return false;
+		return this.getAppearance().getGender().ordinal() == 0;
 	}
 
 	/**
@@ -855,10 +846,7 @@ public class Player extends Entity {
 	 * @return {@code True} if so.
 	 */
 	public boolean allowRemoval() {
-		if (inCombat() || getSkills().getLifepoints() < 1 || DeathTask.isDead(this)) {
-			return false;
-		}
-		return true;
+		return inCombat() || getSkills().getLifepoints() < 1 || DeathTask.isDead(this);
 	}
 
 	/**
@@ -928,10 +916,9 @@ public class Player extends Entity {
 
 	/**
 	 * Gets the name.
-	 * @param display the display.
 	 * @return the name.
 	 */
-	public String getName(boolean display) {
+	public String getName() {
 //		return display ? details.getDisplayName() : super.getName();
 		return super.getName();
 	}

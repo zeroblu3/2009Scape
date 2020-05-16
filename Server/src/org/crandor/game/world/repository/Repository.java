@@ -213,7 +213,7 @@ public final class Repository {
 		}
 		display = display.toLowerCase().replaceAll(" ", "_");
 		for (Player p : PLAYERS) {
-			if (p.getName(true).equals(display)) {
+			if (p.getName().equals(display)) {
 				return p;
 			}
 		}

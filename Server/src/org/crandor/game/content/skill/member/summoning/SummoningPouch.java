@@ -214,7 +214,7 @@ public enum SummoningPouch {
 	/**
 	 * Represents an abyssal parasite pouch.
 	 */
-	ABYSSAL_PARASITE_POUCH(34, 12035, 54, 94.8, 6818, 1.1, 6, new Item(12159), new Item(12155), new Item(12161), new Item(12183, 106)),
+	ABYSSAL_PARASITE_POUCH(34, true,12035, 54, 94.8, 6818, 1.1, 6, new Item(12159), new Item(12155), new Item(12161), new Item(12183, 106)),
 
 	/**
 	 * Represents a spirit jelly pouch.
@@ -254,7 +254,7 @@ public enum SummoningPouch {
 	/**
 	 * Represents an abyssal lurker pouch.
 	 */
-	ABYSSAL_LUKRER(42, 12037, 62, 109.6, 6820, 1.9, 9, new Item(12159), new Item(12155), new Item(12161), new Item(12183, 119)),
+	ABYSSAL_LUKRER(42, true,12037, 62, 109.6, 6820, 1.9, 9, new Item(12159), new Item(12155), new Item(12161), new Item(12183, 119)),
 
 	/**
 	 * Represents a spirit cobra pouch.
@@ -344,7 +344,7 @@ public enum SummoningPouch {
 	/**
 	 * Represents a unicorn stallion pouch.
 	 */
-	UNICORN_STALLION_POUCH(70, 12039, 89, 154.4, 6822, 1.8, 9, new Item(12159), new Item(237), new Item(12183, 203)),
+	UNICORN_STALLION_POUCH(70, 12039, 88, 154.4, 6822, 1.8, 9, new Item(12159), new Item(237), new Item(12183, 203)),
 
 	/**
 	 * Represents a wolpertinger pouch.
@@ -389,7 +389,7 @@ public enum SummoningPouch {
 	/**
 	 * Represents an abyssal titan pouch.
 	 */
-	ABYSSAL_TITAN_POUCH(73, 12796, 93, 163.2, 7349, 1.9, 10, new Item(12159), new Item(12161), new Item(12155), new Item(12183, 113)),
+	ABYSSAL_TITAN_POUCH(73, true,12796, 93, 163.2, 7349, 1.9, 10, new Item(12159), new Item(12161), new Item(12155), new Item(12183, 113)),
 
 	/**
 	 * Represents an iron titan pouch.
@@ -465,6 +465,8 @@ public enum SummoningPouch {
 	 */
 	private final Item[] items;
 
+	public boolean abyssal;
+
 	/**
 	 * Constructs a new {@code SummoningPouch} {@code Object}.
 	 * @param pouchId The pouch item id.
@@ -486,6 +488,10 @@ public enum SummoningPouch {
 		this.items = items;
 	}
 
+	private SummoningPouch(int slot, boolean abyssal, int pouchId, int levelRequired, double createExperience, int npcId, double summonExperience, int summonCost, Item... items) {
+		this(slot, pouchId, levelRequired, createExperience, npcId, summonExperience, summonCost, items);
+		this.abyssal = abyssal;
+	}
 	/**
 	 * Gets the summoning pouch for the given slot.
 	 * @param slot The slot.
