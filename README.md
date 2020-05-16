@@ -13,8 +13,8 @@ Requirements:
 Be sure to check the debugging section when something goes wrong.
 
 ## Step 1:
--**If you are trying to develop for this project/commit code, then it is preferrable that you fork Ceikry/RS-2009's Development branch and only create pull requests for Ceikry's <a href="https://github.com/Ceikry/RS-2009/tree/development">RS-2009/development branch.</a>**
-If you are not interested in developing on this project and only intend to have your own copy, then fork this repository to your repo.
+**If you are interested in active development, then fork Ceikry/RS-2009's Development branch and only create pull requests for Ceikry's <a href="https://github.com/Ceikry/RS-2009/tree/development">RS-2009/development branch.</a>**
+If you're not developing the project and only intend to have your own copy, then fork this repository as it's the stable one.
 
 ## Step 2: Setting up IntelliJ
 - Open IntelliJ
