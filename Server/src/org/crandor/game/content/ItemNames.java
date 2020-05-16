@@ -1,4 +1,4 @@
-package org.crandor.tools;
+package org.crandor.game.content;
 
 public class ItemNames {
 	   /**
