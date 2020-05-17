@@ -137,6 +137,9 @@ public final class NPCDropTables {
 		if (handleBoneCrusher(player, item)) {
 			return;
 		}
+		if (item.getId() == RareDropTable.SLOT_ITEM_ID){
+			item = RareDropTable.retrieve();
+		}
 		if (item.getId() == 995 && player.getBank().hasSpaceFor(item) && ( player.getGlobalData().isEnableCoinMachine() )) {
 			item = new Item(995, (int) (item.getAmount() + (item.getAmount() * 0.25)));
 			player.getBank().add(item);
