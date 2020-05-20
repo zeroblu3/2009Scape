@@ -19,5 +19,4 @@ Client/gradle/
 Client/build/
 Client/.gradle/
 Management-Server/.gradle
-Management-Server/build.gradle
 Management-Server/build/
