@@ -20,3 +20,4 @@ Client/build/
 Client/.gradle/
 Management-Server/.gradle
 Management-Server/build/
+Server/data/eco/grand_exchange_db.emp
