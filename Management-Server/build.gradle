@@ -31,6 +31,6 @@ dependencies {
 
 
 jar {
-    baseName = 'managementserver'
-    version =  '1.0.0'
+    archiveBaseName = 'managementserver'
+    archiveVersion =  '1.0.0'
 }
