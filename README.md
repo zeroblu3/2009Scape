@@ -4,10 +4,7 @@ Join our Discord server: https://discord.gg/4zrA2Wy
 
 We also have a live game in the [Releases](https://github.com/dginovker/RS-2009/releases) section that always runs the latest code.
 
-# Running your own instance
-[Self hosting guide](selfhosting.md)
-
-# Setting up the project for debugging
+# Setting up the project
 Requirements:
 - General knowledge of git
 - General knowledge of SQL
