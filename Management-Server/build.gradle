@@ -4,7 +4,7 @@ targetCompatibility = 1.8
 
 apply plugin: 'application'
 
-mainClassName = 'org.runite.Client'
+mainClassName = 'org.keldagrim.Management'
 
 repositories {
     flatDir {
@@ -31,6 +31,6 @@ dependencies {
 
 
 jar {
-    archiveBaseName = 'client'
+    archiveBaseName = 'managementserver'
     archiveVersion =  '1.0.0'
 }
