@@ -46,6 +46,7 @@ public class PulseRunner {
                 ThreadPool.execute(new PulseThread(pulsesLengthStart,pulsesLengthEnd,pulseArray));
             }
 
+
             // Execute the first core tasks all together just as before
             int pulsesLengthStart = (int) Math.floor(pulseArray.length / numThreads);
             for (int i = 0; i < pulsesLengthStart; i++) {
@@ -54,8 +55,10 @@ public class PulseRunner {
                     continue;
                 }
                 try {
-                    if (pulse.update()) {
-                        TASKS.remove(pulse);
+                    if(TASKS.contains(pulse)) {
+                        if (pulse.update()) {
+                            TASKS.remove(pulse);
+                        }
                     }
                 } catch (Throwable t) {
                     t.printStackTrace();
@@ -84,8 +87,10 @@ public class PulseRunner {
                     continue;
                 }
                 try {
-                    if (pulse.update()) {
-                        TASKS.remove(pulse);
+                    if (TASKS.contains(pulse)) {
+                        if (pulse.update()) {
+                            TASKS.remove(pulse);
+                        }
                     }
                 } catch (Throwable t) {
                     t.printStackTrace();
