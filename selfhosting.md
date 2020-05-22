@@ -15,9 +15,9 @@ Git clone this repository, or download the latest source with the clone or downl
 In a terminal, enter both the Management-Server and Server folders and run `gradle build`
 
 #### Optional: setting the server ip address for non-local servers
-In Client/src/org/runite/Configurations.java set LOCAL_MS and LOCAL_SERVER to false
+In Client/src/main/java/org/runite/Configurations.java set LOCAL_MS and LOCAL_SERVER to false
 
-In Client/src/org/runite/Client.java set PUBLIC_IP_ADDRESS to your server's ip address
+In Client/src/main/java/org/runite/Client.java set PUBLIC_IP_ADDRESS to your server's ip address
 
 ## Building the client:
 In a terminal, enter the Client folder and run `gradle build`
