@@ -66,7 +66,9 @@ public final class DisconnectionQueue {
 		Repository.getPlayerNames().remove(player.getName());
 		Repository.getLobbyPlayers().remove(player);
 		Repository.getPlayers().remove(player);
-		player.getCommunication().getClan().leave(player,false);
+		try {
+			player.getCommunication().getClan().leave(player, false);
+		} catch (Exception e){}
 		if (player.isArtificial()) {
 			return true;
 		}

@@ -67,12 +67,15 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 	 */
 	public static void checkDegrade(Player player, Entity entity, int slot) {
 		Item item = player.getEquipment().get(slot);
-		roar: {
-			for (DegradableEquipment e : EQUIPMENT[slot]) {
-				for (int itemId : e.itemIds) {
-					if (itemId == item.getId()) {
-						e.degrade(player, entity, item);
-						break roar;
+		if(item != null) {
+			roar:
+			{
+				for (DegradableEquipment e : EQUIPMENT[slot]) {
+					for (int itemId : e.itemIds) {
+						if (itemId == item.getId()) {
+							e.degrade(player, entity, item);
+							break roar;
+						}
 					}
 				}
 			}
