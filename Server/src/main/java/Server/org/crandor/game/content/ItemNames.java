@@ -14032,5 +14032,6 @@ public class ItemNames {
 	    public static final int BLOODY_BRACER_NOTED_22431 = 22431;
 	    public static final int EMERALD_SICKLE_B_22433 = 22433;
 	    public static final int ENCHANTED_EMERALD_SICKLE_B_22435 = 22435;
+	    public static final int NOTHING = 0;
 }
 

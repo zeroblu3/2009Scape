@@ -460,6 +460,110 @@ public enum DropTables {
             new ChanceItem[]{
                     new ChanceItem(ItemNames.DRAGON_PLATELEGS,1,2048),
                     new ChanceItem(ItemNames.DRAGON_PLATESKIRT,1,2048)
+            }),
+    CATABLEPON(new int[] {4397, 4398, 4399},0,0,0,0,1,0,3,0,
+            new Item[]{new Item(ItemNames.BONES_2530)},
+            new ChanceItem[]{
+                    new ChanceItem(12158, 1, DropFrequency.COMMON),
+                    new ChanceItem(12159, 1, DropFrequency.COMMON),
+                    new ChanceItem(12160, 1, DropFrequency.RARE),
+                    new ChanceItem(12163, 1, DropFrequency.VERY_RARE)
+            },
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.ADAMANT_MED_HELM,1,1),
+                    new WeightedChanceItem(ItemNames.FIRE_RUNE,15,7),
+                    new WeightedChanceItem(ItemNames.WATER_RUNE,7,6),
+                    new WeightedChanceItem(ItemNames.LAW_RUNE,2,4),
+                    new WeightedChanceItem(ItemNames.MITHRIL_ARROW,5,14,4),
+                    new WeightedChanceItem(ItemNames.COSMIC_RUNE,2,3),
+                    new WeightedChanceItem(ItemNames.CHAOS_RUNE,7,1),
+                    new WeightedChanceItem(ItemNames.EYE_OF_NEWT,1,7),
+                    new WeightedChanceItem(ItemNames.RUNE_ESSENCE,15,5),
+                    new WeightedChanceItem(ItemNames.PURE_ESSENCE_7936,15,5),
+                    new WeightedChanceItem(ItemNames.COAL_NOTED,3,7,20),
+                    new WeightedChanceItem(ItemNames.COINS,44,12),
+                    new WeightedChanceItem(ItemNames.COINS,5,104,10),
+                    new WeightedChanceItem(ItemNames.COINS,15,6),
+                    new WeightedChanceItem(ItemNames.UNLIT_TORCH_596,1,9),
+                    new WeightedChanceItem(ItemNames.TOP_OF_SCEPTRE_9010,1,9),
+                    new WeightedChanceItem(ItemNames.TROUT_333,1,2),
+                    new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,2)
+            }),
+    CAVE_BUG(new int[] {1832, 5750},0,0,0,0,0,0,24,0,
+            new Item[]{new Item(ItemNames.NOTHING)},
+            new ChanceItem[]{
+                    new ChanceItem(12158, 1, DropFrequency.COMMON),
+                    new ChanceItem(12159, 1, DropFrequency.COMMON),
+            },
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.WATER_RUNE,8,5),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,1,5),
+                    new WeightedChanceItem(ItemNames.EARTH_RUNE,6,2),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,2,1),
+                    new WeightedChanceItem(ItemNames.UNICORN_HORN_DUST,1,2),
+                    new WeightedChanceItem(ItemNames.EYE_OF_NEWT,1,2),
+                    new WeightedChanceItem(ItemNames.RED_SPIDERS_EGGS,1,2),
+                    new WeightedChanceItem(ItemNames.LIMPWURT_ROOT,1,1),
+                    new WeightedChanceItem(ItemNames.SNAPE_GRASS,1,1),
+                    new WeightedChanceItem(ItemNames.COINS,3,8),
+                    new WeightedChanceItem(ItemNames.COINS,8,3),
+                    new WeightedChanceItem(ItemNames.CANDLE_36,1,5),
+                    new WeightedChanceItem(ItemNames.TINDERBOX,1,3),
+                    new WeightedChanceItem(ItemNames.EMPTY_CANDLE_LANTERN_4527,1,1)
+    }),
+    CAVE_CRAWLERS(new int[]{1600, 1601, 1602, 1603},26,0,0,0,0,0,22,0,
+            new Item[]{new Item(ItemNames.NOTHING)},
+            new ChanceItem[]{
+                    new ChanceItem(12158, 1, DropFrequency.COMMON),
+                    new ChanceItem(12159, 1, DropFrequency.COMMON),
+            },
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.BRONZE_BOOTS,1,1),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,3,4,6),
+                    new WeightedChanceItem(ItemNames.FIRE_RUNE,12,5),
+                    new WeightedChanceItem(ItemNames.EARTH_RUNE,9,2),
+                    new WeightedChanceItem(ItemNames.VIAL_OF_WATER,1,13),
+                    new WeightedChanceItem(ItemNames.WHITE_BERRIES,1,5),
+                    new WeightedChanceItem(ItemNames.UNICORN_HORN_DUST,1,2),
+                    new WeightedChanceItem(ItemNames.EYE_OF_NEWT,1,1),
+                    new WeightedChanceItem(ItemNames.RED_SPIDERS_EGGS,1,1),
+                    new WeightedChanceItem(ItemNames.LIMPWURT_ROOT,1,1),
+                    new WeightedChanceItem(ItemNames.SNAPE_GRASS,1,1),
+                    new WeightedChanceItem(ItemNames.COINS,3,5),
+                    new WeightedChanceItem(ItemNames.COINS,8,3),
+                    new WeightedChanceItem(ItemNames.COINS,29,3),
+                    new WeightedChanceItem(ItemNames.COINS,10,1),
+                    new WeightedChanceItem(ItemNames.NOTHING,1,29),
+                    new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,1)
+            }),
+    CAVE_HORRORS(new int[]{4353, 4354, 4355, 4356, 4357},0,0,18,0,15,0,13,0,
+            new Item[]{
+                    new Item(ItemNames.BIG_BONES)
+            },
+            new ChanceItem[]{
+                    new ChanceItem(12158, 1, DropFrequency.COMMON),
+                    new ChanceItem(12159, 1, DropFrequency.COMMON),
+                    new ChanceItem(12160, 1, DropFrequency.RARE),
+                    new ChanceItem(12163, 1, DropFrequency.VERY_RARE)
+            },
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.MITHRIL_AXE,1,3),
+                    new WeightedChanceItem(ItemNames.RUNE_DAGGER,1,1),
+                    new WeightedChanceItem(ItemNames.ADAMANT_FULL_HELM,1,1),
+                    new WeightedChanceItem(ItemNames.MITHRIL_KITESHIELD,1,1),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,6,6),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,4,5),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,3,1),
+                    new WeightedChanceItem(ItemNames.COINS,44,28),
+                    new WeightedChanceItem(ItemNames.COINS,132,12),
+                    new WeightedChanceItem(ItemNames.COINS,440,1),
+                    new WeightedChanceItem(ItemNames.LIMPWURT_ROOT,1,7),
+                    new WeightedChanceItem(ItemNames.TEAK_LOGS_NOTED_6334,4,7),
+                    new WeightedChanceItem(ItemNames.MAHOGANY_LOGS_6332,2,3),
+                    new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,5)
+            },
+            new ChanceItem[]{
+                    new ChanceItem(ItemNames.BLACK_MASK_10_8901,1,512)
             });
     //WARPED_TERROR_BIRDS(new int[]{6285, 6286, 6287, 6288, 6289, 6290, 6291, 6292, 6293, 6294, 6295, 6322, 6323, 6324, 6325, 6326, 6327, 6328, 6329, 6330, 6331, 6332})
     //UNDEAD_CHICKEN(new int[]{1692})
