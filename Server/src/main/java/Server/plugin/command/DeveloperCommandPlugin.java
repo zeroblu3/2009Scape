@@ -56,6 +56,7 @@ import org.crandor.game.world.update.flag.context.Graphics;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.plugin.Plugin;
 import org.crandor.plugin.PluginManager;
+import org.crandor.tools.ItemNames;
 import org.crandor.tools.RandomFunction;
 import org.crandor.tools.StringUtils;
 import plugin.skill.herblore.PotionDecantingPlugin;
@@ -245,6 +246,9 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                 for (int zy = 0; zy < 100; zy++) {
                     player.getBank().add(new Item(zy + 2000));
                 }
+                break;
+            case "chins":
+                player.getInventory().add(new Item(ItemNames.RED_CHINCHOMPA_10034,Integer.MAX_VALUE));
                 break;
             case "anim":
                 player.animate(new Animation(Integer.parseInt(args[1])));

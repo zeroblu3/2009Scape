@@ -478,8 +478,8 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.COSMIC_RUNE,2,3),
                     new WeightedChanceItem(ItemNames.CHAOS_RUNE,7,1),
                     new WeightedChanceItem(ItemNames.EYE_OF_NEWT,1,7),
-                    new WeightedChanceItem(ItemNames.RUNE_ESSENCE,15,5),
-                    new WeightedChanceItem(ItemNames.PURE_ESSENCE_7936,15,5),
+                    new WeightedChanceItem(ItemNames.RUNE_ESSENCE_NOTED,15,5),
+                    new WeightedChanceItem(ItemNames.PURE_ESSENCE_NOTED,15,5),
                     new WeightedChanceItem(ItemNames.COAL_NOTED,3,7,20),
                     new WeightedChanceItem(ItemNames.COINS,44,12),
                     new WeightedChanceItem(ItemNames.COINS,5,104,10),
@@ -564,6 +564,53 @@ public enum DropTables {
             },
             new ChanceItem[]{
                     new ChanceItem(ItemNames.BLACK_MASK_10_8901,1,512)
+            }),
+    CAVE_SLIMES(new int[]{1831}, 0,0,0,0,0,0,0,0,
+            new Item[]{new Item(ItemNames.SWAMP_TAR_1939,2)},
+            new ChanceItem[]{},
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.IRON_SWORD,1,7),
+                    new WeightedChanceItem(ItemNames.BRONZE_AXE,1,3),
+                    new WeightedChanceItem(ItemNames.IRON_KITESHIELD,1,2),
+                    new WeightedChanceItem(ItemNames.BRONZE_FULL_HELM,1,1),
+                    new WeightedChanceItem(ItemNames.IRON_BOOTS,1,1),
+                    new WeightedChanceItem(ItemNames.WATER_RUNE,15,5),
+                    new WeightedChanceItem(ItemNames.EARTH_RUNE,5,3),
+                    new WeightedChanceItem(ItemNames.COINS,10,39),
+                    new WeightedChanceItem(ItemNames.COINS,4,30),
+                    new WeightedChanceItem(ItemNames.COINS,22,10),
+                    new WeightedChanceItem(ItemNames.COINS,1,7),
+                    new WeightedChanceItem(ItemNames.COINS,46,2),
+                    new WeightedChanceItem(ItemNames.UNLIT_TORCH_596,1,11),
+                    new WeightedChanceItem(ItemNames.GOLD_BAR,1,2),
+                    new WeightedChanceItem(ItemNames.OIL_LANTERN_FRAME_4540,1,1),
+                    new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,4)
+            }),
+    COCKATRICE(new int[] {1620, 1621, 4227}, 0,18,0,0,0,0,10,0,
+            new Item[]{new Item(ItemNames.BONES_2530)},
+            new ChanceItem[]{},
+            new WeightedChanceItem[]{
+                    new WeightedChanceItem(ItemNames.IRON_SWORD,1,3),
+                    new WeightedChanceItem(ItemNames.STEEL_DAGGER,1,3),
+                    new WeightedChanceItem(ItemNames.IRON_BOOTS,1,1),
+                    new WeightedChanceItem(ItemNames.IRON_JAVELIN,5,1),
+                    new WeightedChanceItem(ItemNames.STEEL_LONGSWORD,1,1),
+                    new WeightedChanceItem(ItemNames.NATURE_RUNE,2,6,6),
+                    new WeightedChanceItem(ItemNames.LAW_RUNE,2,3),
+                    new WeightedChanceItem(ItemNames.WATER_RUNE,2,2),
+                    new WeightedChanceItem(ItemNames.FIRE_RUNE,7,1),
+                    new WeightedChanceItem(ItemNames.COINS,15,16),
+                    new WeightedChanceItem(ItemNames.COINS,5,12),
+                    new WeightedChanceItem(ItemNames.COINS,28,12),
+                    new WeightedChanceItem(ItemNames.COINS,62,4),
+                    new WeightedChanceItem(ItemNames.COINS,42,3),
+                    new WeightedChanceItem(ItemNames.COINS,1,1),
+                    new WeightedChanceItem(ItemNames.LIMPWURT_ROOT,1,21),
+                    new WeightedChanceItem(ItemNames.NOTHING,1,17),
+                    new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,2)
+            },
+            new ChanceItem[]{
+                    new ChanceItem(ItemNames.MYSTIC_BOOTS_LIGHT,1,512)
             });
     //WARPED_TERROR_BIRDS(new int[]{6285, 6286, 6287, 6288, 6289, 6290, 6291, 6292, 6293, 6294, 6295, 6322, 6323, 6324, 6325, 6326, 6327, 6328, 6329, 6330, 6331, 6332})
     //UNDEAD_CHICKEN(new int[]{1692})
@@ -624,7 +671,7 @@ public enum DropTables {
         rewards.addAll(RandomFunction.rollChanceTable(false,charms));
 
         //roll our tertiary table (usually reserved for extremely rare drops, so not always present.)
-        if(tertiary.length > 0){
+        if(tertiary != null){
             rewards.addAll(RandomFunction.rollChanceTable(false,tertiary));
         }
 
