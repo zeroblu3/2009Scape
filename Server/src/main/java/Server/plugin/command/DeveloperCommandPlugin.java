@@ -4,7 +4,9 @@ import org.crandor.ServerConstants;
 import org.crandor.cache.Cache;
 import org.crandor.cache.def.impl.ItemDefinition;
 import org.crandor.cache.def.impl.NPCDefinition;
+import org.crandor.game.component.Component;
 import org.crandor.game.container.Container;
+import org.crandor.game.container.access.InterfaceContainer;
 import org.crandor.game.container.impl.EquipmentContainer;
 import org.crandor.game.content.eco.EconomyManagement;
 import org.crandor.game.content.global.shop.Shop;
@@ -17,6 +19,8 @@ import org.crandor.game.content.skill.member.construction.HouseLocation;
 import org.crandor.game.content.skill.member.summoning.pet.Pets;
 import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
 import org.crandor.game.node.entity.npc.NPC;
+import org.crandor.game.node.entity.npc.drop.DropTables;
+import org.crandor.game.node.entity.npc.drop.RareDropTable;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.ai.AIPBuilder;
 import org.crandor.game.node.entity.player.ai.AIPlayer;
@@ -68,6 +72,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.concurrent.Executors;
 
 /**
  * Handles the developer commands.
@@ -250,10 +255,25 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
             case "chins":
                 player.getInventory().add(new Item(ItemNames.RED_CHINCHOMPA_10034,Integer.MAX_VALUE));
                 break;
+            case "simdrops":
+                Executors.newSingleThreadExecutor().execute(()->{
+                    int npc_id = Integer.parseInt(args[1]);
+                    int npc_amt = Integer.parseInt(args[2]);
+                    player.getDropLog().clear();
+                    for(int i = 0; i < npc_amt; i++){
+                        DropTables.forId(npc_id).getDrops().forEach(drop -> {
+                            if(drop.getId() == RareDropTable.SLOT_ITEM_ID){
+                                drop = RareDropTable.retrieve();
+                            }
+                            player.getDropLog().add(drop);
+                        });
+                    }
+                    player.getDropLog().open();
+                });
+                break;
             case "anim":
                 player.animate(new Animation(Integer.parseInt(args[1])));
                 break;
-
             case "em":
                 final int[] y = new int[]{16044, 16045, 16256, 16259, 16260, 16334, 16381, 16556, 16564, 16638, 16642, 16673, 16710, 16713, 16715, 16722, 16796, 16797, 16805, 16831, 16886, 16890, 16926, 16938, 16942};
                 GameWorld.Pulser.submit(new Pulse(3) {

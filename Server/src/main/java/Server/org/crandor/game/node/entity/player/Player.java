@@ -117,6 +117,8 @@ public class Player extends Entity {
 	 */
 	private PlayerDetails details;
 
+	public BankContainer dropLog = new BankContainer(this);
+
 	/**
 	 * The inventory.
 	 */
@@ -920,6 +922,8 @@ public class Player extends Entity {
 	public BankContainer getBank() {
 		return bank;
 	}
+
+	public BankContainer getDropLog() {return dropLog;}
 
 	/**
 	 * @return the inventory
