@@ -105,6 +105,11 @@ public enum SmithingType {
 	TYPE_LANTERN(1, Bar.IRON != null || Bar.STEEL != null ? 162 : -1, 163, new int[] { 168, 167, 166, 165 }, 1),
 
 	/**
+	 * Oil Lantern
+	 */
+	TYPE_OIL_LANTERN(1,162,163,new int[] {168,167,166,165},1),
+
+	/**
 	 * Grapple Tips
 	 */
 	TYPE_GRAPPLE_TIP(1, 170, 171, new int[] { 175, 176, 175, 174, 173 }, 1),

@@ -58,7 +58,7 @@ public final class SmithingBuilder {
 			if (bars[i].getSmithingType() == SmithingType.TYPE_CLAWS) {
 				player.getPacketDispatch().sendInterfaceConfig(300, 209, false);
 			}
-			if (bars[i].getSmithingType() == SmithingType.TYPE_LANTERN) {
+			if (bars[i].getSmithingType() == SmithingType.TYPE_LANTERN || bars[i].getSmithingType() == SmithingType.TYPE_OIL_LANTERN) {
 				player.getPacketDispatch().sendInterfaceConfig(300, 161, false);
 			}
 			if (bars[i].getSmithingType() == SmithingType.TYPE_STUDS) {

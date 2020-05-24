@@ -218,6 +218,10 @@ public enum Bars {
 	IRON_SQUARE_SHIELD(BarType.IRON, SmithingType.TYPE_SQUARE_SHIELD, 1175, 23),
 
 	/**
+	 * Oil Lantern Frame
+	 */
+	OIL_LANTERN_FRAME(BarType.IRON, SmithingType.TYPE_OIL_LANTERN, 4540, 26),
+	/**
 	 * Iron WarHammer
 	 */
 	IRON_WARHAMMER(BarType.IRON, SmithingType.TYPE_WARHAMMER, 1335, 24),
