@@ -1,21 +1,21 @@
 package plugin.interaction.object;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.container.Container;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface.AttackStyle;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface.WeaponInterfaces;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.container.Container;
+import core.game.container.impl.EquipmentContainer;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.combat.equipment.WeaponInterface.AttackStyle;
+import core.game.node.entity.combat.equipment.WeaponInterface.WeaponInterfaces;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the slashing of a web object.

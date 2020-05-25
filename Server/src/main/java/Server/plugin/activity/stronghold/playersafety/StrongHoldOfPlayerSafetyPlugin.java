@@ -1,18 +1,18 @@
 package plugin.activity.stronghold.playersafety;
 
-import org.crandor.game.component.CloseEvent;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.net.packet.out.CameraViewPacket;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.game.component.CloseEvent;
+import core.game.component.Component;
+import core.game.component.ComponentPlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.world.map.Location;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.out.CameraViewPacket;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * @author Tyler Telis

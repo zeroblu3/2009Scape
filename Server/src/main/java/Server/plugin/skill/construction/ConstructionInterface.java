@@ -1,16 +1,15 @@
 package plugin.skill.construction;
 
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.construction.*;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the creating of a decoration object.

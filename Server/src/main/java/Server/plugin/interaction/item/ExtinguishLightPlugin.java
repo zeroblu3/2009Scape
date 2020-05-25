@@ -1,14 +1,14 @@
 package plugin.interaction.item;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.global.LightSource;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.zone.impl.DarkZone;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.game.content.global.LightSource;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.map.zone.impl.DarkZone;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the extinguish light plugin.

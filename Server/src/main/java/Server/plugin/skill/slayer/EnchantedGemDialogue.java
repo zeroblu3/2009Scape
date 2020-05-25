@@ -1,13 +1,11 @@
 package plugin.skill.slayer;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.skill.member.slayer.Master;
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Direction;
-import org.crandor.plugin.InitializablePlugin;
+import core.cache.def.impl.NPCDefinition;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Direction;
+import core.plugin.InitializablePlugin;
 
 /**
  * Rerpresents the enchanted gem dialogue.

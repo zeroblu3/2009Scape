@@ -1,12 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.object.GameObject;
+import core.game.content.global.action.DoorActionHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.plugin.InitializablePlugin;
+import core.game.node.object.GameObject;
 
 /**
  * Represents the door peril dialogue.

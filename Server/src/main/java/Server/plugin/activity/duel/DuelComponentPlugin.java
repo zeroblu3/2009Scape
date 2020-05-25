@@ -1,11 +1,11 @@
 package plugin.activity.duel;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
+import core.plugin.Plugin;
 
 /**
  * Handles the duel arena components.

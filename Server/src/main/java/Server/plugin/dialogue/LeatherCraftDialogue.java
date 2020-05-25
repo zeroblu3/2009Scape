@@ -1,16 +1,15 @@
 package plugin.dialogue;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.free.crafting.armour.DragonCraftPulse;
-import org.crandor.game.content.skill.free.crafting.armour.HardCraftPulse;
-import org.crandor.game.content.skill.free.crafting.armour.LeatherCrafting;
-import org.crandor.game.content.skill.free.crafting.armour.LeatherCrafting.DragonHide;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import core.cache.def.impl.ItemDefinition;
+import core.game.component.Component;
+import plugin.skill.crafting.armour.DragonCraftPulse;
+import plugin.skill.crafting.armour.HardCraftPulse;
+import plugin.skill.crafting.armour.LeatherCrafting;
+import plugin.skill.crafting.armour.LeatherCrafting.DragonHide;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents the dialogue plugin used for leather crafting.

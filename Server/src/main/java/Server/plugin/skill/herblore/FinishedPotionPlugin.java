@@ -1,16 +1,12 @@
 package plugin.skill.herblore;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-import org.crandor.game.content.skill.member.herblore.FinishedPotion;
-import org.crandor.game.content.skill.member.herblore.GenericPotion;
-import org.crandor.game.content.skill.member.herblore.HerblorePulse;
-import org.crandor.game.content.skill.member.herblore.UnfinishedPotion;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the finished potion plugin creating.

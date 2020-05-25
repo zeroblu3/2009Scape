@@ -1,10 +1,10 @@
 package plugin.quest.waterfall;
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
 
 /**
  * Handles Almera's Dialogue for the Waterfall Quest.

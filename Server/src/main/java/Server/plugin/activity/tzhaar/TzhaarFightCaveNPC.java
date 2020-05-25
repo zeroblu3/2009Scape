@@ -1,24 +1,24 @@
 package plugin.activity.tzhaar;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.InteractionType;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.combat.equipment.ArmourSet;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.impl.Animator.Priority;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.MapDistance;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.InteractionType;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.combat.equipment.ArmourSet;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.impl.Animator.Priority;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.system.task.Pulse;
+import core.game.world.map.Location;
+import core.game.world.map.MapDistance;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.tools.RandomFunction;
 
 /**
  * Represents a fight caves NPC.

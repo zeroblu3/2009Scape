@@ -1,14 +1,14 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.Skills;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.state.EntityState;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the Bloated Leech familiar.

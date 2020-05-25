@@ -1,11 +1,11 @@
 package plugin.consumable.food;
 
-import org.crandor.game.content.global.consumable.ConsumableProperties;
-import org.crandor.game.content.global.consumable.Consumables;
-import org.crandor.game.content.global.consumable.Food;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.consumable.ConsumableProperties;
+import plugin.consumable.Consumables;
+import plugin.consumable.Food;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to handle bowl related foods.

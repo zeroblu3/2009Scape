@@ -1,17 +1,17 @@
 package plugin.skill.agility.brimhaven;
 
-import org.crandor.game.content.skill.member.agility.AgilityHandler;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.LocationLogoutTask;
-import org.crandor.game.system.task.LogoutTask;
-import org.crandor.game.system.task.MovementHook;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Animation;
+import plugin.skill.agility.AgilityHandler;
+import core.game.node.entity.Entity;
+import core.game.node.entity.player.Player;
+import core.game.system.task.LocationLogoutTask;
+import core.game.system.task.LogoutTask;
+import core.game.system.task.MovementHook;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Handles the blade trap.

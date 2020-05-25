@@ -1,25 +1,25 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.farming.compost.CompostBin;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.content.skill.member.summoning.familiar.Forager;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
+import plugin.skill.farming.compost.CompostBin;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import plugin.skill.summoning.familiar.Forager;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the Compost Mound familiar.

@@ -1,18 +1,18 @@
 package plugin.quest.rovingelves;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.NPCDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * The level 84 Moss Giant in Glarial's tomb.

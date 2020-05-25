@@ -1,10 +1,10 @@
 package plugin.activity.mta;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
+import core.game.component.Component;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
 
 import plugin.activity.mta.impl.AlchemistZone;
 import plugin.activity.mta.impl.EnchantingZone;

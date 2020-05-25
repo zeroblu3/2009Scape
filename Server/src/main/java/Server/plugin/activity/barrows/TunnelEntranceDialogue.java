@@ -1,11 +1,11 @@
 package plugin.activity.barrows;
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.PluginManifest;
-import org.crandor.plugin.PluginType;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.PluginManifest;
+import core.plugin.PluginType;
 
 /**
  * The tunnel entrance dialogue handling plugin.

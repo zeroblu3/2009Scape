@@ -1,21 +1,17 @@
 package plugin.skill.construction;
 
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.construction.BuildingUtils;
-import org.crandor.game.content.skill.member.construction.HouseManager;
-import org.crandor.game.content.skill.member.construction.Room;
-import org.crandor.game.content.skill.member.construction.RoomProperties;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionChunk;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionChunk;
+import core.plugin.InitializablePlugin;
 
 import java.awt.*;
 import java.util.ArrayList;

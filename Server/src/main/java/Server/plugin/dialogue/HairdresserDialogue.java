@@ -1,12 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import core.game.component.Component;
+import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the dialogue plugin used for the hairdresser.

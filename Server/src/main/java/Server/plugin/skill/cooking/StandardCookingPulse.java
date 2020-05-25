@@ -1,22 +1,22 @@
 package plugin.skill.cooking;
 
-import org.crandor.game.content.ItemNames;
-import org.crandor.game.content.global.SkillcapePerks;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.impl.Animator;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.audio.Audio;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import core.game.content.ItemNames;
+import core.game.content.global.SkillcapePerks;
+import plugin.tutorial.TutorialSession;
+import plugin.tutorial.TutorialStage;
+import plugin.skill.Skills;
+import core.game.node.entity.impl.Animator;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.audio.Audio;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 
-import static org.crandor.tools.RandomFunction.RANDOM;
+import static core.tools.RandomFunction.RANDOM;
 
 public class StandardCookingPulse extends Pulse {
     //range animation

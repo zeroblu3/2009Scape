@@ -1,8 +1,8 @@
 package plugin.random.drilldemon;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
 
 /**
  * Handles the sergeant damien npc.

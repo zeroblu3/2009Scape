@@ -1,12 +1,12 @@
 package plugin.npc.other;
 
-import org.crandor.game.content.skill.free.fishing.FishSpots;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.fishing.FishSpots;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the fishing npc.

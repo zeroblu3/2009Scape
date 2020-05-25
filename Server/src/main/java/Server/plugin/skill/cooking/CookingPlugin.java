@@ -2,11 +2,11 @@
 package plugin.skill.cooking;
 
 import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
+import plugin.dialogue.DialoguePlugin;
 import org.crandor.game.content.global.consumable.Consumables;
 import org.crandor.game.content.global.consumable.Food;
-import org.crandor.game.content.skill.free.cooking.CookableItems;
-import org.crandor.game.content.skill.free.cooking.CookingPulse;
+import plugin.skill.cooking.CookableItems;
+import plugin.skill.cooking.CookingPulse;
 import org.crandor.game.interaction.NodeUsageEvent;
 import org.crandor.game.interaction.UseWithHandler;
 import org.crandor.game.node.Node;

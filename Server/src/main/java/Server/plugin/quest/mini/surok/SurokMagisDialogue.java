@@ -1,11 +1,11 @@
 package plugin.quest.mini.surok;
 
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.activity.CutscenePlugin;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.build.DynamicRegion;
+import plugin.activity.ActivityPlugin;
+import plugin.activity.CutscenePlugin;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.map.build.DynamicRegion;
 
 /**
  * Handles the surok magis dialogue.

@@ -1,19 +1,19 @@
 package plugin.skill.magic.lunar;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.skill.free.magic.MagicSpell;
-import org.crandor.game.content.skill.free.magic.Runes;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.equipment.SpellType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import plugin.skill.magic.MagicSpell;
+import plugin.skill.magic.Runes;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.equipment.SpellType;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.node.entity.player.link.TeleportManager.TeleportType;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin to handle all teleport spells.

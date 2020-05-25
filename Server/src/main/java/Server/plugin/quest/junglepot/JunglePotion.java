@@ -1,18 +1,18 @@
 package plugin.quest.junglepot;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.herblore.Herbs;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.PluginManager;
-import org.crandor.tools.RandomFunction;
-import org.crandor.tools.StringUtils;
+import plugin.skill.Skills;
+import plugin.skill.herblore.Herbs;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.PluginManager;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
-import org.crandor.plugin.InitializablePlugin;
+import core.plugin.InitializablePlugin;
 import plugin.quest.junglepot.JunglePotionPlugin.JogreCavernDialogue;
 
 /**

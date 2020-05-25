@@ -1,8 +1,8 @@
 package plugin.zone.phasmatys;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.tools.RandomFunction;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.tools.RandomFunction;
 
 /**
  * Handles the ghost villager dialogue.

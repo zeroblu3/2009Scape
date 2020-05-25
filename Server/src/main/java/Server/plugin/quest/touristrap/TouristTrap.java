@@ -1,17 +1,17 @@
 package plugin.quest.touristrap;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.game.component.Component;
+import core.game.container.impl.EquipmentContainer;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * The main type for the tourist trap quest.

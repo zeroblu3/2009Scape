@@ -1,25 +1,25 @@
 package plugin.activity.mta;
 
-import org.crandor.game.content.global.action.PickupHandler;
-import org.crandor.game.content.skill.free.magic.MagicSpell;
-import org.crandor.game.content.skill.free.magic.Runes;
-import org.crandor.game.interaction.SpecialGroundItems;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.equipment.SpellType;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.node.entity.player.link.audio.Audio;
-import org.crandor.game.node.item.GroundItem;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
+import core.game.content.global.action.PickupHandler;
+import plugin.skill.magic.MagicSpell;
+import plugin.skill.magic.Runes;
+import core.game.interaction.SpecialGroundItems;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.equipment.SpellType;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.node.entity.player.link.audio.Audio;
+import core.game.node.item.GroundItem;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
 
 import plugin.activity.mta.impl.TelekineticZone;
 

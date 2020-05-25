@@ -1,10 +1,10 @@
 package plugin.quest.lostcity;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
 
 /**
  * Handles the warriors dialogue in the lost city quest.

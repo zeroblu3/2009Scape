@@ -1,18 +1,16 @@
 package plugin.skill.slayer;
 
-import org.crandor.game.content.skill.member.slayer.Equipment;
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the gargoyle npc.

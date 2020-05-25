@@ -1,18 +1,18 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.magic.MagicStaff;
-import org.crandor.game.content.skill.free.magic.Runes;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.Skills;
+import plugin.skill.magic.MagicStaff;
+import plugin.skill.magic.Runes;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the component plugin used to handle the bolt enchanting interface.

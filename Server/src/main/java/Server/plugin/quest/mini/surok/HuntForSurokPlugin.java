@@ -1,12 +1,12 @@
 package plugin.quest.mini.surok;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the hunt for surok mini quest.

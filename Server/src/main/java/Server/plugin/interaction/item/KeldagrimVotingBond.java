@@ -3,21 +3,21 @@ package plugin.interaction.item;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.global.ttrail.ClueLevel;
-import org.crandor.game.content.global.ttrail.ClueScrollPlugin;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.ttrail.ClueLevel;
+import plugin.ttrail.ClueScrollPlugin;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.state.EntityState;
+import core.game.node.item.Item;
+import core.game.world.repository.Repository;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the keldagrim voting bond item.

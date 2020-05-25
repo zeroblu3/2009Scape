@@ -2,27 +2,27 @@ package plugin.quest.arravshield;
 
 import java.util.List;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.content.global.action.ClimbActionHandler;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.content.global.action.PickupHandler;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItem;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.component.Component;
+import core.game.content.global.action.ClimbActionHandler;
+import core.game.content.global.action.DoorActionHandler;
+import core.game.content.global.action.PickupHandler;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItem;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.repository.Repository;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
 
 /**
  * Represents the shield of arrav plugin.

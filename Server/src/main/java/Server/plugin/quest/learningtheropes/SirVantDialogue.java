@@ -1,13 +1,13 @@
 package plugin.quest.learningtheropes;
 
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
+import core.game.container.impl.EquipmentContainer;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import plugin.tutorial.TutorialSession;
+import plugin.tutorial.TutorialStage;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
 
 /**
  * @author Ethan Kyle Millard <skype:pumpklins>

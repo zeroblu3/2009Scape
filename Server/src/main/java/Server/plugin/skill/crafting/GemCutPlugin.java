@@ -1,14 +1,14 @@
 package plugin.skill.crafting;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-import org.crandor.game.content.skill.free.crafting.gem.GemCutPulse;
-import org.crandor.game.content.skill.free.crafting.gem.Gems;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+import plugin.skill.crafting.gem.GemCutPulse;
+import plugin.skill.crafting.gem.Gems;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to cut a gem.

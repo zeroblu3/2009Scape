@@ -1,19 +1,19 @@
 package plugin.interaction.item.withobject;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.smithing.SmithingBuilder;
-import org.crandor.game.content.skill.free.smithing.smelting.Bar;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.skill.Skills;
+import plugin.skill.smithing.SmithingBuilder;
+import plugin.skill.smithing.smelting.Bar;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.OptionHandler;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the option handler used for smithing.

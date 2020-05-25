@@ -1,21 +1,21 @@
 package plugin.command;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.Rights;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.command.CommandPlugin;
-import org.crandor.game.system.command.CommandSet;
-import org.crandor.game.system.communication.ClanRepository;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.net.amsc.MSPacketRepository;
-import org.crandor.net.amsc.WorldCommunicator;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ContainerContext;
-import org.crandor.net.packet.out.ContainerPacket;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.info.Rights;
+import core.game.node.item.Item;
+import core.game.system.command.CommandPlugin;
+import core.game.system.command.CommandSet;
+import core.game.system.communication.ClanRepository;
+import core.game.world.GameWorld;
+import core.game.world.repository.Repository;
+import core.net.amsc.MSPacketRepository;
+import core.net.amsc.WorldCommunicator;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ContainerContext;
+import core.net.packet.out.ContainerPacket;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the moderators commands.

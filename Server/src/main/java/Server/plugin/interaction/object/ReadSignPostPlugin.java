@@ -1,17 +1,17 @@
 package plugin.interaction.object;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.component.CloseEvent;
-import org.crandor.game.component.Component;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.MinimapStateContext;
-import org.crandor.net.packet.out.MinimapState;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.component.CloseEvent;
+import core.game.component.Component;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.MinimapStateContext;
+import core.net.packet.out.MinimapState;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the reading of a sign post.

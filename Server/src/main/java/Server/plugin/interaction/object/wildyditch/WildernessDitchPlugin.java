@@ -1,15 +1,15 @@
 package plugin.interaction.object.wildyditch;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.interaction.MovementPulse;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.component.Component;
+import core.game.interaction.MovementPulse;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the plugin to handle the crossing.

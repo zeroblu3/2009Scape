@@ -1,15 +1,15 @@
 package plugin.activity.pyramidplunder;
 
-import org.crandor.game.interaction.MovementPulse;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.plugin.Plugin;
+import core.game.interaction.MovementPulse;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.map.path.Pathfinder;
+import core.plugin.Plugin;
 
 /**
  * Handles a Pyramid Plunder enemy, adapted from AntiMacroNPC.java by ceikry

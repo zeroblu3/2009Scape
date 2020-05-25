@@ -1,11 +1,7 @@
 package plugin.activity.pyramidplunder;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.RegionZone;
-
-import java.util.HashMap;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
 
 /**
  * Object wrapper for pyramid plunder nodes

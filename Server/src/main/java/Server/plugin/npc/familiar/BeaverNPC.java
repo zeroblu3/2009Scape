@@ -1,20 +1,20 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.SkillBonus;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.content.skill.member.summoning.familiar.Forager;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.SkillBonus;
+import plugin.skill.Skills;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import plugin.skill.summoning.familiar.Forager;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Direction;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the Beaver familiar.

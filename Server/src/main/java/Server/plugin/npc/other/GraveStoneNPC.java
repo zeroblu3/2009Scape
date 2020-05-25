@@ -2,27 +2,27 @@ package plugin.npc.other;
 
 import java.util.List;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.HintIconManager;
-import org.crandor.game.node.entity.player.link.grave.GraveManager;
-import org.crandor.game.node.entity.player.link.grave.GraveType;
-import org.crandor.game.node.item.GroundItem;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.NPCDefinition;
+import core.game.component.Component;
+import plugin.skill.Skills;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.entity.player.link.grave.GraveManager;
+import core.game.node.entity.player.link.grave.GraveType;
+import core.game.node.item.GroundItem;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.repository.Repository;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles a gravestone npc.

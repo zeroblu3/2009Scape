@@ -1,7 +1,7 @@
 package plugin.activity.gnomecopter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.node.entity.player.Player;
+import core.game.component.Component;
+import core.game.node.entity.player.Player;
 
 /**
  * The information signs for the Gnomecopter tours.

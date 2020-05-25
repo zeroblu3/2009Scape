@@ -1,9 +1,9 @@
 package plugin.npc.city.lumbridge;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
 
 /**
  * @author ceik

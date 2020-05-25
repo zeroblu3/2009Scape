@@ -1,11 +1,10 @@
 package plugin.skill.summoning.familiar;
 
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.pet.Pet;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.summoning.pet.Pet;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the class used to handle the feeding of pets.

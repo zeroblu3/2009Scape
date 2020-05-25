@@ -3,22 +3,22 @@ package plugin.npc.bosses.zulrah;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.npc.agg.AggressiveBehavior;
-import org.crandor.game.node.entity.npc.agg.AggressiveHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.npc.agg.AggressiveBehavior;
+import core.game.node.entity.npc.agg.AggressiveHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 
 
 /**

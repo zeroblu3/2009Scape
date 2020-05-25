@@ -1,9 +1,9 @@
 /*
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.fletching.items.crossbow.Limb;
-import org.crandor.game.content.skill.member.fletching.items.crossbow.LimbPulse;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.fletching.items.crossbow.Limb;
+import plugin.skill.fletching.items.crossbow.LimbPulse;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.RunScript;
 import org.crandor.plugin.InitializablePlugin;

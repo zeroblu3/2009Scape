@@ -1,6 +1,6 @@
 package plugin.activity.stronghold.playersafety;
 
-import org.crandor.game.world.map.zone.MapZone;
+import core.game.world.map.zone.MapZone;
 
 public class SafetyMapZone extends MapZone {
 

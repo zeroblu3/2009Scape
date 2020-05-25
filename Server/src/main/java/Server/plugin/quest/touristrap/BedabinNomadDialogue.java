@@ -1,13 +1,13 @@
 package plugin.quest.touristrap;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
 
 /**
  * The dialogue plugin used for the bedabin nomad npcs.

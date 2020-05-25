@@ -1,23 +1,23 @@
 package plugin.activity.gwd;
 
-import org.crandor.game.content.global.BossKillCounter;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatPulse;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.npc.agg.AggressiveBehavior;
-import org.crandor.game.node.entity.npc.agg.AggressiveHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.prayer.PrayerType;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.content.global.BossKillCounter;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.npc.agg.AggressiveBehavior;
+import core.game.node.entity.npc.agg.AggressiveHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.prayer.PrayerType;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles a god wars boss NPC.

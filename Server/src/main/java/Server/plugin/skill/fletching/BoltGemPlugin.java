@@ -1,9 +1,9 @@
 //package plugin.skill.fletching;
 //
-//import org.crandor.game.content.dialogue.SkillDialogueHandler;
-//import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-//import org.crandor.game.content.skill.member.fletching.items.gem.GemBolt;
-//import org.crandor.game.content.skill.member.fletching.items.gem.GemBoltPulse;
+//import plugin.dialogue.SkillDialogueHandler;
+//import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+//import plugin.skill.fletching.items.gem.GemBolt;
+//import plugin.skill.fletching.items.gem.GemBoltPulse;
 //import org.crandor.game.interaction.NodeUsageEvent;
 //import org.crandor.game.interaction.UseWithHandler;
 //import org.crandor.game.node.entity.player.Player;

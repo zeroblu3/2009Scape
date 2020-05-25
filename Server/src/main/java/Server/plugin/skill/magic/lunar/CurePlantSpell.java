@@ -1,21 +1,21 @@
 package plugin.skill.magic.lunar;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.magic.MagicSpell;
-import org.crandor.game.content.skill.free.magic.Runes;
-import org.crandor.game.content.skill.member.farming.FarmingPatch;
-import org.crandor.game.content.skill.member.farming.wrapper.PatchWrapper;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.equipment.SpellType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.Skills;
+import plugin.skill.magic.MagicSpell;
+import plugin.skill.magic.Runes;
+import plugin.skill.farming.FarmingPatch;
+import plugin.skill.farming.wrapper.PatchWrapper;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.equipment.SpellType;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Cures a diseased plant.

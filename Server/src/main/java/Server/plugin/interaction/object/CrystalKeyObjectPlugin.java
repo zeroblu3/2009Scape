@@ -1,10 +1,10 @@
 package plugin.interaction.object;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.plugin.Plugin;
 
 public class CrystalKeyObjectPlugin extends OptionHandler {
 

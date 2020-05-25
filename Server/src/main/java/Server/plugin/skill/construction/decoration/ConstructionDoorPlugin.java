@@ -1,17 +1,17 @@
 package plugin.skill.construction.decoration;
 
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.content.skill.member.construction.BuildHotspot;
-import org.crandor.game.content.skill.member.construction.Decoration;
-import org.crandor.game.content.skill.member.construction.HousingStyle;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.content.global.action.DoorActionHandler;
+import plugin.skill.construction.BuildHotspot;
+import plugin.skill.construction.Decoration;
+import plugin.skill.construction.HousingStyle;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles Construction related doors.

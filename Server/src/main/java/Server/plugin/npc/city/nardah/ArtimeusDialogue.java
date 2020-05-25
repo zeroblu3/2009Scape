@@ -1,9 +1,9 @@
 package plugin.npc.city.nardah;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles dialogue for Artimeus

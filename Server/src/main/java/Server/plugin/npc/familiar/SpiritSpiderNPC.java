@@ -1,17 +1,17 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the Spirit Spider familiar.

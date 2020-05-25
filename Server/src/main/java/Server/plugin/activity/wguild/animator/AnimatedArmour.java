@@ -1,17 +1,17 @@
 package plugin.activity.wguild.animator;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.HintIconManager;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 
 import plugin.activity.wguild.animator.AnimationRoom.ArmourSet;
 

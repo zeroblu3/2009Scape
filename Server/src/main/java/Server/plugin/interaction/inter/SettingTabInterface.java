@@ -1,13 +1,13 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.tutorial.TutorialSession;
+import plugin.tutorial.TutorialStage;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * @author 'Vexia

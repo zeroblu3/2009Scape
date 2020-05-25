@@ -2,12 +2,12 @@ package plugin.random.evilchicken;
 
 import java.nio.ByteBuffer;
 
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.HintIconManager;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import plugin.ame.AntiMacroEvent;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.HintIconManager;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the evil chicken random event.

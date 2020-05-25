@@ -1,11 +1,11 @@
 package plugin.quest.dragonslayer;
 
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
 
 /**
  * Represents the dragon slayer magic door plugin.

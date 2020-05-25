@@ -3,28 +3,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.activity.CutscenePlugin;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.global.travel.ship.Ships;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.MinimapStateContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.net.packet.out.CameraViewPacket;
-import org.crandor.net.packet.out.MinimapState;
+import core.game.component.Component;
+import plugin.activity.ActivityManager;
+import plugin.activity.ActivityPlugin;
+import plugin.activity.CutscenePlugin;
+import plugin.dialogue.DialoguePlugin;
+import core.game.content.global.travel.ship.Ships;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.MinimapStateContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.out.CameraViewPacket;
+import core.net.packet.out.MinimapState;
 
 /**
  * Represents the dragon slayer cutscene.

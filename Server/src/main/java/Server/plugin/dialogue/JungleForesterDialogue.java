@@ -1,11 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.AchievementDiary;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.AchievementDiary;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents the dialoge used for a jungle forester.

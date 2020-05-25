@@ -1,10 +1,8 @@
 package plugin.ttrail;
 
-import org.crandor.game.content.global.ttrail.ClueLevel;
-import org.crandor.game.content.global.ttrail.MapClueScroll;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.plugin.Plugin;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
+import core.plugin.Plugin;
 
 /**
  * Initializes the map clues.

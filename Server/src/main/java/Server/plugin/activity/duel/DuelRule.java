@@ -1,6 +1,6 @@
 package plugin.activity.duel;
 
-import org.crandor.game.container.impl.EquipmentContainer;
+import core.game.container.impl.EquipmentContainer;
 
 /**
  * Represents a dueling rule.

@@ -1,18 +1,16 @@
 package plugin.skill.slayer;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.Skillcape;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.slayer.Master;
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.AchievementDiary;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.content.global.Skillcape;
+import plugin.skill.Skills;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.AchievementDiary;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the dialogue plugin used for a slayer master.

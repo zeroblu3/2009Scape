@@ -1,12 +1,10 @@
 package plugin.npc.other;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 @InitializablePlugin
 public class akharanu extends DialoguePlugin {

@@ -1,13 +1,13 @@
 package plugin.activity.pyramidplunder;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.game.component.Component;
+import plugin.activity.ActivityPlugin;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the Pyramid plunder activity.

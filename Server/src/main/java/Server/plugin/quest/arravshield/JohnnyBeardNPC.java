@@ -1,11 +1,11 @@
 package plugin.quest.arravshield;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItemManager;
+import core.game.world.map.Location;
 
 /**
  * Represents the npc to handle Johnny the beard npc.

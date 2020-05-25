@@ -2,14 +2,14 @@ package plugin.quest.alirescue;
 
 import java.util.List;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.RegionManager;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.game.world.map.RegionManager;
 
 /**
  * Represents the dialogue which handles the lady keli transcript.

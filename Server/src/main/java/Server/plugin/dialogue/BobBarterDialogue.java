@@ -1,11 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.eco.ge.GEGuidePrice;
-import org.crandor.game.content.eco.ge.GEGuidePrice.GuideType;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.Player;
+import plugin.ge.GEGuidePrice;
+import plugin.ge.GEGuidePrice.GuideType;
+import core.game.node.entity.npc.NPC;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.Player;
 
 /**
  * Represents the bob barter npc dialogue plugin.

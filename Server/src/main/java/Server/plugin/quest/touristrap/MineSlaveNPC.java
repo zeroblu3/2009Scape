@@ -1,9 +1,9 @@
 package plugin.quest.touristrap;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.tools.RandomFunction;
 
 /**
  * The mining slave npc at the desert camp.

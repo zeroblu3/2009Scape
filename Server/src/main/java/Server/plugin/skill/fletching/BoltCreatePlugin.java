@@ -1,10 +1,10 @@
 /*
 package plugin.skill.fletching;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-import org.crandor.game.content.skill.member.fletching.items.bolts.Bolt;
-import org.crandor.game.content.skill.member.fletching.items.bolts.BoltPulse;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+import plugin.skill.fletching.items.bolts.Bolt;
+import plugin.skill.fletching.items.bolts.BoltPulse;
 import org.crandor.game.interaction.NodeUsageEvent;
 import org.crandor.game.interaction.UseWithHandler;
 import org.crandor.game.node.entity.player.Player;

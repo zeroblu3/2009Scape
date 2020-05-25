@@ -1,11 +1,11 @@
 package plugin.activity.stronghold.playersafety;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
+import core.game.component.Component;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
 
 /**
  * @author Tyler Telis

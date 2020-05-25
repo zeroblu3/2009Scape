@@ -1,19 +1,19 @@
 package plugin.activity.jobs;
  
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.global.jobs.impl.GatheringJob;
-import org.crandor.game.content.global.jobs.impl.GatheringJob.GatheringJobs;
-import org.crandor.game.content.global.jobs.impl.SlayingJob;
-import org.crandor.game.content.global.jobs.impl.SlayingJob.SlayingJobs;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
-import org.crandor.tools.StringUtils;
+import core.cache.def.impl.NPCDefinition;
+import plugin.jobs.impl.GatheringJob;
+import plugin.jobs.impl.GatheringJob.GatheringJobs;
+import plugin.jobs.impl.SlayingJob;
+import plugin.jobs.impl.SlayingJob.SlayingJobs;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
  
 /**
  * Handles the work-for actions for the NPCs

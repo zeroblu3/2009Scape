@@ -1,11 +1,11 @@
 /*
 package plugin.skill.cooking;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
+import plugin.dialogue.DialoguePlugin;
 import org.crandor.game.content.global.consumable.Consumables;
 import org.crandor.game.content.global.consumable.Food;
-import org.crandor.game.content.skill.free.cooking.CookableItems;
-import org.crandor.game.content.skill.free.cooking.CookingPulse;
+import plugin.skill.cooking.CookableItems;
+import plugin.skill.cooking.CookingPulse;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.game.node.entity.player.link.RunScript;
 import org.crandor.game.node.item.Item;

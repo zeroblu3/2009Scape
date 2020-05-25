@@ -1,11 +1,11 @@
 package plugin.activity.pestcontrol.reward;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents the void knight dialogue.

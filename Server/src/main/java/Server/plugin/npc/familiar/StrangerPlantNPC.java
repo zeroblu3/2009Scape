@@ -1,17 +1,17 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.content.skill.member.summoning.familiar.Forager;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import plugin.skill.summoning.familiar.Forager;
+import core.game.node.entity.Entity;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.state.EntityState;
+import core.game.node.item.Item;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the Stranger Plant familiar.

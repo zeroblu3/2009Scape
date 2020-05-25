@@ -1,10 +1,10 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.Player;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.Player;
 
 /**
  * Represents the Swamp Titan familiar.

@@ -1,16 +1,16 @@
 package plugin.interaction.item.withitem;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialogueAction;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialogueAction;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.OptionHandler;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * The plugin used to make the granite maul into the ornamental version.

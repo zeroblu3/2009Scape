@@ -1,11 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.game.container.Container;
-import org.crandor.game.container.impl.BankContainer;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import core.game.container.Container;
+import core.game.container.impl.BankContainer;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 import java.util.Arrays;
 import java.util.Objects;

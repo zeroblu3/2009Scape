@@ -6,17 +6,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.ConfigurationManager.Configuration;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.Point;
-import org.crandor.game.world.map.RegionPlane;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.tools.RandomFunction;
+import core.game.component.Component;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.ConfigurationManager.Configuration;
+import core.game.node.object.GameObject;
+import core.game.world.map.Location;
+import core.game.world.map.Point;
+import core.game.world.map.RegionPlane;
+import core.game.world.map.build.DynamicRegion;
+import core.tools.RandomFunction;
 
 import static plugin.activity.pestcontrol.PestControlActivityPlugin.MAX_TEAM_SIZE;
 

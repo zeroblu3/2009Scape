@@ -1,19 +1,19 @@
 package plugin.interaction.city;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.content.skill.free.crafting.gem.Gems;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.content.global.action.DoorActionHandler;
+import plugin.skill.crafting.gem.Gems;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.TeleportManager.TeleportType;
+import core.game.node.object.GameObject;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the zanaris city plugin.

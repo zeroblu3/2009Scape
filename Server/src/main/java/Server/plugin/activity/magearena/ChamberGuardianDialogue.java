@@ -1,9 +1,9 @@
 package plugin.activity.magearena;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.global.GodType;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
+import plugin.dialogue.DialoguePlugin;
+import core.game.content.global.GodType;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
 
 /**
  * Handles the chamber guardian dialogue.

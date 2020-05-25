@@ -1,8 +1,8 @@
 package plugin.quest.wlbelow;
 
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.map.Location;
 
 /**
  * Handles the kign roald npc.

@@ -6,16 +6,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.DisplayModelContext;
-import org.crandor.net.packet.context.DisplayModelContext.ModelType;
-import org.crandor.net.packet.out.DisplayModel;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.node.entity.player.Player;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.DisplayModelContext;
+import core.net.packet.context.DisplayModelContext.ModelType;
+import core.net.packet.out.DisplayModel;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the barrows puzzle.

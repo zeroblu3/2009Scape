@@ -1,25 +1,25 @@
 package plugin.npc.bosses.wilderness.callisto;
 
-import org.crandor.game.content.global.BossKillCounter;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.InteractionType;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.prayer.PrayerType;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.content.global.BossKillCounter;
+import plugin.skill.Skills;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.InteractionType;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.prayer.PrayerType;
+import core.game.node.entity.state.EntityState;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the Callisto NPC.

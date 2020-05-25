@@ -1,18 +1,18 @@
 package plugin.interaction.item;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.impl.WildernessZone;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialoguePlugin;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.TeleportManager.TeleportType;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.game.world.map.zone.impl.WildernessZone;
+import core.plugin.Plugin;
 
-import org.crandor.plugin.InitializablePlugin;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the rotten potato plugin.

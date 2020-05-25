@@ -1,18 +1,18 @@
 package plugin.interaction.inter;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.crafting.jewellery.JewelleryCrafting;
-import org.crandor.game.content.skill.free.crafting.jewellery.JewelleryCrafting.JewelleryItem;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.StringUtils;
+import core.cache.def.impl.ItemDefinition;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.Skills;
+import plugin.skill.crafting.jewellery.JewelleryCrafting;
+import plugin.skill.crafting.jewellery.JewelleryCrafting.JewelleryItem;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.item.Item;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.tools.StringUtils;
 
 /**
  * Represents the interface plugin used for jewellery crafting.

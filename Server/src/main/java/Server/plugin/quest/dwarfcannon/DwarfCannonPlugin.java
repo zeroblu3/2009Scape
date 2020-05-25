@@ -1,27 +1,27 @@
 package plugin.quest.dwarfcannon;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.dialogue.DialogueAction;
-import org.crandor.game.content.global.action.ClimbActionHandler;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.dialogue.DialogueAction;
+import core.game.content.global.action.ClimbActionHandler;
+import core.game.content.global.action.DoorActionHandler;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.OptionHandler;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the dwarf cannon quest interactions.

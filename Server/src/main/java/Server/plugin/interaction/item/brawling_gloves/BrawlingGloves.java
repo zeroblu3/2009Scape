@@ -1,8 +1,7 @@
 package plugin.interaction.item.brawling_gloves;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.item.Item;
+import core.cache.def.impl.ItemDefinition;
+import plugin.skill.Skills;
 
 import java.util.HashMap;
 

@@ -1,19 +1,19 @@
 package plugin.quest.dragonslayer;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.agility.AgilityHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.game.component.Component;
+import plugin.skill.Skills;
+import plugin.skill.agility.AgilityHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the dragon slayer quest.

@@ -5,15 +5,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.container.access.InterfaceContainer;
-import org.crandor.game.content.global.BossKillCounter;
-import org.crandor.game.node.entity.npc.drop.DropFrequency;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.ChanceItem;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.tools.RandomFunction;
+import core.game.component.Component;
+import core.game.container.access.InterfaceContainer;
+import core.game.content.global.BossKillCounter;
+import core.game.node.entity.npc.drop.DropFrequency;
+import core.game.node.entity.player.Player;
+import core.game.node.item.ChanceItem;
+import core.game.node.item.Item;
+import core.game.world.repository.Repository;
+import core.tools.RandomFunction;
 
 /**
  * The reward chest.

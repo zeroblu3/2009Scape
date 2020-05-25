@@ -1,8 +1,8 @@
 package plugin.npc.quest.romeo__juliet;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the abstract romeo npc.

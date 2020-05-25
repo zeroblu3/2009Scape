@@ -1,13 +1,13 @@
 package plugin.npc.quest.pirates_treasure;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.Location;
 
 /**
  * Represents the abstract garden npc used for pirates treasure.

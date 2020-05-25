@@ -1,14 +1,13 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.free.runecrafting.Altar;
-import org.crandor.game.content.skill.free.runecrafting.EnchantTiaraPulse;
-import org.crandor.game.content.skill.free.runecrafting.Talisman;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.object.GameObject;
+import plugin.skill.runecrafting.Altar;
+import plugin.skill.runecrafting.EnchantTiaraPulse;
+import plugin.skill.runecrafting.Talisman;
+import core.game.interaction.NodeUsageEvent;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.plugin.InitializablePlugin;
+import core.game.node.object.GameObject;
 
 /**
  * Represents the enchant tiara dialogue.

@@ -2,21 +2,21 @@ package plugin.interaction.item;
 
 import java.util.concurrent.TimeUnit;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.TeleportManager.TeleportType;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the operation of skillcapes.

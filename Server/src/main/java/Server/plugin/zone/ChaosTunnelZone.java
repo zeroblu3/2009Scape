@@ -4,26 +4,26 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.MapZone;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.game.world.map.zone.ZoneBuilder;
-import org.crandor.game.world.map.zone.ZoneRestriction;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.activity.ActivityManager;
+import core.game.interaction.Option;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.zone.MapZone;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.map.zone.ZoneBuilder;
+import core.game.world.map.zone.ZoneRestriction;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the chaos tunnels.

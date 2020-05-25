@@ -1,17 +1,17 @@
 package plugin.interaction.item;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.component.CloseEvent;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ItemDefinition;
+import core.game.component.CloseEvent;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles a morph item.

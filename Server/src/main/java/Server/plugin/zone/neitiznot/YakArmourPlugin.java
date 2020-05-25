@@ -1,16 +1,16 @@
 package plugin.zone.neitiznot;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-import org.crandor.game.content.skill.SkillPulse;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.crafting.armour.LeatherCrafting;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+import plugin.skill.SkillPulse;
+import plugin.skill.Skills;
+import plugin.skill.crafting.armour.LeatherCrafting;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
 
 /**
  * Handles the crafting of yak armour.

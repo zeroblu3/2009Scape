@@ -1,9 +1,9 @@
 package plugin.quest.witchs_house;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.plugin.InitializablePlugin;
 
 /**
  * Created for 2009Scape

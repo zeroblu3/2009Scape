@@ -1,19 +1,19 @@
 package plugin.activity.magearena;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatSpell;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.handlers.MagicSwingHandler;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatSpell;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.handlers.MagicSwingHandler;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 
 /**
  * Handles the kolodion npc.

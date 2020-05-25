@@ -1,13 +1,12 @@
 package plugin.random.rickturpentine;
 
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.ame.AntiMacroNPC;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.map.Location;
+import plugin.ame.AntiMacroEvent;
+import plugin.ame.AntiMacroNPC;
+import core.game.node.entity.Entity;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
 
 /**
  * Handles the drunken dwarf npc.

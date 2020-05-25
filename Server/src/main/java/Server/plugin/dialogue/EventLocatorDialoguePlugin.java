@@ -1,11 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.ServerConstants;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
+import core.ServerConstants;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
 
 import java.util.Arrays;
 import java.util.HashMap;

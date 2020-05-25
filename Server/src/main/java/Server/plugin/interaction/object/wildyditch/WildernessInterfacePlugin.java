@@ -1,15 +1,15 @@
 package plugin.interaction.object.wildyditch;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.node.entity.impl.ForceMovement;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.audio.Audio;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.node.entity.impl.ForceMovement;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.audio.Audio;
+import core.game.node.object.GameObject;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
 
 /**
  * Represents the wilderness interface plugin.

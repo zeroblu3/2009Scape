@@ -1,24 +1,24 @@
 package plugin.cutscene;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.activity.CutscenePlugin;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.eco.ge.GEGuidePrice;
-import org.crandor.game.content.eco.ge.GEGuidePrice.GuideType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.net.packet.out.CameraViewPacket;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.activity.ActivityManager;
+import plugin.activity.ActivityPlugin;
+import plugin.activity.CutscenePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.ge.GEGuidePrice;
+import plugin.ge.GEGuidePrice.GuideType;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.out.CameraViewPacket;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the cutscene used for the grand exchange tutorial.

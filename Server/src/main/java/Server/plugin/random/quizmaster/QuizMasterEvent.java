@@ -2,19 +2,19 @@ package plugin.random.quizmaster;
 
 import java.nio.ByteBuffer;
 
-import org.crandor.ServerConstants;
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SavedData;
-import org.crandor.game.world.map.Location;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.net.packet.out.CameraViewPacket;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.ServerConstants;
+import plugin.ame.AntiMacroEvent;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SavedData;
+import core.game.world.map.Location;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.out.CameraViewPacket;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the quiz master random event.

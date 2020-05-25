@@ -1,17 +1,17 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.content.skill.member.summoning.familiar.Forager;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import plugin.skill.summoning.familiar.Forager;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the Fruit Bat familiar.

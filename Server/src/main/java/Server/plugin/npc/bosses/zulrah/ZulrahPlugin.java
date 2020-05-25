@@ -1,15 +1,15 @@
 package plugin.npc.bosses.zulrah;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.dialogue.DialogueAction;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.activity.ActivityManager;
+import plugin.dialogue.DialogueAction;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles interactions related to Zulrah.

@@ -1,13 +1,13 @@
 package plugin.quest.merlincrystal;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.NPCDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.object.GameObject;
+import core.plugin.Plugin;
 
 /**
  * Represents the quest node plugin handler.

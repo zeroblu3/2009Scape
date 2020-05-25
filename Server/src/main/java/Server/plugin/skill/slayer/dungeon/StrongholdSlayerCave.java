@@ -1,10 +1,10 @@
 /*
 package plugin.skill.slayer.dungeon;
 
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.gather.SkillingTool;
-import org.crandor.game.content.skill.member.slayer.Master;
+import plugin.dialogue.FacialExpression;
+import plugin.skill.Skills;
+import plugin.skill.gather.SkillingTool;
+import plugin.skill.slayer.Master;
 import org.crandor.game.interaction.Option;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.Entity;

@@ -1,14 +1,13 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.mysql.impl.ItemConfigSQLHandler;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.StringUtils;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.tools.StringUtils;
 
 /**
  * Package -> plugin.interaction.inter

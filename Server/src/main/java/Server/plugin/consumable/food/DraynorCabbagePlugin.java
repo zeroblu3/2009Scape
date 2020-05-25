@@ -1,9 +1,9 @@
 package plugin.consumable.food;
 
-import org.crandor.game.content.global.consumable.Consumables;
-import org.crandor.game.content.global.consumable.Food;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.consumable.Consumables;
+import plugin.consumable.Food;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the draynor cabbage food type.

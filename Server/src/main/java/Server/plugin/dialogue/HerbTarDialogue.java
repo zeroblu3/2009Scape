@@ -1,14 +1,13 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.herblore.HerbTarPulse;
-import org.crandor.game.content.skill.member.herblore.Tars;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ChildPositionContext;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.net.packet.out.RepositionChild;
+import plugin.skill.herblore.HerbTarPulse;
+import plugin.skill.herblore.Tars;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.plugin.InitializablePlugin;
+import core.net.packet.out.RepositionChild;
 
 /**
  * Represents the dialogue used to determine the amount of a herb tar to make.

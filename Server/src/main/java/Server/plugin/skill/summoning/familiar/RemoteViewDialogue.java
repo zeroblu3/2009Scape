@@ -1,12 +1,10 @@
 package plugin.skill.summoning.familiar;
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.RemoteViewer;
-import org.crandor.game.content.skill.member.summoning.familiar.RemoteViewer.ViewType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.summoning.familiar.RemoteViewer.ViewType;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the remote viewing dialogue.

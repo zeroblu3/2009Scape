@@ -1,15 +1,15 @@
 package plugin.activity.puropuro;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.hunter.bnet.BNetTypes;
-import org.crandor.game.content.skill.member.hunter.bnet.ImplingNode;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.hunter.bnet.BNetTypes;
+import plugin.skill.hunter.bnet.ImplingNode;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 import plugin.activity.puropuro.ElnockInquisitorDialogue.ElnockExchangeInterfaceHandler.ElnockExchange;
 

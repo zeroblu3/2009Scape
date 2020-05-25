@@ -1,13 +1,10 @@
 package plugin.consumable;
 
-import org.crandor.game.content.global.consumable.ConsumableProperties;
-import org.crandor.game.content.global.consumable.Consumables;
-import org.crandor.game.content.global.consumable.Drink;
-import org.crandor.game.content.skill.SkillBonus;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import plugin.skill.SkillBonus;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents the cup of tea plugin.

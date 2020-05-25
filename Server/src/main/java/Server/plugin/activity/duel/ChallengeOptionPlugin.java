@@ -1,9 +1,9 @@
 package plugin.activity.duel;
 
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.Plugin;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.plugin.Plugin;
 
 /**
  * Handles the challenge option for dueling.

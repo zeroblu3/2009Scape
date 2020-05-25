@@ -1,9 +1,9 @@
 /*
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.fletching.items.darts.Dart;
-import org.crandor.game.content.skill.member.fletching.items.darts.DartPulse;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.fletching.items.darts.Dart;
+import plugin.skill.fletching.items.darts.DartPulse;
 import org.crandor.game.node.entity.player.Player;
 import org.crandor.plugin.InitializablePlugin;
 import org.crandor.game.node.item.Item;

@@ -1,17 +1,15 @@
 package plugin.skill.construction;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.Skillcape;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.construction.HouseLocation;
-import org.crandor.game.content.skill.member.construction.HousingStyle;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.content.global.Skillcape;
+import plugin.skill.Skills;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the estate agent dialogue.

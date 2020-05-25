@@ -1,19 +1,19 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.equipment.SwitchAttack;
-import org.crandor.game.node.entity.combat.handlers.DragonfireSwingHandler;
-import org.crandor.game.node.entity.combat.handlers.MultiSwingHandler;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.impl.Animator.Priority;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.update.flag.context.Animation;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.equipment.SwitchAttack;
+import core.game.node.entity.combat.handlers.DragonfireSwingHandler;
+import core.game.node.entity.combat.handlers.MultiSwingHandler;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.impl.Animator.Priority;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Handles a metal dragon (bronze, iron, steel).

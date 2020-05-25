@@ -1,13 +1,11 @@
 package plugin.skill.runecrafting;
 
-import org.crandor.cache.def.impl.ConfigFileDefinition;
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.skill.free.runecrafting.MysteriousRuin;
-import org.crandor.game.content.skill.free.runecrafting.Tiara;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ConfigFileDefinition;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.Plugin;
 
 /**
  * Handles a tiara equipment.

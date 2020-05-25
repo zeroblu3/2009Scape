@@ -1,14 +1,14 @@
 package plugin.interaction.npc.bob;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.RepairItem;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.AchievementDiary;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.node.item.Item;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.content.global.RepairItem;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.AchievementDiary;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.node.item.Item;
 
 /**
  * Represents the dialogue plugin used for the bob npc who repairs items.

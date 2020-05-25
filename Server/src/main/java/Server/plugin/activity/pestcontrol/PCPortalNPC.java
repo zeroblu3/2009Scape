@@ -2,16 +2,16 @@ package plugin.activity.pestcontrol;
 
 import java.util.Random;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionPlane;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionPlane;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 import plugin.activity.pestcontrol.monsters.PCRavagerNPC;
 import plugin.activity.pestcontrol.monsters.PCSpinnerNPC;
 

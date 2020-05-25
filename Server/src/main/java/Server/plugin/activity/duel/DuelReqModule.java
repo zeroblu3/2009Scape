@@ -1,7 +1,7 @@
 package plugin.activity.duel;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.request.RequestModule;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.request.RequestModule;
 
 /**
  * Handles a duel request getting accepted.

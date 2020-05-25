@@ -1,15 +1,15 @@
 package plugin.zone.rellekka;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.LocationLogoutTask;
-import org.crandor.game.system.task.LogoutTask;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
+import core.game.component.Component;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.system.task.LocationLogoutTask;
+import core.game.system.task.LogoutTask;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
 
 /**
  * Handles the jarvald dialogue.

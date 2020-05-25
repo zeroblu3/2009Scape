@@ -1,11 +1,11 @@
 package plugin.skill.construction.npc;
 
 
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles interaction with the house servant.

@@ -1,20 +1,18 @@
 package plugin.skill.farming;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.skill.member.farming.FarmingNode;
-import org.crandor.game.content.skill.member.farming.FarmingPatch;
-import org.crandor.game.content.skill.member.herblore.Herbs;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.NPCDefinition;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import plugin.skill.herblore.Herbs;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.OptionHandler;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.List;

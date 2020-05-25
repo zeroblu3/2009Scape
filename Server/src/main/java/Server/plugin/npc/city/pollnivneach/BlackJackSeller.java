@@ -1,8 +1,8 @@
 package plugin.npc.city.pollnivneach;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 /**
  * Stand-in dialogue for Black Jack Seller til blackjacking/the quest is implemented

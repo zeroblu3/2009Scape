@@ -1,10 +1,10 @@
 package plugin.quest;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents The KnightSword quest.

@@ -1,23 +1,23 @@
 package plugin.interaction.item;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.ame.AntiMacroHandler;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.Rights;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import plugin.ame.AntiMacroEvent;
+import plugin.ame.AntiMacroHandler;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.info.Rights;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.entity.state.EntityState;
+import core.game.node.item.Item;
+import core.game.world.map.RegionManager;
+import core.game.world.repository.Repository;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the rotten potato plugin.

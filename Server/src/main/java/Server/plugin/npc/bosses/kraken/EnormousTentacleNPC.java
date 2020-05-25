@@ -1,14 +1,14 @@
 package plugin.npc.bosses.kraken;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatPulse;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.IdleAbstractNPC;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.IdleAbstractNPC;
+import core.game.system.task.Pulse;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
 
 /**
  * Handles the Kraken's enormous tentacle.

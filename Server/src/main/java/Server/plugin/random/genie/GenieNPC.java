@@ -1,9 +1,9 @@
 package plugin.random.genie;
 
-import org.crandor.game.content.ame.AntiMacroNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Graphics;
+import plugin.ame.AntiMacroNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Graphics;
 
 /**
  * Handles the random event genie npc.

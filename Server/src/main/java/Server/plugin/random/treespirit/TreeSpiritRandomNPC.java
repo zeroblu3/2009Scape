@@ -1,13 +1,13 @@
 package plugin.random.treespirit;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.ame.AntiMacroNPC;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.NPCDefinition;
+import plugin.ame.AntiMacroEvent;
+import plugin.ame.AntiMacroNPC;
+import core.game.node.entity.Entity;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 
 /**
  * Handles the Tree Spirit NPCs

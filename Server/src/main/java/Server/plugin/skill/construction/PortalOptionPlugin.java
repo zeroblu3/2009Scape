@@ -1,18 +1,16 @@
 package plugin.skill.construction;
 
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.construction.HouseLocation;
-import org.crandor.game.content.skill.member.construction.HouseManager;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.plugin.*;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.object.GameObject;
+import core.game.world.repository.Repository;
+import core.plugin.*;
 
 /**
  * Handles the house portal options.

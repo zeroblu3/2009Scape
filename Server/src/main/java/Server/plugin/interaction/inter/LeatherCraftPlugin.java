@@ -1,11 +1,11 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.content.skill.free.crafting.armour.LeatherCrafting;
-import org.crandor.game.content.skill.free.crafting.armour.LeatherCrafting.SoftLeather;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.crafting.armour.LeatherCrafting;
+import plugin.skill.crafting.armour.LeatherCrafting.SoftLeather;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used for crafting leather.

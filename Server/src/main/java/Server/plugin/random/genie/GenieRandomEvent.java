@@ -2,14 +2,14 @@ package plugin.random.genie;
 
 import java.nio.ByteBuffer;
 
-import org.crandor.game.content.ame.AntiMacroDialogue;
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import plugin.ame.AntiMacroDialogue;
+import plugin.ame.AntiMacroEvent;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the genie random event.

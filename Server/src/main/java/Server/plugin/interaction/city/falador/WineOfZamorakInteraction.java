@@ -1,11 +1,11 @@
 package plugin.interaction.city.falador;
 
-import org.crandor.game.interaction.Option;
-import org.crandor.game.interaction.SpecialGroundInteraction;
-import org.crandor.game.interaction.SpecialGroundItems;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.RegionManager;
+import core.game.interaction.Option;
+import core.game.interaction.SpecialGroundInteraction;
+import core.game.interaction.SpecialGroundItems;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.RegionManager;
 
 import java.util.List;
 

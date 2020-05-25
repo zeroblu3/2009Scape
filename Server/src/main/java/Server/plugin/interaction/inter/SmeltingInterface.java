@@ -1,14 +1,14 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.free.smithing.smelting.Bar;
-import org.crandor.game.content.skill.free.smithing.smelting.SmeltingPulse;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.smithing.smelting.Bar;
+import plugin.skill.smithing.smelting.SmeltingPulse;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * @author 'Vexia

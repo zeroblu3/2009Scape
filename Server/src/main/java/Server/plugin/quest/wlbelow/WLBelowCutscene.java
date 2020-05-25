@@ -1,27 +1,27 @@
 package plugin.quest.wlbelow;
 
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.activity.CutscenePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.net.packet.out.CameraViewPacket;
+import plugin.activity.ActivityPlugin;
+import plugin.activity.CutscenePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.out.CameraViewPacket;
 
 /**
  * Handles the what lies below cutscene.

@@ -1,8 +1,8 @@
 package plugin.activity.pestcontrol;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 
 import java.util.Arrays;
 import java.util.List;

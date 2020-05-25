@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Server" type="Application" factoryName="Application" singleton="false">
-    <option name="MAIN_CLASS_NAME" value="org.crandor.Server" />
+    <option name="MAIN_CLASS_NAME" value="core.Server" />
     <module name="RS-2009" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Server" />
     <method v="2">

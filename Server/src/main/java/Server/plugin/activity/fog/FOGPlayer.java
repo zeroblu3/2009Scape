@@ -1,6 +1,6 @@
 package plugin.activity.fog;
 
-import org.crandor.game.node.entity.player.Player;
+import core.game.node.entity.player.Player;
 
 /**
  * Represents a fist of guthix player.

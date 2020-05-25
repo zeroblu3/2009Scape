@@ -1,9 +1,9 @@
 package plugin.npc.bosses.zulrah;
 
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.equipment.SwitchAttack;
-import org.crandor.game.node.entity.combat.handlers.MultiSwingHandler;
-import org.crandor.game.node.entity.impl.Projectile;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.equipment.SwitchAttack;
+import core.game.node.entity.combat.handlers.MultiSwingHandler;
+import core.game.node.entity.impl.Projectile;
 
 /**
  * Handles the combat for the Zulrah Boss NPC.

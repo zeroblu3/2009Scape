@@ -1,11 +1,11 @@
 package plugin.interaction.item;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the gnome copter plugin.

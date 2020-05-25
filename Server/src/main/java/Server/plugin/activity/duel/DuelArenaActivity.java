@@ -3,21 +3,21 @@ package plugin.activity.duel;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.impl.PulseManager;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.request.RequestType;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.game.world.map.zone.ZoneBuilder;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.component.Component;
+import plugin.activity.ActivityPlugin;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.impl.PulseManager;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.request.RequestType;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.map.zone.ZoneBuilder;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the Duel Arena activity.

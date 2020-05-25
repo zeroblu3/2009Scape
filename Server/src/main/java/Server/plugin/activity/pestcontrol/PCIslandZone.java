@@ -1,9 +1,9 @@
 package plugin.activity.pestcontrol;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.zone.MapZone;
-import org.crandor.game.world.map.zone.ZoneRestriction;
+import core.game.node.entity.Entity;
+import core.game.node.entity.player.Player;
+import core.game.world.map.zone.MapZone;
+import core.game.world.map.zone.ZoneRestriction;
 
 /**
  * The Pest control island map zone extension.

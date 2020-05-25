@@ -1,7 +1,7 @@
 package plugin.activity.bountyhunter;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
 
 /**
  * Holds a player's bounty hunter data.

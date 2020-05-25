@@ -1,8 +1,8 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.npc.Metamorphosis;
+import plugin.dialogue.DialoguePlugin;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.npc.Metamorphosis;
 
 /**
  * Handles the metamorphosis of Vet'ion Jr.

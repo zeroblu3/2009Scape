@@ -1,17 +1,15 @@
 package plugin.dialogue;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.map.Location;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.MinimapStateContext;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.net.packet.out.MinimapState;
+import core.game.component.Component;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.MinimapStateContext;
+import core.plugin.InitializablePlugin;
+import core.net.packet.out.MinimapState;
 
 /**
  * Handles the captain bentley dialogue.

@@ -1,12 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.RegionManager;
+import core.game.content.global.action.DoorActionHandler;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.RegionManager;
 
 /**
  * Represents the museum guard dialogue.

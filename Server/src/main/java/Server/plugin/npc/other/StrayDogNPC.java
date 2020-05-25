@@ -3,16 +3,16 @@ package plugin.npc.other;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.interaction.DestinationFlag;
-import org.crandor.game.interaction.MovementPulse;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.game.world.map.zone.impl.BankZone;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.interaction.DestinationFlag;
+import core.game.interaction.MovementPulse;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.map.zone.impl.BankZone;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the temple guardian npc.

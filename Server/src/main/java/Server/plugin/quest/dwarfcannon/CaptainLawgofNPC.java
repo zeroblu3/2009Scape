@@ -1,8 +1,8 @@
 package plugin.quest.dwarfcannon;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.map.Location;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.map.Location;
+import core.tools.RandomFunction;
 
 /**
  * Handles the captain lawgof npc.

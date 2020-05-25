@@ -1,23 +1,21 @@
 package plugin.quest.witchs_house;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.MinimapStateContext;
-import org.crandor.net.packet.out.MinimapState;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.reflections.vfs.Vfs;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.MinimapStateContext;
+import core.net.packet.out.MinimapState;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 import java.util.List;
 

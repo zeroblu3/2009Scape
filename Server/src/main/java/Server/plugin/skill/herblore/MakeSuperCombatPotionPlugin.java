@@ -1,14 +1,13 @@
 package plugin.skill.herblore;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-import org.crandor.game.content.skill.member.herblore.SuperCombatPulse;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * The plugin that creates the Super Combat potion.

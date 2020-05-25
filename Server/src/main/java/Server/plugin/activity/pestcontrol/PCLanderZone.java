@@ -1,14 +1,13 @@
 package plugin.activity.pestcontrol;
 
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.MapZone;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.game.world.map.zone.ZoneRestriction;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.world.map.zone.MapZone;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.map.zone.ZoneRestriction;
 
 /**
  * The pest control lander zone handler.

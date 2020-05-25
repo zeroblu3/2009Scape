@@ -2,32 +2,31 @@ package plugin.random.eviltwin;
 
 import java.nio.ByteBuffer;
 
-import org.crandor.ServerConstants;
-import org.crandor.game.component.CloseEvent;
-import org.crandor.game.component.Component;
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.net.packet.out.CameraViewPacket;
-import org.crandor.plugin.PluginManager;
-import org.crandor.tools.RandomFunction;
+import core.ServerConstants;
+import core.game.component.CloseEvent;
+import core.game.component.Component;
+import plugin.ame.AntiMacroEvent;
+import core.game.content.global.action.DoorActionHandler;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.out.CameraViewPacket;
+import core.plugin.PluginManager;
+import core.tools.RandomFunction;
 
 /**
  * Handles the evil twin random event.

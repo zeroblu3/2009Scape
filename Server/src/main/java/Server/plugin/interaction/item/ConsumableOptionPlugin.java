@@ -1,17 +1,17 @@
 package plugin.interaction.item;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.global.consumable.Consumable;
-import org.crandor.game.content.global.consumable.ConsumableProperties;
-import org.crandor.game.content.global.consumable.Consumables;
-import org.crandor.game.content.global.consumable.Drink;
-import org.crandor.game.content.global.consumable.Food;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import plugin.consumable.Consumable;
+import plugin.consumable.ConsumableProperties;
+import plugin.consumable.Consumables;
+import plugin.consumable.Drink;
+import plugin.consumable.Food;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to consume a consumable item.

@@ -1,8 +1,8 @@
 package plugin.activity.bountyhunter;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 
 /**
  * Represents the crater types.

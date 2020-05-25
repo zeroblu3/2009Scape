@@ -1,20 +1,20 @@
 package plugin.cutscene;
 
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItem;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.path.Path;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.game.world.update.flag.context.Animation;
+import plugin.activity.ActivityManager;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItem;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.path.Path;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.repository.Repository;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Represents the dialogue of the juliet NPC.

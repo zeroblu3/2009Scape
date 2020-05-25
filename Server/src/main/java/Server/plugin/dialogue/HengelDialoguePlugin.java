@@ -1,10 +1,9 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.plugin.InitializablePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.RegionManager;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the dialogue plugin used for the hengel npc.

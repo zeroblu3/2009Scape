@@ -1,13 +1,13 @@
 package plugin.skill.summoning.familiar;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.skill.member.summoning.pet.Pets;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import plugin.skill.summoning.pet.Pets;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the familiar items option plugin.

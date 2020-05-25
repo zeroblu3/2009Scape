@@ -1,13 +1,13 @@
 package plugin.skill.summoning;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.member.summoning.familiar.BurdenBeast;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.summoning.familiar.BurdenBeast;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the component plugin handler for the summoning tab.

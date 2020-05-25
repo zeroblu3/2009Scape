@@ -1,18 +1,18 @@
 package plugin.activity.duel;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.container.Container;
-import org.crandor.game.container.ContainerEvent;
-import org.crandor.game.container.ContainerListener;
-import org.crandor.game.container.ContainerType;
-import org.crandor.game.container.SortType;
-import org.crandor.game.container.access.InterfaceContainer;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.login.PlayerParser;
-import org.crandor.game.node.item.Item;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ContainerContext;
-import org.crandor.net.packet.out.ContainerPacket;
+import core.game.component.Component;
+import core.game.container.Container;
+import core.game.container.ContainerEvent;
+import core.game.container.ContainerListener;
+import core.game.container.ContainerType;
+import core.game.container.SortType;
+import core.game.container.access.InterfaceContainer;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.info.login.PlayerParser;
+import core.game.node.item.Item;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ContainerContext;
+import core.net.packet.out.ContainerPacket;
 
 /**
  * Represents the staking container.

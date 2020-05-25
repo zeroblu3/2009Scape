@@ -1,13 +1,13 @@
 package plugin.skill.cooking;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ChildPositionContext;
-import org.crandor.net.packet.out.RepositionChild;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.object.GameObject;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.net.packet.out.RepositionChild;
 
 public class FoodCookingDialogue extends DialoguePlugin {
     public static final int DialogueID = 1238503;

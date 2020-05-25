@@ -1,11 +1,11 @@
 package plugin.activity.stronghold.playersafety;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentPlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.plugin.Plugin;
 
 /**
  * Handles the player safety test.

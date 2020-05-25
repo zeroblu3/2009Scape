@@ -1,14 +1,9 @@
 package plugin.activity.pyramidplunder;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.ListIterator;
 
 /**
  * Manages what objects a specific player has interacted with in pyramid plunder.

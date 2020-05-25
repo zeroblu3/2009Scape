@@ -1,16 +1,16 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.container.Container;
-import org.crandor.game.content.global.shop.ShopViewer;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.item.Item;
-import org.crandor.net.packet.in.ExaminePacket;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.container.Container;
+import core.game.content.global.shop.ShopViewer;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.item.Item;
+import core.net.packet.in.ExaminePacket;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to handle the shopping interface.

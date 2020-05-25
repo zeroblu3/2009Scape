@@ -1,11 +1,9 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Handles the SanibochDialogue dialogue.

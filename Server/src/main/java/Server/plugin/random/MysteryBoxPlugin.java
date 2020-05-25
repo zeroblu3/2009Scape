@@ -1,17 +1,17 @@
 package plugin.random;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.drop.DropFrequency;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.ChanceItem;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.StringUtils;
+import core.cache.def.impl.ItemDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.drop.DropFrequency;
+import core.game.node.entity.player.Player;
+import core.game.node.item.ChanceItem;
+import core.game.node.item.Item;
+import core.game.world.repository.Repository;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
+import core.plugin.InitializablePlugin;
+import core.tools.StringUtils;
 
 /**
  * Handles the mystery box item.

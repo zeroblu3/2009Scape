@@ -1,21 +1,21 @@
 package plugin.cutscene;
 
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.activity.CutscenePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.CameraContext;
-import org.crandor.net.packet.context.CameraContext.CameraType;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.net.packet.out.CameraViewPacket;
+import plugin.activity.ActivityPlugin;
+import plugin.activity.CutscenePlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.update.flag.context.Animation;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.plugin.InitializablePlugin;
+import core.net.packet.out.CameraViewPacket;
 
 /**
  * Represents the organ cutscene.

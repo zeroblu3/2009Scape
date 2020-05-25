@@ -1,9 +1,9 @@
 package plugin.quest.merlincrystal;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the merlin's crystal quest.

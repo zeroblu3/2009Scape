@@ -1,17 +1,17 @@
 package plugin.quest.merlincrystal;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.mysql.impl.ShopSQLHandler;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.NPCDefinition;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.game.system.mysql.impl.ShopSQLHandler;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the dialogue plugin used to handle the candle maker npc.

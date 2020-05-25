@@ -1,16 +1,16 @@
 package plugin.combat.special;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.handlers.MeleeSwingHandler;
-import org.crandor.game.node.entity.impl.Animator.Priority;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.Skills;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.handlers.MeleeSwingHandler;
+import core.game.node.entity.impl.Animator.Priority;
+import core.game.node.entity.player.Player;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the excalibur special attack.

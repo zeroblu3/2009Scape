@@ -1,29 +1,29 @@
 package plugin.activity.wguild.shot;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItem;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.container.impl.EquipmentContainer;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import plugin.skill.Skills;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItem;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the shot put room.

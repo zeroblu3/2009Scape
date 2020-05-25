@@ -1,13 +1,13 @@
 package plugin.activity.barrows;
 
-import org.crandor.game.content.global.action.DigAction;
-import org.crandor.game.content.global.action.DigSpadeHandler;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
+import core.game.content.global.action.DigAction;
+import core.game.content.global.action.DigSpadeHandler;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
 
 /**
  * Handles a barrows crypt.

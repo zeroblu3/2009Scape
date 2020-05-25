@@ -1,23 +1,23 @@
 package plugin.activity.gnomecopter;
 
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.impl.ForceMovement;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.update.flag.context.Graphics;
+import core.game.container.impl.EquipmentContainer;
+import plugin.activity.ActivityPlugin;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.impl.ForceMovement;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.game.world.update.flag.context.Graphics;
 
 /**
  * Handles the gnome copter activity.

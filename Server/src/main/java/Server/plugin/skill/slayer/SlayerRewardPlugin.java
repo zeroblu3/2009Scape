@@ -1,22 +1,20 @@
 package plugin.skill.slayer;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.slayer.Master;
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.NPCDefinition;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.Skills;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.OptionHandler;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the slayer reward interface plugin.

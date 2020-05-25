@@ -1,11 +1,11 @@
 package plugin.quest;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the Doric's Quest

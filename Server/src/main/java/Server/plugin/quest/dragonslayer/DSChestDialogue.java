@@ -1,8 +1,8 @@
 package plugin.quest.dragonslayer;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
 
 /**
  * Represents the dialogue plugin used for the dragon slayer chest.

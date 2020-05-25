@@ -1,20 +1,20 @@
 package plugin.activity.pestcontrol;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.ai.pvmbots.PvMBotsBuilder;
-import org.crandor.game.node.entity.player.info.Rights;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.activity.ActivityManager;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.ai.pvmbots.PvMBotsBuilder;
+import core.game.node.entity.player.info.Rights;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
 
 import java.util.ArrayList;
 

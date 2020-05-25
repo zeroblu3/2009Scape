@@ -3,17 +3,17 @@ package plugin.activity.mta;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.component.CloseEvent;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.container.Container;
-import org.crandor.game.container.ContainerType;
-import org.crandor.game.container.access.InterfaceContainer;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.Plugin;
+import core.game.component.CloseEvent;
+import core.game.component.Component;
+import core.game.component.ComponentPlugin;
+import core.game.container.Container;
+import core.game.container.ContainerType;
+import core.game.container.access.InterfaceContainer;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.plugin.Plugin;
 
 /**
  * Represents the mage training arena shop.

@@ -1,25 +1,24 @@
 package plugin.activity.pyramidplunder;
-import org.crandor.game.content.global.action.ClimbActionHandler;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.combat.ImpactHandler;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.LocationLogoutTask;
-import org.crandor.game.system.task.LogoutTask;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.MapZone;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.game.world.map.zone.ZoneBuilder;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
+import core.game.content.global.action.ClimbActionHandler;
+import plugin.skill.Skills;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.combat.ImpactHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.LocationLogoutTask;
+import core.game.system.task.LogoutTask;
+import core.game.world.map.Location;
+import core.game.world.map.zone.MapZone;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.map.zone.ZoneBuilder;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
 
 /**
  * Defines the zones for the pyramid plunder rooms and their interactions

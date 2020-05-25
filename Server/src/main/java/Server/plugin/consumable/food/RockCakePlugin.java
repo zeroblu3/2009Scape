@@ -1,11 +1,11 @@
 package plugin.consumable.food;
 
-import org.crandor.game.content.global.consumable.Consumables;
-import org.crandor.game.content.global.consumable.Food;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import plugin.consumable.Consumables;
+import plugin.consumable.Food;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Handles the rock cake plugin.

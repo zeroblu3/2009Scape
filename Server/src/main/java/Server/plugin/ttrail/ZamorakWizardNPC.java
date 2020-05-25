@@ -1,15 +1,14 @@
 package plugin.ttrail;
 
-import org.crandor.game.content.global.ttrail.ClueScrollPlugin;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatSpell;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.plugin.Plugin;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatSpell;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.plugin.Plugin;
 
 /**
  * Handles saradomin npc.

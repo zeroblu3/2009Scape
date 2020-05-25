@@ -1,8 +1,8 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.npc.AbstractNPC;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.Location;
 
 /**
  * Represents the abstract npc of a generic owner of a shop.

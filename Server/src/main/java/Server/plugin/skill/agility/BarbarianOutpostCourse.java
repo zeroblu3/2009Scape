@@ -1,26 +1,24 @@
 package plugin.skill.agility;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.global.action.ClimbActionHandler;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.agility.AgilityCourse;
-import org.crandor.game.content.skill.member.agility.AgilityHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.BarcrawlManager;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.NPCDefinition;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.dialogue.DialoguePlugin;
+import core.game.content.global.action.ClimbActionHandler;
+import core.game.content.global.action.DoorActionHandler;
+import plugin.skill.Skills;
+import core.game.node.Node;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.BarcrawlManager;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the barbarian outpost course.

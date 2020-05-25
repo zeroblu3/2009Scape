@@ -1,11 +1,11 @@
 package plugin.quest.alirescue;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the prince ali rescue quest.

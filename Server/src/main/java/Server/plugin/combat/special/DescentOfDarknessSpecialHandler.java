@@ -1,21 +1,21 @@
 package plugin.combat.special;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.equipment.Ammunition;
-import org.crandor.game.node.entity.combat.equipment.RangeWeapon;
-import org.crandor.game.node.entity.combat.equipment.Weapon;
-import org.crandor.game.node.entity.combat.equipment.Weapon.WeaponType;
-import org.crandor.game.node.entity.combat.handlers.RangeSwingHandler;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.audio.Audio;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ItemDefinition;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.equipment.Ammunition;
+import core.game.node.entity.combat.equipment.RangeWeapon;
+import core.game.node.entity.combat.equipment.Weapon;
+import core.game.node.entity.combat.equipment.Weapon.WeaponType;
+import core.game.node.entity.combat.handlers.RangeSwingHandler;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.audio.Audio;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Represents the descent of darkness sepcial handler.

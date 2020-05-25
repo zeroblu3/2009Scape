@@ -1,11 +1,9 @@
 package plugin.tutorial;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the dialogue plugin used for the brother brace npc.

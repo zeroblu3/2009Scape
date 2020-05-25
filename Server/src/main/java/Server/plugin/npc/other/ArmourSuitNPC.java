@@ -1,12 +1,12 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.Location;
 
 /**
  * Represents the Suit of armour NPC used in Taverly dungeon (entering Cauldron

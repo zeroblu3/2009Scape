@@ -1,15 +1,14 @@
 package plugin.skill.cooking;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.cooking.fermenting.WineFermentingPulse;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.node.entity.impl.PulseManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.Skills;
+import plugin.skill.cooking.fermenting.WineFermentingPulse;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to ferment wine.

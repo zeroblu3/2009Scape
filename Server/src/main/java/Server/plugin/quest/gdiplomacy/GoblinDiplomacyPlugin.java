@@ -1,19 +1,19 @@
 package plugin.quest.gdiplomacy;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.tools.StringUtils;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.OptionHandler;
+import core.game.interaction.UseWithHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.world.GameWorld;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.tools.StringUtils;
 
 /**
  * Represents the plugin used to handle node interactions related to goblin

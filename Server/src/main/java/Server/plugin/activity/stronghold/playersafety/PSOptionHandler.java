@@ -11,19 +11,19 @@ import static plugin.activity.stronghold.playersafety.StrongHoldOfPlayerSafetyPl
 import static plugin.activity.stronghold.playersafety.StrongHoldOfPlayerSafetyPlugin.TEST_PAPER_ITEM_ID;
 import static plugin.activity.stronghold.playersafety.StrongHoldOfPlayerSafetyPlugin.forId;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.dialogue.DialogueAction;
-import org.crandor.game.content.global.action.DoorActionHandler;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.emote.Emotes;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.dialogue.DialogueAction;
+import core.game.content.global.action.DoorActionHandler;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.emote.Emotes;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
 
 import plugin.activity.stronghold.playersafety.StrongHoldOfPlayerSafetyPlugin.JailPlaques;
 

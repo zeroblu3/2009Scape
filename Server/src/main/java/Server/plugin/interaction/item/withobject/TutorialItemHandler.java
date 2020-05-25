@@ -1,18 +1,18 @@
 package plugin.interaction.item.withobject;
 
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.smithing.smelting.Bar;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.tutorial.TutorialSession;
+import plugin.tutorial.TutorialStage;
+import plugin.skill.Skills;
+import plugin.skill.smithing.smelting.Bar;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * @author 'Vexia

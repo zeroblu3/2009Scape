@@ -1,28 +1,28 @@
 package plugin.interaction.inter;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.container.Container;
-import org.crandor.game.container.ContainerEvent;
-import org.crandor.game.container.ContainerListener;
-import org.crandor.game.container.access.BitregisterAssembler;
-import org.crandor.game.container.access.InterfaceContainer;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.global.action.EquipHandler;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.prayer.PrayerType;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ContainerContext;
-import org.crandor.net.packet.out.ContainerPacket;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import core.game.container.Container;
+import core.game.container.ContainerEvent;
+import core.game.container.ContainerListener;
+import core.game.container.access.BitregisterAssembler;
+import core.game.container.access.InterfaceContainer;
+import core.game.container.impl.EquipmentContainer;
+import core.game.content.global.action.EquipHandler;
+import core.game.interaction.OptionHandler;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.prayer.PrayerType;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ContainerContext;
+import core.net.packet.out.ContainerPacket;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the equipment interface.

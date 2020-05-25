@@ -1,9 +1,8 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.Location;
 
 /**
  * Represents the icy cavern dialogue plugin.

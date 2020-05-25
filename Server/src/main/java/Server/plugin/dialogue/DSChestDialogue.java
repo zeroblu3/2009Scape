@@ -1,8 +1,7 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
 
 import plugin.quest.dragonslayer.DragonSlayer;
 

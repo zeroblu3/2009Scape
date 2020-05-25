@@ -1,10 +1,10 @@
 package plugin.zone.fremmenik;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.NPCDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.plugin.Plugin;
 
 /**
  * Handles the fremmenik plugin.

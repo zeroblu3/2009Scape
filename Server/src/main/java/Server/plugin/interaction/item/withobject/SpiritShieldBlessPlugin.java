@@ -1,16 +1,16 @@
 package plugin.interaction.item.withobject;
 
-import org.crandor.game.content.dialogue.DialogueAction;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import plugin.dialogue.DialogueAction;
+import plugin.skill.Skills;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.repository.Repository;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the blessing of Spirit shields.

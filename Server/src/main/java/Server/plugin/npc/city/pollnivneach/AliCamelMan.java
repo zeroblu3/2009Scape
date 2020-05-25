@@ -1,9 +1,9 @@
 package plugin.npc.city.pollnivneach;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 
 /**

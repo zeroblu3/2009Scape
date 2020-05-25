@@ -1,23 +1,23 @@
 package plugin.skill.hunter;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.hunter.falconry.FalconCatch;
-import org.crandor.game.content.skill.member.hunter.falconry.FalconryCatchPulse;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.HintIconManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.NPCDefinition;
+import plugin.activity.ActivityPlugin;
+import plugin.skill.Skills;
+import plugin.skill.hunter.falconry.FalconCatch;
+import plugin.skill.hunter.falconry.FalconryCatchPulse;
+import core.game.interaction.Option;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the activity used during falconry practice.

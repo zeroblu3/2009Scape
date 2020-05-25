@@ -1,6 +1,6 @@
 package plugin.activity.pyramidplunder;
 
-import org.crandor.game.world.map.Location;
+import core.game.world.map.Location;
 
 //defines room properties for pyramid plunder
 //@author ceik

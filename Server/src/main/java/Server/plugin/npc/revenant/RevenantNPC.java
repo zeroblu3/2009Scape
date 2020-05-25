@@ -1,27 +1,24 @@
 package plugin.npc.revenant;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.audio.Audio;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.mysql.impl.NPCConfigSQLHandler;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.game.world.map.zone.impl.WildernessZone;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.Skills;
+import plugin.skill.summoning.familiar.Familiar;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.audio.Audio;
+import core.game.system.mysql.impl.NPCConfigSQLHandler;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.map.zone.impl.WildernessZone;
+import core.game.world.update.flag.context.Animation;
+import core.tools.RandomFunction;
 
 /**
  * Handles a revenant NPC.

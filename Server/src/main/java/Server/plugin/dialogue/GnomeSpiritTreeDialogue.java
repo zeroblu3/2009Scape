@@ -1,15 +1,13 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.update.flag.context.Graphics;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.game.world.update.flag.context.Graphics;
 
 /**
  * Represents the dialogue plugin used for the gnome spirit tree.

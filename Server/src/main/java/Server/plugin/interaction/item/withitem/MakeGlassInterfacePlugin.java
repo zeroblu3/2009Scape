@@ -1,13 +1,13 @@
 package plugin.interaction.item.withitem;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.crafting.GlassProduct;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import plugin.skill.Skills;
+import plugin.skill.crafting.GlassProduct;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to make glass.

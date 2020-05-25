@@ -1,9 +1,9 @@
 package plugin.interaction.item.brawling_gloves;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.login.SavingModule;
-import org.crandor.game.node.item.Item;
+import core.cache.def.impl.ItemDefinition;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.info.login.SavingModule;
+import core.game.node.item.Item;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;

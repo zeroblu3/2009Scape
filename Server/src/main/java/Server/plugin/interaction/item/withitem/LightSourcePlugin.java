@@ -1,14 +1,14 @@
 package plugin.interaction.item.withitem;
 
-import org.crandor.game.content.global.LightSource;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.zone.impl.DarkZone;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.content.global.LightSource;
+import plugin.skill.Skills;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.map.zone.impl.DarkZone;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to ignite a light source.

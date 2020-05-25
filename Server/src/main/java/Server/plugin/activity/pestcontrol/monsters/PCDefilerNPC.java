@@ -1,15 +1,15 @@
 package plugin.activity.pestcontrol.monsters;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.InteractionType;
-import org.crandor.game.node.entity.combat.handlers.RangeSwingHandler;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.MapDistance;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.InteractionType;
+import core.game.node.entity.combat.handlers.RangeSwingHandler;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.map.MapDistance;
 import plugin.activity.pestcontrol.PestControlSession;
 
 /**

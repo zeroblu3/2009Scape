@@ -1,12 +1,11 @@
 package plugin.dialogue;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.free.cooking.dairy.DairyChurnPulse;
-import org.crandor.game.content.skill.free.cooking.dairy.DairyProduct;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import core.game.component.Component;
+import plugin.skill.cooking.dairy.DairyChurnPulse;
+import plugin.skill.cooking.dairy.DairyProduct;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents the dairy churn dialogue.

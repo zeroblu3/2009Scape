@@ -1,13 +1,13 @@
 package plugin.activity.barrows;
 
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.equipment.DegradableEquipment;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.item.ItemPlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.equipment.DegradableEquipment;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.item.ItemPlugin;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the barrows equipment.

@@ -1,16 +1,16 @@
 package plugin.interaction.inter;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.skill.free.crafting.spinning.SpinningItem;
-import org.crandor.game.content.skill.free.crafting.spinning.SpinningPulse;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.skill.crafting.spinning.SpinningItem;
+import plugin.skill.crafting.spinning.SpinningPulse;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 @InitializablePlugin
 public class SpinningInterface extends ComponentPlugin {

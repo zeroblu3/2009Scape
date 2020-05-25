@@ -1,9 +1,8 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.Player;
+import core.game.node.entity.npc.NPC;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.Player;
 
 /**
  * Handles the quarter master dialogue.

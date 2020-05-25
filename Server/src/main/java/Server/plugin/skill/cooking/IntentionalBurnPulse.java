@@ -1,8 +1,8 @@
 package plugin.skill.cooking;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
 
 public class IntentionalBurnPulse extends StandardCookingPulse {
     int initial,product,amount;

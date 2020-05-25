@@ -1,21 +1,21 @@
 package plugin.skill.construction.decoration.portalchamber;
 
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.free.runecrafting.Rune;
-import org.crandor.game.content.skill.member.construction.Decoration;
-import org.crandor.game.content.skill.member.construction.Hotspot;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ObjectDefinition;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.runecrafting.Rune;
+import plugin.skill.construction.Decoration;
+import plugin.skill.construction.Hotspot;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * PortalChamberPlugin

@@ -1,12 +1,10 @@
 package plugin.dialogue;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.travel.ship.Ships;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.Player;
+import core.cache.def.impl.ItemDefinition;
+import core.game.content.global.travel.ship.Ships;
+import core.game.node.entity.npc.NPC;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.Player;
 
 /**
  * Represents the dialogue plugin used for the monk of entrana dialogue.

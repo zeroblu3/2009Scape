@@ -1,9 +1,9 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the NPC skippy.

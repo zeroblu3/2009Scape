@@ -1,14 +1,12 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.GameWorld;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.plugin.InitializablePlugin;
+import core.game.world.GameWorld;
 
 /**
  * Represents the dialogue used to handle the Pricne Ali NPC.

@@ -1,12 +1,12 @@
 package plugin.activity.pestcontrol;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.global.travel.ship.Ships;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.NPCDefinition;
+import core.game.content.global.travel.ship.Ships;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.Plugin;
 
 /**
  * Handles a pest control squire's options.

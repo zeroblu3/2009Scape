@@ -3,7 +3,7 @@ package plugin.activity.pyramidplunder;
 
 import org.crandor.cache.def.impl.ObjectDefinition;
 import org.crandor.game.content.global.action.ClimbActionHandler;
-import org.crandor.game.content.skill.Skills;
+import plugin.skill.Skills;
 import org.crandor.game.interaction.OptionHandler;
 import org.crandor.game.node.Node;
 import org.crandor.game.node.entity.combat.ImpactHandler;

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.DisplayModelContext;
-import org.crandor.net.packet.context.DisplayModelContext.ModelType;
-import org.crandor.net.packet.out.DisplayModel;
-import org.crandor.tools.RandomFunction;
+import core.cache.def.impl.ItemDefinition;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.DisplayModelContext;
+import core.net.packet.context.DisplayModelContext.ModelType;
+import core.net.packet.out.DisplayModel;
+import core.tools.RandomFunction;
 
 /**
  * Handles the quiz master dialogue.

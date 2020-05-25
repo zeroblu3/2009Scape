@@ -1,11 +1,11 @@
 package plugin.quest.wlbelow;
 
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.world.update.flag.context.Animation;
+import plugin.activity.ActivityManager;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Handles the surok magis dialogue.

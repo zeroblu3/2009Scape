@@ -1,9 +1,9 @@
 package plugin.activity.stronghold;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.emote.Emotes;
-import org.crandor.game.node.item.Item;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.emote.Emotes;
+import core.game.node.item.Item;
 
 /**
  * Represents the dialogue plugin used for the box of health.

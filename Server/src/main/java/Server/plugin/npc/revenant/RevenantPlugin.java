@@ -3,12 +3,12 @@ package plugin.npc.revenant;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.npc.NPC;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the revenants.

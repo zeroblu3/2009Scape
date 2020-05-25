@@ -1,9 +1,8 @@
 package plugin.quest;
 
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.link.quest.Quest;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.link.quest.Quest;
 
 /**
  * Represents the romeo and juliet quest.

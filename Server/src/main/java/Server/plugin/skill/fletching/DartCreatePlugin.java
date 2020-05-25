@@ -1,7 +1,7 @@
 /*
 package plugin.skill.fletching;
 
-import org.crandor.game.content.skill.member.fletching.items.darts.Dart;
+import plugin.skill.fletching.items.darts.Dart;
 import org.crandor.game.interaction.NodeUsageEvent;
 import org.crandor.game.interaction.UseWithHandler;
 import org.crandor.plugin.InitializablePlugin;

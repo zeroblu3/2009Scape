@@ -1,9 +1,9 @@
 package plugin.activity.pyramidplunder;
 
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
+import plugin.activity.ActivityManager;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
 
 /**
  * Handles Guardian mummy dialogue.

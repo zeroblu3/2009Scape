@@ -1,7 +1,7 @@
 package plugin.npc.bosses.zulrah;
 
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
 
 /**
  * Represents a zulrah spot.

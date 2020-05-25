@@ -1,9 +1,9 @@
 package plugin.quest;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.link.quest.Quest;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.link.quest.Quest;
 
 /**
  * Represents the vampie quest.

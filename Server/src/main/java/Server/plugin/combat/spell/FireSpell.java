@@ -1,18 +1,18 @@
 package plugin.combat.spell;
 
-import org.crandor.game.content.skill.free.magic.Runes;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatSpell;
-import org.crandor.game.node.entity.combat.equipment.SpellType;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.impl.Animator.Priority;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.magic.Runes;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatSpell;
+import core.game.node.entity.combat.equipment.SpellType;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.impl.Animator.Priority;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.node.item.Item;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the fire spells.

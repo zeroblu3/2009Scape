@@ -3,16 +3,16 @@ package plugin.interaction.item;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.ChanceItem;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.Plugin;
-import org.crandor.tools.RandomFunction;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.StringUtils;
+import core.cache.def.impl.ItemDefinition;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.item.ChanceItem;
+import core.game.node.item.Item;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
+import core.plugin.InitializablePlugin;
+import core.tools.StringUtils;
 
 /**
  * Represents the casket handling plugin.

@@ -1,13 +1,13 @@
 package plugin.skill.agility.shortcuts;
 
-import org.crandor.game.content.skill.member.agility.AgilityShortcut;
-import org.crandor.game.node.entity.impl.ForceMovement;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.skill.agility.AgilityShortcut;
+import core.game.node.entity.impl.ForceMovement;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the stepping stone shortcut.

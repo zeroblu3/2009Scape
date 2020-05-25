@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.crandor.game.content.activity.ActivityPlugin;
-import org.crandor.game.content.global.BossKillCounter;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.map.zone.ZoneRestriction;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import plugin.activity.ActivityPlugin;
+import core.game.content.global.BossKillCounter;
+import plugin.skill.Skills;
+import plugin.skill.slayer.Tasks;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.map.zone.ZoneRestriction;
+import core.game.world.repository.Repository;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
 
 /**
  * Handles the Tzhaar Fight caves plugin.

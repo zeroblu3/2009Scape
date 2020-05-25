@@ -1,20 +1,18 @@
 package plugin.tutorial;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.HintIconManager;
-import org.crandor.game.node.entity.player.link.IronmanMode;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.net.amsc.MSPacketRepository;
-import org.crandor.net.amsc.WorldCommunicator;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.entity.player.link.IronmanMode;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.net.amsc.MSPacketRepository;
+import core.net.amsc.WorldCommunicator;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the tutorial completition dialogue (skippy, magic instructor)

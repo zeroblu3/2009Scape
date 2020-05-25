@@ -1,11 +1,11 @@
 package plugin.npc.revenant;
 
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.equipment.DegradableEquipment;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.PluginManager;
+import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.equipment.DegradableEquipment;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.plugin.PluginManager;
 
 /**
  * Handles the degrading of corrupt equipment.

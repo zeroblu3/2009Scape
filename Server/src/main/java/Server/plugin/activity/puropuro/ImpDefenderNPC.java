@@ -3,16 +3,16 @@ package plugin.activity.puropuro;
 import java.util.List;
 import java.util.Random;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.hunter.bnet.BNetTypes;
-import org.crandor.game.content.skill.member.hunter.bnet.ImplingNode;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.tools.RandomFunction;
+import plugin.skill.Skills;
+import plugin.skill.hunter.bnet.BNetTypes;
+import plugin.skill.hunter.bnet.ImplingNode;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.tools.RandomFunction;
 
 /**
  * Handles the imp defender npc.

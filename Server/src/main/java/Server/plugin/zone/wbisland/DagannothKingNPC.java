@@ -2,15 +2,15 @@ package plugin.zone.wbisland;
 
 import java.util.List;
 
-import org.crandor.game.content.global.BossKillCounter;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.tools.RandomFunction;
+import core.game.content.global.BossKillCounter;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.tools.RandomFunction;
 
 /**
  * Represents a dagannoth king npc.

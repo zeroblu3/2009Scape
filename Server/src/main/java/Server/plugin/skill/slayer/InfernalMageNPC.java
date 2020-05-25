@@ -1,11 +1,10 @@
 package plugin.skill.slayer;
 
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.node.entity.combat.CombatSpell;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
+import core.game.node.entity.combat.CombatSpell;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the infernal mage npc.

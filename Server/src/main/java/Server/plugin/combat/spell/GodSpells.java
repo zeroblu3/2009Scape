@@ -1,23 +1,23 @@
 package plugin.combat.spell;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.content.skill.free.magic.Runes;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatSpell;
-import org.crandor.game.node.entity.combat.equipment.SpellType;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.impl.Animator.Priority;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.ItemDefinition;
+import core.game.container.impl.EquipmentContainer;
+import plugin.skill.magic.Runes;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatSpell;
+import core.game.node.entity.combat.equipment.SpellType;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.impl.Animator.Priority;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.node.item.Item;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the god spells.

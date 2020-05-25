@@ -2,19 +2,18 @@ package plugin.random.drilldemon;
 
 import java.nio.ByteBuffer;
 
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.PluginManager;
+import plugin.ame.AntiMacroEvent;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.PluginManager;
 
 /**
  * Handles the drill demon event.

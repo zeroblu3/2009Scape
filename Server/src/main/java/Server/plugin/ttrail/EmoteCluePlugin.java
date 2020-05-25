@@ -1,11 +1,9 @@
 package plugin.ttrail;
 
-import org.crandor.game.content.global.ttrail.ClueLevel;
-import org.crandor.game.content.global.ttrail.EmoteClueScroll;
-import org.crandor.game.node.entity.player.link.emote.Emotes;
-import org.crandor.game.world.map.zone.ZoneBorders;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
+import core.game.node.entity.player.link.emote.Emotes;
+import core.game.world.map.zone.ZoneBorders;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
 
 /**
  * Initializes the emote clue plugins.

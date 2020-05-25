@@ -1,19 +1,19 @@
 package plugin.npc.familiar;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.NPCDefinition;
+import plugin.skill.Skills;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.state.EntityState;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the Unicorn Stallion familiar.

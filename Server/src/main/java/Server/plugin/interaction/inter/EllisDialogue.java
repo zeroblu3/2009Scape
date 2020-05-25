@@ -1,12 +1,12 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.content.skill.free.crafting.TanningProduct;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.item.Item;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import plugin.skill.crafting.TanningProduct;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.item.Item;
 
 /**
  * Represents the ellis dialogue plugin.

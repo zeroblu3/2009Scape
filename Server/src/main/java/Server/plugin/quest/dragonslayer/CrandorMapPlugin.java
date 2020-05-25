@@ -1,8 +1,8 @@
 package plugin.quest.dragonslayer;
 
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.plugin.Plugin;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.plugin.Plugin;
 
 /**
  * Represents the crandor map creating plugin.

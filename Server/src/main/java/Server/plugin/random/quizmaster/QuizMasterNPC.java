@@ -1,10 +1,10 @@
 package plugin.random.quizmaster;
 
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.ame.AntiMacroNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.repository.Repository;
+import plugin.ame.AntiMacroEvent;
+import plugin.ame.AntiMacroNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.game.world.repository.Repository;
 
 /**
  * Handles the quiz master npc.

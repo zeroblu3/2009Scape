@@ -1,20 +1,20 @@
 package plugin.command;
 
-import org.crandor.cache.Cache;
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.content.eco.ge.GrandExchangeDatabase;
-import org.crandor.game.content.eco.ge.GrandExchangeEntry;
-import org.crandor.game.content.eco.ge.ResourceManager;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.SystemManager;
-import org.crandor.game.system.SystemState;
-import org.crandor.game.system.command.CommandPlugin;
-import org.crandor.game.system.command.CommandSet;
-import org.crandor.game.system.mysql.impl.ItemConfigSQLHandler;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.net.amsc.WorldCommunicator;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.Cache;
+import core.cache.def.impl.ItemDefinition;
+import plugin.ge.GrandExchangeDatabase;
+import plugin.ge.GrandExchangeEntry;
+import plugin.ge.ResourceManager;
+import core.game.node.entity.player.Player;
+import core.game.system.SystemManager;
+import core.game.system.SystemState;
+import core.game.system.command.CommandPlugin;
+import core.game.system.command.CommandSet;
+import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.world.repository.Repository;
+import core.net.amsc.WorldCommunicator;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents commands related to system updating.

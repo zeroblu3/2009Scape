@@ -3,8 +3,8 @@
 //import org.crandor.game.content.global.consumable.ConsumableProperties;
 //import org.crandor.game.content.global.consumable.CookingProperties;
 //import org.crandor.game.content.global.consumable.Food;
-//import org.crandor.game.content.global.tutorial.TutorialSession;
-//import org.crandor.game.content.global.tutorial.TutorialStage;
+//import plugin.tutorial.TutorialSession;
+//import plugin.tutorial.TutorialStage;
 //import org.crandor.game.node.Node;
 //import org.crandor.game.node.entity.player.Player;
 //import org.crandor.game.node.entity.player.link.diary.DiaryType;

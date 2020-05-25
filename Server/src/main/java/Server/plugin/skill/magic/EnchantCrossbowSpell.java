@@ -1,14 +1,13 @@
 package plugin.skill.magic;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.skill.free.magic.MagicSpell;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.equipment.SpellType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.equipment.SpellType;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the enchant crossbow spell.

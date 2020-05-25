@@ -1,13 +1,13 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.agg.AggressiveBehavior;
-import org.crandor.game.node.entity.npc.agg.AggressiveHandler;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.Location;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.agg.AggressiveBehavior;
+import core.game.node.entity.npc.agg.AggressiveHandler;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.Location;
 
 /**
  * Handles a Thrower troll NPC.

@@ -1,9 +1,7 @@
 package plugin.ttrail;
 
-import org.crandor.game.content.global.ttrail.ClueLevel;
-import org.crandor.game.content.global.ttrail.CoordinateClueScroll;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
 
 /**
  * Initializes the coordinate clues.

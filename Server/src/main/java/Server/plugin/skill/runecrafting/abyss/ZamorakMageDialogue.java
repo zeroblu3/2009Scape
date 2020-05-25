@@ -1,10 +1,10 @@
 package plugin.skill.runecrafting.abyss;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
 
 
 /**

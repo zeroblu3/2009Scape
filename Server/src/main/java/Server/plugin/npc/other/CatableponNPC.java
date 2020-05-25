@@ -1,15 +1,15 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.combat.CombatSpell;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.equipment.SwitchAttack;
-import org.crandor.game.node.entity.combat.handlers.MultiSwingHandler;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.update.flag.context.Animation;
+import core.game.node.entity.combat.CombatSpell;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.equipment.SwitchAttack;
+import core.game.node.entity.combat.handlers.MultiSwingHandler;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Represents the catablepon npc type.

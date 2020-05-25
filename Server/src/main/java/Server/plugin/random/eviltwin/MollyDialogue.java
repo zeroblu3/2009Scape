@@ -1,17 +1,17 @@
 package plugin.random.eviltwin;
 
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.TeleportManager.TeleportType;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.script.ScriptContext;
-import org.crandor.game.system.script.ScriptManager;
-import org.crandor.game.world.map.Location;
-import org.crandor.tools.RandomFunction;
+import plugin.ame.AntiMacroEvent;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.TeleportManager.TeleportType;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.system.script.ScriptContext;
+import core.game.system.script.ScriptManager;
+import core.game.world.map.Location;
+import core.tools.RandomFunction;
 
 /**
  * Handles Molly's dialogue.

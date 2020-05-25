@@ -1,14 +1,13 @@
 package plugin.interaction.player;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.NPCDefinition;
+import core.game.interaction.Option;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the attack option plugin handler.

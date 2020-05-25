@@ -1,16 +1,14 @@
 package plugin.skill.slayer;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.member.slayer.Equipment;
-import org.crandor.game.content.skill.member.slayer.Tasks;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatSwingHandler;
-import org.crandor.game.node.entity.combat.handlers.MagicSwingHandler;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.skill.Skills;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.handlers.MagicSwingHandler;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the aberrant spectre npc.

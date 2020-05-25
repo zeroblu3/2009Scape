@@ -1,12 +1,12 @@
 package plugin.quest.waterfall;
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Handles the dialogue for the tree on the edge of the Waterfall.

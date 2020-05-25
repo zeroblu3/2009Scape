@@ -1,12 +1,12 @@
 package plugin.npc.other;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.diary.DiaryType;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.zone.ZoneBorders;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.zone.ZoneBorders;
 
 /**
  * Represents a Jogre NPC.

@@ -1,10 +1,9 @@
 package plugin.dialogue;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.link.SpellBookManager.SpellBook;
+import core.game.component.Component;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.link.SpellBookManager.SpellBook;
 
 /**
  * Handles the SpellbookSwapDialogue dialogue.

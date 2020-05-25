@@ -1,29 +1,29 @@
 package plugin.npc.familiar;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.content.skill.free.crafting.jewellery.JewelleryCrafting;
-import org.crandor.game.content.skill.free.firemaking.FireMakingPulse;
-import org.crandor.game.content.skill.free.firemaking.Log;
-import org.crandor.game.content.skill.member.summoning.familiar.Familiar;
-import org.crandor.game.content.skill.member.summoning.familiar.FamiliarSpecial;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.GroundItem;
-import org.crandor.game.node.item.GroundItemManager;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.node.object.ObjectBuilder;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.game.world.update.flag.player.FaceLocationFlag;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import plugin.skill.Skills;
+import plugin.skill.crafting.jewellery.JewelleryCrafting;
+import plugin.skill.firemaking.FireMakingPulse;
+import plugin.skill.firemaking.Log;
+import plugin.skill.summoning.familiar.Familiar;
+import plugin.skill.summoning.familiar.FamiliarSpecial;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItem;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.object.GameObject;
+import core.game.node.object.ObjectBuilder;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.game.world.update.flag.player.FaceLocationFlag;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Represents the Pyrelord familiar.

@@ -1,8 +1,8 @@
 package plugin.activity.mta;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
 
 /**
  * Handles the entrance guardian dialogue.

@@ -1,11 +1,11 @@
 package plugin.skill.cooking;
 
-import org.crandor.game.content.skill.free.cooking.recipe.Recipe;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.skill.cooking.recipe.Recipe;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.item.Item;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.List;

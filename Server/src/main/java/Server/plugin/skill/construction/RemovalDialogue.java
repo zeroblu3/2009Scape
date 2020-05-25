@@ -1,13 +1,10 @@
 package plugin.skill.construction;
 
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.construction.Hotspot;
-import org.crandor.game.content.skill.member.construction.HouseManager;
-import org.crandor.game.content.skill.member.construction.Room;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
 
 /**
  * Removal dialogue for room & decorations in construction

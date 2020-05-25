@@ -2,18 +2,15 @@ package plugin.interaction.player;
 
 import java.util.concurrent.TimeUnit;
 
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.Rights;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.SystemManager;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManifest;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginType;
+import plugin.activity.ActivityManager;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.system.SystemManager;
+import core.game.world.GameWorld;
+import core.plugin.Plugin;
+import core.plugin.PluginManifest;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginType;
 
 /**
  * Validates a player login.

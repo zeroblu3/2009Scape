@@ -1,23 +1,23 @@
 package plugin.npc.bosses.kraken;
  
-import org.crandor.game.content.global.BossKillCounter;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatPulse;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.DeathTask;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.combat.ImpactHandler.Impact;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.npc.IdleAbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.tools.RandomFunction;
+import core.game.content.global.BossKillCounter;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.combat.ImpactHandler.Impact;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.npc.IdleAbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.plugin.InitializablePlugin;
+import core.tools.RandomFunction;
  
 /**
  * Handles the Kraken boss NPC.

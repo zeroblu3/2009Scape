@@ -1,21 +1,17 @@
 package plugin.consumable;
 
-import org.crandor.game.content.global.consumable.Consumables;
-import org.crandor.game.content.global.consumable.Potion;
-import org.crandor.game.content.global.consumable.PotionEffect;
-import org.crandor.game.content.global.consumable.PotionEffect.Effect;
-import org.crandor.game.content.skill.SkillBonus;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.combat.ImpactHandler.HitsplatType;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.consumable.PotionEffect.Effect;
+import plugin.skill.SkillBonus;
+import plugin.skill.Skills;
+import core.game.node.entity.combat.ImpactHandler.HitsplatType;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.state.EntityState;
+import core.game.node.item.Item;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the class of all potion plugins.

@@ -1,17 +1,16 @@
 package plugin.skill.fletching;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.skill.member.fletching.Fletching;
-import org.crandor.game.content.skill.member.fletching.items.crossbow.LimbPulse;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ChildPositionContext;
-import org.crandor.net.packet.out.RepositionChild;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.skill.fletching.items.crossbow.LimbPulse;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.net.packet.out.RepositionChild;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used to make a crossbow.

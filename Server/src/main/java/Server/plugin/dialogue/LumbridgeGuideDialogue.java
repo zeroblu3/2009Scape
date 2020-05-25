@@ -3,16 +3,14 @@ package plugin.dialogue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.FacialExpression;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.Rights;
-import org.crandor.game.node.entity.player.link.IronmanMode;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.zone.impl.ModeratorZone;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.net.amsc.MSPacketRepository;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.info.Rights;
+import core.game.node.entity.player.link.IronmanMode;
+import core.game.world.GameWorld;
+import core.game.world.map.zone.impl.ModeratorZone;
+import core.plugin.InitializablePlugin;
+import core.net.amsc.MSPacketRepository;
 
 /**
  * Represents the lumbridge guide dialogue plugin.

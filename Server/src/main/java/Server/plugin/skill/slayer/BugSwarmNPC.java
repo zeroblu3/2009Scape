@@ -1,11 +1,11 @@
 package plugin.skill.slayer;
 
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.InitializablePlugin;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.map.Location;
+import core.plugin.InitializablePlugin;
 
 /**
  * Represents the plugin used to handle the harpie bug swarm.

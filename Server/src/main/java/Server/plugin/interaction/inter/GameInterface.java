@@ -1,21 +1,18 @@
 package plugin.interaction.inter;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.component.ComponentDefinition;
-import org.crandor.game.component.ComponentPlugin;
-import org.crandor.game.content.global.tutorial.TutorialSession;
-import org.crandor.game.content.global.tutorial.TutorialStage;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface;
-import org.crandor.game.node.entity.combat.equipment.WeaponInterface.WeaponInterfaces;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.info.Rights;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.InterfaceConfigContext;
-import org.crandor.net.packet.out.InterfaceConfig;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.component.Component;
+import core.game.component.ComponentDefinition;
+import core.game.component.ComponentPlugin;
+import plugin.tutorial.TutorialSession;
+import plugin.tutorial.TutorialStage;
+import core.game.node.entity.combat.equipment.WeaponInterface;
+import core.game.node.entity.combat.equipment.WeaponInterface.WeaponInterfaces;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.info.Rights;
+import core.game.world.GameWorld;
+import core.game.world.map.RegionManager;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the component plugin used for the game interface.

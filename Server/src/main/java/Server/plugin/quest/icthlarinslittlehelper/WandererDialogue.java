@@ -1,7 +1,7 @@
 package plugin.quest.icthlarinslittlehelper;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.player.Player;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
 
 /**
  * @author Ethan Kyle Millard <skype:pumpklins>

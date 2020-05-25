@@ -1,12 +1,12 @@
 package plugin.zone.phasmatys;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Location;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManager;
-import org.crandor.tools.RandomFunction;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Location;
+import core.plugin.Plugin;
+import core.plugin.PluginManager;
+import core.tools.RandomFunction;
 
 /**
  * Handles the gravingas npc.

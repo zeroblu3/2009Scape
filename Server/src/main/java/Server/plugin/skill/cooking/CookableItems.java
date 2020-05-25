@@ -1,6 +1,6 @@
 package plugin.skill.cooking;
 
-import org.crandor.game.node.item.Item;
+import core.game.node.item.Item;
 
 import java.util.HashMap;
 

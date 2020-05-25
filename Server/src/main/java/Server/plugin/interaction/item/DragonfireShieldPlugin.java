@@ -2,26 +2,26 @@ package plugin.interaction.item;
 
 import java.util.concurrent.TimeUnit;
 
-import org.crandor.cache.def.impl.ItemDefinition;
-import org.crandor.game.container.impl.EquipmentContainer;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatPulse;
-import org.crandor.game.node.entity.combat.InteractionType;
-import org.crandor.game.node.entity.combat.equipment.SwitchAttack;
-import org.crandor.game.node.entity.combat.handlers.DragonfireSwingHandler;
-import org.crandor.game.node.entity.impl.Projectile;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.node.item.ItemPlugin;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.PluginManager;
+import core.cache.def.impl.ItemDefinition;
+import core.game.container.impl.EquipmentContainer;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.InteractionType;
+import core.game.node.entity.combat.equipment.SwitchAttack;
+import core.game.node.entity.combat.handlers.DragonfireSwingHandler;
+import core.game.node.entity.impl.Projectile;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.node.item.ItemPlugin;
+import core.game.world.GameWorld;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.Plugin;
+import core.plugin.InitializablePlugin;
+import core.plugin.PluginManager;
 
 /**
  * Handles the dragonfire shield options.

@@ -1,7 +1,7 @@
 package plugin.activity.gwd;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
 
 /**
  * The god wars factions.

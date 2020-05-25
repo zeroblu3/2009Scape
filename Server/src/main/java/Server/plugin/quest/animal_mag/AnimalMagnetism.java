@@ -1,15 +1,15 @@
 package plugin.quest.animal_mag;
 
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.quest.Quest;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.PluginManager;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.quest.Quest;
+import core.game.node.item.Item;
+import core.plugin.PluginManager;
 
 import plugin.quest.animal_mag.AnimalMagnetismPlugin.ContainerHandler;
 import plugin.quest.animal_mag.AnimalMagnetismPlugin.HammerMagnetPlugin;
 import plugin.quest.animal_mag.AnimalMagnetismPlugin.ResearchNoteHandler;
-import org.crandor.plugin.InitializablePlugin;
+import core.plugin.InitializablePlugin;
 import plugin.quest.animal_mag.AnimalMagnetismPlugin.UndeadTreePlugin;
 
 /**

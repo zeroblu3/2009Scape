@@ -1,14 +1,14 @@
 package plugin.skill.construction;
 
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.book.Book;
-import org.crandor.game.content.dialogue.book.Page;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.game.world.GameWorld;
-import org.crandor.plugin.InitializablePlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.book.Book;
+import plugin.dialogue.book.Page;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.game.world.GameWorld;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the construction guide book.

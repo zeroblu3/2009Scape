@@ -1,12 +1,12 @@
 package plugin.tutorial;
 
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.book.Book;
-import org.crandor.game.content.dialogue.book.BookLine;
-import org.crandor.game.content.dialogue.book.Page;
-import org.crandor.game.content.dialogue.book.PageSet;
-import org.crandor.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.book.Book;
+import plugin.dialogue.book.BookLine;
+import plugin.dialogue.book.Page;
+import plugin.dialogue.book.PageSet;
+import core.game.node.entity.player.Player;
 
 /**
  * Handles the introductory after-tutorial book.

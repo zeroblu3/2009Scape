@@ -1,18 +1,16 @@
 package plugin.skill.agility;
 
-import org.crandor.cache.def.impl.ObjectDefinition;
-import org.crandor.game.content.skill.member.agility.AgilityCourse;
-import org.crandor.game.content.skill.member.agility.AgilityHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.object.GameObject;
-import org.crandor.game.system.task.LocationLogoutTask;
-import org.crandor.game.system.task.LogoutTask;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.plugin.InitializablePlugin;
+import core.cache.def.impl.ObjectDefinition;
+import core.game.node.Node;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.object.GameObject;
+import core.game.system.task.LocationLogoutTask;
+import core.game.system.task.LogoutTask;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.game.world.update.flag.context.Animation;
+import core.plugin.InitializablePlugin;
 
 /**
  * Handles the gnome stronghold agility course.

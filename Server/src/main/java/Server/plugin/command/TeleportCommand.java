@@ -4,17 +4,17 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.SystemLogger;
-import org.crandor.game.system.command.CommandPlugin;
-import org.crandor.game.system.command.CommandSet;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.Region;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.repository.Repository;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.node.entity.player.Player;
+import core.game.system.SystemLogger;
+import core.game.system.command.CommandPlugin;
+import core.game.system.command.CommandSet;
+import core.game.world.map.Location;
+import core.game.world.map.Region;
+import core.game.world.map.RegionManager;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.repository.Repository;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the commands related to teleporting.

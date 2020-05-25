@@ -1,13 +1,13 @@
 package plugin.interaction.npc;
 
-import org.crandor.cache.def.impl.NPCDefinition;
-import org.crandor.game.component.Component;
-import org.crandor.game.content.global.travel.glider.Gliders;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.cache.def.impl.NPCDefinition;
+import core.game.component.Component;
+import core.game.content.global.travel.glider.Gliders;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the plugin used for gliders.

@@ -1,19 +1,18 @@
 package plugin.skill.fletching;
 
-import org.crandor.game.content.dialogue.SkillDialogueHandler;
-import org.crandor.game.content.dialogue.SkillDialogueHandler.SkillDialogue;
-import org.crandor.game.content.skill.member.fletching.Fletching;
-import org.crandor.game.content.skill.member.fletching.items.gem.GemBoltCutPulse;
-import org.crandor.game.content.skill.member.fletching.items.gem.GemBoltPulse;
-import org.crandor.game.interaction.NodeUsageEvent;
-import org.crandor.game.interaction.UseWithHandler;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ChildPositionContext;
-import org.crandor.net.packet.out.RepositionChild;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
+import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
+import plugin.skill.fletching.items.gem.GemBoltCutPulse;
+import plugin.skill.fletching.items.gem.GemBoltPulse;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.net.packet.out.RepositionChild;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Represents the gem bolt creating plugin.

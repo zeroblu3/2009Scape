@@ -1,14 +1,14 @@
 package plugin.activity.clanwars;
 
-import org.crandor.game.content.activity.ActivityManager;
-import org.crandor.game.interaction.Option;
-import org.crandor.game.interaction.OptionHandler;
-import org.crandor.game.node.Node;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.request.RequestModule;
-import org.crandor.game.node.entity.player.link.request.RequestType;
-import org.crandor.game.system.communication.ClanRank;
-import org.crandor.plugin.Plugin;
+import plugin.activity.ActivityManager;
+import core.game.interaction.Option;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.request.RequestModule;
+import core.game.node.entity.player.link.request.RequestType;
+import core.game.system.communication.ClanRank;
+import core.plugin.Plugin;
 
 /**
  * Handles the Clan wars challenge option.

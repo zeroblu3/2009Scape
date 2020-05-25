@@ -2,11 +2,11 @@ package plugin.random.zombie;
 
 import java.nio.ByteBuffer;
 
-import org.crandor.game.content.ame.AntiMacroEvent;
-import org.crandor.game.content.skill.Skills;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.map.Location;
+import plugin.ame.AntiMacroEvent;
+import plugin.skill.Skills;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.world.map.Location;
 
 /**
  * Handles the zombie event.

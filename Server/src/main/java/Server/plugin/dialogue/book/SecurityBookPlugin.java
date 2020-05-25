@@ -1,14 +1,10 @@
 package plugin.dialogue.book;
 
-import org.crandor.game.component.Component;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.dialogue.book.Book;
-import org.crandor.game.content.dialogue.book.BookLine;
-import org.crandor.game.content.dialogue.book.Page;
-import org.crandor.game.content.dialogue.book.PageSet;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.GameWorld;
+import core.game.component.Component;
+import plugin.dialogue.DialoguePlugin;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.game.world.GameWorld;
 
 /**
  * Represents the strong hold of security book.

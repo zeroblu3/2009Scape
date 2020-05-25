@@ -1,20 +1,20 @@
 package plugin.combat.special;
 
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.combat.BattleState;
-import org.crandor.game.node.entity.combat.CombatStyle;
-import org.crandor.game.node.entity.combat.handlers.MeleeSwingHandler;
-import org.crandor.game.node.entity.impl.Animator.Priority;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.state.EntityState;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.Point;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.game.world.update.flag.context.Animation;
-import org.crandor.game.world.update.flag.context.Graphics;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
+import core.game.node.entity.Entity;
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.handlers.MeleeSwingHandler;
+import core.game.node.entity.impl.Animator.Priority;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.state.EntityState;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.Point;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphics;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 
 /**
  * Handles the dragon spear special attack.

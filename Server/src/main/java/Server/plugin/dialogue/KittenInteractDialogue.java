@@ -1,16 +1,14 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.system.task.Pulse;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.PulseRunner;
-import org.crandor.game.world.map.RegionManager;
-import org.crandor.game.world.map.path.Path;
-import org.crandor.game.world.map.path.Pathfinder;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.world.update.flag.context.Animation;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
+import core.game.world.map.RegionManager;
+import core.game.world.map.path.Path;
+import core.game.world.map.path.Pathfinder;
+import core.plugin.InitializablePlugin;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * Represents the dialogue plugin used for kitten interactions.

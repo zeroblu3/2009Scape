@@ -1,14 +1,13 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.fletching.items.grapple.GrapplePulse;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.entity.player.link.RunScript;
-import org.crandor.game.node.item.Item;
-import org.crandor.net.packet.PacketRepository;
-import org.crandor.net.packet.context.ChildPositionContext;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.net.packet.out.RepositionChild;
+import plugin.skill.fletching.items.grapple.GrapplePulse;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.RunScript;
+import core.game.node.item.Item;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.plugin.InitializablePlugin;
+import core.net.packet.out.RepositionChild;
 
 /**
  * Represents the dialogue used to create a mith grapple.

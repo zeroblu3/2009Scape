@@ -1,10 +1,8 @@
 package plugin.dialogue;
 
-import org.crandor.game.content.dialogue.DialogueInterpreter;
-import org.crandor.game.content.dialogue.DialoguePlugin;
-import org.crandor.game.content.skill.member.summoning.pet.Pet;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.game.node.entity.player.Player;
+import plugin.skill.summoning.pet.Pet;
+import core.plugin.InitializablePlugin;
+import core.game.node.entity.player.Player;
 
 /**
  * Represents the dialogue plugin used to dismiss a follower.

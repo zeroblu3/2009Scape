@@ -1,15 +1,11 @@
 package plugin.skill.hunter;
 
-import org.crandor.game.content.skill.member.hunter.TrapHook;
-import org.crandor.game.content.skill.member.hunter.TrapNode;
-import org.crandor.game.content.skill.member.hunter.TrapWrapper;
-import org.crandor.game.content.skill.member.hunter.Traps;
-import org.crandor.game.node.entity.Entity;
-import org.crandor.game.node.entity.npc.AbstractNPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.GameWorld;
-import org.crandor.game.world.map.Location;
-import org.crandor.tools.RandomFunction;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
+import core.game.world.map.Location;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.List;

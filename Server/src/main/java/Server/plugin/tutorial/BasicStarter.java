@@ -1,11 +1,10 @@
 package plugin.tutorial;
 
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.node.item.Item;
-import org.crandor.plugin.InitializablePlugin;
-import org.crandor.plugin.Plugin;
-import org.crandor.plugin.PluginManifest;
-import org.crandor.plugin.PluginType;
+import core.game.node.entity.player.Player;
+import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
+import core.plugin.PluginManifest;
+import core.plugin.PluginType;
 
 /**
  * Basic starter until tutorial is completed.

@@ -1,12 +1,12 @@
 package plugin.quest.learningtheropes;
 
-import org.crandor.game.node.entity.npc.NPC;
-import org.crandor.game.node.entity.player.Player;
-import org.crandor.game.world.map.Direction;
-import org.crandor.game.world.map.Location;
-import org.crandor.game.world.map.build.DynamicRegion;
-import org.crandor.game.world.map.zone.MapZone;
-import org.crandor.game.world.update.flag.context.Animation;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.game.world.map.build.DynamicRegion;
+import core.game.world.map.zone.MapZone;
+import core.game.world.update.flag.context.Animation;
 
 /**
  * @author Ethan Kyle Millard <skype:pumpklins>
