@@ -43,9 +43,9 @@ Since this portion of the guide is operating-system specific, you will either ne
 
 ## Step 4: Running the Server & Client
 - Run the management-server
-  - In IntelliJ, navigate to `Management-server/src/org/keldagrim/Main.java`, right click > Run
+  - In IntelliJ, navigate to `Management-server/src/org/keldagrim/Management.java`, right click > Run
 - Run the server
-  - In IntelliJ, navigate to `Server/src/org/crandor/Main.java`, right click > Run
+  - In IntelliJ, navigate to `Server/src/org/crandor/Server.java`, right click > Run
     - It will fail
   - Top right there should be `Main (1)` in a dropdown, click it then select `Edit Configurations`
   - Change the working directory to `Server` so it can find `server.properties`
