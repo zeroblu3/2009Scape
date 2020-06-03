@@ -1,13 +1,4 @@
-package core.net;
-
-import core.cache.crypto.ISAACPair;
-import core.game.node.entity.player.Player;
-import core.game.node.entity.player.info.ClientInfo;
-import core.game.node.entity.player.info.login.Response;
-import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
-import core.net.producer.HSEventProducer;
-import core.net.producer.LoginEventProducer;
+package ms.net;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -20,12 +11,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import ms.ServerConstants;
+import ms.net.producer.HSEventProducer;
+import ms.world.GameServer;
+
 /**
  * Represents a connected I/O session.
  * @author Emperor
+ * 
  */
 public class IoSession {
-
+	
 	/**
 	 * The handshake event producer.
 	 */
@@ -35,82 +31,67 @@ public class IoSession {
 	 * The selection key.
 	 */
 	private final SelectionKey key;
-
+	
 	/**
 	 * The executor service.
 	 */
 	private final ExecutorService service;
-
+	
 	/**
 	 * The event producer.
 	 */
 	private EventProducer producer = HANDSHAKE_PRODUCER;
-
+	
 	/**
 	 * The currently queued writing data.
 	 */
 	private List<ByteBuffer> writingQueue = new ArrayList<>();
-
+	
 	/**
 	 * The currently queued reading data.
 	 */
 	private ByteBuffer readingQueue;
-
+	
 	/**
 	 * The writing lock.
 	 */
 	private Lock writingLock = new ReentrantLock();
-
-	/**
-	 * The ISAAC cipher pair.
-	 */
-	private ISAACPair isaacPair;
-
+	
 	/**
 	 * The name hash.
 	 */
 	private int nameHash;
-
+	
 	/**
 	 * The server key.
 	 */
 	private long serverKey;
-
+	
 	/**
 	 * The JS-5 encryption value.
 	 */
 	private int js5Encryption;
-
-	/**
-	 * The object.
-	 */
-	private Object object;
-
+	
 	/**
 	 * If the session is active.
 	 */
 	private boolean active = true;
-
+	
 	/**
 	 * The last ping time stamp.
 	 */
 	private long lastPing;
-
+	
 	/**
 	 * The address.
 	 */
 	private final String address;
-
+	
 	/**
-	 * The JS-5 queue.
+	 * The game server object for this session.
 	 */
-	private final JS5Queue js5Queue;
-
-	/**
-	 * The client info.
-	 */
-	private ClientInfo clientInfo;
-
+	private GameServer gameServer;
+	
 	/**
 	 * Constructs a new {@code IoSession}.
 	 * @param key The selection key.
@@ -119,8 +100,11 @@ public class IoSession {
 	public IoSession(SelectionKey key, ExecutorService service) {
 		this.key = key;
 		this.service = service;
-		this.address = getRemoteAddress().replaceAll("/", "").split(":")[0];
-		this.js5Queue = new JS5Queue(this);
+		String address = getRemoteAddress().replaceAll("/", "").split(":")[0];
+		if (address.equals("127.0.0.1")) {
+			address = ServerConstants.HOST_ADDRESS;
+		}
+		this.address = address;
 	}
 
 	/**
@@ -130,7 +114,7 @@ public class IoSession {
 	public void write(Object context) {
 		write(context, false);
 	}
-
+	
 	/**
 	 * Fires a write event created using the current event producer.
 	 * @param context The event context.
@@ -140,17 +124,13 @@ public class IoSession {
 		if (context == null) {
 			throw new IllegalStateException("Invalid writing context!");
 		}
-		if (!(context instanceof Response) && producer instanceof LoginEventProducer) {
-			// new Throwable().printStackTrace();
-			return;
-		}
 		if (instant) {
 			producer.produceWriter(this, context).run();
 			return;
 		}
 		service.execute(producer.produceWriter(this, context));
 	}
-
+	
 	/**
 	 * Sends the packet data (without write event encoding).
 	 * @param buffer The buffer.
@@ -161,12 +141,13 @@ public class IoSession {
 		} catch (Exception e){
 			System.out.println(e);
 			writingLock.unlock();
+			return;
 		}
 		writingQueue.add(buffer);
 		writingLock.unlock();
 		write();
 	}
-
+	
 	/**
 	 * Handles the writing of all buffers in the queue.
 	 */
@@ -175,13 +156,7 @@ public class IoSession {
 			disconnect();
 			return;
 		}
-		try {
-			writingLock.tryLock(1000L, TimeUnit.MILLISECONDS);
-		} catch (Exception e){
-			System.out.println(e);
-			writingLock.unlock();
-			return;
-		}
+		writingLock.lock();
 		SocketChannel channel = (SocketChannel) key.channel();
 		try {
 			while (!writingQueue.isEmpty()) {
@@ -211,19 +186,6 @@ public class IoSession {
 			key.cancel();
 			SocketChannel channel = (SocketChannel) key.channel();
 			channel.socket().close();
-			if (object instanceof Player) {
-				final Player p = getPlayer();
-				GameWorld.Pulser.submit(new Pulse(0) {
-					@Override
-					public boolean pulse() {
-						if (p.isActive() && !p.getSession().active) {
-							p.clear();
-						}
-						return true;
-					}
-				});
-			}
-			object = null;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -236,7 +198,7 @@ public class IoSession {
 	public String getAddress() {
 		return address;
 	}
-
+	
 	/**
 	 * Gets the remote address of this session.
 	 * @return The remote address, as a String.
@@ -248,7 +210,7 @@ public class IoSession {
 			throw new IllegalStateException(e);
 		}
 	}
-
+	
 	/**
 	 * Gets the current event producer.
 	 * @return The producer.
@@ -284,7 +246,7 @@ public class IoSession {
 			this.readingQueue = readingQueue;
 		}
 	}
-
+	
 	/**
 	 * Gets the writing lock.
 	 * @return The writing lock.
@@ -321,29 +283,7 @@ public class IoSession {
 	public void setJs5Encryption(int js5Encryption) {
 		this.js5Encryption = js5Encryption;
 	}
-
-	/**
-	 * @return The player.
-	 */
-	public Player getPlayer() {
-		return (Player) object;
-	}
 	
-	/**
-	 * Gets the object.
-	 * @return the object.
-	 */
-	public Object getObject() {
-		return object;
-	}
-
-	/**
-	 * @param object The object to set.
-	 */
-	public void setObject(Object object) {
-		this.object = object;
-	}
-
 	/**
 	 * Gets the lastPing.
 	 * @return The lastPing.
@@ -393,43 +333,19 @@ public class IoSession {
 	}
 
 	/**
-	 * Gets the isaacPair.
-	 * @return The isaacPair.
+	 * Gets the gameServer value.
+	 * @return The gameServer.
 	 */
-	public ISAACPair getIsaacPair() {
-		return isaacPair;
+	public GameServer getGameServer() {
+		return gameServer;
 	}
 
 	/**
-	 * Sets the isaacPair.
-	 * @param isaacPair The isaacPair to set.
+	 * Sets the gameServer value.
+	 * @param gameServer The gameServer to set.
 	 */
-	public void setIsaacPair(ISAACPair isaacPair) {
-		this.isaacPair = isaacPair;
-	}
-
-	/**
-	 * Gets the js5Queue.
-	 * @return the js5Queue
-	 */
-	public JS5Queue getJs5Queue() {
-		return js5Queue;
-	}
-
-	/**
-	 * Gets the clientInfo value.
-	 * @return The clientInfo.
-	 */
-	public ClientInfo getClientInfo() {
-		return clientInfo;
-	}
-
-	/**
-	 * Sets the clientInfo value.
-	 * @param clientInfo The clientInfo to set.
-	 */
-	public void setClientInfo(ClientInfo clientInfo) {
-		this.clientInfo = clientInfo;
+	public void setGameServer(GameServer gameServer) {
+		this.gameServer = gameServer;
 	}
 
 }
