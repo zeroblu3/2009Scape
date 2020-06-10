@@ -1,6 +1,6 @@
 # 2009Scape - The most complete Runescape Emulation server. Pull requests welcome!
 
-Join our Discord server: https://discord.gg/4zrA2Wy
+Join our Discord server: https://discord.gg/43YPGND
 
 We also have a live game in the [Releases](https://github.com/dginovker/RS-2009/releases) section that always runs the latest code.
 
