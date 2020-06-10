@@ -4,7 +4,7 @@ targetCompatibility = 1.8
 
 apply plugin: 'application'
 
-mainClassName = 'org.crandor.Server'
+mainClassName = 'core.Server'
 
 repositories {
     flatDir {
@@ -31,6 +31,6 @@ dependencies {
 
 
 jar {
-    baseName = 'server'
-    version =  '1.0.0'
+    archiveBaseName = 'server'
+    archiveVersion =  '1.0.0'
 }
