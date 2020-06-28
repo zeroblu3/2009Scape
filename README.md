@@ -4,7 +4,10 @@ Join our Discord server: https://discord.gg/43YPGND
 
 We also have a live game in the [Releases](https://github.com/dginovker/RS-2009/releases) section that always runs the latest code.
 
-# Setting up the project
+# Running your own instance
+Please follow this [self hosting guide](selfhosting.md)
+
+# Setting up the project for debugging
 Requirements:
 - General knowledge of git
 - General knowledge of SQL
@@ -43,14 +46,11 @@ Since this portion of the guide is operating-system specific, you will either ne
 
 ## Step 4: Running the Server & Client
 - Run the management-server
-  - In IntelliJ, navigate to `Management-server/src/org/keldagrim/Main.java`, right click > Run
+  - In IntelliJ, select the Management Server configuration, click Run
 - Run the server
-  - In IntelliJ, navigate to `Server/src/org/crandor/Main.java`, right click > Run
-    - It will fail
-  - Top right there should be `Main (1)` in a dropdown, click it then select `Edit Configurations`
-  - Change the working directory to `Server` so it can find `server.properties`
+  - In IntelliJ, select the Server configuration, click Run
 - Run the client
-  - In IntelliJ, navigate to `Client/src/org/runite/GameLaunch.java`, right click > Run
+  - In IntelliJ, select the client configuration, click Run
   
 You should now be set up!
 
