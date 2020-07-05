@@ -30,7 +30,7 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
             Client.anIntArray2200 = new int[var6];
             Class3_Sub9.regionXteaKeys = new int[var6][4];
             for (int var5 = 0; var5 < var6; var5++) {
-            	 Class3_Sub9.regionXteaKeys[var5] = new int[] { 14881828, -6662814, 58238456, 146761213 };
+               //Class3_Sub9.regionXteaKeys[var5] = new int[] { 14881828, -6662814, 58238456, 146761213 };//These are the same keys that are in RegionSQLHandler.java
             }
             Class3_Sub28_Sub14.aByteArrayArray3669 = new byte[var6][];
             Class3_Sub24_Sub3.anIntArray3494 = new int[var6];
