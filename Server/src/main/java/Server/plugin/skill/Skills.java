@@ -1,6 +1,7 @@
 package plugin.skill;
 
 import core.game.content.global.SkillcapePerks;
+import plugin.ame.ExperienceMonitor;
 import plugin.tutorial.TutorialSession;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.ImpactHandler;
@@ -213,7 +214,7 @@ public final class Skills {
 		if (assist != null && assist.translateExperience(player, slot, experience, mod)) {
 			return;
 		}
-		boolean hadMax = this.experience[slot] != 200000000;
+		boolean already200m = this.experience[slot] == 200000000;
 		double experienceAdd = (experience * mod);
 		//check if a player has brawling gloves and, if equipped, modify xp
 		if(!player.getBrawlingGlovesManager().GloveCharges.isEmpty()){
@@ -227,9 +228,14 @@ public final class Skills {
 			}
 		}
 		this.experience[slot] += experienceAdd;
-		player.getAntiMacroHandler().monitors[slot].setExperienceAmount((int)experienceAdd);
-		if (this.experience[slot] > 200000000) {
-			if(hadMax && !player.isArtificial()){
+		try {
+			player.getAntiMacroHandler().monitors[slot].setExperienceAmount((int) experienceAdd);
+		} catch (Exception e){
+			player.getAntiMacroHandler().monitors[slot] = new ExperienceMonitor(slot);
+			player.getAntiMacroHandler().monitors[slot].setExperienceAmount((int) experienceAdd);
+		}
+		if (this.experience[slot] >= 200000000) {
+			if(!already200m && !player.isArtificial()){
 				Repository.sendNews(entity.asPlayer().getUsername()+" has just reached 200m experience in " + SKILL_NAME[slot] + "!");
 			}
 			this.experience[slot] = 200000000;
