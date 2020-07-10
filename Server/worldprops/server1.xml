@@ -1,13 +1,13 @@
 <worldprops>
     <GameSettings
-    name="2009scape PVP"
+    name="2009scape"
     beta="false"
     dev="false"
     startGui="true"
     worldID="1"
     countryID="0"
-    activity="2009scape Spawn PK"
-    pvpWorld="true"
+    activity="Accurate 2009 Remake"
+    pvpWorld="false"
     msip="127.0.0.1"
     />
 
@@ -15,8 +15,8 @@
     <PluginSetting name="Trivia" enabled="false"/>
     <PluginSetting name="RPS" enabled="false"/>
     <PluginSetting name="Boredom" enabled="false"/>
-    <PluginSetting name="ShootingStars" enabled="false"/>
+    <PluginSetting name="ShootingStars" enabled="true"/>
     <PluginSetting name="MysteryBox" enabled="false"/>
-    <PluginSetting name="PKZone" enabled="true"/>
+    <PluginSetting name="PKZone" enabled="false"/>
 
 </worldprops>
