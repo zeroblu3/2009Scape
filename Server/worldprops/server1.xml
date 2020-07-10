@@ -17,5 +17,6 @@
     <PluginSetting name="Boredom" enabled="false"/>
     <PluginSetting name="ShootingStars" enabled="true"/>
     <PluginSetting name="MysteryBox" enabled="false"/>
+    <PluginSetting name="PKZone" enabled="false"/>
 
 </worldprops>
