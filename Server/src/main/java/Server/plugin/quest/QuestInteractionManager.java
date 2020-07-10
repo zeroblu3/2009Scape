@@ -42,6 +42,7 @@ public class QuestInteractionManager{
     }
 
     public static boolean handle(Player player, GameObject object){
+        SystemLogger.log("Trying to run...");
         QuestInteraction i = objectInteractions.get(object.getId());
         if(i == null) {
             return false;

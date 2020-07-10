@@ -2,6 +2,7 @@ package plugin.ame;
 
 import core.cache.misc.buffer.ByteBufferUtils;
 import core.game.system.SystemLogger;
+import core.game.world.map.zone.impl.WildernessZone;
 import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -202,6 +203,9 @@ public final class AntiMacroHandler implements SavingModule {
 	 */
 	public boolean fireEvent(String name, Object... args) {
 		nextPulse = GameWorld.getTicks() + DELAY;
+		if(WildernessZone.isInZone(player)){
+			return false;
+		}
 		if (hasEvent() || player.getZoneMonitor().isRestricted(ZoneRestriction.RANDOM_EVENTS) || player.isArtificial()) {
 			return false;
 		}
