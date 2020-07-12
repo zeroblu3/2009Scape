@@ -19,5 +19,6 @@
     <PluginSetting name="MysteryBox" enabled="false"/>
     <PluginSetting name="PKZone" enabled="false"/>
     <PluginSetting name="ObjectParser" enabled="true"/>
+    <PluginSetting name="BlackJack" enabled="false"/>
 
 </worldprops>
