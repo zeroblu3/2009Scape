@@ -10,17 +10,17 @@ import core.game.system.SystemLogger;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 import java.util.Objects;
 
 @InitializablePlugin
-public class IncineratorHandler extends QuestInteraction {
+public class IncineratorHandler extends PluginInteraction {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[] {SheepHerder.RED_SHEEP_BONES.getId(), SheepHerder.GREEN_SHEEP_BONES.getId(), SheepHerder.BLUE_SHEEP_BONES.getId(),SheepHerder.YELLOW_SHEEP_BONES.getId()});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.USEWITH);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.USEWITH);
         return this;
     }
 

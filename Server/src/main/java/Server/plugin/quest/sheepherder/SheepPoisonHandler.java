@@ -13,15 +13,15 @@ import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class SheepPoisonHandler extends QuestInteraction {
+public class SheepPoisonHandler extends PluginInteraction {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{SheepHerder.POISON.getId()});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.USEWITH);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.USEWITH);
         return null;
     }
 

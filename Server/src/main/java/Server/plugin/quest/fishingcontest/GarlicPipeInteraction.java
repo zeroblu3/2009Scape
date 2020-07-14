@@ -6,22 +6,20 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
-import core.game.system.SystemLogger;
 import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.tools.ItemNames;
-import plugin.dialogue.FacialExpression;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class GarlicPipeInteraction extends QuestInteraction {
+public class GarlicPipeInteraction extends PluginInteraction {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{FishingContest.GARLIC.getId(),41});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.USEWITH);
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.OBJECT);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.USEWITH);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.OBJECT);
         return this;
     }
 

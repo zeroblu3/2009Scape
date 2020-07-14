@@ -8,17 +8,17 @@ import core.game.system.SystemLogger;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import plugin.dialogue.FacialExpression;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 
 @InitializablePlugin
-public class GateInteractionHandler extends QuestInteraction {
+public class GateInteractionHandler extends PluginInteraction {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{167,166});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.OBJECT);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.OBJECT);
         return this;
     }
 

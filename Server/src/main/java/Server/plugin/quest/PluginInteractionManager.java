@@ -10,13 +10,13 @@ import core.game.system.SystemLogger;
 
 import java.util.HashMap;
 
-public class QuestInteractionManager{
-    private static final HashMap<Integer,QuestInteraction> npcInteractions = new HashMap<>();
-    private static final HashMap<Integer,QuestInteraction> objectInteractions = new HashMap<>();
-    private static final HashMap<Integer,QuestInteraction> useWithInteractions = new HashMap<>();
-    private static final HashMap<Integer,QuestInteraction> groundItemInteractions = new HashMap<>();
+public class PluginInteractionManager {
+    private static final HashMap<Integer, PluginInteraction> npcInteractions = new HashMap<>();
+    private static final HashMap<Integer, PluginInteraction> objectInteractions = new HashMap<>();
+    private static final HashMap<Integer, PluginInteraction> useWithInteractions = new HashMap<>();
+    private static final HashMap<Integer, PluginInteraction> groundItemInteractions = new HashMap<>();
 
-    public static void register(QuestInteraction interaction, InteractionType type){
+    public static void register(PluginInteraction interaction, InteractionType type){
         switch(type){
             case OBJECT:
                 for(int i = 0; i < interaction.ids.length; i++){
@@ -43,7 +43,7 @@ public class QuestInteractionManager{
 
     public static boolean handle(Player player, GameObject object){
         SystemLogger.log("Trying to run...");
-        QuestInteraction i = objectInteractions.get(object.getId());
+        PluginInteraction i = objectInteractions.get(object.getId());
         if(i == null) {
             return false;
         } else {
@@ -53,7 +53,7 @@ public class QuestInteractionManager{
 
     public static boolean handle(Player player, NodeUsageEvent event){
         SystemLogger.log("Trying to handle: used: " + event.getUsed().getId() + " with: " + event.getUsedWith().getId() );
-        QuestInteraction i = useWithInteractions.get(event.getUsed().asItem().getId());
+        PluginInteraction i = useWithInteractions.get(event.getUsed().asItem().getId());
         if(i == null) {
             return false;
         } else {
@@ -62,7 +62,7 @@ public class QuestInteractionManager{
     }
 
     public static boolean handle(Player player, NPC npc, Option option){
-        QuestInteraction i = npcInteractions.get(npc.getId());
+        PluginInteraction i = npcInteractions.get(npc.getId());
         if(i == null) {
             return false;
         } else {
@@ -71,7 +71,7 @@ public class QuestInteractionManager{
     }
 
     public static boolean handle(Player player, Item item, Option option){
-        QuestInteraction i = groundItemInteractions.get(item.getId());
+        PluginInteraction i = groundItemInteractions.get(item.getId());
         if(i == null){
             return false;
         } else {

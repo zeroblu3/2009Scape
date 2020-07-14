@@ -7,16 +7,16 @@ import core.game.node.object.GameObject;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class VineInteraction extends QuestInteraction {
+public class VineInteraction extends PluginInteraction {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{58,2989,2990,2991,2992,2993,2994,2013});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.OBJECT);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.OBJECT);
         return this;
     }
 

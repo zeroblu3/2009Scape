@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.Plugin;
 
-public abstract class QuestInteraction implements Plugin<Object> {
+public abstract class PluginInteraction implements Plugin<Object> {
     int[] ids;
     Item item;
     public boolean handle(Player player, Node node){
@@ -21,10 +21,10 @@ public abstract class QuestInteraction implements Plugin<Object> {
         return false;
     }
     public boolean handle(Player player, Item item, Option option){return false;}
-    public QuestInteraction(int... ids){
+    public PluginInteraction(int... ids){
         this.ids = ids;
     }
-    public QuestInteraction(Item item){this.item = item;}
+    public PluginInteraction(Item item){this.item = item;}
 
     public void setIds(int[] ids) {
         this.ids = ids;
