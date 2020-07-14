@@ -14,7 +14,7 @@ import core.net.packet.IoBuffer;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.PlayerContext;
 import core.net.packet.out.ClearMinimapFlag;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteractionManager;
 
 /**
  * The incoming item reward packet.
@@ -52,7 +52,7 @@ public class ItemActionPacket implements IncomingPacket {
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId, item, npc);
-			if(QuestInteractionManager.handle(player,event)){
+			if(PluginInteractionManager.handle(player,event)){
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId, item, npc);
@@ -69,7 +69,7 @@ public class ItemActionPacket implements IncomingPacket {
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId, item, target);
-			if(QuestInteractionManager.handle(player,event)){
+			if(PluginInteractionManager.handle(player,event)){
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId, item, target);
@@ -97,7 +97,7 @@ public class ItemActionPacket implements IncomingPacket {
 				with = item;
 			}
 			event = new NodeUsageEvent(player, interfaceId1, used, with);
-			if(QuestInteractionManager.handle(player,event)){
+			if(PluginInteractionManager.handle(player,event)){
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId1, used, with);
@@ -127,7 +127,7 @@ public class ItemActionPacket implements IncomingPacket {
 				return;
 			}
 			event = new NodeUsageEvent(player, 0, used, object);
-			if(QuestInteractionManager.handle(player,event)){
+			if(PluginInteractionManager.handle(player,event)){
 				return;
 			}
 			UseWithHandler.run(event);

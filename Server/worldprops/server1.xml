@@ -12,7 +12,7 @@
     />
 
     <!--Plugin configuration goes down here-->
-    <PluginSetting name="Trivia" enabled="false"/>
+    <PluginSetting name="Trivia" enabled="true"/>
     <PluginSetting name="RPS" enabled="false"/>
     <PluginSetting name="Boredom" enabled="false"/>
     <PluginSetting name="ShootingStars" enabled="false"/>

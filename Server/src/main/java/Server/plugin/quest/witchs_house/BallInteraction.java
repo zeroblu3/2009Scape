@@ -4,26 +4,24 @@ import core.game.interaction.MovementPulse;
 import core.game.interaction.Option;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
-import core.game.node.item.GroundItem;
-import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import plugin.SpellBlocks;
 import plugin.activity.mta.TelekineticGrabSpell;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 import plugin.skill.Skills;
 
 @InitializablePlugin
-public class BallInteraction extends QuestInteraction {
+public class BallInteraction extends PluginInteraction {
     private boolean handled;
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         SpellBlocks.register(TelekineticGrabSpell.SPELL_ID, (Node) new Item(2407));
         setIds(new int[]{2407});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.ITEM);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.ITEM);
         return this;
     }
 

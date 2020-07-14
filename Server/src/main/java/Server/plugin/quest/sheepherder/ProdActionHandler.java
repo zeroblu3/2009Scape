@@ -14,11 +14,11 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class ProdActionHandler extends QuestInteraction {
+public class ProdActionHandler extends PluginInteraction {
 
     @Override
     public boolean handle(Player player, NPC npc, Option option) {
@@ -72,7 +72,7 @@ public class ProdActionHandler extends QuestInteraction {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[] {SheepHerder.RED_SHEEP,SheepHerder.BLUE_SHEEP,SheepHerder.GREEN_SHEEP,SheepHerder.YELLOW_SHEEP});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.NPC);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.NPC);
         return this;
     }
 

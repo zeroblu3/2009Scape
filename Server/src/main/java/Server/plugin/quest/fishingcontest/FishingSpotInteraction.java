@@ -8,11 +8,11 @@ import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import plugin.dialogue.FacialExpression;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class FishingSpotInteraction extends QuestInteraction {
+public class FishingSpotInteraction extends PluginInteraction {
     @Override
     public boolean handle(Player player, NPC npc, Option option) {
         Location npc_loc = npc.getLocation();
@@ -61,7 +61,7 @@ public class FishingSpotInteraction extends QuestInteraction {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{309});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.NPC);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.NPC);
         return this;
     }
 

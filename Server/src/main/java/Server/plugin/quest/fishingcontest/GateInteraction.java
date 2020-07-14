@@ -1,17 +1,16 @@
 package plugin.quest.fishingcontest;
 
 import core.game.interaction.MovementPulse;
-import core.game.interaction.NodeUsageEvent;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class GateInteraction extends QuestInteraction {
+public class GateInteraction extends PluginInteraction {
     @Override
     public boolean handle(Player player, Node node) {
         player.sendMessage("Attempting to handle " + node.getId());
@@ -65,7 +64,7 @@ public class GateInteraction extends QuestInteraction {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{47,48,52,53});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.OBJECT);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.OBJECT);
         return this;
     }
 
