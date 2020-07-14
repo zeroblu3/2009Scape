@@ -1,13 +1,13 @@
 <worldprops>
     <GameSettings
-    name="2009scape PVP"
+    name="2009scape"
     beta="false"
     dev="false"
-    startGui="true"
+    startGui="false"
     worldID="1"
     countryID="0"
-    activity="2009scape Spawn PK"
-    pvpWorld="true"
+    activity="2009scape"
+    pvpWorld="false"
     msip="127.0.0.1"
     />
 
