@@ -69,24 +69,37 @@ class ManniDialogue(player: Player? = Player(PlayerDetails("",""))) : DialoguePl
                     2 -> {player("No, I don't think I am.");stage = 1000}
                   }
             103 -> {npc("As you wish outerlander; I will drink first, then you will","drink.");stage++}
-            104 -> {GameWorld.submit(DrinkingPulse(player,curNPC)); end()}
+            104 -> {GameWorld.submit(DrinkingPulse(player,curNPC,player?.getAttribute("fremtrials:keg-mixed",false))); end()}
 
             1000 -> end()
         }
         return true
     }
 
-    class DrinkingPulse(val player: Player?,val npc: NPC?) : Pulse(){
+    class DrinkingPulse(val player: Player?,val npc: NPC?, val lowAlcohol: Boolean? = false) : Pulse(){
         var counter = 0
         override fun pulse(): Boolean {
-            when(counter++){
-                0 -> {player?.lock();npc?.lock(); npc?.isNeverWalks = true}
-                1 -> {player?.face(npc); npc?.face(player)}
-                3 -> npc?.animator?.animate(Animation(1330,Animator.Priority.HIGH))
-                5 -> {player?.animator?.animate(Animation(1330,Animator.Priority.HIGH)); player?.inventory?.remove(Item(3711))}
-                7 -> player?.dialogueInterpreter?.sendDialogues(player,FacialExpression.DRUNK,"Ish no fair!! I canna drink another drop! I alsho","feel veddy, veddy ill...")
-                15 -> player?.dialogueInterpreter?.sendDialogues(npc,FacialExpression.DRUNK,"I guessh I win then ouddaladder! (hic) Niche try,","anyway!")
-                16 -> {player?.unlock(); npc?.unlock(); player?.face(player);npc?.face(npc); npc?.isNeverWalks = false; return true}
+            if(!lowAlcohol!!){
+                when(counter++){
+                    0 -> {player?.lock();npc?.lock(); npc?.isNeverWalks = true}
+                    1 -> {player?.face(npc); npc?.face(player)}
+                    3 -> npc?.animator?.animate(Animation(1330,Animator.Priority.HIGH))
+                    5 -> {player?.animator?.animate(Animation(1330,Animator.Priority.HIGH)); player?.inventory?.remove(Item(3711))}
+                    7 -> player?.dialogueInterpreter?.sendDialogues(player,FacialExpression.DRUNK,"Ish no fair!! I canna drink another drop! I alsho","feel veddy, veddy ill...")
+                    15 -> player?.dialogueInterpreter?.sendDialogues(npc,FacialExpression.DRUNK,"I guessh I win then ouddaladder! (hic) Niche try,","anyway!")
+                    16 -> {player?.unlock(); npc?.unlock(); player?.face(player);npc?.face(npc); npc?.isNeverWalks = false; return true}
+                }
+            } else {
+                when(counter++){
+                    0 -> {player?.lock();npc?.lock(); npc?.isNeverWalks = true}
+                    1 -> {player?.face(npc); npc?.face(player)}
+                    3 -> npc?.animator?.animate(Animation(1330,Animator.Priority.HIGH))
+                    5 -> {player?.animator?.animate(Animation(1330,Animator.Priority.HIGH)); player?.inventory?.remove(Item(3711))}
+                    7 -> player?.dialogueInterpreter?.sendDialogues(player,FacialExpression.HAPPY,"Aaaah, lovely stuff. So you want to get the next round","in, or shall I? You don't look so good there!")
+                    15 -> player?.dialogueInterpreter?.sendDialogues(npc,FacialExpression.DRUNK,"Wassha? Guh? You drank that whole keg! But it dinnna","affect you at all! I conshede! You can probably","outdrink me!")
+                    21 -> player?.dialogueInterpreter?.sendDialogues(npc,FacialExpression.DRUNK,"I jusht can't (hic) believe it! Thatsh shome might fine","drinking legs you got! Anyone who can drink like","THAT getsh my vote atta somsh.... coumah... gets my","vote!")
+                    22 -> {player?.unlock(); npc?.unlock(); player?.face(player);npc?.face(npc); npc?.isNeverWalks = false; player?.setAttribute("/save:fremtrials:manni-vote",true); player?.setAttribute("/save:fremtrials:votes",player.getAttribute("fremtrials:votes",0) + 1); return true}
+                }
             }
             return false
         }
