@@ -69,6 +69,22 @@ public class PKCommands extends CommandPlugin {
             case "empty":
                 player.getInventory().clear();
                 return true;
+            case "reset":
+                if (player.getDetails().getRights() != Rights.ADMINISTRATOR) {
+                    if (player.inCombat() || player.getLocks().isInteractionLocked() || player.getSkullManager().isWilderness()) {
+                        player.getPacketDispatch().sendMessage("You can't do that right now.");
+                        return true;
+                    }
+                }
+                for (int i = 0; i < Skills.SKILL_NAME.length; i++) {
+                    player.getSkills().setLevel(i, 1);
+                    player.getSkills().setStaticLevel(i, 1);
+                }
+                player.getSkills().updateCombatLevel();
+                player.getAppearance().sync();
+                player.getInventory().clear();
+                player.getEquipment().clear();
+                return true;
         }
         return false;
     }

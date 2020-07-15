@@ -4,15 +4,14 @@ import core.game.interaction.MovementPulse;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.node.item.GroundItemManager;
 import core.game.node.object.GameObject;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.quest.QuestInteraction;
-import plugin.quest.QuestInteractionManager;
+import plugin.quest.PluginInteraction;
+import plugin.quest.PluginInteractionManager;
 
 @InitializablePlugin
-public class StairInteraction extends QuestInteraction{
+public class StairInteraction extends PluginInteraction {
     @Override
     public boolean handle(Player player, Node node) {
         if(!player.getQuestRepository().isComplete("Fishing Contest")) {
@@ -42,7 +41,7 @@ public class StairInteraction extends QuestInteraction{
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         setIds(new int[]{57,55});
-        QuestInteractionManager.register(this, QuestInteractionManager.InteractionType.OBJECT);
+        PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.OBJECT);
         return this;
     }
 

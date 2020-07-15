@@ -113,6 +113,7 @@ public final class GrandExchangeDatabase {
 			e.setLogLength(0);
 			DATABASE.put(def.getId(),e);
 		});
+		initialized = true;
 	}
 
 
