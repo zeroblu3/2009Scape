@@ -2,17 +2,22 @@ package plugin.quest.fremtrials
 
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.PlayerDetails
+import core.plugin.InitializablePlugin
 import plugin.dialogue.DialoguePlugin
 
-class ChieftanBrundt(player: Player? = Player(PlayerDetails(null))) : DialoguePlugin(){
+@InitializablePlugin
+class ChieftanBrundt(player: Player? = Player(PlayerDetails("",""))) : DialoguePlugin(player){
     override fun open(vararg args: Any?): Boolean {
-        npc("Greetings outlander!")
-        stage = 0
+        if(player?.questRepository?.getStage("Fremennik Trials")!! == 0) {
+            npc("Greetings outlander!")
+            stage = 0
+        }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when(stage){
+            //Pre-Quest
             0 -> { options("What is this place?", "Why will no-one talk to me?", "Do you have any quests?", "Nice hat!");stage++}
             1 -> when(buttonId){
                     1 -> TODO("Not yet implemented")
@@ -47,7 +52,7 @@ class ChieftanBrundt(player: Player? = Player(PlayerDetails(null))) : DialoguePl
 
                     //I think I would enjoy the challenge of becoming an honorary fremennik
                     320 -> {npc("As I say outerlander, you must find and speak to the","twelve members of the council of elders, and see what","tasks they might set you.");stage++}
-                    321 -> {npc("If you can gain the support of seven of the twelve, then","you will be accepted as one of us without question.");stage = 1000}
+                    321 -> {npc("If you can gain the support of seven of the twelve, then","you will be accepted as one of us without question.");stage = 1000;player?.questRepository?.getQuest("Fremennik Trials")?.start(player)}
 
                     //That sounds too complicated for me.
                     322 -> {npc("Well, that's what I expect from an outerlander.");stage = 1000}
@@ -63,7 +68,7 @@ class ChieftanBrundt(player: Player? = Player(PlayerDetails(null))) : DialoguePl
 
 
     override fun newInstance(player: Player?): DialoguePlugin {
-        TODO("Not yet implemented")
+        return ChieftanBrundt(player)
     }
 
     override fun getIds(): IntArray {
