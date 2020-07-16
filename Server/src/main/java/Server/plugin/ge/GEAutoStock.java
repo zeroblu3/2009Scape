@@ -53,7 +53,7 @@ public class GEAutoStock {
 					GrandExchangeOffer o = new GrandExchangeOffer(itemId,true);
 					o.setAmount(amount);
 					o.setOfferedValue(value);
-					STOCK.add(o);
+					GEOfferDispatch.dispatch(p,o);
 					System.out.println("Stocked " + new Item(itemId).getName() + " x" + amount + " at " + value + " each.");
 				}
 			}
