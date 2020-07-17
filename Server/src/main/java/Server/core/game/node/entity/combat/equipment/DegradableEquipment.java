@@ -18,7 +18,6 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 	/**
 	 * The equipment lists.
 	 */
-	@SuppressWarnings("unchecked")
 	private static final List<DegradableEquipment>[] EQUIPMENT = new ArrayList[14];
 
 	/**
@@ -41,6 +40,8 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 		this.itemIds = itemIds;
 	}
 
+
+
 	/**
 	 * Handles equipment degrading.
 	 * @param player The player.
@@ -48,7 +49,7 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 	 * @param attack If the player is attacking instead of defending.
 	 */
 	public static void degrade(Player player, Entity entity, boolean attack) {
-		if (attack) {
+		/*if (attack) {
 			checkDegrade(player, entity, EquipmentContainer.SLOT_WEAPON);
 			return;
 		}
@@ -56,7 +57,7 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 			if (i != EquipmentContainer.SLOT_WEAPON && i != EquipmentContainer.SLOT_ARROWS) {
 				checkDegrade(player, entity, i);
 			}
-		}
+		}*/
 	}
 
 	/**
@@ -66,7 +67,7 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 	 * @param slot The slot to check.
 	 */
 	public static void checkDegrade(Player player, Entity entity, int slot) {
-		Item item = player.getEquipment().get(slot);
+		/*Item item = player.getEquipment().get(slot);
 		if(item != null) {
 			roar:
 			{
@@ -79,7 +80,7 @@ public abstract class DegradableEquipment implements Plugin<Object> {
 					}
 				}
 			}
-		}
+		}*/
 	}
 
 	/**

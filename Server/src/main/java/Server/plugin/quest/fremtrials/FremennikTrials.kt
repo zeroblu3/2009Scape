@@ -30,6 +30,14 @@ class FremennikTrials : Quest("Fremennik Trials",64,63,3,347,0,1,10){
             line(player,"the !!Fremennik Longhall,?? which is in the town of !!Rellekka?? to",line++)
             line(player,"the north of !!Sinclair Mansion??.",line)
         } else {
+            line(player,"In order to join the Fremenniks, I need to",line++)
+            line(player,"!!earn the approval?? of !!7 members?? of the elder council.",line++)
+            line(player,"I've written down the members who I can try to help:",line++)
+            line(player,"Manni the Reveller",line++,player.getAttribute("fremtrials:manni-vote",false))
+            line(player,"Swensen the Navigator",line++,player.getAttribute("fremtrials:swensen-vote",false))
+            line(player,"Sigli the Huntsman",line++,player.getAttribute("fremtrials:sigli-vote",false))
+            line(player,"Olaf the Bard",line++,player.getAttribute("fremtrials:olaf-vote",false))
+            line(player,"So far I have gotten ${player.getAttribute("fremtrials:votes",0)} votes.",line++)
         }
     }
 

@@ -364,7 +364,6 @@ public final class BarrowsActivityPlugin extends ActivityPlugin {
 
 	@Override
 	public void configure() {
-		BarrowsEquipment.init();
 		PluginManager.definePlugin(new TunnelEntranceDialogue());
 		PluginManager.definePlugin(BarrowsPuzzle.SHAPES);
 		registerRegion(14231);

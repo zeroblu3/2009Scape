@@ -395,6 +395,7 @@ public abstract class CombatSwingHandler {
 		}
 		if (entity instanceof Player) {
 			Player p = (Player) entity;
+			p.degrader.checkWeaponDegrades(p);
 			if (totalHit > 0 && p.getPrayer().get(PrayerType.SMITE) && victim.getSkills().getPrayerPoints() > 0) {
 				victim.getSkills().decrementPrayerPoints(totalHit * 0.25);
 			}

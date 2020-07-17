@@ -97,7 +97,7 @@ public class PlayerDetails {
 	}
 	
 	/**
-	 * Constructs a new {@Code PlayerDetails} {@Code Object}
+ * Constructs a new {@Code PlayerDetails} {@Code Object}
 	 * @param username the username to set.
 	 */
 	public PlayerDetails(String username) {

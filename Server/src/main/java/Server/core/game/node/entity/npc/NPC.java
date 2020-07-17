@@ -424,6 +424,10 @@ public class NPC extends Entity {
 	public void handleTickActions() {
 		if (!getLocks().isInteractionLocked()) {
 			if (!pathBoundMovement && walkRadius > 0 && !getLocation().withinDistance(getProperties().getSpawnLocation(), walkRadius)) {
+				if(!isNeverWalks()){
+					if(walkRadius == 0)
+						walkRadius = 3;
+				}
 				getPulseManager().run(new MovementPulse(this, getProperties().getSpawnLocation(), Pathfinder.SMART) {
 					@Override
 					public boolean pulse() {
