@@ -29,6 +29,10 @@ class ManniDialogue(player: Player? = Player(PlayerDetails("",""))) : DialoguePl
                     stage = 1000;
                     return true
                 }
+            } else if(player?.getAttribute("fremtrials:manni-vote",false) == true){
+                npc("e have my vote!")
+                stage = 1000
+                return true
             }
             player("Hello there!")
             stage = 0
@@ -98,7 +102,7 @@ class ManniDialogue(player: Player? = Player(PlayerDetails("",""))) : DialoguePl
                     7 -> player?.dialogueInterpreter?.sendDialogues(player,FacialExpression.HAPPY,"Aaaah, lovely stuff. So you want to get the next round","in, or shall I? You don't look so good there!")
                     15 -> player?.dialogueInterpreter?.sendDialogues(npc,FacialExpression.DRUNK,"Wassha? Guh? You drank that whole keg! But it dinnna","affect you at all! I conshede! You can probably","outdrink me!")
                     21 -> player?.dialogueInterpreter?.sendDialogues(npc,FacialExpression.DRUNK,"I jusht can't (hic) believe it! Thatsh shome might fine","drinking legs you got! Anyone who can drink like","THAT getsh my vote atta somsh.... coumah... gets my","vote!")
-                    22 -> {player?.unlock(); npc?.unlock(); player?.face(player);npc?.face(npc); npc?.isNeverWalks = false; player?.setAttribute("/save:fremtrials:manni-vote",true); player?.setAttribute("/save:fremtrials:votes",player.getAttribute("fremtrials:votes",0) + 1); return true}
+                    22 -> {player?.unlock(); npc?.unlock(); player?.face(player);npc?.face(npc); npc?.isNeverWalks = false;player?.removeAttribute("fremtrials:cherrybomb");player?.removeAttribute("fremtrials:manni-accepted");player?.removeAttribute("fremtrials:keg-mixed"); player?.setAttribute("/save:fremtrials:manni-vote",true); player?.setAttribute("/save:fremtrials:votes",player.getAttribute("fremtrials:votes",0) + 1); return true}
                 }
             }
             return false

@@ -13,7 +13,6 @@ class PoisonSalesman(player: Player? = Player(PlayerDetails("",""))) : DialogueP
         stage = 0
         return true
     }
-
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         val fremStage = player?.questRepository?.getStage("Fremennik Trials")
         when(stage){

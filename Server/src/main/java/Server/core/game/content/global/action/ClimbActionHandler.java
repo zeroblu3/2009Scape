@@ -1,5 +1,6 @@
 package core.game.content.global.action;
 
+import core.game.system.SystemLogger;
 import plugin.dialogue.DialoguePlugin;
 import core.game.node.entity.player.Player;
 import core.game.node.object.GameObject;
@@ -62,6 +63,7 @@ public final class ClimbActionHandler {
 		Animation animation = CLIMB_UP;
 		if(SpecialLadders.forLocation(object.getLocation()) != null){
 			Location destination = SpecialLadders.forLocation(object.getLocation());
+			SystemLogger.log("Ladder null? " + (destination == null));
 			climb(player,animation,destination);
 			return;
 		}

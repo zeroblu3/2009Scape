@@ -55,6 +55,7 @@ public final class PlayerParser {
 						break;
 					case 5:
 						player.getSkills().parse(buffer);
+
 						break;
 					case 6:
 						player.getSettings().parse(buffer);

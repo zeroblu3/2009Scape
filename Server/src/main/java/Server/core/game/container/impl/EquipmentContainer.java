@@ -19,7 +19,6 @@ import core.plugin.Plugin;
  * @author Emperor
  */
 public final class EquipmentContainer extends Container {
-
 	/**
 	 * The equipment slots.
 	 */

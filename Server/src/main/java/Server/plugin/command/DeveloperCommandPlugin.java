@@ -107,7 +107,11 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
         		}
         		
         	break;
-        	
+
+            case "killall":
+                RegionManager.getLocalNpcs(player).forEach(n -> n.getImpactHandler().manualHit(player,1000,HitsplatType.NORMAL));
+                break;
+
         	case "setlevel":
         		player.getSkills().setLevel(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
         		player.getSkills().setStaticLevel(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
