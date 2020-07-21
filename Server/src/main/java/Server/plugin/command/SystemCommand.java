@@ -2,6 +2,7 @@ package plugin.command;
 
 import core.cache.Cache;
 import core.cache.def.impl.ItemDefinition;
+import core.game.system.config.ItemConfigParser;
 import plugin.ge.GrandExchangeDatabase;
 import plugin.ge.GrandExchangeEntry;
 import plugin.ge.ResourceManager;
@@ -10,7 +11,6 @@ import core.game.system.SystemManager;
 import core.game.system.SystemState;
 import core.game.system.command.CommandPlugin;
 import core.game.system.command.CommandSet;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.world.repository.Repository;
 import core.net.amsc.WorldCommunicator;
 import core.plugin.InitializablePlugin;
@@ -88,11 +88,11 @@ public final class SystemCommand extends CommandPlugin {
 				if (value < def.getValue()) {
 					value = def.getValue();
 				}
-				if (value < def.getConfiguration(ItemConfigSQLHandler.GE_PRICE, 0)) {
-					value = def.getConfiguration(ItemConfigSQLHandler.GE_PRICE, 0);
+				if (value < def.getConfiguration(ItemConfigParser.GE_PRICE, 0)) {
+					value = def.getConfiguration(ItemConfigParser.GE_PRICE, 0);
 				}
-				if (value < def.getConfiguration(ItemConfigSQLHandler.SHOP_PRICE, 0)) {
-					value = def.getConfiguration(ItemConfigSQLHandler.SHOP_PRICE, 0);
+				if (value < def.getConfiguration(ItemConfigParser.SHOP_PRICE, 0)) {
+					value = def.getConfiguration(ItemConfigParser.SHOP_PRICE, 0);
 				}
 				if (value != entry.getValue()) {
 					changes++;

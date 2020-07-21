@@ -1,5 +1,6 @@
 package core.game.content.global.action;
 
+import core.game.system.config.GroundSpawnLoader;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.GodType;
 import plugin.skill.runecrafting.RunePouch;
@@ -10,7 +11,6 @@ import core.game.node.item.GroundItem;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.system.SystemLogger;
-import core.game.system.mysql.impl.GroundSpawnSQLHandler.GroundSpawn;
 import core.game.world.GameWorld;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
@@ -40,7 +40,7 @@ public final class PickupHandler {
 			SystemLogger.log(player + ", tried to do the drop & quick pick-up Ground Item dupe.");
 			return true;
 		}
-		if (!(item instanceof GroundSpawn) && item.isRemainPrivate() && !item.droppedBy(player)) {
+		if (!(item instanceof GroundSpawnLoader.GroundSpawn) && item.isRemainPrivate() && !item.droppedBy(player)) {
 			player.sendMessage("You can't take that item!");
 			return true;
 		}
@@ -56,7 +56,7 @@ public final class PickupHandler {
 			if (!RegionManager.isTeleportPermitted(item.getLocation())) {
 				player.animate(Animation.create(535));
 			}
-			if (item instanceof GroundSpawn && item.getId() == 401 && player.getZoneMonitor().isInZone("karamja") && !player.getAchievementDiaryManager().hasCompletedTask(DiaryType.KARAMJA, 0, 7)) {
+			if (item instanceof GroundSpawnLoader.GroundSpawn && item.getId() == 401 && player.getZoneMonitor().isInZone("karamja") && !player.getAchievementDiaryManager().hasCompletedTask(DiaryType.KARAMJA, 0, 7)) {
 				int seaweed = player.getAttribute("seaweed", 0);
 				seaweed++;
 				player.setAttribute("seaweed", seaweed);

@@ -6,8 +6,7 @@ import core.game.node.entity.player.link.audio.Audio;
 import core.game.node.object.Constructed;
 import core.game.node.object.GameObject;
 import core.game.node.object.ObjectBuilder;
-import core.game.system.mysql.impl.DoorConfigSQLHandler;
-import core.game.system.mysql.impl.DoorConfigSQLHandler.Door;
+import core.game.system.config.DoorConfigLoader;
 import core.game.system.task.LocationLogoutTask;
 import core.game.system.task.LogoutTask;
 import core.game.system.task.Pulse;
@@ -51,7 +50,7 @@ public final class DoorActionHandler {
 				player.getPacketDispatch().sendMessage("The doors appear to be stuck.");
 				return;
 			}
-			Door d = DoorConfigSQLHandler.forId(object.getId());
+			DoorConfigLoader.Door d = DoorConfigLoader.Companion.forId(object.getId());
 			if (d == null) {
 				player.getPacketDispatch().sendMessage("The door appears to be stuck.");
 				return;
@@ -62,7 +61,7 @@ public final class DoorActionHandler {
 			ObjectBuilder.replace(object, object.transform(d.getReplaceId(), firstDir, firstLoc));
 			return;
 		}
-		Door d = DoorConfigSQLHandler.forId(object.getId());
+		DoorConfigLoader.Door d = DoorConfigLoader.Companion.forId(object.getId());
 		if (d == null) {
 			handleAutowalkDoor(player, object);
 			return;
@@ -73,7 +72,7 @@ public final class DoorActionHandler {
 			player.getAudioManager().send(new Audio(81));
 		}
 		if (second != null) {
-			Door s = DoorConfigSQLHandler.forId(second.getId());
+			DoorConfigLoader.Door s = DoorConfigLoader.Companion.forId(second.getId());
 			open(object, second, d.getReplaceId(), s == null ? second.getId() : s.getReplaceId(), true, 500, d.isFence());
 			return;
 		}

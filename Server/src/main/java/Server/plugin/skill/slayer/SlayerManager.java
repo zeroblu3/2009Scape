@@ -1,12 +1,12 @@
 package plugin.skill.slayer;
 
 import core.cache.def.impl.NPCDefinition;
+import core.game.system.config.NPCConfigParser;
 import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.entity.player.link.diary.DiaryType;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
 import core.tools.RandomFunction;
 
 import java.nio.ByteBuffer;
@@ -184,7 +184,7 @@ public final class SlayerManager implements SavingModule {
 	 * @param npc The NPC. You're currently
 	 */
 	public void finalizeDeath(Player player, NPC npc) {
-		player.getSkills().addExperience(Skills.SLAYER, npc.getDefinition().getConfiguration(NPCConfigSQLHandler.SLAYER_EXP, npc.getSkills().getStaticLevel(Skills.HITPOINTS)), true);
+		player.getSkills().addExperience(Skills.SLAYER, npc.getDefinition().getConfiguration(NPCConfigParser.SLAYER_EXP, npc.getSkills().getStaticLevel(Skills.HITPOINTS)), true);
 		decrementAmount(1);
 		if (!hasTask()) {
 			clear();

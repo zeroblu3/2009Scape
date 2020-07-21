@@ -1,6 +1,7 @@
 package plugin.skill;
 
 import core.game.content.global.SkillcapePerks;
+import core.game.world.GameWorld;
 import plugin.ame.ExperienceMonitor;
 import plugin.tutorial.TutorialSession;
 import core.game.node.entity.Entity;
@@ -381,6 +382,9 @@ public final class Skills {
 
 	public void parseExpRate(ByteBuffer buffer) {
 		experienceMutiplier = buffer.getDouble();
+		if(GameWorld.getSettings().getDefault_xp_rate() != experienceMutiplier){
+			experienceMutiplier = GameWorld.getSettings().getDefault_xp_rate();
+		}
 	}
 
 	/**

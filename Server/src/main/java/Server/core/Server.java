@@ -44,7 +44,7 @@ public final class Server {
 	 */
 	public static void main(String... args) throws Throwable {
 		if (args.length > 0) {
-			GameWorld.setSettings(GameSettings.parse(args));
+			GameWorld.setSettings(GameSettings.Companion.parse(args));
 		}
 		if (GameWorld.getSettings().isGui()) {
 			try {

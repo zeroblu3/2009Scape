@@ -1,6 +1,5 @@
 package ms;
 
-import org.apache.commons.io.FilenameUtils;
 import ms.system.OperatingSystem;
 
 /**
@@ -87,6 +86,6 @@ public final class ServerConstants {
     public static String fixPath(OperatingSystem operatingSystem, String path) {
     	if (operatingSystem == null)
     		operatingSystem = OS;
-    	return operatingSystem == OperatingSystem.WINDOWS ? FilenameUtils.separatorsToWindows(path) : FilenameUtils.separatorsToUnix(path);
+    	return operatingSystem == OperatingSystem.WINDOWS ? path.replace("/","\\") : path.replace("\\","/");
     }
 }

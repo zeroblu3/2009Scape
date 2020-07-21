@@ -3,12 +3,12 @@ package plugin.dialogue;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.game.component.Component;
+import core.game.system.config.ItemConfigParser;
 import plugin.tutorial.TutorialSession;
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.system.script.ScriptContext;
 import core.game.system.script.ScriptManager;
 import core.game.system.script.context.*;
@@ -273,7 +273,7 @@ public final class DialogueInterpreter {
     public Component sendDestroyItem(int id, String message) {
         player.getInterfaceManager().openChatbox(94);
         PacketRepository.send(ContainerPacket.class, new ContainerContext(player, 94, 93, 93, new Item[] { new Item(id) }, 1, false));
-        String text = ItemDefinition.forId(id).getConfiguration(ItemConfigSQLHandler.DESTROY_MESSAGE, "Are you sure you want to destroy this object?");
+        String text = ItemDefinition.forId(id).getConfiguration(ItemConfigParser.DESTROY_MESSAGE, "Are you sure you want to destroy this object?");
         if (text.length() > 200) {
             String[] words = text.split(" ");
             StringBuilder sb = new StringBuilder(words[0]);

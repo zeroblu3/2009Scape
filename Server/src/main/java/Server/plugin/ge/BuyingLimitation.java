@@ -1,7 +1,7 @@
 package plugin.ge;
 
 import core.cache.def.impl.ItemDefinition;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +41,7 @@ public final class BuyingLimitation {
 		if (current == null) {
 			current = 0;
 		}
-		return ItemDefinition.forId(itemId).getConfiguration(ItemConfigSQLHandler.GE_LIMIT, 25000) - current;
+		return ItemDefinition.forId(itemId).getConfiguration(ItemConfigParser.GE_LIMIT, 25000) - current;
 	}
 
 	/**
@@ -76,7 +76,7 @@ public final class BuyingLimitation {
 		if (current == null) {
 			return false;
 		}
-		int max = ItemDefinition.forId(itemId).getConfiguration(ItemConfigSQLHandler.GE_LIMIT, 25000);
+		int max = ItemDefinition.forId(itemId).getConfiguration(ItemConfigParser.GE_LIMIT, 25000);
 		return current >= max;
 	}
 

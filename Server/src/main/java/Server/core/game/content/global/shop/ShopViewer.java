@@ -6,6 +6,7 @@ import core.game.node.entity.player.Player;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.ContainerContext;
 import core.net.packet.out.ContainerPacket;
+import plugin.shops.FOGShop;
 
 /**
  * Represents the viewing of a shop.
@@ -67,6 +68,9 @@ public final class ShopViewer {
 	 * Method used to open the shop visual.
 	 */
 	public void open() {
+		if(shop instanceof FOGShop){
+			shop = new FOGShop();
+		}
 		update();
 		shop.getViewers().add(this);
 		player.getInterfaceManager().open(COMPONENT);

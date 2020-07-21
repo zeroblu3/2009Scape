@@ -1,5 +1,6 @@
 package plugin.npc.familiar;
 
+import core.game.system.config.ItemConfigParser;
 import plugin.skill.summoning.SummoningScroll;
 import plugin.skill.summoning.familiar.BurdenBeast;
 import plugin.skill.summoning.familiar.Familiar;
@@ -7,7 +8,6 @@ import plugin.skill.summoning.familiar.FamiliarSpecial;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.InitializablePlugin;
 import core.game.world.update.flag.context.Graphics;
@@ -47,7 +47,7 @@ public class PackYakNPC extends BurdenBeast {
 		if (item.getId() == SummoningScroll.WINTER_STORAGE_SCROLL.getItemId()) {
 			return false;
 		}
-		if (!item.getDefinition().getConfiguration(ItemConfigSQLHandler.BANKABLE, true)) {
+		if (!item.getDefinition().getConfiguration(ItemConfigParser.BANKABLE, true)) {
 			player.sendMessage("A magical force prevents you from banking this item");
 			return false;
 		}

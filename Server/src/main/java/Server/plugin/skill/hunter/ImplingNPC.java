@@ -1,12 +1,12 @@
 package plugin.skill.hunter;
 
+import core.game.system.config.NPCConfigParser;
 import plugin.skill.hunter.bnet.ImplingNode;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
@@ -44,7 +44,7 @@ public final class ImplingNPC extends AbstractNPC {
 		super(id, location);
 		this.impling = impling;
 		if (impling != null) {
-			this.getDefinition().getConfigurations().put(NPCConfigSQLHandler.RESPAWN_DELAY, impling.getRespawnTime());
+			this.getDefinition().getConfigurations().put(NPCConfigParser.RESPAWN_DELAY, impling.getRespawnTime());
 		}
 	}
 

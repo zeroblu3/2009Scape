@@ -1,6 +1,7 @@
 package core.game.node.entity.npc.drop;
 
 import core.cache.def.impl.NPCDefinition;
+import core.game.system.config.ItemConfigParser;
 import plugin.drops.DropPlugins;
 import plugin.ge.GrandExchangeDatabase;
 import core.game.content.global.Bones;
@@ -12,7 +13,6 @@ import core.game.node.item.ChanceItem;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.system.SystemLogger;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.repository.Repository;
@@ -152,7 +152,7 @@ public final class NPCDropTables {
 			}
 			return;
 		}
-		if (item.getDefinition().getConfiguration(ItemConfigSQLHandler.RARE_ITEM, false)) {
+		if (item.getDefinition().getConfiguration(ItemConfigParser.RARE_ITEM, false)) {
 			Repository.sendNews(player.getUsername() + " has just received: " + item.getAmount() + " x " + item.getName() + ".");
 		}
 		if(item.getId() == 6199 && player instanceof Player){

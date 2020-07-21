@@ -59,6 +59,9 @@ public final class LoginReadEvent extends IoReadEvent {
 			return;
 		}
 		switch (opcode) {
+			case 12:
+				System.out.println("User details event detected");
+				break;
 		case 16: // Reconnect world login
 		case 18: // World login
 			decodeWorld(opcode, session, buffer);
@@ -92,8 +95,8 @@ public final class LoginReadEvent extends IoReadEvent {
 		for (int i = 0; i < Cache.getIndexes().length; i++) {
 			int crc = Cache.getIndexes()[i] == null ? 0 : Cache.getIndexes()[i].getInformation().getInformationContainer().getCrc();
 			if (crc != buffer.getInt() && crc != 0) {
-				session.write(Response.UPDATED);
-				return;
+				/*session.write(Response.UPDATED);
+				return;*/
 			}
 		}
 		buffer = getRSABlock(buffer);

@@ -1,7 +1,7 @@
 package core.net.packet.out;
 
 import core.game.node.entity.player.Player;
-import core.game.system.mysql.impl.RegionSQLHandler;
+import core.game.system.config.XteaParser;
 import core.net.packet.IoBuffer;
 import core.net.packet.OutgoingPacket;
 import core.net.packet.PacketHeader;
@@ -21,7 +21,7 @@ public final class UpdateSceneGraph implements OutgoingPacket<SceneGraphContext>
 		buffer.putShortA(player.getLocation().getSceneX());
 		for (int regionX = (player.getLocation().getRegionX() - 6) / 8; regionX <= ((player.getLocation().getRegionX() + 6) / 8); regionX++) {
 			for (int regionY = (player.getLocation().getRegionY() - 6) / 8; regionY <= ((player.getLocation().getRegionY() + 6) / 8); regionY++) {
-				int[] keys = RegionSQLHandler.getRegionXTEA(regionX << 8 | regionY);
+				int[] keys = XteaParser.Companion.getRegionXTEA(regionX << 8 | regionY);
 				for (int i = 0; i < keys.length; i++) {
 					buffer.putIntB(keys[i]);
 				}

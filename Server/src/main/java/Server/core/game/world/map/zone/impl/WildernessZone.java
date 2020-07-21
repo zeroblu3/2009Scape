@@ -1,6 +1,7 @@
 package core.game.world.map.zone.impl;
 
 import core.game.component.Component;
+import core.game.system.config.NPCConfigParser;
 import plugin.ame.AntiMacroNPC;
 import plugin.skill.summoning.familiar.Familiar;
 import core.game.interaction.Option;
@@ -14,7 +15,6 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.zone.MapZone;
@@ -122,7 +122,7 @@ public final class WildernessZone extends MapZone {
 			}
 
 			if (e instanceof NPC || e instanceof AntiMacroNPC) {
-				e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
+				e.asNpc().setRespawnTick(GameWorld.getTicks() + e.asNpc().getDefinition().getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
 				if (!e.asNpc().isRespawn()) {
 					e.asNpc().clear();
 				}
@@ -157,7 +157,9 @@ public final class WildernessZone extends MapZone {
 	public boolean enter(Entity e) {
 		if (e instanceof Player) {
 			Player p = (Player) e;
-			show(p);
+			if(!p.isArtificial()) {
+				show(p);
+			}
 			p.getAntiMacroHandler().isDisabled = true;
 			for (int i = 0; i < 7; i++) {
 				if (i == 5 || i == 3) {
@@ -282,7 +284,7 @@ public final class WildernessZone extends MapZone {
 
 	@Override
 	public void locationUpdate(Entity e, Location last) {
-		if (e instanceof Player) {
+		if (e instanceof Player && !e.asPlayer().isArtificial()) {
 			Player p = (Player) e;
 			p.getSkullManager().setLevel(getWilderness(p));
 			Component overlay = p.getInterfaceManager().getOverlay();

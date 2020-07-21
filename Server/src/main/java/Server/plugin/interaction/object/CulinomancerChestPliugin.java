@@ -6,7 +6,7 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.object.GameObject;
 import core.game.node.object.ObjectBuilder;
-import core.game.system.mysql.impl.ShopSQLHandler;
+import core.game.system.config.ShopParser;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.InitializablePlugin;
@@ -36,10 +36,10 @@ public final class CulinomancerChestPliugin extends OptionHandler {
 			player.getBank().open();
 			return true;
 		case "buy-items":
-			ShopSQLHandler.openUid(player, 178);
+			ShopParser.Companion.openUid(player, 178);
 			return true;
 		case "buy-food":
-			ShopSQLHandler.openUid(player, 177);
+			ShopParser.Companion.openUid(player, 177);
 			return true;
 		}
 		return true;

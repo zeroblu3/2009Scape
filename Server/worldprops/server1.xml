@@ -1,7 +1,10 @@
 <worldprops>
+
+
+    <!--Note: Bots are EXTREMELY EXPERIMENTAL, issues are not currently of concern.-->
     <GameSettings
     name="2009scape"
-    beta="false"
+    debug="false"
     dev="false"
     startGui="false"
     worldID="1"
@@ -9,13 +12,18 @@
     activity="2009scape"
     pvpWorld="false"
     msip="127.0.0.1"
+    default_xp_rate="5"
+    allow_slayer_reroll="true"
+    enable_bots="false"
+    autostock_ge="false"
+    allow_token_purchase="true"
     />
 
     <!--Plugin configuration goes down here-->
-    <PluginSetting name="Trivia" enabled="true"/>
+    <PluginSetting name="Trivia" enabled="false"/>
     <PluginSetting name="RPS" enabled="false"/>
     <PluginSetting name="Boredom" enabled="false"/>
-    <PluginSetting name="ShootingStars" enabled="false"/>
+    <PluginSetting name="ShootingStars" enabled="true"/>
     <PluginSetting name="MysteryBox" enabled="false"/>
     <PluginSetting name="PKZone" enabled="false"/>
     <PluginSetting name="ObjectParser" enabled="true"/>

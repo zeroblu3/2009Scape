@@ -180,6 +180,7 @@ public final class PacketRepository {
 			System.err.println("Invalid outgoing packet [handler=" + clazz + ", context=" + context + "].");
 			return;
 		}
+		if(!context.getPlayer().isArtificial())
 		p.send(context);
 	}
 

@@ -4,7 +4,7 @@ import core.cache.def.impl.ObjectDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
-import core.game.system.mysql.impl.ShopSQLHandler;
+import core.game.system.config.ShopParser;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 
@@ -18,7 +18,7 @@ public final class BuyCrateOptionPlugin extends OptionHandler {
 
 	@Override
 	public boolean handle(Player player, Node node, String option) {
-		ShopSQLHandler.openUid(player, 93);
+		ShopParser.Companion.openUid(player, 93);
 		return true;
 	}
 

@@ -8,7 +8,7 @@ import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.player.AppearanceFlag;
 
@@ -101,7 +101,7 @@ public final class Appearance implements SavingModule {
 			player.setSize(1);
 			Animation[] anims = WeaponInterface.DEFAULT_ANIMS;
 			if (player.getEquipment().get(3) != null) {
-				anims = player.getEquipment().get(3).getDefinition().getConfiguration(ItemConfigSQLHandler.ATTACK_ANIMS, anims);
+				anims = player.getEquipment().get(3).getDefinition().getConfiguration(ItemConfigParser.ATTACK_ANIMS, anims);
 			}
 			int index = player.getSettings().getAttackStyleIndex();
 			if (index < 0 || index >= anims.length) {
@@ -136,17 +136,17 @@ public final class Appearance implements SavingModule {
 			if (isRidingMinecart()) {
 				this.setRidingMinecart(false);
 			}
-			if (weapon == null || weapon.getDefinition().getConfiguration(ItemConfigSQLHandler.WALK_ANIM, null) == null) {
+			if (weapon == null || weapon.getDefinition().getConfiguration(ItemConfigParser.WALK_ANIM, null) == null) {
 				setDefaultAnimations();
 			} else {
 				ItemDefinition def = weapon.getDefinition();
-				setStandAnimation(def.getConfiguration(ItemConfigSQLHandler.STAND_ANIM, 0x328));
-				setStandTurnAnimation(def.getConfiguration(ItemConfigSQLHandler.STAND_TURN_ANIM, 0x337));
-				setWalkAnimation(def.getConfiguration(ItemConfigSQLHandler.WALK_ANIM, 0x333));
-				setRunAnimation(def.getConfiguration(ItemConfigSQLHandler.RUN_ANIM, 0x338));
-				setTurn180(def.getConfiguration(ItemConfigSQLHandler.TURN180_ANIM, 0x334));
-				setTurn90cw(def.getConfiguration(ItemConfigSQLHandler.TURN90CW_ANIM, 0x335));
-				setTurn90ccw(def.getConfiguration(ItemConfigSQLHandler.TURN90CCW_ANIM, 0x336));
+				setStandAnimation(def.getConfiguration(ItemConfigParser.STAND_ANIM, 0x328));
+				setStandTurnAnimation(def.getConfiguration(ItemConfigParser.STAND_TURN_ANIM, 0x337));
+				setWalkAnimation(def.getConfiguration(ItemConfigParser.WALK_ANIM, 0x333));
+				setRunAnimation(def.getConfiguration(ItemConfigParser.RUN_ANIM, 0x338));
+				setTurn180(def.getConfiguration(ItemConfigParser.TURN180_ANIM, 0x334));
+				setTurn90cw(def.getConfiguration(ItemConfigParser.TURN90CW_ANIM, 0x335));
+				setTurn90ccw(def.getConfiguration(ItemConfigParser.TURN90CCW_ANIM, 0x336));
 				renderAnimationId = def.getRenderAnimationId();
 			}
 			if (weapon != null && weapon.getId() == 12842) {
@@ -298,7 +298,7 @@ public final class Appearance implements SavingModule {
 		} else {
 			drawClothes(4, getTorso().getLook());
 		}
-		if (chest != null && chest.getDefinition().getConfiguration(ItemConfigSQLHandler.REMOVE_SLEEVES, false)) {
+		if (chest != null && chest.getDefinition().getConfiguration(ItemConfigParser.REMOVE_SLEEVES, false)) {
 			clearBodyPart(6);
 		} else {
 			drawClothes(6, getArms().getLook());
@@ -308,7 +308,7 @@ public final class Appearance implements SavingModule {
 		} else {
 			drawClothes(7, getLegs().getLook());
 		}
-		if ((hat != null && hat.getDefinition().getConfiguration(ItemConfigSQLHandler.REMOVE_HEAD, false)) || castleWarsHood) {
+		if ((hat != null && hat.getDefinition().getConfiguration(ItemConfigParser.REMOVE_HEAD, false)) || castleWarsHood) {
 			clearBodyPart(8);
 		} else {
 			drawClothes(8, getHair().getLook());
@@ -323,7 +323,7 @@ public final class Appearance implements SavingModule {
 		} else {
 			drawClothes(10, getFeet().getLook());
 		}
-		if (hat != null && hat.getDefinition().getConfiguration(ItemConfigSQLHandler.REMOVE_BEARD, false)) {
+		if (hat != null && hat.getDefinition().getConfiguration(ItemConfigParser.REMOVE_BEARD, false)) {
 			clearBodyPart(11);
 		} else {
 			drawClothes(11, getBeard().getLook());

@@ -72,31 +72,15 @@ public final class SQLManager {
 	 * Pre-plugin parsing.
 	 */
 	public static void prePlugin() {
-		try {
-			new NPCConfigSQLHandler().parse();
-			new ItemConfigSQLHandler().parse();
-			new RegionSQLHandler().parse();
-			new ComponentSQLHandler().parse();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			//new NPCConfigSQLHandler().parse();
+
 	}
 
 	/**
 	 * Parses data from the database for the server post plugin loading.
 	 */
 	public static void postPlugin() {
-		try {
-			new ShopSQLHandler().parse();
-			new NPCDropSQLHandler().parse();
-			new NPCSpawnSQLHandler().parse();
-			new DoorConfigSQLHandler().parse();
-			new GroundSpawnSQLHandler().parse();
-			new MusicConfigSQLHandler().parse();
-			new RangeConfigSQLHandler().parse();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	/**

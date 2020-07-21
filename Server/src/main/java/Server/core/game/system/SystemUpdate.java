@@ -74,7 +74,7 @@ public final class SystemUpdate extends Pulse {
 	public void schedule() {
 		super.setTicksPassed(0);
 		super.start();
-		if (GameWorld.getMajorUpdateWorker().isStarted()) {
+		if (GameWorld.getMajorUpdateWorker().getStarted()) {
 			notifyPlayers();
 			GameWorld.Pulser.submit(this);
 			return;

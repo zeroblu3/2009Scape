@@ -11,8 +11,8 @@ import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
+import core.game.system.config.NPCConfigParser;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 
@@ -156,7 +156,7 @@ public final class Properties {
 	 */
 	public void updateDefenceAnimation() {
 		if (entity instanceof NPC) {
-			Animation animation = ((NPC) entity).getDefinition().getConfiguration(NPCConfigSQLHandler.DEFENCE_ANIMATION);
+			Animation animation = ((NPC) entity).getDefinition().getConfiguration(NPCConfigParser.DEFENCE_ANIMATION);
 			if (animation != null) {
 				defenceAnimation = animation;
 			}
@@ -165,9 +165,9 @@ public final class Properties {
 		Container c = ((Player) entity).getEquipment();
 		Item item = c.get(EquipmentContainer.SLOT_SHIELD);
 		if (item != null) {
-			defenceAnimation = item.getDefinition().getConfiguration(ItemConfigSQLHandler.DEFENCE_ANIMATION, Animation.create(1156));
+			defenceAnimation = item.getDefinition().getConfiguration(ItemConfigParser.DEFENCE_ANIMATION, Animation.create(1156));
 		} else if ((item = c.get(EquipmentContainer.SLOT_WEAPON)) != null) {
-			defenceAnimation = item.getDefinition().getConfiguration(ItemConfigSQLHandler.DEFENCE_ANIMATION, Animation.create(424));
+			defenceAnimation = item.getDefinition().getConfiguration(ItemConfigParser.DEFENCE_ANIMATION, Animation.create(424));
 		} else {
 			defenceAnimation = Animation.create(397);
 		}

@@ -58,7 +58,7 @@ public class PlayerViewer extends JPanel {
         if (Repository.getPlayerByName(name) != null) {
             setPlayer(Repository.getPlayerByName(name));
         } else {
-            if (GameWorld.getMajorUpdateWorker().isStarted()) {
+            if (GameWorld.getMajorUpdateWorker().getStarted()) {
                 setPlayer(PlayerLoader.getPlayerFile(name));
             }
         }

@@ -1,6 +1,7 @@
 package plugin.ge;
 
 import core.cache.def.impl.ItemDefinition;
+import core.game.system.config.ItemConfigParser;
 import plugin.consumable.Consumables;
 import plugin.consumable.Food;
 import plugin.skill.cooking.recipe.Recipe;
@@ -29,7 +30,6 @@ import plugin.skill.herblore.Herbs;
 import plugin.skill.herblore.UnfinishedPotion;
 import plugin.skill.summoning.SummoningPouch;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.world.GameWorld;
 
 import java.io.File;
@@ -407,7 +407,7 @@ public final class ResourceManager {
 				System.err.println("Roar " + itemId);
 				continue;
 			}
-			int amount = def.getConfiguration(ItemConfigSQLHandler.GE_LIMIT, 500) * 100;
+			int amount = def.getConfiguration(ItemConfigParser.GE_LIMIT, 500) * 100;
 			 addResource(itemId, amount, true);
 			System.out.println(amount + " x " + def.getName() + " - " + (int) (new Item(itemId).getValue() * 1.05) + "gp");
 		}
