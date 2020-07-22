@@ -53,6 +53,7 @@ public final class PluginManager {
 	}
 
 	public static void load(String root) throws Throwable {
+		new FOGRewardsInterface().newInstance(null);
 		if (root == null || root.isEmpty()) {
 			root = "plugin";
 		}

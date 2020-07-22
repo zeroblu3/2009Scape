@@ -36,8 +36,7 @@ public final class SQLManager {
     /**
      * The database URL.
      */
-    public static final String DATABASE_URL = SQL_SERVER_ADDRESS + ":3306/" + ServerConstants.DATABASE_NAMES[1];
-    public static final String DATABASE_URL_SERVER = SQL_SERVER_ADDRESS + ":3306/" + ServerConstants.DATABASE_NAMES[0];
+    public static final String DATABASE_URL = SQL_SERVER_ADDRESS + ":3306/" + ServerConstants.DATABASE_NAMES[0];
 
 	/**
 	 * IF the sql manager is initialized.
@@ -90,14 +89,6 @@ public final class SQLManager {
 	public static Connection getConnection() {
 		try {
 			return DriverManager.getConnection("jdbc:mysql://" +   DATABASE_URL, USERNAME, PASSWORD);
-		} catch (SQLException e) {
-			SystemLogger.error(SQLManager.class, "Error: Mysql error message=" + e.getMessage() + ".");
-		}
-		return null;
-	}
-	public static Connection getConnectionServer() {
-		try {
-			return DriverManager.getConnection("jdbc:mysql://" + DATABASE_URL_SERVER, USERNAME, PASSWORD);
 		} catch (SQLException e) {
 			SystemLogger.error(SQLManager.class, "Error: Mysql error message=" + e.getMessage() + ".");
 		}

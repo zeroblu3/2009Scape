@@ -115299,7 +115299,7 @@
     {
       "id": "12908",
       "name": "Adamant spikeshield 100",
-      "examine": "Charged: A spiked square shield.Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "1620",
       "high_alchemy": "2430",
@@ -115316,7 +115316,7 @@
     {
       "id": "12909",
       "name": "Adamant spikeshield 80",
-      "examine": "Charged: A spiked square shield.Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "1620",
       "high_alchemy": "2430",
@@ -115333,7 +115333,7 @@
     {
       "id": "12910",
       "name": "Adamant spikeshield 60",
-      "examine": "Charged: A spiked square shield.Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "1620",
       "high_alchemy": "2430",
@@ -115350,7 +115350,7 @@
     {
       "id": "12911",
       "name": "Adamant spikeshield 40",
-      "examine": "Charged: A spiked square shield.Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "1620",
       "high_alchemy": "2430",
@@ -115367,7 +115367,7 @@
     {
       "id": "12912",
       "name": "Adamant spikeshield 20",
-      "examine": "Charged: A spiked square shield.Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "1620",
       "high_alchemy": "2430",
@@ -115384,7 +115384,7 @@
     {
       "id": "12913",
       "name": "Adamant spikeshield 0",
-      "examine": "Charged: A spiked square shield.Uncharged: Not so spiky anymore.",
+      "examine": "Not so spiky anymore.",
       "tradeable": "1",
       "low_alchemy": "1620",
       "high_alchemy": "2430",
@@ -115402,6 +115402,7 @@
     {
       "id": "12914",
       "name": "Adamant spikeshield 0",
+      "examine": "Not so spiky anymore!",
       "tradeable": "1",
       "grand_exchange_price": "2718",
       "ge_buy_limit": "100",
@@ -115411,7 +115412,7 @@
     {
       "id": "12915",
       "name": "Adamant berserker shield 100",
-      "examine": "Charged: A large, spiked metal shieldUncharged: Not so spiky anymore!",
+      "examine": "A large, spiked metal shield",
       "tradeable": "1",
       "low_alchemy": "2456",
       "high_alchemy": "3684",
@@ -115428,7 +115429,7 @@
     {
       "id": "12916",
       "name": "Adamant berserker shield 80",
-      "examine": "Charged: A large, spiked metal shieldUncharged: Not so spiky anymore!",
+      "examine": "A large, spiked metal shield",
       "tradeable": "1",
       "low_alchemy": "2456",
       "high_alchemy": "3684",
@@ -115445,7 +115446,7 @@
     {
       "id": "12917",
       "name": "Adamant berserker shield 60",
-      "examine": "Charged: A large, spiked metal shieldUncharged: Not so spiky anymore!",
+      "examine": "A large, spiked metal shield",
       "tradeable": "1",
       "low_alchemy": "2456",
       "high_alchemy": "3684",
@@ -115462,7 +115463,7 @@
     {
       "id": "12918",
       "name": "Adamant berserker shield 40",
-      "examine": "Charged: A large, spiked metal shieldUncharged: Not so spiky anymore!",
+      "examine": "A large, spiked metal shield",
       "tradeable": "1",
       "low_alchemy": "2456",
       "high_alchemy": "3684",
@@ -115479,7 +115480,7 @@
     {
       "id": "12919",
       "name": "Adamant berserker shield 20",
-      "examine": "Charged: A large, spiked metal shieldUncharged: Not so spiky anymore!",
+      "examine": "A large, spiked metal shield",
       "tradeable": "1",
       "low_alchemy": "2456",
       "high_alchemy": "3684",
@@ -115496,7 +115497,7 @@
     {
       "id": "12920",
       "name": "Adamant berserker shield 0",
-      "examine": "Charged: A large, spiked metal shieldUncharged: Not so spiky anymore!",
+      "examine": "Not so spiky anymore!",
       "tradeable": "1",
       "low_alchemy": "2456",
       "high_alchemy": "3684",
@@ -115514,6 +115515,7 @@
     {
       "id": "12921",
       "name": "Adamant berserker shield 0",
+      "examine": "Not so spiky anymore!",
       "tradeable": "1",
       "grand_exchange_price": "23700",
       "ge_buy_limit": "10",
@@ -115523,7 +115525,7 @@
     {
       "id": "12922",
       "name": "Rune spikeshield 100",
-      "examine": "Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "2576",
       "high_alchemy": "3864",
@@ -115541,7 +115543,7 @@
     {
       "id": "12923",
       "name": "Rune spikeshield 80",
-      "examine": "Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "2576",
       "high_alchemy": "3864",
@@ -115575,7 +115577,7 @@
     {
       "id": "12925",
       "name": "Rune spikeshield 40",
-      "examine": "Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "2576",
       "high_alchemy": "3864",
@@ -115592,7 +115594,7 @@
     {
       "id": "12926",
       "name": "Rune spikeshield 20",
-      "examine": "Uncharged: Not so spiky anymore.",
+      "examine": "A spiked square shield.",
       "tradeable": "1",
       "low_alchemy": "2576",
       "high_alchemy": "3864",
@@ -115609,7 +115611,7 @@
     {
       "id": "12927",
       "name": "Rune spikeshield 0",
-      "examine": "Uncharged: Not so spiky anymore.",
+      "examine": "Not so spiky anymore.",
       "tradeable": "1",
       "low_alchemy": "2576",
       "high_alchemy": "3864",
@@ -115627,6 +115629,7 @@
     {
       "id": "12928",
       "name": "Rune spikeshield 0",
+      "examine": "Not so spiky anymore.",
       "tradeable": "1",
       "grand_exchange_price": "50500",
       "ge_buy_limit": "10",
@@ -115636,7 +115639,7 @@
     {
       "id": "12929",
       "name": "Rune berserker shield 100",
-      "examine": "Charged: A Large, spiked metal shield. Uncharged: Not so spiky anymore.",
+      "examine": "A Large, spiked metal shield.",
       "tradeable": "1",
       "low_alchemy": "25760",
       "high_alchemy": "38640",
@@ -115654,7 +115657,7 @@
     {
       "id": "12930",
       "name": "Rune berserker shield 80",
-      "examine": "Charged: A Large, spiked metal shield. Uncharged: Not so spiky anymore.",
+      "examine": "A Large, spiked metal shield.",
       "tradeable": "1",
       "low_alchemy": "25760",
       "high_alchemy": "38640",
@@ -115671,7 +115674,7 @@
     {
       "id": "12931",
       "name": "Rune berserker shield 60",
-      "examine": "Charged: A Large, spiked metal shield. Uncharged: Not so spiky anymore.",
+      "examine": "A Large, spiked metal shield.",
       "tradeable": "1",
       "low_alchemy": "25760",
       "high_alchemy": "38640",
@@ -115688,7 +115691,7 @@
     {
       "id": "12932",
       "name": "Rune berserker shield 40",
-      "examine": "Charged: A Large, spiked metal shield. Uncharged: Not so spiky anymore.",
+      "examine": "A Large, spiked metal shield.",
       "tradeable": "1",
       "low_alchemy": "25760",
       "high_alchemy": "38640",
@@ -115705,7 +115708,7 @@
     {
       "id": "12933",
       "name": "Rune berserker shield 20",
-      "examine": "Charged: A Large, spiked metal shield. Uncharged: Not so spiky anymore.",
+      "examine": "A Large, spiked metal shield.",
       "tradeable": "1",
       "low_alchemy": "25760",
       "high_alchemy": "38640",
@@ -115722,7 +115725,7 @@
     {
       "id": "12934",
       "name": "Rune berserker shield 0",
-      "examine": "Charged: A Large, spiked metal shield. Uncharged: Not so spiky anymore.",
+      "examine": "Not so spiky anymore.",
       "tradeable": "1",
       "low_alchemy": "25760",
       "high_alchemy": "38640",
@@ -115740,6 +115743,7 @@
     {
       "id": "12935",
       "name": "Rune berserker shield 0",
+      "examine": "Not so spiky anymore.",
       "tradeable": "1",
       "grand_exchange_price": "135300",
       "ge_buy_limit": "10",
@@ -115749,7 +115753,7 @@
     {
       "id": "12936",
       "name": "Green d\\'hide coif 100",
-      "examine": "Fully charged: A coif made of green dragonhide. Fully degraded: A worn out coif made of green dragonhide.",
+      "examine": "A coif made of green dragonhide.",
       "tradeable": "1",
       "low_alchemy": "800",
       "high_alchemy": "1200",
@@ -115767,7 +115771,7 @@
     {
       "id": "12937",
       "name": "Green d\\'hide coif 80",
-      "examine": "Fully charged: A coif made of green dragonhide. Fully degraded: A worn out coif made of green dragonhide.",
+      "examine": "A coif made of green dragonhide.",
       "tradeable": "1",
       "low_alchemy": "800",
       "high_alchemy": "1200",
@@ -115785,7 +115789,7 @@
     {
       "id": "12938",
       "name": "Green d\\'hide coif 60",
-      "examine": "Fully charged: A coif made of green dragonhide. Fully degraded: A worn out coif made of green dragonhide.",
+      "examine": "A coif made of green dragonhide.",
       "tradeable": "1",
       "low_alchemy": "800",
       "high_alchemy": "1200",
@@ -115803,7 +115807,7 @@
     {
       "id": "12939",
       "name": "Green d\\'hide coif 40",
-      "examine": "Fully charged: A coif made of green dragonhide. Fully degraded: A worn out coif made of green dragonhide.",
+      "examine": "A coif made of green dragonhide.",
       "tradeable": "1",
       "low_alchemy": "800",
       "high_alchemy": "1200",
@@ -115821,7 +115825,7 @@
     {
       "id": "12940",
       "name": "Green d\\'hide coif 20",
-      "examine": "Fully charged: A coif made of green dragonhide. Fully degraded: A worn out coif made of green dragonhide.",
+      "examine": "A coif made of green dragonhide.",
       "tradeable": "1",
       "low_alchemy": "800",
       "high_alchemy": "1200",
@@ -115839,7 +115843,7 @@
     {
       "id": "12941",
       "name": "Green d\\'hide coif 0",
-      "examine": "Fully charged: A coif made of green dragonhide. Fully degraded: A worn out coif made of green dragonhide.",
+      "examine": "A worn out coif made of green dragonhide.",
       "tradeable": "1",
       "low_alchemy": "800",
       "high_alchemy": "1200",
@@ -115859,6 +115863,7 @@
       "id": "12942",
       "name": "Green d\\'hide coif 0",
       "tradeable": "1",
+      "examine": "A worn out coif made of green dragonhide.",
       "grand_exchange_price": "92700",
       "ge_buy_limit": "100",
       "archery_ticket_price": "0",
@@ -115867,7 +115872,7 @@
     {
       "id": "12943",
       "name": "Blue d\\'hide coif 100",
-      "examine": "Fully charged: A coif made of blue dragonhide. Fully degraded: A worn out coif made of blue dragonhide.",
+      "examine": "A coif made of blue dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2000",
       "high_alchemy": "3000",
@@ -115885,7 +115890,7 @@
     {
       "id": "12944",
       "name": "Blue d\\'hide coif 80",
-      "examine": "Fully charged: A coif made of blue dragonhide. Fully degraded: A worn out coif made of blue dragonhide.",
+      "examine": "A coif made of blue dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2000",
       "high_alchemy": "3000",
@@ -115921,7 +115926,7 @@
     {
       "id": "12946",
       "name": "Blue d\\'hide coif 40",
-      "examine": "Fully charged: A coif made of blue dragonhide. Fully degraded: A worn out coif made of blue dragonhide.",
+      "examine": "A coif made of blue dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2000",
       "high_alchemy": "3000",
@@ -115939,7 +115944,7 @@
     {
       "id": "12947",
       "name": "Blue d\\'hide coif 20",
-      "examine": "Fully charged: A coif made of blue dragonhide. Fully degraded: A worn out coif made of blue dragonhide.",
+      "examine": "A coif made of blue dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2000",
       "high_alchemy": "3000",
@@ -115957,7 +115962,7 @@
     {
       "id": "12948",
       "name": "Blue d\\'hide coif 0",
-      "examine": "Fully charged: A coif made of blue dragonhide. Fully degraded: A worn out coif made of blue dragonhide.",
+      "examine": "A worn out coif made of blue dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2000",
       "high_alchemy": "3000",
@@ -115977,6 +115982,7 @@
       "id": "12949",
       "name": "Blue d\\'hide coif 0",
       "tradeable": "1",
+      "examine": "A worn out coif made of blue dragonhide.",
       "grand_exchange_price": "131900",
       "ge_buy_limit": "100",
       "archery_ticket_price": "0",
@@ -115985,7 +115991,7 @@
     {
       "id": "12950",
       "name": "Red d\\'hide coif 100",
-      "examine": "Fully charged: A coif made of red dragonhide.Fully degraded: A worn out coif made of red dragonhide.",
+      "examine": "A coif made of red dragonhide.",
       "tradeable": "1",
       "low_alchemy": "1400",
       "high_alchemy": "2100",
@@ -116003,7 +116009,7 @@
     {
       "id": "12951",
       "name": "Red d\\'hide coif 80",
-      "examine": "Fully charged: A coif made of red dragonhide.Fully degraded: A worn out coif made of red dragonhide.",
+      "examine": "A coif made of red dragonhide.",
       "tradeable": "1",
       "low_alchemy": "1400",
       "high_alchemy": "2100",
@@ -116039,7 +116045,7 @@
     {
       "id": "12953",
       "name": "Red d\\'hide coif 40",
-      "examine": "Fully charged: A coif made of red dragonhide.Fully degraded: A worn out coif made of red dragonhide.",
+      "examine": "A coif made of red dragonhide.",
       "tradeable": "1",
       "low_alchemy": "1400",
       "high_alchemy": "2100",
@@ -116057,7 +116063,7 @@
     {
       "id": "12954",
       "name": "Red d\\'hide coif 20",
-      "examine": "Fully charged: A coif made of red dragonhide.Fully degraded: A worn out coif made of red dragonhide.",
+      "examine": "A coif made of red dragonhide.",
       "tradeable": "1",
       "low_alchemy": "1400",
       "high_alchemy": "2100",
@@ -116075,7 +116081,7 @@
     {
       "id": "12955",
       "name": "Red d\\'hide coif 0",
-      "examine": "Fully charged: A coif made of red dragonhide.Fully degraded: A worn out coif made of red dragonhide.",
+      "examine": "A worn out coif made of red dragonhide.",
       "tradeable": "1",
       "low_alchemy": "1400",
       "high_alchemy": "2100",
@@ -116095,6 +116101,7 @@
       "id": "12956",
       "name": "Red d\\'hide coif 0",
       "tradeable": "1",
+      "examine": "A worn out coif made of red dragonhide.",
       "grand_exchange_price": "156600",
       "ge_buy_limit": "100",
       "archery_ticket_price": "0",
@@ -116103,7 +116110,7 @@
     {
       "id": "12957",
       "name": "Black d\\'hide coif 100",
-      "examine": "Fully charged: A coif made of black dragonhide. Fully degraded: A worn out coif made of black dragonhide.",
+      "examine": "A coif made of black dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2200",
       "high_alchemy": "3300",
@@ -116121,7 +116128,7 @@
     {
       "id": "12958",
       "name": "Black d\\'hide coif 80",
-      "examine": "Fully charged: A coif made of black dragonhide. Fully degraded: A worn out coif made of black dragonhide.",
+      "examine": "A coif made of black dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2200",
       "high_alchemy": "3300",
@@ -116139,7 +116146,7 @@
     {
       "id": "12959",
       "name": "Black d\\'hide coif 60",
-      "examine": "Fully charged: A coif made of black dragonhide. Fully degraded: A worn out coif made of black dragonhide.",
+      "examine": "A coif made of black dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2200",
       "high_alchemy": "3300",
@@ -116157,7 +116164,7 @@
     {
       "id": "12960",
       "name": "Black d\\'hide coif 40",
-      "examine": "Fully charged: A coif made of black dragonhide. Fully degraded: A worn out coif made of black dragonhide.",
+      "examine": "A coif made of black dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2200",
       "high_alchemy": "3300",
@@ -116193,7 +116200,7 @@
     {
       "id": "12962",
       "name": "Black d\\'hide coif 0",
-      "examine": "Fully charged: A coif made of black dragonhide. Fully degraded: A worn out coif made of black dragonhide.",
+      "examine": "A coif made of black dragonhide.",
       "tradeable": "1",
       "low_alchemy": "2200",
       "high_alchemy": "3300",
@@ -116213,6 +116220,7 @@
       "id": "12963",
       "name": "Black d\\'hide coif 0",
       "tradeable": "1",
+      "examine": "A coif made of black dragonhide.",
       "grand_exchange_price": "229000",
       "ge_buy_limit": "100",
       "archery_ticket_price": "0",

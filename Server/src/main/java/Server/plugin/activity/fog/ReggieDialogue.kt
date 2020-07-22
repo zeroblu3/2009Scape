@@ -1,9 +1,11 @@
 package plugin.activity.fog
 
+import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.GameWorld
 import core.plugin.InitializablePlugin
+import core.plugin.FOGRewardsInterface
 import plugin.dialogue.DialoguePlugin
 
 @InitializablePlugin
@@ -19,6 +21,7 @@ class ReggieDialogue(player: Player? = null) : DialoguePlugin(player){
     }
 
     override fun newInstance(player: Player?): DialoguePlugin {
+        FOGRewardsInterface().newInstance(Unit)
         return ReggieDialogue(player)
     }
 
@@ -30,7 +33,7 @@ class ReggieDialogue(player: Player? = null) : DialoguePlugin(player){
                 2 -> end()
                 3 -> npc("Sure thing. My tokens are 1000 coins","each.").also { stage = 10 }
             }
-            1 -> end().also { npc.openShop(player) }
+            1 -> end().also { player.interfaceManager.open(Component(732)) }
 
             //Buying tokens with config option set to true
             10 -> player?.dialogueInterpreter?.sendOptions("How many?","50","100","250","500").also { stage++ }

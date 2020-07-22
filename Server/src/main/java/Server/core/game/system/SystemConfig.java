@@ -38,31 +38,6 @@ public class SystemConfig {
 	 * Parses system configurations from the SQL database.
 	 */
 	public void parse() {
-		Connection connection = SQLManager.getConnection();
-		if (connection == null) {
-			return;
-		}
-		betaUsers.clear();
-		configs.clear();
-		try {
-			ResultSet set = connection.createStatement().executeQuery("SELECT * FROM " + (SQLManager.LOCAL ? "server" : ServerConstants.DATABASE_NAMES[0])+ ".configs");
-			if (set == null) {
-				SQLManager.close(connection);
-				return;
-			}
-			while (set.next()) {
-				parseConfig(set.getString(1), set.getString(2), set.getString(3));
-			}
-			set = connection.createStatement().executeQuery("SELECT * FROM " + (SQLManager.LOCAL ? "server" : ServerConstants.DATABASE_NAMES[0])+ ".staff_accounts");
-			if (set == null) {
-				SQLManager.close(connection);
-				return;
-			}
-			SQLManager.close(connection);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			SQLManager.close(connection);
-		}
 	}
 
 	/**

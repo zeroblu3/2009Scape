@@ -150,13 +150,11 @@ public final class ServerConstants {
 	public static final String[] MESSAGES = new String[] { "Welcome!" };
 	
 	public static final String[] DATABASE_NAMES = {
-			"server",
 			"global",
 	};
 
 	public static final Database[] DATABASES = {
 			new Database(SQLManager.SQL_SERVER_ADDRESS, DATABASE_NAMES[0], (SQLManager.LOCAL ? "root" : "username"), (SQLManager.LOCAL ? "" : "password")),
-			new Database(SQLManager.SQL_SERVER_ADDRESS, DATABASE_NAMES[1], (SQLManager.LOCAL ? "root" : "username"), (SQLManager.LOCAL ? "" : "password"))
 	};
 	
 	/**

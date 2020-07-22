@@ -46,7 +46,7 @@ class EquipmentDegrader{
     fun Item.degrade(slot: Int){ //extension function that degrades items
         val set = getDegradableSet(this.id)
         this.charge--
-        if(set?.indexOf(this.id) == 0){
+        if(set?.indexOf(this.id) == 0 && !this.name.contains("100")){
             charge = 0
         }
         if(this.charge <= 0) {

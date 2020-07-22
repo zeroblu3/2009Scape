@@ -1,6 +1,7 @@
 package plugin.interaction.npc;
 
 import core.cache.def.impl.NPCDefinition;
+import core.game.component.Component;
 import plugin.shops.FOGShop;
 import plugin.skill.crafting.TanningProduct;
 import core.game.interaction.OptionHandler;
@@ -32,7 +33,7 @@ public final class NPCTradePlugin extends OptionHandler {
 			return true;
 		}
 		if(npc.getId() == 7601){
-			new FOGShop().open(player);
+			player.getInterfaceManager().open(new Component(732));
 			return true;
 		}
 		return node.asNpc().openShop(player);

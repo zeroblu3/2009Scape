@@ -126,7 +126,7 @@ public final class AntiMacroHandler implements SavingModule {
 			int roll = RandomFunction.random(0,CHANCE);
 			int neededRoll = 1 + (CHANCE - RandomFunction.random(CHANCE - 10));
 			boolean spawnEvent = roll ==  neededRoll; //checks if the chance is hit this tick
-			SystemLogger.log("roll: " + roll + " needed roll: " + neededRoll);
+			//SystemLogger.log("roll: " + roll + " needed roll: " + neededRoll);
 			int highestIndex = 0;
 			int highestAmount = 0;
 			if(spawnEvent){
