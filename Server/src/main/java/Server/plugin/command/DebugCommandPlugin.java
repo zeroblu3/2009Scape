@@ -103,6 +103,9 @@ public final class DebugCommandPlugin extends CommandPlugin {
                 Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
                 clpbrd.setContents(stringSelection, null);
                 return true;
+            case "cursong":
+                player.sendMessage(player.getMusicPlayer().getCurrentMusicId() + "");
+                return true;
 
             case "setquest":
             case "setoquest":

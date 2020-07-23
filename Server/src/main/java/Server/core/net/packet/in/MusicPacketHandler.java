@@ -1,12 +1,13 @@
 package core.net.packet.in;
 
 import core.game.node.entity.player.Player;
+import core.game.system.SystemLogger;
 import core.net.packet.IncomingPacket;
 import core.net.packet.IoBuffer;
 
 /**
  * Handles music-related incoming packets.
- * @author Emperor
+ * @author Ceikry
  */
 public final class MusicPacketHandler implements IncomingPacket {
 
@@ -17,9 +18,7 @@ public final class MusicPacketHandler implements IncomingPacket {
 			player.getMusicPlayer().replay();
 			return;
 		}
-		if (player.getMusicPlayer().getCurrentMusicId() == musicId) {
-			player.getMusicPlayer().setPlaying(false);
-		}
+		player.getMusicPlayer().setPlaying(false);
 	}
 
 }
