@@ -4,6 +4,7 @@ import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
 import core.game.node.item.Item;
+import core.game.system.SystemLogger;
 import core.game.system.command.CommandPlugin;
 import core.game.system.command.CommandSet;
 import core.game.system.communication.ClanRepository;
@@ -95,7 +96,7 @@ public final class ModeratorCommand extends CommandPlugin {
 			clan.getBanned().remove(args[1]);
 			player.sendMessage("Unbanned the player " + args[1] + " from the cc.");
 			return true;
-		case "checkbank":
+		case "ckbank":
 			checkBank(player, args);
 			return true;
 		case "checkinvy":
@@ -182,6 +183,7 @@ public final class ModeratorCommand extends CommandPlugin {
 	 * @param args the args.
 	 */
 	private void checkBank(Player player, String[] args) {
+		player.getDropLog().clear();
 		if (player.getDetails().getRights() == Rights.PLAYER_MODERATOR && !player.getZoneMonitor().isInZone("Moderator Zone")) {
 			player.sendMessage("You can only use this command in the moderator room.");
 			return;
@@ -203,9 +205,8 @@ public final class ModeratorCommand extends CommandPlugin {
 		for (int i = 0; i < size; i++) {
 			slot[i] = slots[i];
 		}
-		PacketRepository.send(ContainerPacket.class, new ContainerContext(player, 762, 89, 90, new Item[] {}, 0, false));
-		PacketRepository.send(ContainerPacket.class, new ContainerContext(player, 762, 89, 90, o.getBank().toArray(), false, slots));
-		player.getInterfaceManager().open(new Component(12));
+		player.getDropLog().addAll(o.getBank());
+		player.getDropLog().open();
 		player.getPacketDispatch().sendMessage("Checking " + o.getName() + "'s bank.");
 	}
 

@@ -36,6 +36,11 @@ public class MakeOverMageDialogue extends DialoguePlugin {
 			stage = 600;
 			return true;
 		}
+		if(player.getInventory().containsItem(new Item(5606))){
+			npc("I see you have a voucher for a free makeover!","Would you like to use that now?");
+			stage = 800;
+			return true;
+		}
 		interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hello there! I am known as the make-over mage! I", "have spent many years researching magics that can", "change your physical appearance!");
 		stage = 0;
 		return true;
@@ -197,6 +202,35 @@ public class MakeOverMageDialogue extends DialoguePlugin {
 		case 603:
 			end();
 			break;
+
+			case 800:
+				options("Yes","No");
+				stage = 801;
+				break;
+			case 801:
+				switch(buttonId){
+					case 1:
+						player("Yes, I would!");
+						stage = 802;
+						break;
+					case 2:
+						player("No, thanks.");
+						stage = 603;
+						break;
+				}
+				break;
+			case 802:
+				if(player.getEquipment().isEmpty()) {
+					end();
+					CharacterDesign.open(player);
+					player.getInventory().remove(new Item(5606));
+					player.sendMessage("You hand over your voucher.");
+				} else {
+					interpreter.sendDialogue("You need to take off all your equipment before the mage", "can change your appearance.");
+					stage = 603;
+				}
+				break;
+
 		case 100:
 			if (player.getInventory().freeSlots() == 0) {
 				end();
@@ -229,6 +263,6 @@ public class MakeOverMageDialogue extends DialoguePlugin {
 
 	@Override
 	public int[] getIds() {
-		return new int[] { 2676 };
+		return new int[] { 2676, 599 };
 	}
 }

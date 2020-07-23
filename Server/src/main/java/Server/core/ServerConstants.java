@@ -44,7 +44,7 @@ public final class ServerConstants {
 	/**
 	 * The start location for a fresh account.
 	 */
-	public static final Location START_LOCATION = Location.create(3094, 3107, 0);
+	public static final Location START_LOCATION = Location.create(2524, 5002, 0);
 	
 	/**
 	 * The main home teleport location.
