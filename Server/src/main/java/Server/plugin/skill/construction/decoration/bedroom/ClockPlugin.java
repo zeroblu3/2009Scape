@@ -8,7 +8,9 @@ import core.game.node.entity.player.Player;
 import core.game.node.object.GameObject;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import org.joda.time.DateTime;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * ClockPlugin.java
@@ -29,8 +31,8 @@ public class ClockPlugin extends OptionHandler {
 	@Override
 	public boolean handle(Player player, Node node, String option) {
 		GameObject object = node.asObject();
-		DateTime now = new DateTime();
-		int minuteDisplay = ((int) (now.getMinuteOfHour() / 5)) * 5;
+		SimpleDateFormat format = new SimpleDateFormat("mm");
+		int minuteDisplay = Integer.parseInt(format.format(Calendar.getInstance().getTime()));
 		StringBuilder sb = new StringBuilder("It's ");
 		if (minuteDisplay == 0) {
 			sb.append("Rune o'clock.");

@@ -3,6 +3,7 @@ package plugin.ame;
 import core.cache.misc.buffer.ByteBufferUtils;
 import core.game.system.SystemLogger;
 import core.game.world.map.zone.impl.WildernessZone;
+import plugin.ame.events.SandwichLadyEvent;
 import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -28,12 +29,12 @@ public final class AntiMacroHandler implements SavingModule {
 	 * The delay between periods in which it attempts to spawn a random event.
 	 * For example, if delay is 500, it will wait 500 ticks before it starts trying to spawn a random event.
 	 */
-	private static final int DELAY = 2000; // 2000 ticks = 20 minutes
+	private static final int DELAY = 3000; // 2000 ticks = 20 minutes
 
 	/**
 	 * The chance that, after the delay has passed, a random event has of occuring each tick. Takes the form of (1 / CHANCE)
 	 */
-	private static final int CHANCE = 500; // 1/500 chance, average of 500 ticks (roughly 5 minutes) before a random will spawn.
+	private static final int CHANCE = 750; // 1/500 chance, average of 500 ticks (roughly 5 minutes) before a random will spawn.
 
 	/**
 	 * Whether randoms are disabled for this player
@@ -125,7 +126,7 @@ public final class AntiMacroHandler implements SavingModule {
 			int roll = RandomFunction.random(0,CHANCE);
 			int neededRoll = 1 + (CHANCE - RandomFunction.random(CHANCE - 10));
 			boolean spawnEvent = roll ==  neededRoll; //checks if the chance is hit this tick
-			SystemLogger.log("roll: " + roll + " needed roll: " + neededRoll);
+			//SystemLogger.log("roll: " + roll + " needed roll: " + neededRoll);
 			int highestIndex = 0;
 			int highestAmount = 0;
 			if(spawnEvent){

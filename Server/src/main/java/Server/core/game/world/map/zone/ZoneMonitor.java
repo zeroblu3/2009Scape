@@ -272,7 +272,9 @@ public final class ZoneMonitor {
 	 */
 	public boolean updateLocation(Location last) {
 		Location l = entity.getLocation();
-		checkMusicZones();
+		if(entity instanceof Player && !entity.asPlayer().isArtificial()) {
+			checkMusicZones();
+		}
 		entity.updateLocation(last);
 		for (Iterator<RegionZone> it = zones.iterator(); it.hasNext();) {
 			RegionZone zone = it.next();

@@ -1,5 +1,6 @@
 package core.game.component;
 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -48,13 +49,12 @@ public final class ComponentDefinition {
 	
 	/**
 	 * Parses the definition values from a result set.
-	 * @param set The result set.
 	 * @throws SQLException The exception if thrown.
 	 */
-	public ComponentDefinition parse(ResultSet set) throws SQLException {
-		setType(InterfaceType.values()[set.getInt("interfaceType")]);
-		setWalkable(set.getBoolean("walkable"));
-		setTabIndex(set.getInt("tabIndex"));
+	public ComponentDefinition parse(String type, String walkable, String tabIndex){
+		setType(InterfaceType.values()[Integer.parseInt(type)]);
+		setWalkable(Integer.parseInt(walkable) == 1);
+		setTabIndex(Integer.parseInt(tabIndex));
 		return this;
 	}
 	

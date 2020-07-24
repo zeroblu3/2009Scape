@@ -7,7 +7,7 @@ import core.game.interaction.OptionHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.npc.drop.NPCDropTables;
 import core.game.node.entity.player.Player;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
+import core.game.system.config.NPCConfigParser;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphics;
@@ -594,7 +594,7 @@ public final class NPCDefinition extends Definition<NPC> {
 	 * @return the examine.
 	 */
 	public final String getExamine() {
-		String string = getConfiguration(NPCConfigSQLHandler.EXAMINE, examine);
+		String string = getConfiguration(NPCConfigParser.EXAMINE, examine);
 		if (string != null) {
 			return string;
 		}
@@ -617,14 +617,14 @@ public final class NPCDefinition extends Definition<NPC> {
 	 * @param config The configurations.
 	 */
 	public void initCombatGraphics(Map<String, Object> config) {
-		if (config.containsKey(NPCConfigSQLHandler.START_GRAPHIC)) {
-			combatGraphics[0] = new Graphics((Integer) config.get(NPCConfigSQLHandler.START_GRAPHIC), getConfiguration(NPCConfigSQLHandler.START_HEIGHT, 0));
+		if (config.containsKey(NPCConfigParser.START_GRAPHIC)) {
+			combatGraphics[0] = new Graphics((Integer) config.get(NPCConfigParser.START_GRAPHIC), getConfiguration(NPCConfigParser.START_HEIGHT, 0));
 		}
-		if (config.containsKey(NPCConfigSQLHandler.PROJECTILE)) {
-			combatGraphics[1] = new Graphics((Integer) config.get(NPCConfigSQLHandler.PROJECTILE), getConfiguration(NPCConfigSQLHandler.PROJECTILE_HEIGHT, 42));
+		if (config.containsKey(NPCConfigParser.PROJECTILE)) {
+			combatGraphics[1] = new Graphics((Integer) config.get(NPCConfigParser.PROJECTILE), getConfiguration(NPCConfigParser.PROJECTILE_HEIGHT, 42));
 		}
-		if (config.containsKey(NPCConfigSQLHandler.END_GRAPHIC)) {
-			combatGraphics[2] = new Graphics((Integer) config.get(NPCConfigSQLHandler.END_GRAPHIC), getConfiguration(NPCConfigSQLHandler.END_HEIGHT, 96));
+		if (config.containsKey(NPCConfigParser.END_GRAPHIC)) {
+			combatGraphics[2] = new Graphics((Integer) config.get(NPCConfigParser.END_GRAPHIC), getConfiguration(NPCConfigParser.END_HEIGHT, 96));
 		}
 	}
 	
@@ -637,19 +637,19 @@ public final class NPCDefinition extends Definition<NPC> {
 		String name = "";
 		switch (index) {
 		case 0:
-			name = NPCConfigSQLHandler.MELEE_ANIMATION;
+			name = NPCConfigParser.MELEE_ANIMATION;
 			break;
 		case 1:
-			name = NPCConfigSQLHandler.MAGIC_ANIMATION;
+			name = NPCConfigParser.MAGIC_ANIMATION;
 			break;
 		case 2:
-			name = NPCConfigSQLHandler.RANGE_ANIMATION;
+			name = NPCConfigParser.RANGE_ANIMATION;
 			break;
 		case 3:
-			name = NPCConfigSQLHandler.DEFENCE_ANIMATION;
+			name = NPCConfigParser.DEFENCE_ANIMATION;
 			break;
 		case 4:
-			name = NPCConfigSQLHandler.DEATH_ANIMATION;
+			name = NPCConfigParser.DEATH_ANIMATION;
 			break;
 		}
 		return getConfiguration(name, null);

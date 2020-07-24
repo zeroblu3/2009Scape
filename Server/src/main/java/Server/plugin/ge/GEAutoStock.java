@@ -12,6 +12,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.player.info.portal.PlayerSQLManager;
 import core.game.node.item.Item;
+import core.game.world.GameWorld;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -30,36 +31,38 @@ public class GEAutoStock {
 	public static List<GrandExchangeOffer> STOCK = new ArrayList<>();
 
 	public static void parse(String file){
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
+		if(GameWorld.getSettings().getAutostock_ge()) {
+			try {
+				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder builder = factory.newDocumentBuilder();
+				Document doc = builder.parse(file);
 
-			doc.getDocumentElement().normalize();
+				doc.getDocumentElement().normalize();
 
-			Player p = new Player(PlayerDetails.getDetails(doc.getElementsByTagName("player").item(0).getTextContent()));
+				Player p = new Player(PlayerDetails.getDetails(doc.getElementsByTagName("player").item(0).getTextContent()));
 
-			NodeList entries = doc.getElementsByTagName("AutoStock");
+				NodeList entries = doc.getElementsByTagName("AutoStock");
 
-			for(int i = 0; i < entries.getLength(); i++){
-				Node node = entries.item(i);
-				if(node.getNodeType() == Node.ELEMENT_NODE){
-					Element entry = (Element) node;
-					int amount = Integer.parseInt(entry.getAttribute("amount"));
-					int itemId = Integer.parseInt(entry.getAttribute("itemId"));
-					double modifier = Double.parseDouble(entry.getAttribute("modifier"));
-					int value = (int) new Item(itemId).getValue();
-					value *= modifier;
-					GrandExchangeOffer o = new GrandExchangeOffer(itemId,true);
-					o.setAmount(amount);
-					o.setOfferedValue(value);
-					GEOfferDispatch.dispatch(p,o);
-					System.out.println("Stocked " + new Item(itemId).getName() + " x" + amount + " at " + value + " each.");
+				for (int i = 0; i < entries.getLength(); i++) {
+					Node node = entries.item(i);
+					if (node.getNodeType() == Node.ELEMENT_NODE) {
+						Element entry = (Element) node;
+						int amount = Integer.parseInt(entry.getAttribute("amount"));
+						int itemId = Integer.parseInt(entry.getAttribute("itemId"));
+						double modifier = Double.parseDouble(entry.getAttribute("modifier"));
+						int value = (int) new Item(itemId).getValue();
+						value *= modifier;
+						GrandExchangeOffer o = new GrandExchangeOffer(itemId, true);
+						o.setAmount(amount);
+						o.setOfferedValue(value);
+						GEOfferDispatch.dispatch(p, o);
+						System.out.println("Stocked " + new Item(itemId).getName() + " x" + amount + " at " + value + " each.");
+					}
 				}
-			}
 
-		} catch (Exception e){
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

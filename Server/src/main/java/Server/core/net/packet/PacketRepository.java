@@ -81,7 +81,7 @@ public final class PacketRepository {
 		INCOMING_PACKETS.put(75, new MouseClickPacket());
 		INCOMING_PACKETS.put(243, new DisplayUpdatePacket());
 		INCOMING_PACKETS.put(177, new UpdateInterfaceCounter());
-		INCOMING_PACKETS.put(4, new MusicPacketHandler());
+		INCOMING_PACKETS.put(4, new DummyPacket()); // this is a lie, I dont know who thought opcode 4 was music but they were wrong
 		INCOMING_PACKETS.put(245, new IdlePacketHandler());
 		INCOMING_PACKETS.put(111, new core.net.packet.in.GrandExchangePacket());
 		IncomingPacket packet = new WalkPacket();
@@ -161,11 +161,16 @@ public final class PacketRepository {
 		INCOMING_PACKETS.put(213, packet);
 		INCOMING_PACKETS.put(99, packet = new ReportAbusePacket());
 		INCOMING_PACKETS.put(98, packet = new MapClosedPacket()); // this packet is sent when the world map is closed by the client
+		INCOMING_PACKETS.put(137,packet = new MusicPacketHandler()); //this packet is received when the client stops playing a song
 		// INCOMING_PACKETS.put(77, packet);
 		// INCOMING_PACKETS.put(191, packet);
 		// INCOMING_PACKETS.put(139, packet);
 		// INCOMING_PACKETS.put(251, packet);
 		// INCOMING_PACKETS.put(55, packet);
+
+		//Packet 22 is sent on focus gain/loss
+		//packet 177 is sent when opening/closing interfaces
+
 	}
 
 	/**
@@ -180,6 +185,7 @@ public final class PacketRepository {
 			System.err.println("Invalid outgoing packet [handler=" + clazz + ", context=" + context + "].");
 			return;
 		}
+		if(!context.getPlayer().isArtificial())
 		p.send(context);
 	}
 

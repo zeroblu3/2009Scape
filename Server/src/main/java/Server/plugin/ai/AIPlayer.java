@@ -1,13 +1,6 @@
 package plugin.ai;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
-
 import core.game.container.impl.EquipmentContainer;
-import plugin.dialogue.DialoguePlugin;
-import plugin.tutorial.CharacterDesign;
-import plugin.skill.Skills;
 import core.game.interaction.DestinationFlag;
 import core.game.interaction.MovementPulse;
 import core.game.interaction.Option;
@@ -28,6 +21,13 @@ import core.net.packet.in.InteractionPacket;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
+import plugin.tutorial.CharacterDesign;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 /**
  * Represents an <b>A</b>rtificial <b>I</b>ntelligent <b>P</b>layer.
@@ -239,7 +239,7 @@ public class AIPlayer extends Player {
             }
 
         }));
-
+        getPlayerFlags().setLastSceneGraph(location);
     }
 
     /**

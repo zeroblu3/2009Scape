@@ -1,7 +1,7 @@
 package plugin.npc.other;
 
 import core.game.node.entity.npc.AbstractNPC;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
+import core.game.system.config.NPCConfigParser;
 import core.plugin.InitializablePlugin;
 import core.game.world.map.Location;
 
@@ -25,7 +25,7 @@ public final class TribesmanNPC extends AbstractNPC {
 	 */
 	public TribesmanNPC(int id, Location location) {
 		super(id, location, true);
-		getDefinition().getConfigurations().put(NPCConfigSQLHandler.POISONOUS, true);
+		getDefinition().getConfigurations().put(NPCConfigParser.POISONOUS, true);
 	}
 
 	/**

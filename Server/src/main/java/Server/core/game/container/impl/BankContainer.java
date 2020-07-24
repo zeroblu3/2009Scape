@@ -7,7 +7,7 @@ import core.game.container.access.BitregisterAssembler;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.IronmanMode;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.GameWorld;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.ContainerContext;
@@ -206,7 +206,7 @@ public final class BankContainer extends Container {
 				return;
 			}
 		}
-		if (!item.getDefinition().getConfiguration(ItemConfigSQLHandler.BANKABLE, true)) {
+		if (!item.getDefinition().getConfiguration(ItemConfigParser.BANKABLE, true)) {
 			player.sendMessage("A magical force prevents you from banking this item");
 			return;
 		}
@@ -441,7 +441,7 @@ public final class BankContainer extends Container {
 	 * @return {@code True} if so.
 	 */
 	public boolean canAdd(Item item) {
-		return item.getDefinition().getConfiguration(ItemConfigSQLHandler.BANKABLE, true);
+		return item.getDefinition().getConfiguration(ItemConfigParser.BANKABLE, true);
 	}
 
 	/**

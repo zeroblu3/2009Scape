@@ -27,8 +27,6 @@ import core.game.node.object.GameObject;
 import core.game.system.command.CommandPlugin;
 import core.game.system.command.CommandSet;
 import core.game.system.mysql.SQLManager;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
-import core.game.system.mysql.impl.NPCDropSQLHandler;
 import core.game.system.script.ScriptManager;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
@@ -187,15 +185,6 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                         return true;
                     }
                 });
-                break;
-            case "drops":
-                try {
-                    new NPCDropSQLHandler().parse();
-                    player.sendMessage(EconomyManagement.getModificationRate() + "");
-                } catch (SQLException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
                 break;
             case "stask":
                 player.getSkillTasks().getNewTask(player, Difficulty.NOVICE);
@@ -427,13 +416,6 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                 int itemAmount = Integer.parseInt(args[1]);
                 player.sendMessage("There are " + ItemLimitation.getAmountLeft(itemAmount) + " left.");
                 return true;
-            case "iparse":
-                try {
-                    new ItemConfigSQLHandler().parse();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                break;
             case "l":
                 player.sendMessage("" + player.getSavedData().getGlobalData().getLowAlchemyCharges());
                 //player.getSavedData().getGlobalData().setLowAlchemyCharges(2);

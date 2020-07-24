@@ -3,15 +3,18 @@ package core.game.node.entity.player.link.music;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.entity.player.link.emote.Emotes;
+import core.game.world.GameWorld;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.MusicContext;
 import core.net.packet.context.StringContext;
 import core.net.packet.out.MusicPacket;
 import core.net.packet.out.StringPacket;
+import core.tools.RandomFunction;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Handles a music playing for a player.
@@ -236,6 +239,16 @@ public final class MusicPlayer implements SavingModule {
 		}
 		if (play) {
 			play(entry);
+		}
+	}
+
+	public void tick(){
+		if(GameWorld.getTicks() % 20 == 0){
+			if(!isPlaying()){
+				try {
+					play((MusicEntry) unlocked.values().toArray()[new Random().nextInt(unlocked.values().size())]);
+				} catch (Exception e){}
+			}
 		}
 	}
 

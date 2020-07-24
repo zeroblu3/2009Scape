@@ -9,6 +9,7 @@ import core.net.packet.IoBuffer;
 import core.net.packet.PacketHeader;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,12 +30,13 @@ public final class NPCRenderer {
 		IoBuffer maskBuffer = new IoBuffer(-1, PacketHeader.NORMAL, ByteBuffer.allocate(1 << 16));
 		buffer.setBitAccess();
 		buffer.putBits(8, localNPCs.size());
+		List<NPC> toRemove = new ArrayList<>();
 		for (Iterator<NPC> it = localNPCs.iterator(); it.hasNext();) {
 			NPC npc = it.next();
 			boolean withinDistance = player.getLocation().withinDistance(npc.getLocation());
 			if (npc.isHidden(player) || !withinDistance || npc.getProperties().isTeleporting()) {
 				buffer.putBits(1, 1).putBits(2, 3);
-				it.remove();
+				toRemove.add(npc);
 				if (!withinDistance && npc.getAggressiveHandler() != null) {
 					npc.getAggressiveHandler().removeTolerance(player.getIndex());
 				}
@@ -51,6 +53,7 @@ public final class NPCRenderer {
 				buffer.putBits(1, 0);
 			}
 		}
+		localNPCs.removeAll(toRemove);
 		for (NPC npc : RegionManager.getLocalNpcs(player)) {
 			if (localNPCs.size() >= 255) {
 				break;

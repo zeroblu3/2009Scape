@@ -1,6 +1,8 @@
 package core.game.node.entity.npc;
 
 import core.cache.def.impl.NPCDefinition;
+import core.game.system.config.NPCConfigParser;
+import core.game.system.config.ShopParser;
 import plugin.dialogue.DialoguePlugin;
 import plugin.jobs.impl.SlayingJob;
 import core.game.content.global.shop.Shop;
@@ -22,8 +24,6 @@ import core.game.node.entity.npc.agg.AggressiveHandler;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.entity.player.link.audio.Audio;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
-import core.game.system.mysql.impl.ShopSQLHandler;
 import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
@@ -228,13 +228,13 @@ public class NPC extends Entity {
 			}
 		}
 		if (definition.hasAction("trade")) {
-			shop = ShopSQLHandler.getShops().get(getId());
+			shop = ShopParser.Companion.getSHOPS().get(getId());
 			if (shop != null) {
 				shop = shop.copy();
 			}
 		}
 		if (definition.hasAction("sew")) {
-			shop = ShopSQLHandler.getShops().get(getId());
+			shop = ShopParser.Companion.getSHOPS().get(getId());
 			if (shop != null) {
 				shop = shop.copy();
 			}
@@ -256,18 +256,18 @@ public class NPC extends Entity {
 	public void initConfig() {
 		int defaultLevel = definition.getCombatLevel() / 2;
 		getProperties().setCombatLevel(definition.getCombatLevel());
-		getSkills().setStaticLevel(Skills.ATTACK, definition.getConfiguration(NPCConfigSQLHandler.ATTACK_LEVEL, defaultLevel));
-		getSkills().setStaticLevel(Skills.STRENGTH, definition.getConfiguration(NPCConfigSQLHandler.STRENGTH_LEVEL, defaultLevel));
-		getSkills().setStaticLevel(Skills.DEFENCE, definition.getConfiguration(NPCConfigSQLHandler.DEFENCE_LEVEL, defaultLevel));
-		getSkills().setStaticLevel(Skills.RANGE, definition.getConfiguration(NPCConfigSQLHandler.RANGE_LEVEL, defaultLevel));
-		getSkills().setStaticLevel(Skills.MAGIC, definition.getConfiguration(NPCConfigSQLHandler.MAGIC_LEVEL, defaultLevel));
-		getSkills().setStaticLevel(Skills.HITPOINTS, definition.getConfiguration(NPCConfigSQLHandler.LIFEPOINTS, defaultLevel));
+		getSkills().setStaticLevel(Skills.ATTACK, definition.getConfiguration(NPCConfigParser.ATTACK_LEVEL, defaultLevel));
+		getSkills().setStaticLevel(Skills.STRENGTH, definition.getConfiguration(NPCConfigParser.STRENGTH_LEVEL, defaultLevel));
+		getSkills().setStaticLevel(Skills.DEFENCE, definition.getConfiguration(NPCConfigParser.DEFENCE_LEVEL, defaultLevel));
+		getSkills().setStaticLevel(Skills.RANGE, definition.getConfiguration(NPCConfigParser.RANGE_LEVEL, defaultLevel));
+		getSkills().setStaticLevel(Skills.MAGIC, definition.getConfiguration(NPCConfigParser.MAGIC_LEVEL, defaultLevel));
+		getSkills().setStaticLevel(Skills.HITPOINTS, definition.getConfiguration(NPCConfigParser.LIFEPOINTS, defaultLevel));
 		int lp = getSkills().getMaximumLifepoints();
 		if (this instanceof Familiar) {
 			lp = getAttribute("hp", lp);
 		}
 		getSkills().setLevel(Skills.HITPOINTS, lp);
-		aggressive = definition.getConfiguration(NPCConfigSQLHandler.AGGRESSIVE, aggressive);
+		aggressive = definition.getConfiguration(NPCConfigParser.AGGRESSIVE, aggressive);
 		Animation anim = null;
 		for (int i = 0; i < 3; i++) {
 			if (definition.getCombatAnimation(i) != null) {
@@ -297,8 +297,8 @@ public class NPC extends Entity {
 			getProperties().setRangeAnimation(anim);
 		}
 		definition.initCombatGraphics(definition.getConfigurations());
-		getProperties().setBonuses(definition.getConfiguration(NPCConfigSQLHandler.BONUSES, new int[15]));
-		getProperties().setAttackSpeed(definition.getConfiguration(NPCConfigSQLHandler.ATTACK_SPEED, 5));
+		getProperties().setBonuses(definition.getConfiguration(NPCConfigParser.BONUSES, new int[15]));
+		getProperties().setAttackSpeed(definition.getConfiguration(NPCConfigParser.ATTACK_SPEED, 5));
 		forceTalk = definition.getConfiguration("force_talk", null);
 	}
 
@@ -313,7 +313,7 @@ public class NPC extends Entity {
 			player.debug("testing new shop for: " + name);
 		}
 		if (shop == null) {
-			shop = ShopSQLHandler.getShops().get(getId());
+			shop = ShopParser.Companion.getSHOPS().get(getId());
 			if (shop == null) {
 				return false;
 			}
@@ -356,7 +356,7 @@ public class NPC extends Entity {
 	public void setDefaultBehavior() {
 		if (aggressive && definition.getCombatLevel() > 0) {
 			aggressiveHandler = new AggressiveHandler(this, AggressiveBehavior.DEFAULT);
-			aggressiveHandler.setRadius(definition.getConfiguration(NPCConfigSQLHandler.AGGRESSIVE_RADIUS, 4));
+			aggressiveHandler.setRadius(definition.getConfiguration(NPCConfigParser.AGGRESSIVE_RADIUS, 4));
 		}
 	}
 
@@ -495,7 +495,7 @@ public class NPC extends Entity {
 
 	@Override
 	public boolean isPoisonImmune() {
-		return definition.getConfiguration(NPCConfigSQLHandler.POISON_IMMUNE, false);
+		return definition.getConfiguration(NPCConfigParser.POISON_IMMUNE, false);
 	}
 
 	@Override
@@ -510,7 +510,7 @@ public class NPC extends Entity {
 		if (killer instanceof Player && ((Player)killer).getJobsManager().getJob() != null && ((Player)killer).getJobsManager().getJob() instanceof SlayingJob) {
 			((SlayingJob) ((Player)killer).getJobsManager().getJob() ).handleDeath(this);
 		}
-		setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigSQLHandler.RESPAWN_DELAY, 17));
+		setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
 		Player p = killer == null || !(killer instanceof Player) ? null : (Player) killer;
 		handleDrops(p, killer);
 		if (!isRespawn()) {
@@ -582,9 +582,9 @@ public class NPC extends Entity {
 	 * @return the audio.
 	 */
 	public Audio getAudio(int index) {
-		Audio[] audios = getDefinition().getConfiguration(NPCConfigSQLHandler.COMBAT_AUDIO, null);
+		int[] audios = getDefinition().getConfiguration(NPCConfigParser.COMBAT_AUDIO, null);
 		if (audios != null) {
-			Audio audio = audios[index];
+			Audio audio = new Audio(audios[index]);
 			if (audio != null && audio.getId() != 0) {
 				return audio;
 			}
@@ -597,7 +597,7 @@ public class NPC extends Entity {
 	 * creating a sub class.</b>
 	 */
 	public void configure() {
-		int[] bonus = definition.getConfiguration(NPCConfigSQLHandler.BONUSES, new int[3]);
+		int[] bonus = definition.getConfiguration(NPCConfigParser.BONUSES, new int[3]);
 		int highest = 0;
 		int index = 0;
 		for (int i = 0; i < 3; i++) {
@@ -606,12 +606,12 @@ public class NPC extends Entity {
 				index = i;
 			}
 		}
-		CombatStyle protectStyle = definition.getConfiguration(NPCConfigSQLHandler.PROTECT_STYLE, null);
+		CombatStyle protectStyle = definition.getConfiguration(NPCConfigParser.PROTECT_STYLE, null);
 		if (protectStyle !=  null) {
 			getProperties().setProtectStyle(protectStyle);
 		}
 		getProperties().setAttackStyle(new WeaponInterface.AttackStyle(WeaponInterface.STYLE_CONTROLLED, index));
-		CombatStyle style = getDefinition().getConfiguration(NPCConfigSQLHandler.COMBAT_STYLE);
+		CombatStyle style = getDefinition().getConfiguration(NPCConfigParser.COMBAT_STYLE);
 		if (style == CombatStyle.RANGE) {
 			getProperties().getCombatPulse().setStyle(style);
 		} else if (style == CombatStyle.MAGIC) {

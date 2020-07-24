@@ -138,7 +138,16 @@ public class Definition<T extends Node> {
 	 */
 	public String getExamine() {
 		if (examine == null) {
-			examine = "It's a" + (StringUtils.isPlusN(name) ? "n " : " ") + name + ".";
+			try {
+				examine = configurations.get("examine").toString();
+			} catch (Exception e){}
+			if(examine == null) {
+				if (name.length() > 0) {
+					examine = "It's a" + (StringUtils.isPlusN(name) ? "n " : " ") + name + ".";
+				} else {
+					examine = "null";
+				}
+			}
 		}
 		return examine;
 	}

@@ -441,6 +441,7 @@ public class Player extends Entity {
 		super.tick();
 		antiMacroHandler.pulse();
 		hunterManager.pulse();
+		musicPlayer.tick();
 		if (!artificial && (System.currentTimeMillis() - getSession().getLastPing()) > 20_000L) {
 			details.getSession().disconnect();
 			getSession().setLastPing(Long.MAX_VALUE);

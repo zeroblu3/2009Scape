@@ -4,14 +4,13 @@ import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.container.Container;
 import core.game.container.access.InterfaceContainer;
+import core.game.system.config.ItemConfigParser;
 import plugin.skill.summoning.SummoningPouch;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItem;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
-
 /**
  * Represents a beast of burden familiar.
  * @author Emperor
@@ -92,7 +91,7 @@ public abstract class BurdenBeast extends Familiar {
 			owner.getPacketDispatch().sendMessage("You can't trade this item, not even to your familiar.");
 			return false;
 		}
-		if ((!SummoningPouch.get(getPouchId()).abyssal && (item.getId() == 1436 || item.getId() == 7936))|| !item.getDefinition().getConfiguration(ItemConfigSQLHandler.BANKABLE, true)) {
+		if ((!SummoningPouch.get(getPouchId()).abyssal && (item.getId() == 1436 || item.getId() == 7936))|| !item.getDefinition().getConfiguration(ItemConfigParser.BANKABLE, true)) {
 			owner.getPacketDispatch().sendMessage("You can't store " + item.getName().toLowerCase() + " in this familiar.");
 			return false;
 		}

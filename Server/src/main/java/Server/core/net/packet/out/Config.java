@@ -22,6 +22,8 @@ public class Config implements OutgoingPacket<ConfigContext> {
 			buffer.putShortA(context.getId());
 			buffer.putC(context.getValue());
 		}
-		context.getPlayer().getDetails().getSession().write(buffer);
+		if(!context.getPlayer().isArtificial()) {
+			context.getPlayer().getDetails().getSession().write(buffer);
+		}
 	}
 }

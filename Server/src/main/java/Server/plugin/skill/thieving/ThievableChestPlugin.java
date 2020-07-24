@@ -153,6 +153,7 @@ public final class ThievableChestPlugin extends OptionHandler {
 				player.lock(2);
 				player.sendMessage("You search the chest for traps.");
 				player.sendMessage("You find nothing.", 1);
+				player.unlock();
 				return;
 			}
 			if (player.getInventory().freeSlots() == 0) {

@@ -16,8 +16,8 @@ import core.game.node.entity.player.info.login.PlayerParser;
 import core.game.node.entity.player.link.RunScript;
 import core.game.node.entity.state.EntityState;
 import core.game.node.item.Item;
+import core.game.system.config.ItemConfigParser;
 import core.game.system.monitor.PlayerMonitor;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
@@ -440,7 +440,7 @@ public final class DuelSession extends ComponentPlugin {
 		}
 		if (hasRule(DuelRule.NO_SHIELD)) {
 			Item i = player.getEquipment().get(EquipmentContainer.SLOT_WEAPON);
-			if (i != null && i.getDefinition().getConfiguration(ItemConfigSQLHandler.TWO_HANDED, false)) {
+			if (i != null && i.getDefinition().getConfiguration(ItemConfigParser.TWO_HANDED, false)) {
 				EquipHandler.unequip(player, EquipmentContainer.SLOT_WEAPON, i.getId());
 			}
 		}
@@ -837,11 +837,11 @@ public final class DuelSession extends ComponentPlugin {
 		if (item == null) {
 			return false;
 		}
-		int slot = item.getDefinition().getConfiguration(ItemConfigSQLHandler.EQUIP_SLOT, -1);
+		int slot = item.getDefinition().getConfiguration(ItemConfigParser.EQUIP_SLOT, -1);
 		if (slot == -1) {
 			return false;
 		}
-		boolean twoHanded = item.getDefinition().getConfiguration(ItemConfigSQLHandler.TWO_HANDED, false);
+		boolean twoHanded = item.getDefinition().getConfiguration(ItemConfigParser.TWO_HANDED, false);
 		if (slot == EquipmentContainer.SLOT_WEAPON && twoHanded && hasRule(DuelRule.NO_SHIELD)) {
 			return true;
 		}

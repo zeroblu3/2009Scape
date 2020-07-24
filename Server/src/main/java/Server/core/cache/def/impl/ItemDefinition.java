@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import core.game.system.config.ItemConfigParser;
 import core.plugin.Plugin;
 import core.tools.StringUtils;
 import core.cache.Cache;
@@ -20,7 +21,6 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.item.ItemPlugin;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.net.packet.PacketRepository;
 import core.net.packet.out.WeightUpdate;
 
@@ -551,7 +551,7 @@ public class ItemDefinition extends Definition<Item> {
 		modelRotationY = templateReference.modelRotationY;
 		modelZoom = templateReference.modelZoom;
 		textureColour1 = templateReference.textureColour1;
-		configurations.put(ItemConfigSQLHandler.TRADEABLE, true);
+		configurations.put(ItemConfigParser.TRADEABLE, true);
 	}
 
 	/**
@@ -634,7 +634,7 @@ public class ItemDefinition extends Definition<Item> {
 	 * @return {@code True} if so.
 	 */
 	public boolean hasRequirement(Player player, boolean wield, boolean message) {
-		Map<Integer, Integer> requirements = getConfiguration(ItemConfigSQLHandler.REQUIREMENTS);
+		Map<Integer, Integer> requirements = getConfiguration(ItemConfigParser.REQUIREMENTS);
 		if (requirements == null) {
 			return true;
 		}
@@ -711,7 +711,7 @@ public class ItemDefinition extends Definition<Item> {
 				return true;
 			}
 		}
-		return getConfiguration(ItemConfigSQLHandler.BONUS) == null;
+		return getConfiguration(ItemConfigParser.BONUS) == null;
 	}
 
 	/**
@@ -720,7 +720,7 @@ public class ItemDefinition extends Definition<Item> {
 	 * @return The level required.
 	 */
 	public int getRequirement(int skillId) {
-		Map<Integer, Integer> requirements = getConfiguration(ItemConfigSQLHandler.REQUIREMENTS);
+		Map<Integer, Integer> requirements = getConfiguration(ItemConfigParser.REQUIREMENTS);
 		if (requirements == null) {
 			return 1;
 		}
@@ -733,7 +733,7 @@ public class ItemDefinition extends Definition<Item> {
 	 * @return The wield animation id.
 	 */
 	public int getRenderAnimationId() {
-		return getConfiguration(ItemConfigSQLHandler.RENDER_ANIM_ID, 1426);
+		return getConfiguration(ItemConfigParser.RENDER_ANIM_ID, 1426);
 	}
 
 	@Override
@@ -1365,9 +1365,9 @@ public class ItemDefinition extends Definition<Item> {
 			return forId(noteId).getAlchemyValue(highAlchemy);
 		}
 		if (highAlchemy) {
-			return getConfiguration(ItemConfigSQLHandler.HIGH_ALCHEMY, 0);
+			return getConfiguration(ItemConfigParser.HIGH_ALCHEMY, 0);
 		}
-		return getConfiguration(ItemConfigSQLHandler.LOW_ALCHEMY, 0);
+		return getConfiguration(ItemConfigParser.LOW_ALCHEMY, 0);
 	}
 
 	/**
@@ -1378,7 +1378,7 @@ public class ItemDefinition extends Definition<Item> {
 		if (hasDestroyAction() && !getName().contains("impling jar")) {
 			return false;
 		}
-		return !unnoted || getConfiguration(ItemConfigSQLHandler.TRADEABLE, false) || GrandExchangeDatabase.getDatabase().get(getId()) != null;
+		return !unnoted || getConfiguration(ItemConfigParser.TRADEABLE, false) || GrandExchangeDatabase.getDatabase().get(getId()) != null;
 	}
 
 	/**

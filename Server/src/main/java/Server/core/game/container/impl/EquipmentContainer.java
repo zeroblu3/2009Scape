@@ -6,7 +6,7 @@ import core.game.container.ContainerListener;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.player.AppearanceFlag;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.ContainerContext;
@@ -69,8 +69,8 @@ public final class EquipmentContainer extends Container {
 	 * @return {@code True} if succesful, {@code false} if not.
 	 */
 	public boolean add(Item item, int inventorySlot, boolean fire, boolean fromInventory) {
-		int slot = item.getDefinition().getConfiguration(ItemConfigSQLHandler.EQUIP_SLOT, -1);
-		if (slot == -1 && item.getDefinition().getConfiguration(ItemConfigSQLHandler.WEAPON_INTERFACE, -1) != -1) {
+		int slot = item.getDefinition().getConfiguration(ItemConfigParser.EQUIP_SLOT, -1);
+		if (slot == -1 && item.getDefinition().getConfiguration(ItemConfigParser.WEAPON_INTERFACE, -1) != -1) {
 			slot = 3;
 		}
 //		slot = 3;
@@ -107,11 +107,11 @@ public final class EquipmentContainer extends Container {
 			return false;
 		}
 		Item secondary = null;
-		if (item.getDefinition().getConfiguration(ItemConfigSQLHandler.TWO_HANDED, false)) {
+		if (item.getDefinition().getConfiguration(ItemConfigParser.TWO_HANDED, false)) {
 			secondary = get(SLOT_SHIELD);
 		} else if (slot == SLOT_SHIELD) {
 			secondary = get(SLOT_WEAPON);
-			if (secondary != null && !secondary.getDefinition().getConfiguration(ItemConfigSQLHandler.TWO_HANDED, false)) {
+			if (secondary != null && !secondary.getDefinition().getConfiguration(ItemConfigParser.TWO_HANDED, false)) {
 				secondary = null;
 			}
 		}
@@ -172,7 +172,7 @@ public final class EquipmentContainer extends Container {
 			boolean updateDefenceAnimation = false;
 			for (int slot : slots) {
 				if (slot == EquipmentContainer.SLOT_WEAPON) {
-					player.getProperties().setAttackSpeed(c.getNew(slot).getDefinition().getConfiguration(ItemConfigSQLHandler.ATTACK_SPEED, 4));
+					player.getProperties().setAttackSpeed(c.getNew(slot).getDefinition().getConfiguration(ItemConfigParser.ATTACK_SPEED, 4));
 					WeaponInterface inter = player.getExtension(WeaponInterface.class);
 					if (inter == null) {
 						break;
@@ -190,7 +190,7 @@ public final class EquipmentContainer extends Container {
 
 		@Override
 		public void refresh(Container c) {
-			player.getProperties().setAttackSpeed(c.getNew(3).getDefinition().getConfiguration(ItemConfigSQLHandler.ATTACK_SPEED, 4));
+			player.getProperties().setAttackSpeed(c.getNew(3).getDefinition().getConfiguration(ItemConfigParser.ATTACK_SPEED, 4));
 			WeaponInterface inter = player.getExtension(WeaponInterface.class);
 			if (inter != null) {
 				inter.updateInterface();
@@ -227,7 +227,7 @@ public final class EquipmentContainer extends Container {
 		int[] bonuses = new int[15];
 		for (Item item : player.getEquipment().toArray()) {
 			if (item != null) {
-				int[] bonus = item.getDefinition().getConfiguration(ItemConfigSQLHandler.BONUS, new int[15]);
+				int[] bonus = item.getDefinition().getConfiguration(ItemConfigParser.BONUS, new int[15]);
 				for (int i = 0; i < bonus.length; i++) {
 					if (i == 14 && bonuses[i] != 0) {
 						continue;

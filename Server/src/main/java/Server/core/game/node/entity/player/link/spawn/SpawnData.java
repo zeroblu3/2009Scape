@@ -425,7 +425,7 @@ public class SpawnData implements SavingModule {
 				p.getEquipment().clear();
 				p.getInventory().clear();
 				/*for (Item item : pkPackage.getItems()) {
-					if ((item.getDefinition().hasAction("wear") || item.getDefinition().hasAction("wield")) && p.getEquipment().get(item.getDefinition().getConfiguration(ItemConfigSQLHandler.EQUIP_SLOT, -1)) == null) {
+					if ((item.getDefinition().hasAction("wear") || item.getDefinition().hasAction("wield")) && p.getEquipment().get(item.getDefinition().getConfiguration(ItemConfigParser.EQUIP_SLOT, -1)) == null) {
 						p.getEquipment().add(item, true, false);
 					} else {
 						p.getInventory().add(item);

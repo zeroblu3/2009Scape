@@ -12,7 +12,9 @@ public enum SpecialLadders {
     BEAR_CAGE_DOWN(Location.create(3230,3508,0),Location.create(3229, 9904, 0)),
     GLARIAL_EXIT(Location.create(2556,9844,0),Location.create(2557,3444,0)),
     SWENSEN_DOWN(Location.create(2644, 3657, 0), Location.create(2631, 10006, 0)),
-    SWENSEN_UP(Location.create(2665, 10037, 0),Location.create(2649, 3661, 0));
+    SWENSEN_UP(Location.create(2665, 10037, 0),Location.create(2649, 3661, 0)),
+    FOG_ENTER(Location.create(3240,3575,0),Location.create(1675,5599,0)),
+    INTRO_LEAVE(Location.create(2522, 4999, 0),Location.create(3230, 3240, 0));
 
 
     public static HashMap<Location,Location> ladderMap = new HashMap<>();

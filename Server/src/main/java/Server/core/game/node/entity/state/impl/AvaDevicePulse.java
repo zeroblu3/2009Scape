@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.state.StatePulse;
 import core.game.node.item.ChanceItem;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 import core.tools.RandomFunction;
 
 import java.nio.ByteBuffer;
@@ -92,7 +92,7 @@ public final class AvaDevicePulse extends StatePulse {
 			return;
 		}
 		Item item = getGeneratedItem();
-		if (item.getDefinition().getConfiguration(ItemConfigSQLHandler.EQUIP_SLOT, -1) == EquipmentContainer.SLOT_ARROWS) {
+		if (item.getDefinition().getConfiguration(ItemConfigParser.EQUIP_SLOT, -1) == EquipmentContainer.SLOT_ARROWS) {
 			Item arrowSlot = player.getEquipment().get(EquipmentContainer.SLOT_ARROWS);
 			if (arrowSlot == null || arrowSlot.getId() == item.getId()) {
 				player.getEquipment().add(item, true, EquipmentContainer.SLOT_ARROWS);

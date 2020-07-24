@@ -2,6 +2,7 @@ package core.game.node.entity.combat;
 
 import core.game.container.Container;
 import core.game.container.impl.EquipmentContainer;
+import core.game.system.config.ItemConfigParser;
 import plugin.skill.Skills;
 import plugin.skill.summoning.familiar.Familiar;
 import core.game.node.Node;
@@ -14,7 +15,6 @@ import core.game.node.entity.player.link.audio.Audio;
 import core.game.node.entity.player.link.prayer.PrayerType;
 import core.game.node.entity.state.EntityState;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.world.map.Location;
 import core.game.world.map.path.Pathfinder;
 import core.game.world.update.flag.context.Animation;
@@ -301,7 +301,7 @@ public abstract class CombatSwingHandler {
 			int styleIndex = ((Player) entity).getSettings().getAttackStyleIndex();
 			if (state.getWeapon() != null && state.getWeapon().getItem() != null) {
 				Item weapon = state.getWeapon().getItem();
-				Audio[] audios = weapon.getDefinition().getConfiguration(ItemConfigSQLHandler.ATTACK_AUDIO, null);
+				Audio[] audios = weapon.getDefinition().getConfiguration(ItemConfigParser.ATTACK_AUDIO, null);
 				if (audios != null) {
 					Audio audio = null;
 					if (styleIndex < audios.length) {

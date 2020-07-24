@@ -5,6 +5,7 @@ import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;
 import core.game.component.ComponentPlugin;
+import core.game.system.config.NPCConfigParser;
 import plugin.skill.agility.AgilityHandler;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -13,7 +14,6 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItem;
 import core.game.node.item.Item;
 import core.game.node.item.ItemPlugin;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Plugin;
@@ -146,7 +146,7 @@ public final class TreasureTrailPlugin extends OptionHandler {
 
 		@Override
 		public Item getItem(Item item, NPC npc) {
-			return ClueScrollPlugin.getClue(npc.getDefinition().getConfiguration(NPCConfigSQLHandler.CLUE_LEVEL, ClueLevel.EASY)).copy();
+			return ClueScrollPlugin.getClue(npc.getDefinition().getConfiguration(NPCConfigParser.CLUE_LEVEL, ClueLevel.EASY)).copy();
 		}
 
 		/**

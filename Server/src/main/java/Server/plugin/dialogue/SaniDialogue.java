@@ -1,10 +1,10 @@
 package plugin.dialogue;
 
+import core.game.system.config.ShopParser;
 import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.plugin.InitializablePlugin;
-import core.game.system.mysql.impl.ShopSQLHandler;
 
 /**
  * Handles the SaniDialogue dialogue.
@@ -79,7 +79,7 @@ public class SaniDialogue extends DialoguePlugin {
 				break;
 			case 2:
 				end();
-				ShopSQLHandler.getShops().get(4905).open(player);
+				ShopParser.Companion.getSHOPS().get(4905).open(player);
 				break;
 			}
 			break;
@@ -136,7 +136,7 @@ public class SaniDialogue extends DialoguePlugin {
 	 * @param uid The uid.
 	 */
 	private void openWeaponShop(Player player, int uid) {
-		ShopSQLHandler.openUid(player, uid);
+		ShopParser.Companion.openUid(player, uid);
 	}
 
 	@Override

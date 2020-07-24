@@ -1,5 +1,6 @@
 package plugin.npc.revenant;
 
+import core.game.system.config.NPCConfigParser;
 import plugin.skill.Skills;
 import plugin.skill.summoning.familiar.Familiar;
 import core.game.node.entity.Entity;
@@ -10,7 +11,6 @@ import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.audio.Audio;
-import core.game.system.mysql.impl.NPCConfigSQLHandler;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
@@ -89,7 +89,7 @@ public class RevenantNPC extends AbstractNPC {
 	public void init() {
 		super.init();
 		RevenantPlugin.getRevenants().add(this);
-		int spawnAnim = getDefinition().getConfiguration(NPCConfigSQLHandler.SPAWN_ANIMATION, -1);
+		int spawnAnim = getDefinition().getConfiguration(NPCConfigParser.SPAWN_ANIMATION, -1);
 		if (spawnAnim != -1) {
 			animate(new Animation(spawnAnim));
 		}

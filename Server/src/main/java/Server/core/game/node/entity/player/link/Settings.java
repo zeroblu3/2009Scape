@@ -1,10 +1,10 @@
 package core.game.node.entity.player.link;
 
+import core.game.system.config.ItemConfigParser;
 import plugin.tutorial.TutorialSession;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.system.communication.CommunicationInfo;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.net.packet.IoBuffer;
@@ -385,11 +385,6 @@ public final class Settings {
 	 * @param If the run button should be enabled.
 	 */
 	public void setRunToggled(boolean enabled) {
-		if (TutorialSession.getExtension(player).getStage() < 25) {
-			player.getConfigManager().set(173, 1);
-			player.getConfigManager().set(173, 0);
-			return;
-		}
 		runToggled = enabled;
 		player.getConfigManager().set(173, runToggled ? 1 : 0);
 	}
@@ -419,7 +414,7 @@ public final class Settings {
 			if (item == null) {
 				continue;
 			}
-			double value = item.getDefinition().getConfiguration(ItemConfigSQLHandler.WEIGHT, 0.0);
+			double value = item.getDefinition().getConfiguration(ItemConfigParser.WEIGHT, 0.0);
 			if (value > 0) {
 				weight += value;
 			}
@@ -429,7 +424,7 @@ public final class Settings {
 			if (item == null) {
 				continue;
 			}
-			weight += item.getDefinition().getConfiguration(ItemConfigSQLHandler.WEIGHT, 0.0);
+			weight += item.getDefinition().getConfiguration(ItemConfigParser.WEIGHT, 0.0);
 		}
 	}
 

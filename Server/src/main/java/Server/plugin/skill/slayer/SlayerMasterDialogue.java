@@ -1,5 +1,6 @@
 package plugin.skill.slayer;
 
+import core.game.world.GameWorld;
 import plugin.dialogue.DialoguePlugin;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.Skillcape;
@@ -475,7 +476,11 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 			}
 			break;
 		case 844:
-			interpreter.sendOptions("Select an Option", "Got any tips for me?", "Okay, great!");
+			if(GameWorld.getSettings().getAllow_slayer_reroll()){
+				interpreter.sendOptions("Select an Option","Got any tips for me?","Okay, great!","I'd like to reroll that task.");
+			} else {
+				interpreter.sendOptions("Select an Option", "Got any tips for me?", "Okay, great!");
+			}
 			stage = 854;
 			break;
 		case 854:
@@ -488,6 +493,10 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 				player("Okay, great!");
 				stage = 855;
 				break;
+			case 3:
+				player("I'd like to reroll this task.");
+				player.getSlayer().clear();
+				stage = 701;
 			}
 			break;
 		case 860:

@@ -1,3 +1,4 @@
+/*
 package core.worker;
 
 import java.util.concurrent.Executor;
@@ -10,44 +11,60 @@ import core.game.world.update.UpdateSequence;
 import core.gui.tab.StatisticsTab;
 import plugin.CorePluginTypes.Managers;
 
+*/
 /**
  * The major update worker, this handles the game updating etc.
  * @author Emperor
- */
+ *//*
+
 public final class MajorUpdateWorker implements Runnable {
 
-	/**
+	*/
+/**
 	 * The updating sequence to use.
-	 */
+	 *//*
+
 	private final UpdateSequence sequence = new UpdateSequence();
 
-	/**
+	*/
+/**
 	 * The executor.
-	 */
+	 *//*
+
 	private final Executor EXECUTOR = Executors.newSingleThreadExecutor();
 
-	/**
+	*/
+/**
 	 * The start time of a cycle.
-	 */
+	 *//*
+
 	private long start;
 
-	/**
+	*/
+/**
 	 * If the major update worker has started.
-	 */
+	 *//*
+
 	private boolean started;
 
-	/**
+	*/
+/**
 	 * Constructs a new {@code MajorUpdateWorker} {@code Object}.
-	 */
+	 *//*
+
 	public MajorUpdateWorker() {
-		/*
+		*/
+/*
 		 * Empty.
-		 */
+		 *//*
+
 	}
 
-	/**
+	*/
+/**
 	 * Starts the update worker.
-	 */
+	 *//*
+
 	public void start() {
 		if (started) {
 			return;
@@ -76,10 +93,12 @@ public final class MajorUpdateWorker implements Runnable {
 		started = false;
 	}
 
-	/**
+	*/
+/**
 	 * Lets the current thread sleep.
 	 * @throws InterruptedException When the thread is interrupted.
-	 */
+	 *//*
+
 	private void sleep() throws InterruptedException {
 		// How many ticks off we are
 		final int TICK_SPEED = (int) (600 / 1); //Allows you to make server ticks faster than normal
@@ -92,19 +111,23 @@ public final class MajorUpdateWorker implements Runnable {
 		}
 	}
 
-	/**
+	*/
+/**
 	 * Gets the started.
 	 * @return The started.
-	 */
+	 *//*
+
 	public boolean isStarted() {
 		return started;
 	}
 
-	/**
+	*/
+/**
 	 * Sets the started.
 	 * @param started The started to set.
-	 */
+	 *//*
+
 	public void setStarted(boolean started) {
 		this.started = started;
 	}
-}
+}*/

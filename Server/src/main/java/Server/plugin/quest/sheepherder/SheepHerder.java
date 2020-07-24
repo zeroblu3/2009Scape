@@ -53,14 +53,14 @@ public class SheepHerder extends Quest {
                     line(player, "Getting some protective gear.", line++, hasGear);
                     line(player, "I need to !!locate the diseased sheep?? and corral them !!into the pin??", line++,sheepDead);
                     line(player, "After which, I need to !!poison them?? and !!incinerate their bones.??", line++,sheepDead);
-                    if(!sheepDead) {
+                    if(sheepDead) {
+                        line(player,"I should inform !!Councillor Halgrive?? that I have taken care of the problem.",line++);
+                    } else {
                         line(player, "I still need:", line++);
                         line(player, "A !!Red Sheep??", line++, player.getAttribute("sheep_herder:red_dead", false));
                         line(player, "A !!Blue Sheep??", line++, player.getAttribute("sheep_herder:blue_dead", false));
                         line(player, "A !!Green Sheep??", line++, player.getAttribute("sheep_herder:green_dead", false));
                         line(player, "A !!Yellow Sheep??", line++, player.getAttribute("sheep_herder:yellow_dead", false));
-                    } else {
-                        line(player,"I should inform !!Councillor Halgrive?? that I have taken care of the problem.",line++);
                     }
                     break;
                 case 100:

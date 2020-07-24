@@ -13,6 +13,7 @@ import core.game.node.item.Item;
  * @author Splinter
  * @version 1.1
  * @notice Modified March 2nd, 2015 to allow the bulk buying of shards.
+ * @notice The previous notice is a fucking lie and whoever claimed that is a retard
  */
 @InitializablePlugin
 public final class PikkupstixDialogue extends DialoguePlugin {

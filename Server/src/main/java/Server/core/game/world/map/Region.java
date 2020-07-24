@@ -4,7 +4,7 @@ import core.cache.Cache;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.music.MusicZone;
-import core.game.system.mysql.impl.RegionSQLHandler;
+import core.game.system.config.XteaParser;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.build.DynamicRegion;
@@ -281,7 +281,7 @@ public class Region {
 			r.setLoaded(true);
 			int landscapeId = Cache.getIndexes()[5].getArchiveId("l" + regionX + "_" + regionY);
 			if (landscapeId > -1) {
-				byte[] landscape = Cache.getIndexes()[5].getFileData(landscapeId, 0, RegionSQLHandler.getRegionXTEA(regionId));
+				byte[] landscape = Cache.getIndexes()[5].getFileData(landscapeId, 0, XteaParser.Companion.getRegionXTEA(regionId));
 				if (landscape == null || landscape.length < 4) {
 					return;
 				}

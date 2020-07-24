@@ -1,7 +1,7 @@
 package core.net.packet.out;
 
 import core.game.node.entity.player.Player;
-import core.game.system.mysql.impl.RegionSQLHandler;
+import core.game.system.config.XteaParser;
 import core.game.world.map.Region;
 import core.game.world.map.RegionChunk;
 import core.game.world.map.RegionManager;
@@ -67,7 +67,7 @@ public final class BuildDynamicScene implements OutgoingPacket<DynamicSceneConte
 		}
 		buffer.setByteAccess();
 		for (int id : regionIds) {
-			int[] keys = RegionSQLHandler.getRegionXTEA(id);
+			int[] keys = XteaParser.Companion.getRegionXTEA(id);
 			buffer.putIntB(keys[0]).putIntB(keys[1]).putIntB(keys[2]).putIntB(keys[3]);
 		}
 		buffer.putShort(player.getLocation().getRegionY());

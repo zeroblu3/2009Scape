@@ -7,7 +7,7 @@ import core.game.content.ItemNames;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.GameWorld;
 
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class Shop {
     /**
      * Represents the items in the store.
      */
-    private final Item[] items;
+    private Item[] items;
 
     /**
      * Represents if it's a general store.
@@ -596,7 +596,7 @@ public class Shop {
         }
         int value = getSellValue(player, amount, item);
         if (getCurrency() == TOKKUL) {
-            int tokkul = item.getDefinition().getConfiguration(ItemConfigSQLHandler.TOKKUL_PRICE, -1);
+            int tokkul = item.getDefinition().getConfiguration("tokkul_price", -1);
             if (tokkul > 0) {
                 value = tokkul /= 10;
             }
@@ -646,7 +646,7 @@ public class Shop {
             price = 1;
         }
         if (getCurrency() == TOKKUL) {
-            int tokkul = item.getDefinition().getConfiguration(ItemConfigSQLHandler.TOKKUL_PRICE, -1);
+            int tokkul = item.getDefinition().getConfiguration("tokkul_price", -1);
             if (tokkul > 0) {
                 price = tokkul;
             }
@@ -655,7 +655,7 @@ public class Shop {
             }
         }
         if (getCurrency() == ARCHERY_TICKET) {
-        	int tickets = item.getDefinition().getConfiguration(ItemConfigSQLHandler.ARCHERY_TICKET_PRICE,-1);
+        	int tickets = item.getDefinition().getConfiguration(ItemConfigParser.ARCHERY_TICKET_PRICE,-1);
         	if (tickets > 0) {
         		price = tickets;
         	}
@@ -886,5 +886,8 @@ public class Shop {
         return sellAllFor;
     }
 
+    public void setItems(ArrayList<Item> items){
+        this.items = items.toArray(new Item[0]);
+    }
 
 }

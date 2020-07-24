@@ -9,7 +9,7 @@ import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.item.Item;
-import core.game.system.mysql.impl.ItemConfigSQLHandler;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.context.Animation;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.InterfaceConfigContext;
@@ -232,8 +232,8 @@ public final class WeaponInterface extends Component {
 		String name;
 		if (weapon != null) {
 			name = weapon.getDefinition().getName();
-			specialBar = weapon.getDefinition().getConfiguration(ItemConfigSQLHandler.HAS_SPECIAL, false);
-			attackAnimations = weapon.getDefinition().getConfiguration(ItemConfigSQLHandler.ATTACK_ANIMS, DEFAULT_ANIMS);
+			specialBar = weapon.getDefinition().getConfiguration(ItemConfigParser.HAS_SPECIAL, false);
+			attackAnimations = weapon.getDefinition().getConfiguration(ItemConfigParser.ATTACK_ANIMS, DEFAULT_ANIMS);
 		} else {
 			name = "Unarmed";
 			specialBar = false;
@@ -494,7 +494,7 @@ public final class WeaponInterface extends Component {
 		if (weapon == null) {
 			return WeaponInterfaces.values()[0];
 		}
-		int slot = weapon.getDefinition().getConfiguration(ItemConfigSQLHandler.WEAPON_INTERFACE, 0);
+		int slot = weapon.getDefinition().getConfiguration(ItemConfigParser.WEAPON_INTERFACE, 0);
 		return WeaponInterfaces.values()[slot];
 	}
 

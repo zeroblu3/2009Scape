@@ -16,17 +16,17 @@ import plugin.quest.PluginInteractionManager
 @InitializablePlugin
 class PenguinSpyingHandler : PluginInteraction(8107,8108,8104,8105,8109,8110){
 
-    val ANIMATION = Animation(5207)
-
     class SpyPulse(val player: Player) : Pulse() {
         var stage = 0
         val curPoints = player.getAttribute("phns:points",0)
         val weeklyPoints = player.getAttribute("phns:weekly",0)
         val WEEKLY_CAP = 10
 
+        val ANIMATION = Animation(10355)
+
         override fun pulse(): Boolean {
             when(stage++){
-                0 -> player.lock().also { player.animator.animate(Animation(5207)) }
+                0 -> player.lock().also { player.animator.animate(ANIMATION) }
                 1 -> player.sendMessage("You manage to spy on the penguin.").also { player.setAttribute("/save:phns:points",curPoints + 1);player.setAttribute("/save:phns:weekly",weeklyPoints + 1);player.unlock();}
                 2 -> if(weeklyPoints + 1 >= WEEKLY_CAP) player.setAttribute("/save:phns:date", ((System.currentTimeMillis() * 0.001) + 604800).toLong())
                 3 -> return true
