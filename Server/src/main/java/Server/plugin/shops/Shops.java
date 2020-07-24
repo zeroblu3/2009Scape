@@ -4,7 +4,6 @@ import core.game.content.ItemNames;
 import core.game.content.global.shop.Shop;
 import core.game.node.item.Item;
 
-import javax.imageio.ImageTranscoder;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -41,7 +40,6 @@ public enum Shops{
     BOLKOY(new Shop("Bolkoy's Village Shop",true,ItemNames.COINS,false),new int[]{471}),
     VARROCK(new Shop("Varrock General Store",true,ItemNames.COINS,false),new int[]{522,523}),
     ZANARIS(new Shop("Zanaris General Store",true,ItemNames.COINS,false),new int[]{534}),
-    FOG_SHOP(new FOGShop(), new int[]{7601}),
     JAMILA(new Shop("Jamila's Craft Stall",new Item[]{
             new Item(ItemNames.CHISEL_1755,10),
             new Item(ItemNames.RING_MOULD_1592,10),

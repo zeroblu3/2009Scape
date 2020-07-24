@@ -1,12 +1,12 @@
 package core.cache.def.impl;
 
+import core.cache.Cache;
+import core.game.world.GameWorld;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.ByteBuffer;
-
-import core.cache.Cache;
-import core.game.world.GameWorld;
 
 /**
  * Holds definitions for render animations.
@@ -324,39 +324,5 @@ public class RenderAnimationDefinition {
 				System.out.println(f.getName() + ", " + f.get(def));
 			}
 		}
-		//Link arios editor source to this project on eclipse!
-//		org.arioseditor.workspace.WorkSpace.getWorkSpace().getSettings().setCachePath(System.getProperty("user.home") + "/Dropbox/Arios V2/Source/data/cache");
-//		org.arioseditor.workspace.WorkSpace.getWorkSpace().getSettings().setStorePath(System.getProperty("user.home") + "/Dropbox/Arios V2/Arios 530/data/store");
-//		org.arioseditor.workspace.WorkSpace.getWorkSpace().init();
-//		
-//		roar:
-//		for (int itemId = 0; itemId < ItemDefinition.getDefinitions().size(); itemId++) {
-//			Item item = (Item) EditorType.ITEM.getTab().getNodes().get(itemId);
-//			if (item == null) {
-//				continue;
-//			}
-//			Integer standAnimation = (Integer) item.getConfigValue(ItemConfiguration.STAND_ANIM);
-//			Integer walkAnimation = (Integer) item.getConfigValue(ItemConfiguration.WALK_ANIM);
-//			Integer runAnimation = (Integer) item.getConfigValue(ItemConfiguration.RUN_ANIM);
-//			if (standAnimation != null) {
-//				for (int id = 0; id < 1431; id++) {
-//					RenderAnimationDefinition def = RenderAnimationDefinition.forId(id);
-//					if (def.walkAnimationId == walkAnimation && def.runAnimationId == runAnimation && def.standAnimationId == standAnimation) {
-//						if (id != 1428) {
-//							System.out.println("Item " + itemId + " has render animation " + id + "!");
-//							item.setConfig("render_anim", (short) id);
-//						}
-//						continue roar;
-//					}
-//				}
-//				item.setConfig("render_anim", (short) 1426);
-//				System.out.println("Could not find render animation for item " + itemId + "!");
-//			}
-//		}
-//		EditorType.ITEM.getTab().preSave();
-//		EditorType.ITEM.getTab().save();
-//		WorkSpace.getWorkSpace().save(true);
-//		System.out.println("Done!");
-//		System.exit(0);
 	}
 }

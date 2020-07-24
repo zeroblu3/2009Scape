@@ -2,14 +2,13 @@ package plugin.interaction.npc;
 
 import core.cache.def.impl.NPCDefinition;
 import core.game.component.Component;
-import plugin.shops.FOGShop;
-import plugin.skill.crafting.TanningProduct;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
+import plugin.skill.crafting.TanningProduct;
 
 /**
  * Represents the plugin used for an npc with the trade option.

@@ -8,19 +8,13 @@ import core.game.container.Container;
 import core.game.container.impl.EquipmentContainer;
 import core.game.content.eco.EconomyManagement;
 import core.game.content.global.shop.Shop;
-import plugin.tutorial.TutorialSession;
 import core.game.content.holiday.HolidayItem;
 import core.game.content.holiday.ItemLimitation;
-import plugin.skill.Skills;
-import plugin.skill.smithing.smelting.Bar;
-import plugin.skill.construction.HouseLocation;
-import plugin.skill.summoning.pet.Pets;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.npc.drop.DropTables;
 import core.game.node.entity.npc.drop.RareDropTable;
 import core.game.node.entity.player.Player;
-import plugin.ai.resource.ResourceAIPManager;
 import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.player.info.login.PlayerParser;
 import core.game.node.entity.player.link.IronmanMode;
@@ -50,14 +44,22 @@ import core.plugin.PluginManager;
 import core.tools.ItemNames;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
+import plugin.ai.resource.ResourceAIPManager;
+import plugin.skill.Skills;
+import plugin.skill.construction.HouseLocation;
 import plugin.skill.herblore.PotionDecantingPlugin;
+import plugin.skill.smithing.smelting.Bar;
+import plugin.skill.summoning.pet.Pets;
+import plugin.tutorial.TutorialSession;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.Executors;
 
@@ -105,11 +107,7 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
         		}
         		
         	break;
-
-            case "killall":
-                RegionManager.getLocalNpcs(player).forEach(n -> n.getImpactHandler().manualHit(player,1000,HitsplatType.NORMAL));
-                break;
-
+        	
         	case "setlevel":
         		player.getSkills().setLevel(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
         		player.getSkills().setStaticLevel(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
@@ -636,6 +634,7 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                 player.getSlayer().setSlayerPoints(toInteger(args[1]));
                 player.debug("Set slayer points to " + args[1]);
                 break;
+
             }
         return false;
     }

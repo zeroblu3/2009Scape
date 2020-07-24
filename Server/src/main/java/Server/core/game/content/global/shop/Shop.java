@@ -9,7 +9,6 @@ import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
 import core.game.system.config.ItemConfigParser;
 import core.game.world.GameWorld;
-import plugin.shops.FOGShop;
 
 import java.util.ArrayList;
 import java.util.Arrays;

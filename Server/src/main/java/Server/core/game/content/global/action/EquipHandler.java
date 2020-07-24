@@ -1,9 +1,7 @@
 package core.game.content.global.action;
 
-import core.cache.def.impl.ItemDefinition;
 import core.game.container.impl.EquipmentContainer;
-import plugin.tutorial.TutorialSession;
-import plugin.tutorial.TutorialStage;
+import core.game.content.EquipSoundsKt;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.lock.Lock;
@@ -15,8 +13,8 @@ import core.plugin.Plugin;
 
 /**
  * Represents the equipment equipping handler plugin.
- * @author Emperor
- * @author Vexia
+ * @author Ceikry
+ * @author Woah
  * 
  */
 public class EquipHandler extends OptionHandler {
@@ -29,7 +27,7 @@ public class EquipHandler extends OptionHandler {
 	/**
 	 * The sound to send.
 	 */
-	private static final Audio SOUND = new Audio(2242, 1, 0);
+	private static final Audio DEFAULT = new Audio(2242, 1, 0);
 
 	/**
 	 * Constructs a new {@code EquipHandler} {@code Object}.
@@ -48,13 +46,6 @@ public class EquipHandler extends OptionHandler {
 		final Item item = ((Item) node);
 		if (item == null || player.getInventory().get(item.getSlot()) != item) {
 			return true;
-		}
-		if (TutorialSession.getExtension(player).getStage() < 46) {
-			player.getPacketDispatch().sendMessage("You'll be told how to equip items later.");
-			return true;
-		}
-		if (TutorialSession.getExtension(player).getStage() == 46 && item.getId() == 1205) {
-			TutorialStage.load(player, 47, false);
 		}
 		Plugin<Object> plugin = item.getDefinition().getConfiguration("equipment", null);
 		if (plugin != null) {
@@ -78,13 +69,7 @@ public class EquipHandler extends OptionHandler {
 				player.getBrawlingGlovesManager().registerGlove(item.getId());
 			}
 			player.getDialogueInterpreter().close();
-			player.getAudioManager().send(SOUND);
-		}
-		ItemDefinition.statsUpdate(player);
-		if (TutorialSession.getExtension(player).getStage() == 48) {
-			if (player.getEquipment().containItems(1171, 1277)) {
-				TutorialStage.load(player, 49, false);
-			}
+			player.getAudioManager().send(EquipSoundsKt.gibAudio(item.getId()), 1);
 		}
 		return true;
 	}
