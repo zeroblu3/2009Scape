@@ -1,22 +1,15 @@
 package com.editor;
 
 import com.editor.Main;
-import java.awt.Component;
-import java.awt.EventQueue;
+
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import javax.swing.GroupLayout;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.GroupLayout.Alignment;
 
 public class Console extends JFrame {
    private static final long serialVersionUID = -4693540915136770583L;

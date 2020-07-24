@@ -2,19 +2,12 @@ package com.alex.tools.itemsDefsEditor;
 
 import com.alex.loaders.items.ItemDefinitions;
 import com.alex.tools.itemsDefsEditor.Application;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.LayoutManager;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 public class ItemDefsEditor extends JDialog {
    private static final long serialVersionUID = 779623426244652906L;

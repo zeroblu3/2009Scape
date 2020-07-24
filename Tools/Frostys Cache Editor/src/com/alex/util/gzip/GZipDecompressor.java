@@ -1,6 +1,7 @@
 package com.alex.util.gzip;
 
 import com.alex.io.Stream;
+
 import java.util.zip.Inflater;
 
 public class GZipDecompressor {

@@ -1,9 +1,10 @@
 package org.apache.tools.bzip2;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import org.apache.tools.bzip2.BZip2Constants;
 import org.apache.tools.bzip2.CRC;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
    protected static final int SETMASK = 2097152;

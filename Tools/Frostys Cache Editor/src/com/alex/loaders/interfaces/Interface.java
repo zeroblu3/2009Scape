@@ -4,12 +4,12 @@ import com.alex.io.InputStream;
 import com.alex.loaders.interfaces.IComponent;
 import com.alex.store.Store;
 import com.alex.utils.Utils;
-import java.awt.Component;
-import java.awt.Image;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ReplicateScaleFilter;
 import java.io.IOException;
-import javax.swing.JComponent;
 
 public class Interface {
    public int id;

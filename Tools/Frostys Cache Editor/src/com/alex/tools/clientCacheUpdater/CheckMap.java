@@ -2,6 +2,7 @@ package com.alex.tools.clientCacheUpdater;
 
 import com.alex.store.Store;
 import com.alex.utils.Utils;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.util.Random;
 
 public class CheckMap {
    public static void main(String[] args) throws IOException {
-      Store cache = new Store("C:/Users/yvonne å christer/Dropbox/Source/data/562cache/", false, (int[][])null);
+      Store cache = new Store("C:/Users/yvonne ï¿½ christer/Dropbox/Source/data/562cache/", false, (int[][])null);
       double land = 0.0D;
       double map = 0.0D;
 
@@ -80,7 +81,7 @@ public class CheckMap {
    }
 
    public static int[] writeKeys(int regionId) throws IOException {
-      BufferedWriter writer = new BufferedWriter(new FileWriter("C:/Users/yvonne å christer/Desktop/LS/Xteas/xteas/742/" + regionId + ".txt"));
+      BufferedWriter writer = new BufferedWriter(new FileWriter("C:/Users/yvonne ï¿½ christer/Desktop/LS/Xteas/xteas/742/" + regionId + ".txt"));
       int[] keys = generateKeys();
 
       for(int index = 0; index < keys.length; ++index) {

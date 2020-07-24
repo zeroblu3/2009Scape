@@ -1,13 +1,10 @@
 package com.alex.tools.itemsDefsEditor;
 
-import java.awt.LayoutManager;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JEditorPane;
-import javax.swing.JFrame;
 
 public class GeneratedUkeys extends JDialog {
    private static final long serialVersionUID = -4163755150981048484L;

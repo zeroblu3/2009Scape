@@ -6,6 +6,7 @@ import com.alex.store.Archive;
 import com.alex.store.ArchiveReference;
 import com.alex.store.FileReference;
 import com.alex.store.MainFile;
+
 import java.util.Arrays;
 
 public final class ReferenceTable {

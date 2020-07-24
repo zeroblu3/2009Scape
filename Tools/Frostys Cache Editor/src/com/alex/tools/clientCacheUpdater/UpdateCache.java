@@ -7,11 +7,12 @@ import com.alex.store.Store;
 import com.alex.tools.clientCacheUpdater.RSXteas;
 import com.alex.tools.clientCacheUpdater.SpritesDumper;
 import com.alex.utils.Utils;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class UpdateCache {
    public static byte[] getBytesFromFile(File file) throws IOException {

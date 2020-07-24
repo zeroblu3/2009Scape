@@ -4,11 +4,8 @@ import com.alex.loaders.npcs.NPCDefinitions;
 import com.alex.store.Store;
 import com.alex.utils.Utils;
 import com.editor.Main;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+
+import java.io.*;
 import java.util.Iterator;
 
 public class NPCDefDump {

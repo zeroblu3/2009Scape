@@ -2,6 +2,7 @@ package com.alex.loaders.animations;
 
 import com.alex.io.InputStream;
 import com.alex.store.Store;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,7 +36,7 @@ public class AnimationDefinitions {
    private static final ConcurrentHashMap animDefs = new ConcurrentHashMap();
 
    public static void main(String[] args) throws IOException {
-      cache = new Store("C:/Users/yvonne å christer/Dropbox/Source/data/562cache/");
+      cache = new Store("C:/Users/yvonne ï¿½ christer/Dropbox/Source/data/562cache/");
 
       label55:
       for(int i = 0; i < 1; ++i) {

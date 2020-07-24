@@ -2,6 +2,7 @@ package com.alex.loaders.interfaces;
 
 import com.alex.store.Store;
 import com.alex.utils.Utils;
+
 import java.io.IOException;
 
 public class InterfaceName {
@@ -11,7 +12,7 @@ public class InterfaceName {
    }
 
    public static void main(String[] args) throws IOException {
-      Store rscache = new Store("C:/Users/yvonne å christer/Dropbox/Source/data/562cache/", false);
+      Store rscache = new Store("C:/Users/yvonne ï¿½ christer/Dropbox/Source/data/562cache/", false);
       int hash = rscache.getIndexes()[3].getTable().getArchives()[884].getNameHash();
       char[] arr$ = VALID_CHARS;
       int len$ = arr$.length;

@@ -5,12 +5,13 @@ import com.alex.store.Index;
 import com.alex.store.Store;
 import com.alex.tools.clientCacheUpdater.RSXteas;
 import com.alex.utils.Utils;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 
 public class CacheEditor {
    public static byte[] getBytesFromFile(File file) throws IOException {

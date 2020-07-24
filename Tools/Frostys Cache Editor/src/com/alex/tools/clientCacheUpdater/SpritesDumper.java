@@ -3,20 +3,15 @@ package com.alex.tools.clientCacheUpdater;
 import com.alex.store.Index;
 import com.alex.store.Store;
 import com.alex.tools.clientCacheUpdater.UpdateCache;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.HeadlessException;
-import java.awt.Image;
-import java.awt.Toolkit;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
-import javax.swing.ImageIcon;
 
 public class SpritesDumper {
    public static void main2(String[] args) throws IOException {

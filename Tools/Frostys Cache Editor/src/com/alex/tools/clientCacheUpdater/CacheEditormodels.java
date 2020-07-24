@@ -3,12 +3,13 @@ package com.alex.tools.clientCacheUpdater;
 import com.alex.loaders.items.ItemDefinitions;
 import com.alex.store.Store;
 import com.alex.utils.Utils;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 
 public class CacheEditormodels {
    public static byte[] getBytesFromFile(File file) throws IOException {
