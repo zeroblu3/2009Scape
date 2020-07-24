@@ -3,18 +3,6 @@
 
     <!--Note: Bots are EXTREMELY EXPERIMENTAL, issues are not currently of concern.-->
     <GameSettings
-<<<<<<< HEAD
-    name="2009scapeDev"
-    beta="false"
-    dev="false"
-    startGui="false"
-    worldID="3"
-    countryID="1"
-    activity="2009scape Development"
-    pvpWorld="true"
-    msip="192.168.1.180"
-    /><!--192.168.1.180-->
-=======
     name="2009scape"
     debug="false"
     dev="false"
@@ -30,7 +18,6 @@
     autostock_ge="false"
     allow_token_purchase="true"
     />
->>>>>>> RS-2009/development
 
     <!--Plugin configuration goes down here-->
     <PluginSetting name="Trivia" enabled="false"/>
