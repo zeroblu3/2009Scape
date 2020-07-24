@@ -70,7 +70,7 @@ class RangedConfigLoader {
                     ItemDefinition.forId(id).getConfiguration("attack_speed",4),
                     Integer.parseInt(e["ammo_slot"].toString()),
                     Integer.parseInt(e["weapon_type"].toString()),
-                    Integer.parseInt(e["drop_ammo"].toString()) == 1,
+                    (e["drop_ammo"].toString().toBoolean()),
                     e["ammunition"].toString().split(",").map { Integer.parseInt(it) }
             )
             RangeWeapon.getRangeWeapons().putIfAbsent(weapon.itemId,weapon)

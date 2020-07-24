@@ -220,6 +220,7 @@ class NPCConfigParser {
                         "clue_level" -> configs.put(it.key.toString(), ClueLevel.values()[it.value.toString().toInt()])
                         "name", "examine" -> configs.put(it.key.toString(), it.value.toString())
                         "combat_audio", "bonuses" -> configs.put(it.key.toString(), it.value.toString().split(",").map { v -> v.toInt() }.toIntArray())
+                        "force_talk" -> configs.put(it.key.toString(),it.value.toString())
 
                         //ints
                         "spawn_animation",
@@ -250,7 +251,6 @@ class NPCConfigParser {
 
                         //booleans
                         "safespot",
-                        "force_talk",
                         "aggressive",
                         "poisonous",
                         "poison_immune" -> configs.put(it.key.toString(), it.value.toString().toBoolean())

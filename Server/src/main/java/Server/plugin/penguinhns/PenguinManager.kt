@@ -16,6 +16,9 @@ class PenguinManager : Plugin<Any> {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         penguins  = spawner.spawnPenguins(6)
+        for(p in penguins){
+            tagMapping.put(p.loc, ArrayList())
+        }
         return this
     }
 

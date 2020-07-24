@@ -53,7 +53,7 @@ public final class ComponentDefinition {
 	 */
 	public ComponentDefinition parse(String type, String walkable, String tabIndex){
 		setType(InterfaceType.values()[Integer.parseInt(type)]);
-		setWalkable(Integer.parseInt(walkable) == 1);
+		setWalkable(Boolean.parseBoolean(walkable));
 		setTabIndex(Integer.parseInt(tabIndex));
 		return this;
 	}
