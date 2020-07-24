@@ -4,14 +4,8 @@ import core.ServerConstants;
 import core.cache.Cache;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
-import core.game.content.global.shop.ShopViewer;
-import plugin.ge.GrandExchangeDatabase;
-import plugin.ge.GrandExchangeEntry;
-import plugin.shops.FOGShop;
-import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import plugin.ai.resource.ResourceAIPManager;
 import core.game.node.entity.player.info.Rights;
 import core.game.node.entity.player.link.TeleportManager.TeleportType;
 import core.game.node.entity.player.link.quest.Quest;
@@ -29,6 +23,10 @@ import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.tools.StringUtils;
 import core.tools.npc.TestStats;
+import plugin.ai.resource.ResourceAIPManager;
+import plugin.ge.GrandExchangeDatabase;
+import plugin.ge.GrandExchangeEntry;
+import plugin.skill.Skills;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -48,10 +46,10 @@ public final class DebugCommandPlugin extends CommandPlugin {
         int id, amount;
         Player p;
         switch (name) {
-        case "rights":
-        	player.getDetails().setRights(Rights.forId(Integer.parseInt(args[1])));
-        	player.sendMessage("Set rights to " + Rights.forId(Integer.parseInt(args[1])).name());
-        	break;
+            case "rights":
+                player.getDetails().setRights(Rights.forId(Integer.parseInt(args[1])));
+                player.sendMessage("Set rights to " + Rights.forId(Integer.parseInt(args[1])).name());
+                break;
             case "lo":
                 int index = 0;
                 for (int i = 8349; i < 8367; i++) {
@@ -154,10 +152,6 @@ public final class DebugCommandPlugin extends CommandPlugin {
                 player.getAntiMacroHandler().fireEvent(name);
                 return true;
 
-            case "fogshop":
-                ShopViewer.extend(player, new FOGShop()).open();
-                return true;
-
             case "setvalue":
                 int itemId = toInteger(args[1]);
                 int value = toInteger(args[2]);
@@ -216,14 +210,14 @@ public final class DebugCommandPlugin extends CommandPlugin {
 
             // Get item by id
             case "item":
-            	if (args.length < 2) {
-            		player.sendMessage("You must specify an item ID");
-            		return false;
-            	}
+                if (args.length < 2) {
+                    player.sendMessage("You must specify an item ID");
+                    return false;
+                }
                 id = toInteger(args[1]);
                 amount = args.length > 2 ? toInteger(args[2]) : 1;
                 if (id > Cache.getItemDefinitionsSize()) {
-            		player.sendMessage("Item ID '" + id + "' out of range.");
+                    player.sendMessage("Item ID '" + id + "' out of range.");
                     return true;
                 }
                 item = new Item(id, amount);
@@ -272,6 +266,8 @@ public final class DebugCommandPlugin extends CommandPlugin {
                 sqlLog = "";
                 return true;
 
+            case "sqloc":
+            case "sqlloc":
             case "locsql":
                 final Location lsqlatom = player.getLocation();
                 player.getPacketDispatch().sendMessage("Absolute: " + lsqlatom);
@@ -281,6 +277,18 @@ public final class DebugCommandPlugin extends CommandPlugin {
                 clpbrd.setContents(stringSelection, null);
                 return true;
 
+            case "sqlocgs":
+            case "sqllocgs":
+            case "locsqlgspawn":
+                final Location lsqlgs = player.getLocation();
+                player.getPacketDispatch().sendMessage("Absolute: " + lsqlgs);
+                String lsqlgst = "{1," + lsqlgs.getX() + "," + lsqlgs.getY() + "," + lsqlgs.getZ() + ",196610}";
+                stringSelection = new StringSelection(lsqlgst);
+                clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+                clpbrd.setContents(stringSelection, null);
+                return true;
+
+
             // Get item by name
             case "itemn":
                 if (args.length < 2) {
@@ -289,7 +297,7 @@ public final class DebugCommandPlugin extends CommandPlugin {
                 }
                 String itemName = "";
                 for (int i = 1; i < args.length; i++) {
-                	itemName += i == args.length - 1 ? args[i] : args[i] + " ";
+                    itemName += i == args.length - 1 ? args[i] : args[i] + " ";
                 }
                 Boolean foundItem = false;
                 for (int i = 0; i < ItemDefinition.getDefinitions().size(); i++) {
@@ -302,7 +310,7 @@ public final class DebugCommandPlugin extends CommandPlugin {
                     }
                 }
                 if (!foundItem) {
-                	player.sendMessage("@red@Unable to find item: " + itemName + "");
+                    player.sendMessage("@red@Unable to find item: " + itemName + "");
                 }
                 return true;
             case "task":
@@ -430,6 +438,7 @@ public final class DebugCommandPlugin extends CommandPlugin {
             case "maxstr":
                 TestStats.setMaxedMeleeStr(player);
                 return true;
+
         }
         return false;
     }

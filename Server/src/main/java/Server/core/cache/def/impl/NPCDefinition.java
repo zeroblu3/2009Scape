@@ -1,11 +1,5 @@
 package core.cache.def.impl;
 
-import java.nio.ByteBuffer;
-import java.util.HashMap;
-import java.util.Map;
-
-import core.game.system.config.NPCConfigParser;
-import core.tools.StringUtils;
 import core.cache.Cache;
 import core.cache.def.Definition;
 import core.cache.misc.buffer.ByteBufferUtils;
@@ -13,9 +7,15 @@ import core.game.interaction.OptionHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.npc.drop.NPCDropTables;
 import core.game.node.entity.player.Player;
+import core.game.system.config.NPCConfigParser;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphics;
+import core.tools.StringUtils;
+
+import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Debug NPC Opcodes Line 483, Uncomment
@@ -112,8 +112,7 @@ public final class NPCDefinition extends Definition<NPC> {
 	public int anInt901;
 	public int standAnimation;
 	public int walkAnimation;
-	
-	private int renderAnimationId;
+	public int renderAnimationId;
 
 	/**
 	 * The minimum combat distance (0 uses default distances).
@@ -509,6 +508,9 @@ public final class NPCDefinition extends Definition<NPC> {
 		}
 		if (id == 7707) {
 			setName("Drezel");
+		}
+		if (id == 1) {
+
 		}
 	}
 

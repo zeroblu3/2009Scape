@@ -10,7 +10,6 @@ import core.net.NioReactor;
 import core.net.amsc.WorldCommunicator;
 import core.tools.TimeStamp;
 import core.tools.backup.AutoBackup;
-import org.runite.Configurations;
 import plugin.ge.GEAutoStock;
 
 import java.io.File;

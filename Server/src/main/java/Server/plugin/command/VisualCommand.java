@@ -78,6 +78,25 @@ public final class VisualCommand extends CommandPlugin {
 			final Animation animation = new Animation(Integer.parseInt(args[1]), args.length > 2 ? Integer.parseInt(args[2]) : 0);
 			player.animate(animation);
 			return true;
+		case "render":
+		case "remote":
+			if (args.length < 2) {
+				player.debug("syntax error: ::render id");
+				return true;
+			}
+			try {
+				player.getAppearance().setAnimations(Animation.create(Integer.parseInt(args[1])));
+				player.getAppearance().sync();
+			} catch (NumberFormatException e) {
+				player.getPacketDispatch().sendMessage("Use: ::remote id");
+			}
+				return true;
+		case "normalwalk":
+			player.getAppearance().prepareBodyData(player);
+			player.getAppearance().setDefaultAnimations();
+			player.getAppearance().setAnimations();
+			player.getAppearance().sync();
+			return true;
 		case "gfx":
 		case "graphic":
 		case "graphics":

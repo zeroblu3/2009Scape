@@ -79,9 +79,10 @@ public final class LoginReadEvent extends IoReadEvent {
 	 * @param buffer The buffer to read from.
 	 */
 	private static void decodeWorld(final int opcode, final IoSession session, ByteBuffer buffer) {
-		buffer.get(); // Memory?
-		buffer.get();// no advertisement = 1
-		buffer.get();// 1
+		byte d = buffer.get(); // Memory?
+		byte e = buffer.get();// no advertisement = 1
+		byte f = buffer.get();// 1
+		System.out.println("d: " + d + " e: " + e + " f:" + f);
 		int windowMode = buffer.get();// Screen size mode
 		int screenWidth = buffer.getShort(); // Screen size Width
 		int screenHeight = buffer.getShort(); // Screen size Height

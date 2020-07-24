@@ -21,6 +21,7 @@ class PenguinSpyingHandler : PluginInteraction(8107,8108,8104,8105,8109,8110){
         val curPoints = player.getAttribute("phns:points",0)
         val weeklyPoints = player.getAttribute("phns:weekly",0)
         val WEEKLY_CAP = 10
+
         val ANIMATION = Animation(10355)
 
         override fun pulse(): Boolean {

@@ -3,15 +3,12 @@ package core.game.world;
 import core.ServerConstants;
 import core.cache.Cache;
 import core.cache.ServerStore;
-import core.game.system.config.ConfigParser;
-import plugin.CorePluginTypes.StartupPlugin;
-import plugin.dialogue.DialogueDSL;
-import plugin.ge.GrandExchangeDatabase;
 import core.game.node.entity.npc.drop.RareDropTable;
 import core.game.node.entity.player.Player;
 import core.game.system.SystemLogger;
 import core.game.system.SystemManager;
 import core.game.system.SystemState;
+import core.game.system.config.ConfigParser;
 import core.game.system.script.ScriptManager;
 import core.game.system.task.Pulse;
 import core.game.system.task.TaskExecutor;
@@ -25,9 +22,13 @@ import core.plugin.PluginManager;
 import core.tools.RandomFunction;
 import core.tools.mysql.DatabaseManager;
 import core.worker.MajorUpdateWorker;
+import plugin.CorePluginTypes.StartupPlugin;
+import plugin.ge.GrandExchangeDatabase;
 
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -60,8 +61,6 @@ public final class GameWorld {
     public static int cores = Runtime.getRuntime().availableProcessors();
 
     public static final List<StartupPlugin> STARTUP_PLUGINS = new ArrayList<>();
-
-    public static final DialogueDSL dialogueDSL = new DialogueDSL();
 
     private static final ConfigParser configParser = new ConfigParser();
 
