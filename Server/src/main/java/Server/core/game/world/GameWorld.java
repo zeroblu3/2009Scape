@@ -5,7 +5,6 @@ import core.cache.Cache;
 import core.cache.ServerStore;
 import core.game.system.config.ConfigParser;
 import plugin.CorePluginTypes.StartupPlugin;
-import plugin.dialogue.DialogueDSL;
 import plugin.ge.GrandExchangeDatabase;
 import core.game.node.entity.npc.drop.RareDropTable;
 import core.game.node.entity.player.Player;
@@ -60,8 +59,6 @@ public final class GameWorld {
     public static int cores = Runtime.getRuntime().availableProcessors();
 
     public static final List<StartupPlugin> STARTUP_PLUGINS = new ArrayList<>();
-
-    public static final DialogueDSL dialogueDSL = new DialogueDSL();
 
     private static final ConfigParser configParser = new ConfigParser();
 
