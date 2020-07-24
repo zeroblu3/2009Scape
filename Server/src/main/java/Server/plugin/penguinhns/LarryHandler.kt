@@ -1,0 +1,62 @@
+package plugin.penguinhns
+
+import core.game.component.Component
+import core.game.component.ComponentPlugin
+import core.game.node.entity.player.Player
+import core.game.node.item.Item
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
+import core.plugin.InitializablePlugin
+import plugin.dialogue.DialoguePlugin
+import plugin.interaction.inter.ExperienceLampInterface
+
+@InitializablePlugin
+class LarryHandler(player: Player? = null) : DialoguePlugin(player){
+    override fun open(vararg args: Any?): Boolean {
+        options("Can I have a spy notebook?","Can I have a hint?","I'd like to turn in my points.").also { stage = 0; return true }
+    }
+
+    override fun newInstance(player: Player?): DialoguePlugin {
+        return LarryHandler(player)
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        class HintPulse : Pulse(){
+            override fun pulse(): Boolean {
+                val hint = PenguinManager.penguins.random().hint
+                player.sendMessage("Here, I know one is...")
+                player.sendMessage(hint)
+                return true
+            }
+        }
+        when(stage){
+            0 -> when(buttonId){
+                1 -> player("Can I have a spy notebook?").also { stage++ }
+                2 -> player("Can I have a hint?").also { stage = 10 }
+                3 -> player("I'd like to turn in my points.").also { stage = 20 }
+            }
+
+            //Spy notebook
+            1 -> npc("Sure!").also { player.inventory.add(Item(13732));stage = 1000 }
+
+            //Hint
+            10 -> npc("Yes, but I will have to write it down","for you so these penguins don't overhear.").also { GameWorld.submit(HintPulse()); stage = 1000 }
+
+            //Point turn-in
+            20 -> npc("Sure thing, what would you like to be","rewarded with?").also { stage++ }
+            21 -> options("Coins","Experience").also { stage++ }
+            22 -> when(buttonId){
+                1 -> player.inventory.add(Item(995, 6500 * player.getAttribute("phns:points",0))).also { player("Thanks!"); player.removeAttribute("phns:points");stage = 1000 }
+                2 -> player.interfaceManager.open(Component(134))
+            }
+
+            1000 -> end()
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(5424)
+    }
+
+}

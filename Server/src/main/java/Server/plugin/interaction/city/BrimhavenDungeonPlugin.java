@@ -37,8 +37,6 @@ public final class BrimhavenDungeonPlugin extends OptionHandler {
 		ObjectDefinition.forId(5096).getConfigurations().put("option:walk-down", this);
 		ObjectDefinition.forId(5097).getConfigurations().put("option:walk-up", this);
 		ObjectDefinition.forId(5098).getConfigurations().put("option:walk-down", this);
-		ObjectDefinition.forId(5099).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(5100).getConfigurations().put("option:squeeze-through", this);
 		ObjectDefinition.forId(5103).getConfigurations().put("option:chop-down", this);
 		ObjectDefinition.forId(5104).getConfigurations().put("option:chop-down", this);
 		ObjectDefinition.forId(5105).getConfigurations().put("option:chop-down", this);
@@ -154,21 +152,6 @@ public final class BrimhavenDungeonPlugin extends OptionHandler {
 				return true;
 			}
 			AgilityHandler.walk(player, -1, player.getLocation(), Location.create(2682, 9506, 0), Animation.create(155), 0, null);
-			return true;
-		case 5099:
-		case 5100:
-			level = object.getId() == 5099 ? 34 : 22;
-			if (player.getSkills().getLevel(Skills.AGILITY) < level) {
-				player.getPacketDispatch().sendMessage("You need an agility level of " + level + " to squeeze through the pipe.");
-				return true;
-			}
-			final Direction direction = Direction.get(object.getRotation() + 1 & 3);
-			player.lock(12);
-			Location l = player.getLocation();
-			AgilityHandler.forceWalk(player, -1, l, l = l.transform(direction, 3), Animation.create(749), 10, 0, null);
-			AgilityHandler.forceWalk(player, -1, l, l = l.transform(direction, 2), Animation.create(844), 10, 0, null, 5);
-			AgilityHandler.forceWalk(player, -1, l, l = l.transform(direction, 2), Animation.create(748), 20, 0, null, 8);
-			player.addExtension(LogoutTask.class, new LocationLogoutTask(12, player.getLocation()));
 			return true;
 		}
 		return false;

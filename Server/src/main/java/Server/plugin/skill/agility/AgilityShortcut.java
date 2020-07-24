@@ -1,17 +1,18 @@
 package plugin.skill.agility;
 
 import core.cache.def.impl.ObjectDefinition;
-import plugin.skill.Skills;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.object.GameObject;
 import core.game.world.map.Direction;
+import core.game.world.map.Location;
 import core.plugin.Plugin;
+import plugin.skill.Skills;
 
 /**
  * Handles an agility shortcut.
- * @author Vexia
+ * @author Woah
  */
 public abstract class AgilityShortcut extends OptionHandler {
 
@@ -94,7 +95,7 @@ public abstract class AgilityShortcut extends OptionHandler {
 	 * @param player the player.
 	 * @param object the object.
 	 * @param option the option.
-	 * @param if the shortcut failed.
+	 * @param failed the shortcut failed.
 	 */
 	public abstract void run(Player player, GameObject object, String option, boolean failed);
 
@@ -115,7 +116,7 @@ public abstract class AgilityShortcut extends OptionHandler {
 	 * Checks if the player failed the shortcut.
 	 * @param player the player.
 	 * @param object the object.
-	 * @param options the option.
+	 * @param option2 the option.
 	 * @return {@code True} if failed.
 	 */
 	private boolean checkFail(Player player, GameObject object, String option2) {
@@ -145,6 +146,28 @@ public abstract class AgilityShortcut extends OptionHandler {
 	protected Direction getObjectDirection(Direction direction) {
 		return direction == Direction.NORTH ? Direction.EAST : direction == Direction.SOUTH ? Direction.WEST : direction == Direction.EAST ? Direction.NORTH : Direction.SOUTH;
 	}
+
+
+	public Location pipeDestination(Player player, GameObject object, int steps) {
+		player.faceLocation(object.getLocation());
+		int diffX = object.getLocation().getX() - player.getLocation().getX();
+		if (diffX < -1) { diffX = -1; }
+		if (diffX > 1) { diffX = 1; }
+		int diffY = object.getLocation().getY() - player.getLocation().getY();
+		if (diffY < -1) { diffY = -1; }
+		if (diffY > 1) { diffX = 1; }
+		Location dest = player.getLocation().transform((diffX) * steps, (diffY) * steps, 0);
+		return dest;
+	}
+
+	public Location agilityDestination(Player player, GameObject object, int steps) {
+		player.faceLocation(object.getLocation());
+		int diffX = object.getLocation().getX() - player.getLocation().getX();
+		int diffY = object.getLocation().getY() - player.getLocation().getY();
+		Location dest = player.getLocation().transform((diffX) * steps, (diffY) * steps, 0);
+		return dest;
+	}
+
 
 	/**
 	 * Gets the level.

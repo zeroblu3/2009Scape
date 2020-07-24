@@ -17,6 +17,7 @@ import core.game.world.update.flag.context.Graphics;
 /**
  * Handles the entity teleport.
  * @author SonicForce41
+ * @author Woah
  */
 public class TeleportManager {
 
@@ -24,12 +25,12 @@ public class TeleportManager {
 	 * The wildy teleport type.
 	 */
 	public static final int WILDY_TELEPORT = 1 << 16 | 8;
-	
+
 	/**
 	 * The animations used in the home teleport.
 	 */
 	private final static int[] HOME_ANIMATIONS = {1722, 1723, 1724, 1725, 2798, 2799, 2800, 3195, 4643, 4645, 4646, 4847, 4848, 4849, 4850, 4851, 4852, 65535};
-	
+
 	/**
 	 * The graphics used in the home teleport.
 	 */
@@ -135,19 +136,19 @@ public class TeleportManager {
 			Player p = (Player) entity;
 		}
 	}
-	
+
 	/**
 	 * Get the home teleport audio based on tick count.
 	 * @param count
 	 */
 	private static int getAudio(int count){
 		switch(count){
-		case 0:
-			return 193;
-		case 4:
-			return 194;
-		case 11:
-			return 195;
+			case 0:
+				return 193;
+			case 4:
+				return 194;
+			case 11:
+				return 195;
 		}
 		return -1;
 	}
@@ -337,9 +338,9 @@ public class TeleportManager {
 					@Override
 					public boolean pulse() {
 						switch (count) {
-						case 18:
-							player.getProperties().setTeleportLocation(location);
-							return true;
+							case 18:
+								player.getProperties().setTeleportLocation(location);
+								return true;
 							default:
 								entity.asPlayer().getAudioManager().send(getAudio(count));
 								player.getPacketDispatch().sendGraphic(HOME_GRAPHICS[count]);
@@ -349,12 +350,12 @@ public class TeleportManager {
 						count++;
 						return false;
 					}
-					    @Override
-					    public void start() {
+					@Override
+					public void start() {
 						player = ((Player) entity);
 						if (TutorialSession.getExtension(player).getStage() < TutorialSession.MAX_STAGE) {
-						    stop();
-						    return;
+							stop();
+							return;
 						}
 						/*if (player.getSavedData().getGlobalData().getHomeTeleportDelay() > System.currentTimeMillis() && !player.isDonator()) {
 						    long milliseconds = player.getSavedData().getGlobalData().getHomeTeleportDelay() - System.currentTimeMillis();
@@ -382,7 +383,7 @@ public class TeleportManager {
 				};
 			}
 		},
-		OBELISK(new TeleportSettings(8939, 8941, -1, -1)) {
+		OBELISK(new TeleportSettings(8939, 8941, 661, -1)) {
 			@Override
 			public Pulse getPulse(final Entity entity, final Location location) {
 				return new Pulse(1) {
@@ -443,24 +444,24 @@ public class TeleportManager {
 					@Override
 					public boolean pulse() {
 						switch (++delay) {
-						case 2:
-							entity.animate(Animation.create(3265));
-							break;
-						case 4:
-							Quest quest = null;
-							if (entity instanceof Player) {
-								quest = ((Player) entity).getQuestRepository().getQuest("Lost City");
-							}
-							if (quest != null) {
-								if (quest.getStage(entity.asPlayer()) == 21) {
-									quest.finish(entity.asPlayer());
+							case 2:
+								entity.animate(Animation.create(3265));
+								break;
+							case 4:
+								Quest quest = null;
+								if (entity instanceof Player) {
+									quest = ((Player) entity).getQuestRepository().getQuest("Lost City");
 								}
-							}
-							entity.animate(Animation.create(3266));
-							entity.getProperties().setTeleportLocation(location);
-							entity.unlock();
-							entity.lock(2);
-							return true;
+								if (quest != null) {
+									if (quest.getStage(entity.asPlayer()) == 21) {
+										quest.finish(entity.asPlayer());
+									}
+								}
+								entity.animate(Animation.create(3266));
+								entity.getProperties().setTeleportLocation(location);
+								entity.unlock();
+								entity.lock(2);
+								return true;
 						}
 						return false;
 					}
@@ -659,6 +660,29 @@ public class TeleportManager {
 					}
 				};
 			}
+		},
+		INSTANT(new TeleportSettings(-1, -1, -1, -1)) {
+			@Override
+			public Pulse getPulse(final Entity entity, final Location location) {
+				return new Pulse(1) {
+					int delay = 0;
+
+					@Override
+					public boolean pulse() {
+						if (delay == 0) {
+							entity.lock();
+						} else if (delay == 3) {
+							entity.getProperties().setTeleportLocation(Location.create(location));
+						} else if (delay == 4) {
+							entity.getAnimator().forceAnimation(Animation.RESET);
+							entity.unlock();
+							return true;
+						}
+						delay++;
+						return false;
+					}
+				};
+			}
 		};
 
 		/**
@@ -768,10 +792,10 @@ public class TeleportManager {
 	 */
 	public static TeleportType getType(Player player) {
 		switch (player.getSpellBookManager().getSpellBook()) {
-		case 193:
-			return TeleportType.ANCIENT;
-		case 430:
-			return TeleportType.LUNAR;
+			case 193:
+				return TeleportType.ANCIENT;
+			case 430:
+				return TeleportType.LUNAR;
 		}
 		return TeleportType.NORMAL;
 	}
