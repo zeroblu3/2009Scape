@@ -4,10 +4,8 @@ import com.alex.loaders.objects.ObjectDefinitions;
 import com.editor.Main;
 import com.editor.object.ObjectSelection;
 
-import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

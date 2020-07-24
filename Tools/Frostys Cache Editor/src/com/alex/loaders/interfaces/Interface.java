@@ -5,8 +5,6 @@ import com.alex.loaders.interfaces.IComponent;
 import com.alex.store.Store;
 import com.alex.utils.Utils;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ReplicateScaleFilter;
 import java.io.IOException;

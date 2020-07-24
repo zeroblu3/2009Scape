@@ -2,9 +2,7 @@ package com.editor;
 
 import com.editor.Main;
 
-import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;

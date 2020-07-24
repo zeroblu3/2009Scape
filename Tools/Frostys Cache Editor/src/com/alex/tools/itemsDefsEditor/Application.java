@@ -6,9 +6,7 @@ import com.alex.tools.itemsDefsEditor.GeneratedUkeys;
 import com.alex.tools.itemsDefsEditor.ItemDefsEditor;
 import com.alex.utils.Utils;
 
-import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;

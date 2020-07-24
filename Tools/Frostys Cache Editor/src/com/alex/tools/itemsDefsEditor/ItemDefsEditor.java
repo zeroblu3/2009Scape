@@ -3,9 +3,7 @@ package com.alex.tools.itemsDefsEditor;
 import com.alex.loaders.items.ItemDefinitions;
 import com.alex.tools.itemsDefsEditor.Application;
 
-import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

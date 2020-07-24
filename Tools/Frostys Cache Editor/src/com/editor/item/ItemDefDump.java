@@ -5,7 +5,6 @@ import com.alex.store.Store;
 import com.alex.utils.Utils;
 import com.editor.Main;
 
-import java.io.*;
 import java.util.Iterator;
 
 public class ItemDefDump {

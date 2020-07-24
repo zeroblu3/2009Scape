@@ -2,8 +2,6 @@ package com.alex.loaders.images;
 
 import com.alex.store.Store;
 
-import java.awt.*;
-
 public class LoaderImageArchive {
    private byte[] data;
 
