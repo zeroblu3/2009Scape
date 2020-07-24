@@ -34,7 +34,7 @@ public class GolrieDialogue extends DialoguePlugin {
 
 		/* Main dialogue sequence */
 		case 0:
-			interpreter.sendDialogues(306, FacialExpression.OSRS_NORMAL, "That's me. I've been stuck in here for weeks, those", "goblins are trying to steal my family's heirlooms. My", "grandad gave me all sorts of old junk.");
+			interpreter.sendDialogues(306, FacialExpression.OLD_NORMAL, "That's me. I've been stuck in here for weeks, those", "goblins are trying to steal my family's heirlooms. My", "grandad gave me all sorts of old junk.");
 			stage = 1;
 			break;
 		case 1:
@@ -42,7 +42,7 @@ public class GolrieDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(306, FacialExpression.OSRS_HAPPY, "No, of course not.");
+			interpreter.sendDialogues(306, FacialExpression.OLD_HAPPY, "No, of course not.");
 			stage = 3;
 			break;
 		case 3:
@@ -61,7 +61,7 @@ public class GolrieDialogue extends DialoguePlugin {
 			stage = 6;
 			break;
 		case 6:
-			interpreter.sendDialogues(306, FacialExpression.OSRS_NORMAL, "Oh that, yes have it, it's just some old elven junk I", "believe.");
+			interpreter.sendDialogues(306, FacialExpression.OLD_NORMAL, "Oh that, yes have it, it's just some old elven junk I", "believe.");
 			player.getInventory().add(new Item(294, 1));
 			stage = 7;
 			break;
@@ -71,7 +71,7 @@ public class GolrieDialogue extends DialoguePlugin {
 			stage = 8;
 			break;
 		case 8:
-			interpreter.sendDialogues(306, FacialExpression.OSRS_HAPPY, "Thanks a lot for the key traveller. I think I'll wait in", "here until those goblins get bored and leave.");
+			interpreter.sendDialogues(306, FacialExpression.OLD_HAPPY, "Thanks a lot for the key traveller. I think I'll wait in", "here until those goblins get bored and leave.");
 			player.getInventory().remove(new Item(293, 1));
 			stage = 9;
 			break;

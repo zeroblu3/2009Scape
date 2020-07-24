@@ -46,7 +46,7 @@ public final class KreeJrDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You thought what would be big news?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You thought what would be big news?");
 			stage = 1;
 			break;
 		case 1:
@@ -54,7 +54,7 @@ public final class KreeJrDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "What are you talking about?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "What are you talking about?");
 			stage = 3;
 			break;
 		case 3:
@@ -62,7 +62,7 @@ public final class KreeJrDialogue extends DialoguePlugin {
 			stage = 4;
 			break;
 		case 4:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Heard wha...... OH NO!!!!?!?!!?!");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Heard wha...... OH NO!!!!?!?!!?!");
 			stage = 5;
 			break;
 		case 5:

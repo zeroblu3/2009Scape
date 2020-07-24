@@ -57,7 +57,7 @@ public class GuardDialoguePlugin extends DialoguePlugin {
 			increment();
 			break;
 		case 2:
-			interpreter.sendDialogues(player, read ? FacialExpression.HALF_GUILTY : FacialExpression.OSRS_SNEAKY, read ? "Oh, okay then." : "Why not?");
+			interpreter.sendDialogues(player, read ? FacialExpression.HALF_GUILTY : FacialExpression.OLD_SNEAKY, read ? "Oh, okay then." : "Why not?");
 			increment();
 			break;
 		case 3:

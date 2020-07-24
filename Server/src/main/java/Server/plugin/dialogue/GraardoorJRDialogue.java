@@ -46,7 +46,7 @@ public final class GraardoorJRDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "SFudghoigdfpDSOPGnbSOBNfdbdnopbdnopbddfnopdf", "pofhdARRRGGGGH!");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "SFudghoigdfpDSOPGnbSOBNfdbdnopbdnopbddfnopdf", "pofhdARRRGGGGH!");
 			stage = 1;
 			break;
 		case 1:

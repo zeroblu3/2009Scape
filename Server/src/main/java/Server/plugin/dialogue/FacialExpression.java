@@ -17,14 +17,14 @@ public enum FacialExpression {
 
     //Chat heads from oldschool runescape?
     //Maybe for gnomes or dwarves? Chat heads are frozen when used on Human NPCs
-    OSRS_HAPPY(588),
-    OSRS_NORMAL(594),
-    OSRS_SNEAKY(595),
-    OSRS_SAD(596),
-    OSRS_LAUGH1(605),
-    OSRS_LAUGH2(606),
-    OSRS_LAUGH3(607),
-    OSRS_LAUGH4(608), //TODO: More
+    OLD_HAPPY(588),
+    OLD_NORMAL(594),
+    OLD_SNEAKY(595),
+    OLD_SAD(596),
+    OLD_LAUGH1(605),
+    OLD_LAUGH2(606),
+    OLD_LAUGH3(607),
+    OLD_LAUGH4(608), //TODO: More
 
     //Chatheads from 2009?
     NOD_YES(9741),

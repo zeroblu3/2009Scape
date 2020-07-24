@@ -83,7 +83,7 @@ public final class ShilopDialogue extends DialoguePlugin {
 		final Quest quest = player.getQuestRepository().getQuest("Gertrude's Cat");
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(id, FacialExpression.OSRS_NORMAL,  "You think you're tough do you?");
+			interpreter.sendDialogues(id, FacialExpression.OLD_NORMAL,  "You think you're tough do you?");
 			stage = 1;
 			break;
 		case 1:
@@ -91,11 +91,11 @@ public final class ShilopDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(id, FacialExpression.OSRS_NORMAL,  "I can beat anyone up!");
+			interpreter.sendDialogues(id, FacialExpression.OLD_NORMAL,  "I can beat anyone up!");
 			stage = 3;
 			break;
 		case 3:
-			interpreter.sendDialogues(783, FacialExpression.OSRS_NORMAL,  "He can you know!");
+			interpreter.sendDialogues(783, FacialExpression.OLD_NORMAL,  "He can you know!");
 			stage = 4;
 			break;
 		case 4:
@@ -110,7 +110,7 @@ public final class ShilopDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 100:// stage 10
-			interpreter.sendDialogues(id, FacialExpression.OSRS_NORMAL,  "I didn't mean to take it! I just forgot to pay.");
+			interpreter.sendDialogues(id, FacialExpression.OLD_NORMAL,  "I didn't mean to take it! I just forgot to pay.");
 			stage = 101;
 			break;
 		case 101:

@@ -108,7 +108,7 @@ public class TzRekJadNPC extends OptionHandler {
 			case 1:
 				switch(buttonId) {
 				case 1:
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, player.getInventory().containsItems(FIRECAPE) ? "Hand your cape here, young JalYte." : "You not have firecape, JalYt.");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, player.getInventory().containsItems(FIRECAPE) ? "Hand your cape here, young JalYte." : "You not have firecape, JalYt.");
 					stage = 10;
 					break;
 				case 2:
@@ -134,13 +134,13 @@ public class TzRekJadNPC extends OptionHandler {
 				switch (buttonId) {
 				case 1:
 					if (player.hasItem(JAD_PET)) {
-						interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Best you train one TzRek-Jad only.");
+						interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Best you train one TzRek-Jad only.");
 						stage = 21;
 						break;
 					}
 					if (player.getFamiliarManager().hasFamiliar()) {
 						if (player.getFamiliarManager().getFamiliar().getId() == 8650) {
-							interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Best you train one TzRek-Jad only.");
+							interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Best you train one TzRek-Jad only.");
 							stage = 21;
 							break;
 						}
@@ -148,7 +148,7 @@ public class TzRekJadNPC extends OptionHandler {
 					if (player.getInventory().remove(FIRECAPE)) {
 						int r = RandomFunction.getRandom(200);
 						if (r == 1) {
-							interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You lucky. Better train him good else TzTok-Jad find", "you, JalYt.");
+							interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You lucky. Better train him good else TzTok-Jad find", "you, JalYt.");
 							if (!player.getFamiliarManager().hasFamiliar()) {
 								player.getFamiliarManager().summon(JAD_PET, true);
 								player.sendNotificationMessage("You have a funny feeling like you're being followed.");
@@ -158,7 +158,7 @@ public class TzRekJadNPC extends OptionHandler {
 							}
 							Repository.sendNews(player.getUsername() + " now commands a miniature TzTok-Jad!");
 						} else {
-							interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You not lucky. Maybe next time, JalYt.");
+							interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You not lucky. Maybe next time, JalYt.");
 						}
 					}
 					stage = 21;
@@ -224,7 +224,7 @@ public class TzRekJadNPC extends OptionHandler {
 			public boolean handle(int interfaceId, int buttonId) {
 				switch (stage) {
 				case 0:
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Mej-TzTok-Jad Kot-Kl!");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Mej-TzTok-Jad Kot-Kl!");
 					stage = 1;
 					break;
 				case 1:
@@ -232,7 +232,7 @@ public class TzRekJadNPC extends OptionHandler {
 					stage = 2;
 					break;
 				case 2:
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Jal-Zek Kl?");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Jal-Zek Kl?");
 					stage = 3;
 					break;
 				case 3:
@@ -243,7 +243,7 @@ public class TzRekJadNPC extends OptionHandler {
 					end();
 					break;
 				case 5:
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Kl-Kra!");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Kl-Kra!");
 					stage = 6;
 					break;
 				case 6:

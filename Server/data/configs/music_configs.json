@@ -20,7 +20,7 @@
     },
     {
       "id": "4",
-      "name": "Hell\\'s Bells",
+      "name": "Hell's Bells",
       "indexId": "254",
       "borders": "{2752,3712,2815,3775}"
     },
@@ -395,6 +395,12 @@
       "name": "Fanfare",
       "indexId": "44",
       "borders": "{2944,3328,3007,3391}"
+    },
+    {
+      "id": "73",
+      "name": "All's Fairy in Love and War",
+      "indexId": "436",
+      "borders": ""
     },
     {
       "id": "74",
@@ -1233,8 +1239,14 @@
     {
       "id": "271",
       "name": "Well of Voyage",
-      "indexId": "221",
+      "indexId": "469",
       "borders": "{2304,9600,2367,9663}"
+    },
+    {
+      "id": "272",
+      "name": "Alternative Root",
+      "indexId": "221",
+      "borders": ""
     },
     {
       "id": "277",
@@ -1544,7 +1556,7 @@
     },
     {
       "id": "344",
-      "name": "Fenkenstrain\\'s Refrain",
+      "name": "Fenkenstrain's Refrain",
       "indexId": "271",
       "borders": "{3456,3520,3519,3583}"
     },
@@ -1568,7 +1580,7 @@
     },
     {
       "id": "348",
-      "name": "Narnode\\'s Theme",
+      "name": "Narnode's Theme",
       "indexId": "513",
       "borders": "{2432,9856,2495,9919}"
     },
@@ -1789,8 +1801,14 @@
       "borders": "{2816,5248,2943,5375,[2823,5250,2844,5310]~,[2844,5250,2878,5280]~,[2879,5340,2944,5366]~,[2909,5316,2944,5340]~,[2820,5312,2849,5369]~,[2849,5349,2880,5374]~,[2885,5253,2934,5278]~,[2913,5278,2937,5306]}"
     },
     {
+      "id": "401",
+      "name": "The Adventurer",
+      "indexId": "520",
+      "borders": ""
+    },
+    {
       "id": "402",
-      "name": "The Rogues\\' Den",
+      "name": "The Rogues' Den",
       "indexId": "313",
       "borders": "{2944,4928,3007,4991}-{3008,4928,3071,4991}"
     },
@@ -1826,7 +1844,7 @@
     },
     {
       "id": "411",
-      "name": "Evil Bob\\'s Island",
+      "name": "Evil Bob's Island",
       "indexId": "316",
       "borders": "{2496,4736,2559,4799}"
     },
@@ -1921,6 +1939,12 @@
       "borders": "{2432,10112,2495,10175}"
     },
     {
+      "id": "456",
+      "name": "Animal Apogee",
+      "indexId": "504",
+      "borders": ""
+    },
+    {
       "id": "461",
       "name": "The Desolate Isle",
       "indexId": "330",
@@ -2012,7 +2036,7 @@
     },
     {
       "id": "490",
-      "name": "Sarim\\'s Vermin",
+      "name": "Sarim's Vermin",
       "indexId": "348",
       "borders": "{2944,9600,3007,9663}"
     },
@@ -2041,6 +2065,12 @@
       "borders": "{2112,5120,2175,5183}"
     },
     {
+      "id": "500",
+      "name": "A New Menace",
+      "indexId": "522",
+      "borders": ""
+    },
+    {
       "id": "501",
       "name": "Distant Land",
       "indexId": "353",
@@ -2048,7 +2078,7 @@
     },
     {
       "id": "505",
-      "name": "Pharaoh\\'s Tomb",
+      "name": "Pharaoh's Tomb",
       "indexId": "355",
       "borders": "{3328,2816,3391,2879}-{3008,4672,3071,4735}"
     },
@@ -2069,6 +2099,12 @@
       "name": "Subterranea",
       "indexId": "362",
       "borders": "{2496,10112,2559,10175}"
+    },
+    {
+      "id": "526",
+      "name": "Arma Gonna Get You",
+      "indexId": "592",
+      "borders": ""
     },
     {
       "id": "524",
@@ -2096,7 +2132,7 @@
     },
     {
       "id": "532",
-      "name": "Diango\\'s Little Helpers",
+      "name": "Diango's Little Helpers",
       "indexId": "371",
       "borders": "{1984,4416,2047,4479}"
     },
@@ -2113,10 +2149,22 @@
       "borders": "{2304,3648,2367,3711}-{2304,3584,2367,3647}"
     },
     {
+      "id": "555",
+      "name": "Ardougne Ago",
+      "indexId": "613",
+      "borders": ""
+    },
+    {
       "id": "569",
       "name": "Undead Army",
       "indexId": "607",
       "borders": "{3200,9984,3263,10047}"
+    },
+    {
+      "id": "571",
+      "name": "Art of Hocus-Pocus",
+      "indexId": "624",
+      "borders": ""
     },
     {
       "id": "573",
@@ -2132,7 +2180,7 @@
     },
     {
       "id": "576",
-      "name": "Davy Jones\\'s Locker",
+      "name": "Davy Jones's Locker",
       "indexId": "394",
       "borders": "{2944,9472,3007,9535}"
     },
@@ -2173,14 +2221,26 @@
       "borders": "{2432,5248,2495,5311}"
     },
     {
+      "id": "604",
+      "name": "Assault and Battery",
+      "indexId": "407",
+      "borders": ""
+    },
+    {
       "id": "612",
       "name": "Head to Head",
       "indexId": "411",
       "borders": "{1856,5120,1919,5183}"
     },
     {
+      "id": "616",
+      "name": "Back to Life",
+      "indexId": "414",
+      "borders": ""
+    },
+    {
       "id": "634",
-      "name": "Warriors\\' Guild",
+      "name": "Warriors' Guild",
       "indexId": "423",
       "borders": ""
     },

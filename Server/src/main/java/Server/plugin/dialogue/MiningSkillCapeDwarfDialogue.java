@@ -49,7 +49,7 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Welcome to the Mining Guild.", "Can I help you with anything?");
+		interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Welcome to the Mining Guild.", "Can I help you with anything?");
 		stage = 0;
 		return true;
 	}
@@ -83,7 +83,7 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 			}
 			break;
 		case 20:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "What do you think? We smelt it into bars, smith the metal", "to make armour and weapons, then we exchange them for", "goods and services.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "What do you think? We smelt it into bars, smith the metal", "to make armour and weapons, then we exchange them for", "goods and services.");
 			stage = 21;
 			break;
 		case 21:
@@ -91,11 +91,11 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 			stage = 22;
 			break;
 		case 22:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "No, this is only a mining outpost. We dwarves don't much", "like to settle in human cities. Most of the ore is carted off", "to Keldagrim, the great dwarven city. They've got a", "special blast furnace up there - it makes smelting the ore");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "No, this is only a mining outpost. We dwarves don't much", "like to settle in human cities. Most of the ore is carted off", "to Keldagrim, the great dwarven city. They've got a", "special blast furnace up there - it makes smelting the ore");
 			stage = 12;
 			break;
 		case 10:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Ooh, it's WONDERFUL! There are lots of coal rocks,", "and even a few mithril rocks in the guild,", "all exclusively for people with at least level 60 mining.", "There's no better mining site anywhere near here.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Ooh, it's WONDERFUL! There are lots of coal rocks,", "and even a few mithril rocks in the guild,", "all exclusively for people with at least level 60 mining.", "There's no better mining site anywhere near here.");
 			stage = 11;
 			break;
 		case 11:
@@ -103,14 +103,14 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 			stage = 1;
 			break;
 		case 12:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "so much easier. There are plenty of dwarven traders", "working in Keldagrim. Anyway, can I help you with anything ", "else?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "so much easier. There are plenty of dwarven traders", "working in Keldagrim. Anyway, can I help you with anything ", "else?");
 			stage = 11;
 			break;
 		case 30:
 			end();
 			break;
 		case 40:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Sure, this is a Skillcape of Mining. It shows my stature as", "a master miner! It has all sorts of uses , if you", "have a level of 99 mining I'll sell you one.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Sure, this is a Skillcape of Mining. It shows my stature as", "a master miner! It has all sorts of uses , if you", "have a level of 99 mining I'll sell you one.");
 			stage = 41;
 			break;
 		case 41:
@@ -138,7 +138,7 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 45:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "It will cost you 99,000 gold coins, are you sure?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "It will cost you 99,000 gold coins, are you sure?");
 			stage = 46;
 			break;
 		case 46:
@@ -158,7 +158,7 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 			break;
 		case 48:
 			if (!player.getInventory().containsItem(COINS)) {
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You need 99,000 gold coins in order to buy a Skillcape", "of mining.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You need 99,000 gold coins in order to buy a Skillcape", "of mining.");
 				stage = 44;
 				return true;
 			}
@@ -172,7 +172,7 @@ public final class MiningSkillCapeDwarfDialogue extends DialoguePlugin {
 				return true;
 			}
 			if (player.getInventory().remove(COINS) && player.getInventory().add(ITEMS[player.getSkills().getMasteredSkills() > 1 ? 1 : 0], ITEMS[2])) {
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Thanks!");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Thanks!");
 				stage = 49;
 			}
 			break;

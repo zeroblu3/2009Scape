@@ -80,7 +80,7 @@ public class BabyChinchompaNPC extends Metamorphosis {
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, npc.getId() != 8658 ? "Squeak! Squeak!" : "Squeaka! Squeaka!");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, npc.getId() != 8658 ? "Squeak! Squeak!" : "Squeaka! Squeaka!");
 			stage = 0;
 			return true;
 		}

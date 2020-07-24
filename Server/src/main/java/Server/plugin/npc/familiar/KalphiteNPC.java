@@ -75,7 +75,7 @@ public class KalphiteNPC extends Metamorphosis {
 		public boolean handle(int interfaceId, int buttonId) {
 			switch (stage) {
 			case 0:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Truthfully?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Truthfully?");
 				stage = 1;
 				break;
 			case 1:
@@ -83,7 +83,7 @@ public class KalphiteNPC extends Metamorphosis {
 				stage = 2;
 				break;
 			case 2:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Soup. We make a fine soup with it.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Soup. We make a fine soup with it.");
 				stage = 3;
 				break;
 			case 3:
@@ -91,7 +91,7 @@ public class KalphiteNPC extends Metamorphosis {
 				stage = 4;
 				break;
 			case 4:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Nah, we just collect it and put it there because we", "know fools like yourself will come down looking for it", "then inevitably be killed by my mother.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Nah, we just collect it and put it there because we", "know fools like yourself will come down looking for it", "then inevitably be killed by my mother.");
 				stage = 5;
 				break;
 			case 5:
@@ -99,7 +99,7 @@ public class KalphiteNPC extends Metamorphosis {
 				stage = 6;
 				break;
 			case 6:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Touch�.");			
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Touch�.");
 				stage = 7;
 				break;
 			case 7:

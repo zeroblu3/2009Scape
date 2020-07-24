@@ -38,7 +38,7 @@ public final class HeronDialogue extends DialoguePlugin {
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Hop inside my mouth, if you want to live!");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Hop inside my mouth, if you want to live!");
 			stage = 0;
 			return true;
 		}
