@@ -44,7 +44,7 @@ public final class RellekkaZone extends MapZone implements Plugin<Object> {
 		ZoneBuilder.configure(this);
 		PluginManager.definePlugin(new SailorDialogue());
 		PluginManager.definePlugin(new JarvaldDialogue());
-		PluginManager.definePlugin(new RellekaOptionHandler(), new MariaGunnarsDialogue());
+		PluginManager.definePlugins(new RellekaOptionHandler(), new MariaGunnarsDialogue());
 		PluginManager.definePlugin(new OptionHandler() {
 
 			@Override

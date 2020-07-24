@@ -42,7 +42,11 @@ object Server {
     @JvmStatic
     fun main(args: Array<String>) {
         if (args.size > 0) {
-            GameWorld.setSettings(parse(args))
+            try {
+                GameWorld.setSettings(parse(args))
+            } catch(e: Exception){
+                print("Unable to find config file $args")
+            }
         }
         if (GameWorld.getSettings()!!.isGui) {
             try {

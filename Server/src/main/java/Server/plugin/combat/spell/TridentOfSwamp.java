@@ -95,7 +95,7 @@ public class TridentOfSwamp extends CombatSpell {
 	
 	@Override
 	public Plugin<SpellType> newInstance(SpellType arg) throws Throwable {
-		PluginManager.definePlugin(new TridentOfSwampHandler(), new TridentOfSwampOptionHandler());
+		PluginManager.definePlugins(new TridentOfSwampHandler(), new TridentOfSwampOptionHandler());
 		SpellBook.MODERN.register(127, this);
 		return this;
 	}

@@ -28,7 +28,7 @@ public final class BlackKnightsFortress extends Quest {
 	
 	@Override
 	public Quest newInstance(Object object) {
-		PluginManager.definePlugin(new BKCabbagePlugin(), new BKFortressPlugin(), new SirAmikVarzeDialogue());
+		PluginManager.definePlugins(new BKCabbagePlugin(), new BKFortressPlugin(), new SirAmikVarzeDialogue());
 		return this;
 	}
 

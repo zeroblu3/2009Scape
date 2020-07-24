@@ -55,7 +55,7 @@ public class LumbridgeBasementPlugin extends OptionHandler {
 		ObjectDefinition.forId(40849).getConfigurations().put("option:jump-down", this);
 		ObjectDefinition.forId(40260).getConfigurations().put("option:climb-through", this);
 		ObjectDefinition.forId(41077).getConfigurations().put("option:crawl-through", this);
-		PluginManager.definePlugin(new LightCreatureNPC(), new LightCreatureHandler(), new FishMongerDialogue());
+		PluginManager.definePlugins(new LightCreatureNPC(), new LightCreatureHandler(), new FishMongerDialogue());
 		ObjectBuilder.add(new GameObject(40260, Location.create(2526, 5828, 2), 2));
 		return this;
 	}

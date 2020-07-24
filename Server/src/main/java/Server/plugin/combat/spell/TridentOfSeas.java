@@ -82,7 +82,7 @@ public class TridentOfSeas extends CombatSpell {
 	
 	@Override
 	public Plugin<SpellType> newInstance(SpellType arg) throws Throwable {
-		PluginManager.definePlugin(new TridentOfSeasHandler(), new TridentOfSeasOptionHandler());
+		PluginManager.definePlugins(new TridentOfSeasHandler(), new TridentOfSeasOptionHandler());
 		SpellBook.MODERN.register(126, this);
 		return this;
 	}

@@ -117,7 +117,7 @@ public final class DragonSlayer extends Quest {
 	
 	@Override
 	public Quest newInstance(Object object) {
-		PluginManager.definePlugin(new CrandorMapPlugin(), new DragonSlayerPlugin(), new DSMagicDoorPlugin(), new DragonSlayerCutscene(), new MazeDemonNPC(), new MazeGhostNPC(), new MazeSkeletonNPC(), new MazeZombieNPC(), new MeldarMadNPC(), new WormbrainNPC(), new ZombieRatNPC(), new DSChestDialogue(), new GuildmasterDialogue(), new ElvargNPC(), new WormbrainDialogue(), new OziachDialogue(), new NedDialogue(), new DukeHoracioDialogue());
+		PluginManager.definePlugins(new CrandorMapPlugin(), new DragonSlayerPlugin(), new DSMagicDoorPlugin(), new DragonSlayerCutscene(), new MazeDemonNPC(), new MazeGhostNPC(), new MazeSkeletonNPC(), new MazeZombieNPC(), new MeldarMadNPC(), new WormbrainNPC(), new ZombieRatNPC(), new DSChestDialogue(), new GuildmasterDialogue(), new ElvargNPC(), new WormbrainDialogue(), new OziachDialogue(), new NedDialogue(), new DukeHoracioDialogue());
 		return this;
 	}
 	

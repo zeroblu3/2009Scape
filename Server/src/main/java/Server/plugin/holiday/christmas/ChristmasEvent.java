@@ -101,7 +101,7 @@ public class ChristmasEvent extends HolidayEvent {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		if (isActive()) {
-			PluginManager.definePlugin(new ChristmasEventOptionPlugin(), new SnowmanItemHandler(), new SnowImpDialogue(), new SnowmanHatComponentPlugin(), new QueenOfSnowDialogue(), new SnowballItemPlugin(), new SnowmanNPC(), new PeltOptionHandler());
+			PluginManager.definePlugins(new ChristmasEventOptionPlugin(), new SnowmanItemHandler(), new SnowImpDialogue(), new SnowmanHatComponentPlugin(), new QueenOfSnowDialogue(), new SnowballItemPlugin(), new SnowmanNPC(), new PeltOptionHandler());
 		}
 		return super.newInstance(arg);
 	}

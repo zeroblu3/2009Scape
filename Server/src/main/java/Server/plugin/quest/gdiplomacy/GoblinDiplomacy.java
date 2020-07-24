@@ -50,7 +50,7 @@ public class GoblinDiplomacy extends Quest {
 	
 	@Override
 	public Quest newInstance(Object object) {
-		PluginManager.definePlugin(new GDiplomacyCutscene(), new GoblinDiplomacyPlugin(), new GrubfootDialogue());
+		PluginManager.definePlugins(new GDiplomacyCutscene(), new GoblinDiplomacyPlugin(), new GrubfootDialogue());
 		return this;
 	}
 

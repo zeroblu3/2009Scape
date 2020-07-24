@@ -11,6 +11,7 @@ import plugin.activity.ActivityPlugin
 import plugin.dialogue.DialoguePlugin
 import java.util.*
 import java.util.function.Consumer
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 /**
  * Represents a class used to handle the loading of all plugins.
@@ -54,7 +55,7 @@ object PluginManager {
         val result = ClassGraph().disableJarScanning().enableClassInfo().enableAnnotationInfo().scan()
         result.getClassesWithAnnotation("core.plugin.InitializablePlugin").forEach(Consumer { p: ClassInfo ->
             try {
-                definePlugin(p.loadClass().newInstance() as Plugin<*>)
+                definePlugin(p.loadClass().newInstance() as Plugin<JvmType.Object>)
             } catch (e: InstantiationException) {
                 e.printStackTrace()
             } catch (e: IllegalAccessException) {
@@ -68,7 +69,7 @@ object PluginManager {
      * @param plugins the plugins.
      */
     @JvmStatic
-    fun definePlugin(vararg plugins: Plugin<*>) {
+    fun definePlugins(vararg plugins: Plugin<*>) {
         val pluginsLength = plugins.size
         for (i in 0 until pluginsLength) {
             val p = plugins[i]
@@ -81,7 +82,7 @@ object PluginManager {
      * @param plugin The plugin.
      */
 	@JvmStatic
-	fun definePlugin(plugin: Plugin<Any>) {
+	fun definePlugin(plugin: Plugin<*>) {
         try {
             var manifest = plugin.javaClass.getAnnotation(PluginManifest::class.java)
             if (manifest == null) {
@@ -92,14 +93,14 @@ object PluginManager {
                 }
             }
             if (manifest == null || manifest.type == PluginType.ACTION) {
-                plugin.newInstance(Unit)
+                plugin.newInstance(null)
             } else {
                 when (manifest.type) {
                     PluginType.DIALOGUE -> (plugin as DialoguePlugin).init()
                     PluginType.ACTIVITY -> ActivityManager.register(plugin as ActivityPlugin)
                     PluginType.LOGIN -> LoginConfiguration.getLoginPlugins().add(plugin as Plugin<Any?>)
                     PluginType.QUEST -> {
-                        plugin.newInstance(Unit)
+                        plugin.newInstance(null)
                         QuestRepository.register(plugin as Quest)
                     }
                     else -> println("Manifest: " + manifest.type)

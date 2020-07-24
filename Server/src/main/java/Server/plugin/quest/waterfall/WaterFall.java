@@ -85,7 +85,7 @@ public class WaterFall extends Quest {
 
 	@Override
 	public Quest newInstance(Object object) {
-		PluginManager.definePlugin(new AlmeraDialogue(), new BookOnBaxtorianPlugin(), new GolrieDialogue(), new HadleyDialogue(), new HudonDialogue(), new WaterfallPlugin(), new WaterfallTreeDialogue());
+		PluginManager.definePlugins(new AlmeraDialogue(), new BookOnBaxtorianPlugin(), new GolrieDialogue(), new HadleyDialogue(), new HudonDialogue(), new WaterfallPlugin(), new WaterfallTreeDialogue());
 		return this;
 	}
 

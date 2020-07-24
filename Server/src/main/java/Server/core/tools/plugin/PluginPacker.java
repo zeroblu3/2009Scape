@@ -1,3 +1,4 @@
+/*
 package core.tools.plugin;
 
 import java.io.BufferedInputStream;
@@ -14,37 +15,47 @@ import java.util.zip.ZipException;
 
 import core.plugin.PluginManager;
 
+*/
 /**
  * Packs all plugins.
  * @author Emperor
- */
+ *//*
+
 public final class PluginPacker {
 
-	/**
+	*/
+/**
 	 * The amount of packed plugins.
-	 */
+	 *//*
+
 	private static int packAmount = 0;
 
-	/**
+	*/
+/**
 	 * The amount of plugins that failed to be packed.
-	 */
+	 *//*
+
 	private static int failAmount = 0;
 
-	/**
+	*/
+/**
 	 * The main method.
 	 * @param args The arguments cast on run-time.
 	 * @throws Throwable When an exception occurs.
-	 */
+	 *//*
+
 	public static void main(String[] args) throws Throwable {
 		packPlugins(new File("./plugin/"));
 		System.out.println("Finished - packed " + packAmount + " plugins; failed to pack " + failAmount + ".");
 	}
 
-	/**
+	*/
+/**
 	 * Packs the plugins in the given directory.
 	 * @param dir The directory.
 	 * @throws Throwable When an exception occurs.
-	 */
+	 *//*
+
 	private static void packPlugins(File dir) throws Throwable {
 		for (File plugin : dir.listFiles()) {
 			if (plugin.getPath().contains("quest")) {
@@ -121,4 +132,4 @@ public final class PluginPacker {
 			// "\" - class count: " + count + ".");
 		}
 	}
-}
+}*/
