@@ -17,6 +17,11 @@ public enum SpecialLadders {
     INTRO_LEAVE(Location.create(2522, 4999, 0),Location.create(3230, 3240, 0));
 
 
+    DRAYNOR_SEWER_SOUTHEAST_DOWN(new Location(3118, 3244, 0), new Location(3118, 9643, 0)),
+    DRAYNOR_SEWER_SOUTHEAST_UP(new Location(3118, 9643, 0), new Location(3118, 3243, 0)),
+    DRAYNOR_SEWER_NORTHWEST_DOWN(new Location(3084, 3272, 0), new Location(3085, 9672, 0)),
+    DRAYNOR_SEWER_NORTHWEST_UP(new Location(3084, 9672, 0), new Location(3084, 3271, 0));
+
     public static HashMap<Location,Location> ladderMap = new HashMap<>();
     static {
         Arrays.stream(SpecialLadders.values()).forEach(entry -> {
