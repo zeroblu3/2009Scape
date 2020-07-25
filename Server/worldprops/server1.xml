@@ -23,9 +23,10 @@
     <PluginSetting name="Trivia" enabled="false"/>
     <PluginSetting name="RPS" enabled="false"/>
     <PluginSetting name="Boredom" enabled="false"/>
-    <PluginSetting name="ShootingStars" enabled="true"/>
+    <PluginSetting name="ShootingStars" enabled="false"/>
     <PluginSetting name="MysteryBox" enabled="false"/>
     <PluginSetting name="PKZone" enabled="false"/>
     <PluginSetting name="ObjectParser" enabled="true"/>
+    <PluginSetting name="BlackJack" enabled="false"/>
 
 </worldprops>
