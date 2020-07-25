@@ -61,7 +61,7 @@ final class WorldListEntry extends Class44 {
                int var3 = 0;
 
                for(int var4 = 0; var4 < var2.anIntArray2547.length; ++var4) {
-                  if(0 == ~var2.anIntArray2547[var4]) {
+                  if(var2.anIntArray2547[var4] == -1) {
                      ++var3;
                   }
                }

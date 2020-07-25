@@ -33,7 +33,7 @@ final class Class120 {
             anIntArray1638 = (int[])null;
          }
 
-         return !Client.method44(var0).method92(var2, (byte)-110) && var0.anObjectArray314 == null?null:(null != var0.aClass94Array171 && var0.aClass94Array171.length > var2 && var0.aClass94Array171[var2] != null && ~var0.aClass94Array171[var2].trim(1).length(-58) != -1?var0.aClass94Array171[var2]:(!Class69.aBoolean1040?null:RenderAnimationDefinition.method903(new RSString[]{Class121.aClass94_1645, Class72.method1298((byte)9, var2)}, (byte)-101)));
+         return !Client.method44(var0).method92(var2, (byte)-110) && var0.anObjectArray314 == null?null:(null != var0.aClass94Array171 && var0.aClass94Array171.length > var2 && var0.aClass94Array171[var2] != null && var0.aClass94Array171[var2].trim(1).length(-58) != 0 ?var0.aClass94Array171[var2]:(!Class69.aBoolean1040?null:RenderAnimationDefinition.method903(new RSString[]{Class121.aClass94_1645, Class72.method1298((byte)9, var2)}, (byte)-101)));
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "qj.B(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ')');
       }
@@ -44,10 +44,10 @@ final class Class120 {
          long var0 = (long)var2;
 
          for(int var3 = 0; 8 > var3; ++var3) {
-            if(~(1L & var0) != -2L) {
-               var0 >>>= 1;
-            } else {
+            if((1L & var0) == 1) {
                var0 = var0 >>> 1 ^ -3932672073523589310L;
+            } else {
+               var0 >>>= 1;
             }
          }
 

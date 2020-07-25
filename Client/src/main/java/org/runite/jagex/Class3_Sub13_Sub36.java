@@ -49,7 +49,7 @@ static RSString aClass94_3426 = aClass94_3428;
          if(1 == Class133.anInt1753) {
             var7 = 2047 & Class3_Sub29.anInt2589 + GraphicDefinition.CAMERA_DIRECTION;
             var6 = Class3_Sub9.anInt2309;
-            if(~var6 > ~(Class75_Sub4.anInt2670 / 256)) {
+            if(Class75_Sub4.anInt2670 / 256 > var6) {
                var6 = Class75_Sub4.anInt2670 / 256;
             }
 
@@ -76,18 +76,18 @@ static RSString aClass94_3426 = aClass94_3428;
                      Class3_Sub13_Sub25.anInt3315 = var12 + Class3_Sub13_Sub25.anInt3315 & 2047;
                   }
 
-                  if(~var11 == -5) {
+                  if(var11 == 4) {
                      Class139.anInt1823 += var12;
                      if(128 > Class139.anInt1823) {
                         Class139.anInt1823 = 128;
                      }
 
-                     if(~Class139.anInt1823 < -384) {
+                     if(Class139.anInt1823 > 383) {
                         Class139.anInt1823 = 383;
                      }
                   }
 
-                  if(-3 == ~var11) {
+                  if(var11 == 2) {
                      Class77.anInt1111 += var12;
                   }
 
@@ -117,7 +117,7 @@ static RSString aClass94_3426 = aClass94_3428;
                Class51.method1134();
             }
 
-            if(!Class38_Sub1.aBoolean2615 && ~NPCDefinition.anInt1297 <= ~var3 && ~NPCDefinition.anInt1297 > ~(var4 + var3) && var5 <= Class38_Sub1.anInt2612 && ~(var1 + var5) < ~Class38_Sub1.anInt2612) {
+            if(!Class38_Sub1.aBoolean2615 && var3 <= NPCDefinition.anInt1297 && var4 + var3 > NPCDefinition.anInt1297 && var5 <= Class38_Sub1.anInt2612 && Class38_Sub1.anInt2612 < var1 + var5) {
                Class3_Sub13_Sub7.aBoolean3094 = true;
                Class2.anInt59 = 0;
                var12 = Class145.anInt1898;
@@ -132,13 +132,13 @@ static RSString aClass94_3426 = aClass94_3428;
             }
 
             Class58.method1194(-16385);
-            byte var19 = -3 != ~Class137.method1817((byte)70)?1:(byte)Class79.anInt1127;
+            byte var19 = Class137.method1817((byte) 70) != 2 ?1:(byte)Class79.anInt1127;
             if(HDToolKit.highDetail) {
                HDToolKit.method1846();
                HDToolKit.method1831(true);
                boolean var18 = false;
                HDToolKit.method1827(true);
-               if(~Class143.loadingStage == -11) {
+               if(Class143.loadingStage == 10) {
                   var12 = Class3_Sub30_Sub1.method809(Class106.anInt1446, Class77.anInt1111 >> 10, Class3_Sub28_Sub10.anInt3625, NPC.anInt3995 >> 10, var0 + 6404);
                } else {
                   var12 = Class3_Sub30_Sub1.method809(Class106.anInt1446, Class102.player.anIntArray2755[0] >> 3, Class3_Sub28_Sub10.anInt3625, Class102.player.anIntArray2767[0] >> 3, 1);
@@ -186,7 +186,7 @@ static RSString aClass94_3426 = aClass94_3428;
                Class3_Sub13.method164((byte)-52, false, Class3_Sub13_Sub23.aClass94_3282);
             }
 
-            if(!var2 && !Class3_Sub13_Sub4.aBoolean3064 && !Class38_Sub1.aBoolean2615 && var3 <= NPCDefinition.anInt1297 && var4 + var3 > NPCDefinition.anInt1297 && ~var5 >= ~Class38_Sub1.anInt2612 && var1 + var5 > Class38_Sub1.anInt2612) {
+            if(!var2 && !Class3_Sub13_Sub4.aBoolean3064 && !Class38_Sub1.aBoolean2615 && var3 <= NPCDefinition.anInt1297 && var4 + var3 > NPCDefinition.anInt1297 && Class38_Sub1.anInt2612 >= var5 && var1 + var5 > Class38_Sub1.anInt2612) {
                Class104.method1628(var5, var4, var1, var3, Class38_Sub1.anInt2612, NPCDefinition.anInt1297, (byte)97);
             }
 
@@ -210,7 +210,7 @@ static RSString aClass94_3426 = aClass94_3428;
             int[] var7 = var3[2];
             int var8;
             int var9;
-            if(~Class113.anInt1559 == ~this.anInt3431) {
+            if(this.anInt3431 == Class113.anInt1559) {
                for(var8 = 0; var8 < Class113.anInt1559; ++var8) {
                   var9 = this.anIntArray3425[var4++];
                   var7[var8] = Class3_Sub28_Sub15.method633(var9 << 4, 4080);
@@ -239,7 +239,7 @@ static RSString aClass94_3426 = aClass94_3428;
          if(var1) {
             return true;
          } else if(this.anIntArray3425 == null) {
-            if(~this.anInt3434 > -1) {
+            if(this.anInt3434 < 0) {
                return false;
             } else {
                int var2 = Class113.anInt1559;
@@ -316,9 +316,7 @@ static RSString aClass94_3426 = aClass94_3428;
    static final Class3_Sub28_Sub13 method342(int var0, boolean var1) {
       try {
          Class3_Sub28_Sub13 var2 = (Class3_Sub28_Sub13)Class129_Sub1.aClass47_2686.method1092((long)var0, 1400);
-         if(var2 != null) {
-            return var2;
-         } else {
+         if(var2 == null) {
             byte[] var3 = Class45.aClass153_731.getFile(Class53.method1170((byte)44, var0), (byte)-122, Class3_Sub30_Sub1.method810((byte)3, var0));
             var2 = new Class3_Sub28_Sub13();
             if(!var1) {
@@ -331,6 +329,8 @@ static RSString aClass94_3426 = aClass94_3428;
 
             Class129_Sub1.aClass47_2686.method1097(var2, (long)var0, (byte)-115);
             return var2;
+         } else {
+            return var2;
          }
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "ui.IA(" + var0 + ',' + var1 + ')');
@@ -341,13 +341,13 @@ static RSString aClass94_3426 = aClass94_3428;
 	      try {
 	         AbstractIndexedSprite[] var1 = new AbstractIndexedSprite[Class95.anInt1338];
 
-	         for(int var2 = 0; ~Class95.anInt1338 < ~var2; ++var2) {
-	            if(!HDToolKit.highDetail) {
-	               var1[var2] = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
-	            } else {
+	         for(int var2 = 0; var2 < Class95.anInt1338; ++var2) {
+	            if(HDToolKit.highDetail) {
 	               var1[var2] = new HDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
+	            } else {
+	               var1[var2] = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
 	            }
-	         }
+             }
 
 	         if(var0 != 1854847236) {
 	            aClass94_3428 = (RSString)null;

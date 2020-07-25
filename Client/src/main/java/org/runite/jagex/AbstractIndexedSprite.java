@@ -71,7 +71,7 @@ abstract class AbstractIndexedSprite {
          int var9 = var5 + var6;
 
          int var11;
-         for(var11 = var2; ~var11 > ~var7; ++var11) {
+         for(var11 = var2; var7 > var11; ++var11) {
             Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var11], var6, -91, var1, var3);
          }
 
@@ -81,7 +81,7 @@ abstract class AbstractIndexedSprite {
 
          int var10 = -var5 + var1;
 
-         for(var11 = var7; ~var8 <= ~var11; ++var11) {
+         for(var11 = var7; var11 <= var8; ++var11) {
             int[] var12 = Class38.anIntArrayArray663[var11];
             Class3_Sub13_Sub23_Sub1.method282(var12, var6, -111, var9, var3);
             Class3_Sub13_Sub23_Sub1.method282(var12, var10, -124, var1, var3);

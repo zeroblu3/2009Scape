@@ -62,9 +62,9 @@ final class Class9 {
             Class3_Sub5.method117((byte)87);
          }
 
-         if(~Class82.anInt1150 != 0 && -1 != Class3_Sub13_Sub30.anInt3362) {
+         if(Class82.anInt1150 != -1 && -1 != Class3_Sub13_Sub30.anInt3362) {
             int var1 = -Class3_Sub28_Sub1.anInt3536 + Class82.anInt1150;
-            if(2 > var1 || -3 > ~var1) {
+            if(2 > var1 || var1 > 2) {
                var1 >>= 4;
             }
 
@@ -106,7 +106,7 @@ final class Class9 {
       }
    }
 
-   static final void method850(byte var0) {
+   static final void englishToFrench(byte var0) {
       try {
          Class3_Sub13_Sub12.aClass94_3142 = Class3_Sub28_Sub12.aClass94_3649;
          Class3_Sub28_Sub2.aClass94_3546 = Class157.aClass94_2002;
@@ -116,7 +116,7 @@ final class Class9 {
          Class86.aClass94_1180 = Class3_Sub13_Sub6.aClass94_3079;
          Class86.aClass94_1183 = Class81.aClass94_1143;
          Class154.aClass94_1962 = Class3_Sub1.aClass94_2207;
-         Class3_Sub13_Sub10.aClass94_3124 = Class163_Sub3.aClass94_3002;
+         Class3_Sub13_Sub10.aClass94_3124 = Class163_Sub3.coinAmountMillion;
          Canvas_Sub2.aClass94_36 = Class3_Sub13_Sub8.aClass94_3106;
          Class3_Sub13_Sub26.aClass94_3333 = Class38.aClass94_667;
          Class3_Sub13_Sub36.aClass94_3427 = Class77.aClass94_1110;
@@ -139,7 +139,7 @@ final class Class9 {
          Node.aClass94_2576 = Class144.aClass94_1882;
          Class3_Sub2.aClass94_2216 = Class86.aClass94_1179;
          Class3_Sub28_Sub18.aClass94_3762 = Class3_Sub13_Sub14.aClass94_3172;
-         Class3_Sub13_Sub10.aClass94_3117 = Class163_Sub3.aClass94_3002;
+         Class3_Sub13_Sub10.aClass94_3117 = Class163_Sub3.coinAmountMillion;
          Class3_Sub28_Sub10_Sub1.aClass94_4058 = Class3_Sub13_Sub13.aClass94_3146;
          Client.aClass94_2196 = Class108.aClass94_1459;
          Class3_Sub28_Sub11.aClass94_3643 = Class118.aClass94_1621;

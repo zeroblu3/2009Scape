@@ -51,7 +51,7 @@ final class Class77 {
          Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var2++], var5, 92, var1, var0);
          Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var4--], var5, 97, var1, var0);
          if(var3 >= 23) {
-            for(int var6 = var2; ~var6 >= ~var4; ++var6) {
+            for(int var6 = var2; var4 >= var6; ++var6) {
                int[] var7 = Class38.anIntArrayArray663[var6];
                var7[var5] = var7[var1] = var0;
             }

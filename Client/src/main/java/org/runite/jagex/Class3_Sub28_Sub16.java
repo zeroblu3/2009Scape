@@ -6,7 +6,7 @@ abstract class Class3_Sub28_Sub16 extends Node {
    int anInt3697;
    int anInt3698;
    static int anInt3699 = 0;
-   static RSString aClass94_3700 = RSString.createRSString("::cardmem");
+   static RSString COMMAND_GRAPHICS_CARD_MEMORY = RSString.createRSString("::cardmem");
    int anInt3701;
    static RSString aClass94_3702 = RSString.createRSString(" )2> <col=ffff00>");
    static RSString aClass94_3703 = RSString.createRSString(" )2> ");
@@ -24,7 +24,7 @@ abstract class Class3_Sub28_Sub16 extends Node {
          aClass94_3705 = null;
          if(var0 == 108) {
             aClass94_3703 = null;
-            aClass94_3700 = null;
+            COMMAND_GRAPHICS_CARD_MEMORY = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "qf.R(" + var0 + ')');
@@ -40,7 +40,7 @@ abstract class Class3_Sub28_Sub16 extends Node {
    static final RSInterface method638(byte var0, int var1, int var2) {
       try {
          RSInterface var3 = Class7.getRSInterface((byte)109, var1);
-         return 0 == ~var2?var3:(var0 != -19?(RSInterface)null:(var3 != null && var3.aClass11Array262 != null && ~var3.aClass11Array262.length < ~var2?var3.aClass11Array262[var2]:null));
+         return var2 == -1 ?var3:(var0 != -19?(RSInterface)null:(var3 != null && var3.aClass11Array262 != null && var2 < var3.aClass11Array262.length ?var3.aClass11Array262[var2]:null));
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "qf.P(" + var0 + ',' + var1 + ',' + var2 + ')');
       }

@@ -1150,7 +1150,7 @@ final class PacketParser {
                                                                             return true;
                                                                         } else if (RSString.incomingOpcode == 42) {
                                                                             if (null != Class3_Sub13_Sub10.aFrame3121) {
-                                                                                GameObject.method1862(false, Node.anInt2577, -8914, -1, -1);
+                                                                                GameObject.graphicsSettings(false, Node.anInt2577, -8914, -1, -1);
                                                                             }
 
                                                                             byte[] var22 = new byte[Class130.incomingPacketLength];

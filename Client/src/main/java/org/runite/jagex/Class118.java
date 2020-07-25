@@ -36,11 +36,11 @@ abstract class Class118 {
 
             for(int var8 = 0; var4 > var8; ++var8) {
                int var9 = var3 % var2;
-               if(-1 < ~var9) {
+               if(var9 < 0) {
                   var9 = -var9;
                }
 
-               if(-10 > ~var9) {
+               if(var9 > 9) {
                   var9 += 39;
                }
 
@@ -66,7 +66,7 @@ abstract class Class118 {
 
    static final void method1724(int var0, int var1, int var2, int var3, int var4, int var5, byte var6, int var7) {
       try {
-         if(var5 >= 128 && ~var2 <= -129 && -13057 <= ~var5 && ~var2 >= -13057) {
+         if(var5 >= 128 && var2 >= 128 && var5 <= 13056 && var2 <= 13056) {
             int var8 = Class121.method1736(WorldListCountry.localPlane, 1, var5, var2) + -var3;
             var2 -= Class77.anInt1111;
             var8 -= Class7.anInt2162;
@@ -84,14 +84,14 @@ abstract class Class118 {
                if(50 > var2) {
                   Class3_Sub1.anInt2208 = -1;
                   Class32.anInt590 = -1;
-               } else if(!HDToolKit.highDetail) {
-                  Class32.anInt590 = (var5 << 9) / var2 + var0;
-                  Class3_Sub1.anInt2208 = (var13 << 9) / var2 + var4;
-               } else {
+               } else if(HDToolKit.highDetail) {
                   int var14 = var1 * 512 >> 8;
                   Class32.anInt590 = var14 * var5 / var2 + var0;
                   int var15 = 512 * var7 >> 8;
                   Class3_Sub1.anInt2208 = var15 * var13 / var2 + var4;
+               } else {
+                  Class32.anInt590 = (var5 << 9) / var2 + var0;
+                  Class3_Sub1.anInt2208 = (var13 << 9) / var2 + var4;
                }
 
             }

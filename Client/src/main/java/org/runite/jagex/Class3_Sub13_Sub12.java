@@ -12,14 +12,14 @@ final class Class3_Sub13_Sub12 extends Class3_Sub13 {
 
    static final void method223(boolean var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       try {
-         if(~var4 == ~var7) {
+         if(var7 == var4) {
             IOHandler.method1460(var1, var3, (byte)-113, var6, var7, var2, var5);
          } else {
             if(!var0) {
                method226(87, 8);
             }
 
-            if(~(var2 - var7) <= ~Class101.anInt1425 && var7 + var2 <= Class3_Sub28_Sub18.anInt3765 && ~Class159.anInt2020 >= ~(var3 - var4) && Class57.anInt902 >= var3 + var4) {
+            if(Class101.anInt1425 <= var2 - var7 && var7 + var2 <= Class3_Sub28_Sub18.anInt3765 && var3 - var4 >= Class159.anInt2020 && Class57.anInt902 >= var3 + var4) {
                Class161.method2200(var6, var2, var3, var5, var7, 95, var4, var1);
             } else {
                Class3_Sub13_Sub34.method329(var7, var6, var5, var1, (byte)-54, var3, var2, var4);
@@ -101,7 +101,7 @@ final class Class3_Sub13_Sub12 extends Class3_Sub13 {
 
    static final void method226(int var0, int var1) {
       try {
-         if(0 != ~var0) {
+         if(var0 != -1) {
             if(var1 <= 27) {
                method228((CacheIndex)null, (CacheIndex)null, true);
             }
@@ -151,7 +151,7 @@ final class Class3_Sub13_Sub12 extends Class3_Sub13 {
             int[] var7 = var4[2];
             int[] var6 = var4[1];
 
-            for(int var8 = 0; ~var8 > ~Class113.anInt1559; ++var8) {
+            for(int var8 = 0; Class113.anInt1559 > var8; ++var8) {
                var10[var8] = (var7[var8] + var5[var8] + var6[var8]) / 3;
             }
          }

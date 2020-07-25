@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class3_Sub13_Sub31 extends Class3_Sub13 {
 
    static Class93 aClass93_3369 = new Class93(64);
-   static RSString aClass94_3370 = RSString.createRSString("hitmarks");
    private static RSString aClass94_3371 = RSString.createRSString("Sat");
    private static RSString aClass94_3372 = RSString.createRSString("Mon");
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array3373;
@@ -33,7 +32,6 @@ final class Class3_Sub13_Sub31 extends Class3_Sub13 {
          aClass93_3369 = null;
          aClass94_3379 = null;
          aClass3_Sub28_Sub16Array3373 = null;
-         aClass94_3370 = null;
          aClass94_3371 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "rl.C(" + var0 + ')');
@@ -61,11 +59,11 @@ final class Class3_Sub13_Sub31 extends Class3_Sub13 {
          }
 
          for(; null != var1; var1 = (Class3_Sub4)Class3_Sub13_Sub6.aClass61_3075.method1221()) {
-            if(var1.anInt2259 != -1) {
-               var1.method86(-1024);
-            } else {
+            if(var1.anInt2259 == -1) {
                var1.anInt2261 = 0;
                Class132.method1798(56, var1);
+            } else {
+               var1.method86(-1024);
             }
          }
 

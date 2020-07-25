@@ -115,9 +115,7 @@ final class Class78 {
          var5 = this.anIntArray1120[var1];
       }
 
-      if(var5 != 240 && var5 != 247) {
-         return this.method1378(var1, var5);
-      } else {
+      if(var5 == 240 || var5 == 247) {
          int var3 = this.aClass3_Sub30_1113.method741((byte)126);
          if(var5 == 247 && var3 > 0) {
             int var4 = this.aClass3_Sub30_1113.buffer[this.aClass3_Sub30_1113.index] & 255;
@@ -130,6 +128,8 @@ final class Class78 {
 
          this.aClass3_Sub30_1113.index += var3;
          return 0;
+      } else {
+         return this.method1378(var1, var5);
       }
    }
 

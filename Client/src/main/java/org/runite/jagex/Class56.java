@@ -6,7 +6,6 @@ final class Class56 {
    static Class47 aClass47_885 = new Class47(128);
    static RSInterface aClass11_886 = null;
    static int[] localPlayerIndexes = new int[2048];
-   static RSString aClass94_888 = RSString.createRSString("<col=ffff00>");
    static int anInt889;
    static Class106[] aClass106Array890;
    
@@ -64,12 +63,12 @@ static RSString aClass94_891 = aClass94_894;
          var12 /= 6.0D;
          if(0 > var20) {
             var20 = 0;
-         } else if(~var20 < -256) {
+         } else if(var20 > 255) {
             var20 = 255;
          }
 
          int var18 = (int)(var12 * 256.0D);
-         if(~var19 <= -1) {
+         if(var19 >= 0) {
             if(var19 > 255) {
                var19 = 255;
             }
@@ -77,11 +76,11 @@ static RSString aClass94_891 = aClass94_894;
             var19 = 0;
          }
 
-         if(-244 <= ~var20) {
-            if(~var20 >= -218) {
-               if(-193 > ~var20) {
+         if(var20 <= 243) {
+            if(var20 <= 217) {
+               if(var20 > 192) {
                   var19 >>= 2;
-               } else if(~var20 < -180) {
+               } else if(var20 > 179) {
                   var19 >>= 1;
                }
             } else {
@@ -108,7 +107,6 @@ static RSString aClass94_891 = aClass94_894;
          aClass11_886 = null;
          localPlayerIndexes = null;
          aClass94_894 = null;
-         aClass94_888 = null;
          aClass47_885 = null;
          aClass106Array890 = null;
          aClass3_Sub26_884 = null;

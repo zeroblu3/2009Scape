@@ -20,7 +20,7 @@ final class Class136 {
       try {
          int var11 = var2 - var4;
          int var13 = -1;
-         if(~Class3_Sub28_Sub16.anInt3704 < -1) {
+         if(Class3_Sub28_Sub16.anInt3704 > 0) {
             if(Class3_Sub28_Sub8.anInt3611 <= 10) {
                var13 = 5 * Class3_Sub28_Sub8.anInt3611;
             } else {
@@ -36,11 +36,11 @@ final class Class136 {
             int var18 = var5 - -(var17 * var8) >> 16;
             int var19 = var8 * (var17 + 1) + var5 >> 16;
             int var20 = -var18 + var19;
-            if(-1 > ~var20) {
+            if(var20 > 0) {
                int var21 = var4 + var17 >> 6;
                var18 += var0;
                int var10000 = var19 + var0;
-               if(~var21 <= -1 && var21 <= -1 + Class44.anIntArrayArrayArray720.length) {
+               if(var21 >= 0 && var21 <= -1 + Class44.anIntArrayArrayArray720.length) {
                   int[][] var22 = Class44.anIntArrayArrayArray720[var21];
 
                   for(int var23 = -var16; var23 < var12 - -var16; ++var23) {
@@ -51,13 +51,13 @@ final class Class136 {
                         var24 += var10;
                         int var27 = var9 + var23 >> 6;
                         var10000 = var25 + var10;
-                        if(~var27 <= -1 && ~var27 >= ~(-1 + var22.length) && null != var22[var27]) {
+                        if(var27 >= 0 && -1 + var22.length >= var27 && null != var22[var27]) {
                            int var28 = (63 & var17 + var4) + (4032 & var9 + var23 << 6);
                            int var29 = var22[var27][var28];
-                           if(-1 != ~var29) {
+                           if(var29 != 0) {
                               ObjectDefinition var14 = Class162.getObjectDefinition(4, -1 + var29);
                               if(!Class3_Sub24_Sub4.aBooleanArray3503[var14.anInt1482]) {
-                                 if(~var13 != 0 && ~var14.anInt1482 == ~Class8.anInt101) {
+                                 if(var13 != -1 && Class8.anInt101 == var14.anInt1482) {
                                     Class3_Sub23 var30 = new Class3_Sub23();
                                     var30.anInt2531 = var18;
                                     var30.anInt2539 = var24;

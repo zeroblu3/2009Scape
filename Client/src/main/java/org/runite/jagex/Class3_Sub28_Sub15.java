@@ -26,9 +26,7 @@ static RSString aClass94_3691 = aClass94_3692;
       try {
          Class100 var2 = (Class100)Class44.aClass93_725.get((long)var1, (byte)121);
          if(var2 == null) {
-            if(!var0) {
-               return (Class100)null;
-            } else {
+            if(var0) {
                byte[] var3 = Class3_Sub23.aClass153_2536.getFile(1, (byte)-122, var1);
                var2 = new Class100();
                if(null != var3) {
@@ -37,6 +35,8 @@ static RSString aClass94_3691 = aClass94_3692;
 
                Class44.aClass93_725.put((byte)-104, var2, (long)var1);
                return var2;
+            } else {
+               return (Class100)null;
             }
          } else {
             return var2;

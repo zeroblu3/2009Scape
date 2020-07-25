@@ -25,11 +25,11 @@ final class Class96 {
       try {
          label134:
          while(true) {
-            if(~var1.buffer.length < ~var1.index) {
+            if(var1.index < var1.buffer.length) {
                boolean var18 = false;
                int var5 = 0;
                int var6 = 0;
-               if(-2 == ~var1.getByte((byte)-29)) {
+               if(var1.getByte((byte) -29) == 1) {
                   var5 = var1.getByte((byte)-73);
                   var18 = true;
                   var6 = var1.getByte((byte)-61);
@@ -41,7 +41,7 @@ final class Class96 {
                int var10 = -(var8 * 64) - (-Class2.anInt65 - -1) + Class108.anInt1460;
                int var11;
                int var12;
-               if(-1 >= ~var9 && -63 + var10 >= 0 && Class23.anInt455 > var9 + 63 && var10 < Class108.anInt1460) {
+               if(var9 >= 0 && -63 + var10 >= 0 && Class23.anInt455 > var9 + 63 && var10 < Class108.anInt1460) {
                   var11 = var9 >> 6;
                   var12 = var10 >> 6;
                   int var13 = 0;
@@ -51,8 +51,8 @@ final class Class96 {
                         continue label134;
                      }
 
-                     for(int var14 = 0; ~var14 > -65; ++var14) {
-                        if(!var18 || ~(8 * var5) >= ~var13 && ~var13 > ~(8 * var5 - -8) && ~var14 <= ~(8 * var6) && var14 < var6 * 8 - -8) {
+                     for(int var14 = 0; var14 < 64; ++var14) {
+                        if(!var18 || var13 >= 8 * var5 && 8 * var5 - -8 > var13 && 8 * var6 <= var14 && var14 < var6 * 8 - -8) {
                            int var15 = var1.getByte((byte)-118);
                            if(0 != var15) {
                               int var2;
@@ -84,7 +84,7 @@ final class Class96 {
                                  ObjectDefinition var3 = Class162.getObjectDefinition(4, var2);
                                  if(null != var3.anIntArray1524) {
                                     var3 = var3.method1685(0);
-                                    if(var3 == null || 0 == ~var3.anInt1482) {
+                                    if(var3 == null || var3.anInt1482 == -1) {
                                        continue;
                                     }
                                  }
@@ -113,7 +113,7 @@ final class Class96 {
 
                   var12 = var1.getByte((byte)-28);
                   if(var12 != 0) {
-                     if(~(var12 & 1) == -2) {
+                     if((var12 & 1) == 1) {
                         ++var1.index;
                      }
 

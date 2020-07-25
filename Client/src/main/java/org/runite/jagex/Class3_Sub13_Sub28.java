@@ -36,12 +36,12 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
       try {
          if(0 == var1) {
             this.anInt3350 = var2.getShort(1);
-         } else if(1 != var1) {
-            if(~var1 == -3) {
+         } else if(1 == var1) {
+            this.anInt3347 = var2.getShort(1);
+         } else {
+            if(var1 == 2) {
                this.anInt3354 = var2.getShort(1);
             }
-         } else {
-            this.anInt3347 = var2.getShort(1);
          }
 
          if(!var3) {
@@ -99,7 +99,7 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
                }
 
                int var16 = var13 >> 4;
-               if(-1 < ~var16) {
+               if(var16 < 0) {
                   var16 = -var16;
                }
 
@@ -132,11 +132,11 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
 
          for(Class3_Sub28_Sub19 var1 = (Class3_Sub28_Sub19)Class3_Sub13_Sub30.aClass61_3364.method1222(); var1 != null; var1 = (Class3_Sub28_Sub19)Class3_Sub13_Sub30.aClass61_3364.method1221()) {
             Class140_Sub6 var2 = var1.aClass140_Sub6_3778;
-            if(~WorldListCountry.localPlane == ~var2.anInt2907 && ~var2.anInt2899 <= ~Class44.anInt719) {
+            if(var2.anInt2907 == WorldListCountry.localPlane && Class44.anInt719 <= var2.anInt2899) {
                if(Class44.anInt719 >= var2.anInt2925) {
-                  if(-1 > ~var2.anInt2919) {
+                  if(var2.anInt2919 > 0) {
                      NPC var3 = Class3_Sub13_Sub24.npcs[-1 + var2.anInt2919];
-                     if(null != var3 && var3.anInt2819 >= 0 && 13312 > var3.anInt2819 && var3.anInt2829 >= 0 && -13313 < ~var3.anInt2829) {
+                     if(null != var3 && var3.anInt2819 >= 0 && 13312 > var3.anInt2819 && var3.anInt2829 >= 0 && var3.anInt2829 < 13312) {
                         var2.method2024(var3.anInt2829, 1, Class44.anInt719, Class121.method1736(var2.anInt2907, 1, var3.anInt2819, var3.anInt2829) + -var2.anInt2903, var3.anInt2819);
                      }
                   }
@@ -150,7 +150,7 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
                         var6 = Class3_Sub13_Sub22.players[var4];
                      }
 
-                     if(null != var6 && var6.anInt2819 >= 0 && ~var6.anInt2819 > -13313 && var6.anInt2829 >= 0 && ~var6.anInt2829 > -13313) {
+                     if(null != var6 && var6.anInt2819 >= 0 && var6.anInt2819 < 13312 && var6.anInt2829 >= 0 && var6.anInt2829 < 13312) {
                         var2.method2024(var6.anInt2829, 1, Class44.anInt719, Class121.method1736(var2.anInt2907, 1, var6.anInt2819, var6.anInt2829) - var2.anInt2903, var6.anInt2819);
                      }
                   }
@@ -179,7 +179,7 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
             int var5 = this.anIntArray3348[1] * this.anIntArray3348[1] >> 12;
             int var4 = this.anIntArray3348[0] * this.anIntArray3348[0] >> 12;
             int var7 = (int)(4096.0D * Math.sqrt((double)(var4 - (-var5 - var6) >> 12)));
-            if(~var7 != -1) {
+            if(var7 != 0) {
                this.anIntArray3348[2] = (this.anIntArray3348[2] << 12) / var7;
                this.anIntArray3348[0] = (this.anIntArray3348[0] << 12) / var7;
                this.anIntArray3348[1] = (this.anIntArray3348[1] << 12) / var7;

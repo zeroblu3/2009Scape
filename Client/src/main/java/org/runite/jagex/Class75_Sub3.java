@@ -105,9 +105,7 @@ final class Class75_Sub3 extends Class75 {
 
    static final Class3_Sub28_Sub16[] method1347(int var0) {
       try {
-         if(var0 != -26802) {
-            return (Class3_Sub28_Sub16[])null;
-         } else {
+         if(var0 == -26802) {
             Class3_Sub28_Sub16[] var1 = new Class3_Sub28_Sub16[Class95.anInt1338];
 
             for(int var2 = 0; Class95.anInt1338 > var2; ++var2) {
@@ -121,15 +119,15 @@ final class Class75_Sub3 extends Class75 {
                      var6[var7] = Class3_Sub13_Sub29.bitwiseOr(Class3_Sub13_Sub38.spritePalette[Class3_Sub28_Sub15.method633(var4[var7], 255)], Class3_Sub28_Sub15.method633(-16777216, var5[var7] << 24));
                   }
 
-                  if(!HDToolKit.highDetail) {
-                     var1[var2] = new Class3_Sub28_Sub16_Sub2_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var6);
-                  } else {
+                  if(HDToolKit.highDetail) {
                      var1[var2] = new Class3_Sub28_Sub16_Sub1_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var6);
+                  } else {
+                     var1[var2] = new Class3_Sub28_Sub16_Sub2_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var6);
                   }
                } else {
                   int[] var9 = new int[var3];
 
-                  for(int var10 = 0; ~var10 > ~var3; ++var10) {
+                  for(int var10 = 0; var3 > var10; ++var10) {
                      var9[var10] = Class3_Sub13_Sub38.spritePalette[Class3_Sub28_Sub15.method633(var4[var10], 255)];
                   }
 
@@ -143,6 +141,8 @@ final class Class75_Sub3 extends Class75 {
 
             Class39.method1035((byte)106);
             return var1;
+         } else {
+            return (Class3_Sub28_Sub16[])null;
          }
       } catch (RuntimeException var8) {
          throw Class44.method1067(var8, "re.B(" + var0 + ')');

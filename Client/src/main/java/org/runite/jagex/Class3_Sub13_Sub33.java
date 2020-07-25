@@ -6,7 +6,6 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
    static RSString[] aClass94Array3391;
    private Class75[] aClass75Array3392;
    static Class133[] aClass133Array3393 = new Class133[6];
-   static RSString aClass94_3394 = RSString.createRSString("<col=ffb000>");
    static int anInt3395;
    static byte[] aByteArray3396;
    
@@ -50,12 +49,12 @@ static RSString aClass94_3397 = aClass94_3400;
                int var7 = var6.anInt1101;
                int var8 = var6.anInt1104;
                if(var7 >= 0) {
-                  if(~var8 > -1) {
+                  if(var8 < 0) {
                      var6.method1341(2, var3, var4);
                   } else {
                      var6.method1335(var4, var3, 4898);
                   }
-               } else if(~var8 <= -1) {
+               } else if(var8 >= 0) {
                   var6.method1337(var4, true, var3);
                }
             }
@@ -75,18 +74,18 @@ static RSString aClass94_3397 = aClass94_3400;
          if(var1 == 0) {
             this.aClass75Array3392 = new Class75[var2.getByte((byte)-77)];
 
-            for(int var4 = 0; ~this.aClass75Array3392.length < ~var4; ++var4) {
+            for(int var4 = 0; var4 < this.aClass75Array3392.length; ++var4) {
                int var5 = var2.getByte((byte)-44);
                if(var5 == 0) {
                   this.aClass75Array3392[var4] = Class8.method843(-5232, var2);
-               } else if(-2 == ~var5) {
+               } else if(var5 == 1) {
                   this.aClass75Array3392[var4] = Class3_Sub28_Sub2.method536((byte)54, var2);
-               } else if(var5 != 2) {
+               } else if(var5 == 2) {
+                  this.aClass75Array3392[var4] = Class3_Sub22.method404((byte)-110, var2);
+               } else {
                   if(3 == var5) {
                      this.aClass75Array3392[var4] = Class3_Sub19.method384(var2, (byte)80);
                   }
-               } else {
-                  this.aClass75Array3392[var4] = Class3_Sub22.method404((byte)-110, var2);
                }
             }
          } else if(1 == var1) {
@@ -128,7 +127,6 @@ static RSString aClass94_3397 = aClass94_3400;
             aClass94Array3391 = null;
             aClass94_3397 = null;
             aClass94_3399 = null;
-            aClass94_3394 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "si.E(" + var0 + ')');
@@ -149,9 +147,7 @@ static RSString aClass94_3397 = aClass94_3400;
 
    final int[][] method166(int var1, int var2) {
       try {
-         if(var1 != -1) {
-            return (int[][])((int[][])null);
-         } else {
+         if(var1 == -1) {
             int[][] var3 = this.aClass97_2376.method1594((byte)-117, var2);
             if(this.aClass97_2376.aBoolean1379) {
                int var4 = Class113.anInt1559;
@@ -167,7 +163,7 @@ static RSString aClass94_3397 = aClass94_3400;
                   int[] var12 = var10[1];
                   int[] var13 = var10[2];
 
-                  for(int var14 = 0; ~var14 > ~Class113.anInt1559; ++var14) {
+                  for(int var14 = 0; Class113.anInt1559 > var14; ++var14) {
                      int var15 = var9[var14];
                      var13[var14] = Class3_Sub28_Sub15.method633(255, var15) << 4;
                      var12[var14] = Class3_Sub28_Sub15.method633(4080, var15 >> 4);
@@ -177,6 +173,8 @@ static RSString aClass94_3397 = aClass94_3400;
             }
 
             return var3;
+         } else {
+            return (int[][])((int[][])null);
          }
       } catch (RuntimeException var16) {
          throw Class44.method1067(var16, "si.T(" + var1 + ',' + var2 + ')');

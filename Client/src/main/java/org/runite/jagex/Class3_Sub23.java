@@ -68,24 +68,24 @@ final class Class3_Sub23 extends Class3 {
    static final RSString method407(int var0, boolean var1, int var2, long var3, int var5) {
       try {
          RSString var6 = Class47.method1090((byte)-99, 0);
-         if(~var3 > -1L) {
+         if(var3 < 0) {
             var3 = -var3;
             var6.method1533(Class3_Sub13_Sub11.aClass94_3133, true);
          }
 
          RSString var8 = Class143.aClass94_1880;
          RSString var7 = Class14.aClass94_341;
-         if(~var0 == -2) {
+         if(var0 == 1) {
             var8 = Class14.aClass94_341;
             var7 = Class143.aClass94_1880;
          }
 
-         if(-3 == ~var0) {
+         if(var0 == 2) {
             var7 = Class143.aClass94_1880;
             var8 = Class3_Sub13_Sub6.aClass94_3080;
          }
 
-         if(-4 == ~var0) {
+         if(var0 == 3) {
             var8 = Class14.aClass94_341;
             var7 = Class143.aClass94_1880;
          }
@@ -93,17 +93,19 @@ final class Class3_Sub23 extends Class3 {
          RSString var10 = Class47.method1090((byte)-99, 0);
 
          int var11;
-         for(var11 = 0; ~var11 > ~var2; ++var11) {
+         for(var11 = 0; var2 > var11; ++var11) {
             var10.method1533(Class72.method1298((byte)9, (int)(var3 % 10L)), true);
             var3 /= 10L;
          }
 
          var11 = 0;
          RSString var9;
-         if(var3 != 0L) {
+         if(var3 == 0L) {
+            var9 = Class3_Sub13_Sub1.aClass94_3039;
+         } else {
             RSString var12;
             for(var12 = Class47.method1090((byte)-102, 0); var3 > 0L; var3 /= 10L) {
-               if(var1 && ~var11 != -1 && -1 == ~(var11 % 3)) {
+               if(var1 && var11 != 0 && var11 % 3 == 0) {
                   var12.method1533(var8, true);
                }
 
@@ -112,18 +114,16 @@ final class Class3_Sub23 extends Class3 {
             }
 
             var9 = var12;
-         } else {
-            var9 = Class3_Sub13_Sub1.aClass94_3039;
          }
 
-         if(var5 != 2) {
-            return (RSString)null;
-         } else {
-            if(~var10.length(var5 ^ -47) < -1) {
+         if(var5 == 2) {
+            if(var10.length(var5 ^ -47) > 0) {
                var10.method1533(var7, true);
             }
 
             return RenderAnimationDefinition.method903(new RSString[]{var6, var9.method1544(true), var10.method1544(true)}, (byte)-66);
+         } else {
+            return (RSString)null;
          }
       } catch (RuntimeException var13) {
          throw Class44.method1067(var13, "oj.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var5 + ')');

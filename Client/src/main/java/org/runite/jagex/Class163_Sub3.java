@@ -5,22 +5,20 @@ final class Class163_Sub3 extends Class163 {
    static int[] anIntArray2999;
    static RSString aClass94_3000 = RSString.createRSString("; Max)2Age=");
    static int anInt3001;
-   static RSString aClass94_3002 = RSString.createRSString("M");
+   static RSString coinAmountMillion = RSString.createRSString("M");
    static RSString[] aClass94Array3003 = new RSString[100];
    static boolean aBoolean3004 = true;
    static byte[][] aByteArrayArray3005;
-   static RSString aClass94_3006 = RSString.createRSString("<col=ff3000>");
    static int[] anIntArray3007 = new int[]{-1, -1, 1, 1};
 
 
    public static void method2227(byte var0) {
       try {
-         aClass94_3006 = null;
          anIntArray3007 = null;
          aClass94Array3003 = null;
          if(var0 == 37) {
             aByteArrayArray3005 = (byte[][])null;
-            aClass94_3002 = null;
+            coinAmountMillion = null;
             aClass94_3000 = null;
             anIntArray2999 = null;
          }
@@ -56,11 +54,7 @@ final class Class163_Sub3 extends Class163 {
                }
             }
 
-            if(~Class130.incomingPacketLength != ~GraphicDefinition.incomingBuffer.index) {
-            	System.err.println("Player rendering packet size mismatch - size log: self=" + PLAYER_RENDER_LOG[0] + ", local=" + PLAYER_RENDER_LOG[1] + ", add global=" + PLAYER_RENDER_LOG[2] + ", masks=" + PLAYER_RENDER_LOG[3] + ".");
-//               System.err.println("gpp1 pos:" + GraphicDefinition.incomingBuffer.index + " psize:" + Class130.incomingPacketLength);
-//                throw new RuntimeException("gpp1 pos:" + Class28.incomingBuffer.index + " psize:" + Class130.incomingPacketLength);
-            } else {
+            if(GraphicDefinition.incomingBuffer.index == Class130.incomingPacketLength) {
                for(var1 = 0; var1 < Class159.localPlayerCount; ++var1) {
                   if(null == Class3_Sub13_Sub22.players[Class56.localPlayerIndexes[var1]]) {
 //                     throw new RuntimeException("gpp2 pos:" + var1 + " size:" + Class159.anInt2022);
@@ -69,6 +63,10 @@ final class Class163_Sub3 extends Class163 {
                   }
                }
 
+            } else {
+            	System.err.println("Player rendering packet size mismatch - size log: self=" + PLAYER_RENDER_LOG[0] + ", local=" + PLAYER_RENDER_LOG[1] + ", add global=" + PLAYER_RENDER_LOG[2] + ", masks=" + PLAYER_RENDER_LOG[3] + ".");
+//               System.err.println("gpp1 pos:" + GraphicDefinition.incomingBuffer.index + " psize:" + Class130.incomingPacketLength);
+//                throw new RuntimeException("gpp1 pos:" + Class28.incomingBuffer.index + " psize:" + Class130.incomingPacketLength);
             }
          }
       } catch (RuntimeException var3) {
@@ -78,8 +76,8 @@ final class Class163_Sub3 extends Class163 {
 
    static final void method2229(long var0, byte var2) {
       try {
-         if(-1L != ~var0) {
-            if((100 > Class8.anInt104 || Class3_Sub13_Sub29.disableGEBoxes) && ~Class8.anInt104 > -201) {
+         if(var0 != 0) {
+            if((100 > Class8.anInt104 || Class3_Sub13_Sub29.disableGEBoxes) && Class8.anInt104 < 200) {
                RSString var3 = Class41.method1052(-29664, var0).method1545((byte)-50);
                if(var2 != -91) {
                   method2227((byte)22);
@@ -87,14 +85,14 @@ final class Class163_Sub3 extends Class163 {
 
                int var4;
                for(var4 = 0; Class8.anInt104 > var4; ++var4) {
-                  if(~Class50.aLongArray826[var4] == ~var0) {
+                  if(var0 == Class50.aLongArray826[var4]) {
                      Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var3, Class3_Sub28_Sub11.aClass94_3645}, (byte)-93), -1);
                      return;
                   }
                }
 
-               for(var4 = 0; ~Class3_Sub28_Sub5.anInt3591 < ~var4; ++var4) {
-                  if(~var0 == ~Class114.ignores[var4]) {
+               for(var4 = 0; var4 < Class3_Sub28_Sub5.anInt3591; ++var4) {
+                  if(Class114.ignores[var4] == var0) {
                      Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{Class38.aClass94_662, var3, GameShell.aClass94_4}, (byte)-66), -1);
                      return;
                   }

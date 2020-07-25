@@ -47,11 +47,11 @@ final class Class46 {
                Class41.anInt688 = var3;
             }
 
-            if(-6 == ~var2) {
+            if(var2 == 5) {
                Class66.anInt998 = var3;
             }
 
-            if(-10 == ~var2) {
+            if(var2 == 9) {
                Canvas_Sub1.anInt15 = var3;
             }
 

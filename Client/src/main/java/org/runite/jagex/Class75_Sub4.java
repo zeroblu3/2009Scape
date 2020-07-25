@@ -29,7 +29,7 @@ final class Class75_Sub4 extends Class75 {
             int var5;
             int var6;
             //Ordinal: 0 Hit
-            if(-1 != ~(64 & var4)) {
+            if((64 & var4) != 0) {
                var5 = GraphicDefinition.incomingBuffer.getByte((byte)-57);
                var6 = GraphicDefinition.incomingBuffer.getByteC(true);
                npc.method1970(var6, -8, Class44.anInt719, var5);
@@ -56,9 +56,9 @@ final class Class75_Sub4 extends Class75 {
             }
 
             //Ordinal: 3 Face entity
-            if(-1 != ~(var4 & 4)) {
+            if((var4 & 4) != 0) {
                npc.anInt2772 = GraphicDefinition.incomingBuffer.getShortA(-117);
-               if(-65536 == ~npc.anInt2772) {
+               if(npc.anInt2772 == 65535) {
                   npc.anInt2772 = -1;
                }
             }
@@ -72,7 +72,7 @@ final class Class75_Sub4 extends Class75 {
 
                var6 = GraphicDefinition.incomingBuffer.getLEInt(-46);
                boolean var7 = true;
-               if(0 != ~var5 && 0 != ~npc.anInt2842 && Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var5).anInt542, (byte)-20).anInt1857 < Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542, (byte)-20).anInt1857) {
+               if(var5 != -1 && npc.anInt2842 != -1 && Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var5).anInt542, (byte)-20).anInt1857 < Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542, (byte)-20).anInt1857) {
                   var7 = false;
                }
 
@@ -87,9 +87,9 @@ final class Class75_Sub4 extends Class75 {
                      npc.anInt2805 = -1;
                   }
 
-                  if(npc.anInt2842 != -1 && ~npc.anInt2759 == ~Class44.anInt719) {
+                  if(npc.anInt2842 != -1 && Class44.anInt719 == npc.anInt2759) {
                      int var8 = RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542;
-                     if(0 != ~var8) {
+                     if(var8 != -1) {
                         AnimationDefinition var9 = Client.getAnimationDefinition(var8, (byte)-20);
                         if(null != var9 && var9.frames != null) {
                            IOHandler.method1470(npc.anInt2829, var9, 183921384, npc.anInt2819, false, 0);
@@ -114,7 +114,7 @@ final class Class75_Sub4 extends Class75 {
             }
 
             //Ordinal: 6 Force chat
-            if(-1 != ~(var4 & 32)) {
+            if((var4 & 32) != 0) {
                npc.textSpoken = GraphicDefinition.incomingBuffer.getString();
                npc.textCycle = 100;
             }
@@ -126,7 +126,7 @@ final class Class75_Sub4 extends Class75 {
                int[] var13 = new int[var5];
                int[] var14 = new int[var5];
 
-               for(int var15 = 0; ~var15 > ~var5; ++var15) {
+               for(int var15 = 0; var5 > var15; ++var15) {
                   int var10 = GraphicDefinition.incomingBuffer.getLEShort(-101);
                   if(var10 == '\uffff') {
                      var10 = -1;
@@ -220,11 +220,11 @@ final class Class75_Sub4 extends Class75 {
             aClass94_2662 = (RSString)null;
          }
 
-         if(var4 != null) {
+         if(var4 == null) {
+            return false;
+         } else {
             Class45.method1082(var4, 98);
             return true;
-         } else {
-            return false;
          }
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "ta.N(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + archiveId + ',' + var3 + ')');
@@ -265,7 +265,7 @@ final class Class75_Sub4 extends Class75 {
             int var3 = Class3_Sub13_Sub17.aClass153_3210.getArchiveForName(Class3_Sub8.aClass94_2304, (byte)-30);
             int[] var4 = Class3_Sub13_Sub17.aClass153_3210.getFileIds((byte)-128, var3);
 
-            for(int var5 = 0; ~var4.length < ~var5; ++var5) {
+            for(int var5 = 0; var5 < var4.length; ++var5) {
                Class134.aClass61_1758.method1215(true, Class124.method1747(new RSByteBuffer(Class3_Sub13_Sub17.aClass153_3210.getFile(var3, (byte)-122, var4[var5])), true));
             }
 

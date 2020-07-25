@@ -34,7 +34,7 @@ final class Class3_Sub17 extends Class3 {
 
 	static final void method381(boolean var0) {
 		try {
-			if(0 != ~Class3_Sub28_Sub12.anInt3655) {
+			if(Class3_Sub28_Sub12.anInt3655 != -1) {
 				Class52.method1160(-120, Class3_Sub28_Sub12.anInt3655);
 			}
 
@@ -59,7 +59,7 @@ final class Class3_Sub17 extends Class3 {
 				method380(-78);
 			}
 
-			if(~Class3_Sub28_Sub12.anInt3655 != 0) {
+			if(Class3_Sub28_Sub12.anInt3655 != -1) {
 				Class3_Sub28_Sub3.anInt3557 = 0;
 				Class8.method841(true);
 			}
@@ -87,12 +87,12 @@ final class Class3_Sub17 extends Class3 {
 			this.anIntArray2455 = new int[this.anInt2462];
 
 			int var4;
-			for(var4 = 0; ~var4 > ~this.anInt2462; ++var4) {
+			for(var4 = 0; this.anInt2462 > var4; ++var4) {
 				this.anIntArray2466[var4] = var3.getByte((byte)-70);
 			}
 
-			for(var4 = 0; ~this.anInt2462 < ~var4; ++var4) {
-				this.aBooleanArray2463[var4] = ~var3.getByte((byte)-35) == -2;
+			for(var4 = 0; var4 < this.anInt2462; ++var4) {
+				this.aBooleanArray2463[var4] = var3.getByte((byte) -35) == 1;
 			}
 
 			for(var4 = 0; var4 < this.anInt2462; ++var4) {
@@ -104,7 +104,7 @@ final class Class3_Sub17 extends Class3 {
 			}
 
 			for(var4 = 0; this.anInt2462 > var4; ++var4) {
-				for(int var5 = 0; ~var5 > ~this.anIntArrayArray2460[var4].length; ++var5) {
+				for(int var5 = 0; this.anIntArrayArray2460[var4].length > var5; ++var5) {
 					this.anIntArrayArray2460[var4][var5] = var3.getByte((byte)-70);
 				}
 			}
@@ -127,7 +127,7 @@ final class Class3_Sub17 extends Class3 {
 		this.anIntArray2455 = new int[this.anInt2462];
 
 		int var4;
-		for(var4 = 0; ~var4 > ~this.anInt2462; ++var4) {
+		for(var4 = 0; this.anInt2462 > var4; ++var4) {
 			this.anIntArray2466[var4] = var3.getByte((byte)-70);
 		}
 
@@ -144,7 +144,7 @@ final class Class3_Sub17 extends Class3 {
 		}
 
 		for(var4 = 0; this.anInt2462 > var4; ++var4) {
-			for(int var5 = 0; ~var5 > ~this.anIntArrayArray2460[var4].length; ++var5) {
+			for(int var5 = 0; this.anIntArrayArray2460[var4].length > var5; ++var5) {
 				this.anIntArrayArray2460[var4][var5] = var3.getByte((byte)-70);
 			}
 		}

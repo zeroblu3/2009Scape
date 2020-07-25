@@ -35,7 +35,7 @@ final class Class3_Sub10 extends Class3 {
    static final boolean method140(int var0, int var1) {
       try {
          int var2 = -11 / ((-29 - var1) / 49);
-         return ~var0 <= -1 && Class3_Sub24_Sub4.aBooleanArray3503.length > var0?Class3_Sub24_Sub4.aBooleanArray3503[var0]:false;
+         return var0 >= 0 && Class3_Sub24_Sub4.aBooleanArray3503.length > var0?Class3_Sub24_Sub4.aBooleanArray3503[var0]:false;
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "hb.A(" + var0 + ',' + var1 + ')');
       }

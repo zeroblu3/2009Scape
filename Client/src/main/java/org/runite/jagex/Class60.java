@@ -24,7 +24,7 @@ final class Class60 {
 
    static final void method1207(int var0) {
       try {
-         for(int var1 = 0; ~var1 > ~Class163.localNPCCount; ++var1) {
+         for(int var1 = 0; Class163.localNPCCount > var1; ++var1) {
             int var2 = Class15.localNPCIndexes[var1];
             NPC var3 = Class3_Sub13_Sub24.npcs[var2];
             if(null != var3) {
@@ -51,7 +51,7 @@ final class Class60 {
 
                   for(int var3 = 0; GameObject.aClass11ArrayArray1834[var1].length > var3; ++var3) {
                      if(GameObject.aClass11ArrayArray1834[var1][var3] != null) {
-                        if(~GameObject.aClass11ArrayArray1834[var1][var3].type == -3) {
+                        if(GameObject.aClass11ArrayArray1834[var1][var3].type == 2) {
                            var2 = false;
                         } else {
                            GameObject.aClass11ArrayArray1834[var1][var3] = null;

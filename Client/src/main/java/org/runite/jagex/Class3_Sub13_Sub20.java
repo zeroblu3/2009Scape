@@ -15,16 +15,16 @@ static RSString aClass94_3246 = aClass94_3247;
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
-         if(-1 != ~var1) {
-            if(var1 != 1) {
+         if(var1 == 0) {
+            this.anInt3252 = var2.getShort(1);
+         } else {
+            if(var1 == 1) {
+               this.anInt3245 = var2.getShort(1);
+            } else {
                if(2 == var1) {
                   this.anInt3250 = var2.getShort(1);
                }
-            } else {
-               this.anInt3245 = var2.getShort(1);
             }
-         } else {
-            this.anInt3252 = var2.getShort(1);
          }
 
          if(!var3) {
@@ -65,11 +65,11 @@ static RSString aClass94_3246 = aClass94_3247;
             int[] var8 = var3[0];
             int[] var10 = var3[2];
 
-            for(int var11 = 0; ~var11 > ~Class113.anInt1559; ++var11) {
+            for(int var11 = 0; Class113.anInt1559 > var11; ++var11) {
                int var12 = var5[var11];
                int var14 = var6[var11];
                int var13 = var7[var11];
-               if(~var12 == ~var13 && ~var14 == ~var13) {
+               if(var13 == var12 && var13 == var14) {
                   var8[var11] = this.anInt3252 * var12 >> 12;
                   var9[var11] = var13 * this.anInt3245 >> 12;
                   var10[var11] = var14 * this.anInt3250 >> 12;

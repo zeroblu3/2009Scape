@@ -18,7 +18,7 @@ final class Class3_Sub21 extends Class3 {
             method394(6, -105);
          }
 
-         return var3 >= this.anInt2492 && ~this.anInt2495 <= ~var3 && this.anInt2494 <= var2 && var2 <= this.anInt2497;
+         return var3 >= this.anInt2492 && var3 <= this.anInt2495 && this.anInt2494 <= var2 && var2 <= this.anInt2497;
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "lh.D(" + var1 + ',' + var2 + ',' + var3 + ')');
       }

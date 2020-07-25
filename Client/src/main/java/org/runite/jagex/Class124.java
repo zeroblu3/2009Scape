@@ -23,7 +23,7 @@ final class Class124 {
 
    static final void method1745(int var0) {
       try {
-         for(int var1 = var0; ~var1 > -105; ++var1) {
+         for(int var1 = var0; var1 < 104; ++var1) {
             for(int var2 = 0; 104 > var2; ++var2) {
                Class163_Sub1_Sub1.anIntArrayArray4010[var1][var2] = 0;
             }
@@ -51,7 +51,7 @@ final class Class124 {
          Class3_Sub28_Sub3 var2 = new Class3_Sub28_Sub3(var0.getString(), var0.getString(), var0.getShort(1), var0.getShort(1), var0.getInt(), var0.getByte((byte)-91) == 1, var0.getByte((byte)-112));
          int var3 = var0.getByte((byte)-83);
 
-         for(int var4 = 0; ~var4 > ~var3; ++var4) {
+         for(int var4 = 0; var3 > var4; ++var4) {
             var2.aClass61_3560.method1215(var1, new Class3_Sub21(var0.getShort(1), var0.getShort(1), var0.getShort(1), var0.getShort(1)));
          }
 

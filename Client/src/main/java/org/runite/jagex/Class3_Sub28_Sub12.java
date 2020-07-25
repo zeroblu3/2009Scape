@@ -18,35 +18,35 @@ public final class Class3_Sub28_Sub12 extends Node {
 
    static final boolean method609(RSInterface var0, int var1) {
       try {
-         if(null != var0.anIntArray275) {
+         if(null == var0.anIntArray275) {
+            return false;
+         } else {
             int var2 = 0;
             if(var1 <= 20) {
                aClass94_3651 = (RSString)null;
             }
 
-            for(; ~var2 > ~var0.anIntArray275.length; ++var2) {
+            for(; var0.anIntArray275.length > var2; ++var2) {
                int var3 = Class164_Sub2.method2247((byte)119, var2, var0);
                int var4 = var0.anIntArray307[var2];
-               if(~var0.anIntArray275[var2] != -3) {
-                  if(~var0.anIntArray275[var2] != -4) {
+               if(var0.anIntArray275[var2] != 2) {
+                  if(var0.anIntArray275[var2] != 3) {
                      if(4 == var0.anIntArray275[var2]) {
-                        if(~var3 == ~var4) {
+                        if(var4 == var3) {
                            return false;
                         }
-                     } else if(~var4 != ~var3) {
+                     } else if(var3 != var4) {
                         return false;
                      }
                   } else if(var3 <= var4) {
                      return false;
                   }
-               } else if(~var4 >= ~var3) {
+               } else if(var3 >= var4) {
                   return false;
                }
             }
 
             return true;
-         } else {
-            return false;
          }
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "md.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
@@ -132,7 +132,7 @@ public final class Class3_Sub28_Sub12 extends Node {
             this.method610((RSByteBuffer)null, -89);
          }
 
-         if(~var2 == -3) {
+         if(var2 == 2) {
             this.anInt3647 = var1.getShort(1);
          }
 

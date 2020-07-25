@@ -21,10 +21,10 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
             aBoolean4063 = true;
          }
 
-         if(!this.aBoolean3632) {
-            return this.aByteArray4059;
-         } else {
+         if(this.aBoolean3632) {
             throw new RuntimeException();
+         } else {
+            return this.aByteArray4059;
          }
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "c.E(" + var1 + ')');
@@ -35,7 +35,9 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
       try {
          KeyboardListener var1 = Class3_Sub13_Sub3.aClass148_3049;
          synchronized(var1) {
-            if(~Class134.anInt1762 != ~Class3_Sub28_Sub9.anInt3620) {
+            if(Class3_Sub28_Sub9.anInt3620 == Class134.anInt1762) {
+               return false;
+            } else {
                Class3_Sub28_Sub9.anInt3624 = Class129.anIntArray1693[Class3_Sub28_Sub9.anInt3620];
                Class3_Sub13_Sub27.anInt3342 = Class155.anIntArray1978[Class3_Sub28_Sub9.anInt3620];
                Class3_Sub28_Sub9.anInt3620 = 1 + Class3_Sub28_Sub9.anInt3620 & 127;
@@ -44,8 +46,6 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
                }
 
                return true;
-            } else {
-               return false;
             }
          }
       } catch (RuntimeException var4) {
@@ -75,7 +75,7 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
          while(true) {
             Class64 var3 = var2.method1436(var0, 86);
 
-            while(-1 == ~var3.anInt978) {
+            while(var3.anInt978 == 0) {
                Class3_Sub13_Sub34.method331(10L, 64);
             }
 

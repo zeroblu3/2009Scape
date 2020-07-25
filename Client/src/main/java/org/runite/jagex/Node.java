@@ -24,10 +24,10 @@ class Node extends Class3 {
             method523(40, -17, -52, -32, 9, -51, -85, -84, -19);
          }
 
-         if(var2 != null) {
-            var2.method134(1);
-         } else {
+         if(var2 == null) {
             Class70.method1286(var0.anIntArray2755[0], false, (ObjectDefinition)null, 0, (NPC)null, var0.anIntArray2767[0], WorldListCountry.localPlane, var0);
+         } else {
+            var2.method134(1);
          }
 
       } catch (RuntimeException var3) {
@@ -42,7 +42,7 @@ class Node extends Class3 {
             method520((byte)-89);
          }
 
-         return 0 != var0?(~var0 != -2?(~var0 == -3?-var3 + 7:-var2 + 7):var2):var3;
+         return 0 != var0?(var0 != 1 ?(var0 == 2 ?-var3 + 7:-var2 + 7):var2):var3;
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "rg.RA(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
       }

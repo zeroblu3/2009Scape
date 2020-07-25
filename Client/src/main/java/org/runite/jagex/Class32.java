@@ -27,7 +27,7 @@ final class Class32 {
          if(var1 < 110) {
             return 102;
          } else {
-            if(-11 >= ~var3) {
+            if(var3 >= 10) {
                if(var3 > 60) {
                   var3 = 60;
                }
@@ -115,7 +115,7 @@ final class Class32 {
             ++Class3_Sub13_Sub33.anInt3398;
             int var2;
             if(Class3_Sub13.anInt2384 < 0) {
-               for(var2 = 0; ~var2 > -113; ++var2) {
+               for(var2 = 0; var2 < 112; ++var2) {
                   ObjectDefinition.aBooleanArray1490[var2] = false;
                }
 

@@ -37,7 +37,7 @@ final class Class17 {
             int var9;
             if(var1.anInt2772 >= '\u8000') {
                var9 = -32768 + var1.anInt2772;
-               if(~var9 == ~Class3_Sub1.localIndex) {
+               if(Class3_Sub1.localIndex == var9) {
                   var9 = 2047;
                }
 
@@ -51,10 +51,10 @@ final class Class17 {
                }
             }
 
-            if((0 != var1.anInt2786 || 0 != var1.anInt2762) && (var1.anInt2816 == 0 || ~var1.anInt2824 < -1)) {
+            if((0 != var1.anInt2786 || 0 != var1.anInt2762) && (var1.anInt2816 == 0 || var1.anInt2824 > 0)) {
                var9 = var1.anInt2819 + -((-Class131.anInt1716 + (var1.anInt2786 - Class131.anInt1716)) * 64);
                var4 = -((-Class82.anInt1152 + (var1.anInt2762 - Class82.anInt1152)) * 64) + var1.anInt2829;
-               if(~var9 != -1 || var4 != 0) {
+               if(var9 != 0 || var4 != 0) {
                   var1.anInt2806 = (int)(Math.atan2((double)var9, (double)var4) * 325.949D) & 2047;
                }
 
@@ -63,29 +63,32 @@ final class Class17 {
             }
 
             var9 = var1.anInt2806 - var1.anInt2785 & 2047;
-            if(-1 != ~var9) {
-               if(~var2.anInt369 == -1) {
+            if(var9 == 0) {
+               var1.anInt2789 = 0;
+               var1.anInt2821 = 0;
+            } else {
+               if(var2.anInt369 == 0) {
                   ++var1.anInt2789;
                   boolean var11;
-                  if(~var9 < -1025) {
+                  if(var9 > 1024) {
                      var1.anInt2785 -= var1.anInt2779;
                      var11 = true;
-                     if(~var9 > ~var1.anInt2779 || var9 > -var1.anInt2779 + 2048) {
+                     if(var1.anInt2779 > var9 || var9 > -var1.anInt2779 + 2048) {
                         var1.anInt2785 = var1.anInt2806;
                         var11 = false;
                      }
 
-                     if(~var2.anInt368 == ~var1.anInt2764 && (25 < var1.anInt2789 || var11)) {
-                        if(~var2.anInt367 != 0) {
-                           var1.anInt2764 = var2.anInt367;
-                        } else {
+                     if(var1.anInt2764 == var2.anInt368 && (25 < var1.anInt2789 || var11)) {
+                        if(var2.anInt367 == -1) {
                            var1.anInt2764 = var2.anInt382;
+                        } else {
+                           var1.anInt2764 = var2.anInt367;
                         }
                      }
                   } else {
                      var11 = true;
                      var1.anInt2785 += var1.anInt2779;
-                     if(var1.anInt2779 > var9 || ~var9 < ~(2048 - var1.anInt2779)) {
+                     if(var1.anInt2779 > var9 || 2048 - var1.anInt2779 < var9) {
                         var11 = false;
                         var1.anInt2785 = var1.anInt2806;
                      }
@@ -101,22 +104,22 @@ final class Class17 {
 
                   var1.anInt2785 &= 2047;
                } else {
-                  if(~var2.anInt368 == ~var1.anInt2764 && 25 < var1.anInt2789) {
-                     if(0 != ~var2.anInt407) {
-                        var1.anInt2764 = var2.anInt407;
-                     } else {
+                  if(var1.anInt2764 == var2.anInt368 && 25 < var1.anInt2789) {
+                     if(var2.anInt407 == -1) {
                         var1.anInt2764 = var2.anInt382;
+                     } else {
+                        var1.anInt2764 = var2.anInt407;
                      }
                   }
 
                   var4 = var1.anInt2806 << 5;
-                  if(~var4 != ~var1.anInt2808) {
+                  if(var1.anInt2808 != var4) {
                      var1.anInt2791 = 0;
                      var1.anInt2808 = var4;
                      var5 = -var1.anInt2780 + var4 & '\uffff';
                      var6 = var1.anInt2821 * var1.anInt2821 / (var2.anInt369 * 2);
                      int var7;
-                     if(var1.anInt2821 > 0 && ~var5 <= ~var6 && -var6 + var5 < '\u8000') {
+                     if(var1.anInt2821 > 0 && var6 <= var5 && -var6 + var5 < '\u8000') {
                         var1.anInt2803 = var5 / 2;
                         var1.aBoolean2769 = true;
                         var7 = var2.anInt357 * var2.anInt357 / (var2.anInt369 * 2);
@@ -155,22 +158,22 @@ final class Class17 {
                            var6 = 32767;
                         }
 
-                        if(~var5 <= -32769) {
+                        if(var5 >= 32768) {
                            var1.anInt2821 = -var2.anInt369;
                            var1.anInt2803 = (65536 - var5) / 2;
-                           if(~var6 > ~var1.anInt2803) {
+                           if(var1.anInt2803 > var6) {
                               var1.anInt2803 = 65536 - (var5 + var6);
                            }
                         } else {
                            var1.anInt2821 = var2.anInt369;
                            var1.anInt2803 = var5 / 2;
-                           if(~var6 > ~var1.anInt2803) {
+                           if(var1.anInt2803 > var6) {
                               var1.anInt2803 = -var6 + var5;
                            }
                         }
                      }
-                  } else if(-1 <= ~var1.anInt2821) {
-                     if(~var1.anInt2791 <= ~var1.anInt2803) {
+                  } else if(var1.anInt2821 <= 0) {
+                     if(var1.anInt2803 <= var1.anInt2791) {
                         var1.aBoolean2769 = false;
                      }
 
@@ -179,17 +182,17 @@ final class Class17 {
                         if(0 < var1.anInt2821) {
                            var1.anInt2821 = 0;
                         }
-                     } else if(~(-var2.anInt357) > ~var1.anInt2821) {
+                     } else if(var1.anInt2821 > -var2.anInt357) {
                         var1.anInt2821 -= var2.anInt369;
                      }
                   } else {
-                     if(~var1.anInt2803 >= ~var1.anInt2791) {
+                     if(var1.anInt2791 >= var1.anInt2803) {
                         var1.aBoolean2769 = false;
                      }
 
                      if(!var1.aBoolean2769) {
                         var1.anInt2821 -= var2.anInt369;
-                        if(~var1.anInt2821 > -1) {
+                        if(var1.anInt2821 < 0) {
                            var1.anInt2821 = 0;
                         }
                      } else if(var1.anInt2821 < var2.anInt357) {
@@ -207,9 +210,6 @@ final class Class17 {
 
                   var1.anInt2785 = var1.anInt2780 >> 5;
                }
-            } else {
-               var1.anInt2789 = 0;
-               var1.anInt2821 = 0;
             }
 
             if(var0 != 65536) {

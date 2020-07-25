@@ -31,7 +31,7 @@ class Class38 {
             }
 
             var2.method1112(5401);
-            if(0 != ~var2.anInt791) {
+            if(var2.anInt791 != -1) {
                var2.method1118(getItemDefinition(var2.anInt789, (byte)70), getItemDefinition(var2.anInt791, (byte)73), false);
             }
 
@@ -109,9 +109,9 @@ class Class38 {
 
    static final void method1028(int var0) {
       try {
-         for(int var1 = -1; ~var1 > ~Class159.localPlayerCount; ++var1) {
+         for(int var1 = -1; Class159.localPlayerCount > var1; ++var1) {
             int var2;
-            if(0 == ~var1) {
+            if(var1 == -1) {
                var2 = 2047;
             } else {
                var2 = Class56.localPlayerIndexes[var1];

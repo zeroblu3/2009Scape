@@ -6,7 +6,7 @@ final class Class52 {
    static RSString aClass94_853 = RSString.createRSString("::tele ");
    int pnpcId;
    private long aLong855;
-   static RSString aClass94_856 = RSString.createRSString("::wm0");
+   static RSString COMMAND_LOWRES_GRAPHICS = RSString.createRSString("::wm0");
    private int[] lookInfo;
    private int renderAnim;
    static int[] anIntArray859;
@@ -936,7 +936,7 @@ final class Class52 {
          aClass94_852 = null;
          if(var0 == 8160) {
             anIntArray859 = null;
-            aClass94_856 = null;
+            COMMAND_LOWRES_GRAPHICS = null;
             anIntArray861 = null;
          }
       } catch (RuntimeException var2) {

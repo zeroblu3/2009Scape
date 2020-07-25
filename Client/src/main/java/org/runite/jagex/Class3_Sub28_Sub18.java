@@ -89,7 +89,7 @@ final class Class3_Sub28_Sub18 extends Node {
    final void method712(byte var1) {
       try {
          int var2 = Class27.method961(var1 + 1530);
-         if(-1 == ~(1 & var2)) {
+         if((1 & var2) == 0) {
             HDToolKit.bindTexture2D(this.anInt3759);
          }
 
@@ -97,7 +97,7 @@ final class Class3_Sub28_Sub18 extends Node {
             HDToolKit.method1856(0);
          }
 
-         if(~(var2 & 4) == -1) {
+         if((var2 & 4) == 0) {
             HDToolKit.method1847(0);
          }
 

@@ -15,7 +15,7 @@ final class Class117 {
    static final void method1719(int var0, int var1) {
       try {
          if(Class143.loadingStage != var0) {
-            if(-1 == ~Class143.loadingStage) {
+            if(Class143.loadingStage == 0) {
                Class93.method1517((byte)-118);
             }
 
@@ -38,24 +38,24 @@ final class Class117 {
                Class66.method1250(102, true);
             }
 
-            if(-26 == ~var0 || var0 == 10) {
+            if(var0 == 25 || var0 == 10) {
                Class72.method1293(true);
             }
 
-            if(~var0 == -6) {
+            if(var0 == 5) {
                Class108.method1656(Class140_Sub6.spritesCacheIndex, (byte)-111);
             } else {
                Class3_Sub13_Sub17.method247((byte)-121);
             }
 
-            boolean var3 = var1 == Class143.loadingStage || ~Class143.loadingStage == -11 || -29 == ~Class143.loadingStage;
+            boolean var3 = var1 == Class143.loadingStage || Class143.loadingStage == 10 || Class143.loadingStage == 28;
             if(var3 == !var2) {
                if(var2) {
                   Class129.anInt1691 = KeyboardListener.anInt1912;
-                  if(Class9.anInt120 != 0) {
-                     Class151.method2099(true, KeyboardListener.anInt1912, 0, Class75_Sub2.aClass153_2645, false, 255, 2);
-                  } else {
+                  if(Class9.anInt120 == 0) {
                      NodeList.method882(-1, 2);
+                  } else {
+                     Class151.method2099(true, KeyboardListener.anInt1912, 0, Class75_Sub2.aClass153_2645, false, 255, 2);
                   }
 
                   Class58.aClass66_917.method1247(false, true);
@@ -65,7 +65,7 @@ final class Class117 {
                }
             }
 
-            if(HDToolKit.highDetail && (25 == var0 || var0 == 28 || -41 == ~var0)) {
+            if(HDToolKit.highDetail && (25 == var0 || var0 == 28 || var0 == 40)) {
                HDToolKit.method1833();
             }
 

@@ -91,7 +91,7 @@ final class Class107 {
    static final int method1651(int var0, int var1, int var2) {
       try {
          int var3;
-         if(~var2 > ~var1) {
+         if(var1 > var2) {
             var3 = var2;
             var2 = var1;
             var1 = var3;

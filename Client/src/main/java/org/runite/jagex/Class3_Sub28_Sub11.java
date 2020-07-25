@@ -85,10 +85,10 @@ final class Class3_Sub28_Sub11 extends Node {
 
    static final Class3_Sub28_Sub16 method602(int var0, int var1, byte var2, CacheIndex var3) {
       try {
-    	//  System.out.println("Class3_sub28_Sub16 " + var1);
+         //  System.out.println("Class3_sub28_Sub16 " + var1);
          if(Class75_Sub4.method1351(var3, var0, var1, var2 ^ 30885)) {
             if(var2 != -18) {
-               method607(true);
+               englishToGerman(true);
             }
 
             return Class43.method1062(var2 + 103);
@@ -108,41 +108,39 @@ final class Class3_Sub28_Sub11 extends Node {
             method602(-115, 65, (byte)-119, (CacheIndex)null);
          }
 
-         if(-1 != ~var3.aByte304) {
-            if(~var3.aByte304 != -2) {
-               if(~var3.aByte304 == -3) {
+         if(var3.aByte304 == 0) {
+            var3.anInt168 = var3.width;
+         } else {
+            if(var3.aByte304 == 1) {
+               var3.anInt168 = var2 + -var3.width;
+            } else {
+               if(var3.aByte304 == 2) {
                   var3.anInt168 = var3.width * var2 >> 14;
                } else if(var3.aByte304 == 3) {
-                  if(~var3.type != -3) {
-                     if(var3.type == 7) {
-                        var3.anInt168 = 115 * var3.width + var3.anInt285 * (-1 + var3.width);
-                     }
-                  } else {
+                  if(var3.type == 2) {
                      var3.anInt168 = var3.width * 32 - -((var3.width - 1) * var3.anInt285);
+                  } else if (var3.type == 7) {
+                     var3.anInt168 = 115 * var3.width + var3.anInt285 * (-1 + var3.width);
                   }
                }
-            } else {
-               var3.anInt168 = var2 + -var3.width;
             }
-         } else {
-            var3.anInt168 = var3.width;
          }
 
-         if(-1 == ~var3.aByte241) {
+         if(var3.aByte241 == 0) {
             var3.anInt193 = var3.height;
          } else if(var3.aByte241 == 1) {
             var3.anInt193 = -var3.height + var0;
-         } else if(~var3.aByte241 == -3) {
+         } else if(var3.aByte241 == 2) {
             var3.anInt193 = var0 * var3.height >> 14;
          } else if(var3.aByte241 == 3) {
-            if(~var3.type == -3) {
+            if(var3.type == 2) {
                var3.anInt193 = (var3.height + -1) * var3.anInt290 + var3.height * 32;
-            } else if(~var3.type == -8) {
+            } else if(var3.type == 7) {
                var3.anInt193 = var3.height * 12 + (-1 + var3.height) * var3.anInt290;
             }
          }
 
-         if(-5 == ~var3.aByte304) {
+         if(var3.aByte304 == 4) {
             var3.anInt168 = var3.anInt216 * var3.anInt193 / var3.anInt160;
          }
 
@@ -150,7 +148,7 @@ final class Class3_Sub28_Sub11 extends Node {
             var3.anInt193 = var3.anInt160 * var3.anInt168 / var3.anInt216;
          }
 
-         if(Class69.aBoolean1040 && (-1 != ~Client.method44(var3).anInt2205 || ~var3.type == -1)) {
+         if(Class69.aBoolean1040 && (Client.method44(var3).anInt2205 != 0 || var3.type == 0)) {
             if(var3.anInt193 < 5 && 5 > var3.anInt168) {
                var3.anInt193 = 5;
                var3.anInt168 = 5;
@@ -169,7 +167,7 @@ final class Class3_Sub28_Sub11 extends Node {
             Class168.aClass11_2091 = var3;
          }
 
-         if(var4 && null != var3.anObjectArray235 && (~var5 != ~var3.anInt168 || var3.anInt193 != var6)) {
+         if(var4 && null != var3.anObjectArray235 && (var3.anInt168 != var5 || var3.anInt193 != var6)) {
             CS2Script var7 = new CS2Script();
             var7.arguments = var3.anObjectArray235;
             var7.aClass11_2449 = var3;
@@ -188,7 +186,7 @@ final class Class3_Sub28_Sub11 extends Node {
          } else {
             Class3_Sub29 var4 = (Class3_Sub29)this.aClass130_3636.method1780((long)var3, 0);
             if(var2 != -44) {
-               method607(false);
+               englishToGerman(false);
             }
 
             return null != var4?var4.aClass94_2586:var1;
@@ -217,7 +215,7 @@ final class Class3_Sub28_Sub11 extends Node {
    static final void method606(int var0, Class3_Sub9 var1, int var2, int var3, int var4, int var5) {
       try {
          if(var5 > 44) {
-            if(~var1.anInt2332 != 0 || var1.anIntArray2333 != null) {
+            if(var1.anInt2332 != -1 || var1.anIntArray2333 != null) {
                int var6 = 0;
                if(var1.anInt2321 < var0) {
                   var6 += -var1.anInt2321 + var0;
@@ -233,7 +231,7 @@ final class Class3_Sub28_Sub11 extends Node {
                   var6 += -var1.anInt2307 + var4;
                }
 
-               if(0 != var1.anInt2328 && ~var1.anInt2328 <= ~(var6 - 64) && 0 != Class14.anInt340 && var2 == var1.anInt2314) {
+               if(0 != var1.anInt2328 && var6 - 64 <= var1.anInt2328 && 0 != Class14.anInt340 && var2 == var1.anInt2314) {
                   var6 -= 64;
                   if(var6 < 0) {
                      var6 = 0;
@@ -241,7 +239,7 @@ final class Class3_Sub28_Sub11 extends Node {
 
                   int var7 = (-var6 + var1.anInt2328) * Class14.anInt340 / var1.anInt2328;
                   if(var1.aClass3_Sub24_Sub1_2312 == null) {
-                     if(-1 >= ~var1.anInt2332) {
+                     if(var1.anInt2332 >= 0) {
                         Class135 var8 = Class135.method1811(Class146.aClass153_1902, var1.anInt2332, 0);
                         if(null != var8) {
                            Class3_Sub12_Sub1 var9 = var8.method1812().method151(Class27.aClass157_524);
@@ -292,7 +290,7 @@ final class Class3_Sub28_Sub11 extends Node {
       }
    }
 
-   static final void method607(boolean var0) {
+   static final void englishToGerman(boolean var0) {
       try {
          Class140_Sub3.aClass94_2751 = Class113.aClass94_1546;
          Class3_Sub13_Sub36.aClass94_3426 = Class114.aClass94_1575;
@@ -399,7 +397,7 @@ final class Class3_Sub28_Sub11 extends Node {
             int var3 = var2.getByte((byte)-76);
             if(0 == var3) {
                if(var1 != 5) {
-                  method607(false);
+                  englishToGerman(false);
                }
 
                return;

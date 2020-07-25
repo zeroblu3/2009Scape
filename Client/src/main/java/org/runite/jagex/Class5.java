@@ -8,7 +8,7 @@ public final class Class5 {
 
    public static final synchronized long method830(byte var0) {
       long var1 = System.currentTimeMillis();
-      if(~aLong90 < ~var1) {
+      if(var1 < aLong90) {
          aLong89 += aLong90 + -var1;
       }
 

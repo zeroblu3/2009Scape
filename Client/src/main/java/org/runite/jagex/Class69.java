@@ -14,9 +14,7 @@ final class Class69 {
 
    final int method1280(int var1, int var2) {
       try {
-         if(var2 != 1) {
-            return -68;
-         } else {
+         if(var2 == 1) {
             int var3 = (this.anIntArray1041.length >> 1) + -1;
             int var4 = var3 & var1;
 
@@ -32,6 +30,8 @@ final class Class69 {
 
                var4 = var4 - -1 & var3;
             }
+         } else {
+            return -68;
          }
       } catch (RuntimeException var6) {
          throw Class44.method1067(var6, "jg.D(" + var1 + ',' + var2 + ')');
@@ -42,7 +42,7 @@ final class Class69 {
       try {
          LDIndexedSprite[] var1 = new LDIndexedSprite[Class95.anInt1338];
 
-         for(int var2 = var0; ~var2 > ~Class95.anInt1338; ++var2) {
+         for(int var2 = var0; Class95.anInt1338 > var2; ++var2) {
             var1[var2] = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
          }
 
@@ -57,8 +57,8 @@ final class Class69 {
       try {
          int var5 = 0;
 
-         for(int var6 = 58 / ((56 - var1) / 49); ~Class3_Sub28_Sub3.anInt3557 < ~var5; ++var5) {
-            if(var0 < Class155.anIntArray1969[var5] - -Class3_Sub28_Sub18.anIntArray3768[var5] && var0 + var4 > Class155.anIntArray1969[var5] && ~(Player.anIntArray3954[var5] - -Class140_Sub4.anIntArray2794[var5]) < ~var2 && ~Player.anIntArray3954[var5] > ~(var3 + var2)) {
+         for(int var6 = 58 / ((56 - var1) / 49); var5 < Class3_Sub28_Sub3.anInt3557; ++var5) {
+            if(var0 < Class155.anIntArray1969[var5] - -Class3_Sub28_Sub18.anIntArray3768[var5] && var0 + var4 > Class155.anIntArray1969[var5] && var2 < Player.anIntArray3954[var5] - -Class140_Sub4.anIntArray2794[var5] && var3 + var2 > Player.anIntArray3954[var5]) {
                Class163_Sub1_Sub1.aBooleanArray4008[var5] = true;
             }
          }
@@ -95,7 +95,7 @@ final class Class69 {
 
          int var4;
          for(var3 = 0; var1.length > var3; this.anIntArray1041[var4 - -var4 - -1] = var3++) {
-            for(var4 = -1 + var2 & var1[var3]; 0 != ~this.anIntArray1041[1 + var4 - -var4]; var4 = -1 + var2 & 1 + var4) {
+            for(var4 = -1 + var2 & var1[var3]; this.anIntArray1041[1 + var4 - -var4] != -1; var4 = -1 + var2 & 1 + var4) {
                ;
             }
 

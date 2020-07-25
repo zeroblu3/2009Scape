@@ -15,15 +15,15 @@ final class Class86 {
    int anInt1185;
    static Class41 aClass41_1186;
    float aFloat1187;
-   static RSString aClass94_1188 = RSString.createRSString("::rebuild");
+   static RSString COMMAND_REBUILD = RSString.createRSString("::rebuild");
    float aFloat1189;
    float aFloat1190;
    static int anInt1191;
-   private static RSString aClass94_1192 = RSString.createRSString("Examine");
+   private static RSString RSSExamine = RSString.createRSString("Examine");
    static Class3_Sub24_Sub4 aClass3_Sub24_Sub4_1193;
    static Class130 aClass130_1194;
    static int anInt1195;
- static RSString aClass94_1180 = aClass94_1192;
+ static RSString aClass94_1180 = RSSExamine;
 
    static final void method1427(boolean var0, int var1) {
       try {
@@ -34,7 +34,7 @@ final class Class86 {
          }
 
          if(!var0) {
-            aClass94_1192 = (RSString)null;
+            RSSExamine = (RSString)null;
          }
 
          Class129.anInt1691 = var1;
@@ -66,9 +66,9 @@ final class Class86 {
    public static void method1429(byte var0) {
       try {
          aClass3_Sub24_Sub4_1193 = null;
-         aClass94_1188 = null;
+         COMMAND_REBUILD = null;
          aClass91Array1182 = null;
-         aClass94_1192 = null;
+         RSSExamine = null;
          aClass94_1183 = null;
          aClass94_1179 = null;
          aClass94_1176 = null;
@@ -86,19 +86,19 @@ final class Class86 {
 
    static final Class3_Sub28_Sub17_Sub1 method1430(int var0, int var1) {
       try {
-         if(var0 != -28922) {
-            return (Class3_Sub28_Sub17_Sub1)null;
-         } else {
+         if(var0 == -28922) {
             Class3_Sub28_Sub17_Sub1 var2 = (Class3_Sub28_Sub17_Sub1)Class80.aClass93_1135.get((long)var1, (byte)121);
-            if(var2 != null) {
-               return var2;
-            } else {
+            if(var2 == null) {
                byte[] var3 = CacheIndex.aClass153_1948.getFile(var1, (byte)-122, 0);
                var2 = new Class3_Sub28_Sub17_Sub1(var3);
                var2.method697(Class3_Sub13_Sub22.aClass109Array3270, (int[])null);
                Class80.aClass93_1135.put((byte)-96, var2, (long)var1);
                return var2;
+            } else {
+               return var2;
             }
+         } else {
+            return (Class3_Sub28_Sub17_Sub1)null;
          }
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "li.A(" + var0 + ',' + var1 + ')');
@@ -124,13 +124,13 @@ final class Class86 {
    Class86(RSByteBuffer var1) {
       try {
          int var2 = var1.getByte((byte)-92);
-         if(~(var2 & 1) == -1) {
+         if((var2 & 1) == 0) {
             this.anInt1177 = Class92.defaultScreenColorRgb;
          } else {
             this.anInt1177 = var1.getInt();
          }
 
-         if(~(2 & var2) == -1) {
+         if((2 & var2) == 0) {
             this.aFloat1187 = 1.1523438F;
          } else {
             this.aFloat1187 = (float)var1.getShort(1) / 256.0F;
@@ -142,13 +142,13 @@ final class Class86 {
             this.aFloat1190 = (float)var1.getShort(1) / 256.0F;
          }
 
-         if(~(var2 & 8) != -1) {
-            this.aFloat1189 = (float)var1.getShort(1) / 256.0F;
-         } else {
+         if((var2 & 8) == 0) {
             this.aFloat1189 = 1.2F;
+         } else {
+            this.aFloat1189 = (float)var1.getShort(1) / 256.0F;
          }
 
-         if(-1 == ~(16 & var2)) {
+         if((16 & var2) == 0) {
             this.anInt1178 = -50;
             this.anInt1185 = -50;
             this.anInt1181 = -60;
@@ -164,7 +164,7 @@ final class Class86 {
             this.anInt1175 = var1.getInt();
          }
 
-         if(-1 == ~(64 & var2)) {
+         if((64 & var2) == 0) {
             this.anInt1184 = 0;
          } else {
             this.anInt1184 = var1.getShort(1);

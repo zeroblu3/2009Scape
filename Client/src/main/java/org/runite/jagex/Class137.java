@@ -39,22 +39,22 @@ final class Class137 {
             method1818(true);
          }
 
-         if(!Class158_Sub1.aBoolean2981) {
-            Class19.anInt433 = 0;
-         } else {
+         if(Class158_Sub1.aBoolean2981) {
             Class19.anInt433 = 32;
+         } else {
+            Class19.anInt433 = 0;
          }
 
          Class158_Sub1.aBoolean2981 = false;
          int var8;
-         if(~Class3_Sub13_Sub5.anInt3069 != -1) {
-            if(~var5 >= ~var4 && ~(var5 + 16) < ~var4 && var0 >= var6 && var6 - -16 > var0) {
+         if(Class3_Sub13_Sub5.anInt3069 != 0) {
+            if(var4 >= var5 && var4 < var5 + 16 && var0 >= var6 && var6 - -16 > var0) {
                var2.anInt208 -= 4;
                Class20.method909(113, var2);
-            } else if(var4 >= var5 && ~var4 > ~(16 + var5) && ~var0 <= ~(var1 + (var6 - 16)) && ~(var1 + var6) < ~var0) {
+            } else if(var4 >= var5 && 16 + var5 > var4 && var1 + (var6 - 16) <= var0 && var0 < var1 + var6) {
                var2.anInt208 += 4;
                Class20.method909(112, var2);
-            } else if(~var4 <= ~(var5 - Class19.anInt433) && var4 < var5 + 16 + Class19.anInt433 && var0 >= 16 + var6 && var1 + var6 - 16 > var0) {
+            } else if(var5 - Class19.anInt433 <= var4 && var4 < var5 + 16 + Class19.anInt433 && var0 >= 16 + var6 && var1 + var6 - 16 > var0) {
                var8 = var1 * (-32 + var1) / var7;
                if(8 > var8) {
                   var8 = 8;
@@ -68,9 +68,9 @@ final class Class137 {
             }
          }
 
-         if(~Class29.anInt561 != -1) {
+         if(Class29.anInt561 != 0) {
             var8 = var2.anInt168;
-            if(~(-var8 + var5) >= ~var4 && ~var6 >= ~var0 && var4 < 16 + var5 && var1 + var6 >= var0) {
+            if(var4 >= -var8 + var5 && var0 >= var6 && var4 < 16 + var5 && var1 + var6 >= var0) {
                var2.anInt208 += 45 * Class29.anInt561;
                Class20.method909(-116, var2);
             }

@@ -54,7 +54,7 @@ final class Class15 implements Runnable {
                   var11 = 4 * var9;
                }
 
-               if(~var7.anInt61 == -1) {
+               if(var7.anInt61 == 0) {
                   var8.method1677(var0 * 4 + 48, 48 + 4 * (-var10 + -var5 + 104), var11, var12);
                } else {
                   var8.method1669(48 + 4 * var0, 4 * (-var10 + -var5 + 104) + 48, var11, var12, var7.anInt61);
@@ -85,7 +85,7 @@ final class Class15 implements Runnable {
             int var7 = 0;
             var6 = 0;
             boolean var5 = false;
-            if(~var1.getByte((byte)-99) == -2) {
+            if(var1.getByte((byte) -99) == 1) {
                var6 = var1.getByte((byte)-56);
                var7 = var1.getByte((byte)-51);
                var5 = true;
@@ -95,7 +95,7 @@ final class Class15 implements Runnable {
             int var9 = var1.getByte((byte)-30);
             int var10 = -Class3_Sub13_Sub21.anInt3256 + var8 * 64;
             int var11 = -1 + Class108.anInt1460 - var9 * 64 + Class2.anInt65;
-            if(~var10 <= -1 && 0 <= -63 + var11 && Class23.anInt455 > var10 - -63 && ~Class108.anInt1460 < ~var11) {
+            if(var10 >= 0 && 0 <= -63 + var11 && Class23.anInt455 > var10 - -63 && var11 < Class108.anInt1460) {
                for(var12 = 0; var12 < 64; ++var12) {
                   byte[] var13 = var4[var10 - -var12];
 
@@ -105,10 +105,10 @@ final class Class15 implements Runnable {
                      }
                   }
                }
-            } else if(!var5) {
-               var1.index += 4096;
-            } else {
+            } else if(var5) {
                var1.index += 64;
+            } else {
+               var1.index += 4096;
             }
          }
 
@@ -120,14 +120,14 @@ final class Class15 implements Runnable {
          int[] var32 = new int[var6];
          int[] var31 = new int[var6];
 
-         for(var12 = -5; ~var12 > ~var27; ++var12) {
+         for(var12 = -5; var27 > var12; ++var12) {
             int var15;
             int var35;
-            for(int var34 = 0; ~var34 > ~var6; ++var34) {
+            for(int var34 = 0; var6 > var34; ++var34) {
                var14 = var12 + 5;
                if(var27 > var14) {
                   var15 = 255 & var4[var14][var34];
-                  if(~var15 < -1) {
+                  if(var15 > 0) {
                      Class100 var16 = Class3_Sub28_Sub15.method629(true, var15 - 1);
                      var28[var34] += var16.anInt1408;
                      var29[var34] += var16.anInt1406;
@@ -138,7 +138,7 @@ final class Class15 implements Runnable {
                }
 
                var15 = var12 + -5;
-               if(-1 >= ~var15) {
+               if(var15 >= 0) {
                   var35 = var4[var15][var34] & 255;
                   if(0 < var35) {
                      Class100 var17 = Class3_Sub28_Sub15.method629(true, -1 + var35);
@@ -151,7 +151,7 @@ final class Class15 implements Runnable {
                }
             }
 
-            if(~var12 <= -1) {
+            if(var12 >= 0) {
                int[][] var33 = Class146.anIntArrayArrayArray1903[var12 >> 6];
                var14 = 0;
                var15 = 0;
@@ -159,7 +159,7 @@ final class Class15 implements Runnable {
                int var18 = 0;
                var35 = 0;
 
-               for(int var19 = -5; ~var19 > ~var6; ++var19) {
+               for(int var19 = -5; var6 > var19; ++var19) {
                   int var20 = var19 - -5;
                   if(var6 > var20) {
                      var18 += var31[var20];
@@ -170,7 +170,7 @@ final class Class15 implements Runnable {
                   }
 
                   int var21 = -5 + var19;
-                  if(~var21 <= -1) {
+                  if(var21 >= 0) {
                      var35 -= var30[var21];
                      var36 -= var32[var21];
                      var14 -= var28[var21];
@@ -219,7 +219,7 @@ final class Class15 implements Runnable {
                method891(19);
             }
 
-            if(~var2.length < -137 && !Class45.aBoolean732) {
+            if(var2.length > 136 && !Class45.aBoolean732) {
                try {
                   Class144 var3 = (Class144)Class.forName(Configurations.PACKAGE_JAGEX + ".Class144_Sub1").newInstance();
                   var3.method2066(400, var2);
@@ -242,7 +242,7 @@ final class Class15 implements Runnable {
 
          try {
             while(!this.aBoolean345) {
-               for(int var1 = 0; ~var1 > -3; ++var1) {
+               for(int var1 = 0; var1 < 2; ++var1) {
                   Class155 var2 = this.aClass155Array352[var1];
                   if(var2 != null) {
                      var2.method2153((byte)-34);
@@ -270,7 +270,7 @@ final class Class15 implements Runnable {
             method894(113L, (byte)48);
          }
 
-         for(int var2 = 0; ~Class95.anInt1338 < ~var2; ++var2) {
+         for(int var2 = 0; var2 < Class95.anInt1338; ++var2) {
             int var3 = Class140_Sub7.anIntArray2931[var2] * Class3_Sub13_Sub6.anIntArray3076[var2];
             byte[] var4 = Class163_Sub1.aByteArrayArray2987[var2];
             int[] var5 = new int[var3];
@@ -279,10 +279,10 @@ final class Class15 implements Runnable {
                var5[var6] = Class3_Sub13_Sub38.spritePalette[Class3_Sub28_Sub15.method633(255, var4[var6])];
             }
 
-            if(!HDToolKit.highDetail) {
-               var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
-            } else {
+            if(HDToolKit.highDetail) {
                var1[var2] = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+            } else {
+               var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
             }
          }
 
@@ -353,7 +353,7 @@ final class Class15 implements Runnable {
          var10.method158(16251);
          Class3_Sub13_Sub3.method180(122, var3, var2);
 
-         for(int var11 = 0; ~var3 < ~var11; ++var11) {
+         for(int var11 = 0; var11 < var3; ++var11) {
             var10.method186(true, var11, var9[var11]);
          }
 

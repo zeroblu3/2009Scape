@@ -29,14 +29,14 @@ final class Class3_Sub1 extends Class3 {
                for(int var2 = 0; var2 < var1.length; ++var2) {
                   Class3_Sub2[][] var3 = var1[var2];
 
-                  for(int var4 = 0; ~var3.length < ~var4; ++var4) {
+                  for(int var4 = 0; var4 < var3.length; ++var4) {
                      for(int var5 = 0; var3[var4].length > var5; ++var5) {
                         Class3_Sub2 var6 = var3[var4][var5];
                         if(var6 != null) {
                            Class140_Sub1_Sub1 var7;
                            if(var6.aClass12_2230 != null && var6.aClass12_2230.object instanceof Class140_Sub1_Sub1) {
                               var7 = (Class140_Sub1_Sub1)var6.aClass12_2230.object;
-                              if(~(var6.aClass12_2230.aLong328 & Long.MIN_VALUE) == -1L) {
+                              if((var6.aClass12_2230.aLong328 & Long.MIN_VALUE) == 0) {
                                  var7.method1920(false, true, true, true, false, true, true);
                               } else {
                                  var7.method1920(true, true, true, true, true, true, true);
@@ -55,10 +55,10 @@ final class Class3_Sub1 extends Class3 {
 
                               if(var6.aClass19_2233.aClass140_423 instanceof Class140_Sub1_Sub1) {
                                  var7 = (Class140_Sub1_Sub1)var6.aClass19_2233.aClass140_423;
-                                 if(-1L != ~(Long.MIN_VALUE & var6.aClass19_2233.aLong428)) {
-                                    var7.method1920(true, true, true, true, true, true, true);
-                                 } else {
+                                 if((Long.MIN_VALUE & var6.aClass19_2233.aLong428) == 0) {
                                     var7.method1920(false, true, true, true, false, true, true);
+                                 } else {
+                                    var7.method1920(true, true, true, true, true, true, true);
                                  }
                               }
                            }
@@ -66,27 +66,27 @@ final class Class3_Sub1 extends Class3 {
                            if(var6.aClass70_2234 != null) {
                               if(var6.aClass70_2234.aClass140_1049 instanceof Class140_Sub1_Sub1) {
                                  var7 = (Class140_Sub1_Sub1)var6.aClass70_2234.aClass140_1049;
-                                 if(-1L != ~(var6.aClass70_2234.aLong1048 & Long.MIN_VALUE)) {
-                                    var7.method1920(true, true, true, true, true, true, true);
-                                 } else {
+                                 if((var6.aClass70_2234.aLong1048 & Long.MIN_VALUE) == 0) {
                                     var7.method1920(false, true, true, true, false, true, true);
+                                 } else {
+                                    var7.method1920(true, true, true, true, true, true, true);
                                  }
                               }
 
                               if(var6.aClass70_2234.aClass140_1052 instanceof Class140_Sub1_Sub1) {
                                  var7 = (Class140_Sub1_Sub1)var6.aClass70_2234.aClass140_1052;
-                                 if(~(Long.MIN_VALUE & var6.aClass70_2234.aLong1048) != -1L) {
-                                    var7.method1920(true, true, true, true, true, true, true);
-                                 } else {
+                                 if((Long.MIN_VALUE & var6.aClass70_2234.aLong1048) == 0) {
                                     var7.method1920(false, true, true, true, false, true, true);
+                                 } else {
+                                    var7.method1920(true, true, true, true, true, true, true);
                                  }
                               }
                            }
 
-                           for(int var10 = 0; ~var10 > ~var6.anInt2223; ++var10) {
+                           for(int var10 = 0; var6.anInt2223 > var10; ++var10) {
                               if(var6.aClass25Array2221[var10].aClass140_479 instanceof Class140_Sub1_Sub1) {
                                  Class140_Sub1_Sub1 var8 = (Class140_Sub1_Sub1)var6.aClass25Array2221[var10].aClass140_479;
-                                 if(-1L == ~(Long.MIN_VALUE & var6.aClass25Array2221[var10].aLong498)) {
+                                 if((Long.MIN_VALUE & var6.aClass25Array2221[var10].aLong498) == 0) {
                                     var8.method1920(false, true, true, true, false, true, true);
                                  } else {
                                     var8.method1920(true, true, true, true, true, true, true);
@@ -159,7 +159,7 @@ final class Class3_Sub1 extends Class3 {
             anInt2212 = 71;
          }
 
-         return ~(1 & this.anInt2205) != -1;
+         return (1 & this.anInt2205) != 0;
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "bf.Q(" + var1 + ')');
       }
@@ -196,7 +196,7 @@ final class Class3_Sub1 extends Class3 {
             anIntArray2209 = (int[])null;
          }
 
-         return -1 != ~(this.anInt2205 >> 21 & 1);
+         return (this.anInt2205 >> 21 & 1) != 0;
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "bf.E(" + var1 + ')');
       }
@@ -208,7 +208,7 @@ final class Class3_Sub1 extends Class3 {
             interfaceScriptsIndex = (CacheIndex)null;
          }
 
-         return -1 != ~((1738913629 & this.anInt2205) >> 30);
+         return (1738913629 & this.anInt2205) >> 30 != 0;
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "bf.F(" + var1 + ')');
       }

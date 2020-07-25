@@ -22,7 +22,7 @@ final class Class3_Sub28_Sub1 extends Node {
       try {
          int var2;
          if(null != this.anIntArray3540) {
-            for(var2 = 0; ~this.anIntArray3540.length < ~var2; ++var2) {
+            for(var2 = 0; var2 < this.anIntArray3540.length; ++var2) {
                this.anIntArray3540[var2] = Class3_Sub13_Sub29.bitwiseOr(this.anIntArray3540[var2], '\u8000');
             }
          }
@@ -41,15 +41,15 @@ final class Class3_Sub28_Sub1 extends Node {
 
    final int method526(int var1, int var2) {
       try {
-         if(this.anIntArray3540 != null) {
-            for(int var3 = var2; ~var3 > ~this.anIntArray3540.length; ++var3) {
+         if(this.anIntArray3540 == null) {
+            return -1;
+         } else {
+            for(int var3 = var2; this.anIntArray3540.length > var3; ++var3) {
                if(var1 == this.anIntArray3533[var3]) {
                   return this.anIntArray3540[var3];
                }
             }
 
-            return -1;
-         } else {
             return -1;
          }
       } catch (RuntimeException var4) {
@@ -68,7 +68,16 @@ final class Class3_Sub28_Sub1 extends Node {
          } else {
             int var4;
             int var5;
-            if(var3 != 2) {
+            if(var3 == 2) {
+               var4 = var1.getByte((byte)-38);
+               this.anIntArray3534 = new int[var4];
+               this.anIntArray3535 = new int[var4];
+
+               for(var5 = 0; var5 < var4; ++var5) {
+                  this.anIntArray3534[var5] = var1.getShort(1);
+                  this.anIntArray3535[var5] = Class3_Sub13_Sub33.method322(true, var1.getByte());
+               }
+            } else {
                if(var3 == 3) {
                   var4 = var1.getByte((byte)-114);
                   this.anIntArray3540 = new int[var4];
@@ -78,17 +87,8 @@ final class Class3_Sub28_Sub1 extends Node {
                      this.anIntArray3540[var5] = var1.getShort(var2 + 1);
                      this.anIntArray3533[var5] = Class3_Sub13_Sub33.method322(true, var1.getByte());
                   }
-               } else if(-5 == ~var3) {
+               } else if(var3 == 4) {
                   ;
-               }
-            } else {
-               var4 = var1.getByte((byte)-38);
-               this.anIntArray3534 = new int[var4];
-               this.anIntArray3535 = new int[var4];
-
-               for(var5 = 0; var5 < var4; ++var5) {
-                  this.anIntArray3534[var5] = var1.getShort(1);
-                  this.anIntArray3535[var5] = Class3_Sub13_Sub33.method322(true, var1.getByte());
                }
             }
          }
@@ -117,7 +117,7 @@ final class Class3_Sub28_Sub1 extends Node {
             return -1;
          } else {
             for(int var4 = 0; this.anIntArray3534.length > var4; ++var4) {
-               if(~this.anIntArray3535[var4] == ~var2) {
+               if(var2 == this.anIntArray3535[var4]) {
                   return this.anIntArray3534[var4];
                }
             }
@@ -137,7 +137,7 @@ final class Class3_Sub28_Sub1 extends Node {
 
          while(true) {
             int var3 = var1.getByte((byte)-62);
-            if(~var3 == -1) {
+            if(var3 == 0) {
                return;
             }
 
@@ -151,7 +151,7 @@ final class Class3_Sub28_Sub1 extends Node {
    static final RSString method531(byte var0) {
       try {
          RSString var1;
-         if(-2 == ~Class164_Sub1.anInt3012 && -3 < ~Class3_Sub13_Sub34.anInt3415) {
+         if(Class164_Sub1.anInt3012 == 1 && Class3_Sub13_Sub34.anInt3415 < 2) {
             var1 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub32.aClass94_3388, InputStream_Sub1.aClass94_43, RenderAnimationDefinition.aClass94_378, Class131.aClass94_1724}, (byte)-105);
          } else if(GameObject.aBoolean1837 && 2 > Class3_Sub13_Sub34.anInt3415) {
             var1 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub28_Sub9.aClass94_3621, InputStream_Sub1.aClass94_43, Class40.aClass94_676, Class131.aClass94_1724}, (byte)-95);

@@ -23,12 +23,12 @@ static RSString aClass94_1995 = aClass94_1998;
             int var7 = 0;
 
             int var8;
-            for(var8 = 0; ~var8 > ~var1.length; ++var8) {
+            for(var8 = 0; var1.length > var8; ++var8) {
                int[] var10 = this.anIntArrayArray1999[var7];
                byte var9 = var1[var8];
 
                int var11;
-               for(var11 = 0; ~var11 > -15; ++var11) {
+               for(var11 = 0; var11 < 14; ++var11) {
                   var5[var6 - -var11] += var10[var11] * var9;
                }
 
@@ -42,7 +42,7 @@ static RSString aClass94_1995 = aClass94_1998;
 
             for(var8 = 0; var4 > var8; ++var8) {
                int var13 = var5[var8] - -32768 >> 16;
-               if(127 >= ~var13) {
+               if(var13 >= -128) {
                   if(127 >= var13) {
                      var1[var8] = (byte)var13;
                   } else {
@@ -144,7 +144,7 @@ static RSString aClass94_1995 = aClass94_1998;
                   var8 = 0;
                }
 
-               if(-15 > ~var9) {
+               if(var9 > 14) {
                   var9 = 14;
                }
 

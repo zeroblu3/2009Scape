@@ -18,12 +18,12 @@ final class Class10 {
             method852((byte)127, -18);
          }
 
-         for(int var2 = 0; ~var2 > ~Class95.anInt1338; ++var2) {
+         for(int var2 = 0; Class95.anInt1338 > var2; ++var2) {
             int var3 = Class3_Sub13_Sub6.anIntArray3076[var2] * Class140_Sub7.anIntArray2931[var2];
             byte[] var4 = Class163_Sub1.aByteArrayArray2987[var2];
             int[] var5 = new int[var3];
 
-            for(int var6 = 0; ~var6 > ~var3; ++var6) {
+            for(int var6 = 0; var3 > var6; ++var6) {
                var5[var6] = Class3_Sub13_Sub38.spritePalette[Class3_Sub28_Sub15.method633(255, var4[var6])];
             }
 

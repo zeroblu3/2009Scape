@@ -15,7 +15,6 @@ final class Class113 {
    int anInt1553;
    int anInt1554;
    int anInt1555;
-   static RSString aClass94_1556 = RSString.createRSString("hint_mapmarkers");
    int anInt1557;
    static RSString aClass94_1558 = RSString.createRSString(": ");
    static int anInt1559;
@@ -26,7 +25,6 @@ final class Class113 {
    int anInt1564;
    int anInt1565;
    int anInt1566;
-   static RSString aClass94_1567 = RSString.createRSString("mapdots");
 
 
    static final void method1702(byte var0, boolean var1) {
@@ -52,8 +50,6 @@ final class Class113 {
          }
 
          aClass94_1546 = null;
-         aClass94_1556 = null;
-         aClass94_1567 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "pe.A(" + var0 + ')');
       }

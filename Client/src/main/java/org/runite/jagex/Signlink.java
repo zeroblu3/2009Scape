@@ -87,11 +87,11 @@ public class Signlink implements Runnable {
          if(var5 >= -2) {
             return null;
          } else {
-            if(this.aClass64_1203 != null) {
+            if(this.aClass64_1203 == null) {
+               this.aClass64_1203 = this.aClass64_1213 = var6;
+            } else {
                this.aClass64_1203.aClass64_976 = var6;
                this.aClass64_1203 = var6;
-            } else {
-               this.aClass64_1203 = this.aClass64_1213 = var6;
             }
 
             this.notify();
@@ -109,11 +109,11 @@ public class Signlink implements Runnable {
    }
 
    public final Class64 method1437(int var1, int var2, Component var3, int var4) {
-      if(var1 != 14) {
-         return null;
-      } else {
+      if(var1 == 14) {
          Point var5 = var3.getLocationOnScreen();
          return this.method1435(14, var4 - -var5.y, (Object)null, var5.x + var2, var1 + -105);
+      } else {
+         return null;
       }
    }
 
@@ -296,12 +296,12 @@ public class Signlink implements Runnable {
                                  var7.setAccessible(false);
                               } else {
                                  int var18;
-                                 if(-12 == ~var2) {
+                                 if(var2 == 11) {
                                     Field var20 = Class.forName("java.lang.ClassLoader").getDeclaredField("nativeLibraries");
                                     var20.setAccessible(true);
                                     Vector var24 = (Vector)var20.get(((Class)var1.anObject977).getClassLoader());
 
-                                    for(var18 = 0; ~var24.size() < ~var18; ++var18) {
+                                    for(var18 = 0; var18 < var24.size(); ++var18) {
                                        Object var26 = var24.elementAt(var18);
                                        Method var9 = var26.getClass().getDeclaredMethod("finalize", new Class[0]);
                                        var9.setAccessible(true);
@@ -314,11 +314,11 @@ public class Signlink implements Runnable {
                                     }
 
                                     var20.setAccessible(false);
-                                 } else if(-13 == ~var2) {
+                                 } else if(var2 == 12) {
                                     var4 = (String)var1.anObject977;
                                     Class122 var19 = method1438(false, var4);
                                     var1.anObject974 = var19;
-                                 } else if(~var2 == -15) {
+                                 } else if(var2 == 14) {
                                     int var22 = var1.anInt980;
                                     int var23 = var1.anInt979;
                                     this.aSensor1206.method1796(var23, -112, var22);
@@ -450,7 +450,7 @@ public class Signlink implements Runnable {
       }
 
       if(this.aClass122Array1197 != null) {
-         for(int var2 = 0; ~this.aClass122Array1197.length < ~var2; ++var2) {
+         for(int var2 = 0; var2 < this.aClass122Array1197.length; ++var2) {
             if(this.aClass122Array1197[var2] != null) {
                try {
                   this.aClass122Array1197[var2].close(var1 ^ 1);
@@ -489,9 +489,7 @@ public class Signlink implements Runnable {
 
    public static final File method1448(String var0, int var1, boolean var2, String var3) {
       File var4 = (File)aHashtable1211.get(var3);
-      if(var4 != null) {
-         return var4;
-      } else {
+      if(var4 == null) {
          if(!var2) {
             method1438(true, (String)null);
          }
@@ -501,7 +499,7 @@ public class Signlink implements Runnable {
          String[] var5 = new String[]{homeDirectory, "c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", "/tmp/", ""};
          String[] var6 = new String[]{".runite_rs", ".530file_store_" + var1};
 
-         for(int var7 = 0; ~var7 > -3; ++var7) {
+         for(int var7 = 0; var7 < 2; ++var7) {
             for(int var8 = 0; var6.length > var8; ++var8) {
                for(int var9 = 0; var5.length > var9; ++var9) {
                   String var10 = var5[var9] + var6[var8] + "/" + (var0 != null ? var0 + "/":"") + var3;
@@ -511,7 +509,7 @@ public class Signlink implements Runnable {
                      File var12 = new File(var10);
                      if(var7 != 0 || var12.exists()) {
                         String var13 = var5[var9];
-                        if(var7 != 1 || ~var13.length() >= -1 || (new File(var13)).exists()) {
+                        if(var7 != 1 || var13.length() <= 0 || (new File(var13)).exists()) {
                            (new File(var5[var9] + var6[var8])).mkdir();
                            if(var0 != null) {
                               (new File(var5[var9] + var6[var8] + "/" + var0)).mkdir();
@@ -544,6 +542,8 @@ public class Signlink implements Runnable {
          }
 
          throw new RuntimeException();
+      } else {
+         return var4;
       }
    }
 
@@ -634,10 +634,10 @@ public class Signlink implements Runnable {
       }
 
       try {
-         if(var1 != null) {
-            aMethod1222 = var1.getClass().getMethod("setFocusTraversalKeysEnabled", new Class[]{Boolean.TYPE});
-         } else {
+         if(var1 == null) {
             aMethod1222 = Class.forName("java.awt.Component").getDeclaredMethod("setFocusTraversalKeysEnabled", new Class[]{Boolean.TYPE});
+         } else {
+            aMethod1222 = var1.getClass().getMethod("setFocusTraversalKeysEnabled", new Class[]{Boolean.TYPE});
          }
       } catch (Exception var11) {
          ;
@@ -658,7 +658,7 @@ public class Signlink implements Runnable {
       this.aClass122_1204 = new Class122(method1448(this.aString1212, this.anInt1215, true, "main_file_cache.idx255"), "rw", 1048576L);
       this.aClass122Array1197 = new Class122[cacheIndexes];
 
-      for(int var5 = 0; ~cacheIndexes < ~var5; ++var5) {
+      for(int var5 = 0; var5 < cacheIndexes; ++var5) {
          this.aClass122Array1197[var5] = new Class122(method1448(this.aString1212, this.anInt1215, true, "main_file_cache.idx" + var5), "rw", 1048576L);
       }
 

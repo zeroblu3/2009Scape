@@ -154,12 +154,12 @@ class Class155 {
                }
 
                int var4 = this.method2157();
-               if(~this.anInt1981 > ~(-var4 + this.anInt1985)) {
+               if(-var4 + this.anInt1985 > this.anInt1981) {
                   this.anInt1981 = -var4 + this.anInt1985;
                }
 
                int var5 = this.anInt1989 - -this.anInt1986;
-               if(~(256 + var5) < -16385) {
+               if(256 + var5 > 16384) {
                   var5 = 16128;
                }
 
@@ -180,17 +180,17 @@ class Class155 {
                   this.aBoolean1984 = true;
                }
 
-               while(~var5 < ~var4) {
+               while(var4 < var5) {
                   var4 += 256;
                   this.method2152(this.anIntArray1975, 256);
                   this.method2149();
                }
 
-               if(~var2 < ~this.aLong1979) {
+               if(this.aLong1979 < var2) {
                   if(this.aBoolean1984) {
                      this.aBoolean1984 = false;
                   } else {
-                     if(-1 == ~this.anInt1981 && ~this.anInt1988 == -1) {
+                     if(this.anInt1981 == 0 && this.anInt1988 == 0) {
                         this.method2160();
                         this.aLong1982 = var2 - -2000L;
                         return;
@@ -374,7 +374,7 @@ class Class155 {
          if(null != Class38_Sub1.aClass15_2613) {
             boolean var2 = true;
 
-            for(int var3 = 0; ~var3 > -3; ++var3) {
+            for(int var3 = 0; var3 < 2; ++var3) {
                if(this == Class38_Sub1.aClass15_2613.aClass155Array352[var3]) {
                   Class38_Sub1.aClass15_2613.aClass155Array352[var3] = null;
                }

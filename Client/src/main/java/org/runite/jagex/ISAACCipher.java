@@ -59,7 +59,7 @@ final class ISAACCipher {
             var3 += var4;
          }
 
-         for(var2 = 0; ~var2 > -257; var2 += 8) {
+         for(var2 = 0; var2 < 256; var2 += 8) {
             var6 += this.anIntArray970[3 + var2];
             var7 += this.anIntArray970[var2 - -4];
             var9 += this.anIntArray970[var2 + 6];
@@ -102,7 +102,7 @@ final class ISAACCipher {
             this.anIntArray971[7 + var2] = var10;
          }
 
-         for(var2 = 0; -257 < ~var2; var2 += 8) {
+         for(var2 = 0; var2 < 256; var2 += 8) {
             var9 += this.anIntArray971[6 + var2];
             var8 += this.anIntArray971[var2 + 5];
             var7 += this.anIntArray971[4 + var2];
@@ -177,18 +177,18 @@ final class ISAACCipher {
             this.anInt968 = -98;
          }
 
-         while(-257 < ~var2) {
+         while(var2 < 256) {
             int var3 = this.anIntArray971[var2];
             if((2 & var2) != 0) {
-               if(~(var2 & 1) != -1) {
-                  this.anInt972 ^= this.anInt972 >>> 16;
-               } else {
+               if((var2 & 1) == 0) {
                   this.anInt972 ^= this.anInt972 << 2;
+               } else {
+                  this.anInt972 ^= this.anInt972 >>> 16;
                }
-            } else if((var2 & 1) != 0) {
-               this.anInt972 ^= this.anInt972 >>> 6;
-            } else {
+            } else if((var2 & 1) == 0) {
                this.anInt972 ^= this.anInt972 << 13;
+            } else {
+               this.anInt972 ^= this.anInt972 >>> 6;
             }
 
             this.anInt972 += this.anIntArray971[128 + var2 & 255];
@@ -238,7 +238,7 @@ final class ISAACCipher {
          if(Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099 != null && Class108.aClass3_Sub28_Sub16_1457 != null) {
             var5 = var3 / Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099.anInt3707;
 
-            for(var6 = 0; ~var5 < ~var6; ++var6) {
+            for(var6 = 0; var6 < var5; ++var6) {
                Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099.method643(var6 * Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099.anInt3707 + var1, var2);
             }
 
@@ -263,7 +263,7 @@ final class ISAACCipher {
          int var8;
          for(var7 = 0; Class3_Sub13_Sub34.anInt3415 > var7; ++var7) {
             var8 = (-var7 + Class3_Sub13_Sub34.anInt3415 - 1) * 15 + var2 + 35;
-            if(var1 < var5 && var5 < var1 - -var3 && ~var6 < ~(-13 + var8) && ~var6 > ~(var8 + 3)) {
+            if(var1 < var5 && var5 < var1 - -var3 && -13 + var8 < var6 && var8 + 3 > var6) {
                if(HDToolKit.highDetail) {
                   Class22.method930(var1, var8 + -13, var3, 16, MouseListeningClass.anInt1926, -Class136.anInt1771 + 256);
                } else {
@@ -277,22 +277,22 @@ final class ISAACCipher {
             Class50.aClass3_Sub28_Sub16_824 = Class3_Sub28_Sub7.method562(Class140_Sub6.spritesCacheIndex, 0, Class79.anInt1126, (byte)39);
             Class3_Sub26.aClass3_Sub28_Sub16_2560 = Class3_Sub28_Sub7.method562(Class140_Sub6.spritesCacheIndex, 0, Class140_Sub7.anInt2937, (byte)39);
             if(HDToolKit.highDetail) {
-               if(!(Class95.aClass3_Sub28_Sub16_1339 instanceof Class3_Sub28_Sub16_Sub2_Sub1)) {
-                  Class95.aClass3_Sub28_Sub16_1339 = new Class3_Sub28_Sub16_Sub1((Class3_Sub28_Sub16_Sub2)Class95.aClass3_Sub28_Sub16_1339);
-               } else {
+               if(Class95.aClass3_Sub28_Sub16_1339 instanceof Class3_Sub28_Sub16_Sub2_Sub1) {
                   Class95.aClass3_Sub28_Sub16_1339 = new Class3_Sub28_Sub16_Sub1_Sub1((Class3_Sub28_Sub16_Sub2)Class95.aClass3_Sub28_Sub16_1339);
+               } else {
+                  Class95.aClass3_Sub28_Sub16_1339 = new Class3_Sub28_Sub16_Sub1((Class3_Sub28_Sub16_Sub2)Class95.aClass3_Sub28_Sub16_1339);
                }
 
-               if(!(Class50.aClass3_Sub28_Sub16_824 instanceof Class3_Sub28_Sub16_Sub2_Sub1)) {
-                  Class50.aClass3_Sub28_Sub16_824 = new Class3_Sub28_Sub16_Sub1((Class3_Sub28_Sub16_Sub2)Class50.aClass3_Sub28_Sub16_824);
-               } else {
+               if(Class50.aClass3_Sub28_Sub16_824 instanceof Class3_Sub28_Sub16_Sub2_Sub1) {
                   Class50.aClass3_Sub28_Sub16_824 = new Class3_Sub28_Sub16_Sub1_Sub1((Class3_Sub28_Sub16_Sub2)Class50.aClass3_Sub28_Sub16_824);
+               } else {
+                  Class50.aClass3_Sub28_Sub16_824 = new Class3_Sub28_Sub16_Sub1((Class3_Sub28_Sub16_Sub2)Class50.aClass3_Sub28_Sub16_824);
                }
 
-               if(!(Class3_Sub26.aClass3_Sub28_Sub16_2560 instanceof Class3_Sub28_Sub16_Sub2_Sub1)) {
-                  Class3_Sub26.aClass3_Sub28_Sub16_2560 = new Class3_Sub28_Sub16_Sub1((Class3_Sub28_Sub16_Sub2)Class3_Sub26.aClass3_Sub28_Sub16_2560);
-               } else {
+               if(Class3_Sub26.aClass3_Sub28_Sub16_2560 instanceof Class3_Sub28_Sub16_Sub2_Sub1) {
                   Class3_Sub26.aClass3_Sub28_Sub16_2560 = new Class3_Sub28_Sub16_Sub1_Sub1((Class3_Sub28_Sub16_Sub2)Class3_Sub26.aClass3_Sub28_Sub16_2560);
+               } else {
+                  Class3_Sub26.aClass3_Sub28_Sub16_2560 = new Class3_Sub28_Sub16_Sub1((Class3_Sub28_Sub16_Sub2)Class3_Sub26.aClass3_Sub28_Sub16_2560);
                }
             }
          }
@@ -319,7 +319,7 @@ final class ISAACCipher {
          for(var7 = 0; var7 < Class3_Sub13_Sub34.anInt3415; ++var7) {
             var8 = 15 * (Class3_Sub13_Sub34.anInt3415 - 1 + -var7) + var2 + 35;
             var9 = Class3_Sub13_Sub28.anInt3351;
-            if(var1 < var5 && var3 + var1 > var5 && ~(var8 - 13) > ~var6 && ~var6 > ~(var8 - -3)) {
+            if(var1 < var5 && var3 + var1 > var5 && var6 > var8 - 13 && var8 - -3 > var6) {
                var9 = Class154.anInt1957;
             }
 
@@ -347,9 +347,7 @@ final class ISAACCipher {
 
    static final int method1232(NPC var0, int var1) {
       try {
-         if(var1 != -1) {
-            return 103;
-         } else {
+         if(var1 == -1) {
             NPCDefinition var2 = var0.definition;
             if(null != var2.childNPCs) {
                var2 = var2.method1471((byte)-108);
@@ -360,10 +358,10 @@ final class ISAACCipher {
 
             int var3 = var2.anInt1293;
             RenderAnimationDefinition var4 = var0.method1965(false);
-            if(~var4.anInt368 == ~var0.anInt2764) {
+            if(var0.anInt2764 == var4.anInt368) {
                var3 = var2.anInt1262;
-            } else if(~var0.anInt2764 != ~var4.anInt393 && var4.anInt386 != var0.anInt2764 && var0.anInt2764 != var4.anInt375 && var0.anInt2764 != var4.anInt373) {
-               if(~var4.anInt398 == ~var0.anInt2764 || var0.anInt2764 == var4.anInt372 || ~var0.anInt2764 == ~var4.anInt379 || ~var0.anInt2764 == ~var4.anInt406) {
+            } else if(var4.anInt393 != var0.anInt2764 && var4.anInt386 != var0.anInt2764 && var0.anInt2764 != var4.anInt375 && var0.anInt2764 != var4.anInt373) {
+               if(var0.anInt2764 == var4.anInt398 || var0.anInt2764 == var4.anInt372 || var4.anInt379 == var0.anInt2764 || var4.anInt406 == var0.anInt2764) {
                   var3 = var2.anInt1290;
                }
             } else {
@@ -371,6 +369,8 @@ final class ISAACCipher {
             }
 
             return var3;
+         } else {
+            return 103;
          }
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "ij.B(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
@@ -384,7 +384,7 @@ final class ISAACCipher {
          this.anIntArray970 = new int[256];
          this.anIntArray971 = new int[256];
 
-         for(int var2 = 0; ~var2 > ~var1.length; ++var2) {
+         for(int var2 = 0; var1.length > var2; ++var2) {
             this.anIntArray970[var2] = var1[var2];
          }
 

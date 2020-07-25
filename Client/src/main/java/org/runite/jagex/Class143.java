@@ -22,11 +22,11 @@ final class Class143 {
          int var9 = Class40.method1040(Class57.anInt902, -var4 + var3, (byte)0, Class159.anInt2020);
 
          int var16;
-         for(var16 = var12; ~var16 > ~var8; ++var16) {
+         for(var16 = var12; var8 > var16; ++var16) {
             Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var16], var14, 97, var15, var5);
          }
 
-         for(var16 = var13; ~var16 < ~var9; --var16) {
+         for(var16 = var13; var9 < var16; --var16) {
             Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var16], var14, 94, var15, var5);
          }
 
@@ -36,7 +36,7 @@ final class Class143 {
             aClass94_1876 = (RSString)null;
          }
 
-         for(var16 = var8; ~var16 >= ~var9; ++var16) {
+         for(var16 = var8; var9 >= var16; ++var16) {
             int[] var17 = Class38.anIntArrayArray663[var16];
             Class3_Sub13_Sub23_Sub1.method282(var17, var14, 105, var10, var5);
             Class3_Sub13_Sub23_Sub1.method282(var17, var10, 111, var11, var1);

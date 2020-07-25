@@ -96,10 +96,10 @@ final class Class3_Sub22 extends Class3 {
             int var21 = Class3_Sub13_Sub27.anInt3340 - Class3_Sub13_Sub39.anInt3466 + var17;
             if(var20 >= 0 && var21 >= 0 && var20 < IOHandler.anInt1234 && var21 < Class3_Sub13_Sub15.anInt3179) {
                int var22;
-               if(Class3_Sub28_Sub7.anIntArrayArrayArray3605 != null) {
-                  var22 = Class3_Sub28_Sub7.anIntArrayArrayArray3605[0][var20][var21] - Class3_Sub28_Sub13.anInt3657 + 128;
-               } else {
+               if(Class3_Sub28_Sub7.anIntArrayArrayArray3605 == null) {
                   var22 = Class58.anIntArrayArrayArray914[0][var20][var21] - Class3_Sub28_Sub13.anInt3657 + 128;
+               } else {
+                  var22 = Class3_Sub28_Sub7.anIntArrayArrayArray3605[0][var20][var21] - Class3_Sub28_Sub13.anInt3657 + 128;
                }
 
                int var23 = Class58.anIntArrayArrayArray914[3][var20][var21] - Class3_Sub28_Sub13.anInt3657 - 1000;
@@ -186,20 +186,7 @@ final class Class3_Sub22 extends Class3 {
 
    static final void method402(int var0) {
       try {
-         if(0 != ~Signlink.javaVendor.toLowerCase().indexOf("microsoft")) {
-            Class117.anIntArray1611[187] = 27;
-            Class117.anIntArray1611[223] = 28;
-            Class117.anIntArray1611[221] = 43;
-            Class117.anIntArray1611[188] = 71;
-            Class117.anIntArray1611[222] = 59;
-            Class117.anIntArray1611[192] = 58;
-            Class117.anIntArray1611[191] = 73;
-            Class117.anIntArray1611[219] = 42;
-            Class117.anIntArray1611[190] = 72;
-            Class117.anIntArray1611[186] = 57;
-            Class117.anIntArray1611[220] = 74;
-            Class117.anIntArray1611[189] = 26;
-         } else {
+         if(Signlink.javaVendor.toLowerCase().indexOf("microsoft") == -1) {
             if(null == Signlink.aMethod1222) {
                Class117.anIntArray1611[192] = 58;
                Class117.anIntArray1611[222] = 59;
@@ -218,6 +205,19 @@ final class Class3_Sub22 extends Class3 {
             Class117.anIntArray1611[92] = 74;
             Class117.anIntArray1611[46] = 72;
             Class117.anIntArray1611[47] = 73;
+         } else {
+            Class117.anIntArray1611[187] = 27;
+            Class117.anIntArray1611[223] = 28;
+            Class117.anIntArray1611[221] = 43;
+            Class117.anIntArray1611[188] = 71;
+            Class117.anIntArray1611[222] = 59;
+            Class117.anIntArray1611[192] = 58;
+            Class117.anIntArray1611[191] = 73;
+            Class117.anIntArray1611[219] = 42;
+            Class117.anIntArray1611[190] = 72;
+            Class117.anIntArray1611[186] = 57;
+            Class117.anIntArray1611[220] = 74;
+            Class117.anIntArray1611[189] = 26;
          }
 
          if(var0 != 74) {
