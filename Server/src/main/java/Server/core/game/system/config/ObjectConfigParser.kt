@@ -26,6 +26,9 @@ class ObjectConfigParser {
                         when (it.key.toString()) {
                             //Strings
                             "examine" -> configs.put(it.key.toString(), it.value.toString())
+
+                            //Animations
+                            "render_anim" -> def.animationId = it.value.toString().toInt()
                         }
                     }
                 }

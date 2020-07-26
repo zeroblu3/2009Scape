@@ -3,6 +3,10 @@
     {
       "ids": "1",
       "examine": "This is a crate."
+    },
+    {
+      "ids": "36873",
+      "render_anim": "6493"
     }
   ]
 }

@@ -4,6 +4,7 @@ class ConfigParser {
     fun prePlugin(){
         NPCConfigParser().load()
         ItemConfigParser().load()
+        ObjectConfigParser().load()
         XteaParser().load()
         InterfaceConfigParser().load()
     }
