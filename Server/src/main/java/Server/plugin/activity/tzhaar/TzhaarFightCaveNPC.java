@@ -303,7 +303,7 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
 				return;
 			}
 			if (state.getEstimatedHit() > 0) {
-				state.setEstimatedHit(formatHit(entity, victim, state.getEstimatedHit()));
+				state.setEstimatedHit(formatHit(victim, state.getEstimatedHit()));
 				if (((NPC) entity).getId() == 2734 || ((NPC) entity).getId() == 2735) {
 					victim.getSkills().decrementPrayerPoints(state.getEstimatedHit());
 				} else if (jad && state.getStyle() != CombatStyle.MELEE) {

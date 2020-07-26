@@ -40,7 +40,7 @@ public class RevenantCombatHandler extends MultiSwingHandler {
 	@Override
 	public void visualizeImpact(Entity entity, Entity victim, BattleState state) {
 		if (victim instanceof Player) {
-			SwitchAttack attack = current;
+			SwitchAttack attack = getCurrent();
 			if (attack != null) {
 				if (attack.getStyle() == CombatStyle.RANGE) {
 					victim.asPlayer().getAudioManager().send(4061, true);
@@ -53,7 +53,7 @@ public class RevenantCombatHandler extends MultiSwingHandler {
 	@Override
 	public void impact(Entity entity, Entity victim, BattleState state) {
 		if (victim instanceof Player) {
-			SwitchAttack attack = current;
+			SwitchAttack attack = getCurrent();
 			if (attack != null) {
 				if (attack.getStyle() == CombatStyle.RANGE && victim.getAttribute("freeze_immunity", -1) < GameWorld.getTicks()) {
 					victim.getStateManager().set(EntityState.FROZEN, 16, "The icy darts freeze your muscles!");
@@ -81,7 +81,7 @@ public class RevenantCombatHandler extends MultiSwingHandler {
 	public void visualize(Entity entity, Entity victim, BattleState state) {
 		super.visualize(entity, victim, state);
 		if (victim.isPlayer()) {
-			SwitchAttack attack = current;
+			SwitchAttack attack = getCurrent();
 			if (attack != null) {
 				if (attack.getStyle() == CombatStyle.MAGIC) {
 					victim.asPlayer().getAudioManager().send(202, true);

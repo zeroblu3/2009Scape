@@ -1,560 +1,517 @@
-package core.game.node.entity.combat;
+package core.game.node.entity.combat
 
-import core.game.container.Container;
-import core.game.container.impl.EquipmentContainer;
-import core.game.system.config.ItemConfigParser;
-import plugin.skill.Skills;
-import plugin.skill.summoning.familiar.Familiar;
-import core.game.node.Node;
-import core.game.node.entity.Entity;
-import core.game.node.entity.combat.equipment.ArmourSet;
-import core.game.node.entity.combat.equipment.DegradableEquipment;
-import core.game.node.entity.npc.NPC;
-import core.game.node.entity.player.Player;
-import core.game.node.entity.player.link.audio.Audio;
-import core.game.node.entity.player.link.prayer.PrayerType;
-import core.game.node.entity.state.EntityState;
-import core.game.node.item.Item;
-import core.game.world.map.Location;
-import core.game.world.map.path.Pathfinder;
-import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.context.Graphics;
-import core.tools.RandomFunction;
-
-import java.util.HashMap;
-import java.util.Map;
+import core.game.container.Container
+import core.game.container.impl.EquipmentContainer
+import core.game.node.Node
+import core.game.node.entity.Entity
+import core.game.node.entity.combat.equipment.ArmourSet
+import core.game.node.entity.combat.equipment.DegradableEquipment
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.audio.Audio
+import core.game.node.entity.player.link.prayer.PrayerType
+import core.game.node.entity.state.EntityState
+import core.game.system.config.ItemConfigParser
+import core.game.world.map.path.Pathfinder
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphics
+import core.tools.RandomFunction
+import plugin.skill.Skills
+import plugin.skill.summoning.familiar.Familiar
+import java.util.*
+import kotlin.math.floor
 
 /**
  * Handles a combat swing.
  * @author Emperor
+ * @author Ceikry - Kotlin refactoring, general cleanup
  */
-public abstract class CombatSwingHandler {
+abstract class CombatSwingHandler(var type: CombatStyle?) {
+    /**
+     * The mapping of the special attack handlers.
+     */
+    private var specialHandlers: MutableMap<Int, CombatSwingHandler?>? = null
 
-	/**
-	 * The amount of experience to get per hit.
-	 */
-	public static double EXPERIENCE_MOD = 4;
+    /**
+     * Starts the combat swing.
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state instance.
+     * @return The amount of ticks before impact of the attack.
+     */
+    abstract fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int
 
-	/**
-	 * The mapping of the special attack handlers.
-	 */
-	private Map<Integer, CombatSwingHandler> specialHandlers;
+    /**
+     * Handles the impact of the combat swing (victim getting hit).
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state instance.
+     */
+    abstract fun impact(entity: Entity?, victim: Entity?, state: BattleState?)
 
-	/**
-	 * The combat style.
-	 */
-	private CombatStyle type;
+    /**
+     * Visualizes the impact itself (end animation, end GFX, ...)
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state instance.
+     */
+    abstract fun visualizeImpact(entity: Entity?, victim: Entity?, state: BattleState?)
 
-	/**
-	 * Constructs a new {@code CombatSwingHandler} {@Code Object}
-	 * @param type The combat style.
-	 */
-	public CombatSwingHandler(CombatStyle type) {
-		this.type = type;
-	}
+    /**
+     * Calculates the maximum accuracy of the entity.
+     * @param entity The entity.
+     * @return The maximum accuracy value.
+     */
+    abstract fun calculateAccuracy(entity: Entity?): Int
 
-	/**
-	 * Starts the combat swing.
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state instance.
-	 * @return The amount of ticks before impact of the attack.
-	 */
-	public abstract int swing(Entity entity, Entity victim, BattleState state);
+    /**
+     * Calculates the maximum strength of the entity.
+     * @param entity The entity.
+     * @param victim The victim.
+     * @param modifier The modifier.
+     * @return The maximum strength value.
+     */
+    abstract fun calculateHit(entity: Entity?, victim: Entity?, modifier: Double): Int
 
-	/**
-	 * Handles the impact of the combat swing (victim getting hit).
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state instance.
-	 */
-	public abstract void impact(Entity entity, Entity victim, BattleState state);
+    /**
+     * Calculates the maximum defence of the entity.
+     * @param entity The entity.
+     * @param attacker The entity to defend against.
+     * @return The maximum defence value.
+     */
+    abstract fun calculateDefence(entity: Entity?, attacker: Entity?): Int
 
-	/**
-	 * Visualizes the impact itself (end animation, end GFX, ...)
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state instance.
-	 */
-	public abstract void visualizeImpact(Entity entity, Entity victim, BattleState state);
+    /**
+     * Gets the void set multiplier.
+     * @param e The entity.
+     * @param skillId The skill id.
+     * @return The multiplier.
+     */
+    abstract fun getSetMultiplier(e: Entity?, skillId: Int): Double
 
-	/**
-	 * Calculates the maximum accuracy of the entity.
-	 * @param entity The entity.
-	 * @param modifier The modifier.
-	 * @return The maximum accuracy value.
-	 */
-	public abstract int calculateAccuracy(Entity entity);
+    /**
+     * Visualizes the combat swing (start animation, GFX, projectile, ...)
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state instance.
+     */
+    open fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
+        entity.animate(getAttackAnimation(entity, type))
+    }
 
-	/**
-	 * Calculates the maximum strength of the entity.
-	 * @param entity The entity.
-	 * @param victim The victim.
-	 * @param modifier The modifier.
-	 * @return The maximum strength value.
-	 */
-	public abstract int calculateHit(Entity entity, Entity victim, double modifier);
+    /**
+     * Method called when the impact method got called.
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state.
+     */
+    fun onImpact(entity: Entity?, victim: Entity?, state: BattleState?) {
+        if (entity is Player && victim != null) {
+            DegradableEquipment.degrade(entity as Player?, victim, true)
+        }
+        if (state == null) {
+            return
+        }
+        if (state.targets != null && state.targets.isNotEmpty()) {
+            if (!(state.targets.size == 1 && state.targets[0] == state)) {
+                for (s in state.targets) {
+                    if (s != null && s != state) {
+                        onImpact(entity, s.victim, s)
+                    }
+                }
+                return
+            }
+        }
+        victim!!.onImpact(entity, state)
+    }
 
-	/**
-	 * Calculates the maximum defence of the entity.
-	 * @param entity The entity.
-	 * @param attacker The entity to defend against.
-	 * @param modifier The modifier.
-	 * @return The maximum defence value.
-	 */
-	public abstract int calculateDefence(Entity entity, Entity attacker);
+    /**
+     * Gets the currently worn armour set, if any.
+     * @param e The entity.
+     * @return The armour set worn.
+     */
+    open fun getArmourSet(e: Entity?): ArmourSet? {
+        return null
+    }
 
-	/**
-	 * Gets the void set multiplier.
-	 * @param e The entity.
-	 * @param skillId The skill id.
-	 * @return The multiplier.
-	 */
-	public abstract double getSetMultiplier(Entity e, int skillId);
+    /**
+     * Checks if the container contains a void knight set.
+     * @param c The container to check.
+     * @return `True` if so.
+     */
+    fun containsVoidSet(c: Container): Boolean {
+        val top = c.getNew(EquipmentContainer.SLOT_CHEST)
+        return if (top.id != 8839 && top.id != 10611) {
+            false
+        } else c.getNew(EquipmentContainer.SLOT_LEGS).id == 8840 && c.getNew(EquipmentContainer.SLOT_HANDS).id == 8842
+    }
 
-	/**
-	 * Visualizes the combat swing (start animation, GFX, projectile, ...)
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state instance.
-	 */
-	public void visualize(Entity entity, Entity victim, BattleState state) {
-		entity.animate(getAttackAnimation(entity, type));
-	}
+    /**
+     * Checks if the hit will be accurate.
+     * @param entity The entity.
+     * @param victim The victim.
+     * @return `True` if the hit is accurate.
+     */
+    fun isAccurateImpact(entity: Entity?, victim: Entity?): Boolean {
+        return isAccurateImpact(entity, victim, type, 1.0, 1.0)
+    }
 
-	/**
-	 * Method called when the impact method got called.
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state.
-	 */
-	public void onImpact(final Entity entity, final Entity victim, final BattleState state) {
-		if (entity instanceof Player && victim != null) {
-			DegradableEquipment.degrade((Player) entity, victim, true);
-		}
-		if (state == null) {
-			return;
-		}
-		if (state.getTargets() != null && state.getTargets().length > 0) {
-			if (!(state.getTargets().length == 1 && state.getTargets()[0] == state)) {
-				for (BattleState s : state.getTargets()) {
-					if (s != null && s != state) {
-						onImpact(entity, s.getVictim(), s);
-					}
-				}
-				return;
-			}
-		}
-		victim.onImpact(entity, state);
-	}
+    /**
+     * Checks if the hit will be accurate.
+     * @param entity The entity.
+     * @param victim The victim.
+     * @param style The combat style used.
+     * @return `True` if the hit is accurate.
+     */
+    fun isAccurateImpact(entity: Entity?, victim: Entity?, style: CombatStyle?): Boolean {
+        return isAccurateImpact(entity, victim, style, 1.0, 1.0)
+    }
 
-	/**
-	 * Gets the currently worn armour set, if any.
-	 * @param e The entity.
-	 * @return The armour set worn.
-	 */
-	public ArmourSet getArmourSet(Entity e) {
-		return null;
-	}
+    /**
+     * Checks if the hit will be accurate.
+     * @param entity The entity.
+     * @param victim The victim.
+     * @param style The combat style (null to ignore prayers).
+     * @param accuracyMod The accuracy modifier.
+     * @param defenceMod The defence modifier.
+     * @return `True` if the hit is accurate.
+     */
+    fun isAccurateImpact(entity: Entity?, victim: Entity?, style: CombatStyle?, accuracyMod: Double, defenceMod: Double): Boolean {
+        var mod = 1.33
+        if (victim == null || style == null) {
+            return false
+        }
+        if (victim is Player && entity is Familiar && victim.prayer[PrayerType.PROTECT_FROM_SUMMONING]) {
+            mod = 0.0
+        }
+        val attack = calculateAccuracy(entity) * accuracyMod * mod * getSetMultiplier(entity, Skills.ATTACK)
+        val defence = calculateDefence(victim, entity) * defenceMod * getSetMultiplier(victim, Skills.DEFENCE)
+        val chance: Double
+        chance = if (attack < defence) {
+            (attack - 1) / (defence * 2)
+        } else {
+            1 - (defence + 1) / (attack * 2)
+        }
+        val ratio = chance * 100
+        val accuracy = floor(ratio)
+        val block = floor(101 - ratio)
+        val acc = Math.random() * accuracy
+        val def = Math.random() * block
+        return acc > def
+    }
 
-	/**
-	 * Checks if the container contains a void knight set.
-	 * @param c The container to check.
-	 * @return {@code True} if so.
-	 */
-	public boolean containsVoidSet(Container c) {
-		Item top = c.getNew(EquipmentContainer.SLOT_CHEST);
-		if (top.getId() != 8839 && top.getId() != 10611) {
-			return false;
-		}
-		return c.getNew(EquipmentContainer.SLOT_LEGS).getId() == 8840 && c.getNew(EquipmentContainer.SLOT_HANDS).getId() == 8842;
-	}
+    /**
+     * Checks if the entity can execute a combat swing at the victim.
+     * @param entity The entity.
+     * @param victim The victim.
+     * @return `True` if so.
+     */
+    open fun canSwing(entity: Entity, victim: Entity): InteractionType? {
+        return isAttackable(entity, victim)
+    }
 
-	/**
-	 * Checks if the hit will be accurate.
-	 * @param entity The entity.
-	 * @param victim The victim.
-	 * @return {@code True} if the hit is accurate.
-	 */
-	public boolean isAccurateImpact(Entity entity, Entity victim) {
-		return isAccurateImpact(entity, victim, type, 1.0, 1.0);
-	}
+    /**
+     * Checks if the victim can be attacked by the entity.
+     * @param entity The attacking entity.
+     * @param victim The entity being attacked.
+     * @return `True` if so.
+     */
+    open fun isAttackable(entity: Entity, victim: Entity): InteractionType? {
+        if (entity.location == victim.location) {
+            return if (entity.index < victim.index && victim.properties.combatPulse.victim === entity) {
+                InteractionType.STILL_INTERACT
+            } else InteractionType.NO_INTERACT
+        }
+        val el = entity.location
+        val vl = victim.location
+        val evl = vl.transform(victim.size(), victim.size(), 0)
+        if (el.x >= vl.x && el.x < evl.x && el.y >= vl.y && el.y < evl.y || el.z != vl.z) {
+            return InteractionType.NO_INTERACT
+        }
+        if (!victim.isAttackable(entity, type)) {
+            entity.properties.combatPulse.stop()
+            return InteractionType.NO_INTERACT
+        }
+        return InteractionType.STILL_INTERACT
+    }
 
-	/**
-	 * Checks if the hit will be accurate.
-	 * @param entity The entity.
-	 * @param victim The victim.
-	 * @param style The combat style used.
-	 * @return {@code True} if the hit is accurate.
-	 */
-	public boolean isAccurateImpact(Entity entity, Entity victim, CombatStyle style) {
-		return isAccurateImpact(entity, victim, style, 1.0, 1.0);
-	}
+    /**
+     * Gets the dragonfire message.
+     * @param protection The protection value.
+     * @param fireName The fire breath name.
+     * @return The message to send.
+     */
+    fun getDragonfireMessage(protection: Int, fireName: String): String {
+        if (protection and 0x4 != 0) {
+            if (protection and 0x2 != 0) {
+                return "Your potion and shield fully protects you from the dragon's $fireName."
+            }
+            return if (protection and 0x8 != 0) {
+                "Your prayer and shield absorbs most of the dragon's $fireName."
+            } else "Your shield absorbs most of the dragon's $fireName."
+        }
+        if (protection and 0x2 != 0) {
+            return if (protection and 0x8 != 0) {
+                "Your prayer and potion absorbs most of the dragon's $fireName."
+            } else "Your antifire potion helps you defend the against the dragon's $fireName."
+        }
+        return if (protection and 0x8 != 0) {
+            "Your magic prayer absorbs some of the dragon's $fireName."
+        } else "You are horribly burnt by the dragon's $fireName."
+    }
 
-	/**
-	 * Checks if the hit will be accurate.
-	 * @param entity The entity.
-	 * @param victim The victim.
-	 * @param style The combat style (null to ignore prayers).
-	 * @param accuracyMod The accuracy modifier.
-	 * @param defenceMod The defence modifier.
-	 * @return {@code True} if the hit is accurate.
-	 */
-	public boolean isAccurateImpact(Entity entity, Entity victim, CombatStyle style, double accuracyMod, double defenceMod) {
-		double mod = 1.33;
-		if (victim == null || style == null) {
-			return false;
-		}
-		if (style != null) {
-			if (victim instanceof Player && entity instanceof Familiar && ((Player) victim).getPrayer().get(PrayerType.PROTECT_FROM_SUMMONING)) {
-				mod = 0;
-			}
-		}
-		double attack = calculateAccuracy(entity) * accuracyMod * mod * getSetMultiplier(entity, Skills.ATTACK);
-		double defence = calculateDefence(victim, entity) * defenceMod * getSetMultiplier(victim, Skills.DEFENCE);
-		double chance = 0.0;
-		if (attack < defence) {
-			chance = (attack - 1) / (defence * 2);
-		} else {
-			chance = 1 - ((defence + 1) / (attack * 2));
-		}
-		double ratio = chance * 100;
-		double accuracy = Math.floor(ratio);
-		double block = Math.floor(101 - ratio);
-		double acc = Math.random() * accuracy;
-		double def = Math.random() * block;
-		return acc > def;
-	}
+    /**
+     * Visualizes the audio.
+     * @param entity the entity.
+     * @param victim the victim.
+     * @param state the state.
+     */
+    fun visualizeAudio(entity: Entity, victim: Entity, state: BattleState) {
+        if (entity is Player) {
+            val styleIndex = entity.settings.attackStyleIndex
+            if (state.weapon != null && state.weapon.item != null) {
+                val weapon = state.weapon.item
+                val audios = weapon.definition.getConfiguration<Array<Audio>>(ItemConfigParser.ATTACK_AUDIO, null)
+                if (audios != null) {
+                    var audio: Audio? = null
+                    if (styleIndex < audios.size) {
+                        audio = audios[styleIndex]
+                    }
+                    if (audio == null || audio.id == 0) {
+                        audio = audios[0]
+                    }
+                    entity.asPlayer().audioManager.send(audio, true)
+                }
+            } else {
+                entity.asPlayer().audioManager.send(2564)
+            }
+        } else if (entity is NPC && victim is Player) {
+            val npc = entity.asNpc()
+            val audio = npc.getAudio(0)
+            audio?.send(victim.asPlayer(), true)
+        }
+    }
 
-	/**
-	 * Checks if the entity can execute a combat swing at the victim.
-	 * @param entity The entity.
-	 * @param victim The victim.
-	 * @return {@code True} if so.
-	 */
-	public InteractionType canSwing(Entity entity, Entity victim) {
-		return isAttackable(entity, victim);
-	}
+    /**
+     * Gets the combat distance.
+     * @param e The entity.
+     * @param v The victim.
+     * @param rawDistance The distance.
+     * @return The actual distance used for combat.
+     */
+    open fun getCombatDistance(e: Entity, v: Entity, rawDistance: Int): Int {
+        var distance = rawDistance
+        if (e is NPC) {
+            if (e.definition.combatDistance > 0) {
+                distance = e.definition.combatDistance
+            }
+        }
+        return (e.size() shr 1) + (v.size() shr 1) + distance
+    }
 
-	/**
-	 * Checks if the victim can be attacked by the entity.
-	 * @param entity The attacking entity.
-	 * @param victim The entity being attacked.
-	 * @return {@code True} if so.
-	 */
-	public InteractionType isAttackable(Entity entity, Entity victim) {
-		if (entity.getLocation().equals(victim.getLocation())) {
-			if (entity.getIndex() < victim.getIndex() && victim.getProperties().getCombatPulse().getVictim() == entity) {
-				return InteractionType.STILL_INTERACT;
-			}
-			return InteractionType.NO_INTERACT;
-		}
-		Location el = entity.getLocation();
-		Location vl = victim.getLocation();
-		Location evl = vl.transform(victim.size(), victim.size(), 0);
-		if ((el.getX() >= vl.getX() && el.getX() < evl.getX() && el.getY() >= vl.getY() && el.getY() < evl.getY()) || (el.getZ() != vl.getZ())) {
-			return InteractionType.NO_INTERACT;
-		}
-		if (!victim.isAttackable(entity, type)) {
-			entity.getProperties().getCombatPulse().stop();
-			return InteractionType.NO_INTERACT;
-		}
-		return InteractionType.STILL_INTERACT;
-	}
+    /**
+     * Formats the hit for the victim. (called as
+     * victim.getSwingHandler(false).formatHit(victim, hit))
+     * @param victim The entity receiving the hit.
+     * @param rawHit The hit to format.
+     * @return The formatted hit.
+     */
+    fun formatHit(victim: Entity, rawHit: Int): Int {
+        var hit = rawHit
+        if (hit < 1) {
+            return hit
+        }
+        if (hit > victim.skills.lifepoints) {
+            hit = victim.skills.lifepoints
+        }
+        return hit
+    }
 
-	/**
-	 * Gets the dragonfire message.
-	 * @param protection The protection value.
-	 * @param fireName The fire breath name.
-	 * @return The message to send.
-	 */
-	public String getDragonfireMessage(int protection, String fireName) {
-		if ((protection & 0x4) != 0) {
-			if ((protection & 0x2) != 0) {
-				return "Your potion and shield fully protects you from the dragon's " + fireName + ".";
-			}
-			if ((protection & 0x8) != 0) {
-				return "Your prayer and shield absorbs most of the dragon's " + fireName + ".";
-			}
-			return "Your shield absorbs most of the dragon's " + fireName + ".";
-		}
-		if ((protection & 0x2) != 0) {
-			if ((protection & 0x8) != 0) {
-				return "Your prayer and potion absorbs most of the dragon's " + fireName + ".";
-			}
-			return "Your antifire potion helps you defend the against the dragon's " + fireName + ".";
-		}
-		if ((protection & 0x8) != 0) {
-			return "Your magic prayer absorbs some of the dragon's " + fireName + ".";
-		}
-		return "You are horribly burnt by the dragon's " + fireName + ".";
-	}
+    /**
+     * Adjusts the battle state object for this combat swing.
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state.
+     */
+    open fun adjustBattleState(entity: Entity, victim: Entity, state: BattleState) {
+        EXPERIENCE_MOD = 4.0
+        var totalHit = 0
+        if (entity is Player) {
+            entity.familiarManager.adjustBattleState(state)
+        }
+        entity.sendImpact(state)
+        victim.checkImpact(state)
+        //Prevents lumbridge dummies from dying (true to how rs3 / runescape in 2009 does it)
+        if (victim.id == 4474 && type == CombatStyle.MAGIC || victim.id == 7891 && type == CombatStyle.MELEE) {
+            EXPERIENCE_MOD = 0.1
+            victim.fullRestore()
+            if (state.estimatedHit >= 15) {
+                state.estimatedHit = 14
+            }
+            if (state.secondaryHit >= 15) {
+                state.secondaryHit = 14
+            }
+        }
+        if (victim.id == 757) {
+            EXPERIENCE_MOD = 0.01
+        }
+        if (state.estimatedHit > 0) {
+            state.estimatedHit = getFormattedHit(entity, victim, state, state.estimatedHit)
+            totalHit += state.estimatedHit
+        }
+        if (state.secondaryHit > 0) {
+            state.secondaryHit = getFormattedHit(entity, victim, state, state.secondaryHit)
+            totalHit += state.secondaryHit
+        }
+        if (entity is Player) {
+            entity.degrader.checkWeaponDegrades(entity)
+            if (totalHit > 0 && entity.prayer[PrayerType.SMITE] && victim.skills.prayerPoints > 0) {
+                victim.skills.decrementPrayerPoints(totalHit * 0.25)
+            }
+            if (entity.getAttribute("1hko", false)) {
+                state.estimatedHit = victim.skills.lifepoints
+            }
+        }
+        if (victim is NPC) {
+            if (victim.properties.protectStyle != null && state.style == victim.properties.protectStyle) {
+                state.neutralizeHits()
+            }
+        }
+    }
 
-	/**
-	 * Visualizes the audio.
-	 * @param entity the entity.
-	 * @param victim the victim.
-	 * @param state the state.
-	 */
-	public void visualizeAudio(Entity entity, Entity victim, BattleState state) {
-		if (entity instanceof Player) {
-			int styleIndex = ((Player) entity).getSettings().getAttackStyleIndex();
-			if (state.getWeapon() != null && state.getWeapon().getItem() != null) {
-				Item weapon = state.getWeapon().getItem();
-				Audio[] audios = weapon.getDefinition().getConfiguration(ItemConfigParser.ATTACK_AUDIO, null);
-				if (audios != null) {
-					Audio audio = null;
-					if (styleIndex < audios.length) {
-						audio = audios[styleIndex];
-					}
-					if (audio == null || audio.getId() == 0) {
-						audio = audios[0];
-					}
-					if (audio != null) {
-						entity.asPlayer().getAudioManager().send(audio, true);
-					}
-				}
-			} else {
-				entity.asPlayer().getAudioManager().send(2564);
-			}
-		} else if (entity instanceof NPC && victim instanceof Player) {
-			NPC npc = entity.asNpc();
-			Audio audio = npc.getAudio(0);
-			if (audio != null) {
-				audio.send(victim.asPlayer(), true);
-			}
-		}
-	}
+    /**
+     * Adds the experience for the current combat swing.
+     * @param entity The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state.
+     */
+    open fun addExperience(entity: Entity?, victim: Entity?, state: BattleState?) {}
 
-	/**
-	 * Gets the combat distance.
-	 * @param e The entity.
-	 * @param v The victim.
-	 * @param distance The distance.
-	 * @return The actual distance used for combat.
-	 */
-	public int getCombatDistance(Entity e, Entity v, int distance) {
-		if (e instanceof NPC) {
-			NPC n = (NPC) e;
-			if (n.getDefinition().getCombatDistance() > 0) {
-				distance = n.getDefinition().getCombatDistance();
-			}
-		}
-		return (e.size() >> 1) + (v.size() >> 1) + distance;
-	}
+    /**
+     * Gets the formated hit.
+     * @param attacker The attacking entity.
+     * @param victim The victim.
+     * @param state The battle state.
+     * @param rawHit The hit to format.
+     * @return The formated hit.
+     */
+    protected open fun getFormattedHit(attacker: Entity, victim: Entity, state: BattleState, rawHit: Int): Int {
+        var hit = rawHit
+        hit = attacker.getFormatedHit(state, hit).toInt()
+        if (victim is Player) {
+            val player = victim.asPlayer()
+            val shield = player.equipment[EquipmentContainer.SLOT_SHIELD]
+            if (shield != null && shield.id == 13742) {
+                if (RandomFunction.random(100) < 71) {
+                    hit -= (hit.toDouble() * 0.25).toInt()
+                    if (hit < 1) {
+                        hit = 0
+                    }
+                }
+            }
+            if (shield != null && shield.id == 13740) {
+                val reduce = hit.toDouble() * 0.30
+                var drain = hit * 0.15
+                if (player.skills.prayerPoints > drain && drain > 0) {
+                    if (drain < 1) {
+                        drain = 1.0
+                    }
+                    hit -= reduce.toInt()
+                    if (hit < 1) {
+                        hit = 0
+                    }
+                    player.skills.decrementPrayerPoints(drain)
+                }
+            }
+            if (player.stateManager.hasState(EntityState.STAFF_OF_THE_DEAD)) {
+                if (attacker.properties.combatPulse.style == CombatStyle.MELEE) {
+                    player.graphics(Graphics(1592))
+                    hit /= 2
+                }
+            }
+        }
+        if (attacker is Player) {
+            val player = attacker.asPlayer()
+            if (player.equipment[3] != null && player.equipment[3].id == 14726 && state.style == CombatStyle.MAGIC) {
+                hit += (hit.toDouble() * 0.15).toInt()
+            }
+        }
+        if (attacker is Familiar && victim is Player) {
+            if (victim.prayer[PrayerType.PROTECT_FROM_SUMMONING]) {
+                hit = 0
+            }
+        }
+        return formatHit(victim, hit)
+    }
 
-	/**
-	 * Formats the hit for the victim. (called as
-	 * victim.getSwingHandler(false).formatHit(victim, hit))
-	 * @param e The entity dealing the hit.
-	 * @param victim The entity receiving the hit.
-	 * @param hit The hit to format.
-	 * @return The formatted hit.
-	 */
-	public int formatHit(Entity e, Entity victim, int hit) {
-		if (hit < 1) {
-			return hit;
-		}
-		if (hit > victim.getSkills().getLifepoints()) {
-			hit = victim.getSkills().getLifepoints();
-		}
-		return hit;
-	}
+    /**
+     * Gets the default animation of the entity.
+     * @param e The entity.
+     * @param style The combat style.
+     * @return The attack animation.
+     */
+    fun getAttackAnimation(e: Entity, style: CombatStyle?): Animation {
+        var anim: Animation? = null
+        if (type != null && e is NPC) {
+            anim = e.properties.getCombatAnimation(style!!.ordinal % 3)
+        }
+        return anim ?: e.properties.attackAnimation
+    }
 
-	/**
-	 * Adjusts the battle state object for this combat swing.
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state.
-	 */
-	public void adjustBattleState(Entity entity, Entity victim, BattleState state) {
-		this.EXPERIENCE_MOD = 4;
-		int totalHit = 0;
-		if (entity instanceof Player) {
-			((Player) entity).getFamiliarManager().adjustBattleState(state);
-		}
-		entity.sendImpact(state);
-		victim.checkImpact(state);
-		//Prevents lumbridge dummies from dying (true to how rs3 / runescape in 2009 does it)
-		if((victim.getId() == 4474 && this.type == CombatStyle.MAGIC) || (victim.getId() == 7891 && this.type == CombatStyle.MELEE)) {
-			this.EXPERIENCE_MOD = 0.1;
-			victim.fullRestore();
-			if(state.getEstimatedHit() >= 15){state.setEstimatedHit(14);};
-			if(state.getSecondaryHit() >= 15){state.setSecondaryHit(14);}
-		}
-		if(victim.getId() == 757){
-			this.EXPERIENCE_MOD = 0.01;
-		}
-		if (state.getEstimatedHit() > 0) {
-			state.setEstimatedHit(getFormatedHit(entity, victim, state, state.getEstimatedHit()));
-			totalHit += state.getEstimatedHit();
-		}
-		if (state.getSecondaryHit() > 0) {
-			state.setSecondaryHit(getFormatedHit(entity, victim, state, state.getSecondaryHit()));
-			totalHit += state.getSecondaryHit();
-		}
-		if (entity instanceof Player) {
-			Player p = (Player) entity;
-			p.degrader.checkWeaponDegrades(p);
-			if (totalHit > 0 && p.getPrayer().get(PrayerType.SMITE) && victim.getSkills().getPrayerPoints() > 0) {
-				victim.getSkills().decrementPrayerPoints(totalHit * 0.25);
-			}
-			if (entity.getAttribute("1hko", false)) {
-				state.setEstimatedHit(victim.getSkills().getLifepoints());
-			}
-		}
-		if (victim instanceof NPC) {
-			NPC n = (NPC) victim;
-			if (n.getProperties().getProtectStyle() != null && state.getStyle() == n.getProperties().getProtectStyle()) {
-				state.neutralizeHits();
-			}
-		}
-	}
+    /**
+     * Registers a special attack handler.
+     * @param itemId The item id.
+     * @param handler The combat swing handler.
+     * @return `True` if succesful.
+     */
+    fun register(itemId: Int, handler: CombatSwingHandler): Boolean {
+        if (specialHandlers == null) {
+            specialHandlers = HashMap()
+        }
+        if (specialHandlers!!.containsKey(itemId)) {
+            System.err.println("Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "].")
+            return false
+        }
+        return specialHandlers!!.put(itemId, handler) == null
+    }
 
-	/**
-	 * Adds the experience for the current combat swing.
-	 * @param entity The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state.
-	 */
-	public void addExperience(Entity entity, Entity victim, BattleState state) {
-	}
+    /**
+     * Gets the special attack handler for the given item id.
+     * @param itemId The item id.
+     * @return The special attack handler, or `null` if this item has no
+     * special attack handler.
+     */
+    fun getSpecial(itemId: Int): CombatSwingHandler? {
+        if (specialHandlers == null) {
+            specialHandlers = HashMap()
+        }
+        return specialHandlers!![itemId]
+    }
 
-	/**
-	 * Gets the formated hit.
-	 * @param attacker The attacking entity.
-	 * @param victim The victim.
-	 * @param state The battle state.
-	 * @param hit The hit to format.
-	 * @return The formated hit.
-	 */
-	protected int getFormatedHit(Entity attacker, Entity victim, BattleState state, int hit) {
-		hit = (int) attacker.getFormatedHit(state, hit);
-		if(victim instanceof Player){
-			Player player = victim.asPlayer();
-			Item shield = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD);
-			if (shield != null && shield.getId() == 13742) {
-				if (RandomFunction.random(100) < 71) {
-					hit -= ((double) hit * 0.25D);
-					if(hit < 1){
-						hit = 0;
-					}
-				}
-			}
-			if (shield != null && shield.getId() == 13740) {
-				double reduce = ((double) hit * 0.30D);
-				double drain = hit * 0.15D;
-				if (player.getSkills().getPrayerPoints() > drain && drain > 0) {
-					if(drain < 1){
-						drain = 1;
-					}
-					hit -= reduce;
-					if(hit < 1){
-						hit = 0;
-					}
-					player.getSkills().decrementPrayerPoints(drain);
-				}
-			}
-			if(player.getStateManager().hasState(EntityState.STAFF_OF_THE_DEAD)){
-				if(attacker.getProperties().getCombatPulse().getStyle().equals(CombatStyle.MELEE)){
-					player.graphics(new Graphics(1592));
-					hit /= 2;
-				}
-			}
-		}
-		if(attacker instanceof Player){
-			Player player = attacker.asPlayer();
-			if(player.getEquipment().get(3) != null && player.getEquipment().get(3).getId() == 14726 && state.getStyle().equals(CombatStyle.MAGIC)){
-				hit += ((double) hit * 0.15D);
-			}
-		}
-		if (attacker instanceof Familiar && victim instanceof Player) {
-			if (((Player) victim).getPrayer().get(PrayerType.PROTECT_FROM_SUMMONING)) {
-				hit = 0;
-			}
-		}
-		return formatHit(attacker, victim, hit);
-	}
+    companion object {
+        /**
+         * The amount of experience to get per hit.
+         */
+		@JvmField
+		var EXPERIENCE_MOD = 4.0
 
-	/**
-	 * Checks if a projectile can be fired from the node location to the victim
-	 * location.
-	 * @param entity The node.
-	 * @param victim The victim.
-	 * @param checkClose If we are checking for a melee attack rather than a
-	 * projectile.
-	 * @return {@code True} if so.
-	 */
-	public static boolean isProjectileClipped(Node entity, Node victim, boolean checkClose) {
-		if (checkClose) {
-			if (entity.getId() == 54) {// /temp until emp is back.
-				return Pathfinder.find((Entity) entity, victim, false, Pathfinder.SMART).isSuccessful();
-			}
-			return Pathfinder.find((Entity) entity, victim, false, Pathfinder.DUMB).isSuccessful();
-		}
-		return Pathfinder.find((Entity) entity, victim, false, Pathfinder.PROJECTILE).isSuccessful();
-	}
-
-	/**
-	 * Gets the default animation of the entity.
-	 * @param e The entity.
-	 * @param style The combat style.
-	 * @return The attack animation.
-	 */
-	public Animation getAttackAnimation(Entity e, CombatStyle style) {
-		Animation anim = null;
-		if (type != null && e instanceof NPC) {
-			anim = ((NPC) e).getProperties().getCombatAnimation(style.ordinal() % 3);
-		}
-		if (anim == null) {
-			return e.getProperties().getAttackAnimation();
-		}
-		return anim;
-	}
-
-	/**
-	 * Registers a special attack handler.
-	 * @param itemId The item id.
-	 * @param handler The combat swing handler.
-	 * @return {@code True} if succesful.
-	 */
-	public boolean register(int itemId, CombatSwingHandler handler) {
-		if (specialHandlers == null) {
-			specialHandlers = new HashMap<>();
-		}
-		if (specialHandlers.containsKey(itemId)) {
-			System.err.println("Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers.get(itemId).getClass().getSimpleName() + ", new=" + handler.getClass().getSimpleName() + "].");
-			return false;
-		}
-		return specialHandlers.put(itemId, handler) == null;
-	}
-
-	/**
-	 * Gets the special attack handler for the given item id.
-	 * @param itemId The item id.
-	 * @return The special attack handler, or {@code null} if this item has no
-	 * special attack handler.
-	 */
-	public CombatSwingHandler getSpecial(int itemId) {
-		if (specialHandlers == null) {
-			specialHandlers = new HashMap<>();
-		}
-		return specialHandlers.get(itemId);
-	}
-
-	/**
-	 * Sets the combat style.
-	 * @param type The type.
-	 */
-	public void setType(CombatStyle type) {
-		this.type = type;
-	}
-
-	/**
-	 * @return the type.
-	 */
-	public CombatStyle getType() {
-		return type;
-	}
+        /**
+         * Checks if a projectile can be fired from the node location to the victim
+         * location.
+         * @param entity The node.
+         * @param victim The victim.
+         * @param checkClose If we are checking for a melee attack rather than a
+         * projectile.
+         * @return `True` if so.
+         */
+		@JvmStatic
+		fun isProjectileClipped(entity: Node, victim: Node?, checkClose: Boolean): Boolean {
+            return if (checkClose) {
+                if (entity.id == 54) { // /temp until emp is back.
+                    Pathfinder.find(entity as Entity, victim, false, Pathfinder.SMART).isSuccessful
+                } else Pathfinder.find(entity as Entity, victim, false, Pathfinder.DUMB).isSuccessful
+            } else Pathfinder.find(entity as Entity, victim, false, Pathfinder.PROJECTILE).isSuccessful
+        }
+    }
 
 }

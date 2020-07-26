@@ -1,223 +1,189 @@
-package core.game.node.entity.combat.handlers;
+package core.game.node.entity.combat.handlers
 
-import core.game.node.entity.Entity;
-import core.game.node.entity.combat.BattleState;
-import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.CombatSwingHandler;
-import core.game.node.entity.combat.InteractionType;
-import core.game.node.entity.combat.equipment.SwitchAttack;
-import core.game.node.entity.npc.NPC;
-import core.tools.RandomFunction;
+import core.game.node.entity.Entity
+import core.game.node.entity.combat.BattleState
+import core.game.node.entity.combat.CombatStyle
+import core.game.node.entity.combat.CombatSwingHandler
+import core.game.node.entity.combat.InteractionType
+import core.game.node.entity.combat.equipment.SwitchAttack
+import core.game.node.entity.npc.NPC
+import core.tools.RandomFunction
 
 /**
  * Handles combat swings with switching combat styles.
  * @author Emperor
+ * @author Ceirky, Kotlin conversion
  */
-public class MultiSwingHandler extends CombatSwingHandler {
+open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) : CombatSwingHandler(CombatStyle.RANGE) {
+    /**
+     * The attacks available.
+     */
+    val attacks: Array<SwitchAttack>
 
-	/**
-	 * The attacks available.
-	 */
-	private final SwitchAttack[] attacks;
+    /**
+     * If the entity has to be in melee distance to switch to melee.
+     */
+    val isMeleeDistance: Boolean
 
-	/**
-	 * If the entity has to be in melee distance to switch to melee.
-	 */
-	private final boolean meleeDistance;
+    /**
+     * The current attack.
+     */
+    protected var current: SwitchAttack
 
-	/**
-	 * The current attack.
-	 */
-	protected SwitchAttack current;
+    /**
+     * The current attack.
+     */
+    protected var next: SwitchAttack
 
-	/**
-	 * The current attack.
-	 */
-	protected SwitchAttack next;
+    /**
+     * Constructs a new `MultiSwingHandler` `Object`.
+     * @param attacks The available attacks.
+     */
+    constructor(vararg attacks: SwitchAttack) : this(true, *attacks) {}
 
-	/**
-	 * Constructs a new {@code MultiSwingHandler} {@code Object}.
-	 * @param attacks The available attacks.
-	 */
-	public MultiSwingHandler(SwitchAttack... attacks) {
-		this(true, attacks);
-	}
+    override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
+        return if (isMeleeDistance) {
+            CombatStyle.RANGE.swingHandler.canSwing(entity, victim)
+        } else next.handler.canSwing(entity, victim)
+    }
 
-	/**
-	 * Constructs a new {@code MultiSwingHandler} {@code Object}.
-	 * @param meleeDistance If the entity has to be in melee distance to switch
-	 * to melee.
-	 * @param attacks The available attacks.
-	 */
-	public MultiSwingHandler(boolean meleeDistance, SwitchAttack... attacks) {
-		super(CombatStyle.RANGE);
-		this.next = current = attacks[0];
-		this.meleeDistance = meleeDistance && !(attacks.length == 1 && attacks[0].getStyle() == CombatStyle.MELEE);
-		this.attacks = attacks;
-	}
+    override fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int {
+        current = next
+        if (isMeleeDistance && current.style == CombatStyle.MELEE && CombatStyle.MELEE.swingHandler.canSwing(entity!!, victim!!) != InteractionType.STILL_INTERACT) {
+            for (attack in attacks) {
+                if (attack.style != CombatStyle.MELEE) {
+                    current = attack
+                    break
+                }
+            }
+        }
+        val style = current.style
+        type = style
+        val index = RandomFunction.randomize(attacks.size)
+        val pick = getNext(entity, victim, state, index)
+        next = pick
+        if (current.isUseHandler) {
+            return current.handler.swing(entity, victim, state)
+        }
+        var ticks = 1
+        if (style != CombatStyle.MELEE) {
+            ticks += Math.ceil(entity!!.location.getDistance(victim!!.location) * if (type == CombatStyle.MAGIC) 0.5 else 0.3).toInt()
+        }
+        var hit = 0
+        if (isAccurateImpact(entity, victim, style)) {
+            val max = calculateHit(entity, victim, 1.0)
+            state!!.maximumHit = max
+            hit = RandomFunction.random(max)
+        }
+        state!!.estimatedHit = hit
+        state.style = style
+        return ticks
+    }
 
-	@Override
-	public InteractionType canSwing(Entity entity, Entity victim) {
-		if (meleeDistance) {
-			return CombatStyle.RANGE.getSwingHandler().canSwing(entity, victim);
-		}
-		return next.getHandler().canSwing(entity, victim);
-	}
+    override fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
+        if (current.isUseHandler) {
+            current.handler.visualize(entity, victim, state)
+            return
+        }
+        entity.visualize(current.animation, current.startGraphic)
+        if (current.projectile != null) {
+            current.projectile.transform(entity, victim, entity is NPC, 46, if (current.style == CombatStyle.MAGIC) 10 else 5).send()
+        }
+    }
 
-	@Override
-	public int swing(Entity entity, Entity victim, BattleState state) {
-		current = next;
-		if (meleeDistance && current.getStyle() == CombatStyle.MELEE && CombatStyle.MELEE.getSwingHandler().canSwing(entity, victim) != InteractionType.STILL_INTERACT) {
-			for (SwitchAttack attack : attacks) {
-				if (attack.getStyle() != CombatStyle.MELEE) {
-					current = attack;
-					break;
-				}
-			}
-		}
-		CombatStyle style = current.getStyle();
-		setType(style);
-		int index = RandomFunction.randomize(attacks.length);
-		SwitchAttack pick = getNext(entity, victim, state, index);
-		next = pick;
-		if (current.isUseHandler()) {
-			return current.getHandler().swing(entity, victim, state);
-		}
-		int ticks = 1;
-		if (style != CombatStyle.MELEE) {
-			ticks += (int) Math.ceil(entity.getLocation().getDistance(victim.getLocation()) * (getType() == CombatStyle.MAGIC ? 0.5 : 0.3));
-		}
-		int hit = 0;
-		if (isAccurateImpact(entity, victim, style)) {
-			int max = calculateHit(entity, victim, 1.0);
-			state.setMaximumHit(max);
-			hit = RandomFunction.random(max);
-		}
-		state.setEstimatedHit(hit);
-		state.setStyle(style);
-		return ticks;
-	}
+    override fun impact(entity: Entity?, victim: Entity?, state: BattleState?) {
+        if (current.isUseHandler) {
+            current.handler.impact(entity, victim, state)
+            return
+        }
+        var targets = state!!.targets
+        if (targets == null) {
+            targets = arrayOf<BattleState?>(state)
+        }
+        for (s in targets) {
+            var hit = s!!.estimatedHit
+            if (hit > -1) {
+                victim!!.impactHandler.handleImpact(entity, hit, current.style, s)
+            }
+            hit = s.secondaryHit
+            if (hit > -1) {
+                victim!!.impactHandler.handleImpact(entity, hit, current.style, s)
+            }
+        }
+    }
 
-	@Override
-	public void visualize(Entity entity, Entity victim, BattleState state) {
-		if (current.isUseHandler()) {
-			current.getHandler().visualize(entity, victim, state);
-			return;
-		}
-		entity.visualize(current.getAnimation(), current.getStartGraphic());
-		if (current.getProjectile() != null) {
-			current.getProjectile().transform(entity, victim, entity instanceof NPC, 46, current.getStyle() == CombatStyle.MAGIC ? 10 : 5).send();
-		}
-	}
+    override fun adjustBattleState(entity: Entity, victim: Entity, state: BattleState) {
+        if (current.isUseHandler) {
+            current.handler.adjustBattleState(entity, victim, state)
+            return
+        }
+        super.adjustBattleState(entity, victim, state)
+    }
 
-	@Override
-	public void impact(Entity entity, Entity victim, BattleState state) {
-		if (current.isUseHandler()) {
-			current.getHandler().impact(entity, victim, state);
-			return;
-		}
-		BattleState[] targets = state.getTargets();
-		if (targets == null) {
-			targets = new BattleState[] { state };
-		}
-		for (BattleState s : targets) {
-			int hit = s.getEstimatedHit();
-			if (hit > -1) {
-				victim.getImpactHandler().handleImpact(entity, hit, current.getStyle(), s);
-			}
-			hit = s.getSecondaryHit();
-			if (hit > -1) {
-				victim.getImpactHandler().handleImpact(entity, hit, current.getStyle(), s);
-			}
-		}
-	}
+    override fun addExperience(entity: Entity?, victim: Entity?, state: BattleState?) {}
+    override fun visualizeImpact(entity: Entity?, victim: Entity?, state: BattleState?) {
+        if (current.isUseHandler) {
+            current.handler.visualizeImpact(entity, victim, state)
+            return
+        }
+        victim!!.visualize(victim.properties.defenceAnimation, current.endGraphic)
+    }
 
-	@Override
-	public void adjustBattleState(Entity entity, Entity victim, BattleState state) {
-		if (current.isUseHandler()) {
-			current.getHandler().adjustBattleState(entity, victim, state);
-			return;
-		}
-		super.adjustBattleState(entity, victim, state);
-	}
+    override fun calculateAccuracy(entity: Entity?): Int {
+        return current.handler.calculateAccuracy(entity)
+    }
 
-	@Override
-	public void addExperience(Entity entity, Entity victim, BattleState state) {
+    override fun calculateHit(entity: Entity?, victim: Entity?, modifier: Double): Int {
+        return if (current.maximumHit > -1) {
+            current.maximumHit
+        } else current.handler.calculateHit(entity, victim, modifier)
+    }
 
-	}
+    override fun calculateDefence(entity: Entity?, attacker: Entity?): Int {
+        return current.handler.calculateDefence(entity, attacker)
+    }
 
-	@Override
-	public void visualizeImpact(Entity entity, Entity victim, BattleState state) {
-		if (current.isUseHandler()) {
-			current.getHandler().visualizeImpact(entity, victim, state);
-			return;
-		}
-		victim.visualize(victim.getProperties().getDefenceAnimation(), current.getEndGraphic());
-	}
+    override fun getSetMultiplier(e: Entity?, skillId: Int): Double {
+        return current.handler.getSetMultiplier(e, skillId)
+    }
 
-	@Override
-	public int calculateAccuracy(Entity entity) {
-		return current.getHandler().calculateAccuracy(entity);
-	}
+    /**
+     * Checks if an attack switch can be selected.
+     * @param attack The attack to switch to.
+     * @return `True` if selectable.
+     */
+    fun canSelect(attack: SwitchAttack?): Boolean {
+        return true
+    }
 
-	@Override
-	public int calculateHit(Entity entity, Entity victim, double modifier) {
-		if (current.getMaximumHit() > -1) {
-			return current.getMaximumHit();
-		}
-		return current.getHandler().calculateHit(entity, victim, modifier);
-	}
+    /**
+     * Gets the next switch attack.
+     * @param entity the entity.
+     * @param victim the victim.
+     * @param state the state.
+     * @param index the index.
+     * @return the next attack.
+     */
+    fun getNext(entity: Entity?, victim: Entity?, state: BattleState?, index: Int): SwitchAttack {
+        var index = index
+        var pick = attacks[index]
+        while (!pick.canSelect(entity, victim, state)) {
+            index = RandomFunction.randomize(attacks.size)
+            pick = attacks[index]
+        }
+        return pick
+    }
 
-	@Override
-	public int calculateDefence(Entity entity, Entity attacker) {
-		return current.getHandler().calculateDefence(entity, attacker);
-	}
-
-	@Override
-	public double getSetMultiplier(Entity e, int skillId) {
-		return current.getHandler().getSetMultiplier(e, skillId);
-	}
-	
-	/**
-	 * Checks if an attack switch can be selected.
-	 * @param attack The attack to switch to.
-	 * @return {@code True} if selectable.
-	 */
-	public boolean canSelect(SwitchAttack attack) {
-		return true;
-	}
-
-	/**
-	 * Gets the next switch attack.
-	 * @param entity the entity.
-	 * @param victim the victim.
-	 * @param state the state.
-	 * @param index the index.
-	 * @return the next attack.
-	 */
-	public SwitchAttack getNext(Entity entity, Entity victim, BattleState state, int index) {
-		SwitchAttack pick = attacks[index];
-		while (!pick.canSelect(entity, victim, state)) {
-			index = RandomFunction.randomize(attacks.length);
-			pick = attacks[index];
-		}
-		return pick;
-	}
-
-	/**
-	 * Gets the meleeDistance.
-	 * @return The meleeDistance.
-	 */
-	public boolean isMeleeDistance() {
-		return meleeDistance;
-	}
-
-	/**
-	 * Gets the attacks available.
-	 * @return The attacks.
-	 */
-	public SwitchAttack[] getAttacks() {
-		return attacks;
-	}
-
+    /**
+     * Constructs a new `MultiSwingHandler` `Object`.
+     * @param meleeDistance If the entity has to be in melee distance to switch
+     * to melee.
+     * @param attacks The available attacks.
+     */
+    init {
+        current = attacks[0]
+        next = current
+        isMeleeDistance = meleeDistance && !(attacks.size == 1 && attacks[0].style == CombatStyle.MELEE)
+        this.attacks = attacks as Array<SwitchAttack>
+    }
 }

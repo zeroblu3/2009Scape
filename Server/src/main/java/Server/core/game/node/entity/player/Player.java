@@ -30,11 +30,8 @@ import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
-import core.game.node.entity.combat.equipment.DegradableEquipment;
 import core.game.node.entity.combat.handlers.ChinchompaSwingHandler;
 import core.game.node.entity.combat.handlers.SalamanderSwingHandler;
-import core.game.node.entity.combat.handlers.TridentOfSeasHandler;
-import core.game.node.entity.combat.handlers.TridentOfSwampHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.player.info.RenderInfo;
@@ -518,15 +515,6 @@ public class Player extends Entity {
 		}
 		if (style == CombatStyle.RANGE && equipment.getNew(3).getId() == 10034) {
 			return ChinchompaSwingHandler.getInstance();
-		}
-		if (equipment.getNew(3).getId() == 14981 || equipment.getNew(3).getId() == 15024) {
-			return TridentOfSwampHandler.INSTANCE;
-		}
-		if (equipment.getNew(3).getId() == 14666 || equipment.getNew(3).getId() == 14664) {
-			return TridentOfSeasHandler.INSTANCE;
-		}
-		if (equipment.getNew(3).getId() == 10149 || equipment.getNew(3).getId() == 10146 || equipment.getNew(3).getId() == 10147 || equipment.getNew(3).getId() == 10148) {
-			return SalamanderSwingHandler.INSTANCE;
 		}
 		return style.getSwingHandler();
 	}

@@ -61,7 +61,7 @@ public final class SteelTitanNPC extends Familiar {
 							hit = RandomFunction.random(max);
 						}
 						state.setEstimatedHit(hit);
-						state.setStyle(current.getStyle());
+						state.setStyle(getCurrent().getStyle());
 					}
 					states[0] = s;
 					s.setTargets(states);

@@ -1,105 +1,80 @@
-package core.game.node.entity.combat.handlers;
+package core.game.node.entity.combat.handlers
 
-import plugin.skill.Skills;
-import core.game.node.entity.Entity;
-import core.game.node.entity.combat.BattleState;
-import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.CombatSwingHandler;
-import core.game.node.entity.combat.InteractionType;
-import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.context.Graphics;
+import core.game.node.entity.Entity
+import core.game.node.entity.combat.BattleState
+import core.game.node.entity.combat.CombatStyle
+import core.game.node.entity.combat.CombatSwingHandler
+import core.game.node.entity.combat.InteractionType
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphics
+import plugin.skill.Skills
 
 /**
  * Handles a combat swing using a salamander.
  * @author Vexia
  */
-public class SalamanderSwingHandler extends CombatSwingHandler {
+class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandler(style) {
+    override fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int {
+        val index = entity!!.properties.attackStyle.style
+        style = when(index) {
+            7 -> CombatStyle.MAGIC
+            4 -> CombatStyle.RANGE
+            else -> CombatStyle.MELEE
+        }
+        return style.swingHandler.swing(entity, victim, state)
+    }
 
-	/**
-	 * The instance for the swing handler.
-	 */
-	public static final SalamanderSwingHandler INSTANCE = new SalamanderSwingHandler(CombatStyle.MELEE);
+    override fun impact(entity: Entity?, victim: Entity?, state: BattleState?) {
+        style.swingHandler.impact(entity, victim, state)
+    }
 
-	/**
-	 * The current combat style.
-	 */
-	private CombatStyle style;
+    override fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
+        style.swingHandler.visualize(entity, victim, state)
+        entity.visualize(Animation.create(5247), Graphics(952, 100))
+    }
 
-	/**
-	 * Constructs a new {@Code SalamanderSwingHandler} {@Code
-	 * Object}
-	 * @param type the type.
-	 */
-	public SalamanderSwingHandler(CombatStyle type) {
-		super(type);
-		style = type;
-	}
+    override fun visualizeImpact(entity: Entity?, victim: Entity?, state: BattleState?) {
+        style.swingHandler.visualizeImpact(entity, victim, state)
+    }
 
-	@Override
-	public int swing(Entity entity, Entity victim, BattleState state) {
-		int index = entity.getProperties().getAttackStyle().getStyle();
-		if (index == 7) {
-			style = CombatStyle.MAGIC;
-		} else if (index == 4) {
-			style = CombatStyle.RANGE;
-		} else {
-			style = CombatStyle.MELEE;
-		}
-		return style.getSwingHandler().swing(entity, victim, state);
-	}
+    override fun calculateAccuracy(entity: Entity?): Int {
+        return style.swingHandler.calculateAccuracy(entity)
+    }
 
-	@Override
-	public void impact(Entity entity, Entity victim, BattleState state) {
-		style.getSwingHandler().impact(entity, victim, state);
-	}
+    override fun calculateHit(entity: Entity?, victim: Entity?, modifier: Double): Int {
+        return style.swingHandler.calculateHit(entity, victim, modifier)
+    }
 
-	@Override
-	public void visualize(Entity entity, Entity victim, BattleState state) {
-		style.getSwingHandler().visualize(entity, victim, state);
-		entity.visualize(Animation.create(5247), new Graphics(952, 100));
-	}
+    override fun addExperience(entity: Entity?, victim: Entity?, state: BattleState?) {
+        entity!!.skills.addExperience(Skills.HITPOINTS, state!!.estimatedHit * 1.33, true)
+        if (state.style == CombatStyle.MAGIC) {
+            entity.skills.addExperience(Skills.MAGIC, state.estimatedHit * 2.toDouble(), true)
+        }
+        if (state.style == CombatStyle.RANGE) {
+            entity.skills.addExperience(Skills.RANGE, state.estimatedHit * 4.toDouble(), true)
+        }
+        if (state.style == CombatStyle.MELEE) {
+            entity.skills.addExperience(Skills.STRENGTH, state.estimatedHit * 4.toDouble(), true)
+        }
+    }
 
-	@Override
-	public void visualizeImpact(Entity entity, Entity victim, BattleState state) {
-		style.getSwingHandler().visualizeImpact(entity, victim, state);
-	}
+    override fun calculateDefence(entity: Entity?, attacker: Entity?): Int {
+        return style.swingHandler.calculateDefence(entity, attacker)
+    }
 
-	@Override
-	public int calculateAccuracy(Entity entity) {
-		return style.getSwingHandler().calculateAccuracy(entity);
-	}
+    override fun getSetMultiplier(e: Entity?, skillId: Int): Double {
+        return style.swingHandler.getSetMultiplier(e, skillId)
+    }
 
-	@Override
-	public int calculateHit(Entity entity, Entity victim, double modifier) {
-		return style.getSwingHandler().calculateHit(entity, victim, modifier);
-	}
+    override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
+        return style.swingHandler.canSwing(entity, victim)
+    }
 
-	@Override
-	public void addExperience(Entity entity, Entity victim, BattleState state) {
-		entity.getSkills().addExperience(Skills.HITPOINTS, state.getEstimatedHit() * 1.33, true);
-		if (state.getStyle().equals(CombatStyle.MAGIC)) {
-			entity.getSkills().addExperience(Skills.MAGIC, state.getEstimatedHit() * 2, true);
-		}
-		if (state.getStyle().equals(CombatStyle.RANGE)) {
-			entity.getSkills().addExperience(Skills.RANGE, state.getEstimatedHit() * 4, true);
-		}
-		if (state.getStyle().equals(CombatStyle.MELEE)) {
-			entity.getSkills().addExperience(Skills.STRENGTH, state.getEstimatedHit() * 4, true);
-		}
-	}
+    companion object {
+        /**
+         * The instance for the swing handler.
+         */
+        val INSTANCE = SalamanderSwingHandler(CombatStyle.MELEE)
+    }
 
-	@Override
-	public int calculateDefence(Entity entity, Entity attacker) {
-		return style.getSwingHandler().calculateDefence(entity, attacker);
-	}
-
-	@Override
-	public double getSetMultiplier(Entity e, int skillId) {
-		return style.getSwingHandler().getSetMultiplier(e, skillId);
-	}
-
-	@Override
-	public InteractionType canSwing(Entity entity, Entity victim) {
-		return style.getSwingHandler().canSwing(entity, victim);
-	}
 }

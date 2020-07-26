@@ -121,7 +121,7 @@ public class ChaosElementalNPC extends AbstractNPC {
 		@Override
 		public void impact(Entity entity, Entity victim, BattleState state) {
 			super.impact(entity, victim, state);
-			SwitchAttack attack = super.current;
+			SwitchAttack attack = super.getCurrent();
 			if (victim instanceof Player) {
 				Player player = victim.asPlayer();
 				if (player == null) {

@@ -188,7 +188,7 @@ public final class ElvargNPC extends AbstractNPC {
 
 		/**
 		 * Constructs a new {@code KBDCombatSwingHandler} {@Code Object}.
-		 * @param type The combat style.
+		 *  The combat style.
 		 */
 		public ElvargCombatSwingHandler() {
 			super(CombatStyle.RANGE);
@@ -201,7 +201,7 @@ public final class ElvargNPC extends AbstractNPC {
 				if (victim.hasProtectionPrayer(CombatStyle.MAGIC)) {
 					state.setEstimatedHit((int) (state.getEstimatedHit() * 0.6));
 				}
-				state.setEstimatedHit(formatHit(entity, victim, state.getEstimatedHit()));
+				state.setEstimatedHit(formatHit(victim, state.getEstimatedHit()));
 				return;
 			}
 			style.getSwingHandler().adjustBattleState(entity, victim, state);
