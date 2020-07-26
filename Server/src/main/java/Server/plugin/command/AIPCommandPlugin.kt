@@ -1,36 +1,34 @@
-package plugin.command;
+package plugin.command
 
-import core.game.container.impl.EquipmentContainer;
-import plugin.skill.Skills;
-import core.game.interaction.Interaction;
-import core.game.node.entity.player.Player;
-import plugin.ai.AIPBuilder;
-import plugin.ai.AIPlayer;
-import plugin.ai.general.GeneralBotCreator;
-import plugin.ai.general.scriptrepository.LobsterCatcher;
-import plugin.ai.general.scriptrepository.ManThiever;
-import plugin.ai.pvmbots.PvMBotsBuilder;
-import plugin.ai.pvp.PVPAIPActions;
-import plugin.ai.pvp.PVPAIPBuilderUtils;
-import plugin.ai.resource.ResourceAIPActions;
-import plugin.ai.skillingbot.SkillingBotsBuilder;
-import plugin.ai.wilderness.PvPBotsBuilder;
-import core.game.node.entity.player.link.appearance.Gender;
-import core.game.system.command.CommandPlugin;
-import core.game.system.command.CommandSet;
-import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
-import core.game.world.ImmerseWorld;
-import core.game.world.map.Location;
-import core.game.world.map.RegionManager;
-import core.game.world.map.path.Pathfinder;
-import core.game.world.repository.Repository;
-import core.plugin.InitializablePlugin;
-import core.plugin.Plugin;
-import core.tools.RandomFunction;
-
-import java.util.ArrayList;
-import java.util.List;
+import core.game.container.impl.EquipmentContainer
+import core.game.interaction.Interaction
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.appearance.Gender
+import core.game.system.command.CommandPlugin
+import core.game.system.command.CommandSet
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
+import core.game.world.ImmerseWorld
+import core.game.world.map.Location
+import core.game.world.map.RegionManager
+import core.game.world.map.path.Pathfinder
+import core.game.world.repository.Repository
+import core.plugin.InitializablePlugin
+import core.plugin.Plugin
+import core.tools.RandomFunction
+import plugin.ai.AIPBuilder
+import plugin.ai.AIPlayer
+import plugin.ai.general.GeneralBotCreator
+import plugin.ai.general.scriptrepository.LobsterCatcher
+import plugin.ai.general.scriptrepository.ManThiever
+import plugin.ai.pvmbots.PvMBotsBuilder
+import plugin.ai.pvp.PVPAIPActions
+import plugin.ai.pvp.PVPAIPBuilderUtils
+import plugin.ai.resource.ResourceAIPActions
+import plugin.ai.skillingbot.SkillingBotsBuilder
+import plugin.ai.wilderness.PvPBotsBuilder
+import plugin.skill.Skills
+import java.util.*
 
 /**
  * Handles the AIPlayer commands.
@@ -39,280 +37,284 @@ import java.util.List;
  * @author Emperor
  */
 @InitializablePlugin
-public final class AIPCommandPlugin extends CommandPlugin {
-
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        link(CommandSet.ADMINISTRATOR);
-        return this;
+class AIPCommandPlugin : CommandPlugin() {
+    @Throws(Throwable::class)
+    override fun newInstance(arg: Any?): Plugin<Any?>? {
+        link(CommandSet.ADMINISTRATOR)
+        return this
     }
 
-    @Override
-    public boolean parse(final Player player, String name, String[] args) {
-        List<AIPlayer> legion = player.getAttribute("aip_legion");
-        switch (name) {
-            case "desaip":
-                player.removeAttribute("aip_select");
-                return true;
-            case "sellegion":
+    override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {
+        var name = name
+        var legion = player!!.getAttribute<MutableList<AIPlayer>>("aip_legion")
+        when (name) {
+            "desaip" -> {
+                player.removeAttribute("aip_select")
+                return true
+            }
+            "sellegion" -> {
                 if (legion != null && !legion.isEmpty()) {
-                    player.setAttribute("aip_select", legion.get(0));
+                    player.setAttribute("aip_select", legion[0])
                 }
-                return true;
-            case "regroup":
-                Player last = player;
+                return true
+            }
+            "regroup" -> {
+                var last = player
                 if (legion != null && !legion.isEmpty()) {
-                    for (AIPlayer p : legion) {
-                        p.follow(last);
-                        last = p;
+                    for (p in legion) {
+                        p.follow(last)
+                        last = p
                     }
                 }
-                player.removeAttribute("aip_select");
-                return true;
-            case "clearlegion":
+                player.removeAttribute("aip_select")
+                return true
+            }
+            "clearlegion" -> {
                 if (legion != null && !legion.isEmpty()) {
-                    for (AIPlayer p : legion) {
-                        AIPlayer.deregister(p.getUid());
+                    for (p in legion) {
+                        AIPlayer.deregister(p.uid)
                     }
-                    legion.clear();
+                    legion.clear()
                 }
-                player.removeAttribute("aip_select");
-                player.removeAttribute("aip_legion");
-                return true;
-            case "clearaips":
-                for (Player p : Repository.getPlayers()) {
-                    if (p.isArtificial()) {
-                        p.clear();
+                player.removeAttribute("aip_select")
+                player.removeAttribute("aip_legion")
+                return true
+            }
+            "clearaips" -> {
+                for (p in Repository.getPlayers()) {
+                    if (p.isArtificial) {
+                        p.clear()
                     }
                 }
-                return true;
-            case "aip":
-                name = args.length < 2 ? player.getName() : args[1];
-                AIPlayer p = AIPBuilder.copy(player, player.getLocation().transform(0, 1, 0));
-
-                p.init();
-
-                Interaction.sendOption(player, 7, "Control");
-                return true;
-            case "legion":
-                int size = args.length < 2 ? 10 : Integer.parseInt(args[1]);
-                last = player;
+                return true
+            }
+            "aip" -> {
+                name = if (args!!.size < 2) player.name else args[1]
+                val p = AIPBuilder.copy(player, player.location.transform(0, 1, 0))
+                p.init()
+                Interaction.sendOption(player, 7, "Control")
+                return true
+            }
+            "legion" -> {
+                val size = if (args!!.size < 2) 10 else args[1]!!.toInt()
+                var last = player
                 if (legion == null) {
-                    player.setAttribute("aip_legion", legion = new ArrayList<>());
+                    player.setAttribute("aip_legion", ArrayList<AIPlayer>().also { legion = it })
                 }
-                Interaction.sendOption(player, 7, "Control");
-                boolean joinClan = player.getCommunication().getClan() != null && !player.getCommunication().getClan().isDefault();
-                for (int i = 0; i < size; i++) {
-                    final AIPlayer aip = AIPBuilder.copy(player, last.getLocation().transform(0, 1, 0));
-
-                    aip.init();
-                    if (legion.isEmpty()) {
-                        aip.setAttribute("aip_legion", legion);
+                Interaction.sendOption(player, 7, "Control")
+                val joinClan = player.communication.clan != null && !player.communication.clan.isDefault
+                var i = 0
+                while (i < size) {
+                    val aip = AIPBuilder.copy(player, last!!.getLocation().transform(0, 1, 0))
+                    aip.init()
+                    if (legion!!.isEmpty()) {
+                        aip.setAttribute("aip_legion", legion)
                     }
-                    legion.add(aip);
-                    final Player l = last;
+                    legion!!.add(aip)
+                    val l: Player = last!!
                     if (joinClan) {
-                        if (player.getCommunication().getClan().enter(aip)) {
-                            aip.getCommunication().setClan(player.getCommunication().getClan());
+                        if (player.communication.clan.enter(aip)) {
+                            aip.communication.clan = player.communication.clan
                         }
-                        if (player.getCommunication().getClan().getClanWar() != null) {
-                            player.getCommunication().getClan().getClanWar().fireEvent("join", aip);
+                        if (player.communication.clan.clanWar != null) {
+                            player.communication.clan.clanWar.fireEvent("join", aip)
                         }
                     }
-                    GameWorld.Pulser.submit(new Pulse(1) {
-                        @Override
-                        public boolean pulse() {
-                            aip.follow(l);
-                            return true;
+                    GameWorld.Pulser.submit(object : Pulse(1) {
+                        override fun pulse(): Boolean {
+                            aip.follow(l)
+                            return true
                         }
-                    });
-                    last = aip;
+                    })
+                    last = aip
+                    i++
                 }
-                return true;
-            case "pvplegion":
-                size = args.length < 2 ? 10 : Integer.parseInt(args[1]);
-                last = player;
+                return true
+            }
+            "pvplegion" -> {
+                val size = if (args!!.size < 2) 10 else args[1]!!.toInt()
+                var last = player
                 if (PVPAIPActions.pvp_players == null) {
-                    player.setAttribute("aip_legion", PVPAIPActions.pvp_players = new ArrayList<>());
+                    player.setAttribute("aip_legion", ArrayList<AIPlayer>().also { PVPAIPActions.pvp_players = it })
                 }
-                for (int i = 0; i < size; i++) {
-                    final AIPlayer aip = AIPBuilder.create(generateLocation(player));
-                    aip.setControler(player);
-                    aip.getAppearance().setGender(RandomFunction.random(3) == 1 ? Gender.FEMALE : Gender.MALE);
-
-                    aip.init();
-                    PVPAIPBuilderUtils.generateClass(aip);
-
+                var i = 0
+                while (i < size) {
+                    val aip = AIPBuilder.create(generateLocation(player))
+                    aip.controler = player
+                    aip.appearance.gender = if (RandomFunction.random(3) == 1) Gender.FEMALE else Gender.MALE
+                    aip.init()
+                    PVPAIPBuilderUtils.generateClass(aip)
                     if (PVPAIPActions.pvp_players.isEmpty()) {
-                        aip.setAttribute("aip_legion", PVPAIPActions.pvp_players);
+                        aip.setAttribute("aip_legion", PVPAIPActions.pvp_players)
                     }
-                    PVPAIPActions.pvp_players.add(aip);
-                    last = aip;
+                    PVPAIPActions.pvp_players.add(aip)
+                    last = aip
+                    i++
                 }
-                return true;
-
-            case "resourcelegion":
-                size = args.length < 2 ? 10 : Integer.parseInt(args[1]);
-                last = player;
+                return true
+            }
+            "resourcelegion" -> {
+                val size = if (args!!.size < 2) 10 else args[1]!!.toInt()
+                var last = player
                 if (ResourceAIPActions.resource_players == null) {
-                    player.setAttribute("aip_legion", ResourceAIPActions.resource_players = new ArrayList<>());
+                    player.setAttribute("aip_legion", ArrayList<AIPlayer>().also { ResourceAIPActions.resource_players = it })
                 }
-                for (int i = 0; i < size; i++) {
-                    final AIPlayer aip = AIPBuilder.create(generateLocation(player));
-                    aip.setControler(player);
-                    aip.getAppearance().setGender(RandomFunction.random(3) == 1 ? Gender.FEMALE : Gender.MALE);
-
-                    aip.init();
-                    PVPAIPBuilderUtils.generateClass(aip);
-
+                var i = 0
+                while (i < size) {
+                    val aip = AIPBuilder.create(generateLocation(player))
+                    aip.controler = player
+                    aip.appearance.gender = if (RandomFunction.random(3) == 1) Gender.FEMALE else Gender.MALE
+                    aip.init()
+                    PVPAIPBuilderUtils.generateClass(aip)
                     if (ResourceAIPActions.resource_players.isEmpty()) {
-                        aip.setAttribute("aip_legion", ResourceAIPActions.resource_players);
+                        aip.setAttribute("aip_legion", ResourceAIPActions.resource_players)
                     }
-                    ResourceAIPActions.resource_players.add(aip);
+                    ResourceAIPActions.resource_players.add(aip)
+                    i++
                 }
-                return true;
-            case "syncresource":
-                ResourceAIPActions.syncBotThread(player);
-                break;
-            case "pvpfight":
-                PVPAIPActions.syncBotThread(player);
-                return true;
-
-            case "bot":
-                PvMBotsBuilder.spawnLowest(player.getLocation());
-                return true;
-            case "molebot":
-                PvMBotsBuilder.spawnGiantMoleBot(player.getLocation());
-                return true;
-            case "slayerpoints":
-                player.getSlayer().setSlayerPoints(50000);
-                return true;
-            case "dragonbot":
-                PvMBotsBuilder.spawnDragonKiller(player.getLocation());
-                return true;
-            case "pure":
-                player.getSkills().setStaticLevel(Skills.HITPOINTS, 60);
-                player.getSkills().setStaticLevel(Skills.RANGE, 95);
-                player.getSkills().setStaticLevel(Skills.MAGIC, 95);
-                player.getSkills().setStaticLevel(Skills.ATTACK, 50);
-                player.getSkills().setStaticLevel(Skills.STRENGTH, 93);
-                player.getSkills().setStaticLevel(Skills.DEFENCE, 1);
-                player.getSkills().setStaticLevel(Skills.PRAYER, 1);
-                player.getSkills().updateCombatLevel();
-                return true;
-            case "noobbot":
-                PvMBotsBuilder.spawnNoob(player.getLocation());
-                return true;
-            case "immerse":
-            case "immersiveworld":
-            case "immersive":
-                ImmerseWorld.init();
-                player.sendMessage("Started immersive world, 2");
-                return true;
-            case "botdataform":
+                return true
+            }
+            "syncresource" -> ResourceAIPActions.syncBotThread(player)
+            "pvpfight" -> {
+                PVPAIPActions.syncBotThread(player)
+                return true
+            }
+            "bot" -> {
+                PvMBotsBuilder.spawnLowest(player.location)
+                return true
+            }
+            "molebot" -> {
+                PvMBotsBuilder.spawnGiantMoleBot(player.location)
+                return true
+            }
+            "slayerpoints" -> {
+                player.slayer.slayerPoints = 50000
+                return true
+            }
+            "dragonbot" -> {
+                PvMBotsBuilder.spawnDragonKiller(player.location)
+                return true
+            }
+            "pure" -> {
+                player.skills.setStaticLevel(Skills.HITPOINTS, 60)
+                player.skills.setStaticLevel(Skills.RANGE, 95)
+                player.skills.setStaticLevel(Skills.MAGIC, 95)
+                player.skills.setStaticLevel(Skills.ATTACK, 50)
+                player.skills.setStaticLevel(Skills.STRENGTH, 93)
+                player.skills.setStaticLevel(Skills.DEFENCE, 1)
+                player.skills.setStaticLevel(Skills.PRAYER, 1)
+                player.skills.updateCombatLevel()
+                return true
+            }
+            "noobbot" -> {
+                PvMBotsBuilder.spawnNoob(player.location)
+                return true
+            }
+            "immerse", "immersiveworld", "immersive" -> {
+                ImmerseWorld.init()
+                player.sendMessage("Started immersive world, 2")
+                return true
+            }
+            "botdataform" -> {
                 //Dumps your current character info in the form used by data/botdata
                 //name:cblevel:helmet:cape:neck:weapon:chest:shield:unknown:legs:unknown:gloves:boots:
-                System.out.println(player.getUsername() + ":"
-                        + player.getProperties().getCurrentCombatLevel() + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_HAT) + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_CAPE) + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_AMULET) + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_WEAPON) + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_CHEST) + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_SHIELD) + ":"
+                println(player.username + ":"
+                        + player.properties.currentCombatLevel + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_HAT) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_CAPE) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_AMULET) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_WEAPON) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_CHEST) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_SHIELD) + ":"
                         + "0" + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_LEGS) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_LEGS) + ":"
                         + "0" + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_HANDS) + ":"
-                        + player.getEquipment().getAsId(EquipmentContainer.SLOT_FEET) + ":"
-                );
-                return true;
-            case "fishtest":
-                SkillingBotsBuilder.spawnTroutLumbridge(new Location(3241, 3242));
-                return true;
-            case "varrockminebots":
-                SkillingBotsBuilder.spawnClayBotVarrock(new Location(3181, 3368));
-                SkillingBotsBuilder.spawnSilverBotVarrock(new Location(3181, 3368));
-                SkillingBotsBuilder.spawnIronBotVarrock(new Location(3181, 3368));
-                SkillingBotsBuilder.spawnTinBotVarrock(new Location(3181, 3368));
-                return true;
-            case "pvpbot":
-                PvPBotsBuilder.spawn(player.getLocation());
-                return true;
-            case "pvpbots":
-                for (int amountBots = 0; amountBots < 50; amountBots++) {
-                    PvPBotsBuilder.spawn(player.getLocation());
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_HANDS) + ":"
+                        + player.equipment.getAsId(EquipmentContainer.SLOT_FEET) + ":"
+                )
+                return true
+            }
+            "fishtest" -> {
+                SkillingBotsBuilder.spawnTroutLumbridge(Location(3241, 3242))
+                return true
+            }
+            "varrockminebots" -> {
+                SkillingBotsBuilder.spawnClayBotVarrock(Location(3181, 3368))
+                SkillingBotsBuilder.spawnSilverBotVarrock(Location(3181, 3368))
+                SkillingBotsBuilder.spawnIronBotVarrock(Location(3181, 3368))
+                SkillingBotsBuilder.spawnTinBotVarrock(Location(3181, 3368))
+                return true
+            }
+            "pvpbot" -> {
+                PvPBotsBuilder.spawn(player.location)
+                return true
+            }
+            "pvpbots" -> {
+                var amountBots = 0
+                while (amountBots < 50) {
+                    PvPBotsBuilder.spawn(player.location)
+                    amountBots++
                 }
-                return true;
-            case "removetask":
-                if (!player.getSlayer().hasTask()) {
-                    player.sendMessage("You don't have an active task right now.");
-                    return true;
-                } else {
-                    player.getSlayer().clear();
-                    player.sendMessage("You have canceled your current task.");
-                    return true;
+                return true
+            }
+            "removetask" -> return if (!player.slayer.hasTask()) {
+                player.sendMessage("You don't have an active task right now.")
+                true
+            } else {
+                player.slayer.clear()
+                player.sendMessage("You have canceled your current task.")
+                true
+            }
+            "testpest", "pcbots", "pestcontrolbots", "pest-test", "test-pest", "pesttest" -> {
+                player.sendMessage("Spawning some bots I think")
+                val arg2: Int
+                arg2 = try {
+                    args!![1]!!.toInt()
+                } catch (e: Exception) {
+                    20
                 }
-            case "testpest":
-            case "pcbots":
-            case "pestcontrolbots":
-            case "pest-test":
-            case "test-pest":
-            case "pesttest":
-                player.sendMessage("Spawning some bots I think");
-                int arg2;
+                var pestBotsAmount = 0
+                while (pestBotsAmount < arg2) {
+                    PvMBotsBuilder.createPestControlTestBot(player.location)
+                    pestBotsAmount++
+                }
+                return true
+            }
+            "bots" -> {
+                var arg = 1
+                var xpos = 0
+                var ypos = 0
                 try {
-                    arg2 = Integer.parseInt(args[1]);
-                } catch (Exception e) {
-                    arg2 = 20;
+                    arg = args!![1]!!.toInt()
+                } catch (e: Exception) {
+                    println("Rip " + args!![1])
                 }
-                for (int pestBotsAmount = 0; pestBotsAmount < arg2; pestBotsAmount++) {
-                    PvMBotsBuilder.createPestControlTestBot(player.getLocation());
+                var amountBots2 = 0
+                while (amountBots2 < arg) {
+                    xpos = 2500 + RandomFunction.getRandom(1000)
+                    ypos = 3000 + RandomFunction.getRandom(500)
+                    PvMBotsBuilder.spawnNoob(Location(xpos, ypos))
+                    amountBots2++
                 }
-                return true;
-            case "bots":
-                int arg = 1;
-                int xpos = 0;
-                int ypos = 0;
-                try {
-                    arg = Integer.parseInt(args[1]);
-                } catch (Exception e) {
-                    System.out.println("Rip " + args[1]);
-                }
-                for (int amountBots2 = 0; amountBots2 < arg; amountBots2++) {
-                    xpos = 2500 + RandomFunction.getRandom(1000);
-                    ypos = 3000 + RandomFunction.getRandom(500);
-                    PvMBotsBuilder.spawnNoob(new Location(xpos, ypos));
-                }
-                System.out.println((xpos) + " " + (ypos));
-                return true;
-
-		/*
-		    Start regular bots
-		 */
-            case "manthiev":
-                new GeneralBotCreator(player.getLocation(), new ManThiever());
-                break;
-            case "fish":
-                new GeneralBotCreator(Location.create(2805, 3435, 0), new LobsterCatcher());
-                break;
-
+                println("$xpos $ypos")
+                return true
+            }
+            "manthiev" -> GeneralBotCreator(player.location, ManThiever())
+            "fish" -> GeneralBotCreator(Location.create(2805, 3435, 0), LobsterCatcher())
         }
-        return false;
+        return false
     }
 
-    private Location generateLocation(Player player) {
-        Location random_location = player.getLocation().transform(RandomFunction.random(-15, 15), RandomFunction.random(-15, 15), 0);
+    private fun generateLocation(player: Player?): Location {
+        val random_location = player!!.location.transform(RandomFunction.random(-15, 15), RandomFunction.random(-15, 15), 0)
         if (!RegionManager.isTeleportPermitted(random_location)) {
-            return generateLocation(player);
+            return generateLocation(player)
         }
-        if (!Pathfinder.find(player, random_location, false, Pathfinder.DUMB).isSuccessful()) {
-            return generateLocation(player);
+        if (!Pathfinder.find(player, random_location, false, Pathfinder.DUMB).isSuccessful) {
+            return generateLocation(player)
         }
-        if (RegionManager.getObject(random_location) != null) {
-            return generateLocation(player);
-        }
-        return random_location;
+        return if (RegionManager.getObject(random_location) != null) {
+            generateLocation(player)
+        } else random_location
     }
-
 }

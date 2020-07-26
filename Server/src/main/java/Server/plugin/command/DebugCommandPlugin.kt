@@ -1,36 +1,32 @@
-package plugin.command;
+package plugin.command
 
-import core.ServerConstants;
-import core.cache.Cache;
-import core.cache.def.impl.ItemDefinition;
-import core.cache.def.impl.NPCDefinition;
-import core.game.node.entity.npc.NPC;
-import core.game.node.entity.player.Player;
-import core.game.node.entity.player.info.Rights;
-import core.game.node.entity.player.link.TeleportManager.TeleportType;
-import core.game.node.entity.player.link.quest.Quest;
-import core.game.node.entity.player.link.quest.QuestRepository;
-import core.game.node.item.Item;
-import core.game.system.SystemLogger;
-import core.game.system.command.CommandPlugin;
-import core.game.system.command.CommandSet;
-import core.game.world.map.Location;
-import core.game.world.map.Region;
-import core.game.world.map.RegionManager;
-import core.game.world.map.build.DynamicRegion;
-import core.game.world.repository.Repository;
-import core.plugin.InitializablePlugin;
-import core.plugin.Plugin;
-import core.tools.StringUtils;
-import core.tools.npc.TestStats;
-import plugin.ai.resource.ResourceAIPManager;
-import plugin.ge.GrandExchangeDatabase;
-import plugin.ge.GrandExchangeEntry;
-import plugin.skill.Skills;
-
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
+import core.ServerConstants
+import core.cache.Cache
+import core.cache.def.impl.ItemDefinition
+import core.cache.def.impl.NPCDefinition
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.info.Rights
+import core.game.node.entity.player.link.TeleportManager.TeleportType
+import core.game.node.entity.player.link.quest.Quest
+import core.game.node.entity.player.link.quest.QuestRepository
+import core.game.node.item.Item
+import core.game.system.SystemLogger.log
+import core.game.system.command.CommandPlugin
+import core.game.system.command.CommandSet
+import core.game.world.map.Location
+import core.game.world.map.RegionManager
+import core.game.world.map.build.DynamicRegion
+import core.game.world.repository.Repository
+import core.plugin.InitializablePlugin
+import core.plugin.Plugin
+import core.tools.StringUtils
+import core.tools.npc.TestStats
+import plugin.ai.resource.ResourceAIPManager
+import plugin.ge.GrandExchangeDatabase
+import plugin.skill.Skills
+import java.awt.Toolkit
+import java.awt.datatransfer.StringSelection
 
 /**
  * The commands available during beta stage.
@@ -38,415 +34,435 @@ import java.awt.datatransfer.StringSelection;
  * @author Emperor
  */
 @InitializablePlugin
-public final class DebugCommandPlugin extends CommandPlugin {
-    String sqlLog = "";
-
-    @Override
-    public boolean parse(Player player, String name, String[] args) {
-        int id, amount;
-        Player p;
-        switch (name) {
-            case "rights":
-                player.getDetails().setRights(Rights.forId(Integer.parseInt(args[1])));
-                player.sendMessage("Set rights to " + Rights.forId(Integer.parseInt(args[1])).name());
-                break;
-            case "lo":
-                int index = 0;
-                for (int i = 8349; i < 8367; i++) {
-                    NPC n = NPC.create(i, player.getLocation().transform(0, -index, 0));
-                    n.init();
-                    index += 2;
+class DebugCommandPlugin : CommandPlugin() {
+    var sqlLog = ""
+    override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {
+        var name = name
+        var id: Int
+        var amount: Int
+        val p: Player?
+        when (name) {
+            "rights" -> {
+                player!!.details.rights = Rights.forId(args!![1]!!.toInt())
+                player.sendMessage("Set rights to " + Rights.forId(args[1]!!.toInt()).name)
+            }
+            "lo" -> {
+                var index = 0
+                var i = 8349
+                while (i < 8367) {
+                    val n = NPC.create(i, player!!.location.transform(0, -index, 0))
+                    n.init()
+                    index += 2
+                    i++
                 }
-                player.sendMessage("Lol");
-                break;
-            case "resetquest":
-            case "reset_quest":
-                if (args.length < 2) {
-                    player.debug("syntax error: name");
-                    return true;
+                player!!.sendMessage("Lol")
+            }
+            "resetquest", "reset_quest" -> {
+                if (args!!.size < 2) {
+                    player!!.debug("syntax error: name")
+                    return true
                 }
-                name = "";
-                for (int i = 1; i < args.length; i++) {
-                    name += (i == 1 ? "" : " ") + args[i];
+                name = ""
+                var i = 1
+                while (i < args.size) {
+                    name += (if (i == 1) "" else " ") + args[i]
+                    i++
                 }
-                name = StringUtils.formatDisplayName(name);
-                if (player.getQuestRepository().getQuest(name) == null) {
-                    player.debug("err or: invalid quest - " + name);
-                    return true;
+                name = StringUtils.formatDisplayName(name)
+                if (player!!.questRepository.getQuest(name) == null) {
+                    player.debug("err or: invalid quest - $name")
+                    return true
                 }
-                player.getQuestRepository().getQuest(name).setStage(player, 0);
-                player.getQuestRepository().dockPoints(player.getQuestRepository().getQuest(name).getQuestPoints());
-                player.getQuestRepository().syncronizeTab(player);
-                return true;
-
-            case "allquest":
-                for (Quest quest : QuestRepository.getQuests().values()) {
-                    quest.finish(player);
+                player.questRepository.getQuest(name).setStage(player, 0)
+                player.questRepository.dockPoints(player.questRepository.getQuest(name).questPoints)
+                player.questRepository.syncronizeTab(player)
+                return true
+            }
+            "allquest" -> {
+                for (quest in QuestRepository.getQuests().values) {
+                    quest.finish(player)
                 }
-                return true;
-
-            case "pos":
-            case "position":
-            case "coords":
-            case "loc":
-                final Location l = player.getLocation();
-                final Region r = player.getViewport().getRegion();
-                player.getPacketDispatch().sendMessage("Absolute: " + l + ", regional: [" + l.getLocalX() + ", " + l.getLocalY() + "], chunk: [" + l.getChunkOffsetX() + ", " + l.getChunkOffsetY() + "], flag: [" + RegionManager.isTeleportPermitted(l) + ", " + RegionManager.getClippingFlag(l) + ", " + RegionManager.isLandscape(l) + "].");
-                player.getPacketDispatch().sendMessage("Region: [id=" + l.getRegionId() + ", active=" + r.isActive() + ", instanced=" + ((r instanceof DynamicRegion)) + "], obj=" + RegionManager.getObject(l) + ".");
-                player.getPacketDispatch().sendMessage("Object: " + RegionManager.getObject(l) + ".");
-                SystemLogger.log("Viewport: " + l.getSceneX(player.getPlayerFlags().getLastSceneGraph()) + "," + l.getSceneY(player.getPlayerFlags().getLastSceneGraph()));
-                String loc = "Location.create(" + l.getX() + ", " + l.getY() + ", " + l.getZ() + ")";
-                SystemLogger.log(loc + "; "+ player.getPlayerFlags().getLastSceneGraph() + ", " + l.getLocalX() + ", " + l.getLocalY());
-                StringSelection stringSelection = new StringSelection(loc);
-                Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clpbrd.setContents(stringSelection, null);
-                return true;
-            case "cursong":
-                player.sendMessage(player.getMusicPlayer().getCurrentMusicId() + "");
-                return true;
-
-            case "setquest":
-            case "setoquest":
-                if (args.length < 2) {
-                    player.debug("syntax error: name");
-                    return true;
+                return true
+            }
+            "pos", "position", "coords", "loc" -> {
+                val l = player!!.location
+                val r = player.viewport.region
+                player.packetDispatch.sendMessage("Absolute: " + l + ", regional: [" + l.localX + ", " + l.localY + "], chunk: [" + l.chunkOffsetX + ", " + l.chunkOffsetY + "], flag: [" + RegionManager.isTeleportPermitted(l) + ", " + RegionManager.getClippingFlag(l) + ", " + RegionManager.isLandscape(l) + "].")
+                player.packetDispatch.sendMessage("Region: [id=" + l.regionId + ", active=" + r.isActive + ", instanced=" + (r is DynamicRegion) + "], obj=" + RegionManager.getObject(l) + ".")
+                player.packetDispatch.sendMessage("Object: " + RegionManager.getObject(l) + ".")
+                log("Viewport: " + l.getSceneX(player.playerFlags.lastSceneGraph) + "," + l.getSceneY(player.playerFlags.lastSceneGraph))
+                val loc = "Location.create(" + l.x + ", " + l.y + ", " + l.z + ")"
+                log(loc + "; " + player.playerFlags.lastSceneGraph + ", " + l.localX + ", " + l.localY)
+                val stringSelection = StringSelection(loc)
+                val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
+                clpbrd.setContents(stringSelection, null)
+                return true
+            }
+            "cursong" -> {
+                player!!.sendMessage(player.musicPlayer.currentMusicId.toString() + "")
+                return true
+            }
+            "setquest", "setoquest" -> {
+                if (args!!.size < 2) {
+                    player!!.debug("syntax error: name")
+                    return true
                 }
-                Player m = name.equals("setoquest") ? getTarget(args[args.length - 1]) : player;
-                if (m == null || !m.isActive()) {
-                    player.sendMessage("Error! " + args[3] + " in invalid.");
-                    return true;
+                val m = if (name == "setoquest") getTarget(args[args.size - 1]) else player
+                if (m == null || !m.isActive) {
+                    player!!.sendMessage("Error! " + args[3] + " in invalid.")
+                    return true
                 }
-                name = "";
-                for (int i = 1; i < args.length - 1; i++) {
-                    name += (i == 1 ? "" : " ") + args[i];
+                name = ""
+                var i = 1
+                while (i < args.size - 1) {
+                    name += (if (i == 1) "" else " ") + args[i]
+                    i++
                 }
-                Quest quest = null;
-                for (Quest q : QuestRepository.getQuests().values()) {
-                    if (q.getName().toLowerCase().equals(name.toLowerCase())) {
-                        quest = q;
-                        break;
+                var quest: Quest? = null
+                for (q in QuestRepository.getQuests().values) {
+                    if (q.name.toLowerCase() == name.toLowerCase()) {
+                        quest = q
+                        break
                     }
                 }
                 if (quest == null) {
-                    player.debug("error: invalid quest - " + name);
-                    return true;
+                    player!!.debug("error: invalid quest - $name")
+                    return true
                 }
-                int stage = toInteger(args[args.length - 1]);
-                quest.setStage(player, stage);
-                m.getPacketDispatch().sendMessage("quest=" + name + ", new stage=" + stage);
-                m.getQuestRepository().syncronizeTab(player);
-                break;
-
-            case "empty":
-                player.getInventory().clear();
-                return true;
-
-            case "firerandom":
-                if(args.length < 2){
-                    player.sendMessage("You need to specify what event.");
+                val stage = toInteger(args[args.size - 1]!!)
+                quest.setStage(player, stage)
+                m.packetDispatch.sendMessage("quest=$name, new stage=$stage")
+                m.questRepository.syncronizeTab(player)
+            }
+            "empty" -> {
+                player!!.inventory.clear()
+                return true
+            }
+            "firerandom" -> {
+                if (args!!.size < 2) {
+                    player!!.sendMessage("You need to specify what event.")
                 }
-                name = "";
-                for (int i = 1; i < args.length; i++) {
-                    name += (i == 1 ? "" : " ") + args[i];
+                name = ""
+                var i = 1
+                while (i < args.size) {
+                    name += (if (i == 1) "" else " ") + args[i]
+                    i++
                 }
-                player.getAntiMacroHandler().fireEvent(name);
-                return true;
-
-            case "setvalue":
-                int itemId = toInteger(args[1]);
-                int value = toInteger(args[2]);
-                Item item = new Item(itemId);
-                GrandExchangeEntry entry = GrandExchangeDatabase.getDatabase().get(itemId);
+                player!!.antiMacroHandler.fireEvent(name)
+                return true
+            }
+            "setvalue" -> {
+                val itemId = toInteger(args!![1]!!)
+                val value = toInteger(args[2]!!)
+                val item = Item(itemId)
+                val entry = GrandExchangeDatabase.getDatabase()[itemId]
                 if (entry == null) {
-                    player.getPacketDispatch().sendMessage("Could not find G.E entry for item [id=" + itemId + ", name=" + item.getName() + "]!");
-                    break;
+                    player!!.packetDispatch.sendMessage("Could not find G.E entry for item [id=" + itemId + ", name=" + item.name + "]!")
+                } else {
+                    entry.value = value
+                    player!!.packetDispatch.sendMessage("Set Grand Exchange value for item [id=" + itemId + ", name=" + item.name + "] to " + value + "gp!")
                 }
-                entry.setValue(value);
-                player.getPacketDispatch().sendMessage("Set Grand Exchange value for item [id=" + itemId + ", name=" + item.getName() + "] to " + value + "gp!");
-                break;
-
-            case "npc":
-                if (args.length < 2) {
-                    player.debug("syntax error: id (optional) direction");
-                    return true;
+            }
+            "npc" -> {
+                if (args!!.size < 2) {
+                    player!!.debug("syntax error: id (optional) direction")
+                    return true
                 }
-                NPC npc = NPC.create(toInteger(args[1]), player.getLocation());
-                npc.setAttribute("spawned:npc", true);
-                npc.setRespawn(false);
-                npc.setDirection(player.getDirection());
-                npc.init();
-                npc.setWalks(args.length > 2 ? true : false);
-                String npcString = "{" + npc.getLocation().getX() + "," + npc.getLocation().getY() + "," + npc.getLocation().getZ() + "," + (npc.isWalks() ? "1" : "0") + "," + npc.getDirection().ordinal() + "}";
-                clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clpbrd.setContents(new StringSelection(npcString), null);
-                System.out.println(npcString);
-                return true;
-
-            case "npcn":
-                if (args.length < 2) {
-                    player.debug("syntax error: npc-name (optional) amount");
-                    return true;
+                val npc = NPC.create(toInteger(args[1]!!), player!!.location)
+                npc.setAttribute("spawned:npc", true)
+                npc.isRespawn = false
+                npc.direction = player.direction
+                npc.init()
+                npc.isWalks = if (args.size > 2) true else false
+                val npcString = "{" + npc.location.x + "," + npc.location.y + "," + npc.location.z + "," + (if (npc.isWalks) "1" else "0") + "," + npc.direction.ordinal + "}"
+                val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
+                clpbrd.setContents(StringSelection(npcString), null)
+                println(npcString)
+                return true
+            }
+            "npcn" -> {
+                if (args!!.size < 2) {
+                    player!!.debug("syntax error: npc-name (optional) amount")
+                    return true
                 }
-                String parameters = "";
-                for (int i = 1; i < args.length; i++) {
-                    parameters += i == args.length - 1 ? args[i] : args[i] + " ";
-                }
-
-                for (int i = 0; i < NPCDefinition.getDefinitions().size(); i++) {
-                    NPCDefinition npcDefinition = NPCDefinition.forId(i);
-                    if (npcDefinition != null && npcDefinition.getName().equalsIgnoreCase(parameters.toLowerCase())) {
-                        NPC n = NPC.create(npcDefinition.getId(), player.getLocation());
-                        n.setAttribute("spawned:npcDefinition", true);
-                        n.setRespawn(false);
-                        n.setDirection(player.getDirection());
-                        n.init();
-                        n.setWalks(args.length > 2 ? true : false);
-                        String npcs = "{" + n.getLocation().getX() + "," + n.getLocation().getY() + "," + n.getLocation().getZ() + "," + (n.isWalks() ? "1" : "0") + "," + n.getDirection().ordinal() + "}";
-                        System.out.println(npcs);
-                        break;
+                var parameters: String? = ""
+                run {
+                    var i = 1
+                    while (i < args.size) {
+                        parameters += if (i == args.size - 1) args[i] else args[i].toString() + " "
+                        i++
                     }
                 }
-                return true;
-
-            // Get item by id
-            case "item":
-                if (args.length < 2) {
-                    player.sendMessage("You must specify an item ID");
-                    return false;
+                var i = 0
+                while (i < NPCDefinition.getDefinitions().size) {
+                    val npcDefinition = NPCDefinition.forId(i)
+                    if (npcDefinition != null && npcDefinition.name.equals(parameters!!.toLowerCase(), ignoreCase = true)) {
+                        val n = NPC.create(npcDefinition.id, player!!.location)
+                        n.setAttribute("spawned:npcDefinition", true)
+                        n.isRespawn = false
+                        n.direction = player.direction
+                        n.init()
+                        n.isWalks = if (args.size > 2) true else false
+                        val npcs = "{" + n.location.x + "," + n.location.y + "," + n.location.z + "," + (if (n.isWalks) "1" else "0") + "," + n.direction.ordinal + "}"
+                        println(npcs)
+                        break
+                    }
+                    i++
                 }
-                id = toInteger(args[1]);
-                amount = args.length > 2 ? toInteger(args[2]) : 1;
+                return true
+            }
+            "item" -> {
+                if (args!!.size < 2) {
+                    player!!.sendMessage("You must specify an item ID")
+                    return false
+                }
+                id = toInteger(args[1]!!)
+                amount = if (args.size > 2) toInteger(args[2]!!) else 1
                 if (id > Cache.getItemDefinitionsSize()) {
-                    player.sendMessage("Item ID '" + id + "' out of range.");
-                    return true;
+                    player!!.sendMessage("Item ID '$id' out of range.")
+                    return true
                 }
-                item = new Item(id, amount);
-                int max = player.getInventory().getMaximumAdd(item);
+                val item = Item(id, amount)
+                val max = player!!.inventory.getMaximumAdd(item)
                 if (amount > max) {
-                    amount = max;
+                    amount = max
                 }
-                item.setAmount(amount);
-                player.getInventory().add(item);
-                return true;
-
-            case "give":
-            case "giveitem":
-                if (args.length < 3) {
-                    player.sendMessage("Syntax: ::give id amt playername");
+                item.setAmount(amount)
+                player.inventory.add(item)
+                return true
+            }
+            "give", "giveitem" -> {
+                if (args!!.size < 3) {
+                    player!!.sendMessage("Syntax: ::give id amt playername")
                 }
-                String n = "";
-                for (int i = 3; i < args.length; i++) {
+                var n: String? = ""
+                var i = 3
+                while (i < args.size) {
                     if (i == 3) {
-                        n += args[i];
-                        continue;
+                        n += args[i]
+                        i++
+                        continue
                     }
-                    n += " " + args[i];
+                    n += " " + args[i]
+                    i++
                 }
-                player.sendMessage("Giving " + n + " item..");
-                Player recipient = Repository.getPlayer(n);
+                player!!.sendMessage("Giving $n item..")
+                val recipient = Repository.getPlayer(n)
                 if (recipient == null) {
-                    player.debug("syntax error: name");
-                    return true;
+                    player.debug("syntax error: name")
+                    return true
                 }
-                item = new Item(toInteger(args[1]), toInteger(args[2]));
-                item.setAmount(toInteger(args[2]));
-                recipient.getInventory().add(item);
-                return true;
-
-            case "logsql":
-                final Location lsql = player.getLocation();
-                player.getPacketDispatch().sendMessage("Absolute: " + lsql);
-                sqlLog += "{" + lsql.getX() + "," + lsql.getY() + "," + lsql.getZ() + ",0,0}";
-                return true;
-
-            case "sqldone":
-                stringSelection = new StringSelection(sqlLog);
-                clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clpbrd.setContents(stringSelection, null);
-                sqlLog = "";
-                return true;
-
-            case "sqloc":
-            case "sqlloc":
-            case "locsql":
-                final Location lsqlatom = player.getLocation();
-                player.getPacketDispatch().sendMessage("Absolute: " + lsqlatom);
-                String locql = "{" + lsqlatom.getX() + "," + lsqlatom.getY() + "," + lsqlatom.getZ() + ",0,0}";
-                stringSelection = new StringSelection(locql);
-                clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clpbrd.setContents(stringSelection, null);
-                return true;
-
-            case "sqlocgs":
-            case "sqllocgs":
-            case "locsqlgspawn":
-                final Location lsqlgs = player.getLocation();
-                player.getPacketDispatch().sendMessage("Absolute: " + lsqlgs);
-                String lsqlgst = "{1," + lsqlgs.getX() + "," + lsqlgs.getY() + "," + lsqlgs.getZ() + ",196610}";
-                stringSelection = new StringSelection(lsqlgst);
-                clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clpbrd.setContents(stringSelection, null);
-                return true;
-
-
-            // Get item by name
-            case "itemn":
-                if (args.length < 2) {
-                    player.sendMessage("You must specify an item name");
-                    return true;
+                val item = Item(toInteger(args[1]!!), toInteger(args[2]!!))
+                item.setAmount(toInteger(args[2]!!))
+                recipient.inventory.add(item)
+                return true
+            }
+            "logsql" -> {
+                val lsql = player!!.location
+                player.packetDispatch.sendMessage("Absolute: $lsql")
+                sqlLog += "{" + lsql.x + "," + lsql.y + "," + lsql.z + ",0,0}"
+                return true
+            }
+            "sqldone" -> {
+                val stringSelection = StringSelection(sqlLog)
+                val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
+                clpbrd.setContents(stringSelection, null)
+                sqlLog = ""
+                return true
+            }
+            "sqloc", "sqlloc", "locsql" -> {
+                val lsqlatom = player!!.location
+                player.packetDispatch.sendMessage("Absolute: $lsqlatom")
+                val locql = "{" + lsqlatom.x + "," + lsqlatom.y + "," + lsqlatom.z + ",0,0}"
+                val stringSelection = StringSelection(locql)
+                val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
+                clpbrd.setContents(stringSelection, null)
+                return true
+            }
+            "sqlocgs", "sqllocgs", "locsqlgspawn" -> {
+                val lsqlgs = player!!.location
+                player.packetDispatch.sendMessage("Absolute: $lsqlgs")
+                val lsqlgst = "{1," + lsqlgs.x + "," + lsqlgs.y + "," + lsqlgs.z + ",196610}"
+                val stringSelection = StringSelection(lsqlgst)
+                val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
+                clpbrd.setContents(stringSelection, null)
+                return true
+            }
+            "itemn" -> {
+                if (args!!.size < 2) {
+                    player!!.sendMessage("You must specify an item name")
+                    return true
                 }
-                String itemName = "";
-                for (int i = 1; i < args.length; i++) {
-                    itemName += i == args.length - 1 ? args[i] : args[i] + " ";
-                }
-                Boolean foundItem = false;
-                for (int i = 0; i < ItemDefinition.getDefinitions().size(); i++) {
-                    ItemDefinition def1 = ItemDefinition.forId(i);
-                    if (def1 != null && def1.getName().equalsIgnoreCase(itemName.toLowerCase())) {
-                        player.getInventory().add(new Item(i, 1));
-                        player.sendMessage("Added " + def1.getName() + "[" + def1.getId() + "] to inventory");
-                        foundItem = true;
-                        break;
+                var itemName: String? = ""
+                run {
+                    var i = 1
+                    while (i < args.size) {
+                        itemName += if (i == args.size - 1) args[i] else args[i].toString() + " "
+                        i++
                     }
+                }
+                var foundItem = false
+                var i = 0
+                while (i < ItemDefinition.getDefinitions().size) {
+                    val def1 = ItemDefinition.forId(i)
+                    if (def1 != null && def1.name.equals(itemName!!.toLowerCase(), ignoreCase = true)) {
+                        player!!.inventory.add(Item(i, 1))
+                        player.sendMessage("Added " + def1.name + "[" + def1.id + "] to inventory")
+                        foundItem = true
+                        break
+                    }
+                    i++
                 }
                 if (!foundItem) {
-                    player.sendMessage("@red@Unable to find item: " + itemName + "");
+                    player!!.sendMessage("@red@Unable to find item: $itemName")
                 }
-                return true;
-            case "task":
-                ResourceAIPManager.get().runTask(player, "Willow Logs");
-                break;
-            case "master":
-            case "max":
-                if (player.getDetails().getRights() != Rights.ADMINISTRATOR) {
-                    if (player.inCombat() || player.getLocks().isInteractionLocked() || player.getSkullManager().isWilderness()) {
-                        player.getPacketDispatch().sendMessage("You can't do that right now.");
-                        return true;
+                return true
+            }
+            "task" -> ResourceAIPManager.get().runTask(player, "Willow Logs")
+            "master", "max" -> {
+                if (player!!.details.rights !== Rights.ADMINISTRATOR) {
+                    if (player!!.inCombat() || player.locks.isInteractionLocked || player.skullManager.isWilderness) {
+                        player.packetDispatch.sendMessage("You can't do that right now.")
+                        return true
                     }
                 }
-                for (int i = 0; i < Skills.SKILL_NAME.length; i++) {
-                    player.getSkills().setLevel(i, 99);
-                    player.getSkills().setStaticLevel(i, 99);
+                var i = 0
+                while (i < Skills.SKILL_NAME.size) {
+                    player!!.skills.setLevel(i, 99)
+                    player.skills.setStaticLevel(i, 99)
+                    i++
                 }
-                player.getSkills().updateCombatLevel();
-                player.getAppearance().sync();
-                return true;
-            case "runes":
-                for (int i = 554; i < 567; i++) {
-                    player.getInventory().add(new Item(i, 50000));
+                player!!.skills.updateCombatLevel()
+                player.appearance.sync()
+                return true
+            }
+            "runes" -> {
+                var i = 554
+                while (i < 567) {
+                    player!!.inventory.add(Item(i, 50000))
+                    i++
                 }
-                player.getInventory().add(new Item(9075, 50000));
-                return true;
-            case "skill":
-            case "oskill":
-                if (player.getDetails().getRights() != Rights.ADMINISTRATOR) {
-                    if (player.inCombat() || player.getLocks().isInteractionLocked() || player.getSkullManager().isWilderness()) {
-                        player.getPacketDispatch().sendMessage("You can't do that right now.");
-                        return true;
+                player!!.inventory.add(Item(9075, 50000))
+                return true
+            }
+            "skill", "oskill" -> {
+                if (player!!.details.rights !== Rights.ADMINISTRATOR) {
+                    if (player!!.inCombat() || player.locks.isInteractionLocked || player.skullManager.isWilderness) {
+                        player.packetDispatch.sendMessage("You can't do that right now.")
+                        return true
                     }
                 }
-                if (args.length < 3) {
-                    player.getPacketDispatch().sendMessage("Use as ::skill skillname/id level.");
-                    return true;
+                if (args!!.size < 3) {
+                    player!!.packetDispatch.sendMessage("Use as ::skill skillname/id level.")
+                    return true
                 }
-                int skillId = -1;
-                if (Character.isDigit(args[1].charAt(0))) {
-                    skillId = toInteger(args[1]);
+                var skillId = -1
+                if (Character.isDigit(args[1]!![0])) {
+                    skillId = toInteger(args[1]!!)
                 } else {
-                    for (id = 0; id < Skills.SKILL_NAME.length; id++) {
-                        String skill = Skills.SKILL_NAME[id];
-                        if (args[1].equals(skill.toLowerCase())) {
-                            skillId = id;
-                            break;
+                    id = 0
+                    while (id < Skills.SKILL_NAME.size) {
+                        val skill = Skills.SKILL_NAME[id]
+                        if (args[1] == skill.toLowerCase()) {
+                            skillId = id
+                            break
                         }
+                        id++
                     }
                 }
                 if (skillId < 0) {
-                    player.getPacketDispatch().sendMessage("Use as ::skill skillname/id level.");
-                    return true;
+                    player!!.packetDispatch.sendMessage("Use as ::skill skillname/id level.")
+                    return true
                 }
-                int level = Math.abs(toInteger(args[2]));
+                var level = Math.abs(toInteger(args[2]!!))
                 if (level > 99) {
-                    level = 99;
+                    level = 99
                 }
-                p = name.equals("oskill") && args.length > 3 ? Repository.getPlayer(args[3]) : player;
+                p = if (name == "oskill" && args.size > 3) Repository.getPlayer(args[3]) else player
                 if (p == null) {
-                    player.getPacketDispatch().sendMessage("Unable to set level for " + args[3] + ".");
-                    return true;
+                    player!!.packetDispatch.sendMessage("Unable to set level for " + args[3] + ".")
+                    return true
                 }
-                p.getSkills().setLevel(skillId, level);
-                p.getSkills().setStaticLevel(skillId, level);
-                p.getSkills().updateCombatLevel();
-                p.getAppearance().sync();
-                player.getPacketDispatch().sendMessage("Set " + p.getName() + "'s " + Skills.SKILL_NAME[skillId] + " level to " + args[2] + ".");
-                return true;
-            case "copy":
-                Player target = Repository.getPlayer(args[1]);
+                p.skills.setLevel(skillId, level)
+                p.skills.setStaticLevel(skillId, level)
+                p.skills.updateCombatLevel()
+                p.appearance.sync()
+                player!!.packetDispatch.sendMessage("Set " + p.name + "'s " + Skills.SKILL_NAME[skillId] + " level to " + args[2] + ".")
+                return true
+            }
+            "copy" -> {
+                val target = Repository.getPlayer(args!![1])
                 if (target != null) {
-                    player.getInventory().copy(target.getInventory());
-                    player.getInventory().refresh();
-                    player.getSkills().copy(target.getSkills());
-                    player.getSkills().configure();
-                    player.getEquipment().copy(target.getEquipment());
-                    player.getEquipment().refresh();
-                    player.getAppearance().sync();
+                    player!!.inventory.copy(target.inventory)
+                    player.inventory.refresh()
+                    player.skills.copy(target.skills)
+                    player.skills.configure()
+                    player.equipment.copy(target.equipment)
+                    player.equipment.refresh()
+                    player.appearance.sync()
                 }
-                return true;
-            case "to":
-                if (player.getDetails().getRights() != Rights.ADMINISTRATOR) {
-                    if (player.inCombat() || player.getLocks().isTeleportLocked()) {
-                        player.getPacketDispatch().sendMessage("You can't teleport right now.");
-                        return true;
+                return true
+            }
+            "to" -> {
+                if (player!!.details.rights !== Rights.ADMINISTRATOR) {
+                    if (player!!.inCombat() || player.locks.isTeleportLocked) {
+                        player.packetDispatch.sendMessage("You can't teleport right now.")
+                        return true
                     }
                 }
-                Location destination = null;
-                String place = getArgumentLine(args);
-                for (Object[] destinations : ServerConstants.TELEPORT_DESTINATIONS) {
-                    for (int i = 1; i < destinations.length; i++) {
-                        if (place.equals(destinations[i])) {
-                            destination = (Location) destinations[0];
-                            break;
+                var destination: Location? = null
+                val place = getArgumentLine(args!!)
+                for (destinations in ServerConstants.TELEPORT_DESTINATIONS) {
+                    var i = 1
+                    while (i < destinations.size) {
+                        if (place == destinations[i]) {
+                            destination = destinations[0] as Location
+                            break
                         }
+                        i++
                     }
                 }
                 if (destination != null) {
-                    player.getTeleporter().send(destination, TeleportType.NORMAL);
+                    player!!.teleporter.send(destination, TeleportType.NORMAL)
                 } else {
-                    player.getPacketDispatch().sendMessage("Could not locate teleport destination [name=" + place + "]!");
+                    player!!.packetDispatch.sendMessage("Could not locate teleport destination [name=$place]!")
                 }
-                return true;
-            case "teleports":
-            case "destinations":
-                player.getInterfaceManager().close();
-                player.getPacketDispatch().sendString("<u>Teleport destinations</u>", 239, 1);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < ServerConstants.TELEPORT_DESTINATIONS.length; i++) {
-                    sb.append(ServerConstants.TELEPORT_DESTINATIONS[i][1]);
-                    if (i != ServerConstants.TELEPORT_DESTINATIONS.length - 1) {
-                        sb.append(", ");
+                return true
+            }
+            "teleports", "destinations" -> {
+                player!!.interfaceManager.close()
+                player.packetDispatch.sendString("<u>Teleport destinations</u>", 239, 1)
+                val sb = StringBuilder()
+                var i = 0
+                while (i < ServerConstants.TELEPORT_DESTINATIONS.size) {
+                    sb.append(ServerConstants.TELEPORT_DESTINATIONS[i][1])
+                    if (i != ServerConstants.TELEPORT_DESTINATIONS.size - 1) {
+                        sb.append(", ")
                     }
+                    i++
                 }
-                player.getPacketDispatch().sendString("<br>" + sb.toString(), 239, 2);
-                player.getPacketDispatch().sendString("", 239, 3);
-                player.getPacketDispatch().sendString("", 239, 4);
-                player.getPacketDispatch().sendString("", 239, 5);
-                player.getInterfaceManager().openComponent(239);
-                return true;
-            case "maxmag":
-                TestStats.setMaxedMagicAcc(player);
-                return true;
-            case "maxstr":
-                TestStats.setMaxedMeleeStr(player);
-                return true;
-
+                player.packetDispatch.sendString("<br>$sb", 239, 2)
+                player.packetDispatch.sendString("", 239, 3)
+                player.packetDispatch.sendString("", 239, 4)
+                player.packetDispatch.sendString("", 239, 5)
+                player.interfaceManager.openComponent(239)
+                return true
+            }
+            "maxmag" -> {
+                TestStats.setMaxedMagicAcc(player)
+                return true
+            }
+            "maxstr" -> {
+                TestStats.setMaxedMeleeStr(player)
+                return true
+            }
         }
-        return false;
+        return false
     }
 
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        link(CommandSet.BETA, CommandSet.ADMINISTRATOR);
-        return this;
+    @Throws(Throwable::class)
+    override fun newInstance(arg: Any?): Plugin<Any?>? {
+        link(CommandSet.BETA, CommandSet.ADMINISTRATOR)
+        return this
     }
-
 }

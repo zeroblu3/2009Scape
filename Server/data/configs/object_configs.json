@@ -293,7 +293,7 @@
             "examine":"Smelly."
         },
         {
-            "ids":"153",
+            "ids":"153,36781",
             "examine":"An ornate fountain."
         },
         {
@@ -1965,7 +1965,7 @@
             "examine":"All the leaves have fallen off."
         },
         {
-            "ids":"1124",
+            "ids":"1124,36782",
             "examine":"A commonly found bush."
         },
         {
@@ -2621,7 +2621,7 @@
             "examine":"A pile of bricks."
         },
         {
-            "ids":"1722",
+            "ids":"1722,36791",
             "examine":"I can climb these stairs."
         },
         {
@@ -2633,7 +2633,7 @@
             "examine":"I can climb down these stairs."
         },
         {
-            "ids":"1725",
+            "ids":"1725,36768",
             "examine":"I can climb up this."
         },
         {
@@ -2893,7 +2893,7 @@
             "examine":"A stone tomb surrounded by flowers."
         },
         {
-            "ids":"1994",
+            "ids":"1994,37016,37015",
             "examine":"I wonder what's inside."
         },
         {
@@ -3505,7 +3505,7 @@
             "examine":"I can climb down here."
         },
         {
-            "ids":"2316",
+            "ids":"2316,36776",
             "examine":"I can climb up these stairs."
         },
         {
@@ -7069,7 +7069,7 @@
             "examine":"I can climb up these stairs."
         },
         {
-            "ids":"4569",
+            "ids":"4569,36777",
             "examine":"I can climb up or go down these stairs."
         },
         {
@@ -8753,7 +8753,7 @@
             "examine":"An expertly carved statue of a former King of Misthalin."
         },
         {
-            "ids":"5791",
+            "ids":"5791,36749,36751",
             "examine":"A carving of a figure from the history of RuneScape."
         },
         {
@@ -16577,7 +16577,7 @@
             "examine":"Precious stones for sale."
         },
         {
-            "ids":"11666,11667,11668,11669,11670,11671,11672,11673",
+            "ids":"11666,11667,11668,11669,11670,11671,11672,11673,36956",
             "examine":"A hot furnace."
         },
         {

@@ -1,112 +1,115 @@
-package plugin.command;
+package plugin.command
 
-import core.cache.Cache;
-import core.cache.def.impl.ItemDefinition;
-import core.game.system.config.ItemConfigParser;
-import plugin.ge.GrandExchangeDatabase;
-import plugin.ge.GrandExchangeEntry;
-import plugin.ge.ResourceManager;
-import core.game.node.entity.player.Player;
-import core.game.system.SystemManager;
-import core.game.system.SystemState;
-import core.game.system.command.CommandPlugin;
-import core.game.system.command.CommandSet;
-import core.game.world.repository.Repository;
-import core.net.amsc.WorldCommunicator;
-import core.plugin.InitializablePlugin;
-import core.plugin.Plugin;
+import core.cache.Cache
+import core.cache.def.impl.ItemDefinition
+import core.game.node.entity.player.Player
+import core.game.system.SystemManager
+import core.game.system.SystemState
+import core.game.system.command.CommandPlugin
+import core.game.system.command.CommandSet
+import core.game.system.config.ItemConfigParser
+import core.game.world.repository.Repository
+import core.net.amsc.WorldCommunicator
+import core.plugin.InitializablePlugin
+import core.plugin.Plugin
+import plugin.ge.GrandExchangeDatabase
+import plugin.ge.ResourceManager
 
 /**
  * Represents commands related to system updating.
  * @author Vexia
  */
 @InitializablePlugin
-public final class SystemCommand extends CommandPlugin {
+class SystemCommand : CommandPlugin() {
+    @Throws(Throwable::class)
+    override fun newInstance(arg: Any?): Plugin<Any?>? {
+        link(CommandSet.DEVELOPER)
+        return this
+    }
 
-	@Override
-	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		link(CommandSet.DEVELOPER);
-		return this;
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public boolean parse(Player player, String name, String[] args) {
-		switch (name) {
-		case "cms":// Re-connects to the management server.
-			for (Player pl : Repository.getPlayers()) {
-				try {
-					pl.removeAttribute("combat-time");
-					pl.getPacketDispatch().sendLogout();
-					pl.clear();
-				} catch (Throwable t) {
-					t.printStackTrace();
-				}
-			}
-			WorldCommunicator.terminate();
-			WorldCommunicator.connect();
-			return true;
-		case "update":
-			if (args.length > 1) {
-				SystemManager.getUpdater().setCountdown(Integer.parseInt(args[1]));
-			}
-			SystemManager.flag(SystemState.UPDATING);
-			return true;
-		case "cancel_update":
-		case "cancelupdate":
-		case "cancel":
-			SystemManager.getUpdater().cancel();
-			return true;
-		case "clear_resource":
-			ResourceManager.clearResource(toInteger(args[1]));
-			System.out.println("Cleared resource " + args[1] + "!");
-			return true;
-		case "add_resource":
-			boolean sell = !(args.length > 3 && args[3].equals("false"));
-			ResourceManager.addResource(toInteger(args[1]), toInteger(args[2]), sell);
-			System.out.println("Added " + (sell ? "selling" : "buying") + " resource " + args[1] + ", " + args[2] + "!");
-			return true;
-		case "resetrm":
-			ResourceManager.getStock().clear();
-			System.out.println("Fully reset resource manager!");
-			return true;
-		case "setdefaultge":
-			int changes = 0;
-			for (int id = 0; id < Cache.getItemDefinitionsSize(); id++) {
-				GrandExchangeEntry entry = GrandExchangeDatabase.getDatabase().get(id);
-				if (entry == null) {
-					continue;
-				}
-				ItemDefinition def = ItemDefinition.forId(id);
-				int value = entry.getValue();
-				if (value < def.getAlchemyValue(true)) {
-					value = def.getAlchemyValue(true);
-				}
-				if (value < def.getAlchemyValue(false)) {
-					value = def.getAlchemyValue(false);
-				}
-				if (value < def.getValue()) {
-					value = def.getValue();
-				}
-				if (value < def.getConfiguration(ItemConfigParser.GE_PRICE, 0)) {
-					value = def.getConfiguration(ItemConfigParser.GE_PRICE, 0);
-				}
-				if (value < def.getConfiguration(ItemConfigParser.SHOP_PRICE, 0)) {
-					value = def.getConfiguration(ItemConfigParser.SHOP_PRICE, 0);
-				}
-				if (value != entry.getValue()) {
-					changes++;
-				}
-				entry.setValue(value);
-			}
-			player.getPacketDispatch().sendMessage("Set default G.E prices - " + changes + " changes made!");
-			return true;
-		case "sgc":
-		case "systemgc":
-			System.gc();
-			return true;
-		}
-		return false;
-	}
-
+    override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {
+        when (name) {
+            "cms" -> {
+                for (pl in Repository.getPlayers()) {
+                    try {
+                        pl.removeAttribute("combat-time")
+                        pl.packetDispatch.sendLogout()
+                        pl.clear()
+                    } catch (t: Throwable) {
+                        t.printStackTrace()
+                    }
+                }
+                WorldCommunicator.terminate()
+                WorldCommunicator.connect()
+                return true
+            }
+            "update" -> {
+                if (args!!.size > 1) {
+                    SystemManager.getUpdater().setCountdown(args[1]!!.toInt())
+                }
+                SystemManager.flag(SystemState.UPDATING)
+                return true
+            }
+            "cancel_update", "cancelupdate", "cancel" -> {
+                SystemManager.getUpdater().cancel()
+                return true
+            }
+            "clear_resource" -> {
+                ResourceManager.clearResource(toInteger(args!![1]!!))
+                println("Cleared resource " + args[1] + "!")
+                return true
+            }
+            "add_resource" -> {
+                val sell = !(args!!.size > 3 && args[3] == "false")
+                ResourceManager.addResource(toInteger(args[1]!!), toInteger(args[2]!!), sell)
+                println("Added " + (if (sell) "selling" else "buying") + " resource " + args[1] + ", " + args[2] + "!")
+                return true
+            }
+            "resetrm" -> {
+                ResourceManager.getStock().clear()
+                println("Fully reset resource manager!")
+                return true
+            }
+            "setdefaultge" -> {
+                var changes = 0
+                var id = 0
+                while (id < Cache.getItemDefinitionsSize()) {
+                    val entry = GrandExchangeDatabase.getDatabase()[id]
+                    if (entry == null) {
+                        id++
+                        continue
+                    }
+                    val def = ItemDefinition.forId(id)
+                    var value = entry.value
+                    if (value < def.getAlchemyValue(true)) {
+                        value = def.getAlchemyValue(true)
+                    }
+                    if (value < def.getAlchemyValue(false)) {
+                        value = def.getAlchemyValue(false)
+                    }
+                    if (value < def.value) {
+                        value = def.value
+                    }
+                    if (value < def.getConfiguration(ItemConfigParser.GE_PRICE, 0)) {
+                        value = def.getConfiguration(ItemConfigParser.GE_PRICE, 0)
+                    }
+                    if (value < def.getConfiguration(ItemConfigParser.SHOP_PRICE, 0)) {
+                        value = def.getConfiguration(ItemConfigParser.SHOP_PRICE, 0)
+                    }
+                    if (value != entry.value) {
+                        changes++
+                    }
+                    entry.value = value
+                    id++
+                }
+                player!!.packetDispatch.sendMessage("Set default G.E prices - $changes changes made!")
+                return true
+            }
+            "sgc", "systemgc" -> {
+                System.gc()
+                return true
+            }
+        }
+        return false
+    }
 }

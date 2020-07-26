@@ -1,6 +1,5 @@
 package core.worker
 
-import core.game.system.SystemLogger
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence

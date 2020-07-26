@@ -13,7 +13,7 @@ import plugin.CorePluginTypes.Managers
 class TriviaCommands : CommandPlugin() {
     val manager = TriviaManager()
 
-    override fun parse(player: Player?, name: String?, args: Array<out String>?): Boolean {
+    override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {
         when (name){
             "trivia" -> {
                 if(args?.size!! < 2){
@@ -30,7 +30,7 @@ class TriviaCommands : CommandPlugin() {
         return false
     }
 
-    override fun newInstance(arg: Any?): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any?>? {
         Managers.register(manager)
         link(CommandSet.PLAYER)
         manager.parseRewards()

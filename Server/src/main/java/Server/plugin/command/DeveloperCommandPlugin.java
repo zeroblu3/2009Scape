@@ -146,8 +146,6 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                     for (int i = 0; i < ItemDefinition.getDefinitions().size(); i++) {
                         ItemDefinition definition = ItemDefinition.forId(i);
                         itemName = itemName.toLowerCase();
-                        if (definition == null)
-                            continue;
                         String output = definition.getName().toLowerCase();
                         int itemId = definition.getId();
                         if (output.contains(itemName)) {

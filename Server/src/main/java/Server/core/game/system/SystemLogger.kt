@@ -1,91 +1,92 @@
-package core.game.system;
+package core.game.system
 
-import core.game.world.GameWorld;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import core.game.world.GameWorld
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Printing log messages class.
  * @author Apache Ah64
  */
-public class SystemLogger {
+object SystemLogger {
+    /**
+     * The date format string.
+     */
+    private val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
-	/**
-	 * The date format string.
-	 */
-	private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    /**
+     * Print a log message.
+     * @param message
+     */
+    @JvmStatic
+    fun log(message: String?) {
+        dateFormat.timeZone = TimeZone.getDefault()
+        if (message == null) {
+            return
+        }
+        println("[" + dateFormat.format(Date()) + "][" + GameWorld.getName() + "]: " + message)
+    }
 
-	/**
-	 * Print a log message.
-	 * @param message
-	 */
-	public static void log(String message) {
-		dateFormat.setTimeZone(TimeZone.getDefault());
-		if (message == null) {
-			return;
-		}
-		System.out.println("[" + dateFormat.format(new Date()) + "][" + GameWorld.getName() + "]: " + message);
-	}
+    /**
+     * Print a log message with class name.
+     * @param thread
+     * @param message
+     */
+    fun log(thread: Class<*>?, message: String?) {
+        if (message == null) {
+            return
+        }
+        println("[" + dateFormat.format(Date()) + "][" + Class::class.java.simpleName + "]: " + message)
+    }
 
-	/**
-	 * Print a log message with class name.
-	 * @param thread
-	 * @param message
-	 */
-	public static void log(Class<?> thread, String message) {
-		if (message == null) {
-			return;
-		}
-		System.out.println("[" + dateFormat.format(new Date()) + "][" + Class.class.getSimpleName() + "]: " + message);
-	}
+    /**
+     * Print a log message with class name.
+     * @param thread
+     * @param message
+     */
+    fun log(className: String, message: String?) {
+        if (message == null) {
+            return
+        }
+        println("[" + dateFormat.format(Date()) + "][" + className + "]: " + message)
+    }
 
-	/**
-	 * Print a log message with class name.
-	 * @param thread
-	 * @param message
-	 */
-	public static void log(String className, String message) {
-		if (message == null) {
-			return;
-		}
-		System.out.println("[" + dateFormat.format(new Date()) + "][" + className + "]: " + message);
-	}
+    /**
+     * Print a error message.
+     * @param message
+     */
+    @JvmStatic
+    fun error(message: String?) {
+        if (message == null) {
+            return
+        }
+        System.err.println("[" + dateFormat.format(Date()) + "][" + GameWorld.getName() + "]: " + message)
+    }
 
-	/**
-	 * Print a error message.
-	 * @param message
-	 */
-	public static void error(String message) {
-		if (message == null) {
-			return;
-		}
-		System.err.println("[" + dateFormat.format(new Date()) + "][" + GameWorld.getName() + "]: " + message);
-	}
+    /**
+     * Print a error message with class name.
+     * @param thread
+     * @param message
+     */
+    @JvmStatic
+    fun error(thread: Class<*>?, message: String?) {
+        if (message == null) {
+            return
+        }
+        System.err.println("[" + dateFormat.format(Date()) + "][" + Class::class.java.simpleName + "]: " + message)
+    }
 
-	/**
-	 * Print a error message with class name.
-	 * @param thread
-	 * @param message
-	 */
-	public static void error(Class<?> thread, String message) {
-		if (message == null) {
-			return;
-		}
-		System.err.println("[" + dateFormat.format(new Date()) + "][" + Class.class.getSimpleName() + "]: " + message);
-	}
-
-	/**
-	 * Print a error message with class name.
-	 * @param thread
-	 * @param message
-	 */
-	public static void error(String className, String message) {
-		if (message == null) {
-			return;
-		}
-		System.err.println("[" + dateFormat.format(new Date()) + "][" + className + "]: " + message);
-	}
+    /**
+     * Print a error message with class name.
+     * @param thread
+     * @param message
+     */
+    @JvmStatic
+    fun error(className: String, message: String?) {
+        if (message == null) {
+            return
+        }
+        System.err.println("[" + dateFormat.format(Date()) + "][" + className + "]: " + message)
+    }
 }
