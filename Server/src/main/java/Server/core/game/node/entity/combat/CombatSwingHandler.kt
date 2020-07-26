@@ -508,9 +508,9 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 		fun isProjectileClipped(entity: Node, victim: Node?, checkClose: Boolean): Boolean {
             return if (checkClose) {
                 if (entity.id == 54) { // /temp until emp is back.
-                    Pathfinder.find(entity as Entity, victim, false, Pathfinder.SMART).isSuccessful
-                } else Pathfinder.find(entity as Entity, victim, false, Pathfinder.DUMB).isSuccessful
-            } else Pathfinder.find(entity as Entity, victim, false, Pathfinder.PROJECTILE).isSuccessful
+                    Pathfinder.find(entity as Entity, victim!!, false, Pathfinder.SMART).isSuccessful
+                } else Pathfinder.find(entity as Entity, victim!!, false, Pathfinder.DUMB).isSuccessful
+            } else Pathfinder.find(entity as Entity, victim!!, false, Pathfinder.PROJECTILE).isSuccessful
         }
     }
 

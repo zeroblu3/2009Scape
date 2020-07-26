@@ -1,182 +1,180 @@
-package core.game.world.update;
+package core.game.world.update
 
-import core.game.node.entity.player.Player;
-import core.game.node.entity.player.info.RenderInfo;
-import core.game.world.map.RegionManager;
-import core.net.packet.IoBuffer;
-import core.net.packet.PacketHeader;
-
-import java.nio.ByteBuffer;
-import java.util.Iterator;
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.info.RenderInfo
+import core.game.world.map.RegionManager
+import core.net.packet.IoBuffer
+import core.net.packet.PacketHeader
 
 /**
  * Handles the player rendering.
  * @author Emperor
  */
-public final class PlayerRenderer {
+object PlayerRenderer {
+    /**
+     * The maximum amount of players to add per cycle.
+     */
+    private const val MAX_ADD_COUNT = 10
 
-	/**
-	 * The maximum amount of players to add per cycle.
-	 */
-	private static final int MAX_ADD_COUNT = 10;
+    /**
+     * Handles the player rendering for a player.
+     * @param player The player.
+     */
+    @JvmStatic
+    fun render(player: Player) {
+        val buffer = IoBuffer(225, PacketHeader.SHORT)
+        val flags = IoBuffer(-1, PacketHeader.NORMAL)
+        val info = player.renderInfo
+        updateLocalPosition(player, buffer, flags)
+        buffer.putBits(8, info.localPlayers.size)
+        val it = info.localPlayers.iterator()
+        while (it.hasNext()) {
+            val other = it.next()
+            if (!other.isActive || !other.location.withinDistance(player.location) || other.properties.isTeleporting || other.isInvisible) {
+                buffer.putBits(1, 1)
+                buffer.putBits(2, 3)
+                it.remove()
+                continue
+            }
+            renderLocalPlayer(player, other, buffer, flags)
+        }
+        var count = 0
+        for (other in RegionManager.getLocalPlayers(player, 15)) {
+            if (other === player || !other.isActive || info.localPlayers.contains(other) || other.isInvisible) {
+                continue
+            }
+            if (info.localPlayers.size >= 255 || ++count == MAX_ADD_COUNT) {
+                break
+            }
+            addLocalPlayer(player, other, info, buffer, flags)
+        }
+        val masks = flags.toByteBuffer()
+        masks.flip()
+        if (masks.hasRemaining()) {
+            buffer.putBits(11, 2047)
+            buffer.setByteAccess()
+            buffer.put(masks)
+        } else {
+            buffer.setByteAccess()
+        }
+        player.details.session.write(buffer)
+    }
 
-	/**
-	 * Handles the player rendering for a player.
-	 * @param player The player.
-	 */
-	public static void render(Player player) {
-		IoBuffer buffer = new IoBuffer(225, PacketHeader.SHORT);
-		IoBuffer flags = new IoBuffer(-1, PacketHeader.NORMAL);
-		RenderInfo info = player.getRenderInfo();
-		updateLocalPosition(player, buffer, flags);
-		buffer.putBits(8, info.getLocalPlayers().size());
-		for (Iterator<Player> it = info.getLocalPlayers().iterator(); it.hasNext();) {
-			Player other = it.next();
-			if (!other.isActive() || !other.getLocation().withinDistance(player.getLocation()) || other.getProperties().isTeleporting() || other.isInvisible()) {
-				buffer.putBits(1, 1);
-				buffer.putBits(2, 3);
-				it.remove();
-				continue;
-			}
-			renderLocalPlayer(player, other, buffer, flags);
-		}
-		int count = 0;
-		for (Player other : RegionManager.getLocalPlayers(player, 15)) {
-			if (other == player || !other.isActive() || info.getLocalPlayers().contains(other) || other.isInvisible()) {
-				continue;
-			}
-			if (info.getLocalPlayers().size() >= 255 || ++count == MAX_ADD_COUNT) {
-				break;
-			}
-			addLocalPlayer(player, other, info, buffer, flags);
-		}
-		ByteBuffer masks = flags.toByteBuffer();
-		masks.flip();
-		if (masks.hasRemaining()) {
-			buffer.putBits(11, 2047);
-			buffer.setByteAccess();
-			buffer.put(masks);
-		} else {
-			buffer.setByteAccess();
-		}
-		player.getDetails().getSession().write(buffer);
-	}
+    /**
+     * Renders a local player.
+     * @param player The player we're updating for.
+     * @param other The player.
+     * @param buffer The buffer.
+     * @param flags The update flags buffer.
+     */
+    private fun renderLocalPlayer(player: Player, other: Player, buffer: IoBuffer, flags: IoBuffer) {
+        if (other.walkingQueue.runDir != -1) {
+            buffer.putBits(1, 1) // Updating
+            buffer.putBits(2, 2) // Sub opcode
+            buffer.putBits(1, 1)
+            buffer.putBits(3, other.walkingQueue.walkDir)
+            buffer.putBits(3, other.walkingQueue.runDir)
+            flagMaskUpdate(player, other, buffer, flags, false, false)
+        } else if (other.walkingQueue.walkDir != -1) {
+            buffer.putBits(1, 1) // Updating
+            buffer.putBits(2, 1) // Sub opcode
+            buffer.putBits(3, other.walkingQueue.walkDir)
+            flagMaskUpdate(player, other, buffer, flags, false, false)
+        } else if (other.updateMasks.isUpdateRequired) {
+            buffer.putBits(1, 1)
+            buffer.putBits(2, 0)
+            writeMaskUpdates(player, other, flags, false, false)
+        } else {
+            buffer.putBits(1, 0)
+        }
+    }
 
-	/**
-	 * Renders a local player.
-	 * @param player The player we're updating for.
-	 * @param other The player.
-	 * @param buffer The buffer.
-	 * @param flags The update flags buffer.
-	 */
-	private static void renderLocalPlayer(Player player, Player other, IoBuffer buffer, IoBuffer flags) {
-		if (other.getWalkingQueue().getRunDir() != -1) {
-			buffer.putBits(1, 1); // Updating
-			buffer.putBits(2, 2); // Sub opcode
-			buffer.putBits(1, 1);
-			buffer.putBits(3, other.getWalkingQueue().getWalkDir());
-			buffer.putBits(3, other.getWalkingQueue().getRunDir());
-			flagMaskUpdate(player, other, buffer, flags, false, false);
-		} else if (other.getWalkingQueue().getWalkDir() != -1) {
-			buffer.putBits(1, 1); // Updating
-			buffer.putBits(2, 1); // Sub opcode
-			buffer.putBits(3, other.getWalkingQueue().getWalkDir());
-			flagMaskUpdate(player, other, buffer, flags, false, false);
-		} else if (other.getUpdateMasks().isUpdateRequired()) {
-			buffer.putBits(1, 1);
-			buffer.putBits(2, 0);
-			writeMaskUpdates(player, other, flags, false, false);
-		} else {
-			buffer.putBits(1, 0);
-		}
-	}
+    /**
+     * Adds a local player.
+     * @param player The player.
+     * @param other The player to add.
+     * @param info The render info of the player.
+     * @param buffer The buffer.
+     * @param flags The flag based buffer.
+     */
+    private fun addLocalPlayer(player: Player, other: Player, info: RenderInfo, buffer: IoBuffer, flags: IoBuffer) {
+        buffer.putBits(11, other.index)
+        var offsetX = other.location.x - player.location.x
+        var offsetY = other.location.y - player.location.y
+        if (offsetY < 0) {
+            offsetY += 32
+        }
+        if (offsetX < 0) {
+            offsetX += 32
+        }
+        val appearance = info.appearanceStamps[other.index and 0x800] != other.updateMasks.appearanceStamp
+        val update = appearance || other.updateMasks.isUpdateRequired || other.updateMasks.hasSynced()
+        buffer.putBits(1, if (update) 1 else 0)
+        buffer.putBits(5, offsetX)
+        buffer.putBits(3, other.direction.ordinal)
+        buffer.putBits(1, if (other.properties.isTeleporting) 1 else 0)
+        buffer.putBits(5, offsetY)
+        info.localPlayers.add(other)
+        if (update) {
+            if (appearance) {
+                info.appearanceStamps[other.index and 0x800] = other.updateMasks.appearanceStamp
+            }
+            writeMaskUpdates(player, other, flags, appearance, true)
+        }
+    }
 
-	/**
-	 * Adds a local player.
-	 * @param player The player.
-	 * @param other The player to add.
-	 * @param info The render info of the player.
-	 * @param buffer The buffer.
-	 * @param flags The flag based buffer.
-	 */
-	private static void addLocalPlayer(Player player, Player other, RenderInfo info, IoBuffer buffer, IoBuffer flags) {
-		buffer.putBits(11, other.getIndex());
-		int offsetX = (other.getLocation().getX() - player.getLocation().getX());
-		int offsetY = (other.getLocation().getY() - player.getLocation().getY());
-		if (offsetY < 0) {
-			offsetY += 32;
-		}
-		if (offsetX < 0) {
-			offsetX += 32;
-		}
-		boolean appearance = info.getAppearanceStamps()[other.getIndex() & 0x800] != other.getUpdateMasks().getAppearanceStamp();
-		boolean update = appearance || other.getUpdateMasks().isUpdateRequired() || other.getUpdateMasks().hasSynced();
-		buffer.putBits(1, update ? 1 : 0);
-		buffer.putBits(5, offsetX);
-		buffer.putBits(3, other.getDirection().ordinal());
-		buffer.putBits(1, other.getProperties().isTeleporting() ? 1 : 0);
-		buffer.putBits(5, offsetY);
-		info.getLocalPlayers().add(other);
-		if (update) {
-			if (appearance) {
-				info.getAppearanceStamps()[other.getIndex() & 0x800] = other.getUpdateMasks().getAppearanceStamp();
-			}
-			writeMaskUpdates(player, other, flags, appearance, true);
-		}
-	}
+    /**
+     * Updates the local player's client position.
+     * @param local The local player.
+     * @param buffer The i/o buffer.
+     * @param flags The update flags buffer.
+     */
+    private fun updateLocalPosition(local: Player, buffer: IoBuffer, flags: IoBuffer) {
+        if (local.playerFlags.isUpdateSceneGraph || local.properties.isTeleporting) {
+            buffer.putBits(1, 1) // Updating
+            buffer.putBits(2, 3) // Sub opcode
+            buffer.putBits(7, local.location.getSceneY(local.playerFlags.lastSceneGraph))
+            buffer.putBits(1, if (local.properties.isTeleporting) 1 else 0)
+            buffer.putBits(2, local.location.z)
+            flagMaskUpdate(local, local, buffer, flags, false, false)
+            buffer.putBits(7, local.location.getSceneX(local.playerFlags.lastSceneGraph))
+        } else {
+            renderLocalPlayer(local, local, buffer, flags)
+        }
+    }
 
-	/**
-	 * Updates the local player's client position.
-	 * @param local The local player.
-	 * @param buffer The i/o buffer.
-	 * @param flags The update flags buffer.
-	 */
-	private static void updateLocalPosition(Player local, IoBuffer buffer, IoBuffer flags) {
-		if (local.getPlayerFlags().isUpdateSceneGraph() || local.getProperties().isTeleporting()) {
-			buffer.putBits(1, 1); // Updating
-			buffer.putBits(2, 3); // Sub opcode
-			buffer.putBits(7, local.getLocation().getSceneY(local.getPlayerFlags().getLastSceneGraph()));
-			buffer.putBits(1, local.getProperties().isTeleporting() ? 1 : 0);
-			buffer.putBits(2, local.getLocation().getZ());
-			flagMaskUpdate(local, local, buffer, flags, false, false);
-			buffer.putBits(7, local.getLocation().getSceneX(local.getPlayerFlags().getLastSceneGraph()));
-		} else {
-			renderLocalPlayer(local, local, buffer, flags);
-		}
-	}
+    /**
+     * Sets the update mask flag.
+     * @param local The local player.
+     * @param player The player to update.
+     * @param buffer The packet buffer.
+     * @param maskBuffer The mask buffer.
+     * @param sync If we should use the synced buffer.
+     * @param appearance If appearance update mask should be used in the synced
+     * buffer.
+     */
+    private fun flagMaskUpdate(local: Player, player: Player, buffer: IoBuffer, maskBuffer: IoBuffer, sync: Boolean, appearance: Boolean) {
+        if (player.updateMasks.isUpdateRequired) {
+            buffer.putBits(1, 1)
+            writeMaskUpdates(local, player, maskBuffer, appearance, sync)
+        } else {
+            buffer.putBits(1, 0)
+        }
+    }
 
-	/**
-	 * Sets the update mask flag.
-	 * @param local The local player.
-	 * @param player The player to update.
-	 * @param buffer The packet buffer.
-	 * @param maskBuffer The mask buffer.
-	 * @param sync If we should use the synced buffer.
-	 * @param appearance If appearance update mask should be used in the synced
-	 * buffer.
-	 */
-	private static void flagMaskUpdate(Player local, Player player, IoBuffer buffer, IoBuffer maskBuffer, boolean sync, boolean appearance) {
-		if (player.getUpdateMasks().isUpdateRequired()) {
-			buffer.putBits(1, 1);
-			writeMaskUpdates(local, player, maskBuffer, appearance, sync);
-		} else {
-			buffer.putBits(1, 0);
-		}
-	}
-
-	/**
-	 * Updates the player flags.
-	 * @param local The local player.
-	 * @param player The player to update.
-	 * @param flags The flags buffer.
-	 * @param appearance If we should force appearance.
-	 * @param sync If we should use the synced buffer.
-	 */
-	private static void writeMaskUpdates(Player local, Player player, IoBuffer flags, boolean appearance, boolean sync) {
-		if (sync) {
-			player.getUpdateMasks().writeSynced(local, player, flags, appearance);
-		} else if (player.getUpdateMasks().isUpdateRequired()) {
-			player.getUpdateMasks().write(local, player, flags);
-		}
-	}
+    /**
+     * Updates the player flags.
+     * @param local The local player.
+     * @param player The player to update.
+     * @param flags The flags buffer.
+     * @param appearance If we should force appearance.
+     * @param sync If we should use the synced buffer.
+     */
+    private fun writeMaskUpdates(local: Player, player: Player, flags: IoBuffer, appearance: Boolean, sync: Boolean) {
+        if (sync) {
+            player.updateMasks.writeSynced(local, player, flags, appearance)
+        } else if (player.updateMasks.isUpdateRequired) {
+            player.updateMasks.write(local, player, flags)
+        }
+    }
 }

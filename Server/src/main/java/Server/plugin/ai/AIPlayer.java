@@ -119,6 +119,11 @@ public class AIPlayer extends Player {
         this.getAppearance().sync();
     }
 
+    @Override
+    public void update() {
+        return;
+    }
+
     private void setLevels() {
         //Create realistic player stats
         int maxLevel = RandomFunction.random(1, Math.min(parseOSRS(1), 99));
