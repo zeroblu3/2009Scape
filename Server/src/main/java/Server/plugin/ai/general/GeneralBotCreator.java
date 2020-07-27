@@ -20,6 +20,24 @@ public class GeneralBotCreator {
             int ticks = 0;
             @Override
             public boolean pulse() {
+                if (!botScript.bot.getPulseManager().hasPulseRunning())
+                {
+                    botScript.tick();
+                }
+                return false;
+            }
+        });
+    }
+
+    public GeneralBotCreator(Script botScript, AIPlayer bot){
+        botScript.bot = bot;
+
+        botScript.init();
+
+        GameWorld.Pulser.submit(new Pulse(1, botScript.bot) {
+            int ticks = 0;
+            @Override
+            public boolean pulse() {
                 if (ticks ++ == 5000)
                 {
                     AIPlayer.deregister(botScript.bot.getUid());
@@ -28,7 +46,7 @@ public class GeneralBotCreator {
 
                 if (!botScript.bot.getPulseManager().hasPulseRunning())
                 {
-                    botScript.runLoop();
+                    botScript.tick();
                 }
                 return false;
             }

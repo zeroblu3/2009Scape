@@ -1,6 +1,8 @@
 package core.game.content.global.action;
 
 import core.game.system.config.GroundSpawnLoader;
+import plugin.ai.AIPlayer;
+import plugin.ai.AIRepository;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.GodType;
 import plugin.skill.runecrafting.RunePouch;
@@ -63,6 +65,9 @@ public final class PickupHandler {
 				player.getAchievementDiaryManager().updateTask(player, DiaryType.KARAMJA, 0, 7, seaweed == 5);
 			}
 			GroundItemManager.destroy(item);
+			if(item.getDropper().isArtificial()) {
+				AIRepository.getItems(item.getDropper()).remove(item);
+			}
 			player.getAudioManager().send(new Audio(2582, 10, 1));
 		}
 		return true;

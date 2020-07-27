@@ -218,7 +218,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
      */
     open fun isAttackable(entity: Entity, victim: Entity): InteractionType? {
         if (entity.location == victim.location) {
-            return if (entity.index < victim.index && victim.properties.combatPulse.victim === entity) {
+            return if (entity.index < victim.index && victim.properties.combatPulse.getVictim() === entity) {
                 InteractionType.STILL_INTERACT
             } else InteractionType.NO_INTERACT
         }

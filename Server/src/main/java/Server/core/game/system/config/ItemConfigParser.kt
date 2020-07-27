@@ -253,7 +253,7 @@ class ItemConfigParser {
                         "remove_head",
                         "destroy",
                         "lendable",
-                        "tradeable" -> configs.put(it.key.toString(),it.value.toString() == "1")
+                        "tradeable" -> configs.put(it.key.toString(),it.value.toString().toBoolean())
 
                         //doubles
                         "weight" -> configs.put(it.key.toString(),it.value.toString().toDouble())

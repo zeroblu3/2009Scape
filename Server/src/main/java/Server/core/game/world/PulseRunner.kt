@@ -1,104 +1,86 @@
-package core.game.world;
+package core.game.world
 
-import core.game.system.task.Pulse;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import core.game.system.task.Pulse
+import java.util.*
+import java.util.concurrent.Executors
+import java.util.concurrent.ThreadPoolExecutor
+import java.util.concurrent.TimeUnit
+import kotlin.math.floor
 
 /** new way of running pulses that multithreads based on core count automatically, should improve performance drastically.
- *  @author ceik
- *  @author eli
+ * @author ceik
+ * @author eli
  */
-public class PulseRunner {
-    public final int MAXIMUM_NUM_THREADS = 4;
-    public final int TARGET_PULSES_PER_THREAD = 100;
-    public final ThreadPoolExecutor ThreadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(MAXIMUM_NUM_THREADS - 1);
-    public final List<Pulse> TASKS = new ArrayList<>();
-    public int cores = Runtime.getRuntime().availableProcessors();
-    public ScheduledExecutorService EXECUTOR  = Executors.newSingleThreadScheduledExecutor();
+class PulseRunner {
+    val MAXIMUM_NUM_THREADS = 4
+    val TARGET_PULSES_PER_THREAD = 100
+    val ThreadPool = Executors.newFixedThreadPool(MAXIMUM_NUM_THREADS - 1) as ThreadPoolExecutor
+    val TASKS: MutableList<Pulse> = ArrayList()
+    var cores = Runtime.getRuntime().availableProcessors()
+    var EXECUTOR = Executors.newSingleThreadScheduledExecutor()
+    fun init(tickTimeMS: Int) {
+        EXECUTOR.scheduleAtFixedRate(Runner(), 1200, tickTimeMS.toLong(), TimeUnit.MILLISECONDS)
+    }
 
-    public void init(int tickTimeMS){ EXECUTOR.scheduleAtFixedRate(new Runner(),1200,tickTimeMS, TimeUnit.MILLISECONDS); }
+    fun submit(pulse: Pulse) {
+        TASKS.add(pulse)
+    }
 
-    public void submit(Pulse pulse){ TASKS.add(pulse); }
-
-    public class Runner implements Runnable {
-        @Override
-        public void run() {
-            long currTime = System.nanoTime();
-            List<Pulse> pulses = null;
-            pulses = new ArrayList<>(TASKS);
-            Object[] pulseArray = pulses.toArray();
-            int numThreads = 1 + (pulseArray.length / TARGET_PULSES_PER_THREAD);
-            if (numThreads > MAXIMUM_NUM_THREADS)
-                numThreads = MAXIMUM_NUM_THREADS;
-
-            long nowTime = System.nanoTime();
+    inner class Runner : Runnable {
+        override fun run() {
+            val currTime = System.nanoTime()
+            var pulses: MutableList<Pulse>? = null
+            pulses = ArrayList(TASKS)
+            val pulseArray: Array<Any?> = pulses.toTypedArray()
+            var numThreads = 1 + pulseArray.size / TARGET_PULSES_PER_THREAD
+            if (numThreads > MAXIMUM_NUM_THREADS) numThreads = MAXIMUM_NUM_THREADS
+            val nowTime = System.nanoTime()
             // Execute all the tasks not run on the first core
-            for (int i = 1; i < numThreads; i++) {
-                int pulsesLengthStart = (int) Math.floor((pulseArray.length / numThreads) * i);
-                int pulsesLengthEnd = (int) Math.floor((pulseArray.length / numThreads) * (i + 1));
-                if (i + 1 == numThreads)
-                    pulsesLengthEnd = pulseArray.length;
-                ThreadPool.execute(new PulseThread(pulsesLengthStart,pulsesLengthEnd,pulseArray));
+            for (i in 1 until numThreads) {
+                val pulsesLengthStart = floor(pulseArray.size / numThreads * i.toDouble()).toInt()
+                var pulsesLengthEnd = floor(pulseArray.size / numThreads * (i + 1).toDouble()).toInt()
+                if (i + 1 == numThreads) pulsesLengthEnd = pulseArray.size
+                ThreadPool.execute(PulseThread(pulsesLengthStart, pulsesLengthEnd, pulseArray))
             }
 
 
             // Execute the first core tasks all together just as before
-            int pulsesLengthStart = (int) Math.floor(pulseArray.length / numThreads);
-            for (int i = 0; i < pulsesLengthStart; i++) {
-                Pulse pulse = (Pulse) pulseArray[i];
-                if (pulse == null) {
-                    continue;
-                }
-                try {
-                    if(TASKS.contains(pulse)) {
-                        if (pulse.update()) {
-                            TASKS.remove(pulse);
-                        }
-                    }
-                } catch (Throwable t) {
-                    t.printStackTrace();
-                    pulse.stop();
-                    TASKS.remove(pulse);
-                }
-            }
-            pulses.clear();
-        }
-    }
-
-    public class PulseThread implements Runnable{
-        int threadStart, threadFinish;
-        Object[] pulseArray;
-        public PulseThread(int threadStart, int threadFinish, Object[] pulseArray){
-            this.threadStart = threadStart;
-            this.threadFinish = threadFinish;
-            this.pulseArray = pulseArray;
-        }
-
-        @Override
-        public void run() {
-            for (int i = threadStart; i < threadFinish; i++) {
-                Pulse pulse = (Pulse) pulseArray[i];
-                if (pulse == null) {
-                    continue;
-                }
+            val pulsesLengthStart = floor(pulseArray.size / numThreads.toDouble()).toInt()
+            for (i in 0 until pulsesLengthStart) {
+                val pulse = pulseArray[i] as Pulse? ?: continue
                 try {
                     if (TASKS.contains(pulse)) {
                         if (pulse.update()) {
-                            TASKS.remove(pulse);
+                            TASKS.remove(pulse)
                         }
                     }
-                } catch (Throwable t) {
-                    t.printStackTrace();
-                    pulse.stop();
-                    TASKS.remove(pulse);
+                } catch (t: Throwable) {
+                    t.printStackTrace()
+                    pulse.stop()
+                    TASKS.remove(pulse)
                 }
             }
+            pulses.clear()
         }
     }
 
+    inner class PulseThread(var threadStart: Int, var threadFinish: Int, var pulseArray: Array<Any?>) : Runnable {
+        override fun run() {
+            for (i in threadStart until threadFinish) {
+                val pulse = pulseArray[i] as Pulse? ?: continue
+                try {
+                    if (TASKS.contains(pulse)) {
+                        if (pulse.update()) {
+                            TASKS.remove(pulse)
+                        }
+                    }
+                } catch (t: Throwable) {
+                    t.printStackTrace()
+                    pulse.stop()
+                    TASKS.remove(pulse)
+                }
+            }
+        }
+
+    }
 }

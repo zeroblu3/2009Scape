@@ -21,6 +21,7 @@ import plugin.ai.AIPlayer
 import plugin.ai.general.GeneralBotCreator
 import plugin.ai.general.scriptrepository.LobsterCatcher
 import plugin.ai.general.scriptrepository.ManThiever
+import plugin.ai.pvmbots.CombatBotAssembler
 import plugin.ai.pvmbots.PvMBotsBuilder
 import plugin.ai.pvp.PVPAIPActions
 import plugin.ai.pvp.PVPAIPBuilderUtils
@@ -256,6 +257,8 @@ class AIPCommandPlugin : CommandPlugin() {
                     amountBots++
                 }
                 return true
+            }
+            "ranger" -> {
             }
             "removetask" -> return if (!player.slayer.hasTask()) {
                 player.sendMessage("You don't have an active task right now.")

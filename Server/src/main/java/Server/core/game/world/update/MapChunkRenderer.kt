@@ -1,80 +1,72 @@
-package core.game.world.update;
+package core.game.world.update
 
-import core.game.node.entity.player.Player;
-import core.game.world.map.RegionChunk;
-import core.game.world.map.Viewport;
-import core.net.packet.PacketRepository;
-import core.net.packet.context.ClearChunkContext;
-import core.net.packet.out.ClearRegionChunk;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import core.game.node.entity.player.Player
+import core.game.world.map.RegionChunk
+import core.net.packet.PacketRepository
+import core.net.packet.context.ClearChunkContext
+import core.net.packet.out.ClearRegionChunk
+import java.util.*
 
 /**
  * Handles the rendering of the player's surrounding map chunks.
  * @author Emperor
  */
-public final class MapChunkRenderer {
+object MapChunkRenderer {
+    /**
+     * Sends the map chunk rendering packet.
+     * @param player The player.
+     */
+    @JvmStatic
+    fun render(player: Player) {
+        val v = player.viewport
+        val last = player.playerFlags.lastViewport
+        val updated: MutableList<RegionChunk> = ArrayList()
+        val current = v.chunks
+        if (!Arrays.equals(current, last)) { //don't update if the viewport hasn't changed
+            var sizeX = last.size
+            for (x in 0 until sizeX) {
+                val sizeY: Int = last[x].size
+                for (y in 0 until sizeY) {
+                    val previous = last[x][y] ?: continue
+                    if (!containsChunk(current, previous)) {
+                        PacketRepository.send(ClearRegionChunk::class.java, ClearChunkContext(player, previous))
+                    } else {
+                        updated.add(previous)
+                    }
+                }
+            }
+            sizeX = current.size
+            for (x in 0 until sizeX) {
+                val sizeY: Int = current[x].size
+                for (y in 0 until sizeY) {
+                    val chunk = current[x][y]
+                    if (!updated.contains(chunk)) {
+                        chunk.synchronize(player)
+                    } else {
+                        chunk.update(player)
+                    }
+                    last[x][y] = current[x][y]
+                }
+            }
+        }
+    }
 
-	/**
-	 * Sends the map chunk rendering packet.
-	 * @param player The player.
-	 */
-	public static void render(Player player) {
-		Viewport v = player.getViewport();
-		RegionChunk[][] last = player.getPlayerFlags().getLastViewport();
-		List<RegionChunk> updated = new ArrayList<>();
-		RegionChunk[][] current = v.getChunks();
-		if(!Arrays.equals(current,last)) { //don't update if the viewport hasn't changed
-			int sizeX = last.length;
-			for (int x = 0;  x < sizeX; x++) {
-				int sizeY = last[x].length;
-				for (int y = 0; y < sizeY; y++) {
-					RegionChunk previous = last[x][y];
-					if (previous == null) {
-						continue;
-					}
-					if (!containsChunk(current, previous)) {
-						PacketRepository.send(ClearRegionChunk.class, new ClearChunkContext(player, previous));
-					} else {
-						updated.add(previous);
-					}
-				}
-			}
-			sizeX = current.length;
-			for (int x = 0; x < sizeX; x++) {
-				int sizeY = current[x].length;
-				for (int y = 0; y < sizeY; y++) {
-					RegionChunk chunk = current[x][y];
-					if (!updated.contains(chunk)) {
-						chunk.synchronize(player);
-					} else {
-						chunk.update(player);
-					}
-					last[x][y] = current[x][y];
-				}
-			}
-		}
-	}
-
-	/**
-	 * Checks if the chunks list contains the specified region chunk.
-	 * @param list The list to search.
-	 * @param c The region chunk.
-	 * @return {@code True} if so.
-	 */
-	private static boolean containsChunk(RegionChunk[][] list, RegionChunk c) {
-		int sizeList = list.length;
-		for (int x = 0; x < sizeList; x++) {
-			int chunkSize = list[x].length;
-			for (int y = 0; y < chunkSize; y++) {
-				if (list[x][y] == c) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
+    /**
+     * Checks if the chunks list contains the specified region chunk.
+     * @param list The list to search.
+     * @param c The region chunk.
+     * @return `True` if so.
+     */
+    private fun containsChunk(list: Array<Array<RegionChunk>>, c: RegionChunk): Boolean {
+        val sizeList = list.size
+        for (x in 0 until sizeList) {
+            val chunkSize: Int = list[x].size
+            for (y in 0 until chunkSize) {
+                if (list[x][y] === c) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }

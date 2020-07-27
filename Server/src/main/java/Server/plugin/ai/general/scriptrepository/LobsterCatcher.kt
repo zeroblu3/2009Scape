@@ -1,66 +1,153 @@
-package plugin.ai.general.scriptrepository;
+package plugin.ai.general.scriptrepository
 
-import plugin.skill.Skills;
-import core.game.node.Node;
-import core.game.node.item.Item;
-import core.game.world.map.Location;
-import core.game.world.map.path.Pathfinder;
-import core.tools.RandomFunction;
+import core.game.interaction.DestinationFlag
+import core.game.interaction.MovementPulse
+import core.game.node.item.Item
+import core.game.system.SystemLogger
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
+import core.game.world.map.Location
+import core.game.world.map.path.Pathfinder
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphics
+import core.tools.ItemNames
+import core.tools.RandomFunction
 
-import java.util.Arrays;
-import java.util.List;
+import plugin.skill.Skills
+
+class LobsterCatcher : Script() {
+    private val ANIMATION = Animation(714)
+
+    /**
+     * Represents the graphics to use.
+     */
+    private val GRAPHICS = Graphics(308, 100, 50)
+    internal enum class Sets(val equipment: List<Item>) {
+        SET_1(listOf(Item(2643), Item(9470), Item(10756), Item(10394), Item(88), Item(9793))),
+        SET_2(listOf(Item(2643), Item(6585), Item(10750), Item(10394), Item(88), Item(9793))),
+        SET_3(listOf(Item(9472), Item(9470), Item(10750), Item(10394), Item(88), Item(9786))),
+        SET_4(listOf(Item(2639), Item(6585), Item(10752), Item(10394), Item(88), Item(9786))),
+        SET_5(listOf(Item(2639), Item(9470), Item(10750), Item(10394), Item(88), Item(9784))),
+        SET_6(listOf(Item(2639), Item(6585), Item(10750), Item(10394), Item(88), Item(9784)));
+
+    }
 
 
-public class LobsterCatcher extends Script {
+    private var state = State.FIND_SPOT
+    private var tick = 0
+    override fun tick() {
+        when(state){
 
-    enum Sets {
 
-        SET_1 (Arrays.asList(new Item(2643), new Item(9470), new Item(10756), new Item(10394), new Item(88), new Item(9793))),
-        SET_2 (Arrays.asList(new Item(2643), new Item(6585), new Item(10750), new Item(10394), new Item(88), new Item(9793))),
-        SET_3 (Arrays.asList(new Item(9472), new Item(9470), new Item(10750), new Item(10394), new Item(88), new Item(9786))),
-        SET_4 (Arrays.asList(new Item(2639), new Item(6585), new Item(10752), new Item(10394), new Item(88), new Item(9786))),
-        SET_5 (Arrays.asList(new Item(2639), new Item(9470), new Item(10750), new Item(10394), new Item(88), new Item(9784))),
-        SET_6 (Arrays.asList(new Item(2639), new Item(6585), new Item(10750), new Item(10394), new Item(88), new Item(9784)));
+            State.BANKING -> {
+                val numFish = bot.inventory.getAmount(ItemNames.RAW_LOBSTER)
+                bot.inventory.remove(Item(ItemNames.RAW_LOBSTER,numFish))
+                bot.bank.add(Item(ItemNames.RAW_LOBSTER,numFish))
+                if(bot.bank.getAmount(ItemNames.RAW_LOBSTER) > 100){
+                    state = State.TELEPORT_GE
+                } else {
+                    state = State.FIND_SPOT
+                }
+                SystemLogger.log("Fish banked: " + bot.bank.getAmount(ItemNames.RAW_LOBSTER))
+            }
 
-        private List<Item> equipment;
 
-        Sets(List<Item> equipment) {
-            this.equipment = equipment;
-        }
+            State.FISHING -> {
+                val spot = scriptAPI.getNearestNode(333, false)
+                println("LobsterCatcher: $tick")
+                spot!!.interaction.handle(bot, spot.interaction[0])
+                state = State.FIND_BANK
+            }
 
-        public List<Item> getEquipment() {
-            return equipment;
+
+            State.FIND_SPOT -> {
+                val spot = scriptAPI.getNearestNode(333, false)
+                if (spot != null) {
+                    bot.walkingQueue.reset()
+                    state = State.FISHING
+                    println("LobsterCatcher: " + spot.location.toString())
+                } else {
+                    if (bot.location.x < 2837) {
+                        Pathfinder.find(bot, Location.create(2837, 3435, 0)).walk(bot)
+                    } else {
+                        Pathfinder.find(bot, Location.create(2854, 3427, 0)).walk(bot)
+                    }
+                }
+            }
+
+
+            State.FIND_BANK -> {
+                val bank = scriptAPI.getNearestGameObject(bot.location, 2213)
+                class BankingPulse : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                    override fun pulse(): Boolean {
+                        bot.faceLocation(bank!!.location)
+                        state = State.BANKING
+                        return true
+                    }
+                }
+                if(bank != null){
+                    bot.pulseManager.run(BankingPulse())
+                } else {
+                    if (bot.location.x > 2837) {
+                        Pathfinder.find(bot, Location.create(2837, 3435, 0)).walk(bot)
+                    } else if (bot.location.x > 2821) {
+                        Pathfinder.find(bot, Location.create(2821, 3435, 0)).walk(bot)
+                    } else if (bot.location.x > 2809){
+                        Pathfinder.find(bot,Location.create(2809, 3436, 0)).walk(bot)
+                    }
+                }
+            }
+
+
+            State.TELEPORT_GE -> {
+                scriptAPI.teleportToGE()
+                state = State.SELL_GE
+            }
+
+
+            State.SELL_GE -> {
+                scriptAPI.sellOnGE(ItemNames.RAW_LOBSTER)
+                state = State.TELE_CATH
+            }
+
+
+            State.TELE_CATH -> {
+                if(tick++ == 10) {
+                    bot.lock()
+                    bot.visualize(ANIMATION, GRAPHICS)
+                    bot.impactHandler.disabledTicks = 4
+                    val location = Location.create(2819, 3437, 0)
+                    GameWorld.Pulser.submit(object : Pulse(4, bot) {
+                        override fun pulse(): Boolean {
+                            bot.unlock()
+                            bot.properties.teleportLocation = location
+                            bot.animator.reset()
+                            state = State.FIND_SPOT
+                            return true
+                        }
+                    })
+                }
+            }
+
+
         }
     }
 
-    private int tick = 0;
 
-    public LobsterCatcher() {
-        int setUp = RandomFunction.random(Sets.values().length);
-        this.equipment.addAll(Sets.values()[setUp].getEquipment());
-        this.inventory.add(new Item(301));
-        this.skills.put(Skills.FISHING, 40);
+    init {
+        val setUp = RandomFunction.random(Sets.values().size)
+        equipment.addAll(Sets.values()[setUp].equipment)
+        inventory.add(Item(301))
+        skills[Skills.FISHING] = 40
     }
 
-    @Override
-    public void runLoop() {
-        tick++;
-        Node spot = scriptAPI.getNearestNode(333);
-        Node bank = scriptAPI.getNearestNode(2213);
-
-
-        Pathfinder.find(bot, Location.create(2837, 3435, 0)).walk(bot);
-
-        if (spot != null) {
-            System.out.println("LobsterCatcher: " + spot.getLocation().toString());
-            spot.getInteraction().handle(bot, spot.getInteraction().get(0));
-        }
-
-
-        if (bot.getInventory().isFull()) {
-            bank.getInteraction().handle(bot, bank.getInteraction().get(2));
-        }
-                 
-        System.out.println("LobsterCatcher: " + tick);
+    enum class State{
+        FISHING,
+        BANKING,
+        FIND_BANK,
+        FIND_SPOT,
+        TELEPORT_GE,
+        SELL_GE,
+        TELE_CATH
     }
 }

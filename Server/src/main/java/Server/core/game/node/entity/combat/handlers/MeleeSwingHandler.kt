@@ -35,7 +35,7 @@ open class MeleeSwingHandler
         var distance = if (usingHalberd(entity)) 2 else 1
         var type = InteractionType.STILL_INTERACT
         var goodRange = canMelee(entity, victim, distance)
-        if (!goodRange && victim.properties.combatPulse.victim !== entity && victim.walkingQueue.isMoving && entity.size() == 1) {
+        if (!goodRange && victim.properties.combatPulse.getVictim() !== entity && victim.walkingQueue.isMoving && entity.size() == 1) {
             type = InteractionType.MOVE_INTERACT
             distance += if (entity.walkingQueue.isRunningBoth) 2 else 1
             goodRange = canMelee(entity, victim, distance)
@@ -148,9 +148,9 @@ open class MeleeSwingHandler
             prayer += entity.prayer.getSkillBonus(Skills.ATTACK)
         }
         var additional = 1.0 // Black mask/slayer helmet/salve/...
-        if (entity.properties.combatPulse.victim != null) {
-            if (!entity.properties.combatPulse.victim.isPlayer && entity is Player) {
-                if (checkUndead(entity.getProperties().combatPulse.victim.name) && entity.asPlayer().equipment[EquipmentContainer.SLOT_AMULET] != null) {
+        if (entity.properties.combatPulse.getVictim() != null) {
+            if (!entity.properties.combatPulse.getVictim()!!.isPlayer && entity is Player) {
+                if (checkUndead(entity.getProperties().combatPulse.getVictim()!!.name) && entity.asPlayer().equipment[EquipmentContainer.SLOT_AMULET] != null) {
                     if (entity.asPlayer().equipment[EquipmentContainer.SLOT_AMULET].id == 10588) {
                         additional += 0.20
                     } else if (entity.isPlayer() && entity.asPlayer().equipment[EquipmentContainer.SLOT_AMULET].id == 4081) {
@@ -215,7 +215,7 @@ open class MeleeSwingHandler
             val c: Container = e.equipment
             val itemId = c.getNew(EquipmentContainer.SLOT_HAT).id
             if ((skillId == Skills.ATTACK || skillId == Skills.STRENGTH) && (itemId in 8901..8921 || itemId == 13263)) {
-                val victim = e.getProperties().combatPulse.victim
+                val victim = e.getProperties().combatPulse.getVictim()
                 if (victim is NPC && victim.task == e.slayer.task) {
                     return 1.15
                 }
@@ -337,7 +337,7 @@ open class MeleeSwingHandler
                 if (e == victim.location) {
                     return true
                 }
-                return victim.getSwingHandler(false).type == CombatStyle.MELEE && e.withinDistance(victim.location, 1) && victim.properties.combatPulse.victim === entity && entity.index < victim.index
+                return victim.getSwingHandler(false).type == CombatStyle.MELEE && e.withinDistance(victim.location, 1) && victim.properties.combatPulse.getVictim() === entity && entity.index < victim.index
             }
             return entity.centerLocation.withinDistance(victim.centerLocation, distance + (size shr 1) + (victim.size() shr 1))
         }

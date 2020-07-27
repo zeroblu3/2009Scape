@@ -8,6 +8,7 @@ import core.game.interaction.SpecialGroundItems;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
+import core.game.system.SystemLogger;
 import plugin.ai.AIPlayer;
 import core.game.node.item.GroundItem;
 import core.game.node.item.GroundItemManager;
@@ -259,6 +260,7 @@ public final class InteractionPacket implements IncomingPacket {
 		if(PluginInteractionManager.handle(player,object)){
 			return;
 		}
+		SystemLogger.log(optionIndex + " for stairs");
 		object.getInteraction().handle(player, option);
 	}
 

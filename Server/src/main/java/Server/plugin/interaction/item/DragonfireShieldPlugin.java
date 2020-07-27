@@ -99,7 +99,7 @@ public final class DragonfireShieldPlugin extends OptionHandler {
 			attack.setHandler(handler);
 			Entity victim = player.getProperties().getCombatPulse().getVictim();
 			if (player.getProperties().getCombatPulse().isAttacking() && handler.canSwing(player, victim) == InteractionType.STILL_INTERACT) {
-				CombatPulse.swing(player, victim, handler);
+				CombatPulse.Companion.swing(player, victim, handler);
 				return true;
 			}
 			player.getProperties().getCombatPulse().setTemporaryHandler(handler);

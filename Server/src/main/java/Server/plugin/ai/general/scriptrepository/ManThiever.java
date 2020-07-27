@@ -11,7 +11,7 @@ public class ManThiever extends Script {
     }
 
     @Override
-    public void runLoop() {
+    public void tick() {
         Node man = scriptAPI.getNearestNode("Man");
 
         if (man != null) {

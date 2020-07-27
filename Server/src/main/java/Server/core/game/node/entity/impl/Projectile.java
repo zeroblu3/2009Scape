@@ -2,6 +2,7 @@ package core.game.node.entity.impl;
 
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
+import core.game.system.SystemLogger;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.chunk.ProjectileUpdateFlag;
@@ -314,6 +315,7 @@ public class Projectile {
 		if (npc) {
 			this.distance = source.size() << 5;
 		}
+		SystemLogger.log("Magic spell source: " + source.getName() + " x: " + sourceLocation.getX() + " y:" + sourceLocation.getY());
 		return this;
 	}
 
