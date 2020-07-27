@@ -84,7 +84,7 @@ public final class DescentOfDarknessSpecialHandler extends RangeSwingHandler imp
 		state.setRangeWeapon(rw);
 		state.setAmmunition(Ammunition.get(w.getAmmunition().getId()));
 		state.setWeapon(w);
-		if (!hasAmmo(entity, state)) {
+		if (!Companion.hasAmmo(entity, state)) {
 			entity.getProperties().getCombatPulse().stop();
 			p.getSettings().toggleSpecialBar();
 			return -1;
@@ -109,7 +109,7 @@ public final class DescentOfDarknessSpecialHandler extends RangeSwingHandler imp
 			}
 			state.setSecondaryHit(hit);
 		}
-		useAmmo(entity, state, victim.getLocation());
+		Companion.useAmmo(entity, state, victim.getLocation());
 		return 1 + (int) Math.ceil(entity.getLocation().getDistance(victim.getLocation()) * 0.3);
 	}
 

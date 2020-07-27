@@ -33,7 +33,7 @@ public class GodBookPlugin extends OptionHandler {
 			book.getDamagedBook().getDefinition().getConfigurations().put("option:check", this);
 			book.getBook().getDefinition().getConfigurations().put("option:preach", this);
 		}
-		PluginManager.definePlugin(new PageHandler(), new GodBookDialogue(), new GodBookItem(), new SymbolBlessHandler());
+		PluginManager.definePlugins(new PageHandler(), new GodBookDialogue(), new GodBookItem(), new SymbolBlessHandler());
 		return this;
 	}
 

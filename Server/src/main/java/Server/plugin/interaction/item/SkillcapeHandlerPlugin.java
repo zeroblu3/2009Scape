@@ -33,7 +33,7 @@ public class SkillcapeHandlerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		PluginManager.definePlugin(new FishingCapePlugin(), new SkillcapeOperateDialogue());
+		PluginManager.definePlugins(new FishingCapePlugin(), new SkillcapeOperateDialogue());
 		for (int id : SKILLCAPES) {
 			ItemDefinition.forId(id).getConfigurations().put("option:operate", this);
 		}

@@ -56,7 +56,7 @@ public class WildernessAreaZone extends MapZone implements Plugin<Object> {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		ZoneBuilder.configure(this);
-		PluginManager.definePlugin(new MandrithDialoguePlugin(), new PilesDialoguePlugin(), new PilesItemHandler(), new RuniteGolemNPC());
+		PluginManager.definePlugins(new MandrithDialoguePlugin(), new PilesDialoguePlugin(), new PilesItemHandler(), new RuniteGolemNPC());
 		return this;
 	}
 

@@ -408,7 +408,6 @@ public class StatisticsTab extends ConsoleTab {
         sb.append("NPCs: ").append(Repository.getNpcs().size()).append("\n");
         sb.append("Regions: ").append(RegionManager.getRegionCache().size()).append("\n");
         sb.append("Ground items: ").append(GroundItemManager.getItems().size()).append("\n");
-        sb.append("Plugins: ").append(PluginManager.getAmountLoaded()).append("\n");
         worldStatistics.setText(sb.toString());
     }
 

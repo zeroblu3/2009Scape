@@ -75,7 +75,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 	 */
 	public BasketofEggsEvent() {
 		super("Basket of Eggs", HolidayType.EASTER, 1086, 16, 2);
-		PluginManager.definePlugin(new BasketofEggsPlugin(), new EasterBunnyDialogue(), new RubberchickenPlugin(), new ChocolateEggPlugin(), new EasterItemPlugin());
+		PluginManager.definePlugins(new BasketofEggsPlugin(), new EasterBunnyDialogue(), new RubberchickenPlugin(), new ChocolateEggPlugin(), new EasterItemPlugin());
 	}
 
 	@Override

@@ -64,9 +64,9 @@ public final class AncientMaceSpecialHandler extends MeleeSwingHandler implement
 	}
 
 	@Override
-	protected int getFormatedHit(Entity entity, Entity victim, BattleState state, int hit) {
+	protected int getFormattedHit(Entity entity, Entity victim, BattleState state, int hit) {
 		// Disables protection prayers.
-		return formatHit(entity, victim, hit);
+		return formatHit(victim, hit);
 	}
 
 	@Override

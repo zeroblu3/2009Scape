@@ -46,7 +46,7 @@ public final class ErnestTheChicken extends Quest {
 
 	@Override
 	public Quest newInstance(Object object) {
-		PluginManager.definePlugin(new ErnestNPC(), new ErnestChickenNPC());
+		PluginManager.definePlugins(new ErnestNPC(), new ErnestChickenNPC());
 		return this;
 	}
 

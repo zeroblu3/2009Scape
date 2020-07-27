@@ -142,7 +142,7 @@ public final class DuelArenaActivity extends ActivityPlugin {
 		parseScoreboard();
 		register(new ZoneBorders(3325, 3201, 3396, 3280));
 		PluginManager.definePlugin(new DuelArea.ForfeitTrapdoorPlugin());
-		PluginManager.definePlugin(new DuelSession(null, null, false), new DuelComponentPlugin(), new ChallengeOptionPlugin());
+		PluginManager.definePlugins(new DuelSession(null, null, false), new DuelComponentPlugin(), new ChallengeOptionPlugin());
 	}
 
 	/**

@@ -13,9 +13,9 @@ import java.io.File
 
 @InitializablePlugin
 class SimpleDumpingCommands : CommandPlugin() {
-    override fun parse(player: Player?, name: String?, args: Array<out String>?): Boolean {
+    override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {
         when(name) {
-            "make" -> handleMake(player,args?.toList()).also { return true }
+            "make" -> handleMake(player, args?.toList() as List<String>?).also { return true }
         }
         return false
     }
@@ -88,7 +88,7 @@ class SimpleDumpingCommands : CommandPlugin() {
         writer.close()
     }
 
-    override fun newInstance(arg: Any?): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any?>? {
         link(CommandSet.ADMINISTRATOR)
         return this
     }

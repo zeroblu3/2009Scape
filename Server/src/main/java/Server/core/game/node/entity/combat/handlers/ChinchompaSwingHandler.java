@@ -59,7 +59,7 @@ public final class ChinchompaSwingHandler extends RangeSwingHandler {
 		state.setRangeWeapon(rw);
 		state.setAmmunition(Ammunition.get(w.getAmmunition().getId()));
 		state.setWeapon(w);
-		if (!hasAmmo(entity, state)) {
+		if (!Companion.hasAmmo(entity, state)) {
 			entity.getProperties().getCombatPulse().stop();
 			return -1;
 		}
@@ -80,7 +80,7 @@ public final class ChinchompaSwingHandler extends RangeSwingHandler {
 			}
 		}
 		state.setTargets(targets);
-		useAmmo(entity, state, null);
+		Companion.useAmmo(entity, state, null);
 		return 2 + (int) Math.ceil(entity.getLocation().getDistance(victim.getLocation()) * 0.3);
 	}
 

@@ -147,7 +147,7 @@ public class DeathMansionEvent extends HolidayEvent {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		if (isActive()) {
-			PluginManager.definePlugin(new DarkPortalHandler(), new DeathPortalZone(), new GrimReaperDialogue(), new MuncherDialogue(), new MuncherNPC(), new GrimItemHandler());
+			PluginManager.definePlugins(new DarkPortalHandler(), new DeathPortalZone(), new GrimReaperDialogue(), new MuncherDialogue(), new MuncherNPC(), new GrimItemHandler());
 		}
 		return super.newInstance(arg);
 	}

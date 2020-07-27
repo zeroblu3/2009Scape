@@ -77,7 +77,7 @@ public final class MerlinCrystal extends Quest {
 
 	@Override
 	public Quest newInstance(Object object) {
-		PluginManager.definePlugin(new CrateCutscenePlugin(), new MerlinCrystalPlugin(), new ArheinShopDialogue(), new BeggarDialogue(), new CandleMakerDialogue(), new KingArthurDialogue(), new MerlinCrystalOptionPlugin(), new SirKayDialogue(), new SirLancelotDialogue(), new SirLucan(), new SirMordredNPC(), new SirPalomedes(), new TheLadyOfTheLake(), new ThrantaxDialogue());
+		PluginManager.definePlugins(new CrateCutscenePlugin(), new MerlinCrystalPlugin(), new ArheinShopDialogue(), new BeggarDialogue(), new CandleMakerDialogue(), new KingArthurDialogue(), new MerlinCrystalOptionPlugin(), new SirKayDialogue(), new SirLancelotDialogue(), new SirLucan(), new SirMordredNPC(), new SirPalomedes(), new TheLadyOfTheLake(), new ThrantaxDialogue());
 		return this;
 	}
 

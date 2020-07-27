@@ -60,7 +60,7 @@ public class IronTitanNPC extends Familiar {
 							state.setEstimatedHit(hit);
 						}
 						state.setEstimatedHit(hit);
-						state.setStyle(current.getStyle());
+						state.setStyle(getCurrent().getStyle());
 					}
 					states[0] = s;
 					s.setTargets(states);

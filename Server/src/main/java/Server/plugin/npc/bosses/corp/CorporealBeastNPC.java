@@ -161,13 +161,13 @@ public final class CorporealBeastNPC extends AbstractNPC {
 				return -1;
 			}
 			//Location based attack.
-			if (super.next.getProjectile() != null && super.next.getProjectile().getProjectileId() == 1824) {
-				current = next;
-				CombatStyle style = current.getStyle();
+			if (super.getNext().getProjectile() != null && super.getNext().getProjectile().getProjectileId() == 1824) {
+				setCurrent(getNext());
+				CombatStyle style = getCurrent().getStyle();
 				setType(style);
 				int index = RandomFunction.randomize(super.getAttacks().length);
 				SwitchAttack pick = getNext(entity, victim, state, index);
-				next = pick;
+				setNext(pick);
 				fireLocationBasedAttack(entity, victim.getLocation());
 				entity.getProperties().getCombatPulse().setNextAttack(entity.getProperties().getAttackSpeed());
 				return -1;
@@ -207,7 +207,7 @@ public final class CorporealBeastNPC extends AbstractNPC {
 		 * @param location The location.
 		 */
 		private void fireLocationBasedAttack(final Entity entity, final Location location) {
-			entity.animate(current.getAnimation());
+			entity.animate(getCurrent().getAnimation());
 			Projectile.create(entity, null, 1824, 60, 0, 41, 0).transform(entity, location, true, 46, 10).send();
 			int ticks = 1 + (int) Math.ceil(entity.getLocation().getDistance(location) * 0.5);
 			GameWorld.Pulser.submit(new Pulse(ticks) {
@@ -286,7 +286,7 @@ public final class CorporealBeastNPC extends AbstractNPC {
 		@Override
 		public void adjustBattleState(Entity entity, Entity victim, BattleState state) {
 			super.adjustBattleState(entity, victim, state);
-			if (current.getProjectile() != null && current.getProjectile().getProjectileId() == 1823) {
+			if (getCurrent().getProjectile() != null && getCurrent().getProjectile().getProjectileId() == 1823) {
 				if (state.getEstimatedHit() > 0) {
 					int random = RandomFunction.random(3);
 					int skill = random == 0 ? Skills.PRAYER : random == 1 ? Skills.MAGIC : Skills.SUMMONING;
@@ -310,11 +310,11 @@ public final class CorporealBeastNPC extends AbstractNPC {
 		}
 		
 		@Override
-		protected int getFormatedHit(Entity entity, Entity victim, BattleState state, int hit) {
-			if (current.getProjectile() == null || current.getProjectile().getProjectileId() != 1825) {
+		protected int getFormattedHit(Entity entity, Entity victim, BattleState state, int hit) {
+			if (getCurrent().getProjectile() == null || getCurrent().getProjectile().getProjectileId() != 1825) {
 				hit = (int) entity.getFormatedHit(state, hit);
 			}
-			return formatHit(entity, victim, hit);
+			return formatHit(victim, hit);
 		}
 	}
 }

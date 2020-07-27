@@ -1,7 +1,10 @@
 package core.game.node.entity.npc.drop;
 
 import core.cache.def.impl.NPCDefinition;
+import core.game.node.item.GroundItem;
 import core.game.system.config.ItemConfigParser;
+import plugin.ai.AIPlayer;
+import plugin.ai.AIRepository;
 import plugin.drops.DropPlugins;
 import plugin.ge.GrandExchangeDatabase;
 import core.game.content.global.Bones;
@@ -159,11 +162,14 @@ public final class NPCDropTables {
 		    player.sendMessage("<col=990000>A mystery box has fallen on the ground.</col>");
 		}
 		sendDropMessage(player, npc.getId(), item);
-		if (player != null) {
-			GroundItemManager.create(item, l, getLooter(player, npc, item));
-		} else {
+		if (player == null) {
 			if (item != null) {
 				GroundItemManager.create(item, l);
+			}
+		} else {
+			GroundItem groundItem = GroundItemManager.create(item, l, getLooter(player, npc, item));
+			if(player instanceof AIPlayer) {
+				AIRepository.addItem(groundItem);
 			}
 		}
 	}

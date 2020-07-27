@@ -101,6 +101,7 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
 	public int swing(Entity entity, Entity victim, BattleState state) {
 		int max = calculateHit(entity, victim, 1.0);
 		int hit = RandomFunction.random(max);
+		assert state != null;
 		state.setMaximumHit(max);
 		state.setStyle(CombatStyle.MAGIC);
 		state.setEstimatedHit(hit);
@@ -154,6 +155,7 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
 
 	@Override
 	public void impact(Entity entity, Entity victim, BattleState state) {
+		assert state != null;
 		int hit = state.getEstimatedHit();
 		if (hit > -1) {
 			victim.getImpactHandler().handleImpact(entity, hit, CombatStyle.MAGIC, state);
@@ -178,8 +180,8 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
 	}
 
 	@Override
-	protected int getFormatedHit(Entity entity, Entity victim, BattleState state, int hit) {
-		return formatHit(entity, victim, hit);
+	protected int getFormattedHit(Entity entity, Entity victim, BattleState state, int hit) {
+		return formatHit(victim, hit);
 	}
 
 	@Override

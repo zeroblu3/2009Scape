@@ -52,7 +52,7 @@ public class MageTrainingArenaPlugin extends OptionHandler {
 		ItemDefinition.forId(TelekineticZone.STATUE).getConfigurations().put("option:observe", this);
 		ItemDefinition.forId(TelekineticZone.STATUE).getConfigurations().put("option:reset", this);
 		NPCDefinition.forId(3102).getConfigurations().put("option:talk-to", this);
-		PluginManager.definePlugin(new CharmedWarriorDialogue(), new EntranceGuardianDialogue(), new RewardsGuardianDialogue(), new ProgressHatDialogue(), new EnchantmentGuardianDialogue(), new EnchantSpell(), new BonesConvertingSpells(), new GraveyardGuardianDialogue(), new AlchemyGuardianDialogue(), new AlchemySpell(), new TelekineticGrabSpell(), new TelekineticGuardianDialogue(), new MazeGuardianDialogue());
+		PluginManager.definePlugins(new CharmedWarriorDialogue(), new EntranceGuardianDialogue(), new RewardsGuardianDialogue(), new ProgressHatDialogue(), new EnchantmentGuardianDialogue(), new EnchantSpell(), new BonesConvertingSpells(), new GraveyardGuardianDialogue(), new AlchemyGuardianDialogue(), new AlchemySpell(), new TelekineticGrabSpell(), new TelekineticGuardianDialogue(), new MazeGuardianDialogue());
 		return this;
 	}
 

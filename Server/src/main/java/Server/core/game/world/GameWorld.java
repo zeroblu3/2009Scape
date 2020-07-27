@@ -3,6 +3,8 @@ package core.game.world;
 import core.ServerConstants;
 import core.cache.Cache;
 import core.cache.ServerStore;
+import core.cache.def.Definition;
+import core.cache.def.impl.ObjectDefinition;
 import core.game.system.config.ConfigParser;
 import plugin.CorePluginTypes.StartupPlugin;
 import plugin.ge.GrandExchangeDatabase;
@@ -180,6 +182,7 @@ public final class GameWorld {
         System.gc();
         FastPulser.init(20);
         Pulser.init(600);
+        ObjectDefinition.getDefinitions().values().forEach(Definition::getExamine);
     }
 
 

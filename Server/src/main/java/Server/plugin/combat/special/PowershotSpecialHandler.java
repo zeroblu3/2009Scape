@@ -44,7 +44,7 @@ public final class PowershotSpecialHandler extends RangeSwingHandler implements 
 	public int swing(Entity entity, Entity victim, BattleState state) {
 		Player p = (Player) entity;
 		configureRangeData(p, state);
-		if (state.getWeapon() == null || !hasAmmo(entity, state)) {
+		if (state.getWeapon() == null || !Companion.hasAmmo(entity, state)) {
 			entity.getProperties().getCombatPulse().stop();
 			p.getSettings().toggleSpecialBar();
 			return -1;
@@ -58,7 +58,7 @@ public final class PowershotSpecialHandler extends RangeSwingHandler implements 
 		}
 		entity.asPlayer().getAudioManager().send(2536);
 		state.setEstimatedHit(hit);
-		useAmmo(entity, state, victim.getLocation());
+		Companion.useAmmo(entity, state, victim.getLocation());
 		return 1 + (int) Math.ceil(entity.getLocation().getDistance(victim.getLocation()) * 0.3);
 	}
 

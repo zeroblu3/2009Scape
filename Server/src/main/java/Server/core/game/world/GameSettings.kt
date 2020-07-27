@@ -105,7 +105,6 @@ class GameSettings
         fun parse(path: String): GameSettings? {
             val f = File(path)
             if (!f.exists()) {
-                SystemLogger.log("Could not find server config at $path")
                 return null
             }
             val factory = DocumentBuilderFactory.newInstance()

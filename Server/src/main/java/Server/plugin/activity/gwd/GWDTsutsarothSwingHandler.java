@@ -129,13 +129,13 @@ public final class GWDTsutsarothSwingHandler extends CombatSwingHandler {
 	}
 
 	@Override
-	protected int getFormatedHit(Entity entity, Entity victim, BattleState state, int hit) {
+	protected int getFormattedHit(Entity entity, Entity victim, BattleState state, int hit) {
 		if (!special) {
 			if (state.getArmourEffect() != ArmourSet.VERAC && victim.hasProtectionPrayer(state.getStyle())) {
 				hit *= entity instanceof Player ? 0.6 : 0;
 			}
 		}
-		return formatHit(entity, victim, hit);
+		return formatHit(victim, hit);
 	}
 
 	@Override

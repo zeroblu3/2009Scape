@@ -44,7 +44,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
 		ComponentDefinition.forId(161).setPlugin(this);//assignment
 		ComponentDefinition.forId(163).setPlugin(this);//learn
 		ComponentDefinition.forId(164).setPlugin(this);//buy
-		PluginManager.definePlugin(new SlayerMasterPlugin(), new SlayerHelmCraftPlugin());
+		PluginManager.definePlugins(new SlayerMasterPlugin(), new SlayerHelmCraftPlugin());
 		return this;
 	}
 
