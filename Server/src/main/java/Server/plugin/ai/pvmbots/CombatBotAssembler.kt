@@ -68,7 +68,7 @@ class CombatBotAssembler {
             var totalXPAdd = 0.0
             var skillAmt = 0.0
             var levelSum = 0
-            val variance = 0.35
+            val variance = 0.50
             var initial = when (tier) {
                 Tier.LOW -> RandomFunction.random(33)
                 Tier.MED -> RandomFunction.random(33, 66)
@@ -76,15 +76,16 @@ class CombatBotAssembler {
             }
             for (skill in skills.indices) {
                 val perc = RandomFunction.random(-variance,variance)
-                val level = initial +  (perc * 33).toInt()
+                var level = initial +  (perc * 33).toInt()
+                if(level < 1)
+                    level = 1
+                if(level > 33)
+                    level = 33
                 SystemLogger.log("$perc percentage being used for this skill.")
                 bot.skills.setLevel(skills[skill], level).also { totalXPAdd += bot.skills.getExperience(skills[skill]) }
                 bot.skills.setStaticLevel(skills[skill], level)
                 SystemLogger.log("Setting ${skills[skill]} as level $level")
                 skillAmt++
-            }
-            for(skill in skills.indices) {
-
             }
             bot.skills.addExperience(Skills.HITPOINTS, (totalXPAdd / skillAmt) * 0.2)
             bot.skills.updateCombatLevel()
