@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class131 {
 
    static int anInt1716;
-   private static RSString aClass94_1717 = RSString.createRSString("Prepared sound engine");
    short[] aShortArray1718;
    static int anInt1719 = -1;
    int anInt1720;
@@ -12,13 +11,9 @@ final class Class131 {
    static CacheIndex aClass153_1723;
    static RSString aClass94_1724 = RSString.createRSString(" )2>");
    int[] anIntArray1725;
-   private static RSString aClass94_1726 = RSString.createRSString("Select");
    short[] aShortArray1727;
-   static RSString aClass94_1728 = RSString.createRSString("Eingabeprozedur geladen)3");
    static int[] anIntArray1729 = new int[]{12543016, 15504954, 15914854, 16773818};
    byte[] aByteArray1730;
-   static RSString aClass94_1731 = aClass94_1717;
-static RSString aClass94_1722 = aClass94_1726;
 
    static final void addLocalPlayers(int var0) {
       try {
@@ -117,10 +112,6 @@ static RSString aClass94_1722 = aClass94_1726;
 
    static final void method1790(int var0, int var1, int var2) {
       try {
-         if(var2 < 90) {
-            aClass94_1731 = (RSString)null;
-         }
-
          Class3_Sub28_Sub6 var3 = Class3_Sub24_Sub3.method466(4, 5, var0);
          var3.g((byte)33);
          var3.anInt3598 = var1;
@@ -142,11 +133,6 @@ static RSString aClass94_1722 = aClass94_1726;
          anIntArray1729 = null;
          if(var0 == 0) {
             aClass153_1723 = null;
-            aClass94_1726 = null;
-            aClass94_1731 = null;
-            aClass94_1717 = null;
-            aClass94_1722 = null;
-            aClass94_1728 = null;
             aClass94_1724 = null;
          }
       } catch (RuntimeException var2) {

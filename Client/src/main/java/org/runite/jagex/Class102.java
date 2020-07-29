@@ -12,7 +12,6 @@ final class Class102 implements Interface2 {
    private byte[] aByteArray2129;
    static int anInt2130;
    static Class135[] aClass135Array2131 = new Class135[50];
-   static RSString aClass94_2132 = RSString.createRSString("Titelbild ge-Offnet)3");
    private boolean[] aBooleanArray2133;
    private boolean aBoolean2134 = false;
    private boolean[] aBooleanArray2135;
@@ -202,7 +201,6 @@ final class Class102 implements Interface2 {
          }
 
          anIntArray2125 = null;
-         aClass94_2132 = null;
          aClass3_Sub28_Sub16_Sub2Array2140 = null;
          aClass135Array2131 = null;
       } catch (RuntimeException var2) {

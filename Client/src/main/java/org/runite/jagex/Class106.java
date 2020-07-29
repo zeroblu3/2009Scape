@@ -3,12 +3,10 @@ package org.runite.jagex;
 final class Class106 {
 
    static int anInt1439;
-   private static RSString aClass94_1440 = RSString.createRSString("Connected to update server");
    static boolean aBoolean1441 = true;
    static int anInt1442 = 0;
    static Class67 aClass67_1443;
    static short aShort1444 = 256;
-   static RSString aClass94_1445 = aClass94_1440;
    static int anInt1446 = 0;
    int anInt1447;
    int anInt1448;
@@ -84,9 +82,6 @@ final class Class106 {
          if(var0 != 121) {
             aClass67_1443 = (Class67)null;
          }
-
-         aClass94_1445 = null;
-         aClass94_1440 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "od.A(" + var0 + ')');
       }

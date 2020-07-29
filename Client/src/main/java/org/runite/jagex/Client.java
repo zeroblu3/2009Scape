@@ -15,9 +15,6 @@ public final class Client extends GameShell {
 	private static final long serialVersionUID = 8336806252605101745L;
 	static Class130 aClass130_2194 = new Class130(16);
 	static int anInt2195;
-	private static RSString colorTextCyan = RSString.createRSString("cyan:");
-	static RSString aClass94_2196 = colorTextCyan;
-	static RSString aClass94_2197 = colorTextCyan;
 	static Class3_Sub11[][] aClass3_Sub11ArrayArray2199;
 	static int[] anIntArray2200;
 	public static boolean aBoolean2201;
@@ -92,37 +89,33 @@ public final class Client extends GameShell {
 					}
 				}
 				if(Class143.loadingStage == 0) {
-					Class3_Sub28_Sub1.updateLoadingBar((Color)null, false, var10, Class3_Sub17.aClass94_2464, Class3_Sub28_Sub15.anInt3684);
+					Class3_Sub28_Sub1.updateLoadingBar((Color)null, false, var10, Class3_Sub17.aClass94_2464, Class3_Sub28_Sub15.LoadingStageNumber);
 				} else if(5 == Class143.loadingStage) {
 					Class3_Sub23.method406((byte)117, false, Class168.aClass3_Sub28_Sub17_2096);
 				} else if(Class143.loadingStage == 10) {
 					Class3_Sub17.method381(true);
-				} else {
-					if(25 != Class143.loadingStage && Class143.loadingStage != 28) {
-						if(Class143.loadingStage == 30) {
-							Class49.method1127(var1 + -40);
-						} else if(40 == Class143.loadingStage) {
-							Class3_Sub13.method164((byte)-95, false, RenderAnimationDefinition.method903(new RSString[]{Class136.aClass94_1773, RSByteBuffer.aClass94_2598, Class154.aClass94_1959}, (byte)-67));
-						}
-					} else if(Class163_Sub2_Sub1.anInt4019 == 1) {
-						if(Class3_Sub13_Sub24.anInt3293 > Class3_Sub29.anInt2579) {
-							Class3_Sub29.anInt2579 = Class3_Sub13_Sub24.anInt3293;
-						}
-
-						var4 = 50 * (Class3_Sub29.anInt2579 + -Class3_Sub13_Sub24.anInt3293) / Class3_Sub29.anInt2579;
-						Class3_Sub13.method164((byte)-71, false, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub23.aClass94_3282, Class3_Sub13_Sub33.aClass94_3399, Class72.method1298((byte)9, var4), Class10.aClass94_148}, (byte)-62));
-					} else {
-						if(Class163_Sub2_Sub1.anInt4019 == 2) {
-							if(Class3_Sub5.anInt2275 < Class162.anInt2038) {
-								Class3_Sub5.anInt2275 = Class162.anInt2038;
-							}
-
-							var4 = (-Class162.anInt2038 + Class3_Sub5.anInt2275) * 50 / Class3_Sub5.anInt2275 + 50;
-							Class3_Sub13.method164((byte)-41, false, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub23.aClass94_3282, Class3_Sub13_Sub33.aClass94_3399, Class72.method1298((byte)9, var4), Class10.aClass94_148}, (byte)-68));
-						} else {
-							Class3_Sub13.method164((byte)-73, false, Class3_Sub13_Sub23.aClass94_3282);
-						}
+				} else if (25 != Class143.loadingStage && Class143.loadingStage != 28) {
+					if (Class143.loadingStage == 30) {
+						Class49.method1127(var1 + -40);
+					} else if (40 == Class143.loadingStage) {
+						Class3_Sub13.method164((byte) -95, false, RenderAnimationDefinition.method903(new RSString[]{TextCore.ConxLost, RSByteBuffer.aClass94_2598, TextCore.AttemptingReestablish}, (byte) -67));
 					}
+				} else if (Class163_Sub2_Sub1.anInt4019 == 1) {
+					if (Class3_Sub13_Sub24.anInt3293 > Class3_Sub29.anInt2579) {
+						Class3_Sub29.anInt2579 = Class3_Sub13_Sub24.anInt3293;
+					}
+
+					var4 = 50 * (Class3_Sub29.anInt2579 + -Class3_Sub13_Sub24.anInt3293) / Class3_Sub29.anInt2579;
+					Class3_Sub13.method164((byte) -71, false, RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingPleaseWait2, Class3_Sub13_Sub33.aClass94_3399, Class72.method1298((byte) 9, var4), Class10.aClass94_148}, (byte) -62));
+				} else if (Class163_Sub2_Sub1.anInt4019 == 2) {
+					if (Class3_Sub5.anInt2275 < Class162.anInt2038) {
+						Class3_Sub5.anInt2275 = Class162.anInt2038;
+					}
+
+					var4 = (-Class162.anInt2038 + Class3_Sub5.anInt2275) * 50 / Class3_Sub5.anInt2275 + 50;
+					Class3_Sub13.method164((byte) -41, false, RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingPleaseWait2, Class3_Sub13_Sub33.aClass94_3399, Class72.method1298((byte) 9, var4), Class10.aClass94_148}, (byte) -68));
+				} else {
+					Class3_Sub13.method164((byte) -73, false, TextCore.LoadingPleaseWait2);
 				}
 
 				if(HDToolKit.highDetail && Class143.loadingStage != 0) {
@@ -198,10 +191,7 @@ public final class Client extends GameShell {
 			}
 
 			anIntArray2200 = null;
-			aClass94_2196 = null;
-			colorTextCyan = null;
 			aClass130_2194 = null;
-			aClass94_2197 = null;
 			aClass3_Sub11ArrayArray2199 = (Class3_Sub11[][])null;
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "client.O(" + var0 + ')');
@@ -312,8 +302,8 @@ public final class Client extends GameShell {
 				} catch (Exception var10) {
 					Class3_Sub20.language = 0;
 				}
-
 				Class3.method87(-31, Class3_Sub20.language);
+
 				String var2 = this.getParameter("objecttag");
 				if(var2 != null && var2.equals("1")) {
 					Class163_Sub2_Sub1.aBoolean4018 = true;
@@ -387,18 +377,16 @@ public final class Client extends GameShell {
 				RuntimeException_Sub1.worldListHost = this.getCodeBase().getHost();
 				Class53.anInt867 = 43594 + ObjectDefinition.worldId; //443 is secure port
 				Class3_Sub28_Sub19.anInt3773 = '\uaa4a';
-			} else {
-				if(Class44.anInt718 == 1) {
-					RuntimeException_Sub1.worldListHost = this.getCodeBase().getHost();
-					//System.out.println("port = " + Class53.anInt867);
-					Class53.anInt867 = ObjectDefinition.worldId + 50000;
-					Class3_Sub28_Sub19.anInt3773 = 40000 + ObjectDefinition.worldId;
-				} else if(Class44.anInt718 == 2) {
-					RuntimeException_Sub1.worldListHost = "127.0.0.1";
-					System.out.println("Setting worldListHost to 127.0.0.1, port = " + Class53.anInt867);
-					Class53.anInt867 = ObjectDefinition.worldId + '\uc350';
-					Class3_Sub28_Sub19.anInt3773 = ObjectDefinition.worldId + '\u9c40';
-				}
+			} else if (Class44.anInt718 == 1) {
+				RuntimeException_Sub1.worldListHost = this.getCodeBase().getHost();
+				//System.out.println("port = " + Class53.anInt867);
+				Class53.anInt867 = ObjectDefinition.worldId + 50000;
+				Class3_Sub28_Sub19.anInt3773 = 40000 + ObjectDefinition.worldId;
+			} else if (Class44.anInt718 == 2) {
+				RuntimeException_Sub1.worldListHost = "127.0.0.1";
+				System.out.println("Setting worldListHost to 127.0.0.1, port = " + Class53.anInt867);
+				Class53.anInt867 = ObjectDefinition.worldId + '\uc350';
+				Class3_Sub28_Sub19.anInt3773 = ObjectDefinition.worldId + '\u9c40';
 			}
 			if(1 == Class158.anInt2014) {
 				Class101.aBoolean1419 = true;
@@ -462,7 +450,7 @@ public final class Client extends GameShell {
 				Class86.aClass41_1186 = null;
 			}
 
-			Class167.aClass94_2083 = Class25.aClass94_485;
+			Class167.aClass94_2083 = TextCore.RSLoadingPleaseWait;
 			if(Class44.anInt718 != 0) {
 				Class20.aBoolean438 = true;
 			}
@@ -837,7 +825,7 @@ public final class Client extends GameShell {
 									var4.aByteArray2795[0] = 1;
 									var4.anIntArray2767[0] = var6 + (var4.anInt2819 >> 7);
 									var4.anIntArray2755[0] = var7 + (var4.anInt2829 >> 7);
-									Class86.aClass91Array1182[WorldListCountry.localPlane].method1502(var1 + 20850, var4.anInt2819 >> -649292601, var4.getSize((byte)114), false, 0, var4.getSize((byte)114), var4.anInt2829 >> 1442151015);
+									Class86.aClass91Array1182[WorldListCountry.localPlane].method1502(var1 + 20850, var4.anInt2819 >> 7, var4.getSize((byte)114), false, 0, var4.getSize((byte)114), var4.anInt2829 >> 1442151015);
 									if(0 <= var4.anIntArray2767[0] && var4.anIntArray2767[0] <= 104 + -var4.getSize((byte)114) && 0 <= var4.anIntArray2755[0] && var4.anIntArray2755[0] <= 104 - var4.getSize((byte)114) && Class86.aClass91Array1182[WorldListCountry.localPlane].method1500(-2, var4.anInt2829 >> 2135388679, var4.anIntArray2755[0], var4.anIntArray2767[0], var4.anInt2819 >> 627928135)) {
 										if(var4.getSize((byte)114) > 1) {
 											for(int var8 = var4.anIntArray2767[0]; var8 < var4.anIntArray2767[0] - -var4.getSize((byte) 114); ++var8) {
@@ -857,13 +845,9 @@ public final class Client extends GameShell {
 							Class55.method1180((byte)-122, var4);
 							Class17.method904(65536, var4);
 							RenderAnimationDefinition.method900(var4, var1 ^ -11974);
-							Class86.aClass91Array1182[WorldListCountry.localPlane].method1489(var4.anInt2819 >> -375465785, false, (byte)85, var4.anInt2829 >> 1678486439, var4.getSize((byte)114), var4.getSize((byte)114));
+							Class86.aClass91Array1182[WorldListCountry.localPlane].method1489(var4.anInt2819 >> 7, false, (byte)85, var4.anInt2829 >> 7, var4.getSize((byte)114), var4.getSize((byte)114));
 						}
 					}
-			}
-
-			if(var1 != 1) {
-				aClass94_2196 = (RSString)null;
 			}
 
 			if(!HDToolKit.highDetail) {
@@ -954,10 +938,6 @@ public final class Client extends GameShell {
 	private final void method48(boolean var1) {
 		try {
 			boolean var2 = Class58.aClass66_917.method1243((byte)-61);
-			if(!var1) {
-				colorTextCyan = (RSString)null;
-			}
-
 			if(!var2) {
 				this.method49(-31379);
 			}
@@ -1111,12 +1091,10 @@ public final class Client extends GameShell {
 				if(-1 == var1) {
 					if(var0[2].equals("english")) {
 						Class3_Sub20.language = 0;
+					} else if (var0[2].equals("german")) {
+						Class3_Sub20.language = 1;
 					} else {
-						if(var0[2].equals("german")) {
-							Class3_Sub20.language = 1;
-						} else {
-							Class3_Sub13_Sub23_Sub1.method283("language", (byte)38);
-						}
+						Class3_Sub13_Sub23_Sub1.method283("language", (byte) 38);
 					}
 				} else {
 					Class3_Sub20.language = var1;
@@ -1706,12 +1684,12 @@ public final class Client extends GameShell {
 							Class91.aLong1310 = var4;
 						}
 
-						Class3_Sub28_Sub15.anInt3684 = 5;
-						Class3_Sub17.aClass94_2464 = Class3_Sub13_Sub23_Sub1.aClass94_4040;
+						Class3_Sub28_Sub15.LoadingStageNumber = 5;
+						Class3_Sub17.aClass94_2464 = TextCore.AllocatingMemory;
 					} else {
-						Class3_Sub17.aClass94_2464 = RSString.aClass94_2151;
+						Class3_Sub17.aClass94_2464 = TextCore.AllocatedMemory;
 						Class96.anInt1354 = 10;
-						Class3_Sub28_Sub15.anInt3684 = 5;
+						Class3_Sub28_Sub15.LoadingStageNumber = 5;
 					}
 				} else {
 					int var2;
@@ -1722,9 +1700,9 @@ public final class Client extends GameShell {
 							Class86.aClass91Array1182[var2] = new Class91(104, 104);
 						}
 
-						Class3_Sub28_Sub15.anInt3684 = 10;
+						Class3_Sub28_Sub15.LoadingStageNumber = 10;
 						Class96.anInt1354 = 30;
-						Class3_Sub17.aClass94_2464 = Class3_Sub28_Sub10.aClass94_3629;
+						Class3_Sub17.aClass94_2464 = TextCore.CreatedWorld;
 					} else if(Class96.anInt1354 == 30) {
 						if(Class151.aClass8_1936 == null) {
 							Class151.aClass8_1936 = new Class8(Class58.aClass66_917, Class3_Sub13_Sub14.aClass73_3159);
@@ -1760,12 +1738,12 @@ public final class Client extends GameShell {
 							Class97.aClass153_1376 = Class8.getCacheIndex(true, true, true, 26, true);
 							Class132.aClass153_1735 = Class8.getCacheIndex(false, true, true, 27, true);
 							Class132.libIndex = Class8.getCacheIndex(false, true, true, 28, true);
-							Class3_Sub28_Sub15.anInt3684 = 15;
-							Class3_Sub17.aClass94_2464 = Class106.aClass94_1445;
+							Class3_Sub28_Sub15.LoadingStageNumber = 15;
+							Class3_Sub17.aClass94_2464 = TextCore.ConxUpdateServer;
 							Class96.anInt1354 = 40;
 						} else {
-							Class3_Sub17.aClass94_2464 = Class157.aClass94_1995;
-							Class3_Sub28_Sub15.anInt3684 = 12;
+							Class3_Sub17.aClass94_2464 = TextCore.LoadingConnecting;
+							Class3_Sub28_Sub15.LoadingStageNumber = 12;
 						}
 					} else if(Class96.anInt1354 == 40) {
 						var2 = 0;
@@ -1776,262 +1754,248 @@ public final class Client extends GameShell {
 
 						if(var2 < 100) { //!= 100
 							if(var2 != 0) {
-								Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class12.aClass94_327, Class72.method1298((byte)9, var2), Class24.aClass94_468}, (byte)-93);
+								Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.CheckingForUpdates, Class72.method1298((byte)9, var2), Class24.aClass94_468}, (byte)-93);
 							}
 
-							Class3_Sub28_Sub15.anInt3684 = 20;
+							Class3_Sub28_Sub15.LoadingStageNumber = 20;
 						} else {
-							Class3_Sub28_Sub15.anInt3684 = 20;
-							Class3_Sub17.aClass94_2464 = WorldListEntry.aClass94_2624;
+							Class3_Sub28_Sub15.LoadingStageNumber = 20;
+							Class3_Sub17.aClass94_2464 = TextCore.LoadedUpdateList;
 							Class39.method1039(208, Class140_Sub6.spritesCacheIndex);
 							Class97.method1593(111, Class140_Sub6.spritesCacheIndex);
 							Class3_Sub13_Sub13.method233(28280, Class140_Sub6.spritesCacheIndex);
 							Class96.anInt1354 = 45;
 						}
-					} else {
-						if(Class96.anInt1354 == 45) {
-							Class140_Sub3.method1959(256, 2, 22050, Class3_Sub13_Sub15.aBoolean3184);
-							Class86.aClass3_Sub24_Sub4_1193 = new Class3_Sub24_Sub4();
-							Class86.aClass3_Sub24_Sub4_1193.method479((byte)98, 9, 128);
-							WorldListEntry.aClass155_2627 = Class58.method1195(22050, Class38.aClass87_665, Class3_Sub28_Sub12.aCanvas3648, 0, 14);
-							WorldListEntry.aClass155_2627.method2154(-116, Class86.aClass3_Sub24_Sub4_1193);
-							RenderAnimationDefinition.method897(17770, Class86.aClass3_Sub24_Sub4_1193, NPC.aClass153_3994, Class3_Sub19.aClass153_2474, Class146.aClass153_1902);
-							Class3_Sub21.aClass155_2491 = Class58.method1195(2048, Class38.aClass87_665, Class3_Sub28_Sub12.aCanvas3648, 1, 14);
-							Class3_Sub26.aClass3_Sub24_Sub2_2563 = new Class3_Sub24_Sub2();
-							Class3_Sub21.aClass155_2491.method2154(-128, Class3_Sub26.aClass3_Sub24_Sub2_2563);
-							Class27.aClass157_524 = new Class157(22050, Class21.anInt443);
-							KeyboardListener.anInt1912 = Class75_Sub2.aClass153_2645.getArchiveForName(Class1.aClass94_53, (byte)-30);
-							Class3_Sub28_Sub15.anInt3684 = 30;
-							Class96.anInt1354 = 50;
-							Class3_Sub17.aClass94_2464 = Class131.aClass94_1731;
-						} else if(Class96.anInt1354 == 50) {
-							var2 = Class3_Sub13_Sub12.method228(Class140_Sub6.spritesCacheIndex, CacheIndex.aClass153_1948, false);
-							var3 = RuntimeException_Sub1.method2286((byte)-5);
-							if(var3 <= var2) {
-								Class3_Sub17.aClass94_2464 = Class143.aClass94_1879;
-								Class3_Sub28_Sub15.anInt3684 = 35;
-								Class96.anInt1354 = 60;
-							} else {
-								Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub28_Sub11.aClass94_3643, Class72.method1298((byte)9, 100 * var2 / var3), Class24.aClass94_468}, (byte)-59);
-								Class3_Sub28_Sub15.anInt3684 = 35;
-							}
+					} else if (Class96.anInt1354 == 45) {
+						Class140_Sub3.method1959(256, 2, 22050, Class3_Sub13_Sub15.aBoolean3184);
+						Class86.aClass3_Sub24_Sub4_1193 = new Class3_Sub24_Sub4();
+						Class86.aClass3_Sub24_Sub4_1193.method479((byte) 98, 9, 128);
+						WorldListEntry.aClass155_2627 = Class58.method1195(22050, Class38.aClass87_665, Class3_Sub28_Sub12.aCanvas3648, 0, 14);
+						WorldListEntry.aClass155_2627.method2154(-116, Class86.aClass3_Sub24_Sub4_1193);
+						RenderAnimationDefinition.method897(17770, Class86.aClass3_Sub24_Sub4_1193, NPC.aClass153_3994, Class3_Sub19.aClass153_2474, Class146.aClass153_1902);
+						Class3_Sub21.aClass155_2491 = Class58.method1195(2048, Class38.aClass87_665, Class3_Sub28_Sub12.aCanvas3648, 1, 14);
+						Class3_Sub26.aClass3_Sub24_Sub2_2563 = new Class3_Sub24_Sub2();
+						Class3_Sub21.aClass155_2491.method2154(-128, Class3_Sub26.aClass3_Sub24_Sub2_2563);
+						Class27.aClass157_524 = new Class157(22050, Class21.anInt443);
+						KeyboardListener.anInt1912 = Class75_Sub2.aClass153_2645.getArchiveForName(Class1.aClass94_53, (byte) -30);
+						Class3_Sub28_Sub15.LoadingStageNumber = 30;
+						Class96.anInt1354 = 50;
+						Class3_Sub17.aClass94_2464 = TextCore.PreparedSoundEngine;
+					} else if (Class96.anInt1354 == 50) {
+						var2 = Class3_Sub13_Sub12.method228(Class140_Sub6.spritesCacheIndex, CacheIndex.aClass153_1948, false);
+						var3 = RuntimeException_Sub1.method2286((byte) -5);
+						if (var3 <= var2) {
+							Class3_Sub17.aClass94_2464 = TextCore.LoadedFonts;
+							Class3_Sub28_Sub15.LoadingStageNumber = 35;
+							Class96.anInt1354 = 60;
 						} else {
-							if(60 == Class96.anInt1354) {
-								var2 = Class3_Sub28_Sub11.method599(-20916, Class140_Sub6.spritesCacheIndex);
-								var3 = Class55.method1185(6098);
-								if(var3 <= var2) {
-									Class3_Sub17.aClass94_2464 = Class3_Sub28_Sub4.aClass94_3575;
-									Class96.anInt1354 = 65;
-									Class3_Sub28_Sub15.anInt3684 = 40;
-								} else {
-									Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class24.aClass94_461, Class72.method1298((byte)9, 100 * var2 / var3), Class24.aClass94_468}, (byte)-125);
-									Class3_Sub28_Sub15.anInt3684 = 40;
-								}
+							Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingFonts, Class72.method1298((byte) 9, 100 * var2 / var3), Class24.aClass94_468}, (byte) -59);
+							Class3_Sub28_Sub15.LoadingStageNumber = 35;
+						}
+					} else if (60 == Class96.anInt1354) {
+						var2 = Class3_Sub28_Sub11.method599(-20916, Class140_Sub6.spritesCacheIndex);
+						var3 = Class55.method1185(6098);
+						if (var3 <= var2) {
+							Class3_Sub17.aClass94_2464 = TextCore.LoadedTitleScreen;
+							Class96.anInt1354 = 65;
+							Class3_Sub28_Sub15.LoadingStageNumber = 40;
+						} else {
+							Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingTitleScreen, Class72.method1298((byte) 9, 100 * var2 / var3), Class24.aClass94_468}, (byte) -125);
+							Class3_Sub28_Sub15.LoadingStageNumber = 40;
+						}
+					} else if (Class96.anInt1354 == 65) {
+						Class3_Sub28_Sub9.method581(CacheIndex.aClass153_1948, 0, Class140_Sub6.spritesCacheIndex);
+						Class3_Sub28_Sub15.LoadingStageNumber = 45;
+						Class3_Sub17.aClass94_2464 = TextCore.OpenedTitleScreen;
+						Class117.method1719(5, 5);
+						Class96.anInt1354 = 70;
+					} else {
+						if (Class96.anInt1354 == 70) {
+							Class164.aClass153_2052.method2113((byte) 34);
+							byte var7 = 0;
+							var2 = var7 + Class164.aClass153_2052.method2136((byte) -124);
+							Class168.aClass153_2097.method2113((byte) 120);
+							var2 += Class168.aClass153_2097.method2136((byte) -128);
+							Class132.libIndex.method2113((byte) 126);
+							var2 += Class132.libIndex.method2136((byte) -124);
+							NPC.aClass153_3993.method2113((byte) 70);
+							var2 += NPC.aClass153_3993.method2136((byte) -123);
+							Class101.aClass153_1428.method2113((byte) 32);
+							var2 += Class101.aClass153_1428.method2136((byte) -127);
+							Class100.aClass153_1410.method2113((byte) 48);
+							var2 += Class100.aClass153_1410.method2136((byte) -128);
+							Class3_Sub13_Sub36.aClass153_3429.method2113((byte) 43);
+							var2 += Class3_Sub13_Sub36.aClass153_3429.method2136((byte) -122);
+							Class70.aClass153_1058.method2113((byte) 23);
+							var2 += Class70.aClass153_1058.method2136((byte) -122);
+							Class3_Sub22.aClass153_2528.method2113((byte) 94);
+							var2 += Class3_Sub22.aClass153_2528.method2136((byte) -128);
+							Class140_Sub7.aClass153_2939.method2113((byte) 91);
+							var2 += Class140_Sub7.aClass153_2939.method2136((byte) -126);
+							Class3_Sub4.aClass153_2258.method2113((byte) 102);
+							var2 += Class3_Sub4.aClass153_2258.method2136((byte) -128);
+							Class132.aClass153_1735.method2113((byte) 126);
+							var2 += Class132.aClass153_1735.method2136((byte) -124);
+							if (var2 >= 1100) {
+								Class132.method1799((byte) 96, Class164.aClass153_2052);
+								Class3_Sub28_Sub15.method631(false, Class164.aClass153_2052);
+								Class3_Sub28_Sub8.method575(Class164.aClass153_2052, -1);
+								CS2Script.method375(3, Class159.aClass153_2019, Class164.aClass153_2052);
+								Class108.method1661(2, Class168.aClass153_2097, Class159.aClass153_2019, true);
+								ItemDefinition.method1103(Class159.aClass153_2019, Class101.aClass153_1428, false);
+								GameObject.method1864(true, (byte) -126, Class100.aClass153_1410, Class157.aClass3_Sub28_Sub17_Sub1_2000, Class159.aClass153_2019);
+								Class29.method969(Class164.aClass153_2052, 59);
+								Class3_Sub20.method392(Class3_Sub28_Sub19.aClass153_3772, Class3_Sub13_Sub36.aClass153_3429, -77, Class75_Sub3.aClass153_2660);
+								Class41.method1053((byte) -117, Class164.aClass153_2052);
+								Class158.method2180(Class159.aClass153_2019, Class70.aClass153_1058, 11504);
+								Class107.method1648(Class3_Sub22.aClass153_2528, 255);
+								Class3_Sub29.method731(Class164.aClass153_2052, (byte) -113);
+								Class3.method89(true, CacheIndex.aClass153_1948, Class140_Sub6.spritesCacheIndex, Class140_Sub3.aClass153_2727, Class159.aClass153_2019);
+								Class3_Sub13_Sub17.method250(2048, Class164.aClass153_2052);
+								Class46.method1086(NPC.aClass153_3993, -6);
+								Class3_Sub13_Sub8.method205(Class3_Sub4.aClass153_2258, 115, Class140_Sub7.aClass153_2939, new Class7());
+								Class65.method1236(Class3_Sub4.aClass153_2258, Class140_Sub7.aClass153_2939, -117);
+								Class58.method1197(Class164.aClass153_2052, (byte) 69);
+								Class144.method2065((byte) -125, Class164.aClass153_2052, Class140_Sub6.spritesCacheIndex);
+								Class107.method1645(Class164.aClass153_2052, Class140_Sub6.spritesCacheIndex, (byte) -67);
+								Class3_Sub28_Sub15.LoadingStageNumber = 50;
+								Class3_Sub17.aClass94_2464 = TextCore.LoadedConfig;
+								Class29.method968(128);
+								Class96.anInt1354 = 80;
 							} else {
-								if(Class96.anInt1354 == 65) {
-									Class3_Sub28_Sub9.method581(CacheIndex.aClass153_1948, 0, Class140_Sub6.spritesCacheIndex);
-									Class3_Sub28_Sub15.anInt3684 = 45;
-									Class3_Sub17.aClass94_2464 = Class23.aClass94_459;
-									Class117.method1719(5, 5);
-									Class96.anInt1354 = 70;
-								} else {
-									if(Class96.anInt1354 == 70) {
-										Class164.aClass153_2052.method2113((byte)34);
-										byte var7 = 0;
-										var2 = var7 + Class164.aClass153_2052.method2136((byte)-124);
-										Class168.aClass153_2097.method2113((byte)120);
-										var2 += Class168.aClass153_2097.method2136((byte)-128);
-										Class132.libIndex.method2113((byte)126);
-										var2 += Class132.libIndex.method2136((byte)-124);
-										NPC.aClass153_3993.method2113((byte)70);
-										var2 += NPC.aClass153_3993.method2136((byte)-123);
-										Class101.aClass153_1428.method2113((byte)32);
-										var2 += Class101.aClass153_1428.method2136((byte)-127);
-										Class100.aClass153_1410.method2113((byte)48);
-										var2 += Class100.aClass153_1410.method2136((byte)-128);
-										Class3_Sub13_Sub36.aClass153_3429.method2113((byte)43);
-										var2 += Class3_Sub13_Sub36.aClass153_3429.method2136((byte)-122);
-										Class70.aClass153_1058.method2113((byte)23);
-										var2 += Class70.aClass153_1058.method2136((byte)-122);
-										Class3_Sub22.aClass153_2528.method2113((byte)94);
-										var2 += Class3_Sub22.aClass153_2528.method2136((byte)-128);
-										Class140_Sub7.aClass153_2939.method2113((byte)91);
-										var2 += Class140_Sub7.aClass153_2939.method2136((byte)-126);
-										Class3_Sub4.aClass153_2258.method2113((byte)102);
-										var2 += Class3_Sub4.aClass153_2258.method2136((byte)-128);
-										Class132.aClass153_1735.method2113((byte)126);
-										var2 += Class132.aClass153_1735.method2136((byte)-124);
-										if(var2 >= 1100) {
-											Class132.method1799((byte)96, Class164.aClass153_2052);
-											Class3_Sub28_Sub15.method631(false, Class164.aClass153_2052);
-											Class3_Sub28_Sub8.method575(Class164.aClass153_2052, -1);
-											CS2Script.method375(3, Class159.aClass153_2019, Class164.aClass153_2052);
-											Class108.method1661(2, Class168.aClass153_2097, Class159.aClass153_2019, true);
-											ItemDefinition.method1103(Class159.aClass153_2019, Class101.aClass153_1428, false);
-											GameObject.method1864(true, (byte)-126, Class100.aClass153_1410, Class157.aClass3_Sub28_Sub17_Sub1_2000, Class159.aClass153_2019);
-											Class29.method969(Class164.aClass153_2052, 59);
-											Class3_Sub20.method392(Class3_Sub28_Sub19.aClass153_3772, Class3_Sub13_Sub36.aClass153_3429, -77, Class75_Sub3.aClass153_2660);
-											Class41.method1053((byte)-117, Class164.aClass153_2052);
-											Class158.method2180(Class159.aClass153_2019, Class70.aClass153_1058, 11504);
-											Class107.method1648(Class3_Sub22.aClass153_2528, 255);
-											Class3_Sub29.method731(Class164.aClass153_2052, (byte)-113);
-											Class3.method89(true, CacheIndex.aClass153_1948, Class140_Sub6.spritesCacheIndex, Class140_Sub3.aClass153_2727, Class159.aClass153_2019);
-											Class3_Sub13_Sub17.method250(2048, Class164.aClass153_2052);
-											Class46.method1086(NPC.aClass153_3993, -6);
-											Class3_Sub13_Sub8.method205(Class3_Sub4.aClass153_2258, 115, Class140_Sub7.aClass153_2939, new Class7());
-											Class65.method1236(Class3_Sub4.aClass153_2258, Class140_Sub7.aClass153_2939, -117);
-											Class58.method1197(Class164.aClass153_2052, (byte)69);
-											Class144.method2065((byte)-125, Class164.aClass153_2052, Class140_Sub6.spritesCacheIndex);
-											Class107.method1645(Class164.aClass153_2052, Class140_Sub6.spritesCacheIndex, (byte)-67);
-											Class3_Sub28_Sub15.anInt3684 = 50;
-											Class3_Sub17.aClass94_2464 = Class3_Sub13_Sub12.aClass94_3142;
-											Class29.method968(128);
-											Class96.anInt1354 = 80;
+								Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingConfig, Class72.method1298((byte) 9, var2 / 11), Class24.aClass94_468}, (byte) -80);
+								Class3_Sub28_Sub15.LoadingStageNumber = 50;
+							}
+						} else if (Class96.anInt1354 == 80) {
+							var2 = Class3_Sub4.method107(Class140_Sub6.spritesCacheIndex, (byte) -125);
+							var3 = Class3_Sub13_Sub9.method208(-119);
+							if (var2 < var3) {
+								Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingSprites, Class72.method1298((byte) 9, var2 * 100 / var3), Class24.aClass94_468}, (byte) -66);
+								Class3_Sub28_Sub15.LoadingStageNumber = 60;
+							} else {
+								Class14.method887(21, Class140_Sub6.spritesCacheIndex);
+								Class96.anInt1354 = 90;
+								Class3_Sub28_Sub15.LoadingStageNumber = 60;
+								Class3_Sub17.aClass94_2464 = TextCore.LoadedSprites;
+							}
+						} else if (Class96.anInt1354 != 90) {
+							if (Class96.anInt1354 == 100) {
+								if (Class3_Sub13_Sub34.method334(Class140_Sub6.spritesCacheIndex, 0)) {
+									Class96.anInt1354 = 110;
+								}
+							} else if (Class96.anInt1354 == 110) {
+								Class106.aClass67_1443 = new Class67();
+								Class38.aClass87_665.method1451(0, 10, Class106.aClass67_1443);
+								Class3_Sub17.aClass94_2464 = TextCore.LoadedInputHandler;
+								Class3_Sub28_Sub15.LoadingStageNumber = 75;
+								Class96.anInt1354 = 120;
+							} else if (Class96.anInt1354 != 120) {
+								if (Class96.anInt1354 == 130) {
+									if (Class140_Sub3.aClass153_2727.method2113((byte) 20)) {
+										if (Class3_Sub1.interfaceScriptsIndex.method2113((byte) 46)) {
+											if (CacheIndex.aClass153_1948.method2113((byte) 89)) {
+												if (Class133.aClass153_1751.method2127((byte) -83, Class95.aClass94_1342)) {
+													Class75_Sub4.method1353(Class102.aClass3_Sub28_Sub16_Sub2Array2140, -11931, Class133.aClass153_1751);
+													Class3_Sub28_Sub15.LoadingStageNumber = 95;
+													Class3_Sub17.aClass94_2464 = TextCore.LoadedInterfaces;
+													Class96.anInt1354 = 135;
+												} else {
+													Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingInterfaces, Class72.method1298((byte) 9, 90 - -(Class133.aClass153_1751.method2116(22813, Class95.aClass94_1342) / 10)), Class24.aClass94_468}, (byte) -72);
+													Class3_Sub28_Sub15.LoadingStageNumber = 85;
+												}
+											} else {
+												Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingInterfaces, Class72.method1298((byte) 9, 85 - -(CacheIndex.aClass153_1948.method2136((byte) -124) / 20)), Class24.aClass94_468}, (byte) -107);
+												Class3_Sub28_Sub15.LoadingStageNumber = 85;
+											}
 										} else {
-											Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub28_Sub2.aClass94_3546, Class72.method1298((byte)9, var2 / 11), Class24.aClass94_468}, (byte)-80);
-											Class3_Sub28_Sub15.anInt3684 = 50;
+											Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingInterfaces, Class72.method1298((byte) 9, 75 - -(Class3_Sub1.interfaceScriptsIndex.method2136((byte) -128) / 10)), Class24.aClass94_468}, (byte) -120);
+											Class3_Sub28_Sub15.LoadingStageNumber = 85;
 										}
 									} else {
-										if(Class96.anInt1354 == 80) {
-											var2 = Class3_Sub4.method107(Class140_Sub6.spritesCacheIndex, (byte)-125);
-											var3 = Class3_Sub13_Sub9.method208(-119);
-											if(var2 < var3) {
-												Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub38.aClass94_3445, Class72.method1298((byte)9, var2 * 100 / var3), Class24.aClass94_468}, (byte)-66);
-												Class3_Sub28_Sub15.anInt3684 = 60;
-											} else {
-												Class14.method887(21, Class140_Sub6.spritesCacheIndex);
-												Class96.anInt1354 = 90;
-												Class3_Sub28_Sub15.anInt3684 = 60;
-												Class3_Sub17.aClass94_2464 = Class130.aClass94_1707;
-											}
-										} else if(Class96.anInt1354 != 90) {
-											if(Class96.anInt1354 == 100) {
-												if(Class3_Sub13_Sub34.method334(Class140_Sub6.spritesCacheIndex, 0)) {
-													Class96.anInt1354 = 110;
-												}
-											} else if(Class96.anInt1354 == 110) {
-												Class106.aClass67_1443 = new Class67();
-												Class38.aClass87_665.method1451(0, 10, Class106.aClass67_1443);
-												Class3_Sub17.aClass94_2464 = Class100.aClass94_1409;
-												Class3_Sub28_Sub15.anInt3684 = 75;
-												Class96.anInt1354 = 120;
-											} else {
-												if(Class96.anInt1354 != 120) {
-													if(Class96.anInt1354 == 130) {
-														if(Class140_Sub3.aClass153_2727.method2113((byte)20)) {
-															if(Class3_Sub1.interfaceScriptsIndex.method2113((byte)46)) {
-																if(CacheIndex.aClass153_1948.method2113((byte)89)) {
-																	if(Class133.aClass153_1751.method2127((byte)-83, Class95.aClass94_1342)) {
-																		Class75_Sub4.method1353(Class102.aClass3_Sub28_Sub16_Sub2Array2140, -11931, Class133.aClass153_1751);
-																		Class3_Sub28_Sub15.anInt3684 = 95;
-																		Class3_Sub17.aClass94_2464 = RSByteBuffer.aClass94_2597;
-																		Class96.anInt1354 = 135;
-																	} else {
-																		Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class151_Sub1.aClass94_2961, Class72.method1298((byte)9, 90 - -(Class133.aClass153_1751.method2116(22813, Class95.aClass94_1342) / 10)), Class24.aClass94_468}, (byte)-72);
-																		Class3_Sub28_Sub15.anInt3684 = 85;
-																	}
-																} else {
-																	Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class151_Sub1.aClass94_2961, Class72.method1298((byte)9, 85 - -(CacheIndex.aClass153_1948.method2136((byte)-124) / 20)), Class24.aClass94_468}, (byte)-107);
-																	Class3_Sub28_Sub15.anInt3684 = 85;
-																}
-															} else {
-																Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class151_Sub1.aClass94_2961, Class72.method1298((byte)9, 75 - -(Class3_Sub1.interfaceScriptsIndex.method2136((byte)-128) / 10)), Class24.aClass94_468}, (byte)-120);
-																Class3_Sub28_Sub15.anInt3684 = 85;
-															}
-														} else {
-															Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class151_Sub1.aClass94_2961, Class72.method1298((byte)9, Class140_Sub3.aClass153_2727.method2136((byte)-123) * 3 / 4), Class24.aClass94_468}, (byte)-81);
-															Class3_Sub28_Sub15.anInt3684 = 85;
-														}
-													} else if(135 == Class96.anInt1354) {
-														var2 = Class121.method1735(29984);
-														if(-1 == var2) {
-															Class3_Sub28_Sub15.anInt3684 = 95;
-															Class3_Sub17.aClass94_2464 = Class123.aClass94_1653;
-														} else if(var2 == 7 || var2 == 9) {
-															this.method31("worldlistfull", -48);
-															Class117.method1719(1000, 5);
-														} else {
-															if(Class30.loadedWorldList) {
-																Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.aClass94_374;
-																Class96.anInt1354 = 140;
-																Class3_Sub28_Sub15.anInt3684 = 96;
-															} else {
-																this.method31("worldlistio_" + var2, -48);
-																Class117.method1719(1000, 5);
-															}
-														}
-													} else if(Class96.anInt1354 == 140) {
-														Class3_Sub22.anInt2529 = Class140_Sub3.aClass153_2727.getArchiveForName(NPC.aClass94_3992, (byte)-30);
-														Class3_Sub13_Sub6.aClass153_3077.method2115(-9, false, true);
-														Class75_Sub2.aClass153_2645.method2115(111, true, true);
-														Class140_Sub6.spritesCacheIndex.method2115(-76, true, true);
-														CacheIndex.aClass153_1948.method2115(91, true, true);
-														Class3_Sub13_Sub25.aClass153_3304.method2115(-116, true, true);
-														Class140_Sub3.aClass153_2727.method2115(99, true, true);
-														Class3_Sub28_Sub15.anInt3684 = 97;
-														Class3_Sub17.aClass94_2464 = Class3_Sub5.aClass94_2267;
-														Class96.anInt1354 = 150;
-														Class58.aBoolean913 = true;
-													} else {
-														if(Class96.anInt1354 == 150) {
-															Class88.method1454();
-															if(RSString.aBoolean2146) {
-																Class3_Sub28_Sub9.anInt3622 = 0;
-																Class3_Sub28_Sub14.anInt3671 = 0;
-																Node.anInt2577 = 0;
-																Class3_Sub20.anInt2488 = 0;
-															}
-
-															RSString.aBoolean2146 = true;
-															Class119.method1730(Class38.aClass87_665, (byte)14);
-															GameObject.graphicsSettings(false, Node.anInt2577, -8914, -1, -1);
-															Class3_Sub28_Sub15.anInt3684 = 100;
-															Class96.anInt1354 = 160;
-															Class3_Sub17.aClass94_2464 = Node.aClass94_2576;
-														} else if(Class96.anInt1354 == 160) {
-															Class3_Sub13_Sub11.method219(true, 3000);
-														}
-													}
-												} else if(Class3_Sub13_Sub25.aClass153_3304.method2125(Class3_Sub28_Sub14.aClass94_3672, (byte)116, Class3_Sub28_Sub20.aClass94_3792)) {
-													Class36 var9 = new Class36(Class3_Sub13_Sub25.aClass153_3304.method2123(0, Class3_Sub28_Sub14.aClass94_3672, Class3_Sub28_Sub20.aClass94_3792));
-													Class1.method69(var9, 104);
-													Class3_Sub17.aClass94_2464 = Class117.aClass94_1615;
-													Class96.anInt1354 = 130;
-													Class3_Sub28_Sub15.anInt3684 = 80;
-												} else {
-													Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class86.aClass94_1183, InputStream_Sub1.aClass94_37}, (byte)-98);
-													Class3_Sub28_Sub15.anInt3684 = 80;
-												}
-											}
-										} else if(Class97.aClass153_1376.method2113((byte) 58)) {
-											Class102 var8 = new Class102(Class3_Sub13_Sub28.aClass153_3352, Class97.aClass153_1376, Class140_Sub6.spritesCacheIndex, 20, !Class25.aBoolean488);
-											Class51.method1140(var8);
-											if(Class3_Sub28_Sub10.anInt3625 == 1) {
-												Class51.method1137(0.9F);
-											}
-
-											if(2 == Class3_Sub28_Sub10.anInt3625) {
-												Class51.method1137(0.8F);
-											}
-
-											if(Class3_Sub28_Sub10.anInt3625 == 3) {
-												Class51.method1137(0.7F);
-											}
-
-											if(Class3_Sub28_Sub10.anInt3625 == 4) {
-												Class51.method1137(0.6F);
-											}
-
-											Class3_Sub17.aClass94_2464 = Class3_Sub13_Sub14.aClass94_3167;
-											Class96.anInt1354 = 100;
-											Class3_Sub28_Sub15.anInt3684 = 70;
-										} else {
-											Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{Class145.aClass94_1892, Class72.method1298((byte)9, Class97.aClass153_1376.method2136((byte)-125)), Class24.aClass94_468}, (byte)-95);
-											Class3_Sub28_Sub15.anInt3684 = 70;
-										}
+										Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingInterfaces, Class72.method1298((byte) 9, Class140_Sub3.aClass153_2727.method2136((byte) -123) * 3 / 4), Class24.aClass94_468}, (byte) -81);
+										Class3_Sub28_Sub15.LoadingStageNumber = 85;
 									}
+								} else if (135 == Class96.anInt1354) {
+									var2 = Class121.method1735(29984);
+									if (-1 == var2) {
+										Class3_Sub28_Sub15.LoadingStageNumber = 95;
+										Class3_Sub17.aClass94_2464 = TextCore.LoadingWLD;
+									} else if (var2 == 7 || var2 == 9) {
+										this.method31("worldlistfull", -48);
+										Class117.method1719(1000, 5);
+									} else if (Class30.loadedWorldList) {
+										Class3_Sub17.aClass94_2464 = TextCore.LoadedWLD;
+										Class96.anInt1354 = 140;
+										Class3_Sub28_Sub15.LoadingStageNumber = 96;
+									} else {
+										this.method31("worldlistio_" + var2, -48);
+										Class117.method1719(1000, 5);
+									}
+								} else if (Class96.anInt1354 == 140) {
+									Class3_Sub22.anInt2529 = Class140_Sub3.aClass153_2727.getArchiveForName(RSString.createRSString("loginscreen"), (byte) -30);
+									Class3_Sub13_Sub6.aClass153_3077.method2115(-9, false, true);
+									Class75_Sub2.aClass153_2645.method2115(111, true, true);
+									Class140_Sub6.spritesCacheIndex.method2115(-76, true, true);
+									CacheIndex.aClass153_1948.method2115(91, true, true);
+									Class3_Sub13_Sub25.aClass153_3304.method2115(-116, true, true);
+									Class140_Sub3.aClass153_2727.method2115(99, true, true);
+									Class3_Sub28_Sub15.LoadingStageNumber = 97;
+									Class3_Sub17.aClass94_2464 = TextCore.Starting3DLibrary;
+									Class96.anInt1354 = 150;
+									Class58.aBoolean913 = true;
+								} else if (Class96.anInt1354 == 150) {
+									Class88.method1454();
+									if (RSString.aBoolean2146) {
+										Class3_Sub28_Sub9.anInt3622 = 0;
+										Class3_Sub28_Sub14.anInt3671 = 0;
+										Node.anInt2577 = 0;
+										Class3_Sub20.anInt2488 = 0;
+									}
+
+									RSString.aBoolean2146 = true;
+									Class119.method1730(Class38.aClass87_665, (byte) 14);
+									GameObject.graphicsSettings(false, Node.anInt2577, -8914, -1, -1);
+									Class3_Sub28_Sub15.LoadingStageNumber = 100;
+									Class96.anInt1354 = 160;
+									Class3_Sub17.aClass94_2464 = TextCore.Started3DLibrary;
+								} else if (Class96.anInt1354 == 160) {
+									Class3_Sub13_Sub11.method219(true, 3000);
 								}
+							} else if (Class3_Sub13_Sub25.aClass153_3304.method2125(Class3_Sub28_Sub14.aClass94_3672, (byte) 116, TextCore.HasHuffman)) {
+								Class36 var9 = new Class36(Class3_Sub13_Sub25.aClass153_3304.method2123(0, Class3_Sub28_Sub14.aClass94_3672, TextCore.HasHuffman));
+								Class1.method69(var9, 104);
+								Class3_Sub17.aClass94_2464 = TextCore.LoadedWordPack;
+								Class96.anInt1354 = 130;
+								Class3_Sub28_Sub15.LoadingStageNumber = 80;
+							} else {
+								Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingWordPack, InputStream_Sub1.aClass94_37}, (byte) -98);
+								Class3_Sub28_Sub15.LoadingStageNumber = 80;
 							}
+						} else if (Class97.aClass153_1376.method2113((byte) 58)) {
+							Class102 var8 = new Class102(Class3_Sub13_Sub28.aClass153_3352, Class97.aClass153_1376, Class140_Sub6.spritesCacheIndex, 20, !Class25.aBoolean488);
+							Class51.method1140(var8);
+							if (Class3_Sub28_Sub10.anInt3625 == 1) {
+								Class51.method1137(0.9F);
+							}
+
+							if (2 == Class3_Sub28_Sub10.anInt3625) {
+								Class51.method1137(0.8F);
+							}
+
+							if (Class3_Sub28_Sub10.anInt3625 == 3) {
+								Class51.method1137(0.7F);
+							}
+
+							if (Class3_Sub28_Sub10.anInt3625 == 4) {
+								Class51.method1137(0.6F);
+							}
+
+							Class3_Sub17.aClass94_2464 = TextCore.LoadedTextures;
+							Class96.anInt1354 = 100;
+							Class3_Sub28_Sub15.LoadingStageNumber = 70;
+						} else {
+							Class3_Sub17.aClass94_2464 = RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingTextures, Class72.method1298((byte) 9, Class97.aClass153_1376.method2136((byte) -125)), Class24.aClass94_468}, (byte) -95);
+							Class3_Sub28_Sub15.LoadingStageNumber = 70;
 						}
 					}
 				}
@@ -2073,14 +2037,12 @@ public final class Client extends GameShell {
 	            if(Class143.loadingStage == 0) {
 	               this.method52(48);
 	               Class75_Sub4.method1355(true);
-	            } else {
-	               if(Class143.loadingStage == 5) {
-	                  this.method52(107);
-	                  Class75_Sub4.method1355(true);
-	               } else if(Class143.loadingStage == 25 || Class143.loadingStage == 28) {
-	                  Class40.method1046(-117);
-	               }
-	            }
+	            } else if (Class143.loadingStage == 5) {
+					this.method52(107);
+					Class75_Sub4.method1355(true);
+				} else if (Class143.loadingStage == 25 || Class143.loadingStage == 28) {
+					Class40.method1046(-117);
+				}
 
 				 var4 = 121 / ((var1 - 27) / 42);
 	            if(10 == Class143.loadingStage) {

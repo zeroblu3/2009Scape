@@ -5,61 +5,23 @@ final class NPC extends Class140_Sub4 {
 	static boolean aBoolean3975 = false;
 	NPCDefinition definition;
 	static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array3977;
-	private static RSString aClass94_3978 = RSString.createRSString("Dec");
 	static float aFloat3979;
-	private static RSString aClass94_3980 = RSString.createRSString("Jul");
-	private static RSString aClass94_3982 = RSString.createRSString("May");
-	private static RSString aClass94_3983 = RSString.createRSString("Nov");
-	private static RSString aClass94_3984 = RSString.createRSString("Mar");
 	static int[] anIntArray3986 = new int[32];
-	private static RSString aClass94_3987 = RSString.createRSString("flash3:");
-	static RSString aClass94_3988 = aClass94_3987;
-	static RSString aClass94_3981 = aClass94_3987;
-	private static RSString aClass94_3989 = RSString.createRSString("Jan");
-	private static RSString aClass94_3990 = RSString.createRSString("Feb");
-	static RSString aClass94_3991 = RSString.createRSString("ondulation:");
-	static RSString aClass94_3992 = RSString.createRSString("loginscreen");
 	static CacheIndex aClass153_3993;
 	static CacheIndex aClass153_3994;
 	static int anInt3995;
-	private static RSString aClass94_3996 = RSString.createRSString("Aug");
 	static int[] anIntArray3997 = new int[]{19, 55, 38, 155, 255, 110, 137, 205, 76};
-	static RSString aClass94_3998 = RSString.createRSString(":trade:");
-	private static RSString aClass94_3999 = RSString.createRSString("Apr");
-	private static RSString aClass94_4000 = RSString.createRSString("Jun");
 	static int anInt4001;
 	static int anInt4002 = 0;
-	private static RSString aClass94_4003 = RSString.createRSString("Sep");
-	private static RSString aClass94_4004 = RSString.createRSString("Oct");
-	static RSString[] aClass94Array3985 = new RSString[]{aClass94_3989, aClass94_3990, aClass94_3984, aClass94_3999, aClass94_3982, aClass94_4000, aClass94_3980, aClass94_3996, aClass94_4003, aClass94_4004, aClass94_3983, aClass94_3978};
 
 	public static void method1983(int var0) {
 		try {
 			anIntArray3986 = null;
-			aClass94_3984 = null;
-			aClass94_3983 = null;
-			aClass94_3989 = null;
 			if(var0 == -3) {
 				aClass153_3994 = null;
 				anIntArray3997 = null;
-				aClass94_4004 = null;
-				aClass94_3991 = null;
-				aClass94_3998 = null;
-				aClass94_3999 = null;
 				aClass3_Sub28_Sub16Array3977 = null;
-				aClass94_3978 = null;
-				aClass94_3992 = null;
-				aClass94_3990 = null;
-				aClass94_3996 = null;
-				aClass94_3981 = null;
 				aClass153_3993 = null;
-				aClass94_3987 = null;
-				aClass94Array3985 = null;
-				aClass94_3982 = null;
-				aClass94_3988 = null;
-				aClass94_3980 = null;
-				aClass94_4003 = null;
-				aClass94_4000 = null;
 			}
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "km.N(" + var0 + ')');
@@ -265,10 +227,6 @@ final class NPC extends Class140_Sub4 {
 
 	static final boolean method1988(boolean var0) {
 		try {
-			if(var0) {
-				aClass94_3980 = (RSString)null;
-			}
-
 			try {
 				if(Class10.anInt154 == 2) {
 					if(Class83.aClass3_Sub27_1154 == null) {

@@ -4,7 +4,6 @@ final class Class10 {
 
    static RSString aClass94_148 = RSString.createRSString("(U(Y");
    int anInt149;
-   static RSString aClass94_150 = RSString.createRSString("Ausw-=hlen");
    Class3_Sub28_Sub4 aClass3_Sub28_Sub4_151;
    static CacheIndex aClass153_152;
    int[] anIntArray153;
@@ -59,7 +58,6 @@ final class Class10 {
    public static void method853(int var0) {
       try {
          aClass94_148 = null;
-         aClass94_150 = null;
          if(var0 != 0) {
             aClass94_148 = (RSString)null;
          }

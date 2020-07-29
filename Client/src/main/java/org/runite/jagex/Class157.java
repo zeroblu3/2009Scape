@@ -5,13 +5,9 @@ final class Class157 {
    
    static int anInt1996;
    private int anInt1997;
-   private static RSString aClass94_1998 = RSString.createRSString("Connecting.. This takes a LONG time.");
    private int[][] anIntArrayArray1999;
    static Class3_Sub28_Sub17_Sub1 aClass3_Sub28_Sub17_Sub1_2000;
    private int anInt2001;
-   static RSString aClass94_2002 = RSString.createRSString("Chargement des fichiers config )2 ");
-   static RSString aClass94_2003 = RSString.createRSString("_labels");
-static RSString aClass94_1995 = aClass94_1998;
 
    final byte[] method2173(byte[] var1, byte var2) {
       try {
@@ -67,13 +63,7 @@ static RSString aClass94_1995 = aClass94_1998;
 
    public static void method2175(byte var0) {
       try {
-         aClass94_2002 = null;
-         aClass94_1995 = null;
          aClass3_Sub28_Sub17_Sub1_2000 = null;
-         if(var0 == -110) {
-            aClass94_2003 = null;
-            aClass94_1998 = null;
-         }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "vj.F(" + var0 + ')');
       }

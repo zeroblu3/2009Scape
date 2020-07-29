@@ -3,8 +3,6 @@ package org.runite.jagex;
 final class Class137 {
 
    static int anInt1781;
-   static RSString aClass94_1782 = RSString.createRSString("Prendre");
-   static RSString aClass94_1783 = RSString.createRSString(" de votre liste d(Wamis)3");
    static boolean aBoolean1784 = false;
 
 
@@ -20,14 +18,9 @@ final class Class137 {
       }
    }
 
-   public static void method1818(boolean var0) {
+   public static void method1818(boolean var0) { //TODO: Misplaced Check Method
       try {
-         aClass94_1782 = null;
-         if(var0) {
-            aClass94_1783 = (RSString)null;
-         }
-
-         aClass94_1783 = null;
+         ;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "tc.C(" + var0 + ')');
       }

@@ -12,11 +12,9 @@ static boolean aBoolean1080 = false;
    static int anInt1082;
    static int[] anIntArray1083;
    static boolean aBoolean1084 = false;
-   static RSString aClass94_1085 = RSString.createRSString("brillant1:");
    private NodeList aClass13_1086 = new NodeList();
    int anInt1087 = 0;
    static int anInt1088 = 0;
-   static RSString aClass94_1089 = RSString.createRSString("Chargement des sprites )2 ");
    private Thread aThread1090;
    private boolean aBoolean1091 = false;
 
@@ -66,7 +64,7 @@ static boolean aBoolean1080 = false;
                Class117.method1719(25, 5);
             }
 
-            Class3_Sub13.method164((byte)-125, true, Class3_Sub13_Sub23.aClass94_3282);
+            Class3_Sub13.method164((byte)-125, true, TextCore.LoadingPleaseWait2);
             int var8 = Class82.anInt1152;
             int var7 = Class131.anInt1716;
             Class82.anInt1152 = var1 * 8 - 48;
@@ -344,9 +342,7 @@ static boolean aBoolean1080 = false;
 
    public static void method1306(int var0) {
       try {
-         aClass94_1089 = null;
          if(var0 == -16222) {
-            aClass94_1085 = null;
             anIntArray1083 = null;
          }
       } catch (RuntimeException var2) {
@@ -386,7 +382,7 @@ static boolean aBoolean1080 = false;
 
                var6 = Runtime.getRuntime();
                var3 = (int)((var6.totalMemory() - var6.freeMemory()) / 1024L);
-               Class3_Sub30_Sub1.addChatMessage((RSString)null, 0, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub29.aClass94_3360, Class72.method1298((byte)9, var3), Class151_Sub1.aClass94_2951}, (byte)-95), -1);
+               Class3_Sub30_Sub1.addChatMessage((RSString)null, 0, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub29.aClass94_3360, Class72.method1298((byte)9, var3), TextCore.Memoryk}, (byte)-95), -1);
             }
 
             int var4;
@@ -399,7 +395,7 @@ static boolean aBoolean1080 = false;
 
                var6 = Runtime.getRuntime();
                var3 = (int)((var6.totalMemory() + -var6.freeMemory()) / 1024L);
-               Class3_Sub30_Sub1.addChatMessage((RSString)null, 0, RenderAnimationDefinition.method903(new RSString[]{Class119.aClass94_1625, Class72.method1298((byte)9, var3), Class151_Sub1.aClass94_2951}, (byte)-94), -1);
+               Class3_Sub30_Sub1.addChatMessage((RSString)null, 0, RenderAnimationDefinition.method903(new RSString[]{Class119.aClass94_1625, Class72.method1298((byte)9, var3), TextCore.Memoryk}, (byte)-94), -1);
                Class3_Sub1.method90(1);
                Class3_Sub13_Sub17.method246(8);
 
@@ -408,7 +404,7 @@ static boolean aBoolean1080 = false;
                }
 
                var3 = (int)((var6.totalMemory() + -var6.freeMemory()) / 1024L);
-               Class3_Sub30_Sub1.addChatMessage((RSString)null, 0, RenderAnimationDefinition.method903(new RSString[]{Class161.aClass94_2033, Class72.method1298((byte)9, var3), Class151_Sub1.aClass94_2951}, (byte)-104), -1);
+               Class3_Sub30_Sub1.addChatMessage((RSString)null, 0, RenderAnimationDefinition.method903(new RSString[]{Class161.aClass94_2033, Class72.method1298((byte)9, var3), TextCore.Memoryk}, (byte)-104), -1);
             }
 
             if(command.equals(-113, Class139.aClass94_1830)) {
@@ -540,9 +536,6 @@ static boolean aBoolean1080 = false;
          Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-38, command.length(-83) + -1);
          ++Class120.anInt1633;
          Class3_Sub13_Sub1.outgoingBuffer.putString(0, command.method1556(2, (byte)-74));
-         if(var1) {
-            aClass94_1089 = (RSString)null;
-         }
 
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "k.H(" + (command != null?"{...}":"null") + ',' + var1 + ')');

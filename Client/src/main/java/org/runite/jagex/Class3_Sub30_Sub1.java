@@ -739,7 +739,7 @@ final class Class3_Sub30_Sub1 extends RSByteBuffer {
 									ColorCore.ContextColor2, Class38.getItemDefinition(var5, (byte)109).name, ColorCore.ContextColor
 							}, (byte)-113);
 							if(RenderAnimationDefinition.aClass94_378 == null) {
-								RenderAnimationDefinition.aClass94_378 = Class50.aClass94_829;
+								RenderAnimationDefinition.aClass94_378 = TextCore.HasNull;
 //								System.out.println(Class38.getItemDefinition(var5, (byte)109).name);
 							}
 

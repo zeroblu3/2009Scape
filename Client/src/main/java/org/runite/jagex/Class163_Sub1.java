@@ -7,14 +7,10 @@ class Class163_Sub1 extends Class163 {
    static int[] anIntArray2985 = new int[2500];
    static long[] aLongArray2986 = new long[32];
    static byte[][] aByteArrayArray2987;
-   private static RSString aClass94_2988 = RSString.createRSString("glow3:");
    static int anInt2989 = 0;
    static Class61 aClass61_2990 = new Class61();
-   static RSString aClass94_2991 = aClass94_2988;
-   static RSString aClass94_2992 = aClass94_2988;
    static int anInt2993 = 0;
    static int anInt2994;
-   static RSString aClass94_2995 = RSString.createRSString("Veuillez commencer par supprimer ");
 
 
    static final void method2210(byte var0, boolean var1) {
@@ -142,18 +138,13 @@ class Class163_Sub1 extends Class163 {
    public static void method2212(boolean var0) {
       try {
          anIntArray2985 = null;
-         aClass94_2988 = null;
          aClass93_2984 = null;
          aClass61_2990 = null;
          aLongArray2986 = null;
          if(var0) {
             method2211(68);
          }
-
-         aClass94_2992 = null;
          aByteArrayArray2987 = (byte[][])null;
-         aClass94_2995 = null;
-         aClass94_2991 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ah.C(" + var0 + ')');
       }

@@ -12,10 +12,7 @@ final class Class3_Sub28_Sub10_Sub2 extends Class3_Sub28_Sub10 {
    static boolean aBoolean4068 = true;
    RSByteBuffer aClass3_Sub30_4069;
    static Class3_Sub2[][][] aClass3_Sub2ArrayArrayArray4070;
-  
-   private static RSString aClass94_4072 = RSString.createRSString(" from your friend list first)3");
    static int anInt4073;
- static RSString aClass94_4071 = aClass94_4072;
 
    final int method586(boolean var1) {
       try {
@@ -65,14 +62,12 @@ final class Class3_Sub28_Sub10_Sub2 extends Class3_Sub28_Sub10 {
 
    public static void method597(byte var0) {
       try {
-         aClass94_4072 = null;
          aClass3_Sub2ArrayArrayArray4070 = (Class3_Sub2[][][])null;
          aClass94_4066 = null;
          if(var0 < 91) {
             aClass3_Sub2ArrayArrayArray4070 = (Class3_Sub2[][][])((Class3_Sub2[][][])null);
          }
 
-         aClass94_4071 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "pm.O(" + var0 + ')');
       }
@@ -119,10 +114,6 @@ final class Class3_Sub28_Sub10_Sub2 extends Class3_Sub28_Sub10 {
 	               var8 = GameShell.frame.getInsets();
 	               Class3_Sub9.anInt2334 -= var8.right + var8.left;
 	               Class70.anInt1047 -= var8.bottom + var8.top;
-	            }
-
-	            if(var4) {
-	               aClass94_4071 = (RSString)null;
 	            }
 
 	            if(var1 >= 2) {
@@ -178,7 +169,7 @@ final class Class3_Sub28_Sub10_Sub2 extends Class3_Sub28_Sub10 {
 	                  if(5 == Class143.loadingStage) {
 	                     Class3_Sub23.method406((byte)122, true, Class168.aClass3_Sub28_Sub17_2096);
 	                  } else {
-	                     Class3_Sub13.method164((byte)-20, false, Class3_Sub13_Sub23.aClass94_3282);
+	                     Class3_Sub13.method164((byte)-20, false, TextCore.LoadingPleaseWait2);
 	                  }
 
 					   try {

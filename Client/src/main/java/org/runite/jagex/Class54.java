@@ -7,7 +7,6 @@ final class Class54 {
    static int anInt872;
    RSString[] aClass94Array873;
    Class3_Sub28_Sub15 aClass3_Sub28_Sub15_874;
-   static RSString aClass94_875 = RSString.createRSString("Benutzen");
    static int anInt876;
    int anInt877 = -1;
    static CacheIndex aClass153_878;
@@ -78,7 +77,6 @@ final class Class54 {
    public static void method1178(byte var0) {
       try {
          int var1 = 103 / ((var0 - -13) / 52);
-         aClass94_875 = null;
          aClass153_878 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "hj.B(" + var0 + ')');

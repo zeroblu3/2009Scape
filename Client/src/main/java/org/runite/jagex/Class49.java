@@ -205,7 +205,7 @@ final class Class49 {
             }
 
             Class3_Sub13_Sub34.anInt3415 = 1;
-            Class140_Sub7.aClass94Array2935[0] = Class161.aClass94_2031;
+            Class140_Sub7.aClass94Array2935[0] = TextCore.HasCancel;
             Class163_Sub2_Sub1.aClass94Array4016[0] = Class3_Sub28_Sub14.aClass94_3672;
             Class3_Sub13_Sub7.aShortArray3095[0] = 1005;
             Class114.anIntArray1578[0] = Class3_Sub28_Sub5.anInt3590;

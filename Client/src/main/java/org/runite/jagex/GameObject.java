@@ -116,8 +116,8 @@ abstract class GameObject {
          Class97.aClass153_1370 = var2;
          int var5 = Class97.aClass153_1370.method2121(0) - 1;
          Class3_Sub13_Sub23.itemDefinitionSize = Class97.aClass153_1370.getFileAmount(var5, (byte)101) + var5 * 256;
-         RuntimeException_Sub1.aClass94Array2119 = new RSString[]{null, null, null, null, Class140_Sub3.aClass94_2744};
-         RSByteBuffer.aClass94Array2596 = new RSString[]{null, null, Class3_Sub13_Sub33.aClass94_3397, null, null};
+         RuntimeException_Sub1.aClass94Array2119 = new RSString[]{null, null, null, null, TextCore.HasDrop};
+         RSByteBuffer.aClass94Array2596 = new RSString[]{null, null, TextCore.HasTake, null, null};
          Class3_Sub13_Sub37.aClass3_Sub28_Sub17_Sub1_3440 = var3;
       } catch (RuntimeException var7) {
          throw Class44.method1067(var7, "th.FC(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ')');

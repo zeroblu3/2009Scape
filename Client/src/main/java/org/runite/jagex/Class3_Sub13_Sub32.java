@@ -1,14 +1,9 @@
 package org.runite.jagex;
-import java.awt.Font;
-
 final class Class3_Sub13_Sub32 extends Class3_Sub13 {
 
    static int[] anIntArray3383 = new int[5];
-   static Font aFont3384;
    private int anInt3385 = 585;
-   private static RSString aClass94_3386 = RSString.createRSString("Use");
    static boolean aBoolean3387 = true;
-   static RSString aClass94_3388 = aClass94_3386;
    static volatile int anInt3389 = 0;
 
 
@@ -96,10 +91,7 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
 
    public static void method321(int var0) {
       try {
-         aClass94_3386 = null;
          anIntArray3383 = null;
-         aFont3384 = null;
-         aClass94_3388 = null;
          if(var0 != -21136) {
             method319(-38, -96, -102);
          }

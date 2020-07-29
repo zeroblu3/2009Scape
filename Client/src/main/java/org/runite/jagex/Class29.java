@@ -7,8 +7,6 @@ final class Class29 {
    int anInt556 = 0;
    static CacheIndex aClass153_557;
    static int[][][] anIntArrayArrayArray558;
-   static RSString aClass94_559 = RSString.createRSString("m-Ochte mit Ihnen handeln)3");
-   static RSString aClass94_560 = RSString.createRSString(" zuerst von Ihrer Freunde)2Liste(Q");
    static int anInt561 = 0;
    static int anInt562;
 
@@ -221,8 +219,6 @@ final class Class29 {
 
    public static void method973(byte var0) {
       try {
-         aClass94_559 = null;
-         aClass94_560 = null;
          aClass153_557 = null;
          anIntArrayArrayArray558 = (int[][][])null;
          if(var0 != 62) {

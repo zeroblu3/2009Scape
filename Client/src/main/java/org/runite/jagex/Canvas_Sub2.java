@@ -6,17 +6,10 @@ import java.awt.Graphics;
 final class Canvas_Sub2 extends Canvas {
 
    static int anInt27;
-   static RSString aClass94_28 = RSString.createRSString("; Expires=Thu)1 01)2Jan)21970 00:00:00 GMT; Max)2Age=0");
    static boolean aBoolean29 = false;
    static int anInt30;
    static int anInt31 = 0;
-   
    private Component aComponent33;
-   private static RSString aClass94_34 = RSString.createRSString("flash2:");
-   static RSString aClass94_32 = aClass94_34;
-   static RSString aClass94_35 = RSString.createRSString("Annuler");
-   static RSString aClass94_36 = aClass94_34;
-
 
    static final void method56(int var0, int var1) {
       try {
@@ -100,15 +93,9 @@ final class Canvas_Sub2 extends Canvas {
 
    public static void method59(byte var0) {
       try {
-         aClass94_28 = null;
-         aClass94_35 = null;
-         aClass94_34 = null;
          if(var0 >= -69) {
             aBoolean29 = false;
          }
-
-         aClass94_36 = null;
-         aClass94_32 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "tm.B(" + var0 + ')');
       }
@@ -134,11 +121,6 @@ final class Canvas_Sub2 extends Canvas {
                }
             }
          }
-
-         if(var5 >= -91) {
-            aClass94_36 = (RSString)null;
-         }
-
          byte var11;
          if(var10) {
             var11 = 1;

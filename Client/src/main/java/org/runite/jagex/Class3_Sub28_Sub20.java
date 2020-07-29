@@ -1,8 +1,8 @@
 package org.runite.jagex;
 
-import java.nio.ByteBuffer;
 import javax.media.opengl.GL;
 import javax.media.opengl.glu.GLU;
+import java.nio.ByteBuffer;
 
 final class Class3_Sub28_Sub20 extends Node {
 
@@ -10,20 +10,17 @@ final class Class3_Sub28_Sub20 extends Node {
    private float aFloat3782;
    private int anInt3783;
    private int anInt3784;
-   static RSString aClass94_3785 = RSString.createRSString("Benutzeroberfl-=che geladen)3");
    static CacheIndex aClass153_3786;
    private boolean aBoolean3787;
    private int anInt3788;
    private boolean aBoolean3789;
    private Class82 aClass82_3790;
    private int anInt3791;
-   static RSString aClass94_3792 = RSString.createRSString("huffman");
    private int[] anIntArray3793;
    static Class118 aClass118_3794 = Class21.method913(31431);
    private int anInt3795 = -1;
    private int anInt3796 = 0;
    boolean aBoolean3797 = false;
-   static RSString aClass94_3798 = RSString.createRSString("RuneScape wird geladen )2 bitte warten)3)3)3");
    private int anInt3799;
    private boolean aBoolean3800;
 
@@ -240,9 +237,6 @@ final class Class3_Sub28_Sub20 extends Node {
 
    public static void method721(int var0) {
       try {
-         aClass94_3785 = null;
-         aClass94_3792 = null;
-         aClass94_3798 = null;
          aClass153_3786 = null;
          aClass118_3794 = null;
          if(var0 != 20413) {

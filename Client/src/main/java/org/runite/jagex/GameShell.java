@@ -30,16 +30,13 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     static Frame frame;
 
 
-   private static RSString aClass94_5 = RSString.createRSString(" from your ignore list first)3");
    static boolean aBoolean6 = false;
-   static RSString aClass94_7 = RSString.createRSString(" s(West d-Bconnect-B)3");
    static RSString aClass94_8 = RSString.createRSString("");
    static RSString aClass94_9 = RSString.createRSString(")3)3)3");
    static RSString aClass94_10 = RSString.createRSString("::rect_debug");
    static boolean aBoolean11 = false;
    public static int anInt12;
    public static boolean aBoolean13;
-   static RSString aClass94_4 = aClass94_5;
 
    /**
     * Represents the current canvas.
@@ -85,12 +82,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             method27((RSString)null, true);
          }
 
-         aClass94_7 = null;
          aClass94_8 = null;
          aClass94_10 = null;
          aClass94_9 = null;
-         aClass94_5 = null;
-         aClass94_4 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "rc.W(" + var0 + ')');
       }
@@ -248,10 +242,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             System.out.println("error_game_" + var1);
             JOptionPane.showMessageDialog(frame, "Error: " + var1 + (var1.contains("js5connect") ? ". The game is likely down." : "") + "\nCheck Discord (Red Bracket#8151) or Github (https://github.com/dginovker/RS-2009/releases) for a potential solution.");
             try {
-               if(var2 != -48) {
-                  aClass94_4 = (RSString)null;
-               }
-
                this.getAppletContext().showDocument(new URL(this.getCodeBase(), "error_game_" + var1 + ".ws"), "_top");
             } catch (Exception var4) {
                ;
@@ -414,9 +404,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
       try {
          long var2 = Class5.method830((byte)-55);
          long var4 = Class163_Sub1.aLongArray2986[Class62.anInt950];
-         if(var1 != 0) {
-            aClass94_7 = (RSString)null;
-         }
 
          Class163_Sub1.aLongArray2986[Class62.anInt950] = var2;
          Class62.anInt950 = 31 & Class62.anInt950 + 1;
@@ -583,7 +570,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             frame.toFront();
             Insets var9 = frame.getInsets();
             frame.setSize(var9.left + Class3_Sub9.anInt2334 + var9.right, var9.top + Class70.anInt1047 + var9.bottom);
-            Class3_Sub13_Sub10.aClass87_3125 = Class38.aClass87_665 = new Signlink((Applet)null, 32 - -Class3_Sub13_Sub13.anInt3148, "runescape", 28);
+            Class3_Sub13_Sub10.aClass87_3125 = Class38.aClass87_665 = new Signlink((Applet)null, 32 - -Class3_Sub13_Sub13.anInt3148, "runescape", 29);
             Class64 var10 = Class38.aClass87_665.method1451(0, 1, this);
 
             while(0 == var10.anInt978) {
@@ -630,10 +617,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             Class3_Sub29.anApplet_Sub1_2588 = this;
             Class106.anInt1442 = 0;
             Class3_Sub13_Sub23_Sub1.anInt4033 = var4;
-            if(var1 >= -23) {
-               aClass94_5 = (RSString)null;
-            }
-
             Class23.anInt454 = var2;
             Class3_Sub9.anInt2334 = var2;
             Class84.anInt1164 = 0;

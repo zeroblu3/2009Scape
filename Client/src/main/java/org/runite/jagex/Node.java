@@ -4,7 +4,6 @@ class Node extends Class3 {
 
    static RSString[] aClass94Array2566 = new RSString[200];
    static int anInt2567 = -1;
-   private static RSString aClass94_2568 = RSString.createRSString("Started 3d Library");
    long aLong2569;
    Node aClass3_Sub28_2570;
    static int anInt2571;
@@ -12,7 +11,6 @@ class Node extends Class3 {
    static CacheIndex aClass153_2573;
    static int[] anIntArray2574 = new int[14];
    static int anInt2575;
-   static RSString aClass94_2576 = aClass94_2568;
    static int anInt2577 = 0;
    Node aClass3_Sub28_2578;
 
@@ -62,9 +60,7 @@ class Node extends Class3 {
          aClass153_2573 = null;
          if(var0 == -3) {
             aClass94Array2566 = null;
-            aClass94_2568 = null;
             anIntArray2574 = null;
-            aClass94_2576 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "rg.QA(" + var0 + ')');

@@ -8,12 +8,9 @@ final class Class161 {
    static int anInt2028 = 0;
    static RSString aClass94_2029 = RSString.createRSString("l");
    static RSByteBuffer aClass3_Sub30_2030 = new RSByteBuffer(new byte[5000]);
-   
-   private static RSString aClass94_2032 = RSString.createRSString("Cancel");
    static RSString aClass94_2033 = RSString.createRSString("Memory after cleanup=");
    static Class33 aClass33_2034;
    static RSString aClass94_2035 = null;
-static RSString aClass94_2031 = aClass94_2032;
 
    static final void method2200(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       try {
@@ -157,19 +154,13 @@ static RSString aClass94_2031 = aClass94_2032;
 
    public static void method2202(int var0) {
       try {
-         aClass94_2031 = null;
          aClass94_2025 = null;
          aClass94_2033 = null;
-         if(var0 != -196) {
-            aClass94_2032 = (RSString)null;
-         }
-
          aClass3_Sub30_2030 = null;
          anIntArray2026 = null;
          aClass33_2034 = null;
          aClass94_2029 = null;
          aClass94_2035 = null;
-         aClass94_2032 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "wb.B(" + var0 + ')');
       }

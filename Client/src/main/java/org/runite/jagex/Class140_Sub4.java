@@ -389,34 +389,32 @@ abstract class Class140_Sub4 extends GameObject {
                      }
                   }
                }
-            } else {
-               if(this.anInt2754 > 0) {
-                  if(this.anInt2804 <= this.anInt2787) {
-                     this.aBoolean2807 = false;
-                  }
+            } else if (this.anInt2754 > 0) {
+               if (this.anInt2804 <= this.anInt2787) {
+                  this.aBoolean2807 = false;
+               }
 
-                  if(!this.aBoolean2807) {
+               if (!this.aBoolean2807) {
+                  this.anInt2754 -= var3.anInt387;
+                  if (this.anInt2754 < 0) {
+                     this.anInt2754 = 0;
+                  }
+               } else if (var3.anInt370 > this.anInt2754) {
+                  this.anInt2754 += var3.anInt387;
+               }
+            } else {
+               if (this.anInt2787 <= this.anInt2804) {
+                  this.aBoolean2807 = false;
+               }
+
+               if (this.aBoolean2807) {
+                  if (-var3.anInt370 < this.anInt2754) {
                      this.anInt2754 -= var3.anInt387;
-                     if(this.anInt2754 < 0) {
-                        this.anInt2754 = 0;
-                     }
-                  } else if(var3.anInt370 > this.anInt2754) {
-                     this.anInt2754 += var3.anInt387;
                   }
                } else {
-                  if(this.anInt2787 <= this.anInt2804) {
-                     this.aBoolean2807 = false;
-                  }
-
-                  if(this.aBoolean2807) {
-                     if(-var3.anInt370 < this.anInt2754) {
-                        this.anInt2754 -= var3.anInt387;
-                     }
-                  } else {
-                     this.anInt2754 += var3.anInt387;
-                     if(this.anInt2754 > 0) {
-                        this.anInt2754 = 0;
-                     }
+                  this.anInt2754 += var3.anInt387;
+                  if (this.anInt2754 > 0) {
+                     this.anInt2754 = 0;
                   }
                }
             }
@@ -487,36 +485,34 @@ abstract class Class140_Sub4 extends GameObject {
                      }
                   }
                }
-            } else {
-               if(this.anInt2830 > 0) {
-                  if(this.anInt2757 <= this.anInt2834) {
-                     this.aBoolean2783 = false;
-                  }
+            } else if (this.anInt2830 > 0) {
+               if (this.anInt2757 <= this.anInt2834) {
+                  this.aBoolean2783 = false;
+               }
 
-                  if(this.aBoolean2783) {
-                     if(var3.anInt399 > this.anInt2830) {
-                        this.anInt2830 += var3.anInt403;
-                     }
-                  } else {
-                     this.anInt2830 -= var3.anInt403;
-                     if(0 > this.anInt2830) {
-                        this.anInt2830 = 0;
-                     }
+               if (this.aBoolean2783) {
+                  if (var3.anInt399 > this.anInt2830) {
+                     this.anInt2830 += var3.anInt403;
                   }
                } else {
-                  if(this.anInt2757 >= this.anInt2834) {
-                     this.aBoolean2783 = false;
+                  this.anInt2830 -= var3.anInt403;
+                  if (0 > this.anInt2830) {
+                     this.anInt2830 = 0;
                   }
+               }
+            } else {
+               if (this.anInt2757 >= this.anInt2834) {
+                  this.aBoolean2783 = false;
+               }
 
-                  if(this.aBoolean2783) {
-                     if(this.anInt2830 > -var3.anInt399) {
-                        this.anInt2830 -= var3.anInt403;
-                     }
-                  } else {
-                     this.anInt2830 += var3.anInt403;
-                     if(0 < this.anInt2830) {
-                        this.anInt2830 = 0;
-                     }
+               if (this.aBoolean2783) {
+                  if (this.anInt2830 > -var3.anInt399) {
+                     this.anInt2830 -= var3.anInt403;
+                  }
+               } else {
+                  this.anInt2830 += var3.anInt403;
+                  if (0 < this.anInt2830) {
+                     this.anInt2830 = 0;
                   }
                }
             }

@@ -8,7 +8,6 @@ abstract class Class129 {
    static int[] anIntArray1693 = new int[128];
    static RSString aClass94_1694 = RSString.createRSString("document)3cookie=(R");
    static int[] anIntArray1695;
-   static RSString aClass94_1696 = RSString.createRSString("Sie k-Onnen sich selbst nicht auf Ihre Freunde)2Liste setzen(Q");
 
 
    static final int method1765(int var0, int var1) {
@@ -33,7 +32,6 @@ abstract class Class129 {
          anIntArray1690 = null;
          anIntArray1693 = null;
          aClass94_1694 = null;
-         aClass94_1696 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "s.E(" + var0 + ')');
       }

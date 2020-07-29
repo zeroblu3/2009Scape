@@ -4,10 +4,8 @@ import java.awt.Frame;
 final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
 
    static int anInt4054;
-   private static RSString aClass94_4055 = RSString.createRSString(" has logged in)3");
    Class41 aClass41_4056;
    static RSString aClass94_4057 = RSString.createRSString("Mem:");
-   static RSString aClass94_4058 = aClass94_4055;
    byte[] aByteArray4059;
    static Class25[] aClass25Array4060;
    int anInt4061;
@@ -57,10 +55,6 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
       try {
          aClass25Array4060 = null;
          aClass94_4057 = null;
-         if(var0 > 33) {
-            aClass94_4058 = null;
-            aClass94_4055 = null;
-         }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "c.P(" + var0 + ')');
       }

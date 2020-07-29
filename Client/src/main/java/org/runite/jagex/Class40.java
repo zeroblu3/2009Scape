@@ -144,9 +144,9 @@ final class Class40 {
          }
 
          if(Class3_Sub13_Sub35.aClass131_3421 == null) {
-            if(null != Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264 && Class133.aClass153_1751.method2135(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, Player.aClass94_3964}, (byte)-77), -104)) {
-               if(Class133.aClass153_1751.method2127((byte) -83, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, Player.aClass94_3964}, (byte) -95))) {
-                  Class3_Sub13_Sub35.aClass131_3421 = Class81.method1403(-41, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, Player.aClass94_3964}, (byte)-92), Class133.aClass153_1751);
+            if(null != Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264 && Class133.aClass153_1751.method2135(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}, (byte)-77), -104)) {
+               if(Class133.aClass153_1751.method2127((byte) -83, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}, (byte) -95))) {
+                  Class3_Sub13_Sub35.aClass131_3421 = Class81.method1403(-41, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}, (byte)-92), Class133.aClass153_1751);
                } else {
                   var1 = false;
                   ++Class3_Sub13_Sub24.anInt3293;
@@ -196,7 +196,7 @@ final class Class40 {
 
             if(var1) {
                if(Class163_Sub2_Sub1.anInt4019 != 0) {
-                  Class3_Sub13.method164((byte)-24, true, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub23.aClass94_3282, Class140_Sub2.aClass94_2707}, (byte)-127));
+                  Class3_Sub13.method164((byte)-24, true, RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingPleaseWait2, Class140_Sub2.aClass94_2707}, (byte)-127));
                }
 
                Class58.method1194(-16385);

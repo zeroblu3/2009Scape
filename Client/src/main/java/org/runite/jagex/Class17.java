@@ -6,10 +6,7 @@ final class Class17 {
    static Thread aThread409;
    static int anInt410;
    static int anInt411;
-   static RSString aClass94_412 = RSString.createRSString("Vous ne pouvez pas ajouter votre nom -9 votre liste d(Wamis)3");
    static Class64 aClass64_413;
-   static RSString aClass94_414 = RSString.createRSString("Verbindung abgebrochen)3");
-   static RSString aClass94_415 = RSString.createRSString("comp-Btence ");
 
 
    public Class17() {
@@ -66,150 +63,148 @@ final class Class17 {
             if(var9 == 0) {
                var1.anInt2789 = 0;
                var1.anInt2821 = 0;
-            } else {
-               if(var2.anInt369 == 0) {
-                  ++var1.anInt2789;
-                  boolean var11;
-                  if(var9 > 1024) {
-                     var1.anInt2785 -= var1.anInt2779;
-                     var11 = true;
-                     if(var1.anInt2779 > var9 || var9 > -var1.anInt2779 + 2048) {
-                        var1.anInt2785 = var1.anInt2806;
-                        var11 = false;
-                     }
-
-                     if(var1.anInt2764 == var2.anInt368 && (25 < var1.anInt2789 || var11)) {
-                        if(var2.anInt367 == -1) {
-                           var1.anInt2764 = var2.anInt382;
-                        } else {
-                           var1.anInt2764 = var2.anInt367;
-                        }
-                     }
-                  } else {
-                     var11 = true;
-                     var1.anInt2785 += var1.anInt2779;
-                     if(var1.anInt2779 > var9 || 2048 - var1.anInt2779 < var9) {
-                        var11 = false;
-                        var1.anInt2785 = var1.anInt2806;
-                     }
-
-                     if(var2.anInt368 == var1.anInt2764 && (25 < var1.anInt2789 || var11)) {
-                        if(-1 == var2.anInt407) {
-                           var1.anInt2764 = var2.anInt382;
-                        } else {
-                           var1.anInt2764 = var2.anInt407;
-                        }
-                     }
+            } else if (var2.anInt369 == 0) {
+               ++var1.anInt2789;
+               boolean var11;
+               if (var9 > 1024) {
+                  var1.anInt2785 -= var1.anInt2779;
+                  var11 = true;
+                  if (var1.anInt2779 > var9 || var9 > -var1.anInt2779 + 2048) {
+                     var1.anInt2785 = var1.anInt2806;
+                     var11 = false;
                   }
 
-                  var1.anInt2785 &= 2047;
+                  if (var1.anInt2764 == var2.anInt368 && (25 < var1.anInt2789 || var11)) {
+                     if (var2.anInt367 == -1) {
+                        var1.anInt2764 = var2.anInt382;
+                     } else {
+                        var1.anInt2764 = var2.anInt367;
+                     }
+                  }
                } else {
-                  if(var1.anInt2764 == var2.anInt368 && 25 < var1.anInt2789) {
-                     if(var2.anInt407 == -1) {
+                  var11 = true;
+                  var1.anInt2785 += var1.anInt2779;
+                  if (var1.anInt2779 > var9 || 2048 - var1.anInt2779 < var9) {
+                     var11 = false;
+                     var1.anInt2785 = var1.anInt2806;
+                  }
+
+                  if (var2.anInt368 == var1.anInt2764 && (25 < var1.anInt2789 || var11)) {
+                     if (-1 == var2.anInt407) {
                         var1.anInt2764 = var2.anInt382;
                      } else {
                         var1.anInt2764 = var2.anInt407;
                      }
                   }
-
-                  var4 = var1.anInt2806 << 5;
-                  if(var1.anInt2808 != var4) {
-                     var1.anInt2791 = 0;
-                     var1.anInt2808 = var4;
-                     var5 = -var1.anInt2780 + var4 & '\uffff';
-                     var6 = var1.anInt2821 * var1.anInt2821 / (var2.anInt369 * 2);
-                     int var7;
-                     if(var1.anInt2821 > 0 && var6 <= var5 && -var6 + var5 < '\u8000') {
-                        var1.anInt2803 = var5 / 2;
-                        var1.aBoolean2769 = true;
-                        var7 = var2.anInt357 * var2.anInt357 / (var2.anInt369 * 2);
-                        if(32767 < var7) {
-                           var7 = 32767;
-                        }
-
-                        if(var7 < var1.anInt2803) {
-                           var1.anInt2803 = -var7 + var5;
-                        }
-                     } else if(0 > var1.anInt2821 && var6 <= -var5 + 65536 && 65536 + -var5 + -var6 < '\u8000') {
-                        var1.anInt2803 = (-var5 + 65536) / 2;
-                        var1.aBoolean2769 = true;
-                        var7 = var2.anInt357 * var2.anInt357 / (var2.anInt369 * 2);
-                        if(var7 > 32767) {
-                           var7 = 32767;
-                        }
-
-                        if(var7 < var1.anInt2803) {
-                           var1.anInt2803 = 65536 - (var5 + var7);
-                        }
-                     } else {
-                        var1.aBoolean2769 = false;
-                     }
-                  }
-
-                  if(var1.anInt2821 == 0) {
-                     var5 = -var1.anInt2780 + var1.anInt2808 & '\uffff';
-                     if(var5 < var2.anInt369) {
-                        var1.anInt2780 = var1.anInt2808;
-                     } else {
-                        var1.anInt2791 = 0;
-                        var6 = var2.anInt357 * var2.anInt357 / (2 * var2.anInt369);
-                        var1.aBoolean2769 = true;
-                        if(32767 < var6) {
-                           var6 = 32767;
-                        }
-
-                        if(var5 >= 32768) {
-                           var1.anInt2821 = -var2.anInt369;
-                           var1.anInt2803 = (65536 - var5) / 2;
-                           if(var1.anInt2803 > var6) {
-                              var1.anInt2803 = 65536 - (var5 + var6);
-                           }
-                        } else {
-                           var1.anInt2821 = var2.anInt369;
-                           var1.anInt2803 = var5 / 2;
-                           if(var1.anInt2803 > var6) {
-                              var1.anInt2803 = -var6 + var5;
-                           }
-                        }
-                     }
-                  } else if(var1.anInt2821 <= 0) {
-                     if(var1.anInt2803 <= var1.anInt2791) {
-                        var1.aBoolean2769 = false;
-                     }
-
-                     if(!var1.aBoolean2769) {
-                        var1.anInt2821 += var2.anInt369;
-                        if(0 < var1.anInt2821) {
-                           var1.anInt2821 = 0;
-                        }
-                     } else if(var1.anInt2821 > -var2.anInt357) {
-                        var1.anInt2821 -= var2.anInt369;
-                     }
-                  } else {
-                     if(var1.anInt2791 >= var1.anInt2803) {
-                        var1.aBoolean2769 = false;
-                     }
-
-                     if(!var1.aBoolean2769) {
-                        var1.anInt2821 -= var2.anInt369;
-                        if(var1.anInt2821 < 0) {
-                           var1.anInt2821 = 0;
-                        }
-                     } else if(var1.anInt2821 < var2.anInt357) {
-                        var1.anInt2821 += var2.anInt369;
-                     }
-                  }
-
-                  var1.anInt2780 += var1.anInt2821;
-                  var1.anInt2780 &= '\uffff';
-                  if(0 >= var1.anInt2821) {
-                     var1.anInt2791 -= var1.anInt2821;
-                  } else {
-                     var1.anInt2791 += var1.anInt2821;
-                  }
-
-                  var1.anInt2785 = var1.anInt2780 >> 5;
                }
+
+               var1.anInt2785 &= 2047;
+            } else {
+               if (var1.anInt2764 == var2.anInt368 && 25 < var1.anInt2789) {
+                  if (var2.anInt407 == -1) {
+                     var1.anInt2764 = var2.anInt382;
+                  } else {
+                     var1.anInt2764 = var2.anInt407;
+                  }
+               }
+
+               var4 = var1.anInt2806 << 5;
+               if (var1.anInt2808 != var4) {
+                  var1.anInt2791 = 0;
+                  var1.anInt2808 = var4;
+                  var5 = -var1.anInt2780 + var4 & '\uffff';
+                  var6 = var1.anInt2821 * var1.anInt2821 / (var2.anInt369 * 2);
+                  int var7;
+                  if (var1.anInt2821 > 0 && var6 <= var5 && -var6 + var5 < '\u8000') {
+                     var1.anInt2803 = var5 / 2;
+                     var1.aBoolean2769 = true;
+                     var7 = var2.anInt357 * var2.anInt357 / (var2.anInt369 * 2);
+                     if (32767 < var7) {
+                        var7 = 32767;
+                     }
+
+                     if (var7 < var1.anInt2803) {
+                        var1.anInt2803 = -var7 + var5;
+                     }
+                  } else if (0 > var1.anInt2821 && var6 <= -var5 + 65536 && 65536 + -var5 + -var6 < '\u8000') {
+                     var1.anInt2803 = (-var5 + 65536) / 2;
+                     var1.aBoolean2769 = true;
+                     var7 = var2.anInt357 * var2.anInt357 / (var2.anInt369 * 2);
+                     if (var7 > 32767) {
+                        var7 = 32767;
+                     }
+
+                     if (var7 < var1.anInt2803) {
+                        var1.anInt2803 = 65536 - (var5 + var7);
+                     }
+                  } else {
+                     var1.aBoolean2769 = false;
+                  }
+               }
+
+               if (var1.anInt2821 == 0) {
+                  var5 = -var1.anInt2780 + var1.anInt2808 & '\uffff';
+                  if (var5 < var2.anInt369) {
+                     var1.anInt2780 = var1.anInt2808;
+                  } else {
+                     var1.anInt2791 = 0;
+                     var6 = var2.anInt357 * var2.anInt357 / (2 * var2.anInt369);
+                     var1.aBoolean2769 = true;
+                     if (32767 < var6) {
+                        var6 = 32767;
+                     }
+
+                     if (var5 >= 32768) {
+                        var1.anInt2821 = -var2.anInt369;
+                        var1.anInt2803 = (65536 - var5) / 2;
+                        if (var1.anInt2803 > var6) {
+                           var1.anInt2803 = 65536 - (var5 + var6);
+                        }
+                     } else {
+                        var1.anInt2821 = var2.anInt369;
+                        var1.anInt2803 = var5 / 2;
+                        if (var1.anInt2803 > var6) {
+                           var1.anInt2803 = -var6 + var5;
+                        }
+                     }
+                  }
+               } else if (var1.anInt2821 <= 0) {
+                  if (var1.anInt2803 <= var1.anInt2791) {
+                     var1.aBoolean2769 = false;
+                  }
+
+                  if (!var1.aBoolean2769) {
+                     var1.anInt2821 += var2.anInt369;
+                     if (0 < var1.anInt2821) {
+                        var1.anInt2821 = 0;
+                     }
+                  } else if (var1.anInt2821 > -var2.anInt357) {
+                     var1.anInt2821 -= var2.anInt369;
+                  }
+               } else {
+                  if (var1.anInt2791 >= var1.anInt2803) {
+                     var1.aBoolean2769 = false;
+                  }
+
+                  if (!var1.aBoolean2769) {
+                     var1.anInt2821 -= var2.anInt369;
+                     if (var1.anInt2821 < 0) {
+                        var1.anInt2821 = 0;
+                     }
+                  } else if (var1.anInt2821 < var2.anInt357) {
+                     var1.anInt2821 += var2.anInt369;
+                  }
+               }
+
+               var1.anInt2780 += var1.anInt2821;
+               var1.anInt2780 &= '\uffff';
+               if (0 >= var1.anInt2821) {
+                  var1.anInt2791 -= var1.anInt2821;
+               } else {
+                  var1.anInt2791 += var1.anInt2821;
+               }
+
+               var1.anInt2785 = var1.anInt2780 >> 5;
             }
 
             if(var0 != 65536) {
@@ -225,9 +220,6 @@ final class Class17 {
    public static void method905(int var0) {
       try {
          anInterface2_408 = null;
-         aClass94_414 = null;
-         aClass94_415 = null;
-         aClass94_412 = null;
          aClass64_413 = null;
          if(var0 != -24912) {
             aClass64_413 = (Class64)null;

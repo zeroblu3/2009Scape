@@ -253,7 +253,7 @@ class Class164_Sub2 extends Class164 {
             aClass33_3019 = (Class33)null;
          }
 
-         return 32 <= var1 && var1 <= 126 ?true:(var1 >= 160 && 255 >= var1?true: var1 == 128 || var1 == 140 || var1 == 151 || var1 == 156 || var1 == 159);
+         return 32 <= var1 && var1 <= 126 || (var1 >= 160 && 255 >= var1 || (var1 == 128 || var1 == 140 || var1 == 151 || var1 == 156 || var1 == 159));
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "we.B(" + var0 + ',' + var1 + ')');
       }

@@ -5,7 +5,6 @@ final class Class108 {
    static RSString COMMAND_QA_OP_TEST = RSString.createRSString("::qa_op_test");
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_1457;
    static RSString COMMAND_HIGHRES_GRAPHICS_WINDOW = RSString.createRSString("::wm1");
-   static RSString aClass94_1459 = RSString.createRSString("cyan:");
    static int anInt1460;
 
 
@@ -134,8 +133,6 @@ final class Class108 {
          if(var0 != 13123) {
             COMMAND_HIGHRES_GRAPHICS_WINDOW = (RSString)null;
          }
-
-         aClass94_1459 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "oi.A(" + var0 + ')');
       }

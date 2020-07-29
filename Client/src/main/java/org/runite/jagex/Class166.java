@@ -82,31 +82,25 @@ final class Class166 {
                   ++KeyboardListener.anInt1910;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(180);
                   Class3_Sub13_Sub1.outgoingBuffer.putLEShortA(Class56.localPlayerIndexes[var5]);
-               } else {
-                  if(5 == var0) {
-                     Class3_Sub13_Sub1.outgoingBuffer.putOpcode(4);
-                     Class3_Sub13_Sub1.outgoingBuffer.putLEShort(var1 + -1, Class56.localPlayerIndexes[var5]);
-                     ++IOHandler.anInt1240;
-                  } else {
-                     if(var0 == 6) {
-                        Class3_Sub13_Sub1.outgoingBuffer.putOpcode(133);
-                        Class3_Sub13_Sub1.outgoingBuffer.putLEShort(-1, Class56.localPlayerIndexes[var5]);
-                        ++Class3_Sub24_Sub4.anInt3517;
-                     } else {
-                        if(var0 == 7) {
-                           ++Class20.anInt437;
-                           Class3_Sub13_Sub1.outgoingBuffer.putOpcode(114);
-                           Class3_Sub13_Sub1.outgoingBuffer.putLEShortA(Class56.localPlayerIndexes[var5]);
-                        }
-                     }
-                  }
+               } else if (5 == var0) {
+                  Class3_Sub13_Sub1.outgoingBuffer.putOpcode(4);
+                  Class3_Sub13_Sub1.outgoingBuffer.putLEShort(var1 + -1, Class56.localPlayerIndexes[var5]);
+                  ++IOHandler.anInt1240;
+               } else if (var0 == 6) {
+                  Class3_Sub13_Sub1.outgoingBuffer.putOpcode(133);
+                  Class3_Sub13_Sub1.outgoingBuffer.putLEShort(-1, Class56.localPlayerIndexes[var5]);
+                  ++Class3_Sub24_Sub4.anInt3517;
+               } else if (var0 == 7) {
+                  ++Class20.anInt437;
+                  Class3_Sub13_Sub1.outgoingBuffer.putOpcode(114);
+                  Class3_Sub13_Sub1.outgoingBuffer.putLEShortA(Class56.localPlayerIndexes[var5]);
                }
                break;
             }
          }
 
          if(!var4) {
-            Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{Class43.aClass94_691, var3}, (byte)-77), -1);
+            Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.HasUnableFind, var3}, (byte)-77), -1);
          }
 
       } catch (RuntimeException var7) {

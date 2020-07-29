@@ -14,8 +14,6 @@ final class Class3_Sub13_Sub7 extends Class3_Sub13 {
    private int anInt3093 = 2048;
    static boolean aBoolean3094 = false;
    static short[] aShortArray3095 = new short[500];
-   private static RSString aClass94_3096 = RSString.createRSString("Close");
-   static RSString aClass94_3097 = aClass94_3096;
    static CacheIndex aClass153_3098;
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_3099;
 
@@ -32,7 +30,6 @@ final class Class3_Sub13_Sub7 extends Class3_Sub13 {
 
    public static void method200(byte var0) {
       try {
-         aClass94_3097 = null;
          aShortArray3095 = null;
          if(var0 != 122) {
             method201(62, -109, 127);
@@ -40,7 +37,6 @@ final class Class3_Sub13_Sub7 extends Class3_Sub13 {
 
          GameShell.frame = null;
          aRandom3088 = null;
-         aClass94_3096 = null;
          aClass3_Sub28_Sub16_3099 = null;
          aClass11_3087 = null;
          aClass153_3098 = null;

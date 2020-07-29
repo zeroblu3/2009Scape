@@ -4,7 +4,6 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
 
    private int anInt3129;
    static Class93 aClass93_3130 = new Class93(4);
-   static RSString aClass94_3131 = RSString.createRSString(" ");
    static int anInt3132;
    static RSString aClass94_3133 = RSString.createRSString(")2");
    private int anInt3134;
@@ -31,7 +30,6 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
          aClass94_3140 = null;
          aClass93_3130 = null;
          anIntArray3139 = null;
-         aClass94_3131 = null;
          aClass47_3137 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "fm.B(" + var0 + ')');

@@ -7,13 +7,9 @@ final class Class43 {
    static int anInt692 = 0;
    private int anInt693;
    private int anInt694;
-   private static RSString aClass94_695 = RSString.createRSString("Unable to find ");
    boolean aBoolean696 = false;
    int anInt697;
    int anInt698;
-   static RSString aClass94_699 = RSString.createRSString("clignotant3:");
-   static RSString aClass94_700 = RSString.createRSString("blaugr-Un:");
-   static RSString aClass94_701 = RSString.createRSString("Chargement de la liste des serveurs");
    private int anInt702;
    int anInt703;
    int anInt704;
@@ -30,7 +26,6 @@ final class Class43 {
    static int anInt715;
    static int anInt716 = 0;
    float[] aFloatArray717 = new float[4];
-static RSString aClass94_691 = aClass94_695;
 
    static final void method1058(int var0, int var1, int var2, int var3, byte var4) {
       try {
@@ -46,15 +41,9 @@ static RSString aClass94_691 = aClass94_695;
       }
    }
 
-   public static void method1059(byte var0) {
+   public static void method1059(byte var0) {//TODO: Empty check method
       try {
-         aClass94_695 = null;
-         aClass94_701 = null;
-         aClass94_699 = null;
-         aClass94_691 = null;
-         if(var0 == -2) {
-            aClass94_700 = null;
-         }
+         ;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "gi.E(" + var0 + ')');
       }
@@ -258,10 +247,6 @@ static RSString aClass94_691 = aClass94_695;
 
    static final void method1065(int var0, CS2Script var1) {
       try {
-         if(var0 != 1073376993) {
-            aClass94_699 = (RSString)null;
-         }
-
          ItemDefinition.method1104((byte)-93, 200000, var1);
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "gi.H(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');

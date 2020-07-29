@@ -3,7 +3,6 @@ import java.awt.event.KeyEvent;
 
 final class Class79 {
 
-   static RSString aClass94_1122 = RSString.createRSString("M-Bmoire en cours d(Wattribution");
    int anInt1123;
    static int anInt1124 = -1;
    int anInt1125;
@@ -17,10 +16,6 @@ final class Class79 {
       try {
          Class3_Sub28_Sub6 var3 = Class3_Sub24_Sub3.method466(4, 6, var1);
          var3.g((byte)33);
-         if(var2 >= -103) {
-            aClass94_1122 = (RSString)null;
-         }
-
          var3.anInt3598 = var0;
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "kk.E(" + var0 + ',' + var1 + ',' + var2 + ')');
@@ -64,7 +59,6 @@ final class Class79 {
 
    public static void method1388(boolean var0) {
       try {
-         aClass94_1122 = null;
          aClass94_1129 = null;
          if(!var0) {
             anInt1126 = 8;
@@ -236,7 +230,7 @@ final class Class79 {
 
    static final boolean method1391(int var0) {
       try {
-         return var0 == ~Class10.anInt154?Class101.aClass3_Sub24_Sub4_1421.method473(-128):true;
+         return var0 != ~Class10.anInt154 || Class101.aClass3_Sub24_Sub4_1421.method473(-128);
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "kk.A(" + var0 + ')');
       }

@@ -60,10 +60,11 @@ final class ItemDefinition {
 	private int anInt803;
 	int[] anIntArray804;
 	private int anInt805;
-	private static RSString aClass94_806;
 	boolean aBoolean807;
 	static RSString aClass94_808;
+
 	static RSString aClass94_809;
+	private static RSString aClass94_806;
 	int anInt810;
 	private static RSString aClass94_811;
 
@@ -117,6 +118,7 @@ final class ItemDefinition {
 		try {
 			Object aobj[] = script.arguments;
 			int j = ((Integer) aobj[0]).intValue();
+			//System.out.println("CS opcode: " + j);
 			Class3_Sub28_Sub15 class3_sub28_sub15 = Class3_Sub28_Sub8.method572(j, (byte) -91);
 			if (null == class3_sub28_sub15)
 				return;
@@ -1555,7 +1557,7 @@ final class ItemDefinition {
 																		Class140_Sub7.anIntArray2929[k++] = Class24.anInt467;
 																		continue;
 																	}
-																	if (j1 == 5008) {
+																	if (j1 == 5008) {//Used for a lot of things involving :: || More prefixes can be added by using || and listing said added way, ie ;; can be used instead of ::
 																		RSString class94_18 = Class3.aClass94Array75[--l];
 																		if (class94_18.method1558(Class9.aClass94_132, 0) || class94_18.method1558(RSString.createRSString(";;"), 0))
 																			Class73.ClientCommands(class94_18, false);
@@ -1563,144 +1565,120 @@ final class ItemDefinition {
 																			RSString class94_47 = class94_18.method1534(-98);
 																			Class162.anInt2037++;
 																			byte byte3 = 0;
-																			if (class94_47.method1558(Class3_Sub28_Sub2.aClass94_3548, 0)) {
+																			if (class94_47.method1558(TextCore.TextColorYellow, 0)) {
 																				byte3 = 0;
-																				class94_18 = class94_18.method1556(Class3_Sub28_Sub2.aClass94_3548.length(-54), (byte) -74);
-																			} else if (class94_47.method1558(Class3_Sub20.aClass94_2490, 0)) {
-																				class94_18 = class94_18.method1556(Class3_Sub20.aClass94_2490.length(-102), (byte) -74);
+																				class94_18 = class94_18.method1556(TextCore.TextColorYellow.length(-54), (byte) -74);
+																			} else if (class94_47.method1558(TextCore.TextColorRed, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextColorRed.length(-102), (byte) -74);
 																				byte3 = 1;
+																			} else if (class94_47.method1558(TextCore.TextColorGreen, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextColorGreen.length(-115), (byte) -74);
+																				byte3 = 2;
+																			} else if (class94_47.method1558(TextCore.TextColorCyan, 0)) {
+																				byte3 = 3;
+																				class94_18 = class94_18.method1556(TextCore.TextColorCyan.length(-108), (byte) -74);
+																			} else if (class94_47.method1558(TextCore.TextColorPurple, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextColorPurple.length(-62), (byte) -74);
+																				byte3 = 4;
+																			} else if (class94_47.method1558(TextCore.TextColorWhite, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextColorWhite.length(-46), (byte) -74);
+																				byte3 = 5;
+																			} else if (class94_47.method1558(TextCore.TextFlashOne, 0)) {
+																				byte3 = 6;
+																				class94_18 = class94_18.method1556(TextCore.TextFlashOne.length(-63), (byte) -74);
+																			} else if (class94_47.method1558(TextCore.TextFlashTwo, 0)) {
+																				byte3 = 7;
+																				class94_18 = class94_18.method1556(TextCore.TextFlashTwo.length(-83), (byte) -74);
+																			} else if (class94_47.method1558(TextCore.TextFlashThree, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextFlashThree.length(-92), (byte) -74);
+																				byte3 = 8;
+																			} else if (class94_47.method1558(TextCore.TextGlowOne, 0)) {
+																				byte3 = 9;
+																				class94_18 = class94_18.method1556(TextCore.TextGlowOne.length(-34), (byte) -74);
 																			} else {
-																				if (class94_47.method1558(aClass94_806, 0)) {
-																					class94_18 = class94_18.method1556(aClass94_806.length(-115), (byte) -74);
-																					byte3 = 2;
+																				if (class94_47.method1558(TextCore.TextGlowTwo, 0)) {
+																					byte3 = 10;
+																					class94_18 = class94_18.method1556(TextCore.TextGlowTwo.length(-126), (byte) -74);
+																				} else if (class94_47.method1558(TextCore.TextGlowThree, 0)) {
+																					class94_18 = class94_18.method1556(TextCore.TextGlowThree.length(-50), (byte) -74);
+																					byte3 = 11;
 																				} else {
-																					if (class94_47.method1558(Client.aClass94_2197, 0)) {
-																						byte3 = 3;
-																						class94_18 = class94_18.method1556(Client.aClass94_2197.length(-108), (byte) -74);
-																					} else if (class94_47.method1558(Class50.aClass94_833, 0)) {
-																						class94_18 = class94_18.method1556(Class50.aClass94_833.length(-62), (byte) -74);
-																						byte3 = 4;
-																					} else if (class94_47.method1558(Class3_Sub1.aClass94_2214, 0)) {
-																						class94_18 = class94_18.method1556(Class3_Sub1.aClass94_2214.length(-46), (byte) -74);
-																						byte3 = 5;
-																					} else if (class94_47.method1558(Class3_Sub13_Sub20.aClass94_3246, 0)) {
-																						byte3 = 6;
-																						class94_18 = class94_18.method1556(Class3_Sub13_Sub20.aClass94_3246.length(-63), (byte) -74);
-																					} else {
-																						if (class94_47.method1558(Canvas_Sub2.aClass94_32, 0)) {
-																							byte3 = 7;
-																							class94_18 = class94_18.method1556(Canvas_Sub2.aClass94_32.length(-83), (byte) -74);
+																					if (0 != Class3_Sub20.language)
+																						if (class94_47.method1558(TextCore.TextColorYellow, 0)) {
+																							byte3 = 0;
+																							class94_18 = class94_18.method1556(TextCore.TextColorYellow.length(-116), (byte) -74);
+																						} else if (class94_47.method1558(TextCore.TextColorRed, 0)) {
+																							class94_18 = class94_18.method1556(TextCore.TextColorRed.length(-80), (byte) -74);
+																							byte3 = 1;
+																						} else if (class94_47.method1558(TextCore.TextColorGreen, 0)) {
+																							class94_18 = class94_18.method1556(TextCore.TextColorGreen.length(-90), (byte) -74);
+																							byte3 = 2;
+																						} else if (class94_47.method1558(TextCore.TextColorCyan, 0)) {
+																							class94_18 = class94_18.method1556(TextCore.TextColorCyan.length(-34), (byte) -74);
+																							byte3 = 3;
 																						} else {
-																							if (class94_47.method1558(NPC.aClass94_3981, 0)) {
-																								class94_18 = class94_18.method1556(NPC.aClass94_3981.length(-92), (byte) -74);
+																							if (class94_47.method1558(TextCore.TextColorPurple, 0)) {
+																								class94_18 = class94_18.method1556(TextCore.TextColorPurple.length(-52), (byte) -74);
+																								byte3 = 4;
+																							} else if (class94_47.method1558(TextCore.TextColorWhite, 0)) {
+																								byte3 = 5;
+																								class94_18 = class94_18.method1556(TextCore.TextColorWhite.length(-90), (byte) -74);
+																							} else if (class94_47.method1558(TextCore.TextFlashOne, 0)) {
+																								class94_18 = class94_18.method1556(TextCore.TextFlashOne.length(-100), (byte) -74);
+																								byte3 = 6;
+																							} else if (class94_47.method1558(TextCore.TextFlashTwo, 0)) {
+																								byte3 = 7;
+																								class94_18 = class94_18.method1556(TextCore.TextFlashTwo.length(-30), (byte) -74);
+																							} else if (class94_47.method1558(TextCore.TextFlashThree, 0)) {
 																								byte3 = 8;
-																							} else if (class94_47.method1558(Class2.aClass94_60, 0)) {
+																								class94_18 = class94_18.method1556(TextCore.TextFlashThree.length(-101), (byte) -74);
+																							} else if (class94_47.method1558(TextCore.TextGlowOne, 0)) {
 																								byte3 = 9;
-																								class94_18 = class94_18.method1556(Class2.aClass94_60.length(-34), (byte) -74);
-																							} else {
-																								if (class94_47.method1558(Class154.aClass94_1961, 0)) {
-																									byte3 = 10;
-																									class94_18 = class94_18.method1556(Class154.aClass94_1961.length(-126), (byte) -74);
-																								} else if (class94_47.method1558(Class163_Sub1.aClass94_2992, 0)) {
-																									class94_18 = class94_18.method1556(Class163_Sub1.aClass94_2992.length(-50), (byte) -74);
-																									byte3 = 11;
-																								} else {
-																									if (0 != Class3_Sub20.language)
-																										if (class94_47.method1558(Class3_Sub28_Sub2.aClass94_3544, 0)) {
-																											byte3 = 0;
-																											class94_18 = class94_18.method1556(Class3_Sub28_Sub2.aClass94_3544.length(-116), (byte) -74);
-																										} else if (class94_47.method1558(Class3_Sub20.aClass94_2481, 0)) {
-																											class94_18 = class94_18.method1556(Class3_Sub20.aClass94_2481.length(-80), (byte) -74);
-																											byte3 = 1;
-																										} else if (class94_47.method1558(aClass94_809, 0)) {
-																											class94_18 = class94_18.method1556(aClass94_809.length(-90), (byte) -74);
-																											byte3 = 2;
-																										} else if (class94_47.method1558(Client.aClass94_2196, 0)) {
-																											class94_18 = class94_18.method1556(Client.aClass94_2196.length(-34), (byte) -74);
-																											byte3 = 3;
-																										} else {
-																											if (class94_47.method1558(Class50.aClass94_825, 0)) {
-																												class94_18 = class94_18.method1556(Class50.aClass94_825.length(-52), (byte) -74);
-																												byte3 = 4;
-																											} else {
-																												if (class94_47.method1558(Class3_Sub1.aClass94_2210, 0)) {
-																													byte3 = 5;
-																													class94_18 = class94_18.method1556(Class3_Sub1.aClass94_2210.length(-90), (byte) -74);
-																												} else if (class94_47.method1558(Class3_Sub13_Sub20.aClass94_3249, 0)) {
-																													class94_18 = class94_18.method1556(Class3_Sub13_Sub20.aClass94_3249.length(-100), (byte) -74);
-																													byte3 = 6;
-																												} else if (class94_47.method1558(Canvas_Sub2.aClass94_36, 0)) {
-																													byte3 = 7;
-																													class94_18 = class94_18.method1556(Canvas_Sub2.aClass94_36.length(-30), (byte) -74);
-																												} else if (class94_47.method1558(NPC.aClass94_3988, 0)) {
-																													byte3 = 8;
-																													class94_18 = class94_18.method1556(NPC.aClass94_3988.length(-101), (byte) -74);
-																												} else if (class94_47.method1558(Class2.aClass94_62, 0)) {
-																													byte3 = 9;
-																													class94_18 = class94_18.method1556(Class2.aClass94_62.length(-55), (byte) -74);
-																												} else if (class94_47.method1558(Class154.aClass94_1962, 0)) {
-																													class94_18 = class94_18.method1556(Class154.aClass94_1962.length(-115), (byte) -74);
-																													byte3 = 10;
-																												} else if (class94_47.method1558(Class163_Sub1.aClass94_2991, 0)) {
-																													class94_18 = class94_18.method1556(Class163_Sub1.aClass94_2991.length(-84), (byte) -74);
-																													byte3 = 11;
-																												}
-																											}
-																										}
-																								}
+																								class94_18 = class94_18.method1556(TextCore.TextGlowOne.length(-55), (byte) -74);
+																							} else if (class94_47.method1558(TextCore.TextGlowTwo, 0)) {
+																								class94_18 = class94_18.method1556(TextCore.TextGlowTwo.length(-115), (byte) -74);
+																								byte3 = 10;
+																							} else if (class94_47.method1558(TextCore.TextGlowThree, 0)) {
+																								class94_18 = class94_18.method1556(TextCore.TextGlowThree.length(-84), (byte) -74);
+																								byte3 = 11;
 																							}
 																						}
-																					}
 																				}
 																			}
 																			byte byte4 = 0;
 																			class94_47 = class94_18.method1534(-98);
-																			if (class94_47.method1558(Class140_Sub3.aClass94_2740, 0)) {
-																				class94_18 = class94_18.method1556(Class140_Sub3.aClass94_2740.length(-105), (byte) -74);
+																			if (class94_47.method1558(TextCore.TextWave, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextWave.length(-105), (byte) -74);
 																				byte4 = 1;
-																			} else if (class94_47.method1558(Class3_Sub13_Sub26.aClass94_3325, 0)) {
+																			} else if (class94_47.method1558(TextCore.TextWaveTwo, 0)) {
 																				byte4 = 2;
-																				class94_18 = class94_18.method1556(Class3_Sub13_Sub26.aClass94_3325.length(-117), (byte) -74);
-																			} else {
-																				if (class94_47.method1558(Class128.aClass94_1689, 0)) {
-																					class94_18 = class94_18.method1556(Class128.aClass94_1689.length(-37), (byte) -74);
+																				class94_18 = class94_18.method1556(TextCore.TextWaveTwo.length(-117), (byte) -74);
+																			} else if (class94_47.method1558(TextCore.TextShake, 0)) {
+																				class94_18 = class94_18.method1556(TextCore.TextShake.length(-37), (byte) -74);
+																				byte4 = 3;
+																			} else if (class94_47.method1558(TextCore.HasScroll, 0)) {
+																				byte4 = 4;
+																				class94_18 = class94_18.method1556(TextCore.HasScroll.length(-37), (byte) -74);
+																			} else if (class94_47.method1558(TextCore.TextSlide, 0)) {
+																				byte4 = 5;
+																				class94_18 = class94_18.method1556(TextCore.TextSlide.length(-17), (byte) -74);
+																			} else if (0 != Class3_Sub20.language)
+																				if (class94_47.method1558(TextCore.TextWave, 0)) {
+																					class94_18 = class94_18.method1556(TextCore.TextWave.length(-74), (byte) -74);
+																					byte4 = 1;
+																				} else if (class94_47.method1558(TextCore.TextWaveTwo, 0)) {
+																					byte4 = 2;
+																					class94_18 = class94_18.method1556(TextCore.TextWaveTwo.length(-106), (byte) -74);
+																				} else if (class94_47.method1558(TextCore.TextShake, 0)) {
 																					byte4 = 3;
-																				} else {
-																					if (class94_47.method1558(Class27.aClass94_528, 0)) {
-																						byte4 = 4;
-																						class94_18 = class94_18.method1556(Class27.aClass94_528.length(-37), (byte) -74);
-																					} else {
-																						if (class94_47.method1558(GraphicDefinition.aClass94_547, 0)) {
-																							byte4 = 5;
-																							class94_18 = class94_18.method1556(GraphicDefinition.aClass94_547.length(-17), (byte) -74);
-																						} else if (0 != Class3_Sub20.language)
-																							if (class94_47.method1558(Class140_Sub3.aClass94_2751, 0)) {
-																								class94_18 = class94_18.method1556(Class140_Sub3.aClass94_2751.length(-74), (byte) -74);
-																								byte4 = 1;
-																							} else {
-																								if (class94_47.method1558(Class3_Sub13_Sub26.aClass94_3333, 0)) {
-																									byte4 = 2;
-																									class94_18 = class94_18.method1556(Class3_Sub13_Sub26.aClass94_3333.length(-106), (byte) -74);
-																								} else {
-																									if (class94_47.method1558(Class128.aClass94_1688, 0)) {
-																										byte4 = 3;
-																										class94_18 = class94_18.method1556(Class128.aClass94_1688.length(-45), (byte) -74);
-																									} else {
-																										if (class94_47.method1558(Class27.aClass94_523, 0)) {
-																											byte4 = 4;
-																											class94_18 = class94_18.method1556(Class27.aClass94_523.length(-92), (byte) -74);
-																										} else {
-																											if (class94_47.method1558(GraphicDefinition.aClass94_551, 0)) {
-																												class94_18 = class94_18.method1556(GraphicDefinition.aClass94_551.length(-124), (byte) -74);
-																												byte4 = 5;
-																											}
-																										}
-																									}
-																								}
-																							}
-																					}
+																					class94_18 = class94_18.method1556(TextCore.TextShake.length(-45), (byte) -74);
+																				} else if (class94_47.method1558(TextCore.HasScroll, 0)) {
+																					byte4 = 4;
+																					class94_18 = class94_18.method1556(TextCore.HasScroll.length(-92), (byte) -74);
+																				} else if (class94_47.method1558(TextCore.TextSlide, 0)) {
+																					class94_18 = class94_18.method1556(TextCore.TextSlide.length(-124), (byte) -74);
+																					byte4 = 5;
 																				}
-																			}
 																			Class3_Sub13_Sub1.outgoingBuffer.putOpcode(237);
 																			Class3_Sub13_Sub1.outgoingBuffer.putByte((byte) -11, 0);
 																			int k79 = Class3_Sub13_Sub1.outgoingBuffer.index;
@@ -3214,7 +3192,7 @@ final class ItemDefinition {
 													int k80 = Class3_Sub28_Sub9.aCalendar3616.get(2);
 													int i82 = Class3_Sub28_Sub9.aCalendar3616.get(1);
 													Class3.aClass94Array75[l++] = RenderAnimationDefinition.method903(new RSString[]{
-															Class72.method1298((byte) 9, k78), Class93.aClass94_1326, RenderAnimationDefinition.aClass94Array358[k80], Class93.aClass94_1326, Class72.method1298((byte) 9, i82)
+															Class72.method1298((byte) 9, k78), Class93.aClass94_1326, TextCore.MonthsOfTheYear[k80], Class93.aClass94_1326, Class72.method1298((byte) 9, i82)
 													}, (byte) -122);
 													continue;
 												}
@@ -3551,78 +3529,72 @@ final class ItemDefinition {
 									class11_14.anObjectArray180 = aobj1;
 								else if (j1 == 1402) {
 									class11_14.anObjectArray239 = aobj1;
+								} else if (j1 == 1403) {
+									class11_14.anObjectArray248 = aobj1;
+								} else if (j1 == 1404) {
+									class11_14.anObjectArray281 = aobj1;
+								} else if (1405 == j1)
+									class11_14.anObjectArray295 = aobj1;
+								else if (1406 == j1)
+									class11_14.anObjectArray303 = aobj1;
+								else if (1407 == j1) {
+									class11_14.anIntArray286 = ai3;
+									class11_14.anObjectArray282 = aobj1;
 								} else {
-									if (j1 == 1403) {
-										class11_14.anObjectArray248 = aobj1;
+									if (j1 == 1408)
+										class11_14.anObjectArray269 = aobj1;
+									else if (j1 == 1409) {
+										class11_14.anObjectArray314 = aobj1;
 									} else {
-										if (j1 == 1404) {
-											class11_14.anObjectArray281 = aobj1;
+										if (1410 == j1) {
+											class11_14.anObjectArray229 = aobj1;
 										} else {
-											if (1405 == j1)
-												class11_14.anObjectArray295 = aobj1;
-											else if (1406 == j1)
-												class11_14.anObjectArray303 = aobj1;
-											else if (1407 == j1) {
-												class11_14.anIntArray286 = ai3;
-												class11_14.anObjectArray282 = aobj1;
+											if (j1 == 1411) {
+												class11_14.anObjectArray170 = aobj1;
 											} else {
-												if (j1 == 1408)
-													class11_14.anObjectArray269 = aobj1;
-												else if (j1 == 1409) {
-													class11_14.anObjectArray314 = aobj1;
+												if (j1 == 1412)
+													class11_14.anObjectArray276 = aobj1;
+												else if (j1 == 1414) {
+													class11_14.anIntArray175 = ai3;
+													class11_14.anObjectArray174 = aobj1;
+												} else if (1415 == j1) {
+													class11_14.anIntArray274 = ai3;
+													class11_14.anObjectArray158 = aobj1;
+												} else if (1416 == j1)
+													class11_14.anObjectArray203 = aobj1;
+												else if (1417 == j1) {
+													class11_14.anObjectArray183 = aobj1;
 												} else {
-													if (1410 == j1) {
-														class11_14.anObjectArray229 = aobj1;
+													if (j1 == 1418)
+														class11_14.anObjectArray256 = aobj1;
+													else if (j1 == 1419)
+														class11_14.anObjectArray220 = aobj1;
+													else if (j1 == 1420)
+														class11_14.anObjectArray156 = aobj1;
+													else if (j1 == 1421) {
+														class11_14.anObjectArray313 = aobj1;
 													} else {
-														if (j1 == 1411) {
-															class11_14.anObjectArray170 = aobj1;
+														if (1422 == j1)
+															class11_14.anObjectArray315 = aobj1;
+														else if (1423 == j1) {
+															class11_14.anObjectArray206 = aobj1;
 														} else {
-															if (j1 == 1412)
-																class11_14.anObjectArray276 = aobj1;
-															else if (j1 == 1414) {
-																class11_14.anIntArray175 = ai3;
-																class11_14.anObjectArray174 = aobj1;
-															} else if (1415 == j1) {
-																class11_14.anIntArray274 = ai3;
-																class11_14.anObjectArray158 = aobj1;
-															} else if (1416 == j1)
-																class11_14.anObjectArray203 = aobj1;
-															else if (1417 == j1) {
-																class11_14.anObjectArray183 = aobj1;
+															if (j1 == 1424)
+																class11_14.anObjectArray176 = aobj1;
+															else if (j1 == 1425)
+																class11_14.anObjectArray268 = aobj1;
+															else if (j1 == 1426) {
+																class11_14.anObjectArray217 = aobj1;
 															} else {
-																if (j1 == 1418)
-																	class11_14.anObjectArray256 = aobj1;
-																else if (j1 == 1419)
-																	class11_14.anObjectArray220 = aobj1;
-																else if (j1 == 1420)
-																	class11_14.anObjectArray156 = aobj1;
-																else if (j1 == 1421) {
-																	class11_14.anObjectArray313 = aobj1;
+																if (1427 == j1) {
+																	class11_14.anObjectArray235 = aobj1;
 																} else {
-																	if (1422 == j1)
-																		class11_14.anObjectArray315 = aobj1;
-																	else if (1423 == j1) {
-																		class11_14.anObjectArray206 = aobj1;
-																	} else {
-																		if (j1 == 1424)
-																			class11_14.anObjectArray176 = aobj1;
-																		else if (j1 == 1425)
-																			class11_14.anObjectArray268 = aobj1;
-																		else if (j1 == 1426) {
-																			class11_14.anObjectArray217 = aobj1;
-																		} else {
-																			if (1427 == j1) {
-																				class11_14.anObjectArray235 = aobj1;
-																			} else {
-																				if (j1 == 1428) {
-																					class11_14.anObjectArray161 = aobj1;
-																					class11_14.anIntArray211 = ai3;
-																				} else if (j1 == 1429) {
-																					class11_14.anIntArray185 = ai3;
-																					class11_14.anObjectArray221 = aobj1;
-																				}
-																			}
-																		}
+																	if (j1 == 1428) {
+																		class11_14.anObjectArray161 = aobj1;
+																		class11_14.anIntArray211 = ai3;
+																	} else if (j1 == 1429) {
+																		class11_14.anIntArray185 = ai3;
+																		class11_14.anObjectArray221 = aobj1;
 																	}
 																}
 															}
@@ -3671,10 +3643,7 @@ final class ItemDefinition {
 									class11_15.anInt164 = (class11_15.anInt164 * 32) / class11_15.anInt184;
 								else if (class11_15.width > 0)
 									class11_15.anInt164 = (class11_15.anInt164 * 32) / class11_15.width;
-								if (1205 == j1)
-									class11_15.aBoolean227 = false;
-								else
-									class11_15.aBoolean227 = true;
+								class11_15.aBoolean227 = 1205 != j1;
 							}
 							continue;
 						}
@@ -4072,7 +4041,7 @@ final class ItemDefinition {
 				}
 			}
 
-			this.inventoryOptions[4] = RenderAnimationDefinition.aClass94_361;
+			this.inventoryOptions[4] = TextCore.HasDiscard;
 		} catch (RuntimeException var5) {
 			throw Class44.method1067(var5, "h.J(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ')');
 		}
@@ -4196,174 +4165,170 @@ final class ItemDefinition {
 				this.anInt755 = buffer.getShort(1);
 			} else if (opcode == 2) {
 				this.name = buffer.getString();
+			} else if (opcode == 4) {
+				this.anInt810 = buffer.getShort(1);
+			} else if (opcode == 5) {
+				this.anInt786 = buffer.getShort(1);
+			} else if (opcode == 6) {
+				this.anInt799 = buffer.getShort(1);
+			} else if (opcode == 7) {
+				this.anInt792 = buffer.getShort(1);
+				if (this.anInt792 > 32767) {
+					this.anInt792 -= 65536;
+				}
+			} else if (opcode == 8) {
+				this.anInt754 = buffer.getShort(1);
+				if (this.anInt754 > 32767) {
+					this.anInt754 -= 65536;
+				}
+			} else if (opcode == 11) {
+				this.stackingType = 1;
+			} else if (opcode == 12) {
+				this.value = buffer.getInt();
+			} else if (opcode == 16) {
+				this.membersItem = true;
 			} else {
-				if (opcode == 4) {
-					this.anInt810 = buffer.getShort(1);
-				} else if (opcode == 5) {
-					this.anInt786 = buffer.getShort(1);
-				} else if (opcode == 6) {
-					this.anInt799 = buffer.getShort(1);
-				} else if (opcode == 7) {
-					this.anInt792 = buffer.getShort(1);
-					if (this.anInt792 > 32767) {
-						this.anInt792 -= 65536;
-					}
-				} else if (opcode == 8) {
-					this.anInt754 = buffer.getShort(1);
-					if (this.anInt754 > 32767) {
-						this.anInt754 -= 65536;
-					}
+				if (23 == opcode) {
+					this.anInt793 = buffer.getShort(1);
+				} else if (opcode == 24) {
+					this.anInt771 = buffer.getShort(1);
 				} else {
-					if (opcode == 11) {
-						this.stackingType = 1;
-					} else if (opcode == 12) {
-						this.value = buffer.getInt();
-					} else if (opcode == 16) {
-						this.membersItem = true;
+					if (opcode == 25) {
+						this.anInt761 = buffer.getShort(1);
 					} else {
-						if (23 == opcode) {
-							this.anInt793 = buffer.getShort(1);
-						} else if (opcode == 24) {
-							this.anInt771 = buffer.getShort(1);
+						if (opcode == 26) {
+							this.anInt794 = buffer.getShort(1);
 						} else {
-							if (opcode == 25) {
-								this.anInt761 = buffer.getShort(1);
+							if (opcode >= 30 && opcode < 35) {
+								this.groundOptions[-30 + opcode] = buffer.getString();
+								if (this.groundOptions[opcode + -30].equals(25, TextCore.HasHidden)) {
+									this.groundOptions[-30 + opcode] = null;
+								}
+							} else if (35 <= opcode && 40 > opcode) {
+								this.inventoryOptions[-35 + opcode] = buffer.getString();
 							} else {
-								if (opcode == 26) {
-									this.anInt794 = buffer.getShort(1);
+								int var5;
+								int var6;
+								if (opcode == 40) {
+									var5 = buffer.getByte((byte) -64);
+									this.aShortArray772 = new short[var5];
+									this.aShortArray774 = new short[var5];
+
+									for (var6 = 0; var5 > var6; ++var6) {
+										this.aShortArray774[var6] = (short) buffer.getShort(1);
+										this.aShortArray772[var6] = (short) buffer.getShort(1);
+									}
 								} else {
-									if (opcode >= 30 && opcode < 35) {
-										this.groundOptions[-30 + opcode] = buffer.getString();
-										if (this.groundOptions[opcode + -30].equals(25, Class3_Sub13_Sub3.aClass94_3051)) {
-											this.groundOptions[-30 + opcode] = null;
+									if (opcode == 41) {
+										var5 = buffer.getByte((byte) -55);
+										this.aShortArray751 = new short[var5];
+										this.aShortArray765 = new short[var5];
+
+										for (var6 = 0; var6 < var5; ++var6) {
+											this.aShortArray765[var6] = (short) buffer.getShort(1);
+											this.aShortArray751[var6] = (short) buffer.getShort(1);
 										}
-									} else if (35 <= opcode && 40 > opcode) {
-										this.inventoryOptions[-35 + opcode] = buffer.getString();
+									} else if (42 == opcode) {
+										var5 = buffer.getByte((byte) -62);
+										this.aByteArray785 = new byte[var5];
+
+										for (var6 = 0; var5 > var6; ++var6) {
+											this.aByteArray785[var6] = buffer.getByte();
+										}
+									} else if (opcode == 65) {
+										this.aBoolean807 = true;
+									} else if (opcode == 78) {
+										this.anInt769 = buffer.getShort(1);
 									} else {
-										int var5;
-										int var6;
-										if (opcode == 40) {
-											var5 = buffer.getByte((byte) -64);
-											this.aShortArray772 = new short[var5];
-											this.aShortArray774 = new short[var5];
-
-											for (var6 = 0; var5 > var6; ++var6) {
-												this.aShortArray774[var6] = (short) buffer.getShort(1);
-												this.aShortArray772[var6] = (short) buffer.getShort(1);
-											}
+										if (opcode == 79) {
+											this.anInt776 = buffer.getShort(1);
+										} else if (90 == opcode) {
+											this.anInt803 = buffer.getShort(1);
+										} else if (opcode == 91) {
+											this.anInt773 = buffer.getShort(1);
+										} else if (opcode == 92) {
+											this.anInt796 = buffer.getShort(1);
 										} else {
-											if (opcode == 41) {
-												var5 = buffer.getByte((byte) -55);
-												this.aShortArray751 = new short[var5];
-												this.aShortArray765 = new short[var5];
-
-												for (var6 = 0; var6 < var5; ++var6) {
-													this.aShortArray765[var6] = (short) buffer.getShort(1);
-													this.aShortArray751[var6] = (short) buffer.getShort(1);
-												}
-											} else if (42 == opcode) {
-												var5 = buffer.getByte((byte) -62);
-												this.aByteArray785 = new byte[var5];
-
-												for (var6 = 0; var5 > var6; ++var6) {
-													this.aByteArray785[var6] = buffer.getByte();
-												}
-											} else if (opcode == 65) {
-												this.aBoolean807 = true;
-											} else if (opcode == 78) {
-												this.anInt769 = buffer.getShort(1);
+											if (opcode == 93) {
+												this.anInt753 = buffer.getShort(1);
 											} else {
-												if (opcode == 79) {
-													this.anInt776 = buffer.getShort(1);
-												} else if (90 == opcode) {
-													this.anInt803 = buffer.getShort(1);
-												} else if (opcode == 91) {
-													this.anInt773 = buffer.getShort(1);
-												} else if (opcode == 92) {
-													this.anInt796 = buffer.getShort(1);
+												if (opcode == 95) {
+													this.anInt768 = buffer.getShort(1);
+												} else if (opcode == 96) {
+													this.anInt800 = buffer.getByte((byte) -118);
+												} else if (opcode == 97) {
+													this.anInt789 = buffer.getShort(1);
+												} else if (opcode == 98) {
+													this.anInt791 = buffer.getShort(1);
+												} else if (opcode >= 100 && opcode < 110) {
+													if (null == this.anIntArray804) {
+														this.anIntArray804 = new int[10];
+														this.anIntArray766 = new int[10];
+													}
+
+													this.anIntArray804[-100 + opcode] = buffer.getShort(1);
+													this.anIntArray766[opcode + -100] = buffer.getShort(1);
+												} else if (110 == opcode) {
+													this.anInt805 = buffer.getShort(1);
 												} else {
-													if (opcode == 93) {
-														this.anInt753 = buffer.getShort(1);
+													if (opcode == 111) {
+														this.anInt780 = buffer.getShort(1);
 													} else {
-														if (opcode == 95) {
-															this.anInt768 = buffer.getShort(1);
-														} else if (opcode == 96) {
-															this.anInt800 = buffer.getByte((byte) -118);
-														} else if (opcode == 97) {
-															this.anInt789 = buffer.getShort(1);
-														} else if (opcode == 98) {
-															this.anInt791 = buffer.getShort(1);
-														} else if (opcode >= 100 && opcode < 110) {
-															if (null == this.anIntArray804) {
-																this.anIntArray804 = new int[10];
-																this.anIntArray766 = new int[10];
-															}
-
-															this.anIntArray804[-100 + opcode] = buffer.getShort(1);
-															this.anIntArray766[opcode + -100] = buffer.getShort(1);
-														} else if (110 == opcode) {
-															this.anInt805 = buffer.getShort(1);
+														if (opcode == 112) {
+															this.anInt797 = buffer.getShort(1);
+														} else if (opcode == 113) {
+															this.anInt784 = buffer.getByte();
 														} else {
-															if (opcode == 111) {
-																this.anInt780 = buffer.getShort(1);
+															if (opcode == 114) {
+																this.anInt790 = 5 * buffer.getByte();
+															} else if (opcode == 115) {
+																this.teamId = buffer.getByte((byte) -125);
+															} else if (opcode == 121) {
+																this.anInt795 = buffer.getShort(1);
 															} else {
-																if (opcode == 112) {
-																	this.anInt797 = buffer.getShort(1);
-																} else if (opcode == 113) {
-																	this.anInt784 = buffer.getByte();
+																if (opcode == 122) {
+																	this.anInt762 = buffer.getShort(1);
+																} else if (125 == opcode) {
+																	this.wornModelPositionX = buffer.getByte();
+																	this.wornModelPositionZ = buffer.getByte();
+																	this.wornModelPositionY = buffer.getByte();
 																} else {
-																	if (opcode == 114) {
-																		this.anInt790 = 5 * buffer.getByte();
-																	} else if (opcode == 115) {
-																		this.teamId = buffer.getByte((byte) -125);
-																	} else if (opcode == 121) {
-																		this.anInt795 = buffer.getShort(1);
+																	if (opcode == 126) {
+																		this.anInt777 = buffer.getByte();
+																		this.anInt802 = buffer.getByte();
+																		this.anInt752 = buffer.getByte();
+																	} else if (opcode == 127) {
+																		this.anInt767 = buffer.getByte((byte) -34);
+																		this.anInt758 = buffer.getShort(1);
+																	} else if (opcode == 128) {
+																		this.anInt788 = buffer.getByte((byte) -63);
+																		this.anInt756 = buffer.getShort(1);
 																	} else {
-																		if (opcode == 122) {
-																			this.anInt762 = buffer.getShort(1);
-																		} else if (125 == opcode) {
-																			this.wornModelPositionX = buffer.getByte();
-																			this.wornModelPositionZ = buffer.getByte();
-																			this.wornModelPositionY = buffer.getByte();
+																		if (opcode == 129) {
+																			buffer.getByte((byte) -51);
+																			buffer.getShort(1);
 																		} else {
-																			if (opcode == 126) {
-																				this.anInt777 = buffer.getByte();
-																				this.anInt802 = buffer.getByte();
-																				this.anInt752 = buffer.getByte();
-																			} else if (opcode == 127) {
-																				this.anInt767 = buffer.getByte((byte) -34);
-																				this.anInt758 = buffer.getShort(1);
-																			} else if (opcode == 128) {
-																				this.anInt788 = buffer.getByte((byte) -63);
-																				this.anInt756 = buffer.getShort(1);
-																			} else {
-																				if (opcode == 129) {
-																					buffer.getByte((byte) -51);
-																					buffer.getShort(1);
-																				} else {
-																					if (opcode == 130) {
-																						buffer.getByte((byte) -43);
-																						buffer.getShort(1);
-																					} else if (249 == opcode) {
-																						var5 = buffer.getByte((byte) -44);
-																						if (null == this.aClass130_798) {
-																							var6 = Class95.method1585((byte) 97, var5);
-																							this.aClass130_798 = new Class130(var6);
-																						}
+																			if (opcode == 130) {
+																				buffer.getByte((byte) -43);
+																				buffer.getShort(1);
+																			} else if (249 == opcode) {
+																				var5 = buffer.getByte((byte) -44);
+																				if (null == this.aClass130_798) {
+																					var6 = Class95.method1585((byte) 97, var5);
+																					this.aClass130_798 = new Class130(var6);
+																				}
 
-																						for (var6 = 0; var6 < var5; ++var6) {
-																							boolean var7 = buffer.getByte((byte) -95) == 1;
-																							int var8 = buffer.getTriByte((byte) 122);
-																							Object var9;
-																							if (var7) {
-																								var9 = new Class3_Sub29(buffer.getString());
-																							} else {
-																								var9 = new Class3_Sub18(buffer.getInt());
-																							}
-
-																							this.aClass130_798.method1779(1, (Class3) var9, (long) var8);
-																						}
+																				for (var6 = 0; var6 < var5; ++var6) {
+																					boolean var7 = buffer.getByte((byte) -95) == 1;
+																					int var8 = buffer.getTriByte((byte) 122);
+																					Object var9;
+																					if (var7) {
+																						var9 = new Class3_Sub29(buffer.getString());
+																					} else {
+																						var9 = new Class3_Sub18(buffer.getInt());
 																					}
+
+																					this.aClass130_798.method1779(1, (Class3) var9, (long) var8);
 																				}
 																			}
 																		}
@@ -4618,11 +4583,11 @@ final class ItemDefinition {
 		this.anInt803 = -1;
 		this.anInt802 = 0;
 		this.anInt793 = -1;
-		this.groundOptions = new RSString[]{null, null, Class3_Sub13_Sub33.aClass94_3397, null, null};
+		this.groundOptions = new RSString[]{null, null, TextCore.HasTake, null, null};
 		this.anInt805 = 128;
 		this.anInt790 = 0;
 		this.wornModelPositionZ = 0;
-		this.inventoryOptions = new RSString[]{null, null, null, null, Class140_Sub3.aClass94_2744};
+		this.inventoryOptions = new RSString[]{null, null, null, null, TextCore.HasDrop};
 		this.anInt810 = 2000;
 		this.aBoolean807 = false;
 	}
@@ -4637,7 +4602,7 @@ final class ItemDefinition {
 			anIntArray781[var1] = var0 / 4;
 		}
 
-		aClass94_808 = RSString.createRSString(" zuerst von Ihrer Ignorieren)2Liste(Q");
+		aClass94_808 =
 		aClass94_811 = RSString.createRSString("green:");
 		aClass94_809 = aClass94_811;
 		aClass94_806 = aClass94_811;

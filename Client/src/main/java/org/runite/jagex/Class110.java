@@ -59,11 +59,11 @@ final class Class110 {
             int var12;
             int var13;
             if(var10 == 1 || var10 == 3) {
-               var13 = def.anInt1480;
-               var12 = def.anInt1485;
+               var13 = def.SizeX;
+               var12 = def.SizeY;
             } else {
-               var12 = def.anInt1480;
-               var13 = def.anInt1485;
+               var12 = def.SizeX;
+               var13 = def.SizeY;
             }
 
             int var14;
@@ -106,7 +106,7 @@ final class Class110 {
                   var23 = Class44.anIntArrayArrayArray723[1 + var0];
                }
 
-               if(0 == def.anInt1529 || var3) {
+               if(0 == def.SecondInt || var3) {
                   var24 |= Long.MIN_VALUE;
                }
 
@@ -128,7 +128,7 @@ final class Class110 {
                Class136 var28;
                if(22 != type) {
                   if(10 == type || 11 == type) {
-                     if(def.animationId == -1 && def.anIntArray1524 == null && !def.aBoolean1510) {
+                     if(def.animationId == -1 && def.ChildrenIds == null && !def.aBoolean1510) {
                         var28 = def.method1696(type == 11?4 + var10:var10, var20, var18, 10, var19, var23, var1, (LDIndexedSprite)null, (byte)-26, var26, var21);
                         if(HDToolKit.highDetail && var26) {
                            Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -160,13 +160,13 @@ final class Class110 {
                         }
                      }
 
-                     if(0 != def.actionCount && null != var4) {
-                        var4.method1489(var7, def.aBoolean1486, (byte)96, var9, var12, var13);
+                     if(0 != def.ClipType && null != var4) {
+                        var4.method1489(var7, def.ProjectileClipped, (byte)96, var9, var12, var13);
                      }
 
                   } else {
                      if(12 <= type) {
-                        if(-1 == def.animationId && null == def.anIntArray1524 && !def.aBoolean1510) {
+                        if(-1 == def.animationId && null == def.ChildrenIds && !def.aBoolean1510) {
                            var28 = def.method1696(var10, var20, var18, type, var19, var23, var1, (LDIndexedSprite)null, (byte)-82, var26, var21);
                            if(HDToolKit.highDetail && var26) {
                               Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -182,12 +182,12 @@ final class Class110 {
                            Class38_Sub1.anIntArrayArrayArray2609[var2][var7][var9] = Class3_Sub13_Sub29.bitwiseOr(Class38_Sub1.anIntArrayArrayArray2609[var2][var7][var9], 4);
                         }
 
-                        if(def.actionCount != 0 && null != var4) {
-                           var4.method1489(var7, def.aBoolean1486, (byte)73, var9, var12, var13);
+                        if(def.ClipType != 0 && null != var4) {
+                           var4.method1489(var7, def.ProjectileClipped, (byte)73, var9, var12, var13);
                         }
 
                      } else if(0 == type) {
-                        if(def.animationId == -1 && null == def.anIntArray1524 && !def.aBoolean1510) {
+                        if(def.animationId == -1 && null == def.ChildrenIds && !def.aBoolean1510) {
                            var28 = def.method1696(var10, var20, var18, 0, var19, var23, var1, (LDIndexedSprite)null, (byte)-74, var26, var21);
                            if(HDToolKit.highDetail && var26) {
                               Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -243,8 +243,8 @@ final class Class110 {
                            }
                         }
 
-                        if(0 != def.actionCount && var4 != null) {
-                           var4.method1486(var10, 2, type, def.aBoolean1486, var9, var7);
+                        if(0 != def.ClipType && var4 != null) {
+                           var4.method1486(var10, 2, type, def.ProjectileClipped, var9, var7);
                         }
 
                         if(def.anInt1528 != 16) {
@@ -252,7 +252,7 @@ final class Class110 {
                         }
 
                      } else if(type == 1) {
-                        if(-1 == def.animationId && def.anIntArray1524 == null && !def.aBoolean1510) {
+                        if(-1 == def.animationId && def.ChildrenIds == null && !def.aBoolean1510) {
                            var28 = def.method1696(var10, var20, var18, 1, var19, var23, var1, (LDIndexedSprite)null, (byte)-83, var26, var21);
                            if(HDToolKit.highDetail && var26) {
                               Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -280,8 +280,8 @@ final class Class110 {
                            }
                         }
 
-                        if(def.actionCount != 0 && null != var4) {
-                           var4.method1486(var10, 2, type, def.aBoolean1486, var9, var7);
+                        if(def.ClipType != 0 && null != var4) {
+                           var4.method1486(var10, 2, type, def.ProjectileClipped, var9, var7);
                         }
 
                      } else {
@@ -290,7 +290,7 @@ final class Class110 {
                            var43 = 1 + var10 & 3;
                            Object var38;
                            Object var42;
-                           if(def.animationId == -1 && def.anIntArray1524 == null && !def.aBoolean1510) {
+                           if(def.animationId == -1 && def.ChildrenIds == null && !def.aBoolean1510) {
                               Class136 var45 = def.method1696(var10 + 4, var20, var18, 2, var19, var23, var1, (LDIndexedSprite)null, (byte)-108, var26, var21);
                               if(HDToolKit.highDetail && var26) {
                                  Class141.method2051(var45.aClass109_Sub1_1770, var20, var22, var21);
@@ -329,8 +329,8 @@ final class Class110 {
                               }
                            }
 
-                           if(def.actionCount != 0 && var4 != null) {
-                              var4.method1486(var10, 2, type, def.aBoolean1486, var9, var7);
+                           if(def.ClipType != 0 && var4 != null) {
+                              var4.method1486(var10, 2, type, def.ProjectileClipped, var9, var7);
                            }
 
                            if(def.anInt1528 != 16) {
@@ -338,7 +338,7 @@ final class Class110 {
                            }
 
                         } else if(type == 3) {
-                           if(def.animationId == -1 && null == def.anIntArray1524 && !def.aBoolean1510) {
+                           if(def.animationId == -1 && null == def.ChildrenIds && !def.aBoolean1510) {
                               var28 = def.method1696(var10, var20, var18, 3, var19, var23, var1, (LDIndexedSprite)null, (byte)-54, var26, var21);
                               if(HDToolKit.highDetail && var26) {
                                  Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -366,12 +366,12 @@ final class Class110 {
                               }
                            }
 
-                           if(0 != def.actionCount && var4 != null) {
-                              var4.method1486(var10, 2, type, def.aBoolean1486, var9, var7);
+                           if(0 != def.ClipType && var4 != null) {
+                              var4.method1486(var10, 2, type, def.ProjectileClipped, var9, var7);
                            }
 
                         } else if(type == 9) {
-                           if(def.animationId == -1 && def.anIntArray1524 == null && !def.aBoolean1510) {
+                           if(def.animationId == -1 && def.ChildrenIds == null && !def.aBoolean1510) {
                               var28 = def.method1696(var10, var20, var18, type, var19, var23, var1, (LDIndexedSprite)null, (byte)-30, var26, var21);
                               if(HDToolKit.highDetail && var26) {
                                  Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -383,8 +383,8 @@ final class Class110 {
                            }
 
                            Class7.method835(var2, var7, var9, var19, 1, 1, (GameObject)object, 0, var24);
-                           if(def.actionCount != 0 && var4 != null) {
-                              var4.method1489(var7, def.aBoolean1486, (byte)127, var9, var12, var13);
+                           if(def.ClipType != 0 && var4 != null) {
+                              var4.method1489(var7, def.ProjectileClipped, (byte)127, var9, var12, var13);
                            }
 
                            if(def.anInt1528 != 16) {
@@ -393,7 +393,7 @@ final class Class110 {
 
                         } else {
                            if(4 == type) {
-                              if(def.animationId == -1 && null == def.anIntArray1524 && !def.aBoolean1510) {
+                              if(def.animationId == -1 && null == def.ChildrenIds && !def.aBoolean1510) {
                                  var28 = def.method1696(var10, var20, var18, 4, var19, var23, var1, (LDIndexedSprite)null, (byte)-103, var26, var21);
                                  if(HDToolKit.highDetail && var26) {
                                     Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -416,7 +416,7 @@ final class Class110 {
                                     var43 = Class162.getObjectDefinition(4, Integer.MAX_VALUE & (int)(var44 >>> 32)).anInt1528;
                                  }
 
-                                 if(def.animationId == -1 && null == def.anIntArray1524 && !def.aBoolean1510) {
+                                 if(def.animationId == -1 && null == def.ChildrenIds && !def.aBoolean1510) {
                                     var47 = def.method1696(var10, var20, var18, 4, var19, var23, var1, (LDIndexedSprite)null, (byte)-125, var26, var21);
                                     if(HDToolKit.highDetail && var26) {
                                        Class141.method2051(var47.aClass109_Sub1_1770, var20 + -(RenderAnimationDefinition.anIntArray356[var10] * 8), var22, -(Class3_Sub24_Sub3.anIntArray3491[var10] * 8) + var21);
@@ -436,7 +436,7 @@ final class Class110 {
                                        var43 = Class162.getObjectDefinition(4, Integer.MAX_VALUE & (int)(var44 >>> 32)).anInt1528 / 2;
                                     }
 
-                                    if(def.animationId == -1 && def.anIntArray1524 == null && !def.aBoolean1510) {
+                                    if(def.animationId == -1 && def.ChildrenIds == null && !def.aBoolean1510) {
                                        var47 = def.method1696(var10 + 4, var20, var18, 4, var19, var23, var1, (LDIndexedSprite)null, (byte)-65, var26, var21);
                                        if(HDToolKit.highDetail && var26) {
                                           Class141.method2051(var47.aClass109_Sub1_1770, -(8 * Class3_Sub13.anIntArray2386[var10]) + var20, var22, -(8 * Class163_Sub3.anIntArray3007[var10]) + var21);
@@ -451,7 +451,7 @@ final class Class110 {
                                  } else {
                                     if(7 == type) {
                                        int var40 = 3 & var10 - -2;
-                                       if(def.animationId == -1 && def.anIntArray1524 == null && !def.aBoolean1510) {
+                                       if(def.animationId == -1 && def.ChildrenIds == null && !def.aBoolean1510) {
                                           Class136 var41 = def.method1696(var40 - -4, var20, var18, 4, var19, var23, var1, (LDIndexedSprite)null, (byte)-39, var26, var21);
                                           if(HDToolKit.highDetail && var26) {
                                              Class141.method2051(var41.aClass109_Sub1_1770, var20, var22, var21);
@@ -473,7 +473,7 @@ final class Class110 {
 
                                           int var32 = var10 + 2 & 3;
                                           Object var46;
-                                          if(-1 == def.animationId && null == def.anIntArray1524 && !def.aBoolean1510) {
+                                          if(-1 == def.animationId && null == def.ChildrenIds && !def.aBoolean1510) {
                                              int var34 = 8 * Class163_Sub3.anIntArray3007[var10];
                                              int var33 = Class3_Sub13.anIntArray2386[var10] * 8;
                                              Class136 var35 = def.method1696(4 + var10, var20, var18, 4, var19, var23, var1, (LDIndexedSprite)null, (byte)-25, var26, var21);
@@ -502,8 +502,8 @@ final class Class110 {
                         }
                      }
                   }
-               } else if(KeyboardListener.aBoolean1905 || def.anInt1529 != 0 || def.actionCount == 1 || def.aBoolean1483) {
-                  if(def.animationId == -1 && def.anIntArray1524 == null && !def.aBoolean1510) {
+               } else if(KeyboardListener.aBoolean1905 || def.SecondInt != 0 || def.ClipType == 1 || def.aBoolean1483) {
+                  if(def.animationId == -1 && def.ChildrenIds == null && !def.aBoolean1510) {
                      var28 = def.method1696(var10, var20, var18, 22, var19, var23, var1, (LDIndexedSprite)null, (byte)-126, var26, var21);
                      if(HDToolKit.highDetail && var26) {
                         Class141.method2051(var28.aClass109_Sub1_1770, var20, var22, var21);
@@ -514,7 +514,7 @@ final class Class110 {
                      object = new Class140_Sub3(objectId, 22, var10, var0, var7, var9, def.animationId, def.aBoolean1492, (GameObject)null);
                   }
                   Class3_Sub13_Sub23.method276(var2, var7, var9, var19, (GameObject)object, var24, def.aBoolean1502);
-                  if(def.actionCount == 1 && null != var4) {
+                  if(def.ClipType == 1 && null != var4) {
                      var4.method1503(var7, var9, var8 + -55);
                   }
 

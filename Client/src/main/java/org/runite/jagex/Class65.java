@@ -2,18 +2,13 @@ package org.runite.jagex;
 
 final class Class65 {
 
-   static RSString aClass94_981 = RSString.createRSString("S-Blectionner");
-   static RSString aClass94_982 = RSString.createRSString("niveau ");
    static Class61 aClass61_983 = new Class61();
    static int anInt984 = 0;
    static RSString aClass94_985 = RSString.createRSString("Fps:");
    static RSByteBuffer[] aClass3_Sub30Array986 = new RSByteBuffer[2048];
    static int anInt987 = 0;
-   static RSString aClass94_988 = RSString.createRSString("voudrait faire un -Bchange avec vous)3");
-   static RSString aClass94_989 = RSString.createRSString(" est d-Bj-9 dans votre liste d(Wamis)3");
    static int currentChunkX;
    static int anInt991 = -1;
-   static RSString aClass94_992 = RSString.createRSString("http:)4)4");
 
 
    static final int[] method1233(int[] var0, int var1) {
@@ -79,10 +74,6 @@ final class Class65 {
    static final void method1236(CacheIndex var0, CacheIndex var1, int var2) {
       try {
          Class47.quickChatMessages = var1;
-         if(var2 >= -94) {
-            aClass94_992 = (RSString)null;
-         }
-
          NodeList.aClass153_332 = var0;
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "ja.F(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
@@ -99,15 +90,10 @@ final class Class65 {
 
    public static void method1238(int var0) {
       try {
-         aClass94_992 = null;
          if(var0 < -83) {
-            aClass94_988 = null;
             aClass61_983 = null;
-            aClass94_989 = null;
             aClass94_985 = null;
-            aClass94_981 = null;
             aClass3_Sub30Array986 = null;
-            aClass94_982 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ja.B(" + var0 + ')');

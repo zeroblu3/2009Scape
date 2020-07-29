@@ -68,14 +68,14 @@ final class Class3_Sub19 extends Class3 {
                   long var20 = Class3_Sub2.method104(WorldListCountry.localPlane, var6 + var2, var7 - -var3);
                   if(var20 != 0) {
                      ObjectDefinition var10 = Class162.getObjectDefinition(4, (int)(var20 >>> 32) & Integer.MAX_VALUE);
-                     int var11 = var10.anInt1482;
+                     int var11 = var10.MapIcon;
                      int var12;
-                     if(null != var10.anIntArray1524) {
-                        for(var12 = 0; var12 < var10.anIntArray1524.length; ++var12) {
-                           if(-1 != var10.anIntArray1524[var12]) {
-                              ObjectDefinition var13 = Class162.getObjectDefinition(4, var10.anIntArray1524[var12]);
-                              if(0 <= var13.anInt1482) {
-                                 var11 = var13.anInt1482;
+                     if(null != var10.ChildrenIds) {
+                        for(var12 = 0; var12 < var10.ChildrenIds.length; ++var12) {
+                           if(-1 != var10.ChildrenIds[var12]) {
+                              ObjectDefinition var13 = Class162.getObjectDefinition(4, var10.ChildrenIds[var12]);
+                              if(0 <= var13.MapIcon) {
+                                 var11 = var13.MapIcon;
                                  break;
                               }
                            }

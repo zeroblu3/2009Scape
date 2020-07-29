@@ -6,10 +6,8 @@ final class Class3_Sub17 extends Class3 {
 	int[] anIntArray2455;
 	static int anInt2456;
 	static float aFloat2457;
-	static RSString aClass94_2458 = RSString.createRSString("Module texte charg-B");
 	static int anInt2459;
 	int[][] anIntArrayArray2460;
-	static RSString aClass94_2461 = RSString.createRSString("3D)2Softwarebibliothek gestartet)3");
 	int anInt2462;
 	boolean[] aBooleanArray2463;
 
@@ -24,9 +22,7 @@ final class Class3_Sub17 extends Class3 {
 				method381(false);
 			}
 
-			aClass94_2458 = null;
 			aClass94_2465 = null;
-			aClass94_2461 = null;
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "jm.B(" + var0 + ')');
 		}

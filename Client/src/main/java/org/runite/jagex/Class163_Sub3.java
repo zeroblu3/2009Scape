@@ -3,9 +3,7 @@ package org.runite.jagex;
 final class Class163_Sub3 extends Class163 {
 
    static int[] anIntArray2999;
-   static RSString aClass94_3000 = RSString.createRSString("; Max)2Age=");
    static int anInt3001;
-   static RSString coinAmountMillion = RSString.createRSString("M");
    static RSString[] aClass94Array3003 = new RSString[100];
    static boolean aBoolean3004 = true;
    static byte[][] aByteArrayArray3005;
@@ -18,8 +16,6 @@ final class Class163_Sub3 extends Class163 {
          aClass94Array3003 = null;
          if(var0 == 37) {
             aByteArrayArray3005 = (byte[][])null;
-            coinAmountMillion = null;
-            aClass94_3000 = null;
             anIntArray2999 = null;
          }
       } catch (RuntimeException var2) {
@@ -86,20 +82,20 @@ final class Class163_Sub3 extends Class163 {
                int var4;
                for(var4 = 0; Class8.anInt104 > var4; ++var4) {
                   if(var0 == Class50.aLongArray826[var4]) {
-                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var3, Class3_Sub28_Sub11.aClass94_3645}, (byte)-93), -1);
+                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var3, TextCore.HasFriendsAlready}, (byte)-93), -1);
                      return;
                   }
                }
 
                for(var4 = 0; var4 < Class3_Sub28_Sub5.anInt3591; ++var4) {
                   if(Class114.ignores[var4] == var0) {
-                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{Class38.aClass94_662, var3, GameShell.aClass94_4}, (byte)-66), -1);
+                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.HasPleaseRemove, var3, TextCore.HasIgnoreToFriends}, (byte)-66), -1);
                      return;
                   }
                }
 
                if(var3.method1528((byte)-42, Class102.player.displayName)) {
-                  Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, Class62.aClass94_957, -1);
+                  Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, TextCore.HasOnOwnFriendsList, -1);
                } else {
                   ++GraphicDefinition.anInt544;
                   Class70.aClass94Array1046[Class8.anInt104] = var3;
@@ -114,7 +110,7 @@ final class Class163_Sub3 extends Class163 {
                   Class3_Sub13_Sub1.outgoingBuffer.putLong(var0, var2 ^ 2037491381);
                }
             } else {
-               Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, Class163_Sub2_Sub1.aClass94_4024, -1);
+               Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, TextCore.HasFriendsListFull, -1);
             }
          }
       } catch (RuntimeException var5) {

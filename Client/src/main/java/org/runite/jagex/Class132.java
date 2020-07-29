@@ -80,7 +80,7 @@ final class Class132 {
             method1799((byte)-90, (CacheIndex)null);
          }
 
-         int var1 = Class168.aClass3_Sub28_Sub17_2096.method682(Class75_Sub4.aClass94_2667);
+         int var1 = Class168.aClass3_Sub28_Sub17_2096.method682(TextCore.HasChooseOptions);
 
          int var2;
          int var3;

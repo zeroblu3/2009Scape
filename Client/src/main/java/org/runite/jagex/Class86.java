@@ -3,14 +3,10 @@ package org.runite.jagex;
 final class Class86 {
 
    int anInt1175;
-   private static RSString aClass94_1176 = RSString.createRSString("Loading wordpack )2 ");
    int anInt1177;
    int anInt1178;
-   static RSString aClass94_1179 = RSString.createRSString("Veuillez patienter)3)3)3");
-  
    int anInt1181;
    static Class91[] aClass91Array1182 = new Class91[4];
-   static RSString aClass94_1183 = aClass94_1176;
    int anInt1184;
    int anInt1185;
    static Class41 aClass41_1186;
@@ -19,11 +15,9 @@ final class Class86 {
    float aFloat1189;
    float aFloat1190;
    static int anInt1191;
-   private static RSString RSSExamine = RSString.createRSString("Examine");
    static Class3_Sub24_Sub4 aClass3_Sub24_Sub4_1193;
    static Class130 aClass130_1194;
    static int anInt1195;
- static RSString aClass94_1180 = RSSExamine;
 
    static final void method1427(boolean var0, int var1) {
       try {
@@ -32,11 +26,6 @@ final class Class86 {
          } else if(var1 != -1 && (Class129.anInt1691 != var1 || !Class79.method1391(-1)) && Class9.anInt120 != 0 && !Class83.aBoolean1158) {
             Class151.method2099(true, var1, 0, Class75_Sub2.aClass153_2645, false, Class9.anInt120, 2);
          }
-
-         if(!var0) {
-            RSSExamine = (RSString)null;
-         }
-
          Class129.anInt1691 = var1;
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "li.B(" + var0 + ',' + var1 + ')');
@@ -68,13 +57,8 @@ final class Class86 {
          aClass3_Sub24_Sub4_1193 = null;
          COMMAND_REBUILD = null;
          aClass91Array1182 = null;
-         RSSExamine = null;
-         aClass94_1183 = null;
-         aClass94_1179 = null;
-         aClass94_1176 = null;
          aClass41_1186 = null;
          aClass130_1194 = null;
-         aClass94_1180 = null;
          if(var0 != 53) {
             aClass3_Sub24_Sub4_1193 = (Class3_Sub24_Sub4)null;
          }

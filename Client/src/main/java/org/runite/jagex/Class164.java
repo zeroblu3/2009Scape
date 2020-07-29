@@ -9,7 +9,6 @@ abstract class Class164 {
    static int anInt2050;
    static int anInt2051;
    static CacheIndex aClass153_2052;
-   static RSString aClass94_2053 = RSString.createRSString("Update)2Liste geladen)3");
    private int anInt2054 = 0;
    static RSInterface aClass11_2055;
    private int anInt2056 = 4;
@@ -165,7 +164,6 @@ abstract class Class164 {
          anIntArray2048 = null;
          aClass153_2052 = null;
          if(var0 == 4) {
-            aClass94_2053 = null;
             aClass140_Sub5Array2058 = null;
             aClass94_2061 = null;
             aClass11_2055 = null;

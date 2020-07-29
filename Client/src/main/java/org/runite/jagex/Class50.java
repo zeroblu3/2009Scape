@@ -4,19 +4,12 @@ final class Class50 {
 
 	static int anInt820 = 0;
 	int anInt821;
-	private static RSString aClass94_832 = RSString.createRSString(" has logged out)3");
-	private static RSString aClass94_827 = RSString.createRSString("purple:");
-	static RSString aClass94_822 = aClass94_832;
 	int anInt823;
 	static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_824;
-	static RSString aClass94_825 = aClass94_827;
 	static long[] aLongArray826 = new long[200];
 	static int anInt828 = 0;
-	static RSString aClass94_829 = RSString.createRSString("null");
 	int anInt830;
 	int anInt831;
-
-	static RSString aClass94_833 = aClass94_827;
 
 
 	static final void method1131(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
@@ -99,16 +92,6 @@ final class Class50 {
 
 	public static void method1133(byte var0) {
 		try {
-			aClass94_833 = null;
-			aClass94_822 = null;
-			aClass94_827 = null;
-			aClass94_829 = null;
-			if(var0 != 81) {
-				aClass94_833 = (RSString)null;
-			}
-
-			aClass94_832 = null;
-			aClass94_825 = null;
 			aLongArray826 = null;
 			aClass3_Sub28_Sub16_824 = null;
 		} catch (RuntimeException var2) {

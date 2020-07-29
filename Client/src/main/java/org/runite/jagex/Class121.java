@@ -15,13 +15,11 @@ final class Class121 {
    ByteBuffer aByteBuffer1644;
    static RSString aClass94_1645 = RSString.createRSString("Hidden)2");
    static RSString COMMAND_HIGHRES_GRAPHICS_RESIZE = RSString.createRSString("::wm2");
-   static RSString aClass94_1647 = RSString.createRSString("gleiten:");
    int anInt1648 = 0;
 
 
    public static void method1733(int var0) {
       try {
-         aClass94_1647 = null;
          COMMAND_HIGHRES_GRAPHICS_RESIZE = null;
          aClass94_1645 = null;
          if(var0 != -17148) {

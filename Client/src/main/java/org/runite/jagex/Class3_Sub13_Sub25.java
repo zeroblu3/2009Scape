@@ -6,15 +6,12 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
    private int anInt3299 = 1024;
    private int anInt3300 = 1024;
    private int anInt3301 = 819;
-   static RSString aClass94_3302 = RSString.createRSString("Connexion perdue)3");
    private int anInt3303 = 1024;
    static CacheIndex aClass153_3304;
    static int loginStage = 0;
-   private static RSString aClass94_3306 = RSString.createRSString(" is already on your ignore list)3");
    private int anInt3308 = 2048;
    private int anInt3309 = 0;
    private int anInt3310 = 409;
-   static RSString aClass94_3311 = aClass94_3306;
    private int anInt3312 = 0;
    static int anInt3313 = 500;
    private int anInt3314;
@@ -215,11 +212,8 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
 
    public static void method290(int var0) {
       try {
-         aClass94_3302 = null;
          if(var0 == -9) {
             aClass153_3304 = null;
-            aClass94_3306 = null;
-            aClass94_3311 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ol.F(" + var0 + ')');

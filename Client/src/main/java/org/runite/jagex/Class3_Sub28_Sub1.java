@@ -1,7 +1,5 @@
 package org.runite.jagex;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.ImageObserver;
 
 final class Class3_Sub28_Sub1 extends Node {
@@ -152,9 +150,9 @@ final class Class3_Sub28_Sub1 extends Node {
       try {
          RSString var1;
          if(Class164_Sub1.anInt3012 == 1 && Class3_Sub13_Sub34.anInt3415 < 2) {
-            var1 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub32.aClass94_3388, InputStream_Sub1.aClass94_43, RenderAnimationDefinition.aClass94_378, Class131.aClass94_1724}, (byte)-105);
+            var1 = RenderAnimationDefinition.method903(new RSString[]{TextCore.HasUse, TextCore.Spacer, RenderAnimationDefinition.aClass94_378, Class131.aClass94_1724}, (byte)-105);
          } else if(GameObject.aBoolean1837 && 2 > Class3_Sub13_Sub34.anInt3415) {
-            var1 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub28_Sub9.aClass94_3621, InputStream_Sub1.aClass94_43, Class40.aClass94_676, Class131.aClass94_1724}, (byte)-95);
+            var1 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub28_Sub9.aClass94_3621, TextCore.Spacer, Class40.aClass94_676, Class131.aClass94_1724}, (byte)-95);
          } else if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
             var1 = RSByteBuffer.method802(Class3_Sub13_Sub34.anInt3415 + -2, true);
          } else {
@@ -163,7 +161,7 @@ final class Class3_Sub28_Sub1 extends Node {
 
          if(Class3_Sub13_Sub34.anInt3415 > 2) {
             var1 = RenderAnimationDefinition.method903(new RSString[] {
-                    var1, Class1.aClass94_58, Class72.method1298((byte) 9, Class3_Sub13_Sub34.anInt3415 - 2), Class3_Sub13_Sub36.aClass94_3426
+                    var1, Class1.aClass94_58, Class72.method1298((byte) 9, Class3_Sub13_Sub34.anInt3415 - 2), TextCore.HasMoreOptions
             }, (byte)-62);
 //            System.out.println(var1.toString());
          }
@@ -192,18 +190,14 @@ final class Class3_Sub28_Sub1 extends Node {
       try {
          try {
             Graphics var5 = Class3_Sub28_Sub12.aCanvas3648.getGraphics();
-            if(Class3_Sub13_Sub32.aFont3384 == null) {
-               Class3_Sub13_Sub32.aFont3384 = new Font("Helvetica", 1, 13);
-               Class139.aFontMetrics1822 = Class3_Sub28_Sub12.aCanvas3648.getFontMetrics(Class3_Sub13_Sub32.aFont3384);
-            }
-
+            Class139.aFontMetrics1822 = Class3_Sub28_Sub12.aCanvas3648.getFontMetrics(TextCore.Helvetica);
             if(var2) {
                var5.setColor(Color.black);
                var5.fillRect(0, 0, Class23.anInt454, Class140_Sub7.anInt2934);
             }
 
             if(null == var0) {
-               var0 = new Color(140, 17, 17);
+               var0 = ColorCore.loadingbarcolor;
             }
 
             if(var1) {
@@ -222,7 +216,7 @@ final class Class3_Sub28_Sub1 extends Node {
                var6.setColor(Color.black);
                var6.drawRect(1, 1, 301, 31);
                var6.fillRect(3 * var4 + 2, 2, -(3 * var4) + 300, 30);
-               var6.setFont(Class3_Sub13_Sub32.aFont3384);
+               var6.setFont(TextCore.Helvetica);
                var6.setColor(Color.white);
                var3.drawString((-var3.method1575(-21018, Class139.aFontMetrics1822) + 304) / 2, 22, var6, (byte)-90);
                var5.drawImage(Class129_Sub1.anImage2695, Class23.anInt454 / 2 - 152, -18 + Class140_Sub7.anInt2934 / 2, (ImageObserver)null);
@@ -235,13 +229,13 @@ final class Class3_Sub28_Sub1 extends Node {
                var5.setColor(Color.black);
                var5.drawRect(1 + var7, var8 - -1, 301, 31);
                var5.fillRect(3 * var4 + (var7 - -2), 2 + var8, 300 - var4 * 3, 30);
-               var5.setFont(Class3_Sub13_Sub32.aFont3384);
+               var5.setFont(TextCore.Helvetica);
                var5.setColor(Color.white);
                var3.drawString(var7 + (-var3.method1575(-21018, Class139.aFontMetrics1822) + 304) / 2, 22 + var8, var5, (byte)-125);
             }
 
             if(Class167.aClass94_2083 != null) {
-               var5.setFont(Class3_Sub13_Sub32.aFont3384);
+               var5.setFont(TextCore.Helvetica);
                var5.setColor(Color.white);
                Class167.aClass94_2083.drawString(Class23.anInt454 / 2 - Class167.aClass94_2083.method1575(-21018, Class139.aFontMetrics1822) / 2, Class140_Sub7.anInt2934 / 2 - 26, var5, (byte)-116);
             }

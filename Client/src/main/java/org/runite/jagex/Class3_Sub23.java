@@ -42,18 +42,18 @@ final class Class3_Sub23 extends Class3 {
             AnimationDefinition.aClass109_1856.method1667(-(AnimationDefinition.aClass109_1856.anInt1461 / 2) + Class23.anInt454 / 2, 18);
          }
 
-         var2.method699(Class25.aClass94_485, Class23.anInt454 / 2, Class140_Sub7.anInt2934 / 2 - 26, 16777215, -1);
+         var2.method699(TextCore.RSLoadingPleaseWait, Class23.anInt454 / 2, Class140_Sub7.anInt2934 / 2 - 26, 16777215, -1);
          var3 = Class140_Sub7.anInt2934 / 2 + -18;
          if(HDToolKit.highDetail) {
             Class22.method927(Class23.anInt454 / 2 - 152, var3, 304, 34, 9179409);
             Class22.method927(-151 + Class23.anInt454 / 2, var3 - -1, 302, 32, 0);
-            Class22.method934(Class23.anInt454 / 2 - 150, var3 + 2, Class3_Sub28_Sub15.anInt3684 * 3, 30, 9179409);
-            Class22.method934(Class23.anInt454 / 2 + -150 - -(3 * Class3_Sub28_Sub15.anInt3684), 2 + var3, 300 + -(3 * Class3_Sub28_Sub15.anInt3684), 30, 0);
+            Class22.method934(Class23.anInt454 / 2 - 150, var3 + 2, Class3_Sub28_Sub15.LoadingStageNumber * 3, 30, 9179409);
+            Class22.method934(Class23.anInt454 / 2 + -150 - -(3 * Class3_Sub28_Sub15.LoadingStageNumber), 2 + var3, 300 + -(3 * Class3_Sub28_Sub15.LoadingStageNumber), 30, 0);
          } else {
             Class74.method1311(Class23.anInt454 / 2 + -152, var3, 304, 34, 9179409);
             Class74.method1311(-151 + Class23.anInt454 / 2, var3 + 1, 302, 32, 0);
-            Class74.method1323(Class23.anInt454 / 2 + -150, var3 + 2, Class3_Sub28_Sub15.anInt3684 * 3, 30, 9179409);
-            Class74.method1323(3 * Class3_Sub28_Sub15.anInt3684 + -150 + Class23.anInt454 / 2, 2 + var3, -(3 * Class3_Sub28_Sub15.anInt3684) + 300, 30, 0);
+            Class74.method1323(Class23.anInt454 / 2 + -150, var3 + 2, Class3_Sub28_Sub15.LoadingStageNumber * 3, 30, 9179409);
+            Class74.method1323(3 * Class3_Sub28_Sub15.LoadingStageNumber + -150 + Class23.anInt454 / 2, 2 + var3, -(3 * Class3_Sub28_Sub15.LoadingStageNumber) + 300, 30, 0);
          }
          var2.method699(Class3_Sub17.aClass94_2464, Class23.anInt454 / 2, 4 + Class140_Sub7.anInt2934 / 2, 16777215, -1);
          if(var0 < 50) {

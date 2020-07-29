@@ -63,6 +63,11 @@ class CombatBotAssembler {
             bot.equipment.refresh()
         }
 
+        fun gearRichMeleeBot(bot: AIPlayer){
+            equipHighest(bot, MELEE_HELMS)
+            bot.equipment.refresh()
+        }
+
 
         fun generateStats(bot: AIPlayer, tier: Tier, vararg skills: Int) {
             var totalXPAdd = 0.0
@@ -144,9 +149,11 @@ class CombatBotAssembler {
         val RANGE_LEGS = arrayOf(1095, 1097, 1099)
         val BOWS = arrayOf(841, 843, 847, 853)
 
-        val MELEE_HELMS = arrayOf(1137,1139,1141,1143,1145,1147,1149,1151,1153,1159,1163,1165,4716,4724)
+        val MELEE_HELMS = arrayOf(1137,1139, 1141, 6621, 1143,1145,1147,1149,1151,1153, 6623, 1159,1163,1165,3748, 3751, 10828, 11335, 3753, 4716,4724, 4745, 4753)
         val MELEE_TOP = arrayOf(1101,1103,1105,1107,1109,1111,1113,2513,1115,1117,1119,1121,1123,1125,1127,4720,4728)
         val MELEE_LEG = arrayOf(1081,1083,1085,1087,1089,1091,1093,4759,1067,1069,1071,1073,1075,1077,1079,4722,4751)
         val MELEE_SHIELD = arrayOf(1171,1173,1175,1177,1179,1181,1183,1185,1187,1189,1191,1193,1195,1197,1199,1201)
         val MELEE_WEP = arrayOf(1277,1279,1281,1283,1285,1287,1289,1291,1293,1295,1297,1299,1301,1303,1305,1321,1323,1325,1327,1329,1331,1333,4587,4151,1363,1365,1367,1369,1371,1373,1375,1377)
+
+        val RICH_MELEE_HELMS = arrayOf(2587, 2595, 2605, 2613, 2619, 2627, 2657, 2665, 2673, 3486, 10350)
 }

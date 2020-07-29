@@ -2,12 +2,9 @@ package org.runite.jagex;
 
 final class Class75_Sub4 extends Class75 {
 
-   static RSString aClass94_2662 = RSString.createRSString("Zugewiesener Speicher)3");
    static int[] anIntArray2663;
    static int[] anIntArray2664;
-   private static RSString aClass94_2665 = RSString.createRSString("Choose Option");
    private int anInt2666;
-   static RSString aClass94_2667 = aClass94_2665;
    static int[] anIntArray2668 = new int[]{-1, 0, 8, 0, 2, 0, 0, 0, 0, 12, 0, 1, 0, 3, 7, 0, 15, 6, 0, 0, 4, 7, -2, -1, 2, 0, 2, 8, 0, 0, 0, 0, -2, 5, 0, 0, 8, 3, 6, 0, 0, 0, -1, 0, -1, 0, 0, 6, -2, 0, 12, 0, 0, 0, -1, -2, 10, 0, 0, 0, 3, 0, -1, 0, 0, 5, 6, 0, 0, 8, -1, -1, 0, 8, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 6, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, -2, 0, 0, 0, 0, 0, 12, 2, 0, -2, -2, 20, 0, 0, 10, 0, 15, 0, -1, 0, 8, -2, 0, 0, 0, 8, 0, 12, 0, 0, 7, 0, 0, 0, 0, 0, -1, -1, 0, 4, 5, 0, 0, 0, 6, 0, 0, 0, 0, 8, 9, 0, 0, 0, 2, -1, 0, -2, 0, 4, 14, 0, 0, 0, 24, 0, -2, 5, 0, 0, 0, 10, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 1, 0, 0, 2, -1, 1, 0, 0, 0, 0, 14, 0, 0, 0, 0, 10, 5, 0, 0, 0, 0, 0, -2, 0, 0, 9, 0, 0, 8, 0, 0, 0, 0, -2, 6, 0, 0, 0, -2, 0, 3, 0, 1, 7, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 3, 0, 0};
    private int anInt2669;
    static int anInt2670 = 0;
@@ -170,13 +167,9 @@ final class Class75_Sub4 extends Class75 {
    public static void method1350(byte var0) {
       try {
          anIntArray2664 = null;
-         aClass94_2662 = null;
-         aClass94_2665 = null;
          if(var0 != 75) {
             method1350((byte)-116);
          }
-
-         aClass94_2667 = null;
          anIntArray2668 = null;
          anIntArray2663 = null;
       } catch (RuntimeException var2) {
@@ -204,9 +197,6 @@ final class Class75_Sub4 extends Class75 {
          int var6 = var3 * this.anInt2672 >> 12;
          int var7 = var3 * this.anInt2669 >> 12;
          Class3_Sub29.method730(var4, this.anInt1101, (byte)121, var7, var5, var6);
-         if(var1 != 2) {
-            aClass94_2665 = (RSString)null;
-         }
 
       } catch (RuntimeException var8) {
          throw Class44.method1067(var8, "ta.A(" + var1 + ',' + var2 + ',' + var3 + ')');
@@ -216,10 +206,6 @@ final class Class75_Sub4 extends Class75 {
    static final boolean method1351(CacheIndex var0, int var1, int archiveId, int var3) {
       try {
          byte[] var4 = var0.getFile(archiveId, (byte)-122, var1);
-         if(var3 != -30901) {
-            aClass94_2662 = (RSString)null;
-         }
-
          if(var4 == null) {
             return false;
          } else {
@@ -281,10 +267,6 @@ final class Class75_Sub4 extends Class75 {
             var0 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var0, (byte)0, Class101.anInt1425);
             var3 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var3, (byte)0, Class101.anInt1425);
             Class3_Sub13_Sub32.method320(var1, var4, var3, (byte)-123, var0);
-         }
-
-         if(!var2) {
-            aClass94_2665 = (RSString)null;
          }
 
       } catch (RuntimeException var6) {

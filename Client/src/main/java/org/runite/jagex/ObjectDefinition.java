@@ -3,16 +3,16 @@ package org.runite.jagex;
 final class ObjectDefinition {
 
    private short[] aShortArray1476;
-   private short[] aShortArray1477;
+   private short[] OriginalColors;
    int anInt1478;
    private int anInt1479;
-   int anInt1480 = 1;
+   int SizeX = 1;
    private int anInt1481;
-   int anInt1482;
+   int MapIcon;
    boolean aBoolean1483 = false;
    int anInt1484;
-   int anInt1485 = 1;
-   boolean aBoolean1486;
+   int SizeY = 1;
+   boolean ProjectileClipped;
    private int[] configuration;
    private int anInt1488;
    private int anInt1489;
@@ -24,7 +24,7 @@ final class ObjectDefinition {
    private short[] aShortArray1495;
    private int anInt1496;
    static int[][][] anIntArrayArrayArray1497 = new int[4][13][13];
-   boolean aBoolean1498;
+   boolean NotClipped;
    RSString[] options;
    private short aShort1500;
    private Class130 aClass130_1501;
@@ -32,10 +32,8 @@ final class ObjectDefinition {
    boolean aBoolean1503;
    RSString name;
    private byte aByte1505;
-   private short[] aShortArray1506;
+   private short[] ModifiedColors;
    boolean aBoolean1507;
-   static RSString aClass94_1508 = RSString.createRSString("Choisir une option");
-   static RSString aClass94_1509 = RSString.createRSString("Chargement des textures )2 ");
    boolean aBoolean1510;
    private int anInt1511;
    int anInt1512;
@@ -49,22 +47,21 @@ final class ObjectDefinition {
    int anInt1520;
    static int anInt1521 = 0;
    int anInt1522;
-   static RSString aClass94_1523 = RSString.createRSString("Chargement en cours)3 Veuillez patienter)3");
-   int[] anIntArray1524;
+   int[] ChildrenIds;
    boolean aBoolean1525;
-   private int anInt1526;
+   private int ConfigFileId;
    int objectId;
    int anInt1528;
-   int anInt1529;
+   int SecondInt;
    boolean aBoolean1530;
    int animationId;
-   private int anInt1532;
-   int anInt1533;
-   private int anInt1534;
+   private int ConfigId;
+   int WalkingFlag;
+   private int SecondBool;
    static short aShort1535 = 320;
    private boolean aBoolean1536;
    boolean aBoolean1537;
-   int actionCount;
+   int ClipType;
    int[] anIntArray1539;
    int anInt1540;
    private boolean aBoolean1541;
@@ -107,16 +104,16 @@ final class ObjectDefinition {
          }
 
          int var2 = -1;
-         if(this.anInt1526 != -1) {
-            var2 = NPCDefinition.method1484(64835055, this.anInt1526);
-         } else if(this.anInt1532 != -1) {
-            var2 = Class163_Sub1.anIntArray2985[this.anInt1532];
+         if(this.ConfigFileId != -1) {
+            var2 = NPCDefinition.method1484(64835055, this.ConfigFileId);
+         } else if(this.ConfigId != -1) {
+            var2 = Class163_Sub1.anIntArray2985[this.ConfigId];
          }
 
-         if(var2 >= 0 && this.anIntArray1524.length - 1 > var2 && this.anIntArray1524[var2] != -1) {
-            return Class162.getObjectDefinition(4, this.anIntArray1524[var2]);
+         if(var2 >= 0 && this.ChildrenIds.length - 1 > var2 && this.ChildrenIds[var2] != -1) {
+            return Class162.getObjectDefinition(4, this.ChildrenIds[var2]);
          } else {
-            int var3 = this.anIntArray1524[-1 + this.anIntArray1524.length];
+            int var3 = this.ChildrenIds[-1 + this.ChildrenIds.length];
             return var3 == -1 ?null:Class162.getObjectDefinition(4, var3);
          }
       } catch (RuntimeException var4) {
@@ -215,13 +212,13 @@ final class ObjectDefinition {
          }
 
          boolean var12;
-         if(this.anInt1496 == 0 && this.anInt1511 == 0 && 0 == this.anInt1534) {
+         if(this.anInt1496 == 0 && this.anInt1511 == 0 && 0 == this.SecondBool) {
             var12 = false;
          } else {
             var12 = true;
          }
 
-         Model_Sub1 var13 = new Model_Sub1(var4, var3 == ~var1 && !var11 && !var12, this.aShortArray1477 == null, null == this.aShortArray1476, true);
+         Model_Sub1 var13 = new Model_Sub1(var4, var3 == ~var1 && !var11 && !var12, this.OriginalColors == null, null == this.aShortArray1476, true);
          if(var2 == 4 && var1 > 3) {
             var13.method2011(256);
             var13.method2001(45, 0, -45);
@@ -241,12 +238,12 @@ final class ObjectDefinition {
          }
 
          int var9;
-         if(null != this.aShortArray1477) {
-            for(var9 = 0; this.aShortArray1477.length > var9; ++var9) {
+         if(null != this.OriginalColors) {
+            for(var9 = 0; this.OriginalColors.length > var9; ++var9) {
                if(null != this.aByteArray1513 && this.aByteArray1513.length > var9) {
-                  var13.method2016(this.aShortArray1477[var9], Class3_Sub13_Sub9.aShortArray3110[255 & this.aByteArray1513[var9]]);
+                  var13.method2016(this.OriginalColors[var9], Class3_Sub13_Sub9.aShortArray3110[255 & this.aByteArray1513[var9]]);
                } else {
-                  var13.method2016(this.aShortArray1477[var9], this.aShortArray1506[var9]);
+                  var13.method2016(this.OriginalColors[var9], this.ModifiedColors[var9]);
                }
             }
          }
@@ -262,7 +259,7 @@ final class ObjectDefinition {
          }
 
          if(var12) {
-            var13.method2001(this.anInt1496, this.anInt1511, this.anInt1534);
+            var13.method2001(this.anInt1496, this.anInt1511, this.SecondBool);
          }
 
          return var13;
@@ -273,11 +270,8 @@ final class ObjectDefinition {
 
    public static void method1687(int var0) {
       try {
-         aClass94_1508 = null;
-         aClass94_1523 = null;
          anIntArrayArrayArray1497 = (int[][][])null;
          aBooleanArray1490 = null;
-         aClass94_1509 = null;
          if(var0 != -11) {
             anInt1521 = -96;
          }
@@ -300,15 +294,15 @@ final class ObjectDefinition {
 
    final void method1689(int var1) {
       try {
-         if(this.anInt1529 == -1) {
-            this.anInt1529 = 0;
+         if(this.SecondInt == -1) {
+            this.SecondInt = 0;
             if(null != this.models && (null == this.configuration || this.configuration[0] == 10)) {
-               this.anInt1529 = 1;
+               this.SecondInt = 1;
             }
 
             for(int var2 = 0; var2 < 5; ++var2) {
                if(this.options[var2] != null) {
-                  this.anInt1529 = 1;
+                  this.SecondInt = 1;
                   break;
                }
             }
@@ -319,7 +313,7 @@ final class ObjectDefinition {
          }
 
          if(-1 == this.anInt1540) {
-            this.anInt1540 = this.actionCount != 0 ?1:0;
+            this.anInt1540 = this.ClipType != 0 ?1:0;
          }
 
       } catch (RuntimeException var3) {
@@ -329,16 +323,16 @@ final class ObjectDefinition {
 
    final boolean method1690(int var1) {
       try {
-         if(this.anIntArray1524 == null) {
+         if(this.ChildrenIds == null) {
             return this.anInt1512 != -1 || this.anIntArray1539 != null;
          } else {
             if(var1 != 28933) {
                this.method1696(34, 54, (int[][])((int[][])null), 55, 80, (int[][])((int[][])null), true, (LDIndexedSprite)null, (byte)127, true, -38);
             }
 
-            for(int var2 = 0; this.anIntArray1524.length > var2; ++var2) {
-               if(this.anIntArray1524[var2] != -1) {
-                  ObjectDefinition var3 = Class162.getObjectDefinition(var1 + -28929, this.anIntArray1524[var2]);
+            for(int var2 = 0; this.ChildrenIds.length > var2; ++var2) {
+               if(this.ChildrenIds[var2] != -1) {
+                  ObjectDefinition var3 = Class162.getObjectDefinition(var1 + -28929, this.ChildrenIds[var2]);
                   if(var3.anInt1512 != -1 || var3.anIntArray1539 != null) {
                      return true;
                   }
@@ -426,16 +420,16 @@ final class ObjectDefinition {
                }
             }
          } else if (opcode == 14) {
-            this.anInt1480 = buffer.getByte((byte) -124);
+            this.SizeX = buffer.getByte((byte) -124);
          } else if (opcode == 15) {
-            this.anInt1485 = buffer.getByte((byte) -42);
+            this.SizeY = buffer.getByte((byte) -42);
          } else if (opcode == 17) {
-            this.actionCount = 0;
-            this.aBoolean1486 = false;
+            this.ClipType = 0;
+            this.ProjectileClipped = false;
          } else if (18 == opcode) {
-            this.aBoolean1486 = false;
+            this.ProjectileClipped = false;
          } else if (opcode == 19) {
-            this.anInt1529 = buffer.getByte((byte) -79);
+            this.SecondInt = buffer.getByte((byte) -79);
          } else if (opcode == 21) {
             this.aByte1505 = 1;
          } else if (opcode == 22) {
@@ -448,7 +442,7 @@ final class ObjectDefinition {
                this.animationId = -1;
             }
          } else if (opcode == 27) {
-            this.actionCount = 1;
+            this.ClipType = 1;
          } else if (28 == opcode) {
             this.anInt1528 = buffer.getByte((byte) -112);
          } else if (opcode == 29) {
@@ -457,17 +451,17 @@ final class ObjectDefinition {
             this.anInt1489 = buffer.getByte() * 5;
          } else if (opcode >= 30 && opcode < 35) {
             this.options[opcode - 30] = buffer.getString();
-            if (this.options[-30 + opcode].equals(-112, Class3_Sub13_Sub3.aClass94_3051)) {
+            if (this.options[-30 + opcode].equals(-112, TextCore.HasHidden)) {
                this.options[-30 + opcode] = null;
             }
          } else if (opcode == 40) {
             var4 = buffer.getByte((byte) -27);
-            this.aShortArray1477 = new short[var4];
-            this.aShortArray1506 = new short[var4];
+            this.OriginalColors = new short[var4];
+            this.ModifiedColors = new short[var4];
 
             for (var5 = 0; var5 < var4; ++var5) {
-               this.aShortArray1477[var5] = (short) buffer.getShort(1);
-               this.aShortArray1506[var5] = (short) buffer.getShort(1);
+               this.OriginalColors[var5] = (short) buffer.getShort(1);
+               this.ModifiedColors[var5] = (short) buffer.getShort(1);
             }
          } else if (opcode == 41) {
             var4 = buffer.getByte((byte) -79);
@@ -486,7 +480,7 @@ final class ObjectDefinition {
                this.aByteArray1513[var5] = buffer.getByte();
             }
          } else if (opcode == 60) {
-            this.anInt1482 = buffer.getShort(var3 ^ -79);
+            this.MapIcon = buffer.getShort(var3 ^ -79);
          } else if (opcode == 62) {
             this.aBoolean1536 = true;
          } else if (opcode == 64) {
@@ -498,29 +492,29 @@ final class ObjectDefinition {
          } else if (opcode == 67) {
             this.anInt1481 = buffer.getShort(var3 + 81);
          } else if (opcode == 69) {
-            this.anInt1533 = buffer.getByte((byte) -55);
+            this.WalkingFlag = buffer.getByte((byte) -55);
          } else if (70 == opcode) {
             this.anInt1496 = buffer.getShort((byte) 123);
          } else if (71 == opcode) {
             this.anInt1511 = buffer.getShort((byte) 94);
          } else if (72 == opcode) {
-            this.anInt1534 = buffer.getShort((byte) 76);
+            this.SecondBool = buffer.getShort((byte) 76);
          } else if (opcode == 73) {
             this.aBoolean1483 = true;
          } else if (opcode == 74) {
-            this.aBoolean1498 = true;
+            this.NotClipped = true;
          } else if (75 == opcode) {
             this.anInt1540 = buffer.getByte((byte) -66);
          } else if (opcode == 77 || opcode == 92) {
             var4 = -1;
-            this.anInt1526 = buffer.getShort(1);
-            if ('\uffff' == this.anInt1526) {
-               this.anInt1526 = -1;
+            this.ConfigFileId = buffer.getShort(1);
+            if ('\uffff' == this.ConfigFileId) {
+               this.ConfigFileId = -1;
             }
 
-            this.anInt1532 = buffer.getShort(1);
-            if ('\uffff' == this.anInt1532) {
-               this.anInt1532 = -1;
+            this.ConfigId = buffer.getShort(1);
+            if ('\uffff' == this.ConfigId) {
+               this.ConfigId = -1;
             }
 
             if (92 == opcode) {
@@ -531,16 +525,16 @@ final class ObjectDefinition {
             }
 
             var5 = buffer.getByte((byte) -66);
-            this.anIntArray1524 = new int[var5 - -2];
+            this.ChildrenIds = new int[var5 - -2];
 
             for (int var6 = 0; var5 >= var6; ++var6) {
-               this.anIntArray1524[var6] = buffer.getShort(1);
-               if ('\uffff' == this.anIntArray1524[var6]) {
-                  this.anIntArray1524[var6] = -1;
+               this.ChildrenIds[var6] = buffer.getShort(1);
+               if ('\uffff' == this.ChildrenIds[var6]) {
+                  this.ChildrenIds[var6] = -1;
                }
             }
 
-            this.anIntArray1524[1 + var5] = var4;
+            this.ChildrenIds[1 + var5] = var4;
          } else if (78 == opcode) {
             this.anInt1512 = buffer.getShort(var3 + 81);
             this.anInt1484 = buffer.getByte((byte) -90);
@@ -610,7 +604,6 @@ final class ObjectDefinition {
                this.aClass130_1501.method1779(var3 ^ -79, (Class3) var8, (long) var7);
             }
          }
-
       } catch (RuntimeException var9) {
          throw Class44.method1067(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + var3 + ')');
       }
@@ -725,8 +718,8 @@ final class ObjectDefinition {
          }
 
          boolean var15 = 128 == this.anInt1488 && this.anInt1511 == 0;
-         boolean var18 = var1 == 0 && 128 == this.anInt1479 && this.anInt1481 == 128 && this.anInt1496 == 0 && this.anInt1534 == 0 && !var14;
-         Class140_Sub1_Sub1 var19 = var5.method1926(var18, var15, this.aShortArray1477 == null, true, var6 == var5.method1903(), var1 == 0 && !var14, var3, var5.method1924() == var7, true, !var14, this.aShortArray1476 == null);
+         boolean var18 = var1 == 0 && 128 == this.anInt1479 && this.anInt1481 == 128 && this.anInt1496 == 0 && this.SecondBool == 0 && !var14;
+         Class140_Sub1_Sub1 var19 = var5.method1926(var18, var15, this.OriginalColors == null, true, var6 == var5.method1903(), var1 == 0 && !var14, var3, var5.method1924() == var7, true, !var14, this.aShortArray1476 == null);
          if(var14) {
             var19.method1931();
          }
@@ -747,9 +740,9 @@ final class ObjectDefinition {
             }
          }
 
-         if(null != this.aShortArray1477) {
-            for(var12 = 0; var12 < this.aShortArray1477.length; ++var12) {
-               var19.method1918(this.aShortArray1477[var12], this.aShortArray1506[var12]);
+         if(null != this.OriginalColors) {
+            for(var12 = 0; var12 < this.OriginalColors.length; ++var12) {
+               var19.method1918(this.OriginalColors[var12], this.ModifiedColors[var12]);
             }
          }
 
@@ -763,8 +756,8 @@ final class ObjectDefinition {
             var19.resize(this.anInt1479, this.anInt1488, this.anInt1481);
          }
 
-         if(this.anInt1496 != 0 || this.anInt1511 != 0 || 0 != this.anInt1534) {
-            var19.method1897(this.anInt1496, this.anInt1511, this.anInt1534);
+         if(this.anInt1496 != 0 || this.anInt1511 != 0 || 0 != this.SecondBool) {
+            var19.method1897(this.anInt1496, this.anInt1511, this.SecondBool);
          }
 
          if(var6 != var19.method1903()) {
@@ -830,7 +823,7 @@ final class ObjectDefinition {
                   var18.method1919(this.aByte1505, this.aShort1500, var14, var3, var6, var2, var5, var11);
                }
 
-               var18.method1920(this.anInt1529 == 0 && !this.aBoolean1510, true, true, true, this.anInt1529 == 0, true, false);
+               var18.method1920(this.SecondInt == 0 && !this.aBoolean1510, true, true, true, this.SecondInt == 0, true, false);
                Class100.aClass136_1413.aClass140_1777 = var18;
                var18.aBoolean3809 = var17;
                Class100.aClass136_1413.aClass109_Sub1_1770 = var15;
@@ -1025,7 +1018,7 @@ final class ObjectDefinition {
    }
 
    public ObjectDefinition() {
-      this.name = Class3_Sub13_Sub13.aClass94_3150;
+      this.name = RSString.createRSString("null");
       this.aBoolean1503 = true;
       this.anInt1493 = -1;
       this.anInt1515 = 0;
@@ -1035,7 +1028,7 @@ final class ObjectDefinition {
       this.anInt1517 = -1;
       this.anInt1496 = 0;
       this.anInt1518 = 0;
-      this.anInt1482 = -1;
+      this.MapIcon = -1;
       this.aBoolean1510 = false;
       this.anInt1520 = -1;
       this.aShort1500 = -1;
@@ -1044,15 +1037,15 @@ final class ObjectDefinition {
       this.anInt1479 = 128;
       this.aBoolean1492 = true;
       this.anInt1488 = 128;
-      this.aBoolean1498 = false;
-      this.anInt1529 = -1;
+      this.NotClipped = false;
+      this.SecondInt = -1;
       this.aBoolean1530 = false;
       this.aBoolean1525 = true;
-      this.anInt1532 = -1;
+      this.ConfigId = -1;
       this.anInt1522 = -1;
-      this.anInt1533 = 0;
-      this.aBoolean1486 = true;
-      this.anInt1534 = 0;
+      this.WalkingFlag = 0;
+      this.ProjectileClipped = true;
+      this.SecondBool = 0;
       this.anInt1478 = 0;
       this.anInt1528 = 16;
       this.aBoolean1537 = false;
@@ -1062,9 +1055,9 @@ final class ObjectDefinition {
       this.animationId = -1;
       this.aBoolean1507 = false;
       this.anInt1512 = -1;
-      this.actionCount = 2;
+      this.ClipType = 2;
       this.aBoolean1536 = false;
-      this.anInt1526 = -1;
+      this.ConfigFileId = -1;
       this.anInt1540 = -1;
       this.aBoolean1541 = false;
       this.aBoolean1542 = false;

@@ -1,11 +1,14 @@
 package org.runite.jagex;
 
+import java.awt.*;
+
 public class ColorCore {
 
     /** @woah
      * A repository filled with colors that can be set to whatever the user sees fit
      * Each will be labeled for what their original purpose is for and the files that
-     * They reside in
+     * They reside in. A few values need to be played with only tested some of the colors
+     * to the corresponding name
      */
 
     /** Used to display the color difference between two players
@@ -48,8 +51,9 @@ public class ColorCore {
     static RSString ContextColor = RSString.createRSString("<col=ffffff>");//White
 
 
-    //private message
-    static RSString PrivateMessageColor = RSString.createRSString("<col=00ffff>");//Light blue
+    //private message Class3_Sub28_Sub4.aClass94_3573
+    static RSString ObjectNameColor = RSString.createRSString("<col=00ffff>");//Light blue <col=00ffff>
+    static RSString PMColor = RSString.createRSString(" )2> <col=ff0000>");
 
     //bank will be orange
     //entity color? Item color?
@@ -61,5 +65,18 @@ public class ColorCore {
 
     //Class144
     static RSString NPCRightClickColor = RSString.createRSString("<col=ffff00>");//Yellow
+
+    //Class130 Orange Possible Bank
+    static RSString BankItemColor = RSString.createRSString(" )2> <col=ff9040>");
+
+    //Class3 Sub28 Sub16 Possible Text Color
+    static RSString TextColor = RSString.createRSString(" )2> <col=ffff00>");
+
+
+    /** Used to change the loading bar color on client launch
+     * Files that use these colors:
+     * Class3_Sub28_Sub1.java - method updateLoadingBar
+     */
+    static Color loadingbarcolor = new Color(140, 17, 17);
 
 }

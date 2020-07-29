@@ -5,13 +5,10 @@ import org.runite.Properties;
 abstract class Class144 {
 
    static int anInt1881 = 0;
-   static RSString aClass94_1882 = RSString.createRSString("Librairie 3D d-Bmarr-Be");
    static int anInt1883;
    static RSString aClass94_1885 = RSString.createRSString("cookiehost");
    static int anInt1886;
    static int anInt1887;
-   private static RSString aClass94_1888 = RSString.createRSString("Your ignore list is full)3 Max of 100 users)3");
-   static RSString aClass94_1884 = aClass94_1888;
 
    abstract byte[] method2064(int var1);
 
@@ -63,23 +60,19 @@ abstract class Class144 {
 
             if(null != var0) {
                if(var0.aBoolean1270) {
-                  if(var2 > -83) {
-                     aClass94_1884 = (RSString)null;
-                  }
-
                   RSString var5 = var0.aClass94_1273;
                   if(0 != var0.anInt1260) {
-                     RSString var6 = Class158.anInt2014 != 1?Class27.aClass94_525:Class3_Sub22.aClass94_2526;
+                     RSString var6 = Class158.anInt2014 != 1?TextCore.HasLevel:TextCore.HasRating;
                      var5 = RenderAnimationDefinition.method903(new RSString[]{var5, Class72.combatLevelColor(var0.anInt1260, (byte)-122, Class102.player.COMBAT_LEVEL), Class72.LEFT_PARENTHESES, var6, Class72.method1298((byte)9, var0.anInt1260), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-73);
                   }
 
                   if(Class164_Sub1.anInt3012 == 1) {
-                     Class54.method1177(Class99.anInt1403, (long)var3, (byte)-125, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, Class3_Sub28_Sub16.aClass94_3702, var5}, (byte)-125), var1, (short)26, Class3_Sub13_Sub32.aClass94_3388, var4);
+                     Class54.method1177(Class99.anInt1403, (long)var3, (byte)-125, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, ColorCore.TextColor, var5}, (byte)-125), var1, (short)26, TextCore.HasUse, var4);
                      ++Class49.anInt816;
                   } else if(GameObject.aBoolean1837) {
                      Class3_Sub28_Sub9 var12 = -1 == Class69.anInt1038?null:Class61.method1210(64, Class69.anInt1038);
                      if((2 & Class164.anInt2051) != 0 && (var12 == null || var0.method1475(Class69.anInt1038, -26460, var12.anInt3614) != var12.anInt3614)) {
-                        Class54.method1177(anInt1887, (long)var3, (byte)-93, RenderAnimationDefinition.method903(new RSString[]{Class40.aClass94_676, Class3_Sub28_Sub16.aClass94_3702, var5}, (byte)-65), var1, (short)45, Class3_Sub28_Sub9.aClass94_3621, var4);
+                        Class54.method1177(anInt1887, (long)var3, (byte)-93, RenderAnimationDefinition.method903(new RSString[]{Class40.aClass94_676, ColorCore.TextColor, var5}, (byte)-65), var1, (short)45, Class3_Sub28_Sub9.aClass94_3621, var4);
                         ++Class119.anInt1629;
                      }
                   } else {
@@ -92,7 +85,7 @@ abstract class Class144 {
                      int var7;
                      if(var11 != null) {
                         for(var7 = 4; var7 >= 0; --var7) {
-                           if(var11[var7] != null && (Class158.anInt2014 != 0 || !var11[var7].equals(-113, Class3_Sub13_Sub36.aClass94_3427))) {
+                           if(var11[var7] != null && (Class158.anInt2014 != 0 || !var11[var7].equals(-113, TextCore.HasAttack))) {
                               ++ItemDefinition.anInt763;
                               byte var8 = 0;
                               if(var7 == 0) {
@@ -131,7 +124,7 @@ abstract class Class144 {
 
                      if(0 == Class158.anInt2014 && var11 != null) {
                         for(var7 = 4; var7 >= 0; --var7) {
-                           if(null != var11[var7] && var11[var7].equals(-112, Class3_Sub13_Sub36.aClass94_3427)) {
+                           if(null != var11[var7] && var11[var7].equals(-112, TextCore.HasAttack)) {
                               ++Class3_Sub28_Sub10_Sub1.anInt4054;
                               short var14 = 0;
                               if(var0.anInt1260 > Class102.player.COMBAT_LEVEL && !Properties.get().isInstantAttack()) {
@@ -169,7 +162,7 @@ abstract class Class144 {
                         }
                      }
 
-                     Class54.method1177(Class131.anInt1719, (long)var3, (byte)-73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}, (byte)-69), var1, (short)1007, Class86.aClass94_1180, var4);
+                     Class54.method1177(Class131.anInt1719, (long)var3, (byte)-73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}, (byte)-69), var1, (short)1007, TextCore.HasExamine, var4);
                   }
 
                }
@@ -206,13 +199,9 @@ abstract class Class144 {
 
    public static void method2070(byte var0) {
       try {
-         aClass94_1884 = null;
-         aClass94_1888 = null;
          if(var0 < 0) {
             anInt1881 = -60;
          }
-
-         aClass94_1882 = null;
          aClass94_1885 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "u.F(" + var0 + ')');

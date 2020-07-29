@@ -6,19 +6,13 @@ import java.io.IOException;
 final class Class3_Sub13_Sub3 extends Class3_Sub13 {
 
    private int anInt3047 = 4096;
-   private static RSString aClass94_3048 = RSString.createRSString("Hidden");
    static KeyboardListener aClass148_3049 = new KeyboardListener();
    private boolean aBoolean3050 = true;
-   static RSString aClass94_3051 = aClass94_3048;
    static short aShort3052 = 205;
-   static RSString aClass94_3053 = RSString.createRSString("Lade Schrifts-=tze )2 ");
 
 
    public static void method177(byte var0) {
       try {
-         aClass94_3053 = null;
-         aClass94_3051 = null;
-         aClass94_3048 = null;
          if(var0 != 119) {
             aShort3052 = 109;
          }
@@ -34,10 +28,6 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
          RSString var4 = new RSString();
          var4.byteArray = new byte[var2];
          var4.length = 0;
-         if(var1 != -4114) {
-            aClass94_3053 = (RSString)null;
-         }
-
          for(int var5 = var3; var5 < var2 + var3; ++var5) {
             if(var0[var5] != 0) {
                var4.byteArray[var4.length++] = var0[var5];

@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class GraphicDefinition {
 
-	private static RSString aClass94_553 = RSString.createRSString("slide:");
 	static int anInt529;
 	private int anInt530 = 128;
 	static int CAMERA_DIRECTION = 0;
@@ -21,14 +20,8 @@ final class GraphicDefinition {
 	static int anInt544;
 	private short[] aShortArray545;
 	static int anInt546;
-	static RSString aClass94_547 = aClass94_553;
 	static int anInt548 = 0;
 	static volatile int anInt549 = 0;
-	static RSString aClass94_550 = RSString.createRSString("Jeter");
-	static RSString aClass94_551 = aClass94_553;
-	static RSString aClass94_552 = RSString.createRSString("Sprites geladen)3");
-
-
 
 	final void parse(RSByteBuffer var1, byte var2) {
 		try {
@@ -51,16 +44,10 @@ final class GraphicDefinition {
 
 	public static void method964(int var0) {
 		try {
-			aClass94_553 = null;
 			incomingBuffer = null;
 			if(var0 != 6) {
 				method964(-57);
 			}
-
-			aClass94_550 = null;
-			aClass94_547 = null;
-			aClass94_551 = null;
-			aClass94_552 = null;
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "eg.E(" + var0 + ')');
 		}

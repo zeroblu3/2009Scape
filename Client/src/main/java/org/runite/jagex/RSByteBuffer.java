@@ -8,13 +8,9 @@ class RSByteBuffer extends Class3 {
 	byte[] buffer;
 	static int[] anIntArray2591;
 	static int anInt2592;
-	private static RSString aClass94_2593 = RSString.createRSString("Loaded interfaces");
-	static RSString aClass94_2594 = RSString.createRSString("Polices charg-Bes");
 	int index;
 	static RSString[] aClass94Array2596 = null;
-	static RSString aClass94_2597 = aClass94_2593;
 	static RSString aClass94_2598 = RSString.createRSString("<br>");
-	static RSString aClass94_2599 = RSString.createRSString("d-Broulement:");
 	static Class3_Sub28_Sub3 aClass3_Sub28_Sub3_2600;
 	static Class151_Sub1[] aClass151_Sub1Array2601 = new Class151_Sub1[29]; //TODO
 
@@ -35,7 +31,7 @@ class RSByteBuffer extends Class3 {
 	final void putInt(int var1, int value) {
 		try {
 			if(var1 > -119) {
-				aClass94_2593 = (RSString)null;
+				TextCore.LoadedInterfaces = (RSString)null;
 			}
 
 			this.buffer[this.index++] = (byte)(value >> 24);
@@ -85,9 +81,6 @@ class RSByteBuffer extends Class3 {
 	final int method741(byte var1) {
 		try {
 			byte var2 = this.buffer[this.index++];
-			if(var1 < 112) {
-				aClass94_2599 = (RSString)null;
-			}
 
 			int var3;
 			for(var3 = 0; 0 > var2; var2 = this.buffer[this.index++]) {
@@ -420,13 +413,10 @@ class RSByteBuffer extends Class3 {
 
 	public static void method767(int var0) {
 		try {
-			aClass94_2599 = null;
 			anIntArray2591 = null;
-			aClass94_2597 = null;
 			aClass3_Sub28_Sub3_2600 = null;
-			aClass94_2594 = null;
 			aClass94Array2596 = null;
-			aClass94_2593 = null;
+			TextCore.LoadedInterfaces = null;
 			aClass151_Sub1Array2601 = null;
 			aClass94_2598 = null;
 			if(var0 != 0) {
@@ -516,10 +506,6 @@ class RSByteBuffer extends Class3 {
 			}
 
 			this.putByte((byte)-46, var2 & 127);
-			if(var1 != 17038) {
-				aClass94_2594 = (RSString)null;
-			}
-
 		} catch (RuntimeException var4) {
 			throw Class44.method1067(var4, "wa.DB(" + var1 + ',' + var2 + ')');
 		}
@@ -832,7 +818,7 @@ class RSByteBuffer extends Class3 {
 	final int getSmart(boolean var1) {
 		try {
 			if(!var1) {
-				aClass94_2593 = (RSString)null;
+				TextCore.LoadedInterfaces = (RSString)null;
 			}
 
 			int var2 = this.buffer[this.index] & 255;
@@ -1105,7 +1091,7 @@ class RSByteBuffer extends Class3 {
 		try {
 			int var2 = this.buffer[this.index] & 255;
 			if(var1 != -21208) {
-				aClass94_2593 = (RSString)null;
+				TextCore.LoadedInterfaces = (RSString)null;
 			}
 
 			return var2 < 128 ?-64 + this.getByte((byte)-82):this.getShort(var1 + 21209) - '\uc000';
@@ -1211,7 +1197,7 @@ class RSByteBuffer extends Class3 {
 					Class74.method1323(3 * Class140_Sub3.anInt2737 + -150 + var6, var7 - -2, -(Class140_Sub3.anInt2737 * 3) + 300, 30, 0);
 				}
 
-				Class168.aClass3_Sub28_Sub17_2096.method699(Class24.aClass94_462, var6, var5 + var7, 16777215, -1);
+				Class168.aClass3_Sub28_Sub17_2096.method699(TextCore.LoadingGeneral, var6, var5 + var7, 16777215, -1);
 			}
 		} catch (RuntimeException var14) {
 			throw Class44.method1067(var14, "wa.FA(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
@@ -1259,7 +1245,7 @@ class RSByteBuffer extends Class3 {
 				method746((byte)-33);
 			}
 
-			return Class163_Sub2_Sub1.aClass94Array4016[var0].length(-26) > 0 ?RenderAnimationDefinition.method903(new RSString[]{Class140_Sub7.aClass94Array2935[var0], InputStream_Sub1.aClass94_43, Class163_Sub2_Sub1.aClass94Array4016[var0]}, (byte)-86):Class140_Sub7.aClass94Array2935[var0];
+			return Class163_Sub2_Sub1.aClass94Array4016[var0].length(-26) > 0 ?RenderAnimationDefinition.method903(new RSString[]{Class140_Sub7.aClass94Array2935[var0], TextCore.Spacer, Class163_Sub2_Sub1.aClass94Array4016[var0]}, (byte)-86):Class140_Sub7.aClass94Array2935[var0];
 		} catch (RuntimeException var3) {
 			throw Class44.method1067(var3, "wa.RB(" + var0 + ',' + var1 + ')');
 		}

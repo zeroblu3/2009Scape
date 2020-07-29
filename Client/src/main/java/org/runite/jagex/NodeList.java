@@ -4,7 +4,6 @@ final class NodeList {
 
    static CacheIndex aClass153_332;
    private Node aClass3_Sub28_333 = new Node();
-   static RSString aClass94_334 = RSString.createRSString("Lade Texturen )2 ");
    private Node aClass3_Sub28_335;
 
 
@@ -26,7 +25,6 @@ final class NodeList {
       try {
          int var1 = -102 / ((var0 - 35) / 48);
          aClass153_332 = null;
-         aClass94_334 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ce.C(" + var0 + ')');
       }

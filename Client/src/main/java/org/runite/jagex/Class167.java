@@ -3,9 +3,7 @@ package org.runite.jagex;
 final class Class167 {
 
    static RSString aClass94_2083 = null;
-   static RSString aClass94_2084 = RSString.createRSString("ul");
    static int anInt2085;
-   static RSString aClass94_2086 = RSString.createRSString("Continuer");
    static int anInt2087 = 0;
 
 
@@ -80,10 +78,6 @@ final class Class167 {
    public static void method2262(byte var0) {
       try {
          aClass94_2083 = null;
-         if(var0 > 0) {
-            aClass94_2086 = null;
-            aClass94_2084 = null;
-         }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "wj.F(" + var0 + ')');
       }
@@ -122,10 +116,6 @@ final class Class167 {
    static final void method2265(int var0) {
       try {
          CS2Script.aClass93_2442.method1524(3);
-         if(var0 != 0) {
-            aClass94_2084 = (RSString)null;
-         }
-
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "wj.B(" + var0 + ')');
       }
@@ -137,11 +127,6 @@ final class Class167 {
             Class70.method1285(Node.aClass153_2573, false, var1, 0, false, Class9.anInt120);
             Class83.aBoolean1158 = true;
          }
-
-         if(var2 != -1) {
-            aClass94_2084 = (RSString)null;
-         }
-
       } catch (RuntimeException var4) {
          throw Class44.method1067(var4, "wj.D(" + var0 + ',' + var1 + ',' + var2 + ')');
       }
@@ -230,24 +215,17 @@ final class Class167 {
          Class3_Sub25 var3 = (Class3_Sub25)Class3_Sub2.aClass130_2220.method1780((long)var1, 0);
          if(var3 == null) {
             return 0;
+         } else if (var2 == -1) {
+            return 0;
          } else {
-            if(var2 == -1) {
-               return 0;
-            } else {
-               int var4 = 0;
+            int var4 = 0;
 
-               for(int var5 = 0; var3.anIntArray2551.length > var5; ++var5) {
-                  if(var3.anIntArray2547[var5] == var2) {
-                     var4 += var3.anIntArray2551[var5];
-                  }
+            for (int var5 = 0; var3.anIntArray2551.length > var5; ++var5) {
+               if (var3.anIntArray2547[var5] == var2) {
+                  var4 += var3.anIntArray2551[var5];
                }
-
-               if(var0 > -45) {
-                  aClass94_2086 = (RSString)null;
-               }
-
-               return var4;
             }
+            return var4;
          }
       } catch (RuntimeException var6) {
          throw Class44.method1067(var6, "wj.H(" + var0 + ',' + var1 + ',' + var2 + ')');

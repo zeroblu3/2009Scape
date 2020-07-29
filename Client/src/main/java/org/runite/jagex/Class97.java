@@ -179,7 +179,6 @@ final class Class97 {
       }
 
       aClass94_1374 = RSString.createRSString("zap");
-      aClass94_1377 = RSString.createRSString("Abbrechen");
       anIntArrayArray1373 = new int[104][104];
       aClass94_1380 = RSString.createRSString(")4p=");
    }

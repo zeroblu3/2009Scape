@@ -8,13 +8,11 @@ final class Class3_Sub6 extends Class3 {
    byte[] aByteArray2289;
    static int anInt2290;
    static int anInt2291;
-   static RSString suffixWishesToTradeWithYou = RSString.createRSString("wishes to trade with you)3");
 
    public static void method118(int var0) {
       try {
          anIntArray2288 = null;
          aByteArrayArray2287 = (byte[][])null;
-         suffixWishesToTradeWithYou = null;
          if(var0 != 2) {
             method119((float[])null, 91);
          }

@@ -11,9 +11,6 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
    
    static volatile int anInt3398 = 0;
    static RSString aClass94_3399 = RSString.createRSString("<br>(X");
-   private static RSString aClass94_3400 = RSString.createRSString("Take");
-   static RSString aClass94_3401 = RSString.createRSString("Weiter");
-static RSString aClass94_3397 = aClass94_3400;
 
    final int[] method154(int var1, byte var2) {
       try {
@@ -118,14 +115,11 @@ static RSString aClass94_3397 = aClass94_3400;
 
    public static void method325(int var0) {
       try {
-         aClass94_3401 = null;
          aByteArrayArrayArray3390 = (byte[][][])null;
          if(var0 == 0) {
             aByteArray3396 = null;
             aClass133Array3393 = null;
-            aClass94_3400 = null;
             aClass94Array3391 = null;
-            aClass94_3397 = null;
             aClass94_3399 = null;
          }
       } catch (RuntimeException var2) {
@@ -187,10 +181,6 @@ static RSString aClass94_3397 = aClass94_3400;
 
    static final void method327(int var0, int var1, byte var2) {
       try {
-         if(var2 != 68) {
-            aClass94_3397 = (RSString)null;
-         }
-
          Class3_Sub28_Sub6 var3 = Class3_Sub24_Sub3.method466(var2 + -64, 12, var1);
          var3.g((byte)33);
          var3.anInt3598 = var0;

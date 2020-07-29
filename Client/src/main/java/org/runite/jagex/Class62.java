@@ -8,16 +8,13 @@ final class Class62 {
    int[] archiveCRCs;
    static RSString aClass94_946 = RSString.createRSString(")2");
    int validArchiveAmount;
-   private static RSString aClass94_948 = RSString.createRSString("You can(Wt add yourself to your own friend list)3");
    Class69 aClass69_949;
    static int anInt950;
-   static RSString aClass94_951 = RSString.createRSString("Interfaces charg-Bes");
    static int anInt952;
    int[] validArchiveIds;
    int[] archiveLengths;
    int[] archiveNameHash;
    int[] archiveFileLengths;
-   static RSString aClass94_957 = aClass94_948;
    int[] archiveRevisions;
    int[][] validFileIds;
    int archiveAmount;
@@ -29,12 +26,7 @@ final class Class62 {
 
    public static void method1223(int var0) {
       try {
-         aClass94_951 = null;
          aClass94_946 = null;
-         if(var0 == 0) {
-            aClass94_948 = null;
-            aClass94_957 = null;
-         }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ii.A(" + var0 + ')');
       }
@@ -180,10 +172,6 @@ final class Class62 {
             }
 
             var8 = 0;
-            if(var1 != 2) {
-               aClass94_957 = (RSString)null;
-            }
-
             while(this.validArchiveAmount > var8) {
                this.archiveFileLengths[this.validArchiveIds[var8]] = buffer.getShort(1);
                ++var8;

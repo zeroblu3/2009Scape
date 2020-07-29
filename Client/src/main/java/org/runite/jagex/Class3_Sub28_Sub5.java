@@ -6,11 +6,6 @@ final class Class3_Sub28_Sub5 extends Node {
 
    static CacheIndex aClass153_3580;
    static Calendar aCalendar3581 = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-   private static RSString stackThousandK = RSString.createRSString("K");
-   static RSString aClass94_3583 = RSString.createRSString("brillant3:");
-   static RSString aClass94_3584 = stackThousandK;
-   static RSString aClass94_3585 = RSString.createRSString(",Mcran)2titre ouvert");
-   static RSString aClass94_3586 = stackThousandK;
    static int[] anIntArray3587;
    AnimationHeader[] animations;
    static int anInt3589;
@@ -107,18 +102,12 @@ final class Class3_Sub28_Sub5 extends Node {
 
    public static void method558(int var0) {
       try {
-         aClass94_3585 = null;
          anIntArray3592 = null;
-         stackThousandK = null;
-         aClass94_3586 = null;
          aClass153_3580 = null;
          anIntArray3587 = null;
          if(var0 != -29679) {
             method556(-76, 24, -17, (byte)-85, 58, -87);
          }
-
-         aClass94_3583 = null;
-         aClass94_3584 = null;
          aCalendar3581 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "cl.B(" + var0 + ')');

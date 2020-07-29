@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class124 {
 
    static Class130 aClass130_1659 = new Class130(512);
-   static RSString aClass94_1660 = RSString.createRSString("Versteckt");
    static CacheIndex aClass153_1661;
 
 
@@ -11,7 +10,6 @@ final class Class124 {
       try {
          aClass130_1659 = null;
          aClass153_1661 = null;
-         aClass94_1660 = null;
          if(!var0) {
             aClass130_1659 = (Class130)null;
          }

@@ -104,11 +104,11 @@ final class Class8 {
          int var10;
          int var11;
          if(var9 == 1 || var9 == 3) {
-            var10 = var0.anInt1485;
-            var11 = var0.anInt1480;
+            var10 = var0.SizeY;
+            var11 = var0.SizeX;
          } else {
-            var11 = var0.anInt1485;
-            var10 = var0.anInt1480;
+            var11 = var0.SizeY;
+            var10 = var0.SizeX;
          }
 
          int var14;

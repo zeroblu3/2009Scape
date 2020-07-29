@@ -4,13 +4,10 @@ final class Class12 {
 
    static float aFloat319;
    GameObject object;
-   private static RSString aClass94_321 = RSString.createRSString("Checking for updates )2 ");
    static CacheIndex aClass153_322;
    static CacheIndex aClass153_323;
    int anInt324;
-   static RSString aClass94_325 = RSString.createRSString(",Mcran)2titre charg-B");
    int anInt326;
-   static RSString aClass94_327 = aClass94_321;
    long aLong328;
    boolean aBoolean329 = false;
    int anInt330;
@@ -79,12 +76,9 @@ final class Class12 {
 
    public static void method871(byte var0) {
       try {
-         aClass94_321 = null;
-         aClass94_327 = null;
          aClass94_331 = null;
          aClass153_322 = null;
          aClass153_323 = null;
-         aClass94_325 = null;
          int var1 = -93 / ((2 - var0) / 50);
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "bm.A(" + var0 + ')');

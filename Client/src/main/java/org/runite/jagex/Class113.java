@@ -5,7 +5,6 @@ final class Class113 {
    static int interfacePacketCounter = 0;
    int anInt1544;
    int anInt1545;
-   static RSString aClass94_1546 = RSString.createRSString("welle:");
    int anInt1547;
    int anInt1548;
    int anInt1549;
@@ -16,7 +15,6 @@ final class Class113 {
    int anInt1554;
    int anInt1555;
    int anInt1557;
-   static RSString aClass94_1558 = RSString.createRSString(": ");
    static int anInt1559;
    int anInt1560;
    int anInt1561;
@@ -31,10 +29,6 @@ final class Class113 {
       try {
          if(!var1 != !Class14.aBoolean337) {
             Class14.aBoolean337 = var1;
-            if(var0 > -117) {
-               aClass94_1546 = (RSString)null;
-            }
-
             Class3_Sub10.method139(76);
          }
       } catch (RuntimeException var3) {
@@ -44,12 +38,9 @@ final class Class113 {
 
    public static void method1703(int var0) {
       try {
-         aClass94_1558 = null;
          if(var0 != 10967) {
             method1703(-117);
          }
-
-         aClass94_1546 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "pe.A(" + var0 + ')');
       }

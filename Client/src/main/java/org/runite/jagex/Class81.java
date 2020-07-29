@@ -5,10 +5,8 @@ import java.io.IOException;
 final class Class81 {
 
    static NodeList aClass13_1139 = new NodeList();
-   static RSString aClass94_1140 = RSString.createRSString(" steht bereits auf Ihrer Ignorieren)2Liste(Q");
    static int anInt1141;
    static int[][][] anIntArrayArrayArray1142;
-   static RSString aClass94_1143 = RSString.createRSString("Chargement du module texte )2 ");
 
 
    static final void putRandomDataFile(RSByteBuffer var0, boolean var1) {
@@ -78,20 +76,20 @@ final class Class81 {
                int var5;
                for(var5 = 0; var5 < Class3_Sub28_Sub5.anInt3591; ++var5) {
                   if(Class114.ignores[var5] == var1) {
-                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var4, Class3_Sub13_Sub25.aClass94_3311}, (byte)-108), -1);
+                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var4, TextCore.HasIgnoreAlready}, (byte)-108), -1);
                      return;
                   }
                }
 
                for(var5 = 0; Class8.anInt104 > var5; ++var5) {
                   if(var1 == Class50.aLongArray826[var5]) {
-                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{Class38.aClass94_666, var4, Class3_Sub28_Sub10_Sub2.aClass94_4071}, (byte)-65), -1);
+                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.HasPleaseRemove, var4, TextCore.HasFriendsToIgnore}, (byte)-65), -1);
                      return;
                   }
                }
 
                if(var4.method1528((byte)-42, Class102.player.displayName)) {
-                  Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, Class95.aClass94_1335, -1);
+                  Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, TextCore.HasOnOwnIgnoreList, -1);
                } else {
                   ++Class3_Sub13_Sub22.anInt3267;
                   Class114.ignores[Class3_Sub28_Sub5.anInt3591] = var1;
@@ -101,7 +99,7 @@ final class Class81 {
                   Class3_Sub13_Sub1.outgoingBuffer.putLong(var1, -2037491440);
                }
             } else {
-               Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, Class144.aClass94_1884, -1);
+               Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, TextCore.HasIgnoreListFull, -1);
             }
          }
       } catch (RuntimeException var6) {
@@ -134,10 +132,6 @@ final class Class81 {
       try {
          Class57 var2 = (Class57)Class128.aClass93_1683.get((long)var1, (byte)121);
          if(var2 == null) {
-            if(var0 != 1001) {
-               aClass94_1143 = (RSString)null;
-            }
-
             byte[] var3 = Class46.aClass153_737.getFile(31, (byte)-122, var1);
             var2 = new Class57();
             if(var3 != null) {
@@ -158,12 +152,6 @@ final class Class81 {
       try {
          aClass13_1139 = null;
          anIntArrayArrayArray1142 = (int[][][])null;
-         aClass94_1143 = null;
-         aClass94_1140 = null;
-         if(var0 <= 56) {
-            aClass94_1140 = (RSString)null;
-         }
-
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "la.F(" + var0 + ')');
       }

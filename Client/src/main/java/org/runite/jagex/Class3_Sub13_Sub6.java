@@ -8,7 +8,6 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
    static int[] anIntArray3076;
    static CacheIndex aClass153_3077;
    static boolean aBoolean3078;
-   static RSString aClass94_3079 = RSString.createRSString("Examiner");
    static RSString aClass94_3080 = Class95.method1586(23161, 160);
    static int anInt3081 = 0;
    static int[] anIntArray3082 = new int[100];
@@ -49,9 +48,9 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
                   Class3_Sub24_Sub3.anIntArray3494[var11] = var9;
                   Client.anIntArray2200[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub30_Sub1.aClass94_3807, Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-128), (byte)-30);
                   Class101.anIntArray1426[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class161.aClass94_2029, Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-73), (byte)-30);
-                  Class3_Sub13_Sub24.npcSpawnCacheIndices[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Canvas_Sub1.aClass94_26, Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-82), (byte)-30);
+                  Class3_Sub13_Sub24.npcSpawnCacheIndices[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{RSString.createRSString("n"), Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-82), (byte)-30);
                   Class3_Sub13_Sub15.anIntArray3181[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class95.aClass94_1333, Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-104), (byte)-30);
-                  Class3_Sub28_Sub5.anIntArray3587[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class167.aClass94_2084, Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-114), (byte)-30);
+                  Class3_Sub28_Sub5.anIntArray3587[var11] = aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298((byte)9, var7), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var8)}, (byte)-114), (byte)-30);
                   if(Class3_Sub13_Sub24.npcSpawnCacheIndices[var11] == -1) {
                      Client.anIntArray2200[var11] = -1;
                      Class101.anIntArray1426[var11] = -1;
@@ -135,7 +134,6 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
 
    public static void method197(int var0) {
       try {
-         aClass94_3079 = null;
          anIntArray3076 = null;
          aClass61_3075 = null;
          anIntArray3082 = null;

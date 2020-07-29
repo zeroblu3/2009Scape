@@ -8,12 +8,10 @@ final class Class53 {
    static int anInt865 = -1;
    static long aLong866 = 0L;
    static int anInt867;
-   static RSString aClass94_868 = RSString.createRSString("Chargement de l(W-Bcran)2titre )2 ");
 
 
    public static void method1169(boolean var0) {
       try {
-         aClass94_868 = null;
          if(var0) {
             method1170((byte)25, 28);
          }

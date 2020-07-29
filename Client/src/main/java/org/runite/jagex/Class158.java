@@ -14,7 +14,6 @@ abstract class Class158 {
    static int anInt2010 = -16 + (int)(33.0D * Math.random());
    int anInt2011;
    int anInt2012;
-   static RSString aClass94_2013 = RSString.createRSString("Lade Liste der Welten");
    static int anInt2014 = 0;
    static int anInt2015;
 
@@ -23,10 +22,6 @@ abstract class Class158 {
 
    static final void method2180(CacheIndex var0, CacheIndex var1, int var2) {
       try {
-         if(var2 != 11504) {
-            aClass94_2013 = (RSString)null;
-         }
-
          Class3_Sub28_Sub7_Sub1.aClass153_4048 = var0;
          Class3_Sub13_Sub18.aClass153_3214 = var1;
       } catch (RuntimeException var4) {
@@ -38,7 +33,6 @@ abstract class Class158 {
       try {
          aByteArrayArrayArray2008 = (byte[][][])null;
          anIntArray2004 = null;
-         aClass94_2013 = null;
          if(var0) {
             method2181(false);
          }

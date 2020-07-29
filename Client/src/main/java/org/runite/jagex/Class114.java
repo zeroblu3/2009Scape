@@ -9,7 +9,6 @@ final class Class114 {
    static Class30 aClass30_1572;
    private int[][] anIntArrayArray1573;
    static long[] ignores = new long[100];
-   static RSString aClass94_1575 = RSString.createRSString(" weitere Optionen");
    private int anInt1576 = -1;
    private Class61 aClass61_1577 = new Class61();
    static int[] anIntArray1578 = new int[500];
@@ -26,7 +25,6 @@ final class Class114 {
 
          anIntArray1578 = null;
          ignores = null;
-         aClass94_1575 = null;
          aClass30_1572 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "pf.G(" + var0 + ')');

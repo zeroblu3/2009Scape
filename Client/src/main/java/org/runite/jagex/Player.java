@@ -8,21 +8,18 @@ final class Player extends Class140_Sub4 {
    static int[] anIntArray3954 = new int[100];
    int headIcon = -1;
    int teamId = 0;
-   static RSString aClass94_3957 = RSString.createRSString("Gestionnaire de saisie charg-B");
    private int anInt3958 = 0;
    static int[] anIntArray3959 = new int[2];
    int COMBAT_LEVEL = 0;
    static RSString aClass94_3961 = RSString.createRSString("Forced tweening / animation smoothing ENABLED(Q");
    Class52 class52;
    int anInt3963 = -1;
-   static RSString aClass94_3964 = RSString.createRSString("_labels");
    int combatLevel = 0;
    int anInt3966 = -1;
    RSString displayName;
    boolean aBoolean3968 = false;
    int anInt3969 = 0;
    int anInt3970 = -1;
-   static RSString aClass94_3971 = RSString.createRSString("www)2wtqa");
    int skullIcon = -1;
    int anInt3973 = -1;
    int anInt3974 = 0;
@@ -403,9 +400,6 @@ final class Player extends Class140_Sub4 {
    final void method1981(byte var1, int var2, boolean var3, int var4) {
       try {
          super.method1967(var1 + -128, this.getSize((byte)114), var2, var4, var3);
-         if(var1 != 126) {
-            aClass94_3964 = (RSString)null;
-         }
 
       } catch (RuntimeException var6) {
          throw Class44.method1067(var6, "e.O(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
@@ -416,8 +410,6 @@ final class Player extends Class140_Sub4 {
 
    public static void method1982(byte var0) {
       try {
-         aClass94_3971 = null;
-         aClass94_3957 = null;
          anIntArray3951 = null;
          aClass94_3961 = null;
          anIntArray3959 = null;
@@ -426,7 +418,6 @@ final class Player extends Class140_Sub4 {
          }
 
          anIntArray3954 = null;
-         aClass94_3964 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "e.R(" + var0 + ')');
       }

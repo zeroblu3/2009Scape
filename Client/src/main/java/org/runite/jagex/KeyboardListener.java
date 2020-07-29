@@ -8,7 +8,6 @@ final class KeyboardListener implements KeyListener, FocusListener {
 
    static boolean aBoolean1905 = true;
    static int anInt1906;
-   static RSString aClass94_1907 = RSString.createRSString(" autres options");
    static int anInt1908 = 0;
    static int anInt1909;
    static int anInt1910;
@@ -190,7 +189,6 @@ final class KeyboardListener implements KeyListener, FocusListener {
          aClass153_1916 = null;
          if(var0 > 81) {
             aClass94_1915 = null;
-            aClass94_1907 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "uf.A(" + var0 + ')');

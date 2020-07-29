@@ -6,7 +6,6 @@ final class Class75_Sub3 extends Class75 {
    private int anInt2650;
    static int anInt2651;
    private int anInt2652;
-   static RSString aClass94_2653 = RSString.createRSString("Hierhin gehen");
    private int anInt2654;
    private int anInt2655;
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array2656;
@@ -26,10 +25,6 @@ final class Class75_Sub3 extends Class75 {
          int var8 = this.anInt2655 * var3 >> 12;
          int var9 = var1 * this.anInt2652 >> 12;
          int var10 = this.anInt2659 * var3 >> 12;
-         if(!var2) {
-            aClass94_2653 = (RSString)null;
-         }
-
          int var11 = var1 * this.anInt2650 >> 12;
          Class108.method1652(var6, var10, var9, var11, var5, var4, var8, var7, this.anInt1104, 0);
       } catch (RuntimeException var12) {
@@ -155,8 +150,6 @@ final class Class75_Sub3 extends Class75 {
          if(var0 != 100) {
             method1347(-79);
          }
-
-         aClass94_2653 = null;
          aClass3_Sub28_Sub16Array2656 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "re.C(" + var0 + ')');

@@ -12,12 +12,8 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
    private int anInt3164 = 1365;
    private int anInt3165 = 0;
    static boolean aBoolean3166 = false;
-   static RSString aClass94_3169 = RSString.createRSString("Lade Sprites )2 ");
-   private static RSString aClass94_3170 = RSString.createRSString("Loaded textures");
    static int[] anIntArray3171 = new int[]{0, 4, 4, 8, 0, 0, 8, 0, 0};
-   static RSString aClass94_3172 = RSString.createRSString("Regarder dans cette direction");
    static CacheIndex aClass153_3173;
-   static RSString aClass94_3167 = aClass94_3170;
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
@@ -136,14 +132,10 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
       try {
          if(var0 == 9423) {
             aBigInteger3162 = null;
-            aClass94_3169 = null;
             anIntArray3171 = null;
             aClass73_3159 = null;
             aClass153_3173 = null;
-            aClass94_3167 = null;
             aClass94_3161 = null;
-            aClass94_3170 = null;
-            aClass94_3172 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "gm.E(" + var0 + ')');

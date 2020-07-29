@@ -181,41 +181,39 @@ class Class127 {
                   int opcode = Class3_Sub15.aClass89_2429.readByte(0);
                   if(opcode == 21) {
                      Class3_Sub13_Sub25.loginStage = 7;
+                  } else if (opcode == 29) {
+                     Class3_Sub13_Sub25.loginStage = 10;
                   } else {
-                     if(opcode == 29) {
-                        Class3_Sub13_Sub25.loginStage = 10;
-                     } else {
-                        if(opcode == 1) {
-                           Class3_Sub13_Sub25.loginStage = 5;
-                           Class158.anInt2005 = opcode;
-                           return;
-                        }
+                     if (opcode == 1) {
+                        Class3_Sub13_Sub25.loginStage = 5;
+                        Class158.anInt2005 = opcode;
+                        return;
+                     }
 
-                        if(2 != opcode) {
-                           if(opcode != 15) {
-                              if(23 == opcode && Class166.anInt2079 < 1) {
-                                 Class3_Sub13_Sub25.loginStage = 1;
-                                 ++Class166.anInt2079;
-                                 Class50.anInt820 = 0;
-                                 Class3_Sub15.aClass89_2429.close(14821);
-                                 Class3_Sub15.aClass89_2429 = null;
-                                 return;
-                              }
-
-                              Class158.anInt2005 = opcode;
-                              Class3_Sub13_Sub25.loginStage = 0;
-                              Class3_Sub15.aClass89_2429.close(var0 + 14830);
+                     if (2 != opcode) {
+                        if (opcode != 15) {
+                           if (23 == opcode && Class166.anInt2079 < 1) {
+                              Class3_Sub13_Sub25.loginStage = 1;
+                              ++Class166.anInt2079;
+                              Class50.anInt820 = 0;
+                              Class3_Sub15.aClass89_2429.close(14821);
                               Class3_Sub15.aClass89_2429 = null;
                               return;
                            }
 
-                           Class3_Sub13_Sub25.loginStage = 0;
                            Class158.anInt2005 = opcode;
+                           Class3_Sub13_Sub25.loginStage = 0;
+                           Class3_Sub15.aClass89_2429.close(var0 + 14830);
+                           Class3_Sub15.aClass89_2429 = null;
                            return;
                         }
 
-                        Class3_Sub13_Sub25.loginStage = 8;
+                        Class3_Sub13_Sub25.loginStage = 0;
+                        Class158.anInt2005 = opcode;
+                        return;
                      }
+
+                     Class3_Sub13_Sub25.loginStage = 8;
                   }
                }
 

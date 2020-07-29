@@ -8,22 +8,18 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
    static int[] spritePalette;
    private int anInt3447 = 2000;
    static long[] aLongArray3448 = new long[1000];
-   private static RSString aClass94_3449 = RSString.createRSString("Loading sprites )2 ");
    private int anInt3450 = 4096;
    private int anInt3451 = 16;
    static short[] aShortArray3453 = new short[256];
    private int anInt3454 = 0;
    static short[] aShortArray3455;
    static int[] anIntArray3456 = new int[4096];
-static RSString aClass94_3445 = aClass94_3449;
 
    public static void method351(int var0) {
       try {
          aShortArray3455 = null;
-         aClass94_3449 = null;
          spritePalette = null;
          if(var0 == -1) {
-            aClass94_3445 = null;
             aShortArray3453 = null;
             aLongArray3448 = null;
             anIntArray3456 = null;

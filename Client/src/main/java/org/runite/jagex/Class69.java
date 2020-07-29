@@ -9,8 +9,6 @@ final class Class69 {
    private int[] anIntArray1041;
    static int anInt1042;
    static CacheIndex aClass153_1043;
-   static RSString aClass94_1044 = RSString.createRSString("Titelbild geladen)3");
-
 
    final int method1280(int var1, int var2) {
       try {
@@ -72,7 +70,6 @@ final class Class69 {
       try {
          aClass153_1043 = null;
          aClass30_1039 = null;
-         aClass94_1044 = null;
          int var1 = -9 / ((var0 - 64) / 53);
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "jg.B(" + var0 + ')');

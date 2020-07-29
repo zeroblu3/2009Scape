@@ -52,7 +52,7 @@ final class Class93 {
   /** static final void method1517(byte var0) {
       try {
          Class139.aFontMetrics1822 = null;
-         Class3_Sub13_Sub32.aFont3384 = null;
+         TextCore.Helvetica = null;
          if(var0 != -118) {
             method1516(64, 82);
          }
@@ -66,7 +66,6 @@ final class Class93 {
    static final void method1517(byte var0) {
 	      try {
 	         Class139.aFontMetrics1822 = null;
-	         Class3_Sub13_Sub32.aFont3384 = null;
 	         if(var0 != -118) {
 	            method1516(64, 82);
 	         }

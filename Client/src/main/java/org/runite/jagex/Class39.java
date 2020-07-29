@@ -10,7 +10,6 @@ import java.util.Map;
 
 final class Class39 {
 
-	static RSString aClass94_669 = RSString.createRSString("Ihre Freunde)2Liste ist voll(Q Maximale Eintr-=ge: Mitglieder 200)4freie Spieler 100");
 	static int anInt670 = 0;
 	static int anInt671;
 
@@ -96,7 +95,7 @@ final class Class39 {
 				Client.anIntArray2200[var6] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub30_Sub1.aClass94_3807, Class72.method1298((byte)9, var15), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var16)}, (byte)-90), (byte)-30);
 				Class101.anIntArray1426[var6] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class161.aClass94_2029, Class72.method1298((byte)9, var15), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var16)}, (byte)-117), (byte)-30);
 				Class3_Sub13_Sub15.anIntArray3181[var6] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class95.aClass94_1333, Class72.method1298((byte)9, var15), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var16)}, (byte)-85), (byte)-30);
-				Class3_Sub28_Sub5.anIntArray3587[var6] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class167.aClass94_2084, Class72.method1298((byte)9, var15), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var16)}, (byte)-93), (byte)-30);
+				Class3_Sub28_Sub5.anIntArray3587[var6] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298((byte)9, var15), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var16)}, (byte)-93), (byte)-30);
 				++var6;
 				}
 							}
@@ -156,7 +155,7 @@ final class Class39 {
 							Client.anIntArray2200[var3] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub30_Sub1.aClass94_3807, Class72.method1298((byte)9, var9), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var10)}, (byte)-69), (byte)-30);
 							Class101.anIntArray1426[var3] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class161.aClass94_2029, Class72.method1298((byte)9, var9), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var10)}, (byte)-77), (byte)-30);
 							Class3_Sub13_Sub15.anIntArray3181[var3] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class95.aClass94_1333, Class72.method1298((byte)9, var9), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var10)}, (byte)-107), (byte)-30);
-							Class3_Sub28_Sub5.anIntArray3587[var3] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{Class167.aClass94_2084, Class72.method1298((byte)9, var9), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var10)}, (byte)-91), (byte)-30);
+							Class3_Sub28_Sub5.anIntArray3587[var3] = Class3_Sub13_Sub6.aClass153_3077.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298((byte)9, var9), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var10)}, (byte)-91), (byte)-30);
 						}
 
 						++var3;
@@ -174,13 +173,9 @@ final class Class39 {
 		}
 	}
 
-	public static void method1034(int var0) {
+	public static void method1034(int var0) {//TODO: EMPTY METHOD CHECK
 		try {
-			if(var0 != 8642) {
-				aClass94_669 = (RSString)null;
-			}
-
-			aClass94_669 = null;
+			;
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "g.B(" + var0 + ')');
 		}

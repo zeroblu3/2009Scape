@@ -3,8 +3,6 @@ package org.runite.jagex;
 final class Class95 {
 
    static RSString aClass94_1333 = RSString.createRSString("um");
-   private static RSString aClass94_1334 = RSString.createRSString("You can(Wt add yourself to your own ignore list)3");
-   static RSString aClass94_1335 = aClass94_1334;
    static int anInt1336 = 0;
    static RSString COMMAND_BREAK_CONNECTION = RSString.createRSString("::breakcon");
    static int anInt1338;
@@ -18,7 +16,6 @@ final class Class95 {
 
    public static void method1582(int var0) {
       try {
-         aClass94_1335 = null;
          aClass3_Sub28_Sub16_1339 = null;
          aClass94_1342 = null;
          aClass94_1333 = null;
@@ -26,8 +23,6 @@ final class Class95 {
          if(var0 != 3) {
             anInt1340 = -18;
          }
-
-         aClass94_1334 = null;
          COMMAND_BREAK_CONNECTION = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "nb.D(" + var0 + ')');
@@ -105,10 +100,6 @@ final class Class95 {
       try {
          --var1;
          var1 |= var1 >>> 1;
-         if(var0 < 51) {
-            aClass94_1335 = (RSString)null;
-         }
-
          var1 |= var1 >>> 2;
          var1 |= var1 >>> 4;
          var1 |= var1 >>> 8;

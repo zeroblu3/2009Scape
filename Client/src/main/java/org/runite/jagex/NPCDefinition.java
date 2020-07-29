@@ -39,7 +39,6 @@ final class NPCDefinition {
    int anInt1278;
    int anInt1279;
    int renderAnimationId;
-   static RSString aClass94_1281 = RSString.createRSString("violet:");
    private int anInt1282;
    int anInt1283;
    int npcId;
@@ -52,7 +51,6 @@ final class NPCDefinition {
    int anInt1291;
    int[] childNPCs;
    int anInt1293;
-   static RSString aClass94_1294 = RSString.createRSString("Votre liste noire est pleine (X100 noms maximum(Y)3");
    private int configFileId;
    int anInt1296;
    static int anInt1297;
@@ -117,9 +115,6 @@ final class NPCDefinition {
          if(var0 != 103) {
             anInt1297 = -20;
          }
-
-         aClass94_1294 = null;
-         aClass94_1281 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "me.K(" + var0 + ')');
       }
@@ -156,10 +151,6 @@ final class NPCDefinition {
             return var3;
          } else {
             Class3_Sub18 var4 = (Class3_Sub18)this.aClass130_1272.method1780((long)var1, 0);
-            if(var2 != -26460) {
-               aClass94_1294 = (RSString)null;
-            }
-
             return var4 != null?var4.anInt2467:var3;
          }
       } catch (RuntimeException var5) {
@@ -186,8 +177,8 @@ final class NPCDefinition {
             if(null == var11) {
                var12 = false;
 
-               for(int var13 = 0; var13 < this.models.length; ++var13) {
-                  if(this.models[var13] != -1 && !Class3_Sub13_Sub14.aClass153_3173.method2129((byte)102, 0, this.models[var13])) {
+               for (int model : this.models) {
+                  if (model != -1 && !Class3_Sub13_Sub14.aClass153_3173.method2129((byte) 102, 0, model)) {
                      var12 = true;
                   }
                }
@@ -671,7 +662,7 @@ final class NPCDefinition {
             } else {
                if(opcode >= 30 && opcode < 35) {
                   this.options[-30 + opcode] = buffer.getString();
-                  if(this.options[-30 + opcode].equals(-122, Class3_Sub13_Sub3.aClass94_3051)) {
+                  if(this.options[-30 + opcode].equals(-122, TextCore.HasHidden)) {
                      this.options[opcode - 30] = null;
                   }
                } else if(opcode == 40) {

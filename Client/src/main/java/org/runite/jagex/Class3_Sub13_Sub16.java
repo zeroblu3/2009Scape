@@ -19,7 +19,6 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
    private int anInt3203 = 5;
    private int anInt3204 = 5;
    static int anInt3205;
-   static RSString aClass94_3206 = RSString.createRSString("Moteur son pr-Bpar-B");
 
 
    private final void method242(byte var1) {
@@ -225,7 +224,6 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
       try {
          aClass44_Sub1Array3201 = null;
          aClass94_3192 = null;
-         aClass94_3206 = null;
          if(var0 != 0) {
             method245(111);
          }

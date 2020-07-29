@@ -7,7 +7,6 @@ abstract class AbstractIndexedSprite {
    static int anInt1463 = -16 + (int)(Math.random() * 33.0D);
    int anInt1464;
    static long aLong1465 = 0L;
-   static RSString aClass94_1466 = RSString.createRSString("Lade Titelbild )2 ");
    int anInt1467;
    int anInt1468;
    int anInt1469;
@@ -33,7 +32,6 @@ abstract class AbstractIndexedSprite {
 
    public static void method1663(int var0) {
       try {
-         aClass94_1466 = null;
          if(var0 != 33) {
             anInt1463 = 15;
          }

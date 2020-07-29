@@ -7,7 +7,6 @@ final class Class129_Sub1 extends Class129 {
    static int anInt2684;
    private int anInt2685;
    static Class47 aClass47_2686 = new Class47(128);
-   static RSString aClass94_2687 = RSString.createRSString("Fallen lassen");
    private int anInt2688;
    static int anInt2689;
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array2690;
@@ -22,7 +21,6 @@ final class Class129_Sub1 extends Class129 {
 
    public static void method1771(int var0) {
       try {
-         aClass94_2687 = null;
          anIntArray2696 = null;
          anImage2695 = null;
          if(var0 != 14635) {

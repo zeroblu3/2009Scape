@@ -854,7 +854,7 @@ final class Class52 {
 
    final Model method1167(int var1, byte var2, AnimationDefinition var3, int var4, int var5) {
       try {
-         if(0 == ~this.pnpcId) {
+         if(this.pnpcId == -1) {
             Model var6 = (Model)Class80.aClass93_1131.get(this.aLong860, (byte)121);
             if(var2 < 122) {
                this.anIntArray862 = (int[])null;
@@ -883,10 +883,10 @@ final class Class52 {
                var9 = 0;
 
                int var11;
-               for(int var10 = 0; ~var10 > -13; ++var10) {
+               for(int var10 = 0; var10 < 12; ++var10) {
                   var11 = this.lookInfo[var10];
                   Model_Sub1 var12;
-                  if(~(1073741824 & var11) == -1) {
+                  if((1073741824 & var11) == 0) {
                      if(0 != (Integer.MIN_VALUE & var11)) {
                         var12 = Class3_Sub13_Sub13.method231(1073741823 & var11, 0).method941(true);
                         if(null != var12) {

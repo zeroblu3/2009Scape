@@ -4,18 +4,15 @@ import java.io.IOException;
 
 final class Class3_Sub13_Sub13 extends Class3_Sub13 {
 
-   static RSString aClass94_3146 = RSString.createRSString(" s(West connect-B)3");
    private int anInt3147 = 4;
    static int anInt3148 = 0;
    private int anInt3149 = 4;
-   static RSString aClass94_3150 = RSString.createRSString("null");
    static int anInt3151;
    static RSString aClass94_3152 = RSString.createRSString("::gc");
    static int anInt3153;
    static CacheIndex aClass153_3154;
    static int anInt3155;
    static int anInt3156 = -1;
-   static RSString aClass94_3157 = RSString.createRSString(" est d-Bj-9 dans votre liste noire)3");
 
 
    static final void method229(int var0, int var1) {
@@ -176,13 +173,10 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
 
    public static void method234(int var0) {
       try {
-         aClass94_3157 = null;
-         aClass94_3150 = null;
          if(var0 != -3) {
             method233(-114, (CacheIndex)null);
          }
 
-         aClass94_3146 = null;
          aClass153_3154 = null;
          aClass94_3152 = null;
       } catch (RuntimeException var2) {
@@ -481,113 +475,105 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
                                  var20.aClass94_232 = var16.aClass94_3599;
                                  Class20.method909(107, var20);
                               }
+                           } else if (var3 == 4) {
+                              var20 = Class7.getRSInterface((byte) 109, var4);
+                              var6 = var16.anInt3598;
+                              var8 = var16.anInt3596;
+                              nodeModelID = var16.anInt3597;
+                              if (var20.modelType != var6 || nodeModelID != var20.itemId || var8 != var20.anInt265) {
+                                 var20.itemId = nodeModelID;
+                                 var20.anInt265 = var8;
+                                 var20.modelType = var6;
+                                 Class20.method909(120, var20);
+                              }
+                           } else if (var3 == 5) {
+                              var20 = Class7.getRSInterface((byte) 117, var4);
+                              if (var16.anInt3598 != var20.animationId || var16.anInt3598 == -1) {
+                                 var20.anInt260 = 1;
+                                 var20.anInt267 = 0;
+                                 var20.animationId = var16.anInt3598;
+                                 var20.anInt283 = 0;
+                                 Class20.method909(-117, var20);
+                              }
+                           } else if (var3 == 6) {
+                              var5 = var16.anInt3598;
+                              var6 = (32195 & var5) >> 10;
+                              var8 = var5 & 31;
+                              nodeModelID = (var5 & 1000) >> 5;
+                              RSInterface var10 = Class7.getRSInterface((byte) 120, var4);
+                              var9 = (var8 << 3) + (nodeModelID << 11) + (var6 << 19);
+                              if (var10.anInt218 != var9) {
+                                 var10.anInt218 = var9;
+                                 Class20.method909(123, var10);
+                              }
+                           } else if (var3 == 7) {
+                              var20 = Class7.getRSInterface((byte) 124, var4);
+                              boolean var24 = var16.anInt3598 == 1;
+                              if (var20 != null && !var24 != !var20.hidden) {
+                                 var20.hidden = var24;
+                                 Class20.method909(119, var20);
+                              }
                            } else {
-                              if(var3 == 4) {
-                                 var20 = Class7.getRSInterface((byte)109, var4);
-                                 var6 = var16.anInt3598;
-                                 var8 = var16.anInt3596;
-                                 nodeModelID = var16.anInt3597;
-                                 if(var20.modelType != var6 || nodeModelID != var20.itemId || var8 != var20.anInt265) {
-                                    var20.itemId = nodeModelID;
-                                    var20.anInt265 = var8;
-                                    var20.modelType = var6;
-                                    Class20.method909(120, var20);
-                                 }
-                              } else if(var3 == 5) {
-                                 var20 = Class7.getRSInterface((byte)117, var4);
-                                 if(var16.anInt3598 != var20.animationId || var16.anInt3598 == -1) {
-                                    var20.anInt260 = 1;
-                                    var20.anInt267 = 0;
-                                    var20.animationId = var16.anInt3598;
-                                    var20.anInt283 = 0;
-                                    Class20.method909(-117, var20);
-                                 }
-                              } else if(var3 == 6) {
-                                 var5 = var16.anInt3598;
-                                 var6 = (32195 & var5) >> 10;
-                                 var8 = var5 & 31;
-                                 nodeModelID = (var5 & 1000) >> 5;
-                                 RSInterface var10 = Class7.getRSInterface((byte)120, var4);
-                                 var9 = (var8 << 3) + (nodeModelID << 11) + (var6 << 19);
-                                 if(var10.anInt218 != var9) {
-                                    var10.anInt218 = var9;
-                                    Class20.method909(123, var10);
-                                 }
-                              } else {
-                                 if(var3 == 7) {
-                                    var20 = Class7.getRSInterface((byte)124, var4);
-                                    boolean var24 = var16.anInt3598 == 1;
-                                    if(var20 != null && !var24 != !var20.hidden) {
-                                       var20.hidden = var24;
-                                       Class20.method909(119, var20);
-                                    }
-                                 } else {
-                                    if(var3 == 8) {
-                                       var20 = Class7.getRSInterface((byte)122, var4);
-                                       if(var16.anInt3598 != var20.anInt182 || var20.anInt308 != var16.anInt3597 || var20.anInt164 != var16.anInt3596) {
-                                          var20.anInt182 = var16.anInt3598;
-                                          var20.anInt164 = var16.anInt3596;
-                                          var20.anInt308 = var16.anInt3597;
-                                          if(-1 != var20.anInt192) {
-                                             if(var20.anInt184 <= 0) {
-                                                if(var20.width > 0) {
-                                                   var20.anInt164 = 32 * var20.anInt164 / var20.width;
-                                                }
-                                             } else {
-                                                var20.anInt164 = var20.anInt164 * 32 / var20.anInt184;
-                                             }
-                                          }
-
-                                          Class20.method909(112, var20);
-                                       }
-                                    } else {
-                                       if(var3 == 9) {
-                                          var20 = Class7.getRSInterface((byte)119, var4);
-                                          if(var20.anInt192 != var16.anInt3598 || var20.anInt271 != var16.anInt3597) {
-                                             var20.anInt192 = var16.anInt3598;
-                                             var20.anInt271 = var16.anInt3597;
-                                             Class20.method909(127, var20);
+                              if (var3 == 8) {
+                                 var20 = Class7.getRSInterface((byte) 122, var4);
+                                 if (var16.anInt3598 != var20.anInt182 || var20.anInt308 != var16.anInt3597 || var20.anInt164 != var16.anInt3596) {
+                                    var20.anInt182 = var16.anInt3598;
+                                    var20.anInt164 = var16.anInt3596;
+                                    var20.anInt308 = var16.anInt3597;
+                                    if (-1 != var20.anInt192) {
+                                       if (var20.anInt184 <= 0) {
+                                          if (var20.width > 0) {
+                                             var20.anInt164 = 32 * var20.anInt164 / var20.width;
                                           }
                                        } else {
-                                          if(var3 == 10) {
-                                             var20 = Class7.getRSInterface((byte)121, var4);
-                                             if(var16.anInt3598 != var20.anInt258 || var20.anInt264 != var16.anInt3597 || var20.anInt280 != var16.anInt3596) {
-                                                var20.anInt264 = var16.anInt3597;
-                                                var20.anInt280 = var16.anInt3596;
-                                                var20.anInt258 = var16.anInt3598;
-                                                Class20.method909(-69, var20);
-                                             }
-                                          } else if(var3 == 11) {
-                                             var20 = Class7.getRSInterface((byte)124, var4);
-                                             var20.anInt306 = var20.x = var16.anInt3598;
-                                             var20.aByte273 = 0;
-                                             var20.aByte162 = 0;
-                                             var20.anInt210 = var20.y = var16.anInt3597;
-                                             Class20.method909(110, var20);
-                                          } else if(var3 == 12) {
-                                             var20 = Class7.getRSInterface((byte)116, var4);
-                                             var6 = var16.anInt3598;
-                                             if(null != var20 && 0 == var20.type) {
-                                                if(var6 > var20.anInt252 + -var20.anInt193) {
-                                                   var6 = var20.anInt252 + -var20.anInt193;
-                                                }
-
-                                                if(0 > var6) {
-                                                   var6 = 0;
-                                                }
-
-                                                if(var6 != var20.anInt208) {
-                                                   var20.anInt208 = var6;
-                                                   Class20.method909(-71, var20);
-                                                }
-                                             }
-                                          } else if(var3 == 13) {
-                                             var20 = Class7.getRSInterface((byte)124, var4);
-                                             var20.anInt237 = var16.anInt3598;
-                                          }
+                                          var20.anInt164 = var20.anInt164 * 32 / var20.anInt184;
                                        }
                                     }
+
+                                    Class20.method909(112, var20);
                                  }
+                              } else if (var3 == 9) {
+                                 var20 = Class7.getRSInterface((byte) 119, var4);
+                                 if (var20.anInt192 != var16.anInt3598 || var20.anInt271 != var16.anInt3597) {
+                                    var20.anInt192 = var16.anInt3598;
+                                    var20.anInt271 = var16.anInt3597;
+                                    Class20.method909(127, var20);
+                                 }
+                              } else if (var3 == 10) {
+                                 var20 = Class7.getRSInterface((byte) 121, var4);
+                                 if (var16.anInt3598 != var20.anInt258 || var20.anInt264 != var16.anInt3597 || var20.anInt280 != var16.anInt3596) {
+                                    var20.anInt264 = var16.anInt3597;
+                                    var20.anInt280 = var16.anInt3596;
+                                    var20.anInt258 = var16.anInt3598;
+                                    Class20.method909(-69, var20);
+                                 }
+                              } else if (var3 == 11) {
+                                 var20 = Class7.getRSInterface((byte) 124, var4);
+                                 var20.anInt306 = var20.x = var16.anInt3598;
+                                 var20.aByte273 = 0;
+                                 var20.aByte162 = 0;
+                                 var20.anInt210 = var20.y = var16.anInt3597;
+                                 Class20.method909(110, var20);
+                              } else if (var3 == 12) {
+                                 var20 = Class7.getRSInterface((byte) 116, var4);
+                                 var6 = var16.anInt3598;
+                                 if (null != var20 && 0 == var20.type) {
+                                    if (var6 > var20.anInt252 + -var20.anInt193) {
+                                       var6 = var20.anInt252 + -var20.anInt193;
+                                    }
+
+                                    if (0 > var6) {
+                                       var6 = 0;
+                                    }
+
+                                    if (var6 != var20.anInt208) {
+                                       var20.anInt208 = var6;
+                                       Class20.method909(-71, var20);
+                                    }
+                                 }
+                              } else if (var3 == 13) {
+                                 var20 = Class7.getRSInterface((byte) 124, var4);
+                                 var20.anInt237 = var16.anInt3598;
                               }
                            }
                         }
@@ -638,23 +624,21 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
                                     var17.itemIds[var6] = var17.itemIds[var5];
                                     var17.itemAmounts[var5] = -1;
                                     var17.itemIds[var5] = 0;
-                                 } else {
-                                    if(var18 == 1) {
-                                       var6 = Class140_Sub2.anInt2701;
-                                       var5 = PacketParser.anInt86;
+                                 } else if (var18 == 1) {
+                                    var6 = Class140_Sub2.anInt2701;
+                                    var5 = PacketParser.anInt86;
 
-                                       while(var6 != var5) {
-                                          if(var5 > var6) {
-                                             var17.method864(-1 + var5, var5, -71);
-                                             --var5;
-                                          } else if(var5 < var6) {
-                                             var17.method864(1 + var5, var5, -95);
-                                             ++var5;
-                                          }
+                                    while (var6 != var5) {
+                                       if (var5 > var6) {
+                                          var17.method864(-1 + var5, var5, -71);
+                                          --var5;
+                                       } else if (var5 < var6) {
+                                          var17.method864(1 + var5, var5, -95);
+                                          ++var5;
                                        }
-                                    } else {
-                                       var17.method864(Class140_Sub2.anInt2701, PacketParser.anInt86, -93);
                                     }
+                                 } else {
+                                    var17.method864(Class140_Sub2.anInt2701, PacketParser.anInt86, -93);
                                  }
 
                                  Class3_Sub13_Sub1.outgoingBuffer.putOpcode(231);

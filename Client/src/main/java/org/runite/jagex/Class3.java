@@ -8,7 +8,6 @@ class Class3 {
    Class3 aClass3_74;
    static RSString[] aClass94Array75 = new RSString[1000];
    Class3 aClass3_76;
-   static RSString aClass94_77 = RSString.createRSString("Objet d(Wabonn-Bs");
    static Class61 aClass61_78 = new Class61();
 
 
@@ -22,7 +21,6 @@ class Class3 {
 
    public static void method83(byte var0) {
       try {
-         aClass94_77 = null;
          aClass94Array75 = null;
          if(var0 != 30) {
             method84((RSString)null, 89);
@@ -37,10 +35,6 @@ class Class3 {
 
    static final void method84(RSString var0, int var1) {
       try {
-         if(var1 != -801) {
-            aClass94_77 = (RSString)null;
-         }
-
          int var2 = Class100.method1602(0, var0);
          if(var2 != -1) {
             Class3_Sub28_Sub7.method565((byte)86, Class119.aClass131_1624.aShortArray1727[var2], Class119.aClass131_1624.aShortArray1718[var2]);
@@ -85,13 +79,13 @@ class Class3 {
 
          if(0 != var1) {
             if(var1 == 1) {
-               Class3_Sub28_Sub11.englishToGerman(false);
+               Translation.englishToGerman(false);
             } else {
                if(2 != var1) {
                   throw new RuntimeException();
                }
 
-               Class9.englishToFrench((byte)121);
+               Translation.englishToFrench((byte)121);
             }
 
          }

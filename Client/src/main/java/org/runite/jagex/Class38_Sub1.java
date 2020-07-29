@@ -11,7 +11,6 @@ final class Class38_Sub1 extends Class38 {
    static Class15 aClass15_2613;
    static int anInt2614 = 0;
    static boolean aBoolean2615 = false;
-   static RSString aClass94_2616 = RSString.createRSString("blinken3:");
    static int anInt2617 = 0;
    static int anInt2618;
 
@@ -62,7 +61,6 @@ final class Class38_Sub1 extends Class38 {
       try {
          anIntArrayArrayArray2609 = (int[][][])null;
          accRegistryIp = Configurations.MS_IP;
-         aClass94_2616 = null;
          aClass94_2610 = null;
          aClass15_2613 = null;
          if(var0) {

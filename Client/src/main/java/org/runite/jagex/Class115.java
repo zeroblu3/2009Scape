@@ -3,19 +3,11 @@ package org.runite.jagex;
 final class Class115 {
 
    static Class86[][] aClass86ArrayArray1581 = new Class86[13][13];
-   private static RSString aClass94_1582 = RSString.createRSString("Ok");
-   static RSString aClass94_1583 = aClass94_1582;
 
 
    public static void method1712(int var0) {
       try {
          aClass86ArrayArray1581 = (Class86[][])null;
-         aClass94_1583 = null;
-         aClass94_1582 = null;
-         if(var0 <= 15) {
-            aClass94_1582 = (RSString)null;
-         }
-
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ph.B(" + var0 + ')');
       }
@@ -56,11 +48,11 @@ final class Class115 {
                int var4;
                int var5;
                if(var1.anInt2284 == 1 || var1.anInt2284 == 3) {
-                  var5 = var20.anInt1480;
-                  var4 = var20.anInt1485;
+                  var5 = var20.SizeX;
+                  var4 = var20.SizeY;
                } else {
-                  var4 = var20.anInt1480;
-                  var5 = var20.anInt1485;
+                  var4 = var20.SizeX;
+                  var5 = var20.SizeY;
                }
 
                int var7 = (var4 - -1 >> 1) + var1.anInt2271;

@@ -1,12 +1,11 @@
 package org.runite.jagex;
-import java.util.Date;
-
 import org.runite.Configurations;
+
+import java.util.Date;
 
 final class Class15 implements Runnable {
 
    static int anInt342;
-   static RSString aClass94_343 = RSString.createRSString("blanc:");
    static short[][] aShortArrayArray344;
    volatile boolean aBoolean345 = false;
    static boolean aBoolean346;
@@ -40,11 +39,11 @@ final class Class15 implements Runnable {
             if(var8 == null) {
                return false;
             } else {
-               int var9 = var1.anInt1480;
-               int var10 = var1.anInt1485;
+               int var9 = var1.SizeX;
+               int var10 = var1.SizeY;
                if(1 == (1 & var6)) {
-                  var9 = var1.anInt1485;
-                  var10 = var1.anInt1480;
+                  var9 = var1.SizeY;
+                  var10 = var1.SizeX;
                }
 
                int var11 = var8.anInt1469;
@@ -296,7 +295,6 @@ final class Class15 implements Runnable {
    public static void method892(int var0) {
       try {
          aShortArrayArray344 = (short[][])null;
-         aClass94_343 = null;
          aClass64_351 = null;
          if(var0 <= 75) {
             aBoolean346 = false;
@@ -320,7 +318,7 @@ final class Class15 implements Runnable {
    static final RSString method894(long var0, byte var2) {
       try {
          Class3_Sub28_Sub5.aCalendar3581.setTime(new Date(var0));
-         int var3 = Class3_Sub28_Sub5.aCalendar3581.get(7);
+         int var3 = Class3_Sub28_Sub5.aCalendar3581.get(7);//Day of the week
          int var4 = Class3_Sub28_Sub5.aCalendar3581.get(5);
          int var5 = Class3_Sub28_Sub5.aCalendar3581.get(2);
          if(var2 < 9) {
@@ -331,7 +329,7 @@ final class Class15 implements Runnable {
          int var7 = Class3_Sub28_Sub5.aCalendar3581.get(11);
          int var8 = Class3_Sub28_Sub5.aCalendar3581.get(12);
          int var9 = Class3_Sub28_Sub5.aCalendar3581.get(13);
-         return RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub31.aClass94Array3376[var3 + -1], Class3_Sub13_Sub12.aClass94_3145, Class72.method1298((byte)9, var4 / 10), Class72.method1298((byte)9, var4 % 10), Class161.aClass94_2025, NPC.aClass94Array3985[var5], Class161.aClass94_2025, Class72.method1298((byte)9, var6), Class24.aClass94_465, Class72.method1298((byte)9, var7 / 10), Class72.method1298((byte)9, var7 % 10), Class155.char_colon, Class72.method1298((byte)9, var8 / 10), Class72.method1298((byte)9, var8 % 10), Class155.char_colon, Class72.method1298((byte)9, var9 / 10), Class72.method1298((byte)9, var9 % 10), WorldListCountry.aClass94_500}, (byte)-96);
+         return RenderAnimationDefinition.method903(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], Class3_Sub13_Sub12.aClass94_3145, Class72.method1298((byte)9, var4 / 10), Class72.method1298((byte)9, var4 % 10), Class161.aClass94_2025, TextCore.MonthsOfTheYear[var5], Class161.aClass94_2025, Class72.method1298((byte)9, var6), Class24.aClass94_465, Class72.method1298((byte)9, var7 / 10), Class72.method1298((byte)9, var7 % 10), Class155.char_colon, Class72.method1298((byte)9, var8 / 10), Class72.method1298((byte)9, var8 % 10), Class155.char_colon, Class72.method1298((byte)9, var9 / 10), Class72.method1298((byte)9, var9 % 10), WorldListCountry.aClass94_500}, (byte)-96);
       } catch (RuntimeException var10) {
          throw Class44.method1067(var10, "cj.F(" + var0 + ',' + var2 + ')');
       }

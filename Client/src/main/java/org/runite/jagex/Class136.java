@@ -7,12 +7,10 @@ final class Class136 {
    static Class93 aClass93_1772 = new Class93(64);
    
    static byte[][][] aByteArrayArrayArray1774;
-   private static RSString aClass94_1775 = RSString.createRSString("Connection lost)3");
    static int anInt1776;
    GameObject aClass140_1777;
    static Class64 aClass64_1778;
    static short[] aShortArray1779 = new short[256];
-   static RSString aClass94_1773 = aClass94_1775;
    static int anInt1780;
 
 
@@ -56,15 +54,15 @@ final class Class136 {
                            int var29 = var22[var27][var28];
                            if(var29 != 0) {
                               ObjectDefinition var14 = Class162.getObjectDefinition(4, -1 + var29);
-                              if(!Class3_Sub24_Sub4.aBooleanArray3503[var14.anInt1482]) {
-                                 if(var13 != -1 && Class8.anInt101 == var14.anInt1482) {
+                              if(!Class3_Sub24_Sub4.aBooleanArray3503[var14.MapIcon]) {
+                                 if(var13 != -1 && Class8.anInt101 == var14.MapIcon) {
                                     Class3_Sub23 var30 = new Class3_Sub23();
                                     var30.anInt2531 = var18;
                                     var30.anInt2539 = var24;
-                                    var30.anInt2532 = var14.anInt1482;
+                                    var30.anInt2532 = var14.MapIcon;
                                     Class101.aClass61_1424.method1215(true, var30);
                                  } else {
-                                    GameObject.aClass3_Sub28_Sub16_Sub2Array1839[var14.anInt1482].method643(var18 + -7, -7 + var24);
+                                    GameObject.aClass3_Sub28_Sub16_Sub2Array1839[var14.MapIcon].method643(var18 + -7, -7 + var24);
                                  }
                               }
                            }
@@ -99,10 +97,7 @@ final class Class136 {
          if(var0 > -33) {
             method1816(-10, 68);
          }
-
-         aClass94_1773 = null;
          aByteArrayArrayArray1774 = (byte[][][])null;
-         aClass94_1775 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "sm.A(" + var0 + ')');
       }

@@ -5,7 +5,6 @@ import org.runite.Configurations;
 
 final class ISAACCipher {
 
-   static RSString aClass94_965 = RSString.createRSString(":duelfriend:");
    private int anInt966;
    private int anInt967;
    private int anInt968;
@@ -13,7 +12,6 @@ final class ISAACCipher {
    private int[] anIntArray970;
    private int[] anIntArray971;
    private int anInt972;
-   static RSString aClass94_973 = RSString.createRSString(" de votre liste noire)3");
 
 
    private final void method1227(boolean var1) {
@@ -246,7 +244,7 @@ final class ISAACCipher {
             Class108.aClass3_Sub28_Sub16_1457.method641(-Class108.aClass3_Sub28_Sub16_1457.anInt3707 + (var1 - -var3), var2);
          }
 
-         Class168.aClass3_Sub28_Sub17_2096.method681(Class75_Sub4.aClass94_2667, var1 - -3, 14 + var2, Class3_Sub13_Sub28.anInt3351, -1);
+         Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, var1 - -3, 14 + var2, Class3_Sub13_Sub28.anInt3351, -1);
          if(HDToolKit.highDetail) {
             Class22.method930(var1, 20 + var2, var3, var4 - 20, Class3_Sub28_Sub6.anInt3600, -Class62.anInt963 + 256);
          } else {
@@ -255,10 +253,6 @@ final class ISAACCipher {
 
          var6 = Class130.anInt1709;
          var5 = Class126.anInt1676;
-         if(var0 < 85) {
-            aClass94_965 = (RSString)null;
-         }
-
          int var7;
          int var8;
          for(var7 = 0; Class3_Sub13_Sub34.anInt3415 > var7; ++var7) {
@@ -334,8 +328,6 @@ final class ISAACCipher {
 
    public static void method1231(int var0) {
       try {
-         aClass94_973 = null;
-         aClass94_965 = null;
          if(var0 <= 116) {
             method1230((byte)-73);
          }

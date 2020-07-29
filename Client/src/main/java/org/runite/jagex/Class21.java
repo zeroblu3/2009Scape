@@ -120,7 +120,7 @@ final class Class21 {
             Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, (byte)-40, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
          } else {
             Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, (byte)-40, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
-            var7 = Class168.aClass3_Sub28_Sub17_2096.method682(Class75_Sub4.aClass94_2667);
+            var7 = Class168.aClass3_Sub28_Sub17_2096.method682(TextCore.HasChooseOptions);
 
             for(int var8 = 0; Class3_Sub13_Sub34.anInt3415 > var8; ++var8) {
                int var9 = Class168.aClass3_Sub28_Sub17_2096.method682(RSByteBuffer.method802(var8, true));

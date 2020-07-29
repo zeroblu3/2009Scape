@@ -199,7 +199,7 @@ class Class164_Sub1 extends Class164 {
             }
          }
 
-         return !Class3_Sub13_Sub37.method349(var4 + 64, var9, var5 + 64)?false:(var3 == 16?Class3_Sub13_Sub37.method349(var4, var8, var5 + 128):(var3 == 32?Class3_Sub13_Sub37.method349(var4 + 128, var8, var5 + 128):(var3 == 64?Class3_Sub13_Sub37.method349(var4 + 128, var8, var5):(var3 == 128?Class3_Sub13_Sub37.method349(var4, var8, var5):true))));
+         return Class3_Sub13_Sub37.method349(var4 + 64, var9, var5 + 64) && (var3 == 16 ? Class3_Sub13_Sub37.method349(var4, var8, var5 + 128) : (var3 == 32 ? Class3_Sub13_Sub37.method349(var4 + 128, var8, var5 + 128) : (var3 == 64 ? Class3_Sub13_Sub37.method349(var4 + 128, var8, var5) : (var3 != 128 || Class3_Sub13_Sub37.method349(var4, var8, var5)))));
       } else {
          return false;
       }

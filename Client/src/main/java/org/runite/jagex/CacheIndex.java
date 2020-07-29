@@ -261,6 +261,7 @@ final class CacheIndex {
 
    final byte[] getFile(int archive, int[] xteaKeys, int var3, int file) {
       try {
+         //System.out.println("Archive: " + archive + " || File: " + file);
          if(this.method2139(archive, 0, file)) {
             if(this.anObjectArrayArray1952[archive] == null || this.anObjectArrayArray1952[archive][file] == null) {
                boolean var5 = this.method2132(archive, false, xteaKeys);

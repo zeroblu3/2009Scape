@@ -5,7 +5,6 @@ final class Class96 {
    static int anInt1345;
    int anInt1346;
    int anInt1347;
-   static RSString aClass94_1348 = RSString.createRSString("Kampfstufe: ");
    static RSString aClass94_1349 = RSString.createRSString("underlay");
    int anInt1350;
    int anInt1351;
@@ -82,16 +81,16 @@ final class Class96 {
 
                                  --var2;
                                  ObjectDefinition var3 = Class162.getObjectDefinition(4, var2);
-                                 if(null != var3.anIntArray1524) {
+                                 if(null != var3.ChildrenIds) {
                                     var3 = var3.method1685(0);
-                                    if(var3 == null || var3.anInt1482 == -1) {
+                                    if(var3 == null || var3.MapIcon == -1) {
                                        continue;
                                     }
                                  }
 
                                  Class44.anIntArrayArrayArray720[var11][var12][(-var14 + 63 << 6) + var13] = 1 + var3.objectId;
                                  Class3_Sub23 var16 = new Class3_Sub23();
-                                 var16.anInt2532 = var3.anInt1482;
+                                 var16.anInt2532 = var3.MapIcon;
                                  var16.anInt2531 = var9;
                                  var16.anInt2539 = var10;
                                  Class84.aClass61_1162.method1215(true, var16);
@@ -145,7 +144,6 @@ final class Class96 {
          }
 
          aClass94_1349 = null;
-         aClass94_1348 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "nc.B(" + var0 + ')');
       }

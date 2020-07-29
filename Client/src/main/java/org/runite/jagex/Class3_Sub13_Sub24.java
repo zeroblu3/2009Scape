@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class3_Sub13_Sub24 extends Class3_Sub13 {
 
    static int[] npcSpawnCacheIndices;
-   static RSString aClass94_3291 = RSString.createRSString("Schlie-8en");
    static NPC[] npcs = new NPC['\u8000'];
    static int anInt3293 = 0;
    private int anInt3294 = 1;
@@ -67,7 +66,6 @@ final class Class3_Sub13_Sub24 extends Class3_Sub13 {
          }
 
          npcSpawnCacheIndices = null;
-         aClass94_3291 = null;
          npcs = null;
          aClass94_3295 = null;
       } catch (RuntimeException var2) {

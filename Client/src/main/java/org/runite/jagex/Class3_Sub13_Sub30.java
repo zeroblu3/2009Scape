@@ -10,7 +10,6 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
    static int anInt3365;
    static long aLong3366;
    static int[] anIntArray3367 = new int[64];
-   static RSString aClass94_3368 = RSString.createRSString(":clanreq:");
    
    
    /**
@@ -63,7 +62,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                      }
                   }
 
-                  RSString levelEquals = Class158.anInt2014 != 1?Class27.aClass94_525:Class3_Sub22.aClass94_2526;
+                  RSString levelEquals = Class158.anInt2014 != 1?TextCore.HasLevel:TextCore.HasRating;
                   if(playerUsername.COMBAT_LEVEL < playerUsername.combatLevel) {
                      var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(0), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-73, Class102.player.COMBAT_LEVEL) : ColorCore.ContextColor , Class72.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), Class40.aClass94_673, Class72.method1298((byte)9, playerUsername.combatLevel + -playerUsername.COMBAT_LEVEL), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-127);
                   } else {
@@ -71,12 +70,12 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                      var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(0), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-128, Class102.player.COMBAT_LEVEL) : getProperColor(playerUsername.COMBAT_LEVEL, Class102.player.COMBAT_LEVEL), Class72.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-70);
                   }
                } else {
-                  var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(0), Class72.LEFT_PARENTHESES, Class27.aClass94_522, Class72.method1298((byte)9, playerUsername.anInt3974), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-119);
+                  var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(0), Class72.LEFT_PARENTHESES, TextCore.HasSkill, Class72.method1298((byte)9, playerUsername.anInt3974), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-119);
                }
 
                int var12;
                if(Class164_Sub1.anInt3012 == 1) {
-                  Class54.method1177(Class99.anInt1403, (long)var0, (byte)-80, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, Class56.aClass94_892, var5}, (byte)-125), var4, (short)1, Class3_Sub13_Sub32.aClass94_3388, var2);
+                  Class54.method1177(Class99.anInt1403, (long)var0, (byte)-80, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, Class56.aClass94_892, var5}, (byte)-125), var4, (short)1, TextCore.HasUse, var2);
                   ++Class129_Sub1.anInt2684;
                } else if(!GameObject.aBoolean1837) {
                   for(var12 = 7; var12 >= 0; --var12) {
@@ -84,7 +83,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                         ++Class55.anInt880;
                         short var14 = 0;
                         boolean var16 = false;
-                        if(Class158.anInt2014 == 0 && Class91.aClass94Array1299[var12].equals(-123, Class3_Sub13_Sub36.aClass94_3427)) {
+                        if(Class158.anInt2014 == 0 && Class91.aClass94Array1299[var12].equals(-123, TextCore.HasAttack)) {
                          //If other player level greater than my level, then right click to attack.
                            if(playerUsername.COMBAT_LEVEL > Class102.player.COMBAT_LEVEL && !Properties.get().isInstantAttack()) {
                               var14 = 2000;//Var for right click higher level players
@@ -208,8 +207,6 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
          if(var0 != -15028) {
             aClass61_3364 = (Class61)null;
          }
-
-         aClass94_3368 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "rj.B(" + var0 + ')');
       }
@@ -263,8 +260,8 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                   int var21 = 3 & var19;
                   if(var18 == var3 && var8 <= var17 && var17 < 8 + var8 && var9 <= var16 && 8 + var9 > var16) {
                      ObjectDefinition var22 = Class162.getObjectDefinition(4, var12);
-                     int var23 = Class3_Sub7.method121(var16 & 7, var4, var21, var22.anInt1485, var22.anInt1480, 1, 7 & var17) + var5;
-                     int var24 = GameObject.method1863(var22.anInt1480, var4, (byte)126, var22.anInt1485, 7 & var17, var21, 7 & var16) + var6;
+                     int var23 = Class3_Sub7.method121(var16 & 7, var4, var21, var22.SizeY, var22.SizeX, 1, 7 & var17) + var5;
+                     int var24 = GameObject.method1863(var22.SizeX, var4, (byte)126, var22.SizeY, 7 & var17, var21, 7 & var16) + var6;
                      if(var23 > 0 && var24 > 0 && var23 < 103 && var24 < 103) {
                         Class91 var25 = null;
                         if(!var7) {

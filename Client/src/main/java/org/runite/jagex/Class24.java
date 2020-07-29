@@ -3,8 +3,6 @@ package org.runite.jagex;
 final class Class24 {
 
    private short[] aShortArray460;
-  
-   static RSString aClass94_463 = RSString.createRSString("Bitte entfernen Sie ");
    private short[] aShortArray464;
    static RSString aClass94_465 = RSString.createRSString(" ");
    int anInt466 = -1;
@@ -14,13 +12,9 @@ final class Class24 {
    private short[] aShortArray470;
    private short[] aShortArray471;
    static int anInt472 = 0;
-   private static RSString aClass94_473 = RSString.createRSString("Loading title screen )2 ");
    private int[] anIntArray474;
    private int[] anIntArray475 = new int[]{-1, -1, -1, -1, -1};
    boolean aBoolean476 = false;
-   private static RSString aClass94_477 = RSString.createRSString("Loading)3)3)3");
- static RSString aClass94_461 = aClass94_473;
-   static RSString aClass94_462 = aClass94_477;
 
    final Model_Sub1 method941(boolean var1) {
       try {
@@ -83,13 +77,8 @@ final class Class24 {
    public static void method943(int var0) {
       try {
          aClass94_468 = null;
-         aClass94_473 = null;
          if(var0 == -9893) {
-            aClass94_477 = null;
             aClass94_465 = null;
-            aClass94_462 = null;
-            aClass94_463 = null;
-            aClass94_461 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "dm.C(" + var0 + ')');
@@ -146,7 +135,7 @@ final class Class24 {
                   int var14 = buffer.getByte((byte)-94) >> 2;
                   if(var15 > 0 && var16 > 0 && 103 > var15 && 103 > var16) {
                      ObjectDefinition var17 = Class162.getObjectDefinition(4, var7);
-                     if(var14 != 22 || KeyboardListener.aBoolean1905 || 0 != var17.anInt1529 || var17.actionCount == 1 || var17.aBoolean1483) {
+                     if(var14 != 22 || KeyboardListener.aBoolean1905 || 0 != var17.SecondInt || var17.ClipType == 1 || var17.aBoolean1483) {
                         var10 = true;
                         if(!var17.hasModels(false)) {
                            var5 = false;
@@ -383,10 +372,6 @@ final class Class24 {
    static final void method950(RSInterface var0, int var1, int var2, int var3) {
       try {
          if(2 <= Class3_Sub13_Sub34.anInt3415 || Class164_Sub1.anInt3012 != 0 || GameObject.aBoolean1837) {
-            if(var1 > -55) {
-               aClass94_473 = (RSString)null;
-            }
-
             RSString var4 = Class3_Sub28_Sub1.method531((byte)94);
             if(var0 == null) {
                int var5 = Class168.aClass3_Sub28_Sub17_2096.method683(var4, 4 + var3, var2 - -15, 16777215, 0, Class3_Sub13_Sub7.aRandom3088, Class38_Sub1.anInt2618);

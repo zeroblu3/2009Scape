@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.runite.Configurations;
+
 final class Class1 {
 
    static int[] anIntArray52 = new int[4096];
@@ -711,7 +713,7 @@ final class Class1 {
       }
 
       aBooleanArray54 = new boolean[8];
-      aClass94_53 = RSString.createRSString("scape main");
+      aClass94_53 = RSString.createRSString(Configurations.LOGIN_THEME_SONG);
       anInt57 = 0;
       aClass94_58 = RSString.createRSString("<col=ffffff> )4 ");
    }

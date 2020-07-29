@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class46 {
 
    static CacheIndex aClass153_737;
-   static RSString aClass94_738 = RSString.createRSString("Monde de jeu cr-B-B");
    static int anInt739;
    static int anInt740;
    static int anInt741;
@@ -11,7 +10,6 @@ final class Class46 {
 
    public static void method1085(int var0) {
       try {
-         aClass94_738 = null;
          if(var0 == -1) {
             aClass153_737 = null;
          }

@@ -5,23 +5,18 @@ final class Class3_Sub5 extends Class3 {
    int anInt2266;
 
    int anInt2268;
-   static RSString aClass94_2269 = RSString.createRSString("lila:");
    int anInt2270;
    int anInt2271;
    int anInt2272;
    int anInt2273;
-   static RSString aClass94_2274 = RSString.createRSString("Vous ne pouvez pas ajouter votre nom -9 votre liste noire)3");
    static int anInt2275 = 1;
-   static RSString aClass94_2276 = RSString.createRSString("rot:");
    int anInt2277;
    int anInt2278;
    int anInt2279;
-   private static RSString aClass94_2280 = RSString.createRSString("Starting 3d Library");
    static int anInt2281 = 0;
    int anInt2282;
    int anInt2283;
    int anInt2284;
-   static RSString aClass94_2267 = aClass94_2280;
 
    static final void method111(byte var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       try {
@@ -143,11 +138,6 @@ final class Class3_Sub5 extends Class3 {
 
    public static void method113(byte var0) {
       try {
-         aClass94_2274 = null;
-         aClass94_2276 = null;
-         aClass94_2280 = null;
-         aClass94_2267 = null;
-         aClass94_2269 = null;
          int var1 = -100 % ((var0 - -43) / 46);
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "cn.D(" + var0 + ')');
@@ -403,10 +393,6 @@ final class Class3_Sub5 extends Class3 {
             Class3_Sub13_Sub30.anInt3362 = -1;
             Class3_Sub28_Sub1.anInt3536 = Class23.anInt455;
             Class82.anInt1150 = -1;
-         }
-
-         if(var0 != 87) {
-            aClass94_2280 = (RSString)null;
          }
 
          if(Class3_Sub4.anInt2251 < 0) {

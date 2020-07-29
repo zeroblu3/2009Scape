@@ -6,17 +6,13 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
    static volatile boolean aBoolean3116 = true;
   
    static boolean[][] aBooleanArrayArray3118 = new boolean[][]{new boolean[0], {true, false, true}, {true, false, false, true}, {false, false, true, true}, {true, true, false}, {false, true, true}, {true, false, false, true}, {false, false, false, true, true}, {false, true, true}, {true, false, true, true, true}, {false, true, true, true, true}, {false, true, true, true, true, false}};
-   static RSString aClass94_3119 = RSString.createRSString("vert:");
-   private static RSString StackMillionM = RSString.createRSString("M");
    static Frame aFrame3121;
    static int anInt3122;
    static RSString COMMAND_NOCLIP = RSString.createRSString("::noclip");
-   static RSString aClass94_3124 = StackMillionM;
    static Signlink aClass87_3125;
    private int anInt3126 = 2048;
    private int anInt3127 = 3072;
    private int anInt3128 = 1024;
- static RSString aClass94_3117 = StackMillionM;
 
    static final int method210(int var0, int var1, int var2, int var3) {
       try {
@@ -60,17 +56,12 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
    public static void method211(int var0) {
       try {
-         aClass94_3124 = null;
-         aClass94_3117 = null;
          if(var0 != 1024) {
             aClass87_3125 = (Signlink)null;
          }
-
-         StackMillionM = null;
          COMMAND_NOCLIP = null;
          aFrame3121 = null;
          aBooleanArrayArray3118 = (boolean[][])null;
-         aClass94_3119 = null;
          aClass87_3125 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "fh.C(" + var0 + ')');

@@ -21,9 +21,7 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
    static int anInt4019 = 0;
    static int anInt4020 = 0;
    static int anInt4021;
-   private static RSString aClass94_4022 = RSString.createRSString("Your friend list is full)3 Max of 100 for free users)1 and 200 for members)3");
    static RSString aClass94_4023 = RSString.createRSString(")3");
-   static RSString aClass94_4024 = aClass94_4022;
    static int[] anIntArray4025 = new int[32];
    static int anInt4026 = 0;
    static LDIndexedSprite[] aClass109_Sub1Array4027;
@@ -136,14 +134,14 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
             int var9;
             int var10;
             if(var6 == 0 || var6 == 2) {
-               var10 = var8.anInt1485;
-               var9 = var8.anInt1480;
+               var10 = var8.SizeY;
+               var9 = var8.SizeX;
             } else {
-               var10 = var8.anInt1480;
-               var9 = var8.anInt1485;
+               var10 = var8.SizeX;
+               var9 = var8.SizeY;
             }
 
-            int var11 = var8.anInt1533;
+            int var11 = var8.WalkingFlag;
             if(var6 != 0) {
                var11 = (var11 << var6 & 15) - -(var11 >> -var6 + 4);
             }
@@ -165,13 +163,11 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
       try {
          int var1 = 58 % ((var0 - 7) / 43);
          aClass89_4012 = null;
-         aClass94_4024 = null;
          aClass109_Sub1Array4027 = null;
          anIntArray4025 = null;
          aClass94Array4016 = null;
          aClass93_4015 = null;
          aLongArray4017 = null;
-         aClass94_4022 = null;
          aClass94_4023 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "t.F(" + var0 + ')');

@@ -5,7 +5,6 @@ import org.runite.GameLaunch;
 final class Class3_Sub8 extends Class3 {
 
    int anInt2296;
-   static RSString aClass94_2297 = RSString.createRSString("Wordpack geladen)3");
    Class64[] aClass64Array2298;
    int[] anIntArray2299;
    int[] anIntArray2300;
@@ -107,14 +106,14 @@ final class Class3_Sub8 extends Class3 {
                var10 = -(Class102.player.anInt2819 / 32) + 2 + 4 * Class84.anIntArray1163[var9] + 0;
                var11 = -(Class102.player.anInt2829 / 32) + 2 + (Class3_Sub28_Sub7_Sub1.anIntArray4050[var9] * 4 - 0);
                ObjectDefinition var20 = Class162.getObjectDefinition(4, Class3_Sub28_Sub15.anIntArray3693[var9]);
-               if(null != var20.anIntArray1524) {
+               if(null != var20.ChildrenIds) {
                   var20 = var20.method1685(var1 + -59);
-                  if(null == var20 || var20.anInt1482 == -1) {
+                  if(null == var20 || var20.MapIcon == -1) {
                      continue;
                   }
                }
 
-               Class38_Sub1.method1030(var4, Class140_Sub4.aClass3_Sub28_Sub16Array2839[var20.anInt1482], var11, var10, var2, (byte)11, var3);
+               Class38_Sub1.method1030(var4, Class140_Sub4.aClass3_Sub28_Sub16Array2839[var20.MapIcon], var11, var10, var2, (byte)11, var3);
             }
 
             for(var9 = 0; 104 > var9; ++var9) {
@@ -359,7 +358,6 @@ final class Class3_Sub8 extends Class3 {
 
    public static void method131(int var0) {
       try {
-         aClass94_2297 = null;
          aClass94_2304 = null;
          aClass94_2306 = null;
          if(var0 >= -104) {

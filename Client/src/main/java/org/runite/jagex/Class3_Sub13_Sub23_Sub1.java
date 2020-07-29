@@ -1,21 +1,18 @@
 package org.runite.jagex;
-import java.awt.Component;
-
 import org.runite.Configurations;
+
+import java.awt.*;
 
 final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
-   private static RSString aClass94_4030 = RSString.createRSString("Allocating memory");
    static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array4031 = new Class3_Sub28_Sub5[14];
    static int anInt4032 = 0;
    static int anInt4033;
    static int anInt4034 = -8 + (int)(17.0D * Math.random());
    static int[] anIntArray4035 = new int[]{1, 1, 0, 0, 0, 8, 0, 0, 8};
-   static RSString aClass94_4036 = RSString.createRSString("Connect-B au serveur de mise -9 jour");
    static int anInt4037;
    static short aShort4038 = 32767;
    static int anInt4039 = 0;
-   static RSString aClass94_4040 = aClass94_4030;
    static int anInt4041 = -1;
    static int hitMarkIndex;
 
@@ -207,9 +204,6 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
    public static void method287(boolean var0) {
       try {
-         aClass94_4030 = null;
-         aClass94_4036 = null;
-         aClass94_4040 = null;
          anIntArray4035 = null;
          aClass3_Sub28_Sub5Array4031 = null;
          if(var0) {

@@ -2,12 +2,8 @@ package org.runite.jagex;
 
 final class Class2 {
 	
-	private static RSString aClass94_68 = RSString.createRSString("glow1:");
-
 	static int anInt59 = 0;
-	static RSString aClass94_60 = aClass94_68;
 	int anInt61;
-	static RSString aClass94_62 = aClass94_68;
 	static short[] aShortArray63 = new short[]{(short)960, (short)957, (short)-21568, (short)-21571, (short)22464};
 	int anInt64;
 	static int anInt65;
@@ -278,9 +274,6 @@ final class Class2 {
 			var15 = var28 + 1;
 			Class45.anIntArray729[var28] = var13;
 			var18 = var19 = Class84.anIntArrayArray1160[var12][var13];
-			if(var10 <= 2) {
-				aClass94_60 = (RSString)null;
-			}
 
 			for(; var12 != var11 || var13 != var3; var18 = Class84.anIntArrayArray1160[var12][var13]) {
 				if(var19 != var18) {
@@ -387,15 +380,11 @@ final class Class2 {
 
 	public static void method80(int var0) {
 		try {
-			aClass94_60 = null;
 			aShortArray63 = null;
 			if(var0 != -27401) {
 				anInt65 = 93;
 			}
-
-			aClass94_68 = null;
 			anInterface5Array70 = null;
-			aClass94_62 = null;
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "aa.G(" + var0 + ')');
 		}

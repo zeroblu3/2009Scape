@@ -4,7 +4,6 @@ final class Class14 {
 
    static int anInt336;
    static boolean aBoolean337;
-   static RSString aClass94_338 = RSString.createRSString("Ablegen");
    static RSString aClass94_339 = RSString.createRSString("1");
    static int anInt340 = 127;
    static RSString aClass94_341 = RSString.createRSString(")3");
@@ -12,9 +11,6 @@ final class Class14 {
 
    private static final LDIndexedSprite[] method885(boolean var0, int var1, CacheIndex var2, int var3) {
       try {
-         if(!var0) {
-            aClass94_338 = (RSString)null;
-         }
        //  System.out.println("Class 14 " + var1);
          return !Class75_Sub4.method1351(var2, var3, var1, -30901)?null:Class69.method1281(0);
       } catch (RuntimeException var5) {
@@ -27,8 +23,6 @@ final class Class14 {
          if(var0 < 26) {
             aClass94_339 = (RSString)null;
          }
-
-         aClass94_338 = null;
          aClass94_339 = null;
          aClass94_341 = null;
       } catch (RuntimeException var2) {

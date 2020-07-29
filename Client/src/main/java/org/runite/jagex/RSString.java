@@ -14,16 +14,12 @@ final class RSString implements Interface3 {
    static boolean aBoolean2146 = false;
    static int incomingOpcode = 0;
    static int anInt2148 = 0;
-   static RSString aClass94_2149 = RSString.createRSString("Bitte warten Sie )2 es wird versucht)1 die Verbindung wiederherzustellen)3");
    static boolean aBoolean2150;
    private boolean aBoolean2152 = true;
    byte[] byteArray;
    static boolean aBoolean2154;
-   static RSString aClass94_2155 = RSString.createRSString(":allyreq:");
    int length;
    static int[] anIntArray2157 = new int[50];
-   private static RSString aClass94_2158 = RSString.createRSString("Allocated memory");
-   static RSString aClass94_2151 = aClass94_2158;
 
    final URL method1527(boolean var1) throws MalformedURLException {
       try {
@@ -459,10 +455,6 @@ final class RSString implements Interface3 {
    final long method1538(int var1) {
       try {
          long var2 = 0L;
-         if(var1 < 4) {
-            aClass94_2158 = (RSString)null;
-         }
-
          for(int var4 = 0; var4 < this.length; ++var4) {
             var2 = (long)(this.byteArray[var4] & 255) + (var2 << 5) + -var2;
          }
@@ -499,15 +491,7 @@ final class RSString implements Interface3 {
 
    public static void method1541(int var0) {
       try {
-         aClass94_2151 = null;
-         if(var0 != -8635) {
-            aClass94_2151 = (RSString)null;
-         }
-
          anIntArray2157 = null;
-         aClass94_2155 = null;
-         aClass94_2149 = null;
-         aClass94_2158 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "na.R(" + var0 + ')');
       }
@@ -530,10 +514,6 @@ final class RSString implements Interface3 {
             }
 
             Class76.method1357(var2.byteArray, var3, this.byteArray, this.length, -var3 + var4);
-            if(var1 != 1) {
-               aClass94_2155 = (RSString)null;
-            }
-
             this.length += var4 + -var3;
             return this;
          } else {
@@ -689,10 +669,6 @@ final class RSString implements Interface3 {
             RSString var3 = new RSString();
             var3.byteArray = new byte[1 + this.length];
             var3.length = this.length + 1;
-            if(var1) {
-               aClass94_2155 = (RSString)null;
-            }
-
             Class76.method1357(this.byteArray, 0, var3.byteArray, 0, this.length);
             var3.byteArray[this.length] = (byte)var2;
             return var3;

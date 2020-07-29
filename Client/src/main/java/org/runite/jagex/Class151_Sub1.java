@@ -5,13 +5,11 @@ final class Class151_Sub1 extends Class151 {
    static Class3_Sub30_Sub1 aClass3_Sub30_Sub1_2942 = new Class3_Sub30_Sub1(5000);
    private Class41 aClass41_2943;
    private Class62 aClass62_2944;
-   static RSString aClass94_2945 = RSString.createRSString("Votre liste d(Wamis est pleine (X100 noms maximum pour la version gratuite et 200 pour les abonn-Bs(Y)3");
    private Class130 aClass130_2946 = new Class130(16);
    private int anInt2947;
    private int anInt2948 = 0;
    private byte[] aByteArray2949;
    private Class3_Sub28_Sub10 aClass3_Sub28_Sub10_2950;
-   static RSString aClass94_2951 = RSString.createRSString("k");
    static int[] anIntArray2952 = new int[128];
    private Class66 aClass66_2953;
     Class41 aClass41_2954;
@@ -19,8 +17,6 @@ final class Class151_Sub1 extends Class151 {
    private Class73 aClass73_2956;
    private int anInt2957;
    static int anInt2958 = 0;
-   private static RSString aClass94_2960 = RSString.createRSString("Loading interfaces )2 ");
-   static RSString aClass94_2961 = aClass94_2960;
    private boolean aBoolean2962;
    private Class61 aClass61_2963 = new Class61();
    private int anInt2964 = 0;
@@ -240,13 +236,9 @@ final class Class151_Sub1 extends Class151 {
 
    public static void method2105(boolean var0) {
       try {
-         aClass94_2951 = null;
          if(!var0) {
             anIntArray2952 = null;
             aClass3_Sub30_Sub1_2942 = null;
-            aClass94_2960 = null;
-            aClass94_2961 = null;
-            aClass94_2945 = null;
          }
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "bg.F(" + var0 + ')');

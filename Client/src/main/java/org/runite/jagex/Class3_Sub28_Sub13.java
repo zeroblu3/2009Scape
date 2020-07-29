@@ -6,7 +6,6 @@ final class Class3_Sub28_Sub13 extends Node {
    int anInt3658;
    static int anInt3659;
    static int anInt3660 = 0;
-   static RSString aClass94_3661 = RSString.createRSString("T");
    int anInt3662;
    Class130 aClass130_3663;
    private RSString aClass94_3664;
@@ -211,7 +210,6 @@ final class Class3_Sub28_Sub13 extends Node {
 
    public static void method624(int var0) {
       try {
-         aClass94_3661 = null;
          if(var0 != -1) {
             method623((byte)-86, (byte[])null);
          }

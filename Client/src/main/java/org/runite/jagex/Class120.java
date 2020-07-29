@@ -7,16 +7,12 @@ final class Class120 {
    static int anInt1633;
    int anInt1634;
    int anInt1635;
-   static RSString aClass94_1636;
-   static RSString aClass94_1637;
    static int[] anIntArray1638;
 
 
    public static void method1731(int var0) {
       try {
          anIntArray1638 = null;
-         aClass94_1637 = null;
-         aClass94_1636 = null;
          aLongArray1631 = null;
          if(var0 != 12881) {
             method1732((RSInterface)null, (byte)-74, -125);
@@ -54,8 +50,6 @@ final class Class120 {
          aLongArray1631[var2] = var0;
       }
 
-      aClass94_1637 = RSString.createRSString("Texturen geladen)3");
-      aClass94_1636 = RSString.createRSString("rouge:");
       anIntArray1638 = new int[128];
    }
 }

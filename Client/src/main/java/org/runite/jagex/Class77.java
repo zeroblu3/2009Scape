@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class Class77 {
 
-   static RSString aClass94_1110 = RSString.createRSString("Attaquer");
    static int anInt1111;
    static Class52 aClass52_1112 = new Class52();
 
@@ -24,7 +23,6 @@ final class Class77 {
    public static void method1365(int var0) {
       try {
          aClass52_1112 = null;
-         aClass94_1110 = null;
          if(var0 <= 96) {
             anInt1111 = 55;
          }

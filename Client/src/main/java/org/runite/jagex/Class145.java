@@ -2,26 +2,19 @@ package org.runite.jagex;
 
 final class Class145 {
 
-   static RSString aClass94_1889 = RSString.createRSString("blinken2:");
    int animationId;
    int anInt1891;
-   
    int anInt1893;
    int anInt1894;
    static Class113[] aClass113Array1895;
    static int anInt1896;
    int anInt1897;
    static int anInt1898;
-   private static RSString aClass94_1899 = RSString.createRSString("Loading textures )2 ");
    int anInt1900;
-static RSString aClass94_1892 = aClass94_1899;
 
    public static void method2071(byte var0) {
       try {
-         aClass94_1892 = null;
-         aClass94_1889 = null;
          aClass113Array1895 = null;
-         aClass94_1899 = null;
          if(var0 <= 1) {
             method2075(112, (byte)44);
          }
@@ -826,10 +819,6 @@ static RSString aClass94_1892 = aClass94_1899;
    static final void method2077(boolean var0) {
       try {
          Class3_Sub31.aClass93_2604.method1524(3);
-         if(!var0) {
-            aClass94_1899 = (RSString)null;
-         }
-
          Class27.aClass93_511.method1524(3);
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ub.B(" + var0 + ')');

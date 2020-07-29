@@ -8,7 +8,6 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 	static int anInt3103;
 	private boolean aBoolean3104 = true;
 	static float aFloat3105;
-	static RSString aClass94_3106 = RSString.createRSString("clignotant2:");
 
 
 	final void method157(int var1, RSByteBuffer var2, boolean var3) {
@@ -127,11 +126,6 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			if(Class154.aClass153_1967 != null) {
 				RenderAnimationDefinition.anInt377 = Class154.aClass153_1967.getFileAmount(1, (byte)83);
 			}
-
-			if(var1 <= 32) {
-				aClass94_3106 = (RSString)null;
-			}
-
 		} catch (RuntimeException var5) {
 			throw Class44.method1067(var5, "ej.E(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ')');
 		}
@@ -143,7 +137,6 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
 	public static void method206(boolean var0) {
 		try {
-			aClass94_3106 = null;
 			if(!var0) {
 				method204(-76);
 			}

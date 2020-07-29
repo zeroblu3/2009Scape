@@ -21,7 +21,6 @@ final class AnimationDefinition {
 	static CacheIndex aClass153_1860;
 	int anInt1861 = 99;
 	static int anInt1862 = 0;
-	static RSString aClass94_1863 = RSString.createRSString(" steht bereits auf Ihrer Freunde)2Liste(Q");
 	int animId;
 	int anInt1865 = -1;
 	int anInt1866 = -1;
@@ -36,10 +35,6 @@ final class AnimationDefinition {
 	static final Class3_Sub11 method2052(Class130 var0, boolean var1, Class168 var2) {
 		try {
 			long var3 = (long)((var2.anInt2095 - -1 << 16) + var2.anInt2090) + (((long)var2.anInt2100 << 56) - -((long)var2.anInt2094 << 32));
-			if(var1) {
-				aClass94_1863 = (RSString)null;
-			}
-
 			Class3_Sub11 var5 = (Class3_Sub11)var0.method1780(var3, 0);
 			if(null == var5) {
 				var5 = new Class3_Sub11(var2.anInt2095, (float)var2.anInt2090, true, false, var2.anInt2094);
@@ -286,8 +281,6 @@ final class AnimationDefinition {
 			if(var0 != -108) {
 				aClass153_1852 = (CacheIndex)null;
 			}
-
-			aClass94_1863 = null;
 			anIntArray1871 = null;
 		} catch (RuntimeException var2) {
 			throw Class44.method1067(var2, "tk.F(" + var0 + ')');
@@ -710,7 +703,7 @@ final class AnimationDefinition {
 
 			Class3_Sub28_Sub10_Sub2.aBoolean4068 = var0;
 			Class113.interfacePacketCounter = 0;
-			Class3_Sub13_Sub28.aClass94_3353 = Class56.aClass94_891;
+			Class3_Sub13_Sub28.aClass94_3353 = TextCore.HasWalkHere;
 			Class73.aBoolean1084 = false;
 			Class3_Sub13_Sub38.aShortArray3455 = Class3_Sub13_Sub9.aShortArray3110 = Class136.aShortArray1779 = Class3_Sub13_Sub38.aShortArray3453 = new short[256];
 			Class3_Sub13.method165(-7878);

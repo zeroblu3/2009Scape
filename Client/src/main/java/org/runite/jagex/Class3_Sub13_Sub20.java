@@ -4,14 +4,9 @@ final class Class3_Sub13_Sub20 extends Class3_Sub13 {
 
    static int anInt3244 = 0;
    private int anInt3245 = 4096;
-   
-   private static RSString aClass94_3247 = RSString.createRSString("flash1:");
    static int anInt3248;
-   static RSString aClass94_3249 = aClass94_3247;
    private int anInt3250 = 4096;
-   static RSString aClass94_3251 = RSString.createRSString("M-Bmoire attribu-Be");
    private int anInt3252 = 4096;
-static RSString aClass94_3246 = aClass94_3247;
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
@@ -36,14 +31,9 @@ static RSString aClass94_3246 = aClass94_3247;
       }
    }
 
-   public static void method266(int var0) {
+   public static void method266(int var0) {//TODO: Misplaced Check Method
       try {
-         aClass94_3249 = null;
-         aClass94_3247 = null;
-         if(var0 == -1443422260) {
-            aClass94_3246 = null;
-            aClass94_3251 = null;
-         }
+         ;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "mg.U(" + var0 + ')');
       }

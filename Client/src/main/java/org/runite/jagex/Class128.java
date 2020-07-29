@@ -8,10 +8,7 @@ final class Class128 {
    static Class93 aClass93_1683 = new Class93(64);
    private Node[] aClass3_Sub28Array1684;
    static boolean aBoolean1685 = true;
-   private static RSString aClass94_1686 = RSString.createRSString("shake:");
    static RSString aClass94_1687 = RSString.createRSString("(Z");
-   static RSString aClass94_1688 = aClass94_1686;
-   static RSString aClass94_1689 = aClass94_1686;
 
 
    static final void method1760(int var0, byte var1, int var2) {
@@ -74,9 +71,6 @@ final class Class128 {
 
    public static void method1761(byte var0) {
       try {
-         aClass94_1688 = null;
-         aClass94_1686 = null;
-         aClass94_1689 = null;
          aClass94_1687 = null;
          if(var0 < -46) {
             aClass93_1683 = null;

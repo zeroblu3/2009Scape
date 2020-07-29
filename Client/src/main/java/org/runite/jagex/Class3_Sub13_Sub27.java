@@ -8,7 +8,6 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
    static RSString[] aClass94Array3341 = new RSString[100];
    static int anInt3342;
    private int anInt3343 = 6;
-   static RSString aClass94_3344 = RSString.createRSString("Sie k-Onnen sich selbst nicht selbst auf Ihre Ignorieren)2Liste setzen(Q");
 
 
    static final void method295(RSString var0, byte var1, int var2) {
@@ -125,7 +124,6 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
             anInt3340 = 30;
          }
 
-         aClass94_3344 = null;
          aClass94_3339 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "pi.F(" + var0 + ')');

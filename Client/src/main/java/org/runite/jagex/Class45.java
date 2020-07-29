@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class Class45 {
 
-	static RSString aClass94_728 = RSString.createRSString("leuchten2:");
 	static int[] anIntArray729 = new int[4096];
 	static float aFloat730;
 	static CacheIndex aClass153_731;
@@ -219,7 +218,6 @@ final class Class45 {
 		try {
 			aClass3_Sub28_Sub16_736 = null;
 			anIntArray729 = null;
-			aClass94_728 = null;
 			if(var0 <= 63) {
 				method1082((byte[])null, -60);
 			}

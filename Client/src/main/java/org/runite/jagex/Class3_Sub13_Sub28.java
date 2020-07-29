@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class Class3_Sub13_Sub28 extends Class3_Sub13 {
 
-   static RSString aClass94_3345 = RSString.createRSString("glissement:");
    static Class3_Sub11[][] aClass3_Sub11ArrayArray3346;
    private int anInt3347 = 3216;
    private int[] anIntArray3348 = new int[3];
@@ -12,20 +11,13 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
    static CacheIndex aClass153_3352;
    static RSString aClass94_3353;
    private int anInt3354 = 3216;
-   static RSString aClass94_3355 = RSString.createRSString("Angreifen");
 
 
    public static void method300(int var0) {
       try {
          aClass94_3353 = null;
-         if(var0 <= 6) {
-            aClass94_3345 = (RSString)null;
-         }
-
          aShortArray3349 = null;
          aClass3_Sub11ArrayArray3346 = (Class3_Sub11[][])null;
-         aClass94_3355 = null;
-         aClass94_3345 = null;
          aClass153_3352 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "pk.F(" + var0 + ')');

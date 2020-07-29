@@ -4,7 +4,6 @@ import javax.media.opengl.GL;
 
 final class Class3_Sub22 extends Class3 {
 
-   static RSString aClass94_2499 = RSString.createRSString("Okay");
    static int anInt2500;
    int anInt2501;
    int anInt2502;
@@ -23,15 +22,11 @@ final class Class3_Sub22 extends Class3 {
    int anInt2515;
    int anInt2516;
    int anInt2517;
-   static RSString aClass94_2518 = RSString.createRSString("Poser");
    int anInt2519;
    int anInt2520;
    static byte[][] aByteArrayArray2521;
    int anInt2522;
    int anInt2523;
-   static RSString aClass94_2524 = RSString.createRSString("Starte 3D)2Softwarebibliothek)3");
-   private static RSString aClass94_2525 = RSString.createRSString("rating: ");
-   static RSString aClass94_2526 = aClass94_2525;
    Class3_Sub15 aClass3_Sub15_2527;
    static CacheIndex aClass153_2528;
    static int anInt2529;
@@ -140,18 +135,9 @@ final class Class3_Sub22 extends Class3 {
 
    public static void method399(int var0) {
       try {
-         if(var0 != 186) {
-            aClass94_2518 = (RSString)null;
-         }
-
-         aClass94_2525 = null;
          aByteArrayArray2521 = (byte[][])null;
-         aClass94_2524 = null;
          aClass153_2528 = null;
-         aClass94_2526 = null;
-         aClass94_2499 = null;
          aClass49_2505 = null;
-         aClass94_2518 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "mf.E(" + var0 + ')');
       }
@@ -175,9 +161,6 @@ final class Class3_Sub22 extends Class3 {
          this.aClass3_Sub12_Sub1_2509 = null;
          this.aClass3_Sub24_Sub1_2507 = null;
          this.aClass3_Sub15_2527 = null;
-         if(var1 != 221) {
-            aClass94_2518 = (RSString)null;
-         }
 
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "mf.A(" + var1 + ')');

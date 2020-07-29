@@ -3,8 +3,6 @@ import java.util.zip.CRC32;
 
 final class Class3_Sub13_Sub12 extends Class3_Sub13 {
 
-   private static RSString aClass94_3141 = RSString.createRSString("Loaded config");
-   static RSString aClass94_3142 = aClass94_3141;
    static CRC32 aCRC32_3143 = new CRC32();
    static int anInt3144;
    static RSString aClass94_3145 = RSString.createRSString(")1 ");
@@ -128,14 +126,8 @@ final class Class3_Sub13_Sub12 extends Class3_Sub13 {
 
    public static void method227(boolean var0) {
       try {
-         aClass94_3142 = null;
          aClass94_3145 = null;
          aCRC32_3143 = null;
-         if(!var0) {
-            aClass94_3142 = (RSString)null;
-         }
-
-         aClass94_3141 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "fn.O(" + var0 + ')');
       }
@@ -181,9 +173,6 @@ final class Class3_Sub13_Sub12 extends Class3_Sub13 {
             ++var3;
          }
 
-         if(var2) {
-            aClass94_3142 = (RSString)null;
-         }
 
          if(var1.method2144(0, Class75_Sub2.anInt2643)) {
             ++var3;

@@ -13,7 +13,6 @@ final class Class140_Sub3 extends GameObject {
    private boolean aBoolean2728 = true;
    private int objectId;
    private int anInt2730;
-   private static RSString aClass94_2731 = RSString.createRSString("wave:");
    private int anInt2732;
    private int anInt2733;
    private int type;
@@ -21,19 +20,15 @@ final class Class140_Sub3 extends GameObject {
    private int anInt2736;
    static int anInt2737 = 0;
    private LDIndexedSprite aClass109_Sub1_2738 = null;
-   private static RSString aClass94_2739 = RSString.createRSString("Drop");
-   static RSString aClass94_2740 = aClass94_2731;
    private int anInt2741 = -32768;
    private Class127_Sub1 aClass127_Sub1_2742;
    static volatile int anInt2743 = 0;
-   static RSString aClass94_2744 = aClass94_2739;
    static int anInt2745 = 0;
    private int anInt2746;
    static byte[][] aByteArrayArray2747 = new byte[50][];
    private int anInt2748 = 0;
    private int anInt2749;
    private int anInt2750 = -1;
-   static RSString aClass94_2751 = aClass94_2731;
    private int anInt2752 = -1;
 
 
@@ -202,18 +197,13 @@ final class Class140_Sub3 extends GameObject {
 
    public static void method1958(int var0) {
       try {
-         aClass94_2751 = null;
-         aClass94_2744 = null;
          aClass153_2727 = null;
-         aClass94_2731 = null;
          if(var0 != 2) {
             method1958(64);
          }
 
-         aClass94_2740 = null;
          aByteArrayArray2747 = (byte[][])null;
          aClass94_2735 = null;
-         aClass94_2739 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "dc.G(" + var0 + ')');
       }
@@ -236,10 +226,6 @@ final class Class140_Sub3 extends GameObject {
       try {
          if(var2 >= 8000 && var2 <= '\ubb80') {
             Class3_Sub24_Sub4.anInt3507 = var1;
-            if(var0 != 256) {
-               aClass94_2744 = (RSString)null;
-            }
-
             RSString.aBoolean2150 = var3;
             Class21.anInt443 = var2;
          } else {
@@ -344,7 +330,7 @@ final class Class140_Sub3 extends GameObject {
          boolean var3 = Class58.anIntArrayArrayArray914 != Class44.anIntArrayArrayArray723;
          ObjectDefinition var4 = Class162.getObjectDefinition(var2 + 6, this.objectId);
          int var5 = var4.animationId;
-         if(null != var4.anIntArray1524) {
+         if(null != var4.ChildrenIds) {
             var4 = var4.method1685(0);
          }
 
@@ -383,11 +369,11 @@ final class Class140_Sub3 extends GameObject {
             int var7;
             int var8;
             if(~var6 == var2 || var6 == 3) {
-               var8 = var4.anInt1480;
-               var7 = var4.anInt1485;
+               var8 = var4.SizeX;
+               var7 = var4.SizeY;
             } else {
-               var7 = var4.anInt1480;
-               var8 = var4.anInt1485;
+               var7 = var4.SizeX;
+               var8 = var4.SizeY;
             }
 
             int var10 = this.anInt2736 - -(1 + var7 >> 1);
@@ -470,10 +456,6 @@ final class Class140_Sub3 extends GameObject {
 
    final GameObject method1963(int var1) {
       try {
-         if(var1 != 3) {
-            aClass94_2731 = (RSString)null;
-         }
-
          return this.method1962(false, var1 + -5);
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "dc.C(" + var1 + ')');
@@ -580,7 +562,7 @@ final class Class140_Sub3 extends GameObject {
                ((Class140_Sub3)var9).method1960(-1);
             } else {
                var10 = Class162.getObjectDefinition(4, this.objectId);
-               if(var10.anIntArray1524 != null) {
+               if(var10.ChildrenIds != null) {
                   var10 = var10.method1685(0);
                }
 
@@ -633,7 +615,7 @@ final class Class140_Sub3 extends GameObject {
 
          if(var9 == null) {
             var10 = Class162.getObjectDefinition(4, this.objectId);
-            if(null != var10.anIntArray1524) {
+            if(null != var10.ChildrenIds) {
                this.aBoolean2721 = true;
             }
          }

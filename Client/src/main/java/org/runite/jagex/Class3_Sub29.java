@@ -9,7 +9,6 @@ final class Class3_Sub29 extends Class3 {
    static int anInt2582 = 0;
    static boolean isDynamicSceneGraph = false;
    static RSString aClass94_2584 = RSString.createRSString("<)4col>");
-   static RSString aClass94_2585 = RSString.createRSString("Connexion au serveur de mise -9 jour en cours");
    RSString aClass94_2586;
    static int anInt2587;
    static GameShell anApplet_Sub1_2588 = null;
@@ -196,9 +195,9 @@ final class Class3_Sub29 extends Class3 {
                RSString var3 = Class144.aClass94_1885.method1573((byte)126, Class38.aClass87_665.anApplet1219);
                RSString var4 = RenderAnimationDefinition.method903(new RSString[]{var2, Class82.aClass94_1151, var1, Class166.aClass94_2074, var3}, (byte)-119);
                if(var0 == var1.length(var0 + -84)) {
-                  var4 = RenderAnimationDefinition.method903(new RSString[]{var4, Canvas_Sub2.aClass94_28}, (byte)-60);
+                  var4 = RenderAnimationDefinition.method903(new RSString[]{var4, TextCore.HasAgeExpire}, (byte)-60);
                } else {
-                  var4 = RenderAnimationDefinition.method903(new RSString[]{var4, OutputStream_Sub1.aClass94_51, Class15.method894(94608000000L + Class5.method830((byte)-55), (byte)52), Class163_Sub3.aClass94_3000, Class3_Sub28_Sub12.method612(94608000L, (byte)102)}, (byte)-80);
+                  var4 = RenderAnimationDefinition.method903(new RSString[]{var4, TextCore.HasExpires, Class15.method894(94608000000L + Class5.method830((byte)-55), (byte)52), TextCore.HasMaxAge, Class3_Sub28_Sub12.method612(94608000L, (byte)102)}, (byte)-80);
                }
 
                RenderAnimationDefinition.method903(new RSString[]{Class129.aClass94_1694, var4, Class130.aClass94_1698}, (byte)-84).method1554(true, Class38.aClass87_665.anApplet1219);
@@ -220,8 +219,6 @@ final class Class3_Sub29 extends Class3 {
          if(var0 != -22749) {
             anInt2579 = 66;
          }
-
-         aClass94_2585 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "sj.C(" + var0 + ')');
       }

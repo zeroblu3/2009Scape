@@ -9,7 +9,6 @@ final class OutputStream_Sub1 extends OutputStream {
    static boolean aBoolean47 = false;
    static int anInt48 = 2;
    static int[] anIntArray49;
-   static RSString aClass94_51 = RSString.createRSString("; Expires=");
 
 
    static final short[] method65(int var0, short[] var1) {
@@ -136,7 +135,6 @@ final class OutputStream_Sub1 extends OutputStream {
          }
 
          anIntArray49 = null;
-         aClass94_51 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "vg.B(" + var0 + ')');
       }

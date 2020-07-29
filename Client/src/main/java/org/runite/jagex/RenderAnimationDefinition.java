@@ -2,19 +2,12 @@ package org.runite.jagex;
 
 final class RenderAnimationDefinition {
 
-   private static RSString aClass94_354 = RSString.createRSString("Discard");
-   static RSString aClass94_355 = RSString.createRSString("Lade Konfiguration )2 ");
    static int[] anIntArray356 = new int[]{1, 0, -1, 0};
    int anInt357 = 0;
-   
    int[][] anIntArrayArray359;
    int anInt360 = -1;
-   static RSString aClass94_361 = aClass94_354;
    static volatile int anInt362 = 0;
-   private static RSString aClass94_363 = RSString.createRSString("Aug");
    int anInt364 = -1;
-   private static RSString aClass94_365 = RSString.createRSString("May");
-   private static RSString aClass94_366 = RSString.createRSString("Loaded world list data");
    int anInt367 = -1;
    int anInt368 = -1;
    int anInt369 = 0;
@@ -22,9 +15,7 @@ final class RenderAnimationDefinition {
    int anInt371 = 0;
    int anInt372 = -1;
    int anInt373 = -1;
-   static RSString aClass94_374 = aClass94_366;
    int anInt375 = -1;
-   private static RSString aClass94_376 = RSString.createRSString("Jul");
    static int anInt377 = 0;
    static RSString aClass94_378 = null;
    int anInt379 = -1;
@@ -33,58 +24,29 @@ final class RenderAnimationDefinition {
    int anInt382 = -1;
    static byte[][][] aByteArrayArrayArray383;
    static int anInt384 = 0;
-   private static RSString aClass94_385 = RSString.createRSString("Jun");
    int anInt386 = -1;
    int anInt387 = 0;
-   private static RSString aClass94_388 = RSString.createRSString("Dec");
    int anInt389 = -1;
    int anInt390 = -1;
-   private static RSString aClass94_391 = RSString.createRSString("Oct");
-   private static RSString aClass94_392 = RSString.createRSString("Jan");
    int anInt393 = -1;
-   private static RSString aClass94_394 = RSString.createRSString("Sep");
    int anInt395 = 0;
    static int anInt396;
-   private static RSString aClass94_397 = RSString.createRSString("Nov");
    int anInt398 = -1;
    int anInt399 = 0;
    int anInt400 = 0;
-   private static RSString aClass94_401 = RSString.createRSString("Apr");
    static boolean aBoolean402 = false;
    int anInt403 = 0;
-   private static RSString aClass94_404 = RSString.createRSString("Mar");
-   private static RSString aClass94_405 = RSString.createRSString("Feb");
    int anInt406 = -1;
    int anInt407 = -1;
-   static RSString[] aClass94Array358 = new RSString[]{aClass94_392, aClass94_405, aClass94_404, aClass94_401, aClass94_365, aClass94_385, aClass94_376, aClass94_363, aClass94_394, aClass94_391, aClass94_397, aClass94_388};
 
    public static void method896(boolean var0) {
       try {
-         aClass94_388 = null;
-         aClass94_374 = null;
-         aClass94_392 = null;
-         aClass94_385 = null;
-         aClass94_355 = null;
-         aClass94_376 = null;
-         aClass94_397 = null;
          anIntArray356 = null;
-         aClass94_366 = null;
-         aClass94Array358 = null;
          aClass94_378 = null;
-         aClass94_354 = null;
-         aClass94_365 = null;
-         aClass94_394 = null;
          if(!var0) {
             getGraphicDefinition((byte)20, -109);
          }
-
-         aClass94_361 = null;
-         aClass94_391 = null;
-         aClass94_401 = null;
-         aClass94_405 = null;
-         aClass94_363 = null;
          aByteArrayArrayArray383 = (byte[][][])null;
-         aClass94_404 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ck.A(" + var0 + ')');
       }
@@ -93,10 +55,6 @@ final class RenderAnimationDefinition {
    static final boolean method897(int var0, Class3_Sub24_Sub4 var1, CacheIndex var2, CacheIndex var3, CacheIndex var4) {
       try {
          Class124.aClass153_1661 = var2;
-         if(var0 != 17770) {
-            aClass94_366 = (RSString)null;
-         }
-
          Class40.aClass153_679 = var4;
          Class3_Sub28_Sub20.aClass153_3786 = var3;
          Class101.aClass3_Sub24_Sub4_1421 = var1;
@@ -349,94 +307,66 @@ final class RenderAnimationDefinition {
             this.anInt398 = var3.getShort(var2 ^ -105);
          } else if(var1 == 3) {
             this.anInt372 = var3.getShort(var2 ^ -105);
-         } else {
-            if(4 == var1) {
-               this.anInt406 = var3.getShort(1);
-            } else if(var1 == 5) {
-               this.anInt379 = var3.getShort(1);
-            } else {
-               if(6 == var1) {
-                  this.anInt393 = var3.getShort(1);
-               } else {
-                  if(7 == var1) {
-                     this.anInt386 = var3.getShort(1);
-                  } else if(var1 == 8) {
-                     this.anInt373 = var3.getShort(1);
-                  } else {
-                     if(var1 == 9) {
-                        this.anInt375 = var3.getShort(1);
-                     } else {
-                        if(var1 == 26) {
-                           this.anInt395 = (short)(4 * var3.getByte((byte)-35));
-                           this.anInt381 = (short)(4 * var3.getByte((byte)-110));
-                        } else if(var1 == 27) {
-                           if(this.anIntArrayArray359 == null) {
-                              this.anIntArrayArray359 = new int[12][];
-                           }
-
-                           int var4 = var3.getByte((byte)-94);
-                           this.anIntArrayArray359[var4] = new int[6];
-
-                           for(int var5 = 0; var5 < 6; ++var5) {
-                              this.anIntArrayArray359[var4][var5] = var3.getShort((byte)85);
-                           }
-                        } else {
-                           if(var1 == 29) {
-                              this.anInt369 = var3.getByte((byte)-80);
-                           } else {
-                              if(var1 == 30) {
-                                 this.anInt357 = var3.getShort(1);
-                              } else {
-                                 if(var1 == 31) {
-                                    this.anInt387 = var3.getByte((byte)-106);
-                                 } else if(32 == var1) {
-                                    this.anInt370 = var3.getShort(1);
-                                 } else {
-                                    if(33 == var1) {
-                                       this.anInt400 = var3.getShort((byte)41);
-                                    } else if(34 == var1) {
-                                       this.anInt403 = var3.getByte((byte)-79);
-                                    } else if(var1 == 35) {
-                                       this.anInt399 = var3.getShort(1);
-                                    } else {
-                                       if(var1 == 36) {
-                                          this.anInt371 = var3.getShort((byte)122);
-                                       } else {
-                                          if(var1 == 37) {
-                                             this.anInt360 = var3.getByte((byte)-48);
-                                          } else {
-                                             if(var1 == 38) {
-                                                this.anInt367 = var3.getShort(1);
-                                             } else if(39 == var1) {
-                                                this.anInt407 = var3.getShort(1);
-                                             } else if(var1 == 40) {
-                                                this.anInt389 = var3.getShort(1);
-                                             } else if(41 == var1) {
-                                                this.anInt390 = var3.getShort(1);
-                                             } else if(var1 == 42) {
-                                                this.anInt364 = var3.getShort(1);
-                                             } else if(var1 == 43) {
-                                                var3.getShort(var2 ^ -105);
-                                             } else {
-                                                if(var1 == 44) {
-                                                   var3.getShort(1);
-                                                } else {
-                                                   if(var1 == 45) {
-                                                      var3.getShort(1);
-                                                   }
-                                                }
-                                             }
-                                          }
-                                       }
-                                    }
-                                 }
-                              }
-                           }
-                        }
-                     }
-                  }
-               }
+         } else if (4 == var1) {
+            this.anInt406 = var3.getShort(1);
+         } else if (var1 == 5) {
+            this.anInt379 = var3.getShort(1);
+         } else if (6 == var1) {
+            this.anInt393 = var3.getShort(1);
+         } else if (7 == var1) {
+            this.anInt386 = var3.getShort(1);
+         } else if (var1 == 8) {
+            this.anInt373 = var3.getShort(1);
+         } else if (var1 == 9) {
+            this.anInt375 = var3.getShort(1);
+         } else if (var1 == 26) {
+            this.anInt395 = (short) (4 * var3.getByte((byte) -35));
+            this.anInt381 = (short) (4 * var3.getByte((byte) -110));
+         } else if (var1 == 27) {
+            if (this.anIntArrayArray359 == null) {
+               this.anIntArrayArray359 = new int[12][];
             }
+
+            int var4 = var3.getByte((byte) -94);
+            this.anIntArrayArray359[var4] = new int[6];
+
+            for (int var5 = 0; var5 < 6; ++var5) {
+               this.anIntArrayArray359[var4][var5] = var3.getShort((byte) 85);
+            }
+         } else if (var1 == 29) {
+            this.anInt369 = var3.getByte((byte) -80);
+         } else if (var1 == 30) {
+            this.anInt357 = var3.getShort(1);
+         } else if (var1 == 31) {
+            this.anInt387 = var3.getByte((byte) -106);
+         } else if (32 == var1) {
+            this.anInt370 = var3.getShort(1);
+         } else if (33 == var1) {
+            this.anInt400 = var3.getShort((byte) 41);
+         } else if (34 == var1) {
+            this.anInt403 = var3.getByte((byte) -79);
+         } else if (var1 == 35) {
+            this.anInt399 = var3.getShort(1);
+         } else if (var1 == 36) {
+            this.anInt371 = var3.getShort((byte) 122);
+         } else if (var1 == 37) {
+            this.anInt360 = var3.getByte((byte) -48);
+         } else if (var1 == 38) {
+            this.anInt367 = var3.getShort(1);
+         } else if (39 == var1) {
+            this.anInt407 = var3.getShort(1);
+         } else if (var1 == 40) {
+            this.anInt389 = var3.getShort(1);
+         } else if (41 == var1) {
+            this.anInt390 = var3.getShort(1);
+         } else if (var1 == 42) {
+            this.anInt364 = var3.getShort(1);
+         } else if (var1 == 43) {
+            var3.getShort(var2 ^ -105);
+         } else if (var1 == 44) {
+            var3.getShort(1);
+         } else if (var1 == 45) {
+            var3.getShort(1);
          }
 
          if(var2 != -106) {

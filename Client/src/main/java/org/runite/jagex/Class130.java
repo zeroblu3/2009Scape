@@ -5,10 +5,8 @@ final class Class130 {
 
    Class3[] aClass3Array1697;
    static RSString aClass94_1698 = RSString.createRSString("(R");
-   static RSString aClass94_1699 = RSString.createRSString(" )2> <col=ff9040>");
    int anInt1700;
    static int anInt1701;
-   static RSString aClass94_1702 = RSString.createRSString("Hierhin drehen");
    static boolean[] aBooleanArray1703;
    static int incomingPacketLength = 0;
    static int anInt1705 = 0;
@@ -16,8 +14,6 @@ final class Class130 {
    
    private long aLong1708;
    static int anInt1709 = 0;
-   private static RSString aClass94_1710 = RSString.createRSString("Loaded sprites");
-   static RSString aClass94_1707 = aClass94_1710;
    static int anInt1711 = -2;
    static boolean[] aBooleanArray1712 = new boolean[100];
    private Class3 aClass3_1713;
@@ -92,16 +88,11 @@ final class Class130 {
    public static void method1774(int var0) {
       try {
          aClass94_1698 = null;
-         aClass94_1707 = null;
          aBooleanArray1712 = null;
-         aClass94_1702 = null;
          aBooleanArray1703 = null;
-         aClass94_1699 = null;
          if(var0 <= 96) {
             method1783(-63, (Component)null);
          }
-
-         aClass94_1710 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "sc.H(" + var0 + ')');
       }
@@ -370,10 +361,6 @@ final class Class130 {
 
    final int method1782(Class3[] var1, int var2) {
       try {
-         if(var2 < 3) {
-            aClass94_1699 = (RSString)null;
-         }
-
          int var3 = 0;
 
          for(int var4 = 0; var4 < this.anInt1700; ++var4) {

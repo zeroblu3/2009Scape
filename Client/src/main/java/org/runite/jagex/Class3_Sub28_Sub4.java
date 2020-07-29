@@ -10,12 +10,9 @@ final class Class3_Sub28_Sub4 extends Node {
    private int[][] anIntArrayArray3570;
    private RSString[] aClass94Array3571;
    static Class93 aClass93_3572 = new Class93(64);
-   static RSString aClass94_3573 = RSString.createRSString(" )2> <col=00ffff>");
    static RSString aClass94_3574 = RSString.createRSString("titlebg");
    static RSString aClass94_3577 = RSString.createRSString(": ");
-   private static RSString aClass94_3578 = RSString.createRSString("Loaded title screen");
    static Class83 aClass83_3579;
- static RSString aClass94_3575 = aClass94_3578;
 
    final void method545(RSByteBuffer var1, int[] var2, boolean var3) {
       try {
@@ -56,12 +53,9 @@ final class Class3_Sub28_Sub4 extends Node {
 
    public static void method547(int var0) {
       try {
-         aClass94_3578 = null;
          aClass93_3572 = null;
-         aClass94_3575 = null;
          aClass94_3574 = null;
          aClass94_3577 = null;
-         aClass94_3573 = null;
          aClass83_3579 = null;
          anIntArray3565 = null;
       } catch (RuntimeException var2) {
@@ -101,10 +95,6 @@ final class Class3_Sub28_Sub4 extends Node {
    final int method550(int var1, int var2) {
       try {
          if(null != this.anIntArray3566 && var2 >= 0 && var2 <= this.anIntArray3566.length) {
-            if(var1 <= 33) {
-               aClass94_3578 = (RSString)null;
-            }
-
             return this.anIntArray3566[var2];
          } else {
             return -1;

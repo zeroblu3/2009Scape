@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class Class3_Sub24_Sub4 extends Class3_Sub24 {
 
-   static RSString aClass94_3496 = RSString.createRSString("Spielwelt erstellt)3");
    private int[] anIntArray3497 = new int[16];
    private int[] anIntArray3498 = new int[16];
    private int[] anIntArray3499 = new int[16];
@@ -189,7 +188,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
 
          if(var3.anInt318 == 3) {
             ++Class96.anInt1361;
-            Class54.method1177(-1, 0L, (byte)-59, Class3_Sub28_Sub14.aClass94_3672, 0, (short)28, Class3_Sub13_Sub7.aClass94_3097, var3.anInt279);
+            Class54.method1177(-1, 0L, (byte)-59, Class3_Sub28_Sub14.aClass94_3672, 0, (short)28, TextCore.HasClose, var3.anInt279);
          }
 
          if(var3.anInt318 == 4) {
@@ -230,13 +229,13 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                         if(1 == Class164_Sub1.anInt3012 && var9.method99(31595)) {
                            if(var3.anInt279 != Class3_Sub28_Sub18.anInt3764 || var15 != Class110.anInt1473) {
                               ++Class15.anInt342;
-                              Class54.method1177(-1, (long)var10.itemId, (byte)-91, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, Class130.aClass94_1699, var10.name}, (byte)-59), var15, (short)40, Class3_Sub13_Sub32.aClass94_3388, var3.anInt279);
+                              Class54.method1177(-1, (long)var10.itemId, (byte)-91, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, ColorCore.BankItemColor, var10.name}, (byte)-59), var15, (short)40, TextCore.HasUse, var3.anInt279);
                            }
                         } else if(GameObject.aBoolean1837 && var9.method99(31595)) {
                            Class3_Sub28_Sub9 var18 = Class69.anInt1038 != -1 ?Class61.method1210(64, Class69.anInt1038):null;
                            if(0 != (16 & Class164.anInt2051) && (var18 == null || var18.anInt3614 != var10.method1115(var18.anInt3614, 103, Class69.anInt1038))) {
                               ++Class3_Sub28_Sub8.anInt3609;
-                              Class54.method1177(Class144.anInt1887, (long)var10.itemId, (byte)-89, RenderAnimationDefinition.method903(new RSString[]{Class40.aClass94_676, Class130.aClass94_1699, var10.name}, (byte)-122), var15, (short)3, Class3_Sub28_Sub9.aClass94_3621, var3.anInt279);
+                              Class54.method1177(Class144.anInt1887, (long)var10.itemId, (byte)-89, RenderAnimationDefinition.method903(new RSString[]{Class40.aClass94_676, ColorCore.BankItemColor, var10.name}, (byte)-122), var15, (short)3, Class3_Sub28_Sub9.aClass94_3621, var3.anInt279);
                            }
                         } else {
                            ++Class3_Sub23.anInt2540;
@@ -274,7 +273,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
 
                            if(var9.method96(-2063688673)) {
                               ++Class25.anInt494;
-                              Class54.method1177(Class99.anInt1403, (long)var10.itemId, (byte)-96, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemBackpackColor, var10.name}, (byte)-66), var15, (short)22, Class3_Sub13_Sub32.aClass94_3388, var3.anInt279);
+                              Class54.method1177(Class99.anInt1403, (long)var10.itemId, (byte)-96, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemBackpackColor, var10.name}, (byte)-66), var15, (short)22, TextCore.HasUse, var3.anInt279);
                            }
 
                            if(var9.method99(31595) && inventoryOptions != null) {
@@ -335,7 +334,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                               }
                            }
 
-                           Class54.method1177(Class131.anInt1719, (long)var10.itemId, (byte)-98, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemBackpackColor, var10.name}, (byte)-78), var15, (short)1006, Class86.aClass94_1180, var3.anInt279);
+                           Class54.method1177(Class131.anInt1719, (long)var10.itemId, (byte)-98, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemBackpackColor, var10.name}, (byte)-78), var15, (short)1006, TextCore.HasExamine, var3.anInt279);
                         }
                      }
                   }
@@ -378,7 +377,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
 
                if(Client.method44(var3).method95(-13081)) {
                   ++CS2Script.anInt2437;
-                  Class54.method1177(-1, 0L, (byte)-74, Class3_Sub28_Sub14.aClass94_3672, var3.anInt191, (short)41, Class60.aClass94_935, var3.anInt279);
+                  Class54.method1177(-1, 0L, (byte)-74, Class3_Sub28_Sub14.aClass94_3672, var3.anInt191, (short)41, TextCore.HasContinue, var3.anInt279);
                }
             }
          }
@@ -840,7 +839,6 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
    public static void method491(byte var0) {
       try {
          aBooleanArray3503 = null;
-         aClass94_3496 = null;
          //int var1 = 21 / ((var0 - -51) / 62);
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "va.C(" + var0 + ')');

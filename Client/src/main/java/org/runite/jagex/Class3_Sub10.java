@@ -2,11 +2,9 @@ package org.runite.jagex;
 
 final class Class3_Sub10 extends Class3 {
 
-   static RSString aClass94_2336 = RSString.createRSString("M");
    static int anInt2337;
    static int[] anIntArray2338 = new int[]{160, 192, 80, 96, 0, 144, 80, 48, 160};
    static byte[][][] aByteArrayArrayArray2339;
-   static RSString aClass94_2340 = RSString.createRSString("Bitte warten Sie)3)3)3");
    RSString aClass94_2341;
 
 
@@ -80,9 +78,7 @@ final class Class3_Sub10 extends Class3 {
 
    public static void method143(int var0) {
       try {
-         aClass94_2340 = null;
          anIntArray2338 = null;
-         aClass94_2336 = null;
          if(var0 <= -16) {
             aByteArrayArrayArray2339 = (byte[][][])null;
          }

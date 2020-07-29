@@ -145,7 +145,6 @@ final class RSInterface {
    private int secondModelType;
    Object[] anObjectArray295;
    int anInt296;
-   static RSString aClass94_297 = RSString.createRSString("Nehmen");
    int[][] childDataBuffers;
    int[] anIntArray299;
    int[] anIntArray300;
@@ -261,7 +260,7 @@ final class RSInterface {
          RSString var1 = Class3_Sub28_Sub7_Sub1.aClass94_4052;
          RSString var2 = Class3_Sub28_Sub14.aClass94_3672;
          if(Class44.anInt718 != 0) {
-            var1 = Player.aClass94_3971;
+            var1 = RSString.createRSString("www)2wtqa");
          }
 
          if(null != Class163_Sub2.aClass94_2996) {
@@ -532,19 +531,19 @@ final class RSInterface {
             this.aClass94_289 = var2.getString();
             if(this.aClass94_289.length(-33) == 0) {
                if(this.anInt318 == 1) {
-                  this.aClass94_289 = Class115.aClass94_1583;
+                  this.aClass94_289 = TextCore.HasOK;
                }
 
                if(this.anInt318 == 4) {
-                  this.aClass94_289 = Class131.aClass94_1722;
+                  this.aClass94_289 = TextCore.HasSelect;
                }
 
                if(5 == this.anInt318) {
-                  this.aClass94_289 = Class131.aClass94_1722;
+                  this.aClass94_289 = TextCore.HasSelect;
                }
 
                if(this.anInt318 == 6) {
-                  this.aClass94_289 = Class60.aClass94_935;
+                  this.aClass94_289 = TextCore.HasContinue;
                }
             }
          }
@@ -597,7 +596,6 @@ final class RSInterface {
 
    public static void method860(int var0) {
       try {
-         aClass94_297 = null;
          aClass94_209 = null;
          if(var0 < 63) {
             method860(42);
@@ -1166,7 +1164,7 @@ final class RSInterface {
       this.aShort293 = 0;
       this.anInt301 = 0;
       this.animationId = -1;
-      this.aClass94_289 = Class115.aClass94_1583;
+      this.aClass94_289 = TextCore.HasOK;
       this.anInt280 = 0;
       this.anInt271 = 0;
       this.anInt292 = -1;

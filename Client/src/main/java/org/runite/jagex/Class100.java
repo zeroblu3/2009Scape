@@ -14,11 +14,9 @@ final class Class100 {
    int anInt1412 = -1;
    static Class136 aClass136_1413 = new Class136();
    int anInt1414 = 128;
-   private static RSString aClass94_1415 = RSString.createRSString("Loaded input handler");
    static int worldListArraySize;
    int anInt1417;
    int anInt1418;
-static RSString aClass94_1409 = aClass94_1415;
 
    private final void method1600(int var1, byte var2) {
       try {
@@ -207,8 +205,6 @@ static RSString aClass94_1409 = aClass94_1415;
 
    public static void method1606(byte var0) {
       try {
-         aClass94_1415 = null;
-         aClass94_1409 = null;
          int var1 = 86 % ((49 - var0) / 48);
          aClass153_1410 = null;
          aClass136_1413 = null;

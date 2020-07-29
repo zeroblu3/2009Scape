@@ -87,7 +87,7 @@ final class Class84 {
             Class74.method1311(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
          }
 
-         Class168.aClass3_Sub28_Sub17_2096.method681(Class75_Sub4.aClass94_2667, var1 - -3, var2 + 14, var5, -1);
+         Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, var1 - -3, var2 + 14, var5, -1);
          int var7 = Class130.anInt1709;
          int var6 = Class126.anInt1676;
          if(var0 >= -113) {
