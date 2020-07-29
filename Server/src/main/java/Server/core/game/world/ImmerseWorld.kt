@@ -32,6 +32,7 @@ object ImmerseWorld {
         GeneralBotCreator(CowKiller(), assembler.produce(CombatBotAssembler.Type.RANGE, CombatBotAssembler.Tier.MED, Location.create(3261, 3269, 0)))
         GeneralBotCreator(CowKiller(), assembler.produce(CombatBotAssembler.Type.MELEE, CombatBotAssembler.Tier.LOW, Location.create(3261, 3269, 0)))
         GeneralBotCreator(CowKiller(), assembler.produce(CombatBotAssembler.Type.MELEE, CombatBotAssembler.Tier.MED, Location.create(3257, 3267, 0)))
+        GeneralBotCreator(ManThiever(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3235, 3213, 0)))
     }
 
     fun immerseVarrock(){
