@@ -41,7 +41,7 @@ object Server {
     @Throws(Throwable::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        if (args.size > 0) {
+        if (args.isNotEmpty()) {
             try {
                 GameWorld.setSettings(parse(args))
             } catch(e: Exception){

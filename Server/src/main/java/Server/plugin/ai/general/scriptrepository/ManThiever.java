@@ -1,3 +1,4 @@
+/*
 package plugin.ai.general.scriptrepository;
 
 import core.game.node.Node;
@@ -18,4 +19,10 @@ public class ManThiever extends Script {
             man.getInteraction().handle(bot, man.getInteraction().get(2));
         }
     }
+
+    @Override
+    public void newInstance() {
+
+    }
 }
+*/

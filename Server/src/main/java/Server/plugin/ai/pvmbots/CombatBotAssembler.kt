@@ -1,8 +1,6 @@
 package plugin.ai.pvmbots
 
-import core.game.content.global.action.EquipHandler
 import core.game.node.item.Item
-import core.game.system.SystemLogger
 import core.game.world.map.Location
 import core.tools.ItemNames
 import core.tools.RandomFunction
@@ -21,12 +19,11 @@ class CombatBotAssembler {
         HIGH
     }
         fun produce(type: Type, tier: Tier, location: Location): AIPlayer? {
-            when (type) {
-                Type.RANGE -> return assembleRangedBot(tier, location)
-                Type.MELEE -> return assembleMeleeBot(tier,location)
+            return when (type) {
+                Type.RANGE -> assembleRangedBot(tier, location)
+                Type.MELEE -> assembleMeleeBot(tier,location)
+                Type.MAGE -> assembleMeleeBot(tier,location)
             }
-            SystemLogger.log(type.name)
-            return null
         }
 
         fun assembleRangedBot(tier: Tier, location: Location): CombatBot {
@@ -67,10 +64,9 @@ class CombatBotAssembler {
         fun generateStats(bot: AIPlayer, tier: Tier, vararg skills: Int) {
             var totalXPAdd = 0.0
             var skillAmt = 0.0
-            var levelSum = 0
             val variance = 0.50
             var max = 0
-            var initial = when (tier) {
+            val initial = when (tier) {
                 Tier.LOW -> RandomFunction.random(33).also { max = 33 }
                 Tier.MED -> RandomFunction.random(33, 66).also { max = 66 }
                 Tier.HIGH -> RandomFunction.random(66, 99).also { max = 99 }
@@ -82,24 +78,20 @@ class CombatBotAssembler {
                     level = 1
                 if(level > max)
                     level = max
-                SystemLogger.log("$perc percentage being used for this skill.")
                 bot.skills.setLevel(skills[skill], level).also { totalXPAdd += bot.skills.getExperience(skills[skill]) }
                 bot.skills.setStaticLevel(skills[skill], level)
-                SystemLogger.log("Setting ${skills[skill]} as level $level")
                 skillAmt++
             }
             bot.skills.addExperience(Skills.HITPOINTS, (totalXPAdd / skillAmt) * 0.2)
             bot.skills.updateCombatLevel()
-            SystemLogger.log("Setting hitpoints to ${(bot.skills.getStaticLevel(Skills.HITPOINTS))}")
             bot.fullRestore()
         }
 
-        fun equipHighest(bot: AIPlayer, set: Array<Int>) {
+        private fun equipHighest(bot: AIPlayer, set: Array<Int>) {
             val highestItems = ArrayList<Item>()
             var highest: Item? = null
             for (i in set.indices) {
                 val item = Item(set[i])
-                SystemLogger.log(set[i].toString())
                 var canEquip = true
                 (item.definition.configurations.getOrDefault("requirements",null) as HashMap<Int,Int>?)?.let { map ->
                     map.map {
@@ -122,7 +114,6 @@ class CombatBotAssembler {
                     }
                 }
             }
-            SystemLogger.log(highest?.name)
             bot.equipment.add(highestItems.random(), highest!!.definition!!.configurations["equipment_slot"] as Int, false, false)
         }
 

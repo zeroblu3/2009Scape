@@ -315,7 +315,6 @@ public class Projectile {
 		if (npc) {
 			this.distance = source.size() << 5;
 		}
-		SystemLogger.log("Magic spell source: " + source.getName() + " x: " + sourceLocation.getX() + " y:" + sourceLocation.getY());
 		return this;
 	}
 

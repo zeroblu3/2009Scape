@@ -29,6 +29,7 @@ public final class ArtificialSession extends IoSession {
 
 	@Override
 	public void write(Object context, boolean instant) {
+
 	}
 
 	@Override

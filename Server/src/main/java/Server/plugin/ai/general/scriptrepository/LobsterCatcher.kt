@@ -3,7 +3,6 @@ package plugin.ai.general.scriptrepository
 import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.item.Item
-import core.game.system.SystemLogger
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
@@ -12,6 +11,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphics
 import core.tools.ItemNames
 import core.tools.RandomFunction
+import plugin.ai.AIPlayer
 
 import plugin.skill.Skills
 
@@ -40,21 +40,17 @@ class LobsterCatcher : Script() {
 
 
             State.BANKING -> {
-                val numFish = bot.inventory.getAmount(ItemNames.RAW_LOBSTER)
-                bot.inventory.remove(Item(ItemNames.RAW_LOBSTER,numFish))
-                bot.bank.add(Item(ItemNames.RAW_LOBSTER,numFish))
-                if(bot.bank.getAmount(ItemNames.RAW_LOBSTER) > 100){
-                    state = State.TELEPORT_GE
+                scriptAPI.bankItem(ItemNames.RAW_LOBSTER)
+                state = if(bot.bank.getAmount(ItemNames.RAW_LOBSTER) > 100){
+                    State.TELEPORT_GE
                 } else {
-                    state = State.FIND_SPOT
+                    State.FIND_SPOT
                 }
-                SystemLogger.log("Fish banked: " + bot.bank.getAmount(ItemNames.RAW_LOBSTER))
             }
 
 
             State.FISHING -> {
                 val spot = scriptAPI.getNearestNode(333, false)
-                println("LobsterCatcher: $tick")
                 spot!!.interaction.handle(bot, spot.interaction[0])
                 state = State.FIND_BANK
             }
@@ -65,7 +61,6 @@ class LobsterCatcher : Script() {
                 if (spot != null) {
                     bot.walkingQueue.reset()
                     state = State.FISHING
-                    println("LobsterCatcher: " + spot.location.toString())
                 } else {
                     if (bot.location.x < 2837) {
                         Pathfinder.find(bot, Location.create(2837, 3435, 0)).walk(bot)
@@ -149,5 +144,12 @@ class LobsterCatcher : Script() {
         TELEPORT_GE,
         SELL_GE,
         TELE_CATH
+    }
+
+    override fun newInstance(): Script {
+        val script = LobsterCatcher()
+        script.bot = AIPlayer(bot.startLocation)
+        script.state = State.FIND_SPOT
+        return script
     }
 }

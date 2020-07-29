@@ -10,13 +10,17 @@ import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
+import core.game.node.entity.player.link.appearance.BodyPart;
 import core.game.node.entity.player.link.appearance.Gender;
 import core.game.node.item.Item;
+import core.game.system.SystemLogger;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.map.path.Pathfinder;
 import core.game.world.repository.Repository;
+import core.game.world.update.flag.context.ChatMessage;
+import core.net.packet.context.MessageContext;
 import core.net.packet.in.InteractionPacket;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -110,10 +114,10 @@ public class AIPlayer extends Player {
      */
     public void updateRandomValues() {
         this.getAppearance().setGender(RandomFunction.random(5) == 1 ? Gender.FEMALE : Gender.MALE);
+        int setTo = RandomFunction.random(0,10);
+        CharacterDesign.randomize(this,true);
 
         setLevels();
-        giveArmor();
-
         this.setDirection(Direction.values()[new Random().nextInt(Direction.values().length)]); //Random facing dir
         this.getSkills().updateCombatLevel();
         this.getAppearance().sync();
@@ -206,7 +210,7 @@ public class AIPlayer extends Player {
     private static String retrieveRandomName(String fileName) {
         do {
             updateRandomOSRScopyLine(fileName);
-        } while (OSRScopyLine.startsWith("#")); //Comment
+        } while (OSRScopyLine.startsWith("#") || OSRScopyLine.contains("_") || OSRScopyLine.contains(" ")); //Comment
         return OSRScopyLine.split(":")[0];
     }
 
@@ -299,6 +303,11 @@ public class AIPlayer extends Player {
         }
         return null;
     }
+
+    public void handleIncomingChat(MessageContext ctx){
+        SystemLogger.log("Chat message received");
+    }
+
 
     private ArrayList<Node> getNodeInRange(int range, int entry) {
         int meX = this.getLocation().getX();
@@ -508,7 +517,7 @@ public class AIPlayer extends Player {
             Repository.getPlayers().remove(player);
             return;
         }
-        System.err.println("Could not deregister AIP#" + uid + ": UID not added to the mapping!");
+        //System.err.println("Could not deregister AIP#" + uid + ": UID not added to the mapping!");
     }
 
     @Override
