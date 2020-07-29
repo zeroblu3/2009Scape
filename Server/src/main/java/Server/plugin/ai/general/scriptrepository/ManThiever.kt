@@ -1,28 +1,23 @@
-/*
-package plugin.ai.general.scriptrepository;
+package plugin.ai.general.scriptrepository
 
-import core.game.node.Node;
-import core.game.node.item.Item;
+import core.game.node.item.Item
+import core.game.world.map.Location
+import plugin.ai.skillingbot.SkillingBotAssembler
+import java.util.*
 
-import java.util.Arrays;
-
-public class ManThiever extends Script {
-    public ManThiever() {
-        this.equipment.addAll(Arrays.asList(new Item(1103), new Item(1139), new Item(1265)));
+class ManThiever : Script() {
+    override fun tick() {
+        val man = scriptAPI.getNearestNode("Man")
+        man?.interaction?.handle(bot, man.interaction[2])
     }
 
-    @Override
-    public void tick() {
-        Node man = scriptAPI.getNearestNode("Man");
-
-        if (man != null) {
-            man.getInteraction().handle(bot, man.getInteraction().get(2));
-        }
+    override fun newInstance(): Script? {
+        val script = ManThiever()
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        return script
     }
 
-    @Override
-    public void newInstance() {
-
+    init {
+        equipment.addAll(Arrays.asList(Item(1103), Item(1139), Item(1265)))
     }
 }
-*/
