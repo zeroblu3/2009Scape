@@ -110,7 +110,6 @@ public final class GlassInterface extends ComponentPlugin {
 				}
 				player.animate(ANIMATION);
 				player.getInventory().remove(MOLTEN_GLASS);
-				player.getInventory().remove(SODA_ASH);
 				player.getInventory().add(new Item(glass.getProduct(), 1));
 				player.getSkills().addExperience(Skills.CRAFTING, glass.getExperience(), true);
 				player.getPacketDispatch().sendMessage("You make a " + new Item(glass.getProduct()).getName().toLowerCase().replace("unpowered", "").trim() + ".");

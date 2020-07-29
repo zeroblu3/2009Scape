@@ -7,11 +7,24 @@ import core.game.system.SystemLogger
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
+import core.game.world.map.zone.Zone
+import core.game.world.map.zone.ZoneBorders
 import core.tools.ItemNames
+import plugin.ai.AIPlayer
+import plugin.ai.pvmbots.CombatBotAssembler
+import java.net.Proxy
 
 class CowKiller : Script() {
-    var state = State.KILLING
-    var gateOpened = false
+    var state = State.TELE_GE
+    var spawnZone = ZoneBorders(3254,3255,3264,3281)
+    var cowZone = ZoneBorders(3242, 3254,3265, 3296)
+    val bankZone = ZoneBorders(3208, 3217,3210, 3220)
+    init {
+        cowZone.addException(ZoneBorders(3242,3254,3252,3277))
+        cowZone.addException(ZoneBorders(3242,3277,3242,3296))
+        cowZone.addException(ZoneBorders(3253, 3267,3253, 3267))
+    }
+
     override fun tick() {
         when(state){
             State.KILLING -> {
@@ -25,7 +38,7 @@ class CowKiller : Script() {
                         state = State.KILLING
                         scriptAPI.takeNearestGroundItem(ItemNames.COWHIDE)
                         state = if(bot.inventory.getAmount(ItemNames.COWHIDE) > 22){
-                            State.BANKING
+                            State.TO_BANK
                         } else {
                             State.KILLING
                         }
@@ -34,103 +47,91 @@ class CowKiller : Script() {
                 })
             }
 
-            State.BANKING -> {
-                if(bot.location.x >= 3253 && bot.location.y != 3267){
-                    Pathfinder.find(bot, Location.create(3253, 3267, 0)).walk(bot)
-                }
-                if(bot.location == Location.create(3253, 3267, 0)){
+            State.TO_BANK -> {
+                if(cowZone.insideBorder(bot))
+                    scriptAPI.walkTo(Location.create(3253, 3267, 0))
+                else{
                     val closedGate = scriptAPI.getNearestNode(15516,true)
-                    if(closedGate != null && !gateOpened){
-                        SystemLogger.log("Opening closed gate.")
+                    if(closedGate != null && closedGate.location.withinDistance(bot.location,2)){
                         closedGate.interaction.handle(bot,closedGate.interaction[0])
-                        gateOpened = true
                     } else {
-                        Pathfinder.find(bot,Location.create(3237, 3261, 0)).walk(bot)
+                        when (bot.location) {
+                            Location.create(3212, 3227, 0) -> {
+                                val stairs = scriptAPI.getNearestGameObject(bot.location, 36776)
+                                stairs?.interaction?.handle(bot, stairs.interaction[0])
+                            }
+                            Location.create(3206, 3229, 1) -> {
+                                val stairs = scriptAPI.getNearestNode(36777, true)
+                                stairs?.interaction?.handle(bot, stairs.interaction[1])
+                            }
+                            Location.create(3206, 3229, 2) -> {
+                                scriptAPI.walkTo(bankZone.randomLoc)
+                                state = State.BANKING
+                            }
+                            else -> scriptAPI.walkTo(Location.create(3212, 3227, 0))
+                        }
                     }
                 }
-                when(bot.location){
-                    Location.create(3237, 3261, 0) -> Pathfinder.find(bot,Location.create(3219, 3254, 0)).walk(bot)
-                    Location.create(3219, 3254, 0) -> Pathfinder.find(bot,Location.create(3226, 3236, 0)).walk(bot)
-                    Location.create(3226, 3236, 0) -> Pathfinder.find(bot,Location.create(3212, 3227, 0)).walk(bot)
-                    Location.create(3212, 3227, 0) -> {
-                        val stairs = scriptAPI.getNearestGameObject(bot.location,36776)
-                        stairs?.interaction?.handle(bot,stairs.interaction[0])
-                    }
-                    Location.create(3206, 3229, 1) -> {
-                        val stairs = scriptAPI.getNearestNode(36777,true)
-                        stairs?.interaction?.handle(bot,stairs.interaction[1])
-                    }
-                    Location.create(3206, 3229, 2) -> {
-                        Pathfinder.find(bot,Location.create(3206, 3219, 2)).walk(bot)
-                    }
-                    Location.create(3206, 3219, 2) -> {
-                        val bank = scriptAPI.getNearestNode(36786,true)
-                        bot.pulseManager.run(object: MovementPulse(bot,bank, DestinationFlag.OBJECT){
-                            override fun pulse(): Boolean {
-                                val numHides = bot.inventory.getAmount(ItemNames.COWHIDE)
-                                bot.bank.add(Item(ItemNames.COWHIDE,numHides))
-                                bot.inventory.remove(Item(ItemNames.COWHIDE,numHides))
-                                bot.pulseManager.run(object: Pulse(4){
-                                    override fun pulse(): Boolean {
-                                        if(bot.bank.getAmount(ItemNames.COWHIDE) > 10){
-                                            scriptAPI.teleportToGE()
-                                            state = State.TELE_GE
-                                        } else {
-                                            state = State.BACK_TO_COWS
-                                            gateOpened = false
-                                        }
-                                        return true
-                                    }
-                                })
-                                return true
+            }
+
+            State.BANKING -> {
+                if(bankZone.insideBorder(bot)) {
+                    val bank = scriptAPI.getNearestNode(36786, true)
+                    bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                        override fun pulse(): Boolean {
+                            scriptAPI.bankItem(ItemNames.COWHIDE)
+                            if (bot.bank.getAmount(ItemNames.COWHIDE) > 75) {
+                                scriptAPI.teleportToGE()
+                                state = State.TELE_GE
+                            } else {
+                                state = State.BACK_TO_COWS
                             }
-                        })
-                    }
+                            return true
+                        }
+                    })
                 }
             }
 
 
             State.BACK_TO_COWS -> {
-                when(bot.location) {
-                    Location.create(3222, 3218, 0) -> Pathfinder.find(bot,Location.create(3226, 3236, 0)).walk(bot)
-                    Location.create(3208, 3220, 2) -> Pathfinder.find(bot, Location.create(3206, 3219, 2)).walk(bot)
-                    Location.create(3206, 3219, 2) -> Pathfinder.find(bot, Location.create(3206, 3229, 2)).walk(bot)
-                    Location.create(3206, 3229, 2) -> {
-                        val stairs = scriptAPI.getNearestNode(36778, true)
-                        stairs?.interaction?.handle(bot, stairs.interaction[0])
-                    }
-                    Location.create(3206, 3229, 1) -> {
-                        val stairs = scriptAPI.getNearestNode(36777,true)
-                        stairs?.interaction?.handle(bot,stairs.interaction[2])
-                    }
-                    Location.create(3206, 3229, 0) -> Pathfinder.find(bot,Location.create(3226, 3236, 0)).walk(bot)
-                    Location.create(3226, 3236, 0) -> Pathfinder.find(bot,Location.create(3219, 3254, 0)).walk(bot)
-                    Location.create(3219, 3254, 0) -> Pathfinder.find(bot,Location.create(3237, 3261, 0)).walk(bot)
-                    Location.create(3237, 3261, 0) -> Pathfinder.find(bot,Location.create(3252, 3267, 0)).walk(bot)
-                    Location.create(3252, 3267, 0) -> {
-                        val closedGate = scriptAPI.getNearestNode(15516,true)
-                        if(closedGate != null && !gateOpened){
-                            SystemLogger.log("Opening closed gate.")
-                            closedGate.interaction.handle(bot,closedGate.interaction[0])
-                            gateOpened = true
-                        } else {
-                            Pathfinder.find(bot,Location.create(3258, 3262, 0)).walk(bot)
-                            state = State.KILLING
-                            gateOpened = false
+                if (bankZone.insideBorder(bot))
+                    scriptAPI.walkTo(Location.create(3206, 3229, 2))
+                else {
+                    when (bot.location) {
+                        Location.create(3206, 3229, 2) -> {
+                            val stairs = scriptAPI.getNearestNode(36778, true)
+                            stairs?.interaction?.handle(bot, stairs.interaction[0])
                         }
+                        Location.create(3206, 3229, 1) -> {
+                            val stairs = scriptAPI.getNearestNode(36777, true)
+                            stairs?.interaction?.handle(bot, stairs.interaction[2])
+                        }
+                        Location.create(3252, 3267, 0) -> {
+                            val closedGate = scriptAPI.getNearestNode(15516, true)
+                            if (closedGate != null && closedGate.location.withinDistance(bot.location, 2)) {
+                                SystemLogger.log("Opening closed gate.")
+                                closedGate.interaction.handle(bot, closedGate.interaction[0])
+                            } else {
+                                scriptAPI.walkTo(cowZone.randomLoc)
+                                state = State.KILLING
+                            }
+                        }
+                        else -> scriptAPI.walkTo(Location.create(3252, 3267, 0))
                     }
                 }
             }
 
 
             State.TELE_GE -> {
-                state = State.SELL_GE
-                scriptAPI.teleportToGE()
+                if(bot.location == Location.create(3165, 3482, 0))
+                    state = State.SELL_GE
+                else
+                    scriptAPI.walkTo(Location.create(3165, 3482, 0))
             }
 
             State.SELL_GE -> {
                 state = State.TELE_LUM
-                scriptAPI.sellOnGE(ItemNames.COWHIDE)
+                scriptAPI.sellOnGE(ItemNames.COWHIDE,250)
             }
 
             State.TELE_LUM -> {
@@ -144,13 +145,17 @@ class CowKiller : Script() {
         KILLING,
         LOOTING,
         BANKING,
+        TO_BANK,
         BACK_TO_COWS,
         SELL_GE,
         TELE_GE,
         TELE_LUM
     }
 
-    override fun init() {
-        super.init()
+    override fun newInstance(): Script {
+        val script = CowKiller()
+        script.bot = CombatBotAssembler().produce(CombatBotAssembler.Type.values().random(),CombatBotAssembler.Tier.LOW,spawnZone.randomLoc)
+        script.state = State.KILLING
+        return script
     }
 }

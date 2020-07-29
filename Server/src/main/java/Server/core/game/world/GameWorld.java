@@ -170,19 +170,22 @@ public final class GameWorld {
         if(settings.getEnable_bots()) {
             ImmerseWorld.init();
         }
+        SystemLogger.log("Made it to 173");
         CallbackHub.call();
         STARTUP_PLUGINS.forEach(plugin -> {
             if(plugin != null){
                 plugin.run();
             }
         });
+        SystemLogger.log("Made it to 180");
         if (run) {
             SystemManager.flag(GameWorld.getSettings().isDevMode() ? SystemState.PRIVATE : SystemState.ACTIVE);
         }
         System.gc();
+        SystemLogger.log("185");
         FastPulser.init(20);
-        Pulser.init(600);
         ObjectDefinition.getDefinitions().values().forEach(Definition::getExamine);
+        SystemLogger.log("188");
     }
 
 

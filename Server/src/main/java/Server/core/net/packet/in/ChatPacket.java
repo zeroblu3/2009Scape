@@ -11,6 +11,7 @@ import core.net.amsc.WorldCommunicator;
 import core.net.packet.IncomingPacket;
 import core.net.packet.IoBuffer;
 import core.tools.StringUtils;
+import plugin.ai.AIPlayer;
 
 /**
  * Represents the incoming chat packet.
@@ -41,10 +42,11 @@ public class ChatPacket implements IncomingPacket {
 				return;
 			}
 			player.getMonitor().log(message, PlayerMonitor.PUBLIC_CHAT_LOG);
+			ChatMessage ctx = new ChatMessage(player, message, effects, numChars);
 			GameWorld.FastPulser.submit(new Pulse(0, player) {
 				@Override
 				public boolean pulse() {
-					player.getUpdateMasks().register(new ChatFlag(new ChatMessage(player, message, effects, numChars)));
+					player.getUpdateMasks().register(new ChatFlag(ctx));
 					return true;
 				}
 			});

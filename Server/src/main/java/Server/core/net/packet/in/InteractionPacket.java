@@ -260,7 +260,6 @@ public final class InteractionPacket implements IncomingPacket {
 		if(PluginInteractionManager.handle(player,object)){
 			return;
 		}
-		SystemLogger.log(optionIndex + " for stairs");
 		object.getInteraction().handle(player, option);
 	}
 

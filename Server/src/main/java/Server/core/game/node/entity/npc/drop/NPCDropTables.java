@@ -89,7 +89,6 @@ public final class NPCDropTables {
 
 		DropTables table = DropTables.forId(npc.getId());
 		if(table != null){
-			System.out.println("Testing " + npc.getName());
 			table.getDrops().forEach(drop -> createDrop(drop,p,npc,npc.getDropLocation()));
 			DropPlugins.getDrops(npc.getId()).forEach(drop -> createDrop(drop,p,npc,npc.getDropLocation()));
 			return;

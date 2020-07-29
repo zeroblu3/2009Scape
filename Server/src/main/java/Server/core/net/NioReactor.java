@@ -104,6 +104,7 @@ public final class NioReactor implements Runnable {
 
 	@Override
 	public void run() {
+		Thread.currentThread().setName("NioReactor");
 		while (running) {
 			try {
 				channel.getSelector().select();

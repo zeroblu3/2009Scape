@@ -26,6 +26,7 @@ import core.plugin.InitializablePlugin
 import core.plugin.Plugin
 import core.tools.RandomFunction
 import core.tools.StringUtils
+import plugin.ge.GEOfferDispatch
 import plugin.skill.Skills
 
 /**
@@ -72,6 +73,34 @@ class PlayerCommandPlugin : CommandPlugin() {
                     player.interfaceManager.close()
                 }
                 player.sendMessage("<col=3498db>Your bank tabs have been reset!")
+                return true
+            }
+            "ge" -> {
+                val offers = HashMap<Int,Int>()
+                for(offer in GEOfferDispatch.getOfferMapping().values){
+                    val item = offer.itemId
+                    val amount = offer.amount - offer.completedAmount
+                    if(offers[item] == null){
+                        offers[item] = amount
+                    } else {
+                        offers[item] = offers[item]!!.plus(amount)
+                    }
+                }
+                for (i in 0..310) {
+                    player!!.packetDispatch.sendString("", 275, i)
+                }
+                var lineId = 11
+                player!!.packetDispatch.sendString("Active Sell Offers", 275, 2)
+                var counter = 0
+                for(i in 0..299) {
+                    val offer = offers.entries.elementAtOrNull(i)
+                    if (offer != null)
+                        player.packetDispatch.sendString("${ItemDefinition.forId(offer.key).name} x${offer.value}", 275, lineId++)
+                    else
+                        player.packetDispatch.sendString("", 275, lineId++)
+                }
+
+                player.interfaceManager.open(Component(275))
                 return true
             }
             "bankresetpin" -> {

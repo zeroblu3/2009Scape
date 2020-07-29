@@ -20,7 +20,7 @@ import plugin.ai.AIPBuilder
 import plugin.ai.AIPlayer
 import plugin.ai.general.GeneralBotCreator
 import plugin.ai.general.scriptrepository.LobsterCatcher
-import plugin.ai.general.scriptrepository.ManThiever
+//import plugin.ai.general.scriptrepository.ManThiever
 import plugin.ai.pvmbots.CombatBotAssembler
 import plugin.ai.pvmbots.PvMBotsBuilder
 import plugin.ai.pvp.PVPAIPActions
@@ -130,6 +130,14 @@ class AIPCommandPlugin : CommandPlugin() {
                     last = aip
                     i++
                 }
+                return true
+            }
+            "banktest" -> {
+                val bot = AIPlayer(player.location)
+                //Location.create(2719, 3431, 0)
+                //Location.create(2726, 3477, 0)
+                //Location.create(2726, 3491, 0)
+                Pathfinder.find(bot,Location.create(2726, 3491, 0)).walk(bot)
                 return true
             }
             "pvplegion" -> {
@@ -302,7 +310,7 @@ class AIPCommandPlugin : CommandPlugin() {
                 println("$xpos $ypos")
                 return true
             }
-            "manthiev" -> GeneralBotCreator(player.location, ManThiever())
+            //"manthiev" -> GeneralBotCreator(player.location, ManThiever())
             "fish" -> GeneralBotCreator(Location.create(2805, 3435, 0), LobsterCatcher())
         }
         return false

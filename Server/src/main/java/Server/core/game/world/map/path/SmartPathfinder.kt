@@ -254,8 +254,7 @@ internal constructor() : Pathfinder() {
                     check(curX + 1, curY + 1, NORTH_EAST_FLAG, thisCost)
                 }
             } catch (e: Exception) {
-                e.printStackTrace()
-                println("curX " + curX + " curY" + curY + " via " + via[curX + 1] + via[curY + 1])
+               // e.printStackTrace()println("curX " + curX + " curY" + curY + " via " + via[curX + 1] + via[curY + 1])
             }
         }
     }

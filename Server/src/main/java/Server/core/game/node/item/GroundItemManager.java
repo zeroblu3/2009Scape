@@ -144,7 +144,9 @@ public final class GroundItemManager {
 			if (!item.isActive()) {
 				GROUND_ITEMS.remove(item);
 				if(item.getDropper().isArtificial()) {
-					AIRepository.getItems(item.getDropper()).remove(item);
+					ArrayList<GroundItem> val = AIRepository.getItems(item.getDropper());
+					if(val != null)
+						val.remove(item);
 				}
 				if (!item.isRemoved()) {
 					RegionManager.getRegionPlane(item.getLocation()).remove(item);

@@ -45,4 +45,6 @@ public abstract class Script {
         bot.getSkills().updateCombatLevel();
         bot.getAppearance().sync();
     }
+
+    public abstract Script newInstance();
 }

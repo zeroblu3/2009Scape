@@ -18,6 +18,7 @@ class PulseRunner {
     val TASKS: MutableList<Pulse> = ArrayList()
     var cores = Runtime.getRuntime().availableProcessors()
     var EXECUTOR = Executors.newSingleThreadScheduledExecutor()
+    var lastPulse: Pulse? = null
     fun init(tickTimeMS: Int) {
         EXECUTOR.scheduleAtFixedRate(Runner(), 1200, tickTimeMS.toLong(), TimeUnit.MILLISECONDS)
     }
@@ -32,7 +33,7 @@ class PulseRunner {
             var pulses: MutableList<Pulse>? = null
             pulses = ArrayList(TASKS)
             val pulseArray: Array<Any?> = pulses.toTypedArray()
-            var numThreads = 1 + pulseArray.size / TARGET_PULSES_PER_THREAD
+            /*var numThreads = 1 + pulseArray.size / TARGET_PULSES_PER_THREAD
             if (numThreads > MAXIMUM_NUM_THREADS) numThreads = MAXIMUM_NUM_THREADS
             val nowTime = System.nanoTime()
             // Execute all the tasks not run on the first core
@@ -45,11 +46,12 @@ class PulseRunner {
 
 
             // Execute the first core tasks all together just as before
-            val pulsesLengthStart = floor(pulseArray.size / numThreads.toDouble()).toInt()
-            for (i in 0 until pulsesLengthStart) {
-                val pulse = pulseArray[i] as Pulse? ?: continue
+            val pulsesLengthStart = floor(pulseArray.size / numThreads.toDouble()).toInt()*/
+            for (element in pulseArray) {
+                val pulse = element as Pulse? ?: continue
                 try {
                     if (TASKS.contains(pulse)) {
+                        lastPulse = pulse
                         if (pulse.update()) {
                             TASKS.remove(pulse)
                         }
@@ -70,6 +72,7 @@ class PulseRunner {
                 val pulse = pulseArray[i] as Pulse? ?: continue
                 try {
                     if (TASKS.contains(pulse)) {
+                        lastPulse = pulse
                         if (pulse.update()) {
                             TASKS.remove(pulse)
                         }

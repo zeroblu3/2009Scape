@@ -15,16 +15,21 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
+import core.game.world.map.path.Path
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphics
 import core.tools.ItemNames
 import core.tools.RandomFunction
+import plugin.ai.AIPlayer
 import plugin.ai.AIRepository
 import plugin.ai.general.scriptrepository.LobsterCatcher
+import plugin.ai.general.scriptrepository.SeersMagicTrees
 import plugin.ge.GEOfferDispatch
 import plugin.ge.GrandExchangeOffer
 import java.util.ArrayList
+import java.util.concurrent.Executors
+import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -56,13 +61,13 @@ class ScriptAPI(private val bot: Player) {
             var minDistance = Double.MAX_VALUE
             for (objects in RegionManager.forId(bot.location.regionId).planes[bot.location.z].objects) {
                 for(e in objects) {
-                    if (e != null && e.id == id && distance(bot, e) < minDistance && !Pathfinder.find(bot, e).isMoveNear) {
+                    if (e != null && e.id == id && distance(bot, e) < minDistance && !Pathfinder.find(bot, e).isMoveNear && e.isActive) {
                         entity = e
                         minDistance = distance(bot, e)
                     }
                 }
             }
-            return entity as GameObject
+            return if(entity == null) null else entity as GameObject
         } else {
             var entity: Node? = null
             var minDistance = Double.MAX_VALUE
@@ -76,9 +81,36 @@ class ScriptAPI(private val bot: Player) {
         }
     }
 
+    fun getNearestNode(name: String, `object`: Boolean): Node? {
+        if (`object`) {
+            var entity: Node? = null
+            var minDistance = Double.MAX_VALUE
+            for (objects in RegionManager.forId(bot.location.regionId).planes[bot.location.z].objects) {
+                for(e in objects) {
+                    if (e != null && e.name.toLowerCase() == name.toLowerCase() && distance(bot, e) < minDistance && !Pathfinder.find(bot, e).isMoveNear && e.isActive) {
+                        entity = e
+                        minDistance = distance(bot, e)
+                    }
+                }
+            }
+            return if(entity == null) null else entity as GameObject
+        } else {
+            var entity: Node? = null
+            var minDistance = Double.MAX_VALUE
+            for (e in RegionManager.forId(bot.location.regionId).planes[bot.location.z].entities) {
+                if (e != null && e.name.toLowerCase() == name.toLowerCase() && distance(bot, e) < minDistance && !Pathfinder.find(bot, e).isMoveNear) {
+                    entity = e
+                    minDistance = distance(bot, e)
+                }
+            }
+            return entity
+        }
+    }
+
     private fun getNearestGroundItem(id: Int): GroundItem? {
         var distance = 11.0
         var closest: GroundItem? = null
+        if(AIRepository.getItems(bot) == null) return null
         for(item in AIRepository.getItems(bot)!!.filter { it.distance(bot.location) < 10 }){
             if(item.id == id){
                 //distance = item.distance(bot.location)
@@ -90,7 +122,8 @@ class ScriptAPI(private val bot: Player) {
 
     fun takeNearestGroundItem(id: Int){
         val item = getNearestGroundItem(id)
-        item?.interaction?.handle(bot,item.interaction[2])
+        if(item != null)
+            item.interaction?.handle(bot,item.interaction[2])
     }
 
     fun getNearestGameObject(loc: Location, objectId: Int): GameObject? {
@@ -152,6 +185,28 @@ class ScriptAPI(private val bot: Player) {
         }
     }
 
+    fun walkTo(loc: Location){
+        if(!bot.walkingQueue.isMoving) {
+            Executors.newSingleThreadExecutor().execute {
+                walkToIterator(loc)
+            }
+        }
+    }
+
+    private fun walkToIterator(loc: Location){
+        var diffX = loc.x - bot.location.x
+        var diffY = loc.y - bot.location.y
+        while(!bot.location.transform(diffX,diffY,0).withinDistance(bot.location)) {
+            diffX /= 2
+            diffY /= 2
+        }
+        GameWorld.Pulser.submit(object : MovementPulse(bot,bot.location.transform(diffX,diffY,0), Pathfinder.SMART){
+            override fun pulse(): Boolean {
+                return true
+            }
+        })
+    }
+
     fun attackNpcInRadius(bot: Player,name: String, radius: Int): Boolean {
         if (bot.inCombat()) return true
         var creatures: List<Entity>? = findTargets(bot, radius,name) ?: return false
@@ -205,6 +260,24 @@ class ScriptAPI(private val bot: Player) {
         bot.pulseManager.run(toCounterPulse())
     }
 
+    fun sellOnGE(id: Int, value: Int){
+        class toCounterPulseWithPrice : MovementPulse(bot,Location.create(3165, 3487, 0) ){
+            override fun pulse(): Boolean {
+                val offer = GrandExchangeOffer(id,true)
+                val itemAmt = bot.bank.getAmount(id)
+                offer.amount = itemAmt
+                offer.offeredValue = value
+                SystemLogger.log("Offered " + offer.amount)
+                GEOfferDispatch.dispatch(bot,offer)
+                bot.bank.remove(Item(id,itemAmt))
+                bot.bank.refresh()
+                SystemLogger.log("Banked fish: " + bot.bank.getAmount(ItemNames.RAW_LOBSTER))
+                return true
+            }
+        }
+        bot.pulseManager.run(toCounterPulseWithPrice())
+    }
+
     fun teleport(loc: Location){
         bot.lock()
         bot.visualize(ANIMATIONUP, GRAPHICSUP)
@@ -218,5 +291,19 @@ class ScriptAPI(private val bot: Player) {
                 return true
             }
         })
+    }
+
+    fun bankItem(item: Int){
+        class BankingPulse() : Pulse(20){
+            override fun pulse(): Boolean {
+                val logs = bot.inventory.getAmount(item)
+                bot.inventory.remove(Item(item,logs))
+                bot.bank.add(Item(item,logs))
+                SystemLogger.log("${bot.username}: Banked $logs ${ItemDefinition.forId(item).name.toLowerCase()}")
+                SystemLogger.log("${bot.username}: Bank currently contains ${bot.bank.getAmount(item)} ${ItemDefinition.forId(item).name.toLowerCase()}")
+                return true
+            }
+        }
+        bot.pulseManager.run(BankingPulse())
     }
 }
