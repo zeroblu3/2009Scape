@@ -34,6 +34,7 @@ object ImmerseWorld {
         GeneralBotCreator(CowKiller(), assembler.produce(CombatBotAssembler.Type.MELEE, CombatBotAssembler.Tier.MED, Location.create(3257, 3267, 0)))
         GeneralBotCreator(ManThiever(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3235, 3213, 0)))
         GeneralBotCreator(FarmerThiever(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3094,3243,0)))
+        GeneralBotCreator(FarmerThiever(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3094,3243,0)))
         GeneralBotCreator(DraynorWillows(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.values().random(),Location.create(3094, 3245, 0)))
         GeneralBotCreator(DraynorWillows(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.values().random(),Location.create(3094, 3245, 0)))
         GeneralBotCreator(DraynorWillows(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.values().random(),Location.create(3094, 3245, 0)))
