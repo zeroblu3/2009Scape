@@ -3,19 +3,19 @@
 
     <!--Note: Bots are EXTREMELY EXPERIMENTAL, issues are not currently of concern.-->
     <GameSettings
-    name="2009scape Development"
-    debug="true"
+    name="2009scape"
+    debug="false"
     dev="false"
     startGui="false"
-    worldID="3"
+    worldID="1"
     countryID="0"
-    activity="2009scape Development"
+    activity="2009scape classic."
     pvpWorld="false"
-    msip="192.168.1.180"
+    msip="127.0.0.1"
     default_xp_rate="5"
-    allow_slayer_reroll="true"
+    allow_slayer_reroll="false"
     enable_bots="true"
-    autostock_ge="false"
+    autostock_ge="true"
     allow_token_purchase="true"
     />
 
@@ -23,8 +23,8 @@
     <PluginSetting name="Trivia" enabled="false"/>
     <PluginSetting name="RPS" enabled="false"/>
     <PluginSetting name="Boredom" enabled="false"/>
-    <PluginSetting name="ShootingStars" enabled="false"/>
-    <PluginSetting name="MysteryBox" enabled="false"/>
+    <PluginSetting name="ShootingStars" enabled="true"/>
+    <PluginSetting name="MysteryBox" enabled="true"/>
     <PluginSetting name="PKZone" enabled="false"/>
     <PluginSetting name="ObjectParser" enabled="true"/>
     <PluginSetting name="BlackJack" enabled="false"/>
