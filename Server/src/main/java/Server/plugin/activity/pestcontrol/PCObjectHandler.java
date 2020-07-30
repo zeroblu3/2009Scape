@@ -1,6 +1,7 @@
 package plugin.activity.pestcontrol;
 
 import core.cache.def.impl.ObjectDefinition;
+import core.game.world.GameWorld;
 import plugin.activity.ActivityManager;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -97,13 +98,13 @@ public final class PCObjectHandler extends OptionHandler {
 			}
 			switch (object.getId()) {
 			case 14315: // Novice
-                if (!pcbotsSpawned) { //First person to join gets bots to play with
-                	pcbotsSpawned = true;
-					for (int pestBotsAmount = 0; pestBotsAmount < 20; pestBotsAmount++) {
+                if (!GameWorld.PCBotsSpawned && !player.isArtificial()) { //First person to join gets bots to play with
+                	GameWorld.PCBotsSpawned = true;
+					for (int pestBotsAmount = 0; pestBotsAmount < 23; pestBotsAmount++) {
 						PvMBotsBuilder.createPestControlTestBot(new Location(2657, 2640));
 					}
 				}
-                if (!playersJoined.contains(player.getUsername())) { //You also get +1 bot for every friend
+                if (!playersJoined.contains(player.getUsername()) && !player.isArtificial()) { //You also get +1 bot for every friend
 					playersJoined.add(player.getUsername());
 					PvMBotsBuilder.createPestControlTestBot(new Location(2657, 2640));
 				}

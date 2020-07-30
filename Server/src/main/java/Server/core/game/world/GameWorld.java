@@ -64,6 +64,8 @@ public final class GameWorld {
 
     private static final ConfigParser configParser = new ConfigParser();
 
+    public static boolean PCBotsSpawned = false;
+
     /**
      * The game settings to use.
      */
