@@ -103,7 +103,7 @@ public final class DrunkDwarfEvent extends AntiMacroEvent {
 		@Override
 		public boolean open(Object... args) {
 			if (super.open(args)) {
-				player.getDialogueInterpreter().sendDialogues(npc, FacialExpression.OSRS_NORMAL, "I 'new it were you matey! 'Ere, have some ob the good", "stuff!");
+				player.getDialogueInterpreter().sendDialogues(npc, FacialExpression.OLD_NORMAL, "I 'new it were you matey! 'Ere, have some ob the good", "stuff!");
 			} else {
 				return true;
 			}

@@ -46,7 +46,7 @@ public final class VetionJRDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "The mighty heir and lord of the Wilderness.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "The mighty heir and lord of the Wilderness.");
 			stage = 1;
 			break;
 		case 1:
@@ -54,7 +54,7 @@ public final class VetionJRDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "I have not fulfilled my purpose.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I have not fulfilled my purpose.");
 			stage = 3;
 			break;
 		case 3:
@@ -62,7 +62,7 @@ public final class VetionJRDialogue extends DialoguePlugin {
 			stage = 4;
 			break;
 		case 4:
-			npc(FacialExpression.OSRS_NORMAL, "Not what is, what was.", "A great war tore this land apart and, for my","failings in protecting this land, I carry the burden","of its waste.");
+			npc(FacialExpression.OLD_NORMAL, "Not what is, what was.", "A great war tore this land apart and, for my","failings in protecting this land, I carry the burden","of its waste.");
 			stage = 5;
 			break;
 		case 5:

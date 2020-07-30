@@ -34,8 +34,10 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class ScriptAPI(private val bot: Player) {
-    val GRAPHICS = Graphics(308, 100, 50)
-    val ANIMATION = Animation(714)
+    val GRAPHICSUP = Graphics(1576)
+    val ANIMATIONUP = Animation(8939)
+    val GRAPHICSDOWN = Graphics(1577)
+    val ANIMATIONDOWN = Animation(8941)
 
     fun distance(n1: Node, n2: Node): Double {
         return sqrt((n1.location.x - n2.location.x.toDouble()).pow(2.0) + (n2.location.y - n1.location.y.toDouble()).pow(2.0))
@@ -227,7 +229,7 @@ class ScriptAPI(private val bot: Player) {
 
     fun teleportToGE(){
         bot.lock()
-        bot.visualize(ANIMATION, GRAPHICS)
+        bot.visualize(ANIMATIONUP, GRAPHICSUP)
         bot.impactHandler.disabledTicks = 4
         val location = Location.create(3165, 3482, 0)
         bot.pulseManager.run(object : Pulse(4, bot) {
@@ -278,7 +280,7 @@ class ScriptAPI(private val bot: Player) {
 
     fun teleport(loc: Location){
         bot.lock()
-        bot.visualize(ANIMATION, GRAPHICS)
+        bot.visualize(ANIMATIONUP, GRAPHICSUP)
         bot.impactHandler.disabledTicks = 4
         val location = loc
         GameWorld.Pulser.submit(object : Pulse(4, bot) {

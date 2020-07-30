@@ -616,7 +616,7 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 	 */
 	private FacialExpression getExpression(Master master) {
 		if (master == Master.CHAELDAR) {
-			return FacialExpression.OSRS_NORMAL;
+			return FacialExpression.OLD_NORMAL;
 		}
 		return FacialExpression.HALF_GUILTY;
 	}

@@ -75,7 +75,7 @@ public class SnakelingNPC extends Metamorphosis {
 		public boolean handle(int interfaceId, int buttonId) {
 			switch (stage) {
 			case 0:
-				npc(FacialExpression.OSRS_NORMAL, "Soon, Zulrah shall establish dominion over this plane.");
+				npc(FacialExpression.OLD_NORMAL, "Soon, Zulrah shall establish dominion over this plane.");
 				stage = 1;
 				break;
 			case 1:
@@ -83,7 +83,7 @@ public class SnakelingNPC extends Metamorphosis {
 				stage = 2;
 				break;
 			case 2:
-				npc(FacialExpression.OSRS_NORMAL, "Submit to the almighty Zulrah.");
+				npc(FacialExpression.OLD_NORMAL, "Submit to the almighty Zulrah.");
 				stage = 3;
 				break;
 			case 3:
@@ -91,7 +91,7 @@ public class SnakelingNPC extends Metamorphosis {
 				stage = 4;
 				break;
 			case 4:
-				npc(FacialExpression.OSRS_NORMAL, "Zulrah's wilderness as a God will soon be demonstrated.");
+				npc(FacialExpression.OLD_NORMAL, "Zulrah's wilderness as a God will soon be demonstrated.");
 				stage = 5;
 				break;
 			case 5:

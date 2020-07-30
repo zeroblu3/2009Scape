@@ -45,7 +45,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
             return true;
         }
         if (!player.getInventory().containsItem(BALL)) {
-            npc( FacialExpression.OSRS_NORMAL, "Have you gotten my ball back yet?");
+            npc( FacialExpression.OLD_NORMAL, "Have you gotten my ball back yet?");
         } else {
             player("Hi, I have got your ball back. It was MUCH harder", "than I thought it would be.");
         }
@@ -85,7 +85,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 5:
-                npc(FacialExpression.OSRS_NORMAL, "I've kicked my ball over that hedge, into that garden!", "The old lady who lives there is scary... She's locked the","ball in her wooden shed! Can you get my ball back for", "me please?");
+                npc(FacialExpression.OLD_NORMAL, "I've kicked my ball over that hedge, into that garden!", "The old lady who lives there is scary... She's locked the","ball in her wooden shed! Can you get my ball back for", "me please?");
                 next();
                 break;
             case 6:
@@ -105,7 +105,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 }
                 break;
             case 8:
-                npc(FacialExpression.OSRS_NORMAL, "You're a meany.");
+                npc(FacialExpression.OLD_NORMAL, "You're a meany.");
                 next();
                 break;
             case 9:
@@ -113,7 +113,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 10:
-                npc(FacialExpression.OSRS_NORMAL, "Thanks mister!");
+                npc(FacialExpression.OLD_NORMAL, "Thanks mister!");
                 finish();
                 quest.start(player);
                 break;
@@ -128,11 +128,11 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 }
                 break;
             case 12:
-                npc(FacialExpression.OSRS_NORMAL, "Well it's in the shed in that garden.");
+                npc(FacialExpression.OLD_NORMAL, "Well it's in the shed in that garden.");
                 finish();
                 break;
             case 13:
-                npc(FacialExpression.OSRS_NORMAL, "Thank you so much!");
+                npc(FacialExpression.OLD_NORMAL, "Thank you so much!");
                 next();
                 break;
             case 14:

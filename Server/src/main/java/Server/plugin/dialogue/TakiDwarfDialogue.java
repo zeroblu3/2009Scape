@@ -29,15 +29,15 @@ public class TakiDwarfDialogue extends DialoguePlugin {
 
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(player, FacialExpression.OSRS_NORMAL, "Hi little fellow.");
+			interpreter.sendDialogues(player, FacialExpression.OLD_NORMAL, "Hi little fellow.");
 			stage = 1;
 			break;
 		case 1:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "What did you just say to me!?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "What did you just say to me!?");
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(player, FacialExpression.OSRS_NORMAL, "Arrr! nothing, nothing at all..");
+			interpreter.sendDialogues(player, FacialExpression.OLD_NORMAL, "Arrr! nothing, nothing at all..");
 			stage = 3;
 			break;
 		case 3:
@@ -57,7 +57,7 @@ public class TakiDwarfDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Arrr!");
+		interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Arrr!");
 		stage = 0;
 		return true;
 	}

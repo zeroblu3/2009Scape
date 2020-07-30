@@ -46,7 +46,7 @@ public final class ChaosElementalJRDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Yes, they killed my mummy, kidnapped", "my brother, smiled about it and","went to sleep.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Yes, they killed my mummy, kidnapped", "my brother, smiled about it and","went to sleep.");
 			stage = 1;
 			break;
 		case 1:

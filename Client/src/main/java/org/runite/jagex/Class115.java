@@ -3,19 +3,11 @@ package org.runite.jagex;
 final class Class115 {
 
    static Class86[][] aClass86ArrayArray1581 = new Class86[13][13];
-   private static RSString aClass94_1582 = RSString.createRSString("Ok");
-   static RSString aClass94_1583 = aClass94_1582;
 
 
    public static void method1712(int var0) {
       try {
          aClass86ArrayArray1581 = (Class86[][])null;
-         aClass94_1583 = null;
-         aClass94_1582 = null;
-         if(var0 <= 15) {
-            aClass94_1582 = (RSString)null;
-         }
-
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ph.B(" + var0 + ')');
       }
@@ -37,10 +29,10 @@ final class Class115 {
             int var3;
             if(0 > var1.anInt2273) {
                var3 = -var1.anInt2273 - 1;
-               if(~var3 != ~Class3_Sub1.localIndex) {
-                  var2 = Class3_Sub13_Sub22.players[var3];
-               } else {
+               if(Class3_Sub1.localIndex == var3) {
                   var2 = Class102.player;
+               } else {
+                  var2 = Class3_Sub13_Sub22.players[var3];
                }
             } else {
                var3 = var1.anInt2273 - 1;
@@ -49,18 +41,18 @@ final class Class115 {
 
             if(var2 != null) {
                ObjectDefinition var20 = Class162.getObjectDefinition(4, var1.anInt2270);
-               if(~WorldListCountry.localPlane > -4) {
+               if(WorldListCountry.localPlane < 3) {
                   ;
                }
 
                int var4;
                int var5;
-               if(~var1.anInt2284 != -2 && ~var1.anInt2284 != -4) {
-                  var4 = var20.anInt1480;
-                  var5 = var20.anInt1485;
+               if(var1.anInt2284 == 1 || var1.anInt2284 == 3) {
+                  var5 = var20.SizeX;
+                  var4 = var20.SizeY;
                } else {
-                  var5 = var20.anInt1480;
-                  var4 = var20.anInt1485;
+                  var4 = var20.SizeX;
+                  var5 = var20.SizeY;
                }
 
                int var7 = (var4 - -1 >> 1) + var1.anInt2271;
@@ -71,12 +63,17 @@ final class Class115 {
                int var11 = var10[var7][var9] + var10[var6][var9] + (var10[var6][var8] - -var10[var7][var8]) >> 2;
                GameObject var12 = null;
                int var13 = Class75.anIntArray1107[var1.anInt2278];
-               if(-1 == ~var13) {
+               if(var13 == 0) {
                   Class70 var14 = Class154.method2147(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
                   if(var14 != null) {
                      var12 = var14.aClass140_1049;
                   }
-               } else if(~var13 != -2) {
+               } else if(var13 == 1) {
+                  Class19 var21 = Class44.method1068(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
+                  if(null != var21) {
+                     var12 = var21.aClass140_429;
+                  }
+               } else {
                   if(2 == var13) {
                      Class25 var23 = Class75.method1336(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
                      if(null != var23) {
@@ -87,11 +84,6 @@ final class Class115 {
                      if(null != var24) {
                         var12 = var24.object;
                      }
-                  }
-               } else {
-                  Class19 var21 = Class44.method1068(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
-                  if(null != var21) {
-                     var12 = var21.aClass140_429;
                   }
                }
 
@@ -115,7 +107,7 @@ final class Class115 {
                   }
 
                   ((Class140_Sub4)var2).anInt2818 = var1.anInt2271 + var15;
-                  if(~var16 < ~var17) {
+                  if(var17 < var16) {
                      var18 = var16;
                      var16 = var17;
                      var17 = var18;

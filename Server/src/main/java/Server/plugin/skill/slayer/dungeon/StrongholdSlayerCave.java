@@ -84,7 +84,7 @@ public class StrongholdSlayerCave extends MapZone implements Plugin<Object> {
 					}
 				}
 				player.face(node.asNpc());
-				player.getDialogueInterpreter().sendDialogues(Master.NIEVE.getNpc(), FacialExpression.OSRS_NORMAL, "That's not your assigned Slayer target. In my cave,", "I expect people to focus on their Slayer training.");
+				player.getDialogueInterpreter().sendDialogues(Master.NIEVE.getNpc(), FacialExpression.OLD_NORMAL, "That's not your assigned Slayer target. In my cave,", "I expect people to focus on their Slayer training.");
 			}
 			return true;
 		case "enter":
@@ -215,7 +215,7 @@ public class StrongholdSlayerCave extends MapZone implements Plugin<Object> {
 			}
 		}
 		player.face(target.asNpc());
-		player.getDialogueInterpreter().sendDialogues(Master.NIEVE.getNpc(), FacialExpression.OSRS_NORMAL, "That's not your assigned Slayer target. In my cave,", "I expect people to focus on their Slayer training.");
+		player.getDialogueInterpreter().sendDialogues(Master.NIEVE.getNpc(), FacialExpression.OLD_NORMAL, "That's not your assigned Slayer target. In my cave,", "I expect people to focus on their Slayer training.");
 		return false;
 	}
 	

@@ -2,12 +2,9 @@ package org.runite.jagex;
 
 final class Class75_Sub4 extends Class75 {
 
-   static RSString aClass94_2662 = RSString.createRSString("Zugewiesener Speicher)3");
    static int[] anIntArray2663;
    static int[] anIntArray2664;
-   private static RSString aClass94_2665 = RSString.createRSString("Choose Option");
    private int anInt2666;
-   static RSString aClass94_2667 = aClass94_2665;
    static int[] anIntArray2668 = new int[]{-1, 0, 8, 0, 2, 0, 0, 0, 0, 12, 0, 1, 0, 3, 7, 0, 15, 6, 0, 0, 4, 7, -2, -1, 2, 0, 2, 8, 0, 0, 0, 0, -2, 5, 0, 0, 8, 3, 6, 0, 0, 0, -1, 0, -1, 0, 0, 6, -2, 0, 12, 0, 0, 0, -1, -2, 10, 0, 0, 0, 3, 0, -1, 0, 0, 5, 6, 0, 0, 8, -1, -1, 0, 8, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 6, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, -2, 0, 0, 0, 0, 0, 12, 2, 0, -2, -2, 20, 0, 0, 10, 0, 15, 0, -1, 0, 8, -2, 0, 0, 0, 8, 0, 12, 0, 0, 7, 0, 0, 0, 0, 0, -1, -1, 0, 4, 5, 0, 0, 0, 6, 0, 0, 0, 0, 8, 9, 0, 0, 0, 2, -1, 0, -2, 0, 4, 14, 0, 0, 0, 24, 0, -2, 5, 0, 0, 0, 10, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 1, 0, 0, 2, -1, 1, 0, 0, 0, 0, 14, 0, 0, 0, 0, 10, 5, 0, 0, 0, 0, 0, -2, 0, 0, 9, 0, 0, 8, 0, 0, 0, 0, -2, 6, 0, 0, 0, -2, 0, 3, 0, 1, 7, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 3, 0, 0};
    private int anInt2669;
    static int anInt2670 = 0;
@@ -29,7 +26,7 @@ final class Class75_Sub4 extends Class75 {
             int var5;
             int var6;
             //Ordinal: 0 Hit
-            if(-1 != ~(64 & var4)) {
+            if((64 & var4) != 0) {
                var5 = GraphicDefinition.incomingBuffer.getByte((byte)-57);
                var6 = GraphicDefinition.incomingBuffer.getByteC(true);
                npc.method1970(var6, -8, Class44.anInt719, var5);
@@ -56,9 +53,9 @@ final class Class75_Sub4 extends Class75 {
             }
 
             //Ordinal: 3 Face entity
-            if(-1 != ~(var4 & 4)) {
+            if((var4 & 4) != 0) {
                npc.anInt2772 = GraphicDefinition.incomingBuffer.getShortA(-117);
-               if(-65536 == ~npc.anInt2772) {
+               if(npc.anInt2772 == 65535) {
                   npc.anInt2772 = -1;
                }
             }
@@ -72,7 +69,7 @@ final class Class75_Sub4 extends Class75 {
 
                var6 = GraphicDefinition.incomingBuffer.getLEInt(-46);
                boolean var7 = true;
-               if(0 != ~var5 && 0 != ~npc.anInt2842 && Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var5).anInt542, (byte)-20).anInt1857 < Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542, (byte)-20).anInt1857) {
+               if(var5 != -1 && npc.anInt2842 != -1 && Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var5).anInt542, (byte)-20).anInt1857 < Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542, (byte)-20).anInt1857) {
                   var7 = false;
                }
 
@@ -87,9 +84,9 @@ final class Class75_Sub4 extends Class75 {
                      npc.anInt2805 = -1;
                   }
 
-                  if(npc.anInt2842 != -1 && ~npc.anInt2759 == ~Class44.anInt719) {
+                  if(npc.anInt2842 != -1 && Class44.anInt719 == npc.anInt2759) {
                      int var8 = RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542;
-                     if(0 != ~var8) {
+                     if(var8 != -1) {
                         AnimationDefinition var9 = Client.getAnimationDefinition(var8, (byte)-20);
                         if(null != var9 && var9.frames != null) {
                            IOHandler.method1470(npc.anInt2829, var9, 183921384, npc.anInt2819, false, 0);
@@ -114,7 +111,7 @@ final class Class75_Sub4 extends Class75 {
             }
 
             //Ordinal: 6 Force chat
-            if(-1 != ~(var4 & 32)) {
+            if((var4 & 32) != 0) {
                npc.textSpoken = GraphicDefinition.incomingBuffer.getString();
                npc.textCycle = 100;
             }
@@ -126,7 +123,7 @@ final class Class75_Sub4 extends Class75 {
                int[] var13 = new int[var5];
                int[] var14 = new int[var5];
 
-               for(int var15 = 0; ~var15 > ~var5; ++var15) {
+               for(int var15 = 0; var5 > var15; ++var15) {
                   int var10 = GraphicDefinition.incomingBuffer.getLEShort(-101);
                   if(var10 == '\uffff') {
                      var10 = -1;
@@ -170,13 +167,9 @@ final class Class75_Sub4 extends Class75 {
    public static void method1350(byte var0) {
       try {
          anIntArray2664 = null;
-         aClass94_2662 = null;
-         aClass94_2665 = null;
          if(var0 != 75) {
             method1350((byte)-116);
          }
-
-         aClass94_2667 = null;
          anIntArray2668 = null;
          anIntArray2663 = null;
       } catch (RuntimeException var2) {
@@ -204,9 +197,6 @@ final class Class75_Sub4 extends Class75 {
          int var6 = var3 * this.anInt2672 >> 12;
          int var7 = var3 * this.anInt2669 >> 12;
          Class3_Sub29.method730(var4, this.anInt1101, (byte)121, var7, var5, var6);
-         if(var1 != 2) {
-            aClass94_2665 = (RSString)null;
-         }
 
       } catch (RuntimeException var8) {
          throw Class44.method1067(var8, "ta.A(" + var1 + ',' + var2 + ',' + var3 + ')');
@@ -216,15 +206,11 @@ final class Class75_Sub4 extends Class75 {
    static final boolean method1351(CacheIndex var0, int var1, int archiveId, int var3) {
       try {
          byte[] var4 = var0.getFile(archiveId, (byte)-122, var1);
-         if(var3 != -30901) {
-            aClass94_2662 = (RSString)null;
-         }
-
-         if(var4 != null) {
+         if(var4 == null) {
+            return false;
+         } else {
             Class45.method1082(var4, 98);
             return true;
-         } else {
-            return false;
          }
       } catch (RuntimeException var5) {
          throw Class44.method1067(var5, "ta.N(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + archiveId + ',' + var3 + ')');
@@ -265,7 +251,7 @@ final class Class75_Sub4 extends Class75 {
             int var3 = Class3_Sub13_Sub17.aClass153_3210.getArchiveForName(Class3_Sub8.aClass94_2304, (byte)-30);
             int[] var4 = Class3_Sub13_Sub17.aClass153_3210.getFileIds((byte)-128, var3);
 
-            for(int var5 = 0; ~var4.length < ~var5; ++var5) {
+            for(int var5 = 0; var5 < var4.length; ++var5) {
                Class134.aClass61_1758.method1215(true, Class124.method1747(new RSByteBuffer(Class3_Sub13_Sub17.aClass153_3210.getFile(var3, (byte)-122, var4[var5])), true));
             }
 
@@ -281,10 +267,6 @@ final class Class75_Sub4 extends Class75 {
             var0 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var0, (byte)0, Class101.anInt1425);
             var3 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var3, (byte)0, Class101.anInt1425);
             Class3_Sub13_Sub32.method320(var1, var4, var3, (byte)-123, var0);
-         }
-
-         if(!var2) {
-            aClass94_2665 = (RSString)null;
          }
 
       } catch (RuntimeException var6) {

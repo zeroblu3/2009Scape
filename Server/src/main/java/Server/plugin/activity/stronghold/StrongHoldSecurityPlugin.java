@@ -349,86 +349,86 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			door = (GameObject) args[0];
 			npcId = getNpcId(door.getName());
 			if (player.getLocation().getX() == 1859 && player.getLocation().getY() == 5239 || player.getLocation().getX() == 1858 && player.getLocation().getY() == 5239) {
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Greetings Adventurer. This place is kept safe by the", "spirits within the doors. As you pass through you will be", "asked questions about security. Hopefully you will learn", "much from us.");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Greetings Adventurer. This place is kept safe by the", "spirits within the doors. As you pass through you will be", "asked questions about security. Hopefully you will learn", "much from us.");
 				stage = 900;
 				return true;
 			}
 			final int rand = RandomFunction.random(0, 18);
 			switch (rand) {
 			case 0:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: What do I do if a", "moderator asks me for my account details?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: What do I do if a", "moderator asks me for my account details?");
 				stage = 100;
 				break;
 			case 1:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: My friend uses this", "great add-on program he got from a website, should I?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: My friend uses this", "great add-on program he got from a website, should I?");
 				stage = 1000;
 				break;
 			case 2:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Who is it ok to", "share my account with?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Who is it ok to", "share my account with?");
 				stage = 200;
 				break;
 			case 3:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Why do I need to", "type in recovery questions?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Why do I need to", "type in recovery questions?");
 				stage = 300;
 				break;
 			case 4:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Who is it ok to", "share my account with?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Who is it ok to", "share my account with?");
 				stage = 400;
 				break;
 			case 5:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Who can I give my", "password to?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Who can I give my", "password to?");
 				stage = 500;
 				break;
 			case 6:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: How will " + GameWorld.getName() + "", "contact me if I have been chosen to be a moderator?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: How will " + GameWorld.getName() + "", "contact me if I have been chosen to be a moderator?");
 				stage = 600;
 				break;
 			case 7:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: How often should", "you change your recovery questions?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: How often should", "you change your recovery questions?");
 				stage = 700;
 				break;
 			case 8:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: A website says I", "can become a player moderator by giving", "them my password what do I do?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: A website says I", "can become a player moderator by giving", "them my password what do I do?");
 				stage = 800;
 				break;
 			case 9:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Will " + GameWorld.getName() + " block me", "from saying my PIN in game?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Will " + GameWorld.getName() + " block me", "from saying my PIN in game?");
 				stage = 1900;
 				break;
 			case 10:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Can I leave my", "account logged in while I'm out of the room?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Can I leave my", "account logged in while I'm out of the room?");
 				stage = 1100;
 				break;
 			case 11:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Where should I", "enter my " + GameWorld.getName() + " Password?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Where should I", "enter my " + GameWorld.getName() + " Password?");
 				stage = 1111;
 				break;
 			case 12:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: What is an", "example of a good bank PIN?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: What is an", "example of a good bank PIN?");
 				stage = 1200;
 				break;
 			case 13:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: What do I do if I", "think I have a keylogger or virus?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: What do I do if I", "think I have a keylogger or virus?");
 				stage = 1300;
 				break;
 			case 14:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Recovery answers", "should be...");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Recovery answers", "should be...");
 				stage = 1400;
 				break;
 			case 15:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: What do you do", "if someone tells you that you have won the " + GameWorld.getName() + "", "Lottery and asks for your password or recoveries?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: What do you do", "if someone tells you that you have won the " + GameWorld.getName() + "", "Lottery and asks for your password or recoveries?");
 				stage = 1500;
 				break;
 			case 16:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: What should I", "do if I think someone knows my recoveries?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: What should I", "do if I think someone knows my recoveries?");
 				stage = 1600;
 				break;
 			case 17:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: What do you do", "if someone asks you for your password or recoveries", "to make you a player moderator?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: What do you do", "if someone asks you for your password or recoveries", "to make you a player moderator?");
 				stage = 1700;
 				break;
 			case 18:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "To pass you must answer me this: Where can i", "find cheats for " + GameWorld.getName() + "?");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "To pass you must answer me this: Where can i", "find cheats for " + GameWorld.getName() + "?");
 				stage = 1800;
 				break;
 			}
@@ -439,12 +439,12 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 		public boolean handle(int interfaceId, int buttonId) {
 			switch (stage) {
 			case 900:
-				interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Please pass through and begin your adventure, beware", "of the various monsters that dwell within.");
+				interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Please pass through and begin your adventure, beware", "of the various monsters that dwell within.");
 				stage = 901;
 				break;
 			case 901:
 				openDoor(player, door);
-				interpreter.sendDialogues(player, FacialExpression.OSRS_NORMAL, "Oh my! I just got sucked through that door... what a", "weird feeling! Still, I guess I should expect it as these", "evidently aren't your average kind of doors.... they talk", "and look creepy!");
+				interpreter.sendDialogues(player, FacialExpression.OLD_NORMAL, "Oh my! I just got sucked through that door... what a", "weird feeling! Still, I guess I should expect it as these", "evidently aren't your average kind of doors.... they talk", "and look creepy!");
 				stage = 902;
 				break;
 			case 902:
@@ -457,15 +457,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 101:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Never give your account details to anyone!", "This includes things like recovery answers, contact", "details and passwords. Never use personal details for", "recoveries or bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Never give your account details to anyone!", "This includes things like recovery answers, contact", "details and passwords. Never use personal details for", "recoveries or bank PINs!");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Ok! Don't tell them the details. But reporting the", "incident to " + GameWorld.getName() + " would help. Use the Report Abuse", "button. Never use personal details for recoveries or", "bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Ok! Don't tell them the details. But reporting the", "incident to " + GameWorld.getName() + " would help. Use the Report Abuse", "button. Never use personal details for recoveries or", "bank PINs!");
 					stage = 69;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Report any attempt to gain your account", "details as it is a very serious breach of " + GameWorld.getName() + "'s", "rules. Never use personal details for recoveries or bank", "PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Report any attempt to gain your account", "details as it is a very serious breach of " + GameWorld.getName() + "'s", "rules. Never use personal details for recoveries or bank", "PINs!");
 					stage = 69;
 					break;
 				}
@@ -480,15 +480,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 10001:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! The only safe add-on for " + GameWorld.getName() + " is the Window", "client available from our " + GameWorld.getName() + " Website.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! The only safe add-on for " + GameWorld.getName() + " is the Window", "client available from our " + GameWorld.getName() + " Website.");
 					stage = 69;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Some programs steal your password without", "you even knowing, this only requires running the", "program once, even if you don't use it.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Some programs steal your password without", "you even knowing, this only requires running the", "program once, even if you don't use it.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! The program may steal your password and is", "against the rules to use.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! The program may steal your password and is", "against the rules to use.");
 					stage = 99;
 					break;
 				}
@@ -501,15 +501,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 201:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! You account may only be used by you.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! You account may only be used by you.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Your account may only be used by you.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Your account may only be used by you.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! You, can you only may use your account.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! You, can you only may use your account.");
 					stage = 69;
 					break;
 				}
@@ -521,15 +521,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 301:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Your recovery questions will help " + GameWorld.getName() + " staff protect", "and return your account if it is stolen. Never use personal", "details for recoveries or bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Your recovery questions will help " + GameWorld.getName() + " staff protect", "and return your account if it is stolen. Never use personal", "details for recoveries or bank PINs!");
 					stage = 69;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! " + GameWorld.getName() + " values players opinons, but we use polls", "and forums to see what you think. The recoveries are not there to gain personal", "information about anybody but to protect your account.", "Never use personal details");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! " + GameWorld.getName() + " values players opinons, but we use polls", "and forums to see what you think. The recoveries are not there to gain personal", "information about anybody but to protect your account.", "Never use personal details");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Typing random letters into your recoveries", "won't help you or the " + GameWorld.getName() + " staff - you'll never", "remember them anyway! Never use personal details for", "recoveries or bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Typing random letters into your recoveries", "won't help you or the " + GameWorld.getName() + " staff - you'll never", "remember them anyway! Never use personal details for", "recoveries or bank PINs!");
 					stage = 99;
 					break;
 				}
@@ -541,15 +541,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 401:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! You account may only be used by you.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! You account may only be used by you.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! You account may only be used by you.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! You account may only be used by you.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! You, and you only may use your account.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! You, and you only may use your account.");
 					stage = 69;
 					break;
 				}
@@ -561,15 +561,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 501:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Your password should be kept secret from", "everyone. You should *never* give it out under any", "circumstances.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Your password should be kept secret from", "everyone. You should *never* give it out under any", "circumstances.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Your password should be kept secret from", "everyone. You should *never* give it out under any", "circumstances.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Your password should be kept secret from", "everyone. You should *never* give it out under any", "circumstances.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Your password should be kept secret from", "everyone. You should *never* give it out under any", "circumstances.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Your password should be kept secret from", "everyone. You should *never* give it out under any", "circumstances.");
 					stage = 69;
 					break;
 				}
@@ -581,15 +581,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 601:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! " + GameWorld.getName() + " never uses email to contact you, this is a", "scam and a fake, do not reply to it and delete it", "straight away. " + GameWorld.getName() + " will only contact you through your", "Game Inbox avaibale on our website.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! " + GameWorld.getName() + " never uses email to contact you, this is a", "scam and a fake, do not reply to it and delete it", "straight away. " + GameWorld.getName() + " will only contact you through your", "Game Inbox avaibale on our website.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! " + GameWorld.getName() + " would never use such an insecure", "method to pick you. We will contact you through your", "Game Inbox available on our website.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! " + GameWorld.getName() + " would never use such an insecure", "method to pick you. We will contact you through your", "Game Inbox available on our website.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! We only contact our players via the game", "Inbox which you can access from our " + GameWorld.getName() + "", "website.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! We only contact our players via the game", "Inbox which you can access from our " + GameWorld.getName() + "", "website.");
 					stage = 69;
 					break;
 				}
@@ -601,15 +601,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 701:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Never changing your recovery questions will lead to", "an insecure account due to keyloggers or friends knowing", "enough about you to guess them. Don't use personal details for your recoveries.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Never changing your recovery questions will lead to", "an insecure account due to keyloggers or friends knowing", "enough about you to guess them. Don't use personal details for your recoveries.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! it is the ideal option to change your questions", "but make sure you can remember the answers!", "Don't use personal details for your recoveries.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! it is the ideal option to change your questions", "but make sure you can remember the answers!", "Don't use personal details for your recoveries.");
 					stage = 69;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Normally recovery questions will take 14 days to", "become active, so there's no point in changing them", "everyday! Don't use personal details for your", "recoveries.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Normally recovery questions will take 14 days to", "become active, so there's no point in changing them", "everyday! Don't use personal details for your", "recoveries.");
 					stage = 99;
 					break;
 				}
@@ -621,15 +621,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 801:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "This is one solution, however someone will fall for", "this scam sooner or later. Tell us about it through", "the " + GameWorld.getName() + " website. Remember that  moderators are hand", "picked by " + GameWorld.getName() + ".");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "This is one solution, however someone will fall for", "this scam sooner or later. Tell us about it through", "the " + GameWorld.getName() + " website. Remember that  moderators are hand", "picked by " + GameWorld.getName() + ".");
 					stage = 69;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! This will almost certainly lead to your accout", "being hijacked. No website can make you a moderator", "as they are hand picked by " + GameWorld.getName() + ".");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! This will almost certainly lead to your accout", "being hijacked. No website can make you a moderator", "as they are hand picked by " + GameWorld.getName() + ".");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! By informing us we can have the site taken", "down so other people will not have their accounts", "hijacked by this scam.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! By informing us we can have the site taken", "down so other people will not have their accounts", "hijacked by this scam.");
 					stage = 69;
 					break;
 				}
@@ -641,11 +641,11 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1901:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! " + GameWorld.getName() + " does NOT block your PIN so don't type", "it!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! " + GameWorld.getName() + " does NOT block your PIN so don't type", "it!");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! " + GameWorld.getName() + " will not block your PIN so don't type", "it! Never use personal details for reccoveries or bank", "PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! " + GameWorld.getName() + " will not block your PIN so don't type", "it! Never use personal details for reccoveries or bank", "PINs!");
 					stage = 69;
 					break;
 				}
@@ -657,15 +657,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1101:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! You should logout in case you are attacked or", "receive a random event. Leaving your character logged", "in can also allow someone to steal your items or entire account!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! You should logout in case you are attacked or", "receive a random event. Leaving your character logged", "in can also allow someone to steal your items or entire account!");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! This is the safest, both in terms of security", "and keeping your items! Leaving you character logged", "in can also allow someone to steal your items or entitre", "account!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! This is the safest, both in terms of security", "and keeping your items! Leaving you character logged", "in can also allow someone to steal your items or entitre", "account!");
 					stage = 69;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! You should logout in case you are attacked or", "receive a random event. Leaving your character logged", "in can also allow someone to steal your items or entire account!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! You should logout in case you are attacked or", "receive a random event. Leaving your character logged", "in can also allow someone to steal your items or entire account!");
 					stage = 99;
 					break;
 				}
@@ -677,15 +677,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1112:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! Always use a unique password purely for your " + GameWorld.getName() + " account.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! Always use a unique password purely for your " + GameWorld.getName() + " account.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Always make sure you are entering your", "password only on the " + GameWorld.getName() + " Website as other sites", "may try to steal it.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Always make sure you are entering your", "password only on the " + GameWorld.getName() + " Website as other sites", "may try to steal it.");
 					stage = 69;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! This is very insecure and will may lead to", "your account being stolen.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! This is very insecure and will may lead to", "your account being stolen.");
 					stage = 99;
 					break;
 				}
@@ -697,15 +697,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1201:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "This is a bad idea as if someone happens to find out your bank", "PIN on " + GameWorld.getName() + ", they then have acces to your bank account.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "This is a bad idea as if someone happens to find out your bank", "PIN on " + GameWorld.getName() + ", they then have acces to your bank account.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Not a good idea because you know how many presents", "you get for your birthday. So you can imagine how", "many people know this date. Never use personal details", "for recoveries or bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Not a good idea because you know how many presents", "you get for your birthday. So you can imagine how", "many people know this date. Never use personal details", "for recoveries or bank PINs!");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Well done! Unless you tell someone, they are unlikely", "to guess who or what you have chosen, and you can", "always look it up, Never use personal details for recoveries or", "bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Well done! Unless you tell someone, they are unlikely", "to guess who or what you have chosen, and you can", "always look it up, Never use personal details for recoveries or", "bank PINs!");
 					stage = 69;
 					break;
 				}
@@ -717,15 +717,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1301:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Removing the keylogger must be the priority", "otherwise anything you type can be given away.", "Remember to change your password and recovery", "questions afterwards.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Removing the keylogger must be the priority", "otherwise anything you type can be given away.", "Remember to change your password and recovery", "questions afterwards.");
 					stage = 69;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! If you change your password and recoveries", "while you still have the keylogger, they will still be", "insecure. Remove the keylogger first. Never use", "personal details for recoveries or bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! If you change your password and recoveries", "while you still have the keylogger, they will still be", "insecure. Remove the keylogger first. Never use", "personal details for recoveries or bank PINs!");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! This could mean your account may be", "accessed by someone else. Remove the keylogger then", "change your password and recoveries. Never use", "personal details for recoveries or bank PINs!");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! This could mean your account may be", "accessed by someone else. Remove the keylogger then", "change your password and recoveries. Never use", "personal details for recoveries or bank PINs!");
 					stage = 99;
 					break;
 				}
@@ -737,15 +737,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1401:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! A good recovery answer that not many people", "will know, you won't forget, will stay the same and that", "you wouldn't accidentally give away. Remember: Don't", "use personal details for your recoveries.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! A good recovery answer that not many people", "will know, you won't forget, will stay the same and that", "you wouldn't accidentally give away. Remember: Don't", "use personal details for your recoveries.");
 					stage = 69;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "This is a bad idea as anyone who knows you could", "guess them. Remember: Don't use personal details for", "your recoveries.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "This is a bad idea as anyone who knows you could", "guess them. Remember: Don't use personal details for", "your recoveries.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "This is a bad idea because it is very difficult to", "remember and you won't be able to recover your", "account! Remember: Don't use personal details for", "your recoveries.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "This is a bad idea because it is very difficult to", "remember and you won't be able to recover your", "account! Remember: Don't use personal details for", "your recoveries.");
 					stage = 99;
 					break;
 				}
@@ -757,15 +757,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1501:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! There is no " + GameWorld.getName() + " Lottery! Never give", "your account details to anyone. Press the 'Report Abuse'", "button and fill in the offending player's name and", "the correct category.", "Don't tell them anything and click the 'Report Abuse' button.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! There is no " + GameWorld.getName() + " Lottery! Never give", "your account details to anyone. Press the 'Report Abuse'", "button and fill in the offending player's name and", "the correct category.", "Don't tell them anything and click the 'Report Abuse' button.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Quite good. But we should try to stop scammers.", "So please report them using the 'Report Abuse' button.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Quite good. But we should try to stop scammers.", "So please report them using the 'Report Abuse' button.");
 					stage = 69;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Press the 'Report Abuse' button and", "fill in the offending player's name and the correct category.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Press the 'Report Abuse' button and", "fill in the offending player's name and the correct category.");
 					stage = 69;
 					break;
 				}
@@ -776,13 +776,13 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 				break;
 			case 1601:
 				if (buttonId == 1) {
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! This does nothing to help the security of your", "account. You should reset your questions through", "the'Lost password' link on our website.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! This does nothing to help the security of your", "account. You should reset your questions through", "the'Lost password' link on our website.");
 					stage = 99;
 				} else if (buttonId == 2) {
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! If you use the Account Management section to", "change your recovery questions, it will take 14 days", "to come into effect, someone may have acces to your", "account this time.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! If you use the Account Management section to", "change your recovery questions, it will take 14 days", "to come into effect, someone may have acces to your", "account this time.");
 					stage = 99;
 				} else if (buttonId == 3) {
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! If you provide all the correct information", "this will reset your questions within 24 hours and", "make your account secure again.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! If you provide all the correct information", "this will reset your questions within 24 hours and", "make your account secure again.");
 					stage = 69;
 				}
 				break;
@@ -793,15 +793,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1701:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! Press the 'Report Abuse' button and fill", "in the offending player's name and the correct", "category.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! Press the 'Report Abuse' button and fill", "in the offending player's name and the correct", "category.");
 					stage = 69;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Quite good. But we should try to stop scammers.", "So please report them using the 'Report Abuse'", "button.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Quite good. But we should try to stop scammers.", "So please report them using the 'Report Abuse'", "button.");
 					stage = 69;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! " + GameWorld.getName() + " never ask for your account", "information especially to become a player moderator.", "Press the 'Report Abuse' button and fill in the offending player's", "name and the correct cattegory.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! " + GameWorld.getName() + " never ask for your account", "information especially to become a player moderator.", "Press the 'Report Abuse' button and fill in the offending player's", "name and the correct cattegory.");
 					stage = 99;
 					break;
 				}
@@ -813,15 +813,15 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 			case 1801:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! There are NO " + GameWorld.getName() + " cheats coded", "into the game and any sites claiming to have cheats", "are fakes and may lead to your account being stolen if you", "give them your password.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! There are NO " + GameWorld.getName() + " cheats coded", "into the game and any sites claiming to have cheats", "are fakes and may lead to your account being stolen if you", "give them your password.");
 					stage = 99;
 					break;
 				case 2:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Wrong! There are NO " + GameWorld.getName() + " cheats coded", "into the game and any sites claiming to have cheats", "are fakes and may lead to your account being stolen if you", "give them your password.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Wrong! There are NO " + GameWorld.getName() + " cheats coded", "into the game and any sites claiming to have cheats", "are fakes and may lead to your account being stolen if you", "give them your password.");
 					stage = 99;
 					break;
 				case 3:
-					interpreter.sendDialogues(npcId, FacialExpression.OSRS_NORMAL, "Correct! There are NO " + GameWorld.getName() + " cheats coded into", "the game. Any sites claiming to have cheats are", "fakes and may lead to your account being stolen if you give", "them your password.");
+					interpreter.sendDialogues(npcId, FacialExpression.OLD_NORMAL, "Correct! There are NO " + GameWorld.getName() + " cheats coded into", "the game. Any sites claiming to have cheats are", "fakes and may lead to your account being stolen if you give", "them your password.");
 					stage = 69;
 					break;
 				}

@@ -46,7 +46,7 @@ public final class KrilJRDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Burns slightly.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Burns slightly.");
 			stage = 1;
 			break;
 		case 1:
@@ -54,7 +54,7 @@ public final class KrilJRDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "If you were stuck in a very dark cave for centuries", "you'd be pretty annoyed too.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "If you were stuck in a very dark cave for centuries", "you'd be pretty annoyed too.");
 			stage = 3;
 			break;
 		case 3:
@@ -62,7 +62,7 @@ public final class KrilJRDialogue extends DialoguePlugin {
 			stage = 4;
 			break;
 		case 4:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "He's actually quite mellow really.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "He's actually quite mellow really.");
 			stage = 5;
 			break;
 		case 5:

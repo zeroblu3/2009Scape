@@ -3,15 +3,15 @@
 
     <!--Note: Bots are EXTREMELY EXPERIMENTAL, issues are not currently of concern.-->
     <GameSettings
-    name="2009scape"
-    debug="false"
+    name="2009scape Development"
+    debug="true"
     dev="false"
     startGui="false"
-    worldID="1"
+    worldID="3"
     countryID="0"
-    activity="2009scape"
+    activity="2009scape Development"
     pvpWorld="false"
-    msip="127.0.0.1"
+    msip="192.168.1.180"
     default_xp_rate="5"
     allow_slayer_reroll="true"
     enable_bots="true"

@@ -104,7 +104,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				break;
 			case 10:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "It's a Skillcape of Smithing. Shows that I am a master", "blacksmith, but of course that's only to be expected. I", "am an Imcando dwarf after all and everybody knows", "we're the best blacksmiths.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "It's a Skillcape of Smithing. Shows that I am a master", "blacksmith, but of course that's only to be expected. I", "am an Imcando dwarf after all and everybody knows", "we're the best blacksmiths.");
 				stage = 11;
 				break;
 			case 9000:
@@ -112,7 +112,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				break;
 			case 11:
 				if (player.getSkills().getLevel(Skills.SMITHING) == 99) {
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Wow! An adventurer who is as skilled as me", "would you like to purchase a Skillcape of", "smithing for 99,000 coins?");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Wow! An adventurer who is as skilled as me", "would you like to purchase a Skillcape of", "smithing for 99,000 coins?");
 					stage = 12;
 					return true;
 				}
@@ -154,7 +154,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				player.getInventory().add(player.getSkills().getMasteredSkills() >= 1 ? ITEMS[1] : ITEMS[0]);
 				player.getInventory().add(ITEMS[2]);
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "There you go! You're truley a master of Smithing.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "There you go! You're truley a master of Smithing.");
 				stage = 16;
 				break;
 			case 16:
@@ -175,7 +175,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 					interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "Thanks for all your help in getting it for me!");
 					stage = 9;
 				} else {
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "How are you doing finding those sword materials?");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "How are you doing finding those sword materials?");
 					stage = 2;
 				}
 				break;
@@ -194,7 +194,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				break;
 			case 3:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Better go get some then, huh?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Better go get some then, huh?");
 				stage = 4;
 				break;
 			case 4:
@@ -212,14 +212,14 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				break;
 			case 7:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Just remember to call in with more pie some time!");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Just remember to call in with more pie some time!");
 				stage = 8;
 				break;
 			case 8:
 				end();
 				break;
 			case 9:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "No worries mate.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "No worries mate.");
 				stage = 10;
 				break;
 			case 10:
@@ -239,7 +239,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				break;
 			case 1:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Have you got a picture of the sword for me yet?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Have you got a picture of the sword for me yet?");
 				stage = 2;
 				break;
 			case 2:
@@ -247,7 +247,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 3;
 				break;
 			case 3:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Well, come back when you do.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Well, come back when you do.");
 				stage = 4;
 				break;
 			case 5:
@@ -255,27 +255,27 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 6;
 				break;
 			case 6:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Ok. You'll need to get me some stuff in order for me", "to make this.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Ok. You'll need to get me some stuff in order for me", "to make this.");
 				stage = 7;
 				break;
 			case 7:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "I'll need two iron bars to make the sword to start with.", "I'll also need an ore called blurite. It's useless for", "making actual weapons for fighting with except", "crossbows, but I'll need some as decoration for the hilt.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I'll need two iron bars to make the sword to start with.", "I'll also need an ore called blurite. It's useless for", "making actual weapons for fighting with except", "crossbows, but I'll need some as decoration for the hilt.");
 				stage = 8;
 				break;
 			case 8:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "It is fairly rare sort of ore... The only place I know", "where to get it is under this cliff here...");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "It is fairly rare sort of ore... The only place I know", "where to get it is under this cliff here...");
 				stage = 9;
 				break;
 			case 9:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "But it is guarded by a very powerful ice giant.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "But it is guarded by a very powerful ice giant.");
 				stage = 10;
 				break;
 			case 10:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Most of the rocks in that cliff are pretty useless, and", "don't contain much of anything, but there's", "DEFINITELY some blurite in there.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Most of the rocks in that cliff are pretty useless, and", "don't contain much of anything, but there's", "DEFINITELY some blurite in there.");
 				stage = 11;
 				break;
 			case 11:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You'll need a little bit of mining experience to be able to", "find it.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You'll need a little bit of mining experience to be able to", "find it.");
 				stage = 12;
 				break;
 			case 12:
@@ -297,7 +297,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 1;
 				break;
 			case 1:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Have you got a picture of the sword for me yet?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Have you got a picture of the sword for me yet?");
 				stage = 2;
 				break;
 			case 2:
@@ -305,7 +305,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 3;
 				break;
 			case 3:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Well, come back when you do.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Well, come back when you do.");
 				stage = 4;
 				break;
 			case 4:
@@ -320,7 +320,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 1;
 				break;
 			case 1:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Well, after bringing me my favorite food I guess I", "should give it a go. What sort of sword is it?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Well, after bringing me my favorite food I guess I", "should give it a go. What sort of sword is it?");
 				stage = 2;
 				break;
 			case 2:
@@ -328,11 +328,11 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 3;
 				break;
 			case 3:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "A Knight's sword eh? Well I'd need to know exactly", "how it looked before I could make a new one.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "A Knight's sword eh? Well I'd need to know exactly", "how it looked before I could make a new one.");
 				stage = 4;
 				break;
 			case 4:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "All the Faladian knights used to have swords with unique", "designs according to their position. Could you bring me", "a picture or something?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "All the Faladian knights used to have swords with unique", "designs according to their position. Could you bring me", "a picture or something?");
 				stage = 5;
 				break;
 			case 5:
@@ -372,7 +372,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				break;
 			case 10:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Maybe. Who wants to know?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Maybe. Who wants to know?");
 				stage = 11;
 				break;
 			case 11:
@@ -396,7 +396,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				break;
 			case 13:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "No, I don't do that anymore. I'm getting old.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "No, I don't do that anymore. I'm getting old.");
 				stage = 14;
 				break;
 			case 14:
@@ -407,7 +407,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				stage = 21;
 				break;
 			case 21:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "I'd never say no to a redberry pie! They're GREAT", "stuff!");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I'd never say no to a redberry pie! They're GREAT", "stuff!");
 				stage = 22;
 				break;
 			case 22:
@@ -417,7 +417,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 			case 23:
 				if (player.getInventory().remove(REDBERRY_PIE)) {
 					quest.setStage(player, 30);
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "By Guthix! THAT was good pie! Anyone who makes pie", "like THAT has got to be alright!");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "By Guthix! THAT was good pie! Anyone who makes pie", "like THAT has got to be alright!");
 					stage = 24;
 				}
 				break;
@@ -444,12 +444,12 @@ public final class ThuroDialogue extends DialoguePlugin {
 				end();
 				break;
 			case 10:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "It's a Skillcape of Smithing. Shows that I am a master", "blacksmith, but of course that's only to be expected. I", "am an Imcando dwarf after all and everybody knows", "we're the best blacksmiths.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "It's a Skillcape of Smithing. Shows that I am a master", "blacksmith, but of course that's only to be expected. I", "am an Imcando dwarf after all and everybody knows", "we're the best blacksmiths.");
 				stage = 11;
 				break;
 			case 11:
 				if (player.getSkills().getLevel(Skills.SMITHING) == 99) {
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Wow! An adventurer who is as skilled as me", "would you like to purchase a Skillcape of", "smithing for 99,000 coins?");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Wow! An adventurer who is as skilled as me", "would you like to purchase a Skillcape of", "smithing for 99,000 coins?");
 					stage = 12;
 					return true;
 				}
@@ -487,7 +487,7 @@ public final class ThuroDialogue extends DialoguePlugin {
 				}
 				player.getInventory().add(player.getSkills().getMasteredSkills() >= 1 ? ITEMS[1] : ITEMS[0]);
 				player.getInventory().add(ITEMS[2]);
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "There you go! You're truley a master of Smithing.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "There you go! You're truley a master of Smithing.");
 				stage = 16;
 				break;
 			case 16:

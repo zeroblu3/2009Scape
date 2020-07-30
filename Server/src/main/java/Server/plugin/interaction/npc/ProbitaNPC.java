@@ -177,7 +177,7 @@ public class ProbitaNPC extends OptionHandler {
 				stage = 60;
 				return true;
 			}
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Welcome to the pet insurance bureau.", "How can I help you?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Welcome to the pet insurance bureau.", "How can I help you?");
 			stage = 1;
 			return true;
 		}
@@ -214,15 +214,15 @@ public class ProbitaNPC extends OptionHandler {
 				}
 				break;
 			case 10:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_LAUGH3, "It's simple. You show me your pet, and pay an", "insurance fee of 500,000 coins. From that moment, I'll", "watch out for that pet");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_LAUGH3, "It's simple. You show me your pet, and pay an", "insurance fee of 500,000 coins. From that moment, I'll", "watch out for that pet");
 				stage = 11;
 				break;
 			case 11:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Every time you lose it or dismiss it in future, I'll catch", "the pet and keep it safely here. You can collect it each", "time for a reclamation fee of 1,000,000 coins.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Every time you lose it or dismiss it in future, I'll catch", "the pet and keep it safely here. You can collect it each", "time for a reclamation fee of 1,000,000 coins.");
 				stage = 12;
 				break;
 			case 12:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "The insurance fee is a one-off charge; once you've", "insured a pet, it stays insured no matter how many", "times you lose it and reclaim it. You just have to pay", "the reclamation fee each time.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "The insurance fee is a one-off charge; once you've", "insured a pet, it stays insured no matter how many", "times you lose it and reclaim it. You just have to pay", "the reclamation fee each time.");
 				stage = 13;
 				break;
 			case 13:
@@ -251,19 +251,19 @@ public class ProbitaNPC extends OptionHandler {
 				break;
 			case 20:
 				if (player.getFamiliarManager().getInsuredPets().size() > 0) {
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Let me check for you.");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Let me check for you.");
 					stage = 21;
 				} else {
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "I'm afraid you don't seem to have insured any pets, so", "I can't help you.");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I'm afraid you don't seem to have insured any pets, so", "I can't help you.");
 					stage = 50;
 				}
 				break;
 			case 21:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, configureShop(player) ? "You are missing some pets, you can claim them now." : "You are not missing any pets." );
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, configureShop(player) ? "You are missing some pets, you can claim them now." : "You are not missing any pets." );
 				stage = 50;
 				break;
 			case 30:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Great! The insurance fee is 500,000 coins. Just hand", "me the pet so I can register it.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Great! The insurance fee is 500,000 coins. Just hand", "me the pet so I can register it.");
 				stage = 50;
 				break;
 			case 40:
@@ -285,7 +285,7 @@ public class ProbitaNPC extends OptionHandler {
 					}
 					break;
 				} else {
-					interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "I am afraid you don't seem to have insured any pets at", "all.");
+					interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I am afraid you don't seem to have insured any pets at", "all.");
 					stage = 50;
 					break;
 				}

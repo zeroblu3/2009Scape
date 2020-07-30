@@ -146,7 +146,7 @@ public final class ToolLeprachaunPlugin extends OptionHandler {
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			npc(FacialExpression.OSRS_NORMAL, "Ah, 'tis a foine day to be sure! Were yez wantin' me to", "store yer tools, or maybe ye might be wantin' yer stuff", "back from me?");
+			npc(FacialExpression.OLD_NORMAL, "Ah, 'tis a foine day to be sure! Were yez wantin' me to", "store yer tools, or maybe ye might be wantin' yer stuff", "back from me?");
 			stage = 0;
 			return true;
 		}
@@ -183,29 +183,29 @@ public final class ToolLeprachaunPlugin extends OptionHandler {
 				player.getFarmingManager().getEquipment().open(player);
 				break;
 			case 20:
-				npc(FacialExpression.OSRS_NORMAL, "We'll hold onto yer rake, yer seed dibber, yer spade,", "yer secateurs, yer waterin' can and yer trowel - but", "mind it's not one of them fancy trowels only", "achaeologists use!");
+				npc(FacialExpression.OLD_NORMAL, "We'll hold onto yer rake, yer seed dibber, yer spade,", "yer secateurs, yer waterin' can and yer trowel - but", "mind it's not one of them fancy trowels only", "achaeologists use!");
 				stage = 21;
 				break;
 			case 21:
-				npc(FacialExpression.OSRS_NORMAL, "We'll take a few buckets off yer hands too, and even", "yer compost and yer supercompost. There's room in", "our shed for plenty of compost, so bring it on!");
+				npc(FacialExpression.OLD_NORMAL, "We'll take a few buckets off yer hands too, and even", "yer compost and yer supercompost. There's room in", "our shed for plenty of compost, so bring it on!");
 				stage = 22;
 				break;
 			case 22:
-				npc(FacialExpression.OSRS_NORMAL, "Also, if you hand me yer farming produce, I might be", "able to change it into banknotes.");
+				npc(FacialExpression.OLD_NORMAL, "Also, if you hand me yer farming produce, I might be", "able to change it into banknotes.");
 				stage = 23;
 				break;
 			case 23:
 				end();
 				break;
 			case 30:
-				npc(FacialExpression.OSRS_NORMAL, "We leprechauns have a shed where we keep 'em. It's a", "magic shed, so ye can get yer items back from any of", "us leprechauns whenever ye want. Saves ye havin' to", "carry loads of stuff around the country!");
+				npc(FacialExpression.OLD_NORMAL, "We leprechauns have a shed where we keep 'em. It's a", "magic shed, so ye can get yer items back from any of", "us leprechauns whenever ye want. Saves ye havin' to", "carry loads of stuff around the country!");
 				stage = 31;
 				break;
 			case 31:
 				end();
 				break;
 			case 40:
-				npc(FacialExpression.OSRS_NORMAL, "Ye must be dafter then ye look if ye likes luggin' yer", "tools everywhere ye goes!");
+				npc(FacialExpression.OLD_NORMAL, "Ye must be dafter then ye look if ye likes luggin' yer", "tools everywhere ye goes!");
 				stage = 41;
 				break;
 			case 41:

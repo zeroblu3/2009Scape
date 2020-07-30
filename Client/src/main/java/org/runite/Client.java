@@ -2,11 +2,6 @@ package org.runite;
 
 import org.runite.jagex.GameShell;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 /**
  * Handles the launching of our Game Client.
  * @author Keldagrim Development Team
@@ -27,7 +22,7 @@ public class Client {
 	/**
 	 * The game settings.
 	 */
-	public static GameSetting SETTINGS = new GameSetting("2009Scape", "127.0.0.1", 1, "live", false);
+	public static GameSetting SETTINGS = new GameSetting("2009Scape", "192.168.1.180", 3, "live", false);
 	
 	/**
 	 * The main method.
@@ -37,7 +32,7 @@ public class Client {
 	 */
 	public static void main(String[]args) {
 		try {
-			PUBLIC_IP_ADDRESS = "127.0.0.1";
+			PUBLIC_IP_ADDRESS = "192.168.1.180";
 		} catch (Exception e){
 			System.out.println("Can't find config file " + CONF_FILE + " defaulting to IP 127.0.0.1");
 			PUBLIC_IP_ADDRESS = "127.0.0.1";

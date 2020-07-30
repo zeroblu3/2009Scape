@@ -9,20 +9,18 @@ final class OutputStream_Sub1 extends OutputStream {
    static boolean aBoolean47 = false;
    static int anInt48 = 2;
    static int[] anIntArray49;
-   static RSString aClass94_50 = RSString.createRSString("<col=80ff00>");
-   static RSString aClass94_51 = RSString.createRSString("; Expires=");
 
 
    static final short[] method65(int var0, short[] var1) {
       try {
          if(var0 != 23032) {
             return (short[])null;
-         } else if(null != var1) {
+         } else if(null == var1) {
+            return null;
+         } else {
             short[] var2 = new short[var1.length];
             Class76.method1361(var1, 0, var2, 0, var1.length);
             return var2;
-         } else {
-            return null;
          }
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "vg.A(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
@@ -57,14 +55,14 @@ final class OutputStream_Sub1 extends OutputStream {
                   }
 
                   if(var3 < -7) {
-                     if(-3 == ~var2) {
+                     if(var2 == 2) {
                         ++Class3_Sub13_Sub10.anInt3122;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(196);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-122, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
-                     if(~var2 == -4) {
+                     if(var2 == 3) {
                         ++Class56.anInt889;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(124);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-122, var4);
@@ -78,7 +76,7 @@ final class OutputStream_Sub1 extends OutputStream {
                         ++KeyboardListener.anInt1909;
                      }
 
-                     if(~var2 == -6) {
+                     if(var2 == 5) {
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(234);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-123, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
@@ -92,28 +90,28 @@ final class OutputStream_Sub1 extends OutputStream {
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
-                     if(-8 == ~var2) {
+                     if(var2 == 7) {
                         ++Class40.anInt674;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(166);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-123, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
-                     if(-9 == ~var2) {
+                     if(var2 == 8) {
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(64);
                         ++Class57.anInt903;
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-127, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
-                     if(-10 == ~var2) {
+                     if(var2 == 9) {
                         ++Class85.anInt1166;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(53);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-123, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
-                     if(~var2 == -11) {
+                     if(var2 == 10) {
                         ++Class91.anInt1307;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(9);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-125, var4);
@@ -131,14 +129,12 @@ final class OutputStream_Sub1 extends OutputStream {
 
    public static void method67(boolean var0) {
       try {
-         aClass94_50 = null;
          aClass94Array45 = null;
          if(!var0) {
             aBoolean47 = true;
          }
 
          anIntArray49 = null;
-         aClass94_51 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "vg.B(" + var0 + ')');
       }
@@ -146,7 +142,7 @@ final class OutputStream_Sub1 extends OutputStream {
 
    static final void method68(int var0, int var1, Class140_Sub4 var2) {
       try {
-         if(~Class44.anInt719 <= ~var2.anInt2800) {
+         if(var2.anInt2800 <= Class44.anInt719) {
             if(var2.anInt2790 >= Class44.anInt719) {
                Class168.method2270(var2, (byte)-56);
             } else {
@@ -156,7 +152,7 @@ final class OutputStream_Sub1 extends OutputStream {
             Class140_Sub2.method1950(var2, true);
          }
 
-         if(-129 < ~var2.anInt2819 || var2.anInt2829 < 128 || var2.anInt2819 >= 13184 || var2.anInt2829 >= 13184) {
+         if(var2.anInt2819 < 128 || var2.anInt2829 < 128 || var2.anInt2819 >= 13184 || var2.anInt2829 >= 13184) {
             var2.anInt2771 = -1;
             var2.anInt2842 = -1;
             var2.anInt2800 = 0;
@@ -167,7 +163,7 @@ final class OutputStream_Sub1 extends OutputStream {
          }
 
          if(var1 == 2279) {
-            if(var2 == Class102.player && (var2.anInt2819 < 1536 || -1537 < ~var2.anInt2829 || -11777 >= ~var2.anInt2819 || var2.anInt2829 >= 11776)) {
+            if(var2 == Class102.player && (var2.anInt2819 < 1536 || var2.anInt2829 < 1536 || var2.anInt2819 >= 11776 || var2.anInt2829 >= 11776)) {
                var2.anInt2842 = -1;
                var2.anInt2800 = 0;
                var2.anInt2790 = 0;

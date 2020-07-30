@@ -330,7 +330,7 @@ public final class RJCutscenePlugin extends CutscenePlugin {
 				stage = 308;
 				break;
 			case 308:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_SNEAKY, "You've lost the message haven't you?");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_SNEAKY, "You've lost the message haven't you?");
 				stage = 309;
 				break;
 			case 309:
