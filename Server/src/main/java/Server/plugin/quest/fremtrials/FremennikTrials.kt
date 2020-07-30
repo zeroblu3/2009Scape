@@ -1,3 +1,4 @@
+/*
 package plugin.quest.fremtrials
 
 import core.game.node.entity.player.Player
@@ -48,4 +49,4 @@ class FremennikTrials : Quest("Fremennik Trials",64,63,3,347,0,1,10){
         return this
     }
 
-}
+}*/
