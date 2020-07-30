@@ -16,7 +16,6 @@ final class Class25 {
    int anInt489;
    int anInt490;
    static int anInt491 = 0;
-   private static RSString aClass94_492 = RSString.createRSString("RuneScape is loading )2 please wait)3)3)3");
    int anInt493;
    static int anInt494;
    int anInt495;
@@ -24,15 +23,10 @@ final class Class25 {
    static int anInt497;
    long aLong498 = 0L;
    static int[][] anIntArrayArray499 = new int[][]{new int[0], {128, 0, 128, 128, 0, 128}, {0, 0, 128, 0, 128, 128, 64, 128}, {0, 128, 0, 0, 128, 0, 64, 128}, {0, 0, 64, 128, 0, 128}, {128, 128, 64, 128, 128, 0}, {64, 0, 128, 0, 128, 128, 64, 128}, {128, 0, 128, 128, 0, 128, 0, 64, 64, 0}, {0, 0, 64, 0, 0, 64}, {0, 0, 128, 0, 128, 128, 64, 96, 32, 64}, {0, 128, 0, 0, 32, 64, 64, 96, 128, 128}, {0, 128, 0, 0, 32, 32, 96, 32, 128, 0, 128, 128}};
-static RSString aClass94_485 = aClass94_492;
 
    static final void method953(int var0, int var1) {
       try {
          Class114.aClass93_1569.method1522(var0 ^ 13501, var1);
-         if(var0 != -13508) {
-            aClass94_485 = (RSString)null;
-         }
-
          Class3_Sub15.aClass93_2428.method1522(-126, var1);
          Class47.aClass93_743.method1522(-126, var1);
       } catch (RuntimeException var3) {
@@ -44,12 +38,9 @@ static RSString aClass94_485 = aClass94_492;
       try {
          aClass47_480 = null;
          anIntArrayArray499 = (int[][])null;
-         aClass94_492 = null;
          if(var0 != 128) {
             method954(113);
          }
-
-         aClass94_485 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "ec.A(" + var0 + ')');
       }
@@ -63,7 +54,7 @@ static RSString aClass94_485 = aClass94_492;
          int var25 = (var10?255:0) + (var14 << 8);
          int var23 = (var20 << 8) + (!var16?0:255);
 
-         for(int var27 = 0; ~var27 > ~var26.length; ++var27) {
+         for(int var27 = 0; var26.length > var27; ++var27) {
             int var28 = var4[var27 + var27];
             int[][] var30 = null != var0 && var21 != null && var21[var27]?var0:var17;
             int var29 = var4[var27 + var27 - -1];
@@ -88,8 +79,8 @@ static RSString aClass94_485 = aClass94_492;
             var0[var5] = var0[var1];
             var0[var1] = var8;
 
-            for(int var9 = var4; ~var9 > ~var1; ++var9) {
-               if(~((var9 & 1) + var7) < ~var2[var9]) {
+            for(int var9 = var4; var1 > var9; ++var9) {
+               if(var2[var9] < (var9 & 1) + var7) {
                   int var10 = var2[var9];
                   var2[var9] = var2[var6];
                   var2[var6] = var10;

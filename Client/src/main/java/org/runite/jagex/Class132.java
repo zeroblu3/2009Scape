@@ -6,7 +6,6 @@ final class Class132 {
    static CacheIndex aClass153_1735;
    static int anInt1736;
    static int anInt1737 = 1;
-   static RSString aClass94_1738 = RSString.createRSString("<col=ffff00>");
    static RSString[] aClass94Array1739 = new RSString[1000];
    static int anInt1740 = 0;
    static int anInt1741;
@@ -22,12 +21,12 @@ final class Class132 {
          }
 
          int var5 = 0;
-         if(-1 == ~var1.anInt2263) {
+         if(var1.anInt2263 == 0) {
             var2 = Class157.method2174(var1.anInt2250, var1.anInt2264, var1.anInt2248);
          }
 
          int var6 = 0;
-         if(-2 == ~var1.anInt2263) {
+         if(var1.anInt2263 == 1) {
             var2 = Class80.method1395(var1.anInt2250, var1.anInt2264, var1.anInt2248);
          }
 
@@ -35,7 +34,7 @@ final class Class132 {
             var2 = Class3_Sub28_Sub5.method557(var1.anInt2250, var1.anInt2264, var1.anInt2248);
          }
 
-         if(~var1.anInt2263 == -4) {
+         if(var1.anInt2263 == 3) {
             var2 = Class3_Sub2.method104(var1.anInt2250, var1.anInt2264, var1.anInt2248);
          }
 
@@ -65,7 +64,6 @@ final class Class132 {
    public static void method1800(byte var0) {
       try {
          aClass94Array1739 = null;
-         aClass94_1738 = null;
          aClass153_1735 = null;
          if(var0 <= 52) {
             aClass94Array1739 = (RSString[])null;
@@ -82,7 +80,7 @@ final class Class132 {
             method1799((byte)-90, (CacheIndex)null);
          }
 
-         int var1 = Class168.aClass3_Sub28_Sub17_2096.method682(Class75_Sub4.aClass94_2667);
+         int var1 = Class168.aClass3_Sub28_Sub17_2096.method682(TextCore.HasChooseOptions);
 
          int var2;
          int var3;
@@ -97,7 +95,7 @@ final class Class132 {
          int var4 = Class38_Sub1.anInt2612;
          var1 += 8;
          var3 = NPCDefinition.anInt1297 + -(var1 / 2);
-         if(~(var4 + var2) < ~Class140_Sub7.anInt2934) {
+         if(Class140_Sub7.anInt2934 < var4 + var2) {
             var4 = Class140_Sub7.anInt2934 + -var2;
          }
 
@@ -105,16 +103,16 @@ final class Class132 {
             var3 = -var1 + Class23.anInt454;
          }
 
-         if(-1 < ~var3) {
+         if(var3 < 0) {
             var3 = 0;
          }
 
-         if(~var4 > -1) {
+         if(var4 < 0) {
             var4 = 0;
          }
 
-         if(-2 == ~Class3_Sub28_Sub13.anInt3660) {
-            if(~NPCDefinition.anInt1297 == ~Class3_Sub13_Sub39.anInt3460 && ~Class168.anInt2099 == ~Class38_Sub1.anInt2612) {
+         if(Class3_Sub28_Sub13.anInt3660 == 1) {
+            if(Class3_Sub13_Sub39.anInt3460 == NPCDefinition.anInt1297 && Class38_Sub1.anInt2612 == Class168.anInt2099) {
                Class3_Sub28_Sub1.anInt3537 = Class3_Sub13_Sub34.anInt3415 * 15 - -(!CacheIndex.aBoolean1951?22:26);
                Class3_Sub28_Sub13.anInt3660 = 0;
                Class3_Sub13_Sub33.anInt3395 = var4;
@@ -122,7 +120,7 @@ final class Class132 {
                Class38_Sub1.aBoolean2615 = true;
                Class3_Sub28_Sub3.anInt3552 = var1;
             }
-         } else if(~NPCDefinition.anInt1297 == ~Class163_Sub1.anInt2993 && ~Class38_Sub1.anInt2612 == ~Class38_Sub1.anInt2614) {
+         } else if(Class163_Sub1.anInt2993 == NPCDefinition.anInt1297 && Class38_Sub1.anInt2614 == Class38_Sub1.anInt2612) {
             AbstractIndexedSprite.anInt1462 = var3;
             Class3_Sub28_Sub13.anInt3660 = 0;
             Class3_Sub28_Sub3.anInt3552 = var1;

@@ -1,23 +1,17 @@
 package org.runite.jagex;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringReader;
-import java.io.StringWriter;
-
 import org.runite.GameLaunch;
+
+import java.io.*;
 
 final class Class53 {
 
    static int anInt865 = -1;
    static long aLong866 = 0L;
    static int anInt867;
-   static RSString aClass94_868 = RSString.createRSString("Chargement de l(W-Bcran)2titre )2 ");
 
 
    public static void method1169(boolean var0) {
       try {
-         aClass94_868 = null;
          if(var0) {
             method1170((byte)25, 28);
          }
@@ -39,7 +33,7 @@ final class Class53 {
    static final void method1171(int var0, int var1, int var2, int var3, int var4, RSInterface var5, boolean var6) {
       try {
          int var7 = var3 * var3 + var4 * var4;
-         if(-360001 <= ~var7) {
+         if(var7 <= 360000) {
             int var8 = Math.min(var5.anInt168 / 2, var5.anInt193 / 2);
             if(var6) {
                anInt865 = -79;
@@ -101,7 +95,7 @@ final class Class53 {
          int var9 = var8.indexOf(40);
          int var10 = var8.indexOf(41, 1 + var9);
          String var11;
-         if(0 == ~var9) {
+         if(var9 == -1) {
             var11 = var8;
          } else {
             var11 = var8.substring(0, var9);
@@ -164,7 +158,7 @@ final class Class53 {
    static final RSString method1174(RSInterface var0, byte var1) {
       try {
          int var2 = 49 % ((var1 - 22) / 46);
-         return ~Client.method44(var0).method101(-69) != -1?(null != var0.aClass94_245 && var0.aClass94_245.trim(1).length(-45) != 0?var0.aClass94_245:(Class69.aBoolean1040?RuntimeException_Sub1.aClass94_2116:null)):null;
+         return Client.method44(var0).method101(-69) != 0 ?(null != var0.aClass94_245 && var0.aClass94_245.trim(1).length(-45) != 0?var0.aClass94_245:(Class69.aBoolean1040?RuntimeException_Sub1.aClass94_2116:null)):null;
       } catch (RuntimeException var3) {
          throw Class44.method1067(var3, "hi.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }

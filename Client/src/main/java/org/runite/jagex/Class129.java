@@ -8,7 +8,6 @@ abstract class Class129 {
    static int[] anIntArray1693 = new int[128];
    static RSString aClass94_1694 = RSString.createRSString("document)3cookie=(R");
    static int[] anIntArray1695;
-   static RSString aClass94_1696 = RSString.createRSString("Sie k-Onnen sich selbst nicht auf Ihre Freunde)2Liste setzen(Q");
 
 
    static final int method1765(int var0, int var1) {
@@ -33,7 +32,6 @@ abstract class Class129 {
          anIntArray1690 = null;
          anIntArray1693 = null;
          aClass94_1694 = null;
-         aClass94_1696 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "s.E(" + var0 + ')');
       }
@@ -43,7 +41,7 @@ abstract class Class129 {
 
    static final void method1768(int var0, int var1, int var2) {
       try {
-         if(-1 > ~KeyboardListener.anInt1908) {
+         if(KeyboardListener.anInt1908 > 0) {
             Class159.method2195(KeyboardListener.anInt1908, 0);
             KeyboardListener.anInt1908 = 0;
          }
@@ -65,21 +63,21 @@ abstract class Class129 {
             for(var9 = var8; var9 < 128; ++var9) {
                int var11 = Class74.anIntArray1100[var5++ + var0];
                int var10 = Class127.anIntArray1681[var4++];
-               if(var10 != 0) {
+               if(var10 == 0) {
+                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = var11;
+               } else {
                   int var12 = 18 + var10;
-                  if(~var12 < -256) {
+                  if(var12 > 255) {
                      var12 = 255;
                   }
 
                   int var13 = 256 - var10 - 18;
-                  if(~var13 < -256) {
+                  if(var13 > 255) {
                      var13 = 255;
                   }
 
                   var10 = Class52.anIntArray861[var10];
                   Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Class3_Sub28_Sub15.method633(var13 * Class3_Sub28_Sub15.method633(var11, 16711935) + Class3_Sub28_Sub15.method633(16711935, var10) * var12, -16711936) - -Class3_Sub28_Sub15.method633(Class3_Sub28_Sub15.method633(var10, '\uff00') * var12 - -(Class3_Sub28_Sub15.method633('\uff00', var11) * var13), 16711680) >> 8;
-               } else {
-                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = var11;
                }
             }
 
@@ -91,10 +89,10 @@ abstract class Class129 {
          }
 
          if(var1 > 70) {
-            if(!HDToolKit.highDetail) {
-               Class97.aClass3_Sub28_Sub16_Sub2_1381.method635(var0, var2);
-            } else {
+            if(HDToolKit.highDetail) {
                Class22.method926(Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081, var0, var2, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3707, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3696);
+            } else {
+               Class97.aClass3_Sub28_Sub16_Sub2_1381.method635(var0, var2);
             }
 
          }
@@ -105,14 +103,14 @@ abstract class Class129 {
 
    static final void method1769(float[][] var0, byte[][] var1, byte[][] var2, Class43[] var3, int var4, int var5, float[][] var6, byte[][] var7, byte[][] var8, int[][] var9, int var10, float[][] var11) {
       try {
-         for(int var12 = 0; ~var12 > ~var5; ++var12) {
+         for(int var12 = 0; var5 > var12; ++var12) {
             Class43 var13 = var3[var12];
             if(var13.anInt704 == var4) {
                int var15 = 0;
                Class37 var14 = new Class37();
                int var16 = -var13.anInt698 + (var13.anInt703 >> 7);
                int var17 = -var13.anInt698 + (var13.anInt708 >> 7);
-               if(-1 < ~var17) {
+               if(var17 < 0) {
                   var15 -= var17;
                   var17 = 0;
                }
@@ -130,7 +128,7 @@ abstract class Class129 {
                int var25;
                int var35;
                boolean var32;
-               for(var19 = var17; ~var18 <= ~var19; ++var19) {
+               for(var19 = var17; var19 <= var18; ++var19) {
                   var20 = var13.aShortArray706[var15];
                   var21 = var16 + (var20 >> 8);
                   var22 = -1 + var21 - -(255 & var20);
@@ -138,7 +136,7 @@ abstract class Class129 {
                      var22 = 103;
                   }
 
-                  if(-1 < ~var21) {
+                  if(var21 < 0) {
                      var21 = 0;
                   }
 
@@ -150,27 +148,27 @@ abstract class Class129 {
                      int[] var29;
                      int[] var28;
                      if(0 == var24) {
-                        if(-1 == ~var25) {
+                        if(var25 == 0) {
                            continue;
                         }
 
                         var27 = Class3_Sub13_Sub37.method350((byte)-103, var25 + -1);
-                        if(0 == ~var27.anInt2103) {
+                        if(var27.anInt2103 == -1) {
                            continue;
                         }
 
-                        if(~var7[var23][var19] != -1) {
+                        if(var7[var23][var19] != 0) {
                            var28 = Class134.anIntArrayArray1763[var7[var23][var19]];
                            var14.anInt651 += 3 * (-2 + (var28.length >> 1));
                            var14.anInt657 += var28.length >> 1;
                            continue;
                         }
-                     } else if(-1 != ~var25) {
+                     } else if(var25 != 0) {
                         var27 = Class3_Sub13_Sub37.method350((byte)123, var25 - 1);
                         byte var42;
                         if(var27.anInt2103 == -1) {
                            var42 = var7[var23][var19];
-                           if(-1 != ~var42) {
+                           if(var42 != 0) {
                               var29 = Class25.anIntArrayArray499[var42];
                               var14.anInt651 += 3 * (-2 + (var29.length >> 1));
                               var14.anInt657 += var29.length >> 1;
@@ -187,42 +185,16 @@ abstract class Class129 {
                      Class25 var40 = Class75.method1336(var4, var23, var19);
                      if(null != var40) {
                         int var41 = (int)(var40.aLong498 >> 14) & 63;
-                        if(~var41 == -10) {
+                        if(var41 == 9) {
                            var29 = null;
                            int var30 = 3 & (int)(var40.aLong498 >> 20);
                            boolean var31;
                            int var34;
                            short var33;
-                           if((1 & var30) != 0) {
-                              var31 = var21 <= -1 + var23;
-                              var32 = ~(var23 + 1) >= ~var22;
-                              if(!var31 && -1 + var19 >= var17) {
-                                 var33 = var13.aShortArray706[-1 + var15];
-                                 var34 = (var33 >> 8) + var16;
-                                 var35 = var34 + (255 & var33);
-                                 var31 = ~var34 > ~var23 && ~var23 > ~var35;
-                              }
-
-                              if(!var32 && ~(1 + var19) >= ~var18) {
-                                 var33 = var13.aShortArray706[var15 + 1];
-                                 var34 = (var33 >> 8) + var16;
-                                 var35 = var34 - -(255 & var33);
-                                 var32 = ~var34 > ~var23 && ~var35 < ~var23;
-                              }
-
-                              if(var31 && var32) {
-                                 var29 = Class134.anIntArrayArray1763[0];
-                              } else if(!var31) {
-                                 if(var32) {
-                                    var29 = Class134.anIntArrayArray1763[1];
-                                 }
-                              } else {
-                                 var29 = Class134.anIntArrayArray1763[1];
-                              }
-                           } else {
+                           if((1 & var30) == 0) {
                               var32 = var22 >= 1 + var23;
                               var31 = var23 + -1 >= var21;
-                              if(!var31 && ~(var19 - -1) >= ~var18) {
+                              if(!var31 && var18 >= var19 - -1) {
                                  var33 = var13.aShortArray706[1 + var15];
                                  var34 = var16 + (var33 >> 8);
                                  var35 = var34 + (255 & var33);
@@ -233,7 +205,7 @@ abstract class Class129 {
                                  var33 = var13.aShortArray706[var15 + -1];
                                  var34 = var16 + (var33 >> 8);
                                  var35 = var34 - -(var33 & 255);
-                                 var32 = var23 > var34 && ~var23 > ~var35;
+                                 var32 = var23 > var34 && var35 > var23;
                               }
 
                               if(var31 && var32) {
@@ -242,6 +214,32 @@ abstract class Class129 {
                                  var29 = Class134.anIntArrayArray1763[1];
                               } else if(var32) {
                                  var29 = Class134.anIntArrayArray1763[1];
+                              }
+                           } else {
+                              var31 = var21 <= -1 + var23;
+                              var32 = var22 >= var23 + 1;
+                              if(!var31 && -1 + var19 >= var17) {
+                                 var33 = var13.aShortArray706[-1 + var15];
+                                 var34 = (var33 >> 8) + var16;
+                                 var35 = var34 + (255 & var33);
+                                 var31 = var23 > var34 && var35 > var23;
+                              }
+
+                              if(!var32 && var18 >= 1 + var19) {
+                                 var33 = var13.aShortArray706[var15 + 1];
+                                 var34 = (var33 >> 8) + var16;
+                                 var35 = var34 - -(255 & var33);
+                                 var32 = var23 > var34 && var23 < var35;
+                              }
+
+                              if(var31 && var32) {
+                                 var29 = Class134.anIntArrayArray1763[0];
+                              } else if(var31) {
+                                 var29 = Class134.anIntArrayArray1763[1];
+                              } else {
+                                 if(var32) {
+                                    var29 = Class134.anIntArrayArray1763[1];
+                                 }
                               }
                            }
 
@@ -272,7 +270,7 @@ abstract class Class129 {
 
                var15 = 0;
                var14.method1020();
-               if(-1 < ~(-var13.anInt698 + (var13.anInt708 >> 7))) {
+               if(-var13.anInt698 + (var13.anInt708 >> 7) < 0) {
                   var15 -= -var13.anInt698 + (var13.anInt708 >> 7);
                }
 
@@ -280,7 +278,7 @@ abstract class Class129 {
                   var20 = var13.aShortArray706[var15];
                   var21 = (var20 >> 8) + var16;
                   var22 = -1 + (255 & var20) + var21;
-                  if(~var22 < -104) {
+                  if(var22 > 103) {
                      var22 = 103;
                   }
 
@@ -288,26 +286,13 @@ abstract class Class129 {
                      var21 = 0;
                   }
 
-                  for(var23 = var21; ~var23 >= ~var22; ++var23) {
+                  for(var23 = var21; var22 >= var23; ++var23) {
                      int var43 = 255 & var8[var23][var19];
                      var25 = 255 & var1[var23][var19];
                      byte var38 = var2[var23][var19];
                      boolean var39 = false;
                      Class168 var46;
-                     if(var25 != 0) {
-                        if(~var43 != -1) {
-                           var46 = Class3_Sub13_Sub37.method350((byte)113, -1 + var43);
-                           if(-1 == var46.anInt2103) {
-                              Class3_Sub13_Sub23_Sub1.method284(var0, var9, var23, var6, var19, Class25.anIntArrayArray499[var7[var23][var19]], var14, (byte)116, var13, var11, var2[var23][var19]);
-                              continue;
-                           }
-
-                           byte var48 = var7[var23][var19];
-                           if(var48 != 0) {
-                              var39 = true;
-                           }
-                        }
-                     } else {
+                     if(var25 == 0) {
                         if(0 == var43) {
                            continue;
                         }
@@ -321,6 +306,19 @@ abstract class Class129 {
                            Class3_Sub13_Sub23_Sub1.method284(var0, var9, var23, var6, var19, Class134.anIntArrayArray1763[var7[var23][var19]], var14, (byte)-88, var13, var11, var2[var23][var19]);
                            continue;
                         }
+                     } else {
+                        if(var43 != 0) {
+                           var46 = Class3_Sub13_Sub37.method350((byte)113, -1 + var43);
+                           if(-1 == var46.anInt2103) {
+                              Class3_Sub13_Sub23_Sub1.method284(var0, var9, var23, var6, var19, Class25.anIntArrayArray499[var7[var23][var19]], var14, (byte)116, var13, var11, var2[var23][var19]);
+                              continue;
+                           }
+
+                           byte var48 = var7[var23][var19];
+                           if(var48 != 0) {
+                              var39 = true;
+                           }
+                        }
                      }
 
                      Class25 var44 = Class75.method1336(var4, var23, var19);
@@ -332,49 +330,21 @@ abstract class Class129 {
                            int var36;
                            boolean var51;
                            short var50;
-                           if((1 & var47) != 0) {
-                              var32 = var23 - 1 >= var21;
-                              var51 = var22 >= 1 + var23;
-                              if(!var32 && var17 <= var19 - 1) {
-                                 var50 = var13.aShortArray706[var15 - 1];
-                                 var35 = var16 + (var50 >> 8);
-                                 var36 = (255 & var50) + var35;
-                                 var32 = var23 > var35 && var36 > var23;
-                              }
-
-                              if(!var51 && ~var18 <= ~(var19 + 1)) {
-                                 var50 = var13.aShortArray706[var15 - -1];
-                                 var35 = var16 + (var50 >> 8);
-                                 var36 = (255 & var50) + var35;
-                                 var51 = var23 > var35 && ~var36 < ~var23;
-                              }
-
-                              if(var32 && var51) {
-                                 var45 = Class134.anIntArrayArray1763[0];
-                              } else if(!var32) {
-                                 if(var51) {
-                                    var45 = Class134.anIntArrayArray1763[1];
-                                    var38 = 2;
-                                 }
-                              } else {
-                                 var38 = 0;
-                                 var45 = Class134.anIntArrayArray1763[1];
-                              }
-                           } else {
-                              var32 = ~(-1 + var23) <= ~var21;
-                              var51 = ~var22 <= ~(var23 + 1);
+                           if((1 & var47) == 0) {
+                              var32 = var21 <= -1 + var23;
+                              var51 = var23 + 1 <= var22;
                               if(!var32 && var18 >= var19 - -1) {
                                  var50 = var13.aShortArray706[1 + var15];
                                  var35 = (var50 >> 8) + var16;
                                  var36 = (var50 & 255) + var35;
-                                 var32 = var23 > var35 && ~var36 < ~var23;
+                                 var32 = var23 > var35 && var23 < var36;
                               }
 
                               if(!var51 && var19 - 1 >= var17) {
                                  var50 = var13.aShortArray706[-1 + var15];
                                  var35 = var16 + (var50 >> 8);
                                  var36 = (255 & var50) + var35;
-                                 var51 = var35 < var23 && ~var36 < ~var23;
+                                 var51 = var35 < var23 && var23 < var36;
                               }
 
                               if(var32 && var51) {
@@ -385,6 +355,34 @@ abstract class Class129 {
                               } else if(var51) {
                                  var45 = Class134.anIntArrayArray1763[1];
                                  var38 = 3;
+                              }
+                           } else {
+                              var32 = var23 - 1 >= var21;
+                              var51 = var22 >= 1 + var23;
+                              if(!var32 && var17 <= var19 - 1) {
+                                 var50 = var13.aShortArray706[var15 - 1];
+                                 var35 = var16 + (var50 >> 8);
+                                 var36 = (255 & var50) + var35;
+                                 var32 = var23 > var35 && var36 > var23;
+                              }
+
+                              if(!var51 && var19 + 1 <= var18) {
+                                 var50 = var13.aShortArray706[var15 - -1];
+                                 var35 = var16 + (var50 >> 8);
+                                 var36 = (255 & var50) + var35;
+                                 var51 = var23 > var35 && var23 < var36;
+                              }
+
+                              if(var32 && var51) {
+                                 var45 = Class134.anIntArrayArray1763[0];
+                              } else if(var32) {
+                                 var38 = 0;
+                                 var45 = Class134.anIntArrayArray1763[1];
+                              } else {
+                                 if(var51) {
+                                    var45 = Class134.anIntArrayArray1763[1];
+                                    var38 = 2;
+                                 }
                               }
                            }
 
@@ -406,7 +404,7 @@ abstract class Class129 {
                   ++var15;
                }
 
-               if(~var14.anInt653 < -1 && var14.anInt655 > 0) {
+               if(var14.anInt653 > 0 && var14.anInt655 > 0) {
                   var14.method1019();
                   var13.aClass37_712 = var14;
                }

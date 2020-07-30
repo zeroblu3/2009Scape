@@ -47,7 +47,7 @@ public final class RockGolemDialogue extends DialoguePlugin {
 		public boolean handle(int interfaceId, int buttonId) {
 			switch (stage) {
 			case 0:
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Not quite, my body is formed mostly of minerals.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Not quite, my body is formed mostly of minerals.");
 				stage = 1;
 				break;
 			case 1:
@@ -55,7 +55,7 @@ public final class RockGolemDialogue extends DialoguePlugin {
 				stage = 2;
 				break;
 			case 2:				
-				interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "No, rocks are rocks, minerals are minerals. I am", "formed from minerals.");
+				interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "No, rocks are rocks, minerals are minerals. I am", "formed from minerals.");
 				stage = 3;
 				break;
 			case 3:

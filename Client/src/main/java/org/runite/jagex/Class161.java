@@ -8,12 +8,9 @@ final class Class161 {
    static int anInt2028 = 0;
    static RSString aClass94_2029 = RSString.createRSString("l");
    static RSByteBuffer aClass3_Sub30_2030 = new RSByteBuffer(new byte[5000]);
-   
-   private static RSString aClass94_2032 = RSString.createRSString("Cancel");
    static RSString aClass94_2033 = RSString.createRSString("Memory after cleanup=");
    static Class33 aClass33_2034;
    static RSString aClass94_2035 = null;
-static RSString aClass94_2031 = aClass94_2032;
 
    static final void method2200(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       try {
@@ -58,7 +55,7 @@ static RSString aClass94_2031 = aClass94_2032;
          Class3_Sub13_Sub23_Sub1.method282(var39, var1 - -var11, -68, var4 + var1, var3);
 
          while(var9 > 0) {
-            if(~var23 > -1) {
+            if(var23 < 0) {
                while(0 > var23) {
                   var24 += var35;
                   var23 += var31;
@@ -78,8 +75,8 @@ static RSString aClass94_2031 = aClass94_2032;
 
             boolean var40 = var9 <= var12;
             if(var40) {
-               if(~var25 > -1) {
-                  while(~var25 > -1) {
+               if(var25 < 0) {
+                  while(var25 < 0) {
                      var25 += var33;
                      var33 += var30;
                      ++var10;
@@ -133,7 +130,7 @@ static RSString aClass94_2031 = aClass94_2032;
 
    static final int method2201(WorldListEntry var0, int var1, int var2, WorldListEntry var3, boolean var4) {
       try {
-         if(-2 == ~var1) {
+         if(var1 == 1) {
             int var5 = var0.anInt722;
             int var6 = var3.anInt722;
             if(!var4) {
@@ -141,14 +138,14 @@ static RSString aClass94_2031 = aClass94_2032;
                   var6 = 2001;
                }
 
-               if(~var5 == 0) {
+               if(var5 == -1) {
                   var5 = 2001;
                }
             }
 
             return -var6 + var5;
          } else {
-            return 2 == var1?var0.method1078(102).name.method1546((byte)-67, var3.method1078(-119).name):(~var1 == -4?(var0.activity.method1528((byte)-42, Class62.aClass94_946)?(var3.activity.method1528((byte)-42, Class62.aClass94_946)?0:(var4?-1:1)):(var3.activity.method1528((byte)-42, Class62.aClass94_946)?(var4?1:-1):var0.activity.method1546((byte)-100, var3.activity))):(var2 <= 67?36:(var1 == 4?(!var0.method1074(-114)?(!var3.method1074(-123)?0:-1):(var3.method1074(-108)?0:1)):(var1 == 5?(var0.method1075(64)?(!var3.method1075(64)?1:0):(var3.method1075(64)?-1:0)):(~var1 != -7?(7 == var1?(var0.method1070(8)?(var3.method1070(8)?0:1):(var3.method1070(8)?-1:0)):-var3.worldId + var0.worldId):(var0.method1072(false)?(!var3.method1072(false)?1:0):(var3.method1072(false)?-1:0)))))));
+            return 2 == var1?var0.method1078(102).name.method1546((byte)-67, var3.method1078(-119).name):(var1 == 3 ?(var0.activity.method1528((byte)-42, Class62.aClass94_946)?(var3.activity.method1528((byte)-42, Class62.aClass94_946)?0:(var4?-1:1)):(var3.activity.method1528((byte)-42, Class62.aClass94_946)?(var4?1:-1):var0.activity.method1546((byte)-100, var3.activity))):(var2 <= 67?36:(var1 == 4?(!var0.method1074(-114)?(!var3.method1074(-123)?0:-1):(var3.method1074(-108)?0:1)):(var1 == 5?(var0.method1075(64)?(!var3.method1075(64)?1:0):(var3.method1075(64)?-1:0)):(var1 != 6 ?(7 == var1?(var0.method1070(8)?(var3.method1070(8)?0:1):(var3.method1070(8)?-1:0)):-var3.worldId + var0.worldId):(var0.method1072(false)?(!var3.method1072(false)?1:0):(var3.method1072(false)?-1:0)))))));
          }
       } catch (RuntimeException var7) {
          throw Class44.method1067(var7, "wb.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ')');
@@ -157,19 +154,13 @@ static RSString aClass94_2031 = aClass94_2032;
 
    public static void method2202(int var0) {
       try {
-         aClass94_2031 = null;
          aClass94_2025 = null;
          aClass94_2033 = null;
-         if(var0 != -196) {
-            aClass94_2032 = (RSString)null;
-         }
-
          aClass3_Sub30_2030 = null;
          anIntArray2026 = null;
          aClass33_2034 = null;
          aClass94_2029 = null;
          aClass94_2035 = null;
-         aClass94_2032 = null;
       } catch (RuntimeException var2) {
          throw Class44.method1067(var2, "wb.B(" + var0 + ')');
       }

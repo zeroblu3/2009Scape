@@ -20,7 +20,7 @@ public abstract class Script {
 
     public void init()
     {
-        bot.init();
+        //bot.init();
         scriptAPI = new ScriptAPI(bot);
 
         for (Item i : inventory)
@@ -37,7 +37,7 @@ public abstract class Script {
         }
     }
 
-    public abstract void runLoop();
+    public abstract void tick();
 
     public void setLevel(int skill, int level) {
         bot.getSkills().setLevel(skill, level);
@@ -45,4 +45,6 @@ public abstract class Script {
         bot.getSkills().updateCombatLevel();
         bot.getAppearance().sync();
     }
+
+    public abstract Script newInstance();
 }

@@ -1,5 +1,6 @@
 package plugin.ge;
 
+import core.cache.def.impl.ItemDefinition;
 import core.game.content.eco.EcoStatus;
 import core.game.content.eco.EconomyManagement;
 import core.game.node.entity.player.Player;
@@ -10,6 +11,7 @@ import core.game.system.task.Pulse;
 import core.game.system.task.TaskExecutor;
 import core.game.world.GameWorld;
 import core.game.world.callback.CallBack;
+import core.game.world.repository.Repository;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -104,6 +106,9 @@ public final class GEOfferDispatch extends Pulse implements CallBack {
 					NodeList withdrawItems = offerElement.getElementsByTagName("withdrawItem");
 					for(int j = 0; j < withdrawItems.getLength(); j++){
 						Node item = withdrawItems.item(i);
+						if(item == null){
+							continue;
+						}
 						if(item.getNodeType() == Node.ELEMENT_NODE){
 							Element itemElement = (Element) item;
 							Item newItem = new Item(Integer.parseInt(itemElement.getAttribute("id")),Integer.parseInt(itemElement.getAttribute("amount")));
@@ -262,6 +267,9 @@ public final class GEOfferDispatch extends Pulse implements CallBack {
 		OFFER_MAPPING.put(offer.getUid(), offer);
 		offer.setTimeStamp(System.currentTimeMillis());
 		player.getGrandExchange().update(offer);
+		if(offer.isSell()) {
+			Repository.sendNews(player.getUsername() + " just offered " + offer.getAmount() + " " + ItemDefinition.forId(offer.getItemId()).getName().toLowerCase() + " on the GE.");
+		}
 		dumpDatabase = true;
 		return true;
 	}

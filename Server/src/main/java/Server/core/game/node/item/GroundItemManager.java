@@ -8,6 +8,7 @@ import core.game.world.update.flag.chunk.ItemUpdateFlag;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.BuildItemContext;
 import core.net.packet.out.UpdateGroundItemAmount;
+import plugin.ai.AIRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +143,11 @@ public final class GroundItemManager {
 			}
 			if (!item.isActive()) {
 				GROUND_ITEMS.remove(item);
+				if(item.getDropper().isArtificial()) {
+					ArrayList<GroundItem> val = AIRepository.getItems(item.getDropper());
+					if(val != null)
+						val.remove(item);
+				}
 				if (!item.isRemoved()) {
 					RegionManager.getRegionPlane(item.getLocation()).remove(item);
 				}

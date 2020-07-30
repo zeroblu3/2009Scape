@@ -2,6 +2,8 @@ package plugin.ai.minigamebots.pestcontrol;
 
 import core.game.node.Node;
 import core.game.node.entity.Entity;
+import plugin.ai.pvmbots.CombatBot;
+import plugin.ai.pvmbots.CombatBotAssembler;
 import plugin.ai.pvmbots.PvMBots;
 import core.game.node.entity.player.link.prayer.PrayerType;
 import core.game.world.map.Location;
@@ -35,6 +37,12 @@ public class PestControlTestBot extends PvMBots {
 
 	public PestControlTestBot(Location l) {
 		super("pestcontrolcopies.txt", legitimizeLocation(l));
+		int num = RandomFunction.random(3);
+		if(num == 1){
+			new CombatBotAssembler().gearMeleeBot(this);
+		} else {
+			new CombatBotAssembler().gearRangedBot(this);
+		}
 		randomType = new Random().nextInt(100);
 	}
 

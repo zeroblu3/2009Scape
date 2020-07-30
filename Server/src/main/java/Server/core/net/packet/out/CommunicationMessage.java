@@ -7,6 +7,7 @@ import core.net.packet.OutgoingPacket;
 import core.net.packet.PacketHeader;
 import core.net.packet.context.MessageContext;
 import core.tools.StringUtils;
+import plugin.ai.AIPlayer;
 
 import java.util.Random;
 
@@ -54,6 +55,9 @@ public final class CommunicationMessage implements OutgoingPacket<MessageContext
 			buffer.put((byte) context.getChatIcon()); // rights
 			buffer.putBytes(bytes, 0, length);
 			break;
+		}
+		if(player.isArtificial()){
+			((AIPlayer) player).handleIncomingChat(context);
 		}
 		player.getSession().write(buffer);
 	}

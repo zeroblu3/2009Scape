@@ -46,7 +46,7 @@ public final class PrinceBlackDragonDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "Why is that?");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "Why is that?");
 			stage = 1;
 			break;
 		case 1:
@@ -54,7 +54,7 @@ public final class PrinceBlackDragonDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You're overthinking this.");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You're overthinking this.");
 			stage = 3;
 			break;
 		case 3:

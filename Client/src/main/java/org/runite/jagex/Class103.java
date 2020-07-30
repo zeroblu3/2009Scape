@@ -16,7 +16,9 @@ final class Class103 {
       int var3 = var1.getByte((byte)-112);
       this.anIntArray1434[0] = var3 >> 4;
       this.anIntArray1434[1] = var3 & 15;
-      if(var3 != 0) {
+      if(var3 == 0) {
+         this.anIntArray1437[0] = this.anIntArray1437[1] = 0;
+      } else {
          this.anIntArray1437[0] = var1.getShort(1);
          this.anIntArray1437[1] = var1.getShort(1);
          int var4 = var1.getByte((byte)-83);
@@ -32,12 +34,12 @@ final class Class103 {
 
          for(var5 = 0; var5 < 2; ++var5) {
             for(var6 = 0; var6 < this.anIntArray1434[var5]; ++var6) {
-               if((var4 & 1 << var5 * 4 << var6) != 0) {
-                  this.anIntArrayArrayArray1430[var5][1][var6] = var1.getShort(1);
-                  this.anIntArrayArrayArray1432[var5][1][var6] = var1.getShort(1);
-               } else {
+               if((var4 & 1 << var5 * 4 << var6) == 0) {
                   this.anIntArrayArrayArray1430[var5][1][var6] = this.anIntArrayArrayArray1430[var5][0][var6];
                   this.anIntArrayArrayArray1432[var5][1][var6] = this.anIntArrayArrayArray1432[var5][0][var6];
+               } else {
+                  this.anIntArrayArrayArray1430[var5][1][var6] = var1.getShort(1);
+                  this.anIntArrayArrayArray1432[var5][1][var6] = var1.getShort(1);
                }
             }
          }
@@ -45,8 +47,6 @@ final class Class103 {
          if(var4 != 0 || this.anIntArray1437[1] != this.anIntArray1437[0]) {
             var2.method1009(var1);
          }
-      } else {
-         this.anIntArray1437[0] = this.anIntArray1437[1] = 0;
       }
 
    }

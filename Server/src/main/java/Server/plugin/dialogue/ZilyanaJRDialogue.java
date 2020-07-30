@@ -52,11 +52,11 @@ public final class ZilyanaJRDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "GOOD!");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "GOOD!");
 			stage = 2;
 			break;
 		case 1:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "FIND THE GODSWORD!");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "FIND THE GODSWORD!");
 			stage = 2;
 			break;
 		case 2:

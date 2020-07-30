@@ -46,7 +46,7 @@ public final class CallistoCubDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You're not funny...");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You're not funny...");
 			stage = 1;
 			break;
 		case 1:
@@ -54,7 +54,7 @@ public final class CallistoCubDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendDialogues(npc, FacialExpression.OSRS_NORMAL, "You're really not funny...");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "You're really not funny...");
 			stage = 3;
 			break;
 		case 3:
@@ -62,7 +62,7 @@ public final class CallistoCubDialogue extends DialoguePlugin {
 			stage = 4;
 			break;
 		case 4:
-			npc(FacialExpression.OSRS_NORMAL, "...");
+			npc(FacialExpression.OLD_NORMAL, "...");
 			stage = 5;
 			break;
 		case 5:
@@ -70,7 +70,7 @@ public final class CallistoCubDialogue extends DialoguePlugin {
 			stage = 6;
 			break;
 		case 6:
-			npc(FacialExpression.OSRS_NORMAL, "If you don't stop, I'm going to leave some...", "brown... at your feet, human.");
+			npc(FacialExpression.OLD_NORMAL, "If you don't stop, I'm going to leave some...", "brown... at your feet, human.");
 			stage = 7;
 			break;
 		case 7:

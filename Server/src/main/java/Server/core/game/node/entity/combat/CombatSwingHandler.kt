@@ -218,7 +218,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
      */
     open fun isAttackable(entity: Entity, victim: Entity): InteractionType? {
         if (entity.location == victim.location) {
-            return if (entity.index < victim.index && victim.properties.combatPulse.victim === entity) {
+            return if (entity.index < victim.index && victim.properties.combatPulse.getVictim() === entity) {
                 InteractionType.STILL_INTERACT
             } else InteractionType.NO_INTERACT
         }
@@ -508,9 +508,9 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 		fun isProjectileClipped(entity: Node, victim: Node?, checkClose: Boolean): Boolean {
             return if (checkClose) {
                 if (entity.id == 54) { // /temp until emp is back.
-                    Pathfinder.find(entity as Entity, victim, false, Pathfinder.SMART).isSuccessful
-                } else Pathfinder.find(entity as Entity, victim, false, Pathfinder.DUMB).isSuccessful
-            } else Pathfinder.find(entity as Entity, victim, false, Pathfinder.PROJECTILE).isSuccessful
+                    Pathfinder.find(entity as Entity, victim!!, false, Pathfinder.SMART).isSuccessful
+                } else Pathfinder.find(entity as Entity, victim!!, false, Pathfinder.DUMB).isSuccessful
+            } else Pathfinder.find(entity as Entity, victim!!, false, Pathfinder.PROJECTILE).isSuccessful
         }
     }
 

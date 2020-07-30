@@ -3,6 +3,8 @@ package core.game.world;
 import core.ServerConstants;
 import core.cache.Cache;
 import core.cache.ServerStore;
+import core.cache.def.Definition;
+import core.cache.def.impl.ObjectDefinition;
 import core.game.system.config.ConfigParser;
 import plugin.CorePluginTypes.StartupPlugin;
 import plugin.ge.GrandExchangeDatabase;
@@ -61,6 +63,8 @@ public final class GameWorld {
     public static final List<StartupPlugin> STARTUP_PLUGINS = new ArrayList<>();
 
     private static final ConfigParser configParser = new ConfigParser();
+
+    public static boolean PCBotsSpawned = false;
 
     /**
      * The game settings to use.
@@ -168,18 +172,22 @@ public final class GameWorld {
         if(settings.getEnable_bots()) {
             ImmerseWorld.init();
         }
+        SystemLogger.log("Made it to 173");
         CallbackHub.call();
         STARTUP_PLUGINS.forEach(plugin -> {
             if(plugin != null){
                 plugin.run();
             }
         });
+        SystemLogger.log("Made it to 180");
         if (run) {
             SystemManager.flag(GameWorld.getSettings().isDevMode() ? SystemState.PRIVATE : SystemState.ACTIVE);
         }
         System.gc();
+        SystemLogger.log("185");
         FastPulser.init(20);
-        Pulser.init(600);
+        ObjectDefinition.getDefinitions().values().forEach(Definition::getExamine);
+        SystemLogger.log("188");
     }
 
 
