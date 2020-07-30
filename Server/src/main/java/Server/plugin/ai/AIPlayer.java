@@ -293,6 +293,15 @@ public class AIPlayer extends Player {
         return false;
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+        if(getSkills().getLifepoints() <= 0){
+            //deregister(this.uid);
+
+        }
+    }
+
     public Item getItemById(int id) {
         for (int i = 0; i < 28; i++) {
             Item item = this.getInventory().get(i);
@@ -494,6 +503,12 @@ public class AIPlayer extends Player {
             getPlayerFlags().setLastSceneGraph(getLocation());
         }
         super.reset();
+    }
+
+    @Override
+    public void finalizeDeath(Entity killer) {
+        super.finalizeDeath(killer);
+        fullRestore();
     }
 
     /**

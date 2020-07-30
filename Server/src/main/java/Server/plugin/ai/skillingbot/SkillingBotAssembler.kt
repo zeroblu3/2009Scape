@@ -20,10 +20,16 @@ class SkillingBotAssembler {
     fun equipSet(bot: AIPlayer,set: List<Int>): AIPlayer{
         for(i in set){
             val item = Item(i)
-            val slot = item.definition.configurations["equipment_slot"] ?: continue
+            val configs = item.definition.configurations
+            val slot = configs["equipment_slot"] ?: continue
             bot.equipment.add(item, slot as Int,
                     false,false)
+            val reqs = configs["requirements"]
+            if(reqs != null)
+                for(req in configs["requirements"] as HashMap<Int,Int>)
+                    bot.skills.setStaticLevel(req.key, req.value)
         }
+        bot.skills.updateCombatLevel()
         return bot
     }
 
