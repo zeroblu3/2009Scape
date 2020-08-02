@@ -24,7 +24,7 @@ public final class SpadePulse extends ToolAction {
 	/**
 	 * Represents the spade animation to use.
 	 */
-	private static final Animation ANIMATION = new Animation(830);
+	private static final Animation SPADE_ANIMATION = new Animation(830);
 
 	/**
 	 * Represents the herb picking animation.
@@ -125,7 +125,7 @@ public final class SpadePulse extends ToolAction {
 			player.animate(HERB_ANIMATION);
 			return;
 		}
-		player.animate(ANIMATION);
+		player.animate(SPADE_ANIMATION);
 	}
 
 	/**

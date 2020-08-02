@@ -32,7 +32,8 @@ public enum Potions {
     SARA_BREW(new int[] { 6685, 6687, 6689, 6691 }, new MultiEffect(new IncrementSkillEffect(Skills.HITPOINTS,0,0.15), new IncrementSkillEffect(Skills.ATTACK,0,-0.10), new IncrementSkillEffect(Skills.STRENGTH,0,-0.10), new IncrementSkillEffect(Skills.MAGIC,0, -0.10), new IncrementSkillEffect(Skills.RANGE,0, -0.10), new IncrementSkillEffect(Skills.DEFENCE,2,0.2))),
     SUMMONING(new int[] { 12140, 12142, 12144, 12146 }, new IncrementSkillEffect(Skills.SUMMONING,7,0.25)),
     COMBAT(new int[]{9739, 9741, 9743, 9745}, new MultiEffect(new IncrementSkillEffect(Skills.STRENGTH,3,.1),new IncrementSkillEffect(Skills.ATTACK,3,.1))),
-    ENERGY(new int[] { 3008, 3010, 3012, 3014 }, new MultiEffect(new EnergyEffect(10), new HealingEffect(3))),
+    ENERGY(new int[] { 3008, 3010, 3012, 3014 }, new EnergyEffect(10)),
+    SUPER_ENERGY(new int[]{3016,3018,3020,3022},new EnergyEffect(20) ),
     FISHING(new int[] { 2438, 151, 153, 155 }, new IncrementSkillEffect(Skills.FISHING,3,0)),
     PRAYER(new int[] { 2434, 139, 141, 143 }, new PrayerEffect(7,0.25)),
     PRAYERMIX(new int[] { 11467,11465 }, new MultiEffect(new PrayerEffect(7,0.25), new HealingEffect(6))),
@@ -56,8 +57,8 @@ public enum Potions {
     FISH_MIX(new int[]{11477,11479},new MultiEffect(new IncrementSkillEffect(Skills.FISHING,3,0),new HealingEffect(6))),
     SUPER_ENERGY_MIX(new int[]{11481,11483},new MultiEffect(new EnergyEffect(20),new HealingEffect(6))),
     HUNTING_MIX(new int[]{11517,11519},new MultiEffect(new IncrementSkillEffect(Skills.HUNTER,3,0),new HealingEffect(6))),
-    SUPER_STR_MIX(new int[]{11485,11487},new MultiEffect(new IncrementSkillEffect(Skills.STRENGTH,5,0.15),new HealingEffect(6))),
-    SUPER_ENERGY(new int[]{3016,3018,3020,3022},new EnergyEffect(-1) );
+    SUPER_STR_MIX(new int[]{11485,11487},new MultiEffect(new IncrementSkillEffect(Skills.STRENGTH,5,0.15),new HealingEffect(6)));
+
 
     public static HashMap<Integer, Potions> potMap = new HashMap<>();
     static{

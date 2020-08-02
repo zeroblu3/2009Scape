@@ -18,7 +18,14 @@ public class AchievementDiaryManager implements SavingModule {
     /**
      * The achievement diarys.
      */
-    private final AchievementDiary[] diarys = new AchievementDiary[] { new AchievementDiary(DiaryType.KARAMJA), new AchievementDiary(DiaryType.VARROCK), new AchievementDiary(DiaryType.LUMBRIDGE) };
+    private final AchievementDiary[] diarys = new AchievementDiary[] {
+    		new AchievementDiary(DiaryType.KARAMJA),
+			new AchievementDiary(DiaryType.VARROCK),
+			new AchievementDiary(DiaryType.LUMBRIDGE)/*,
+			new AchievementDiary(DiaryType.FALADOR),
+			new AchievementDiary(DiaryType.FREMENNIK),
+			new AchievementDiary(DiaryType.SEERS_VILLAGE)*/
+    };
 
 	/**
 	 * The player instance.
