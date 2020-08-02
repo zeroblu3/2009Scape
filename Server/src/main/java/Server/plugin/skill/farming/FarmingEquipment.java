@@ -159,7 +159,6 @@ public final class FarmingEquipment implements SavingModule {
 	 */
 	private void update(final Player player) {
 		player.getConfigManager().set(CONFIG, getConfigHash());
-		//player.getConfigManager().get(CONFIG);
 	}
 
 	/**
