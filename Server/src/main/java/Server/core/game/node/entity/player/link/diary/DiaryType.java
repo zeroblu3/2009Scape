@@ -8,10 +8,11 @@ import core.game.node.item.Item;
  *
  * @author Vexia
  */
+// TODO figure out secondary rewards for all of these
 public enum DiaryType {
     KARAMJA("Karamja", 11,
             new String[]{"Easy", "Medium", "Hard"},
-            new String[][]{
+            new String[][]{ // TODO check that implementation is correct on all of these
                     {
                             "Pick 5 bananas from the plantation located east of the <br><br>volcano.",
                             "Use the rope swing to travel to the small island north-west<br><br>of Karamja, where the moss giants are.",
@@ -45,6 +46,8 @@ public enum DiaryType {
                             "Kill a metal dragon in Brimhaven Dungeon."
                     }
             },
+            // Karamja gloves 1-3
+            // 1k xp 30+, 5k xp any?, 10k xp any?
             new Item[][]{
                     {new Item(ItemNames.KARAMJA_GLOVES_1_11136), new Item(ItemNames.ANTIQUE_LAMP_11137)},
                     {new Item(ItemNames.KARAMJA_GLOVES_2_11138), new Item(ItemNames.ANTIQUE_LAMP_11139)},
@@ -52,10 +55,23 @@ public enum DiaryType {
             },
             "To start marking off tasks in your journal, speak to Pirate<br><br>Jackie the Fruit in Brimhaven, Kaleb Paramay in Shilo<br><br>Village or one of the Jungle Foresters north of the<br><br>Kharazi Jungle.",
             new int[]{1055, 512, 401}
+            /**
+             * Secondary rewards
+             * Easy
+             * - cheaper prices on karamja and cheaper ship rides
+             * Medium
+             * - 10% extra agility xp in arena
+             * - 10% extra xp redeeming tickets
+             * Hard
+             * - Gem mine ladder access
+             * - Teleport to underground gem mine
+             */
     ),
+    // https://runescape.wiki/w/Varrock_achievements?oldid=891055
+    // TODO the varrock tasks are missing a lot of tasks!!! this will screw up save files i think, need to figure out how to migrate when fixing
     VARROCK("Varrock", 15,
             new String[]{"Easy", "Medium", "Hard"},
-            new String[][]{
+            new String[][]{ // TODO check that implementation is correct on all of these
                     {
                             "Have Thessalia show you what outfits you can wear.",
                             "Have Aubury teleport you to the essence mine.",
@@ -64,7 +80,8 @@ public enum DiaryType {
                             "Enter the second level of the Stronghold of Security.",
                             "Jump over the fence south of Varrock.",
                             "Chop down a dying tree in the Lumber Yard.",
-                            "Buy a newspaper.", "Give a dog a bone!",
+                            "Buy a copy of the Varrock Herald.",
+                            "Give a stray dog a bone.",
                             "Spin a bowl on the pottery wheel and fire it in the oven in <br><br>Barbarian Village.",
                             "Craft some Earth runes.",
                             "Catch some trout in the river Lum at Barbarian Village.",
@@ -96,9 +113,11 @@ public enum DiaryType {
             "",
             new int[]{5833, 2660, 1597}
     ),
+    // https://runescape.wiki/w/Lumbridge_achievements?oldid=866361
+    // TODO the lumbridge tasks are missing a lot of tasks!!! this will screw up save files I think, need to figure out how to migrate when fixing
     LUMBRIDGE("Lumbridge", 2,
             new String[]{"Beginner", "Easy", "Medium"},
-            new String[][]{
+            new String[][]{ // TODO check that implementation is correct on all of these
                     {
                             "Slay a cave bug in the Lumbridge Swamp Caves",
                             "Have Sedridor teleport you to the Rune essence mine",
@@ -128,15 +147,33 @@ public enum DiaryType {
                             "Craft 56 cosmic runes simultaneously",
                             "Travel from Lumbridge to Edgeville on a waka canoe",
                             "Purchase some barrows gloves from the Culinaromancer's Chest",
-                            "Pick some belladonna from the farming patch at Draynor manor"
+                            "Pick some belladonna from the farming patch at Draynor manor" // TODO believe this patch is not working correctly
                     }
             },
+            // Explorer's Rings 1-3
+            // 500 any, 1k xp 30 or higher, 1.5k xp 35 or higher
             new Item[][]{
                     {new Item(13560), new Item(11185)},
                     {new Item(13561), new Item(11186)},
                     {new Item(13562), new Item(11187)}},
             "",
             new int[]{7969, 519, 743}
+            /**
+             * Secondary Rewards
+             * Beginner
+             * - Explorer's ring 1 when worn replenishes 50% run energy per charge once a day
+             * - Explore emote
+             * Easy
+             * - 50% run energy twice a day
+             * - Low Level Alchemy 30 times per day without runes
+             * - Chance of extra runes - air,earth,fire,water
+             * Medium
+             * - 50% run energy thrice a day
+             * - 30 low alch per day
+             * - Chance of extra runes - air,earth,fire,water
+             * - cabbage port
+             */
+
     ),
     // https://runescape.wiki/w/Falador_achievements?oldid=900390
     FALADOR("Falador", 23,
@@ -147,7 +184,7 @@ public enum DiaryType {
                             "Buy a stat-boosting beer from a waitress in the Rising Sun Tavern.",
                             "Buy a black chainbody from Wayne's Chains, and<br><br>try it on in the shop.",
                             "Climb to the top of the White Knights' Castle.", // TODO
-                            "Discover your family crest from Sir Renitee.", // TODO
+                            "Discover your family crest from Sir Renitee.", // TODO NPC not in the game yet?
                             "Enter the mole's lair under Falador Park.", // TODO
                             "Feed Ridgeley, the hairdresser's pet.",
                             "Fill a bucket from the pump north of the west Falador bank.",
@@ -155,7 +192,7 @@ public enum DiaryType {
                             "Kill a duck in Falador Park.",
                             "Kill a highwayman on the road south of Falador.",
                             "Make an air tiara.",
-                            "Pop a party balloon.", // TODO
+                            "Pop a party balloon.", // TODO party room not functional
                             "Recharge your Prayer points at the altar south-west of Port Sarim.",
                             "Take the boat to Entrana."
                     },
@@ -170,12 +207,12 @@ public enum DiaryType {
                             "Place a scarecrow to protect your sweetcorn as it<br><br>grows in the patch north of Port Sarim.",  // TODO make this actually rely on corn
                             "Salute Sir Tiffy Cashien while wearing full initiate armour.",
                             "Smith blurite crossbow limbs on Thurgo's anvil.",
-                            "Travel from Port Sarim to Musa Point for<br><br>free (with a little help from Charos).",
-                            "Visit the Port Sarim rat pits." // TODO
+                            "Travel from Port Sarim to Musa Point for<br><br>free (with a little help from Charos).", // TODO can't actually obtain this ring yet...
+                            "Visit the Port Sarim rat pits." // TODO can't find ladder.  Ardougne rat pits manhole is functional but rest are not
                     },
                     {
                             "Ascend the Dark Wizards' Tower while wearing full proselyte armour.", // TODO
-                            "Change your family crest to the Saradomin symbol.", // TODO
+                            "Change your family crest to the Saradomin symbol.", // TODO Sir Renitee not spawned in the game yet
                             "Craft 196 or more air runes simultaneously.", // TODO
                             "Cut down a Yew tree or Magic tree that you grew in Falador Park.", // TODO
                             "Dial to the fairy ring on Mudskipper Point.", // TODO
@@ -194,7 +231,7 @@ public enum DiaryType {
                     {new Item(14579), new Item(14582)}
             },
             "",
-            // Redbeard Frank, Chemist, Squire
+            // Redbeard Frank, Chemist, Squire // TODO dialogues for all these
             new int[]{375, 367, 606}
     ),
     // https://runescape.wiki/w/Fremennik_achievements?oldid=877418
@@ -246,7 +283,7 @@ public enum DiaryType {
                     {new Item(14573), new Item(14576)}
             },
             "",
-            // Council Workman, Yrsa, Advisor Ghrim
+            // Council Workman, Yrsa, Advisor Ghrim  // TODO dialogues for all these
             new int[]{1287, 1301, 1375}
     ),
     // https://runescape.wiki/w/Seers%27_Village_achievements?oldid=900527
@@ -297,13 +334,13 @@ public enum DiaryType {
             },
             // Seers Headbad 1-3
             // 1k, 5k, 10k xp lamps
-            new Item[][]{
+            new Item[][]{  // TODO figure out seer's headbands
                     {new Item(14631), new Item(14633)},
                     {new Item(14631), new Item(14634)},
                     {new Item(14631), new Item(14635)}
             },
             "",
-            // Seer, Stankers, Sir Kay
+            // Seer, Stankers, Sir Kay  // TODO dialogues for all these
             new int[]{388, 383, 241}
     );
 
