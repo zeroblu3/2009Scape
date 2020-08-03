@@ -2,6 +2,8 @@ package plugin.skill.agility.shortcuts;
 
 import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
+import core.game.content.ItemNames;
+import core.game.node.entity.player.link.diary.DiaryType;
 import plugin.skill.Skills;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -56,6 +58,9 @@ public final class FaladorGrapplePlugin extends OptionHandler {
 		switch (option) {
 		case "jump":
 			ForceMovement.run(player, player.getLocation(), ((GameObject) node).getId() == 17051 ? Location.create(3033, 3390, 0) : Location.create(3032, 3388, 0), new Animation(7268), 10);
+			if (player.getAttribute("diary:falador:grapple-up", false) && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1,2)) {
+				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 1,2,true);
+			}
 			break;
 		case "grapple":
 			for (int i = 0; i < REQUIREMENTS.length; i++) {
@@ -94,6 +99,9 @@ public final class FaladorGrapplePlugin extends OptionHandler {
 						player.getInterfaceManager().closeOverlay();
 						player.getInterfaceManager().close();
 						player.unlock();
+						if (!player.getAttribute("diary:falador:grapple-up", false)) {
+							player.setAttribute("/save:diary:falador:grapple-up", true);
+						}
 						return true;
 					}
 					return false;

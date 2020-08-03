@@ -233,7 +233,7 @@ public final class BobDialogue extends DialoguePlugin {
 			stage = 30;
 			break;
 		case 130:
-			npc("You need to complete the taks so that they're all ticked", "off then you can claim your reward. Most of them are", "straightforward although you might find some required", "quests to be started, if not finished.");
+			npc("You need to complete the tasks so that they're all ticked", "off, then you can claim your reward. Most of them are", "straightforward although you might find some required", "quests to be started, if not finished.");
 			stage++;
 			break;
 		case 131:

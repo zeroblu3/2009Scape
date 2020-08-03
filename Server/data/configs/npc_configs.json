@@ -2905,7 +2905,7 @@
     {
       "id": "176",
       "name": "Witch",
-      "examine": "The hat\\'s a dead give away.",
+      "examine": "The hat's a dead give away.",
       "lifepoints": "31",
       "attack_level": "1",
       "strength_level": "1",
@@ -6650,7 +6650,7 @@
     {
       "id": "611",
       "name": "Witch",
-      "examine": "The Black Knights\\' resident witch.",
+      "examine": "The Black Knights' resident witch.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -9718,7 +9718,7 @@
     },
     {
       "id": "993",
-      "name": "Witch\\'s cat",
+      "name": "Witch's cat",
       "examine": "Curiosity is yet to kill this one...",
       "lifepoints": "10",
       "attack_level": "1",
@@ -26897,7 +26897,7 @@
     },
     {
       "id": "2997",
-      "name": "Gertrude\\'s cat",
+      "name": "Gertrude's cat",
       "examine": "A friendly feline?",
       "lifepoints": "10",
       "attack_level": "1",
@@ -26914,7 +26914,7 @@
     {
       "id": "2998",
       "name": "Gambler",
-      "examine": "Very well to do. I wonder what he\\'s doing here.",
+      "examine": "Very well to do. I wonder what he's doing here.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -27856,7 +27856,7 @@
     {
       "id": "3072",
       "name": "Ice giant",
-      "examine": "He\\'s got icicles in his beard.",
+      "examine": "He's got icicles in his beard.",
       "lifepoints": "105",
       "attack_level": "37",
       "strength_level": "37",
@@ -39016,7 +39016,7 @@
     {
       "id": "4686",
       "name": "Ice giant",
-      "examine": "He\\'s got icicles in his beard.",
+      "examine": "He's got icicles in his beard.",
       "lifepoints": "105",
       "attack_level": "37",
       "strength_level": "37",

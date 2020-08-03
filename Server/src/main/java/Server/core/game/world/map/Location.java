@@ -7,6 +7,7 @@ import core.game.world.map.path.Pathfinder;
 import core.tools.RandomFunction;
 
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 /**
  * Represents a location on the world map.
@@ -193,9 +194,7 @@ public final class Location extends Node {
 
 	/**
 	 * Gets the location incremented by the given coordinates.
-	 * @param diffX The x-difference.
-	 * @param diffY The y-difference.
-	 * @param z The height difference.
+	 * @param l incremental location
 	 * @return The location.
 	 */
 	public Location transform(Location l) {
@@ -250,13 +249,31 @@ public final class Location extends Node {
 	/**
 	 * Returns the distance between the first and the second specified distance.
 	 * @param first The first location.
-	 * @param other The other location.
+	 * @param second The other location.
 	 * @return The amount of distance between first and other.
 	 */
 	public static double getDistance(Location first, Location second) {
 		int xdiff = first.getX() - second.getX();
 		int ydiff = first.getY() - second.getY();
 		return Math.sqrt(xdiff * xdiff + ydiff * ydiff);
+	}
+
+	/**
+	 * Returns whether the location is inside a box defined by two other locations, inclusive
+	 * @param a One corner of the bounding box
+	 * @param b Other corner of the bounding box
+	 * @return True if inside the bounding box
+	 */
+	public boolean isInside(Location a, Location b){
+		final int xmin = Math.min(a.x, b.x);
+		final int xmax = Math.max(a.x, b.x);
+		final int ymin = Math.min(a.y, b.y);
+		final int ymax = Math.max(a.y, b.y);
+		final int zmin = Math.min(a.z, b.z);
+		final int zmax = Math.max(a.z, b.z);
+		return (this.getX() <= xmax && this.getX() >= xmin
+				&& this.getY() <= ymax && this.getY() >= ymin
+				&& this.getZ() <= zmax && this.getZ() >= zmin);
 	}
 
 	/**

@@ -116,7 +116,6 @@ public class Shop {
      *
      * @param title    the title.
      * @param items    the items.
-     * @param npcs     the npcs.
      * @param general  the general.
      * @param currency the currency.
      * @param highAlch if high alch.
@@ -138,7 +137,6 @@ public class Shop {
      *
      * @param title    the title.
      * @param items    the items.
-     * @param npcs     the npcs.
      * @param general  the general.
      * @param currency the currency.
      * @param highAlch if high alch.
@@ -151,13 +149,12 @@ public class Shop {
     }
 
     /**
-     * Constructs a new {@Code Shop} {@Code Object}
+     * Constructs a new {@code Shop} {@code Object}
      *
-     * @param title
-     * @param items
-     * @param npcs
-     * @param general
-     * @param currency
+     * @param title the shop title
+     * @param items items the shop can handle
+     * @param general is this a general store
+     * @param currency what currency is used
      */
     public Shop(String title, Item[] items, int[] npcs, boolean general, int currency) {
         this(title, items, general, currency, false);
@@ -169,7 +166,6 @@ public class Shop {
      *
      * @param title   the title.
      * @param items   the items.
-     * @param npcs    the npcs.
      * @param general the general.
      */
     public Shop(String title, Item[] items, boolean general) {
@@ -180,7 +176,6 @@ public class Shop {
      * Constructs a new {@code Shop} {@code Object}.
      *
      * @param title   the title.
-     * @param npcs    the npcs.
      * @param general the general.
      */
     public Shop(String title, boolean general) {
@@ -191,7 +186,6 @@ public class Shop {
      * Constructs a new {@code Shop} {@code Object}.
      *
      * @param title    the title.
-     * @param npcs     the npcs.
      * @param general  the general.
      * @param highAlch if highAlch.
      */
@@ -203,7 +197,6 @@ public class Shop {
      * Constructs a new {@code Shop} {@code Object}.
      *
      * @param title    the title.
-     * @param npcs     the npcs.
      * @param general  the general.
      * @param highAlch if highAlch.
      */
@@ -328,9 +321,18 @@ public class Shop {
                 container.remove(add);
                 container.shift();
             }
+
+            // Achievement Diary Handlers
             if (add.getId() == 7462 && getTitle().equals("Culinaromancer's Chest") && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 3)) {
                 player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 2, 3, true);
             }
+            if (add.getId() == ItemNames.BLACK_CHAINBODY && getTitle().equalsIgnoreCase("Wayne's Chains") && !player.getAttribute("diary:falador:black-chain-bought", false)) {
+                player.setAttribute("/save:diary:falador:black-chain-bought", true);
+            }
+            if (add.getId() == 12622 && getTitle().equalsIgnoreCase("Sarah's Farming Shop") && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0, 0)) {
+                player.getAchievementDiaryManager().updateTask(player, DiaryType.FALADOR, 0, 0, true);
+            }
+
             player.getInventory().add(add);
             update();
         }
@@ -428,12 +430,12 @@ public class Shop {
      */
     public void sendStock(final Player player, int tabIndex) {
         final boolean main = tabIndex == 0;
-        player.getPacketDispatch().sendInterfaceConfig(620, 23, main ? false : true);
-        player.getPacketDispatch().sendInterfaceConfig(620, 24, main ? true : false);
-        player.getPacketDispatch().sendInterfaceConfig(620, 29, main ? false : true);
-        player.getPacketDispatch().sendInterfaceConfig(620, 25, main ? true : false);
-        player.getPacketDispatch().sendInterfaceConfig(620, 27, main ? true : false);
-        player.getPacketDispatch().sendInterfaceConfig(620, 26, main ? false : false);
+        player.getPacketDispatch().sendInterfaceConfig(620, 23, !main);
+        player.getPacketDispatch().sendInterfaceConfig(620, 24, main);
+        player.getPacketDispatch().sendInterfaceConfig(620, 29, !main);
+        player.getPacketDispatch().sendInterfaceConfig(620, 25, main);
+        player.getPacketDispatch().sendInterfaceConfig(620, 27, main);
+        player.getPacketDispatch().sendInterfaceConfig(620, 26, false);
         player.getPacketDispatch().sendAccessMask(1278, main ? 23 : 24, 620, 0, 40);
     }
 
@@ -666,7 +668,7 @@ public class Shop {
     /**
      * Checks if the item is allowed to be sold to the shop.
      *
-     * @param item the item id.
+     * @param itemId the item id.
      * @return {@code True} if so.
      */
     public boolean itemAllowed(int itemId) {

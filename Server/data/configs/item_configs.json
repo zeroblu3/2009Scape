@@ -112077,7 +112077,7 @@
     {
       "id": "12608",
       "name": "Amulet of farming(1)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 1 charge.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112100,7 +112100,7 @@
     {
       "id": "12610",
       "name": "Amulet of farming(2)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 2 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112120,7 +112120,7 @@
     {
       "id": "12612",
       "name": "Amulet of farming(3)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 3 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112140,7 +112140,7 @@
     {
       "id": "12614",
       "name": "Amulet of farming(4)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 4 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112160,7 +112160,7 @@
     {
       "id": "12616",
       "name": "Amulet of farming(5)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 5 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112180,7 +112180,7 @@
     {
       "id": "12618",
       "name": "Amulet of farming(6)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 6 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112200,7 +112200,7 @@
     {
       "id": "12620",
       "name": "Amulet of farming(7)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 7 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",
@@ -112220,7 +112220,7 @@
     {
       "id": "12622",
       "name": "Amulet of farming(8)",
-      "examine": "An amulet of Farming with X charges.",
+      "examine": "An amulet of Farming with 8 charges.",
       "tradeable": "true",
       "low_alchemy": "80",
       "high_alchemy": "120",

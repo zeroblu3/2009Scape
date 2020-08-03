@@ -1,6 +1,7 @@
 package plugin.skill.smithing;
 
 import core.cache.def.impl.ItemDefinition;
+import core.game.world.map.Location;
 import plugin.tutorial.TutorialSession;
 import plugin.tutorial.TutorialStage;
 import plugin.skill.SkillPulse;
@@ -91,8 +92,15 @@ public class SmithingPulse extends SkillPulse<Item> {
 		if (TutorialSession.getExtension(player).getStage() == 42) {
 			TutorialStage.load(player, 43, false);
 		}
-		if (bar == Bars.MITHRIL_PLATEBODY && player.getViewport().getRegion().getId() == 12439 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 0)) {
+		if (bar == Bars.MITHRIL_PLATEBODY
+				&& player.getViewport().getRegion().getId() == 12439
+				&& !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 0)) {
 			player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 2, 0, true);
+		}
+		if (bar == Bars.BLURITE_CROSSBOW_LIMBS
+				&& player.getLocation().withinDistance(new Location(3000,3145,0), 10) // near Thurgo's anvil
+				&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1, 9)) {
+			player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 1, 9, true);
 		}
 		amount--;
 		return amount < 1;

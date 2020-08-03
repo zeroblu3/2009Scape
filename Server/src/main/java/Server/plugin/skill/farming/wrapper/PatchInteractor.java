@@ -105,7 +105,7 @@ public final class PatchInteractor {
 	/**
 	 * Method used to handle the tool interaction with a patch.
 	 * @param command the command.
-	 * @param tool the tool.
+	 * @param item the tool.
 	 */
 	public void handleToolInteraction(final Item item, String command) {
 		if (item.getId() == FarmingConstant.COMPOST.getId() || item.getId() == FarmingConstant.SUPERCOMPOST.getId()) {
@@ -252,24 +252,26 @@ public final class PatchInteractor {
 	/**
 	 * Method used to add a scarecrow.
 	 */
-	public void addScarecrow() {
+	public boolean addScarecrow() {
 		if (wrapper.getPatch() != FarmingPatch.FLOWER) {
 			player.getPacketDispatch().sendMessage("You can only place a scarecrow in a flower patch.");
-			return;
+			return false;
 		}
 		if (!wrapper.isEmpty() || wrapper.hasScarecrow()) {
 			player.getPacketDispatch().sendMessage("The patch needs to be empty in order to do that.");
-			return;
+			return false;
 		}
 		if (player.getSkills().getLevel(Skills.FARMING) < 23) {
 			player.getPacketDispatch().sendMessage("You need a Farming level of at least 23 to do this.");
-			return;
+			return false;
 		}
 		if (player.getInventory().remove(FarmingConstant.SCARECROW)) {
 			wrapper.addConfigValue(36);
 			wrapper.getCycle().getGrowthHandler().setGrowthUpdate();
 			player.getPacketDispatch().sendMessage("You place the scarecrow in the flower patch.");
+			return true;
 		}
+		return false;
 	}
 
 	/**

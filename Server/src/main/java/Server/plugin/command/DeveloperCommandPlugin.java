@@ -18,6 +18,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.player.info.login.PlayerParser;
 import core.game.node.entity.player.link.IronmanMode;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.player.link.music.MusicEntry;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.player.link.skillertasks.Difficulty;
@@ -632,6 +633,15 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                 player.getSlayer().setSlayerPoints(toInteger(args[1]));
                 player.debug("Set slayer points to " + args[1]);
                 break;
+            case "diary":
+                DiaryType type = DiaryType.forChild(toInteger(args[1]));
+                int level = toInteger(args[2]);
+                int index = toInteger(args[3]);
+                if (player.getAchievementDiaryManager().getDiary(type).isComplete(level, index)) {
+                    player.getAchievementDiaryManager().getDiary(type).resetTask(player, level, index);
+                } else {
+                    player.getAchievementDiaryManager().getDiary(type).updateTask(player, level, index, true);
+                }
 
             }
         return false;

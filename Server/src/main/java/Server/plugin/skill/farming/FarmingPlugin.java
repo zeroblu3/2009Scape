@@ -5,6 +5,8 @@ import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;
 import core.game.component.ComponentPlugin;
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.world.map.Location;
 import plugin.skill.Skills;
 import plugin.skill.farming.pot.Saplings;
 import plugin.skill.farming.tool.PatchTool;
@@ -468,7 +470,13 @@ public final class FarmingPlugin extends OptionHandler {
 		public boolean handle(NodeUsageEvent event) {
 			final Player player = event.getPlayer();
 			final PatchWrapper wrapper = player.getFarmingManager().getPatchWrapper(((GameObject) event.getUsedWith()).getWrapper().getId());
-			wrapper.getInteractor().addScarecrow();
+			if (wrapper.getInteractor().addScarecrow()) {
+				// Achievement diary TODO: make this rely on corn being in the adjacent allotment patches!
+				if (event.getUsedWith().getLocation().equals(new Location(3054,3307,0))
+						&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1,7)) {
+					player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 1, 7, true);
+				}
+			}
 			return true;
 		}
 

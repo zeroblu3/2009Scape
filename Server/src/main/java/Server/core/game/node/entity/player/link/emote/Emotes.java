@@ -1,6 +1,9 @@
 package core.game.node.entity.player.link.emote;
 
 import core.game.container.impl.EquipmentContainer;
+import core.game.world.map.Direction;
+import core.game.world.map.Location;
+import core.tools.ItemNames;
 import plugin.tutorial.TutorialSession;
 import plugin.tutorial.TutorialStage;
 import core.game.node.entity.player.Player;
@@ -78,7 +81,21 @@ public enum Emotes {
 	PANIC(20, Animation.create(2105)),
 	RASPBERRY(21, Animation.create(2110)),
 	CLAP(22, Animation.create(865)),
-	SALUTE(23, Animation.create(2112)),
+	SALUTE(23, Animation.create(2112)) {
+		@Override
+		public void play(Player player) {
+			boolean hat = player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == ItemNames.INITIATE_SALLET_5574;
+			boolean chest = player.getEquipment().get(EquipmentContainer.SLOT_CHEST).getId() == ItemNames.INITIATE_HAUBERK_5575;
+			boolean legs = player.getEquipment().get(EquipmentContainer.SLOT_LEGS).getId() == ItemNames.INITIATE_CUISSE_5576;
+			super.play(player);
+			if (hat && chest && legs
+					&& player.getLocation().equals(new Location(2997,3374,0))
+					&& player.getDirection() == Direction.SOUTH
+					&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1,8)) {
+				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 1, 8, true);
+			}
+		}
+	},
 	GOBLIN_BOW(24, null, "This emote can be unlocked during the Lost Tribe quest."),
 	GOBLIN_SALUTE(25, null, "This emote can be unlocked during the Lost Tribe quest."),
 	GLASS_BOX(26, null, "This emote can be unlocked during the Mime random event."),

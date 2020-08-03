@@ -101,20 +101,23 @@ public final class PickpocketPulse extends SkillPulse<NPC> {
 		}
 		final boolean success = success();
 		if (success) {
-			if (player.getViewport().getRegion().getId() == 12850 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(0, 3)) {
-				player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 0, 3, true);
-			}
-			if (type == Pickpocket.MARTIN_THE_MASTER_GARDENER && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(1, 6)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 1, 6, true);
-			}
-		    player.getSkills().addExperience(Skills.THIEVING, type.getExperience(), true);
+			player.getPacketDispatch().sendMessage(type.getRewardMessage().replace("@name", node.getName().toLowerCase()));
+			player.getSkills().addExperience(Skills.THIEVING, type.getExperience(), true);
 		    List<Item> loot = type.getRandomLoot(player);
 		    loot.stream().forEach(item -> {
 		    	if(!player.getInventory().add(item)){
 					GroundItemManager.create(item,player.getLocation(),player);
 				}
 			});
-		    player.getPacketDispatch().sendMessage(type.getRewardMessage().replace("@name", node.getName().toLowerCase()));
+			if (player.getViewport().getRegion().getId() == 12850 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(0, 3)) {
+				player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 0, 3, true);
+			}
+			if (type == Pickpocket.MARTIN_THE_MASTER_GARDENER && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(1, 6)) {
+				player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 1, 6, true);
+			}
+			if (type == Pickpocket.GUARD && node.getId() == 9 && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1,6)) {
+				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player,1,6,true);
+			}
 		} else {
 			node.animate(NPC_ANIM);
 			node.faceTemporary(player, 1);

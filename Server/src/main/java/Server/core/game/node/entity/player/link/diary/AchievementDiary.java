@@ -61,7 +61,6 @@ public class AchievementDiary implements SavingModule {
 	/**
 	 * Constructs a new {@code AchievementDiary} {@code Object}
 	 * @param type the diary type.
-	 * @param name the name.
 	 */
 	public AchievementDiary(DiaryType type) {
 		this.type = type;
@@ -77,22 +76,22 @@ public class AchievementDiary implements SavingModule {
 		sendString(player, "<red>Achievement Diary - " + type.getName(), 2);
 		sendString(player, (isComplete() ? GREEN : hasStarted() ? YELLOW : "<red>") + type.getName() + " Area Tasks", 11);
 		boolean complete;
-		String line = "";
+		String line;
 		int child = 13;
 		for (int level = 0; level < type.getAchievements().length; level++) {
 			sendString(player, getStatus(level) + getLevel(level) + "", child);
 			child++;
 			for (int i = 0; i < type.getAchievements(level).length; i++) {
 				complete = isComplete(level, i);
-				line = (complete ? "<str>" : "") + (complete ? "<str>" + type.getAchievements(level)[i] : type.getAchievements(level)[i]);
+				line = type.getAchievements(level)[i];
 				if (line.contains("<br><br>")) {
 					String[] lines = line.split("<br><br>");
 					for (String l : lines) {
-						sendString(player, l, child);
+						sendString(player, complete ? "<str><str>" + l : l, child);
 						child++;
 					}
 				} else {
-					sendString(player, line, child);
+					sendString(player, complete ? "<str><str>" + line : line, child);
 					child++;
 				}
 			}
@@ -203,6 +202,17 @@ public class AchievementDiary implements SavingModule {
 	}
 
 	/**
+	 * Resets a task to unstarted
+	 */
+	public void resetTask(Player player, int level, int index) {
+		completed[level][index] = false;
+		if (!isStarted(level)) {
+			this.started[level] = false;
+		}
+		drawStatus(player);
+	}
+
+	/**
 	 * Sends a string on the diary interface.
 	 * @param player the player.
 	 * @param string the string.
@@ -244,6 +254,20 @@ public class AchievementDiary implements SavingModule {
 	}
 
 	/**
+	 * Checks if the achievement level is started.
+	 * @param level the level.
+	 * @return {@code True} if so.
+	 */
+	public boolean isStarted(int level) {
+		for (int i = 0; i < type.getAchievements(level).length; i++) {
+			if (completed[level][i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Checks if an achievement is complete.
 	 * @param level the level.
 	 * @param index the index.
@@ -282,7 +306,7 @@ public class AchievementDiary implements SavingModule {
 	 * @return the string format.
 	 */
 	public String getLevel(int level) {
-		return level == 0 ? "Easy" : level == 1 ? "Medium" : "Hard";
+		return type.getLevelNames()[level];
 	}
 
 	/**

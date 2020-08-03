@@ -558,7 +558,7 @@ public final class NedDialogue extends DialoguePlugin {
 			}
 			break;
 		case 910:
-			npc("Ah, well it's a diary that helps you keep track of", "particular achievements you've made in the world of", "Keldagrim. In Lumbridge and Draynor i can help you", "discover some very useful things indeed.");
+			npc("Ah, well it's a diary that helps you keep track of", "particular achievements you've made in the world of", "2009Scape. In Lumbridge and Draynor i can help you", "discover some very useful things indeed.");
 			stage++;
 			break;
 		case 911:
@@ -582,7 +582,7 @@ public final class NedDialogue extends DialoguePlugin {
 			stage++;
 			break;
 		case 931:
-			npc("To claim the explorer's ring speak to Bob in Bob's", "Axes in Lumbridge, Ned in Draynor Village or myself.");
+			npc("To claim the explorer's ring speak to Explorer Jack in ", "Lumbridge, Bob in Bob's Axes in Lumbridge, or myself.");
 			stage = 900;
 			break;
 		case 940:
