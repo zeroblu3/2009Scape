@@ -334,7 +334,7 @@ public final class DuelSession extends ComponentPlugin {
 			player.getInventory().addAll(targetContainer);
 		}
 		player.removeExtension(DuelSession.class);
-		PlayerParser.dump(player);
+		PlayerParser.save(player);
 	}
 
 	/**
