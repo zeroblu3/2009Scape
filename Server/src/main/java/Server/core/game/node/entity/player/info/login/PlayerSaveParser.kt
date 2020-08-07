@@ -13,11 +13,15 @@ import core.game.world.map.Location
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
-import plugin.ame.AntiMacroEvent
 import plugin.ame.AntiMacroHandler
 import plugin.interaction.item.brawling_gloves.BrawlingGloves
 import java.io.FileReader
 
+/**
+ * Class used for parsing JSON player saves.
+ * @author Ceikry
+ * @param player: The player we are parsing.
+ */
 class PlayerSaveParser(val player: Player) {
     var parser = JSONParser()
     var reader: FileReader? = FileReader("data/players/${player.name.toLowerCase()}.json")

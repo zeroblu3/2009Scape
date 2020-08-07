@@ -1,8 +1,8 @@
 package core.game.node.entity.player.info.login
 
+import core.ServerConstants
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
-import core.game.system.SystemLogger
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import plugin.interaction.item.brawling_gloves.BrawlingGloves
@@ -15,6 +15,12 @@ import java.lang.Math.ceil
 import javax.script.ScriptEngineManager
 
 
+/**
+ * Class used for saving the player's data in JSON format.
+ * Files are saved in the directory defined in ServerConstants.PLAYER_SAVE_PATH
+ * @param player: the player to save for.
+ * @author Ceikry
+ */
 class PlayerSaver (val player: Player){
     fun save() {
         val start = System.currentTimeMillis()
@@ -54,7 +60,7 @@ class PlayerSaver (val player: Player){
         val prettyPrintedJson = scriptEngine["result"] as String
 
         try {
-            FileWriter("data/players/${player.name}.json").use { file ->
+            FileWriter("${ServerConstants.PLAYER_SAVE_PATH}${player.name}.json").use { file ->
                 file.write(prettyPrintedJson)
                 file.flush()
             }
@@ -63,8 +69,6 @@ class PlayerSaver (val player: Player){
         }
 
         player.gameAttributes.dump(player.name + ".xml")
-
-        SystemLogger.log("took ${System.currentTimeMillis() - start}ms to save.")
     }
 
     fun saveBrawlingGloves(root: JSONObject){

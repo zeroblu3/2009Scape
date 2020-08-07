@@ -37,6 +37,12 @@ public final class PlayerParser {
 		}
 	}
 
+	/**
+	 * Parses the old binary format for the sake of backwards compatibility with old saves.
+	 * @author Emperor (legacy) (legacy)
+	 * @param file the binary file to be parsed.
+	 * @param player the player we are parsing the file for.
+	 */
 	public static void parseBinary(File file, Player player){
 		try (RandomAccessFile raf = new RandomAccessFile(file, "r"); FileChannel channel = raf.getChannel()) {
 			ByteBuffer buffer = channel.map(MapMode.READ_ONLY, 0, channel.size());
