@@ -207,5 +207,10 @@ public final class ConfigurationManager implements SavingModule {
 		public int getId() {
 			return id;
 		}
+
+	}
+
+	public int[] getSavedConfigurations() {
+		return savedConfigurations;
 	}
 }

@@ -17,6 +17,8 @@ import core.game.system.monitor.PlayerMonitor;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.GrandExchangeContext;
 import core.net.packet.out.GrandExchangePacket;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
@@ -205,6 +207,30 @@ public final class GrandExchange implements SavingModule {
             buffer.putInt(o.getTotalCoinExchange());
             buffer.putInt(o.getCompletedAmount());
         }
+    }
+
+    public void parse(JSONObject geData){
+        Object offersRaw = geData.get("offers");
+        GrandExchangeOffer o;
+
+        if(offersRaw != null){
+            JSONArray offers = (JSONArray) offersRaw;
+            JSONArray history = (JSONArray) geData.get("history");
+            for(int i = 0; i < offers.size(); i++){
+                JSONObject offer = (JSONObject) offers.get(i);
+                int index = (int) offer.get("offerIndex");
+                o = this.offers[index] = GEOfferDispatch.forUID((int) offer.get("offerUID"));
+                o.setIndex(index);
+            }
+            for(int i = 0 ; i < history.size(); i++ ){
+                JSONObject offer = (JSONObject) history.get(i);
+                o = this.history[i] = new GrandExchangeOffer((int)offer.get("itemId"),(boolean) offer.get("isSell"));
+                o.setTotalCoinExchange((int) offer.get("totalCoinExchange"));
+                o.setCompletedAmount((int) offer.get("completedAmount"));
+            }
+        }
+
+
     }
 
     @Override

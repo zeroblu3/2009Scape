@@ -1,6 +1,8 @@
 package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.info.login.SavingModule;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -168,6 +170,39 @@ public final class ActivityData implements SavingModule {
 		SavedData.save(buffer, topGrabbed, 22);
 		buffer.put((byte) 0);
 
+	}
+
+	public void parse(JSONObject data){
+		pestPoints = Integer.parseInt( data.get("pestPoints").toString());
+		warriorGuildTokens = Integer.parseInt( data.get("warriorGuildTokens").toString());
+		bountyHunterRate = Integer.parseInt( data.get("bountyHunterRate").toString());
+		bountyRogueRate = Integer.parseInt( data.get("bountyRogueRate").toString());
+		barrowKills = Integer.parseInt( data.get("barrowKills").toString());
+		JSONArray bb = (JSONArray) data.get("barrowBrothers");
+		for(int i = 0; i < bb.size(); i++){
+			barrowBrothers[i] = (boolean) bb.get(i);
+		}
+		barrowTunnelIndex = Integer.parseInt( data.get("barrowTunnelIndex").toString());
+		kolodionStage = Integer.parseInt( data.get("kolodionStage").toString());
+		JSONArray gc = (JSONArray) data.get("godCasts");
+		for(int i = 0; i < gc.size(); i++){
+			godCasts[i] = Integer.parseInt(gc.get(i).toString());
+		}
+		kolodionBoss = Integer.parseInt( data.get("kolodionBoss").toString());
+		elnockSupplies = (boolean) data.get("elnockSupplies");
+		lastBorkBattle =  Long.parseLong(data.get("lastBorkBattle").toString());
+		startedMta = (boolean) data.get("startedMta");
+		lostCannon = (boolean) data.get("lostCannon");
+		JSONArray pp = (JSONArray) data.get("pizazzPoints");
+		for(int i = 0 ; i < pp.size(); i++){
+			pizazzPoints[i] = Integer.parseInt(pp.get(i).toString());
+		}
+		bonesToPeaches = (boolean) data.get("bonesToPeaches");
+		solvedMazes = Integer.parseInt( data.get("solvedMazes").toString());
+		fogRating = Integer.parseInt( data.get("fogRating").toString());
+		borkKills = Byte.parseByte(data.get("borkKills").toString());
+		hardcoreDeath = (boolean) data.get("hardcoreDeath");
+		topGrabbed = (boolean) data.get("topGrabbed");
 	}
 
 	@Override
@@ -662,4 +697,8 @@ public final class ActivityData implements SavingModule {
 		this.topGrabbed = topGrabbed;
 	}
 	public boolean isTopGrabbed(){return topGrabbed;}
+
+	public int getKolodionStage() {
+		return kolodionStage;
+	}
 }

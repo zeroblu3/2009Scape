@@ -1,6 +1,7 @@
 package core.game.node.entity.player.link.appearance;
 
 import core.game.node.entity.player.info.login.SavingModule;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -51,6 +52,11 @@ public final class BodyPart implements SavingModule {
 	public void save(ByteBuffer buffer) {
 		buffer.putInt(look);
 		buffer.putInt(color);
+	}
+
+	public void parse(JSONObject part){
+		changeLook(Integer.parseInt( part.get("look").toString()));
+		changeColor(Integer.parseInt( part.get("color").toString()));
 	}
 
 	@Override

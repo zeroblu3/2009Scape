@@ -4,6 +4,9 @@ package plugin.skill.construction;
 //import org.arios.game.content.global.DeadmanTimedAction;
 //import org.arios.game.node.entity.player.info.login.SavingModule;
 
+import core.game.system.SystemLogger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.dialogue.FacialExpression;
 import plugin.skill.Skills;
 import core.game.node.entity.player.Player;
@@ -121,6 +124,34 @@ public final class HouseManager implements SavingModule {
 			}
 		}
 		buffer.put((byte) -1);//Eof
+	}
+
+	public void parse(JSONObject data){
+		location = HouseLocation.values()[Integer.parseInt( data.get("location").toString())];
+		style = HousingStyle.values()[Integer.parseInt( data.get("style").toString())];
+		Object servRaw = data.get("servant");
+		if(servRaw != null){
+			servant = Servant.parse((JSONObject) servRaw);
+		}
+		JSONArray rArray = (JSONArray) data.get("rooms");
+		for(int i = 0; i < rArray.size(); i++){
+			JSONObject rm = (JSONObject) rArray.get(i);
+			int z =  Integer.parseInt(rm.get("z").toString());
+			int x = Integer.parseInt(rm.get("x").toString());
+			int y = Integer.parseInt(rm.get("y").toString());
+			SystemLogger.log("room x " + x + " room y " + y + " room z " + z);
+			if(z == 3)
+				hasDungeon = true;
+			Room room = rooms[z][x][y] = new Room(RoomProperties.values()[Integer.parseInt(rm.get("properties").toString())]);
+			room.configure(style);
+			room.setRotation(Direction.get(Integer.parseInt(rm.get("rotation").toString())));
+			JSONArray hotspots = (JSONArray) rm.get("hotspots");
+			SystemLogger.log("Hotspots size: " + hotspots.size());
+			for(int j = 0; j < hotspots.size(); j++){
+				JSONObject spot = (JSONObject) hotspots.get(j);
+				room.getHotspots()[Integer.parseInt(spot.get("hotspotIndex").toString())].setDecorationIndex(Integer.parseInt(spot.get("decorationIndex").toString()));
+			}
+		}
 	}
 
 

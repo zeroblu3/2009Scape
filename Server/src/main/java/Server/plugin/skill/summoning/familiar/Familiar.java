@@ -728,4 +728,11 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 		return attackStyle;
 	}
 
+	public int getTicks() {
+		return ticks;
+	}
+
+	public int getSpecialPoints() {
+		return specialPoints;
+	}
 }

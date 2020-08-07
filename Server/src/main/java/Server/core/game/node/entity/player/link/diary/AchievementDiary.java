@@ -4,6 +4,8 @@ import core.cache.def.impl.NPCDefinition;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -135,6 +137,24 @@ public class AchievementDiary implements SavingModule {
 			buffer.put((byte) (rewarded[i] ? 1 : 0));
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONObject data){
+		JSONArray startedArray = (JSONArray) data.get("startedLevels");
+		for(int i = 0; i < startedArray.size(); i++){
+			started[i] = (boolean) startedArray.get(i);
+		}
+		JSONArray completedArray = (JSONArray) data.get("completedLevels");
+		for(int i = 0; i < completedArray.size(); i++){
+			JSONArray level = (JSONArray) completedArray.get(i);
+			for(int j = 0; j < level.size(); j++){
+				completed[i][j] = (boolean) level.get(j);
+			}
+		}
+		JSONArray rewardedArray = (JSONArray) data.get("rewardedLevels");
+		for(int i = 0; i < rewardedArray.size(); i++){
+			rewarded[i] = (boolean) rewardedArray.get(i);
+		}
 	}
 
 	@Override

@@ -2,6 +2,8 @@ package core.game.node.entity.player.link;
 
 import core.game.content.global.GodBook;
 import core.game.node.entity.player.info.login.SavingModule;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -365,7 +367,7 @@ public final class GlobalData implements SavingModule {
 			buffer.put((byte) 38).putInt(godBook);
 		}
 		SavedData.save(buffer, disableNews, 39);
-		if (godPages != new boolean[4]) {
+		if (!godPages.equals(new boolean[4])) {
 			buffer.put((byte) 40);
 			for (int i = 0; i < 4; i++) {
 				buffer.put((byte) (godPages[i] ? 1 : 0));
@@ -398,6 +400,91 @@ public final class GlobalData implements SavingModule {
 		SavedData.save(buffer, getTaskPoints(), 65);
 		SavedData.save(buffer, macroDisabled,66);
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONObject data){
+		tutorialStage = Integer.parseInt( data.get("tutorialStage").toString());
+		homeTeleportDelay = Long.parseLong(data.get("homeTeleportDelay").toString());
+		lumbridgeRope = (boolean) data.get("lumbridgeRope");
+		apprentice = (boolean) data.get("apprentice");
+		assistTime = Long.parseLong(data.get("assistTime").toString());
+		JSONArray ae = (JSONArray) data.get("assistExperience");
+		for(int i = 0; i < ae.size(); i++){
+			assistExperience[i] = Double.parseDouble(ae.get(i).toString());
+		}
+		JSONArray sr = (JSONArray) data.get("strongHoldRewards");
+		for(int i = 0; i < sr.size(); i++){
+			strongHoldRewards[i] = (boolean) sr.get(i);
+		}
+		chatPing =  Long.parseLong(data.get("chatPing").toString());
+		tutorClaim = Long.parseLong(data.get("tutorClaim").toString());
+		luthasTask = (boolean) data.get("luthasTask");
+		karamjaBananas = Integer.parseInt( data.get("karamjaBananas").toString());
+		silkSteal = Long.parseLong(data.get("silkSteal").toString());
+		zafAmount = Integer.parseInt( data.get("zafAmount").toString());
+		zafTime =  Long.parseLong(data.get("zafTime").toString());
+		fritzGlass = (boolean) data.get("fritzGlass");
+		wydinEmployee = (boolean) data.get("wydinEmployee");
+		draynorRecording = (boolean) data.get("draynorRecording");
+		geTutorial = (boolean) data.get("geTutorial");
+		essenceTeleporter = Integer.parseInt( data.get("essenceTeleporter").toString());
+		recoilDamage = Integer.parseInt( data.get("recoilDamage").toString());
+		doubleExpDelay = Long.parseLong(data.get("doubleExpDelay").toString());
+		joinedMonastery = (boolean) data.get("joinedMonastery");
+		JSONArray rp = (JSONArray) data.get("readPlaques");
+		for(int i = 0; i < rp.size(); i++){
+			readPlaques[i] = (boolean) rp.get(i);
+		}
+		forgingUses = Integer.parseInt( data.get("forgingUses").toString());
+		ectoCharges = Integer.parseInt( data.get("ectoCharges").toString());
+		braceletClayUses = Integer.parseInt( data.get("braceletClayUses").toString());
+		dropDelay = Long.parseLong(data.get("dropDelay").toString());
+		JSONArray ad = (JSONArray) data.get("abyssData");
+		for(int i = 0; i < ad.size(); i++){
+			abyssData[i] = (boolean) ad.get(i);
+		}
+		JSONArray rd = (JSONArray) data.get("rcDecays");
+		for(int i = 0; i < rd.size(); i++){
+			rcDecays[i] = Integer.parseInt(rd.get(i).toString());
+		}
+		disableDeathScreen = (boolean) data.get("disableDeathScreen");
+		playerTestStage = Integer.parseInt( data.get("playerTestStage").toString());
+		charmingDelay = Long.parseLong(data.get("charmingDelay").toString());
+		JSONArray tl = (JSONArray) data.get("travelLogs");
+		for(int i = 0; i < tl.size(); i++){
+			travelLogs[i] = (boolean) tl.get(i);
+		}
+		JSONArray gb = (JSONArray) data.get("godBooks");
+		for(int i = 0 ; i < gb.size(); i++){
+			godBooks[i] = (boolean) gb.get(i);
+		}
+		disableNews = (boolean) data.get("disableNews");
+		JSONArray gp = (JSONArray) data.get("godPages");
+		for(int i = 0 ; i < gp.size(); i++){
+			godPages[i] = (boolean) gp.get(i);
+		}
+		overChargeDelay = Long.parseLong(data.get("overChargeDelay").toString());
+		JSONArray bc = (JSONArray) data.get("bossCounters");
+		for(int i = 0 ; i < bc.size(); i++){
+			bossCounters[i] = Integer.parseInt(bc.get(i).toString());
+		}
+		barrowsLoots = Integer.parseInt( data.get("barrowsLoots").toString());
+		lootShareDelay = Long.parseLong(data.get("lootShareDelay").toString());
+		lootSharePoints = Integer.parseInt( data.get("lootSharePoints").toString());
+		doubleExp = Long.parseLong(data.get("doubleExp").toString());
+		avasDevice = (boolean) data.get("avasDevice");
+		globalTeleporterDelay = Long.parseLong(data.get("globalTeleporterDelay").toString());
+		starSpriteDelay = Long.parseLong(data.get("starSpriteDelay").toString());
+		runReplenishDelay = Long.parseLong(data.get("runReplenishDelay").toString());
+		runReplenishCharges = Integer.parseInt( data.get("runReplenishCharges").toString());
+		lowAlchemyCharges = Integer.parseInt( data.get("lowAlchemyCharges").toString());
+		lowAlchemyDelay = Long.parseLong(data.get("lowAlchemyDelay").toString());
+		magicSkillCapeDelay = Long.parseLong(data.get("magicSkillCapeDelay").toString());
+		hunterCapeDelay = Long.parseLong(data.get("hunterCapeDelay").toString());
+		hunterCapeCharges = Integer.parseInt( data.get("hunterCapeCharges").toString());
+		taskAmount = Integer.parseInt( data.get("taskAmount").toString());
+		taskPoints = Integer.parseInt( data.get("taskPoints").toString());
+		macroDisabled = (boolean) data.get("macroDisabled");
 	}
 
 	@Override
@@ -1640,4 +1727,12 @@ public final class GlobalData implements SavingModule {
 	public void setMacroDisabled(boolean disabled){this.macroDisabled = disabled;}
 
 	public boolean getMacroDisabled() {return this.macroDisabled;}
+
+	public boolean[] getAbyssData() {
+		return abyssData;
+	}
+
+	public int getPlayerTestStage() {
+		return playerTestStage;
+	}
 }

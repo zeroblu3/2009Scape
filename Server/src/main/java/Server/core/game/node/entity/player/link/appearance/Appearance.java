@@ -11,6 +11,8 @@ import core.game.node.item.Item;
 import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.player.AppearanceFlag;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -79,6 +81,14 @@ public final class Appearance implements SavingModule {
 		buffer.put(gender.toByte());
 		for (int i = 0; i < appearanceCache.length; i++) {
 			appearanceCache[i].save(buffer);
+		}
+	}
+
+	public void parse(JSONObject appearance){
+		gender = gender.asByte(Byte.parseByte(appearance.get("gender").toString()));
+		JSONArray appCache = (JSONArray) appearance.get("appearance_cache");
+		for(int i = 0; i < appearanceCache.length; i++){
+			(appearanceCache[i]).parse((JSONObject) appCache.get(i));
 		}
 	}
 
