@@ -1,6 +1,7 @@
 package core.game.node.entity.player.info.login
 
 import core.ServerConstants
+import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
 import org.json.simple.JSONArray
@@ -284,16 +285,7 @@ class PlayerSaver (val player: Player){
             familiar.put("ticks",player.familiarManager.familiar.ticks.toString())
             familiar.put("specialPoints",player.familiarManager.familiar.specialPoints.toString())
             if(player.familiarManager.familiar.isBurdenBeast && !(player.familiarManager.familiar as BurdenBeast).container.isEmpty){
-                val familiarInventory = JSONArray()
-                (player.familiarManager.familiar as BurdenBeast).container.toArray().map {
-                    if(it != null) {
-                        val item = JSONObject()
-                        item.put("id", it.id.toString())
-                        item.put("amount", it.amount.toString())
-                        item.put("charge", it.charge.toString())
-                        familiarInventory.add(item)
-                    }
-                }
+                val familiarInventory = saveContainer((player.familiarManager.familiar as BurdenBeast).container)
                 familiar.put("inventory",familiarInventory)
             }
             familiar.put("lifepoints",player.familiarManager.familiar.skills.lifepoints)
@@ -349,28 +341,23 @@ class PlayerSaver (val player: Player){
     fun saveFarming(root: JSONObject){
         val farming = JSONObject()
         if(player.farmingManager.equipment.container.itemCount() != 0) {
-            val equipment = JSONArray()
-            player.farmingManager.equipment.container.toArray().map {
-                if(it != null) {
-                    val item = JSONObject()
-                    item.put("id", it.id.toString())
-                    item.put("amount", it.amount.toString())
-                    item.put("charge", it.charge.toString())
-                    equipment.add(item)
-                }
-            }
+            val equipment = saveContainer(player.farmingManager.equipment.container)
             farming.put("equipment",equipment)
         }
         if(player.farmingManager.compostManager.bins.size != 0){
             val bins = JSONArray()
-            player.farmingManager.compostManager.bins.map {
+            player.farmingManager.compostManager.bins.map { compostBin ->
                 val bin = JSONObject()
-                bin.put("wrapperId",it.wrapperId.toString())
-                if(it.timeStamp != 0L){
-                    bin.put("timeStamp",it.timeStamp.toString())
+                bin.put("wrapperId",compostBin.wrapperId.toString())
+                if(compostBin.timeStamp != 0L){
+                    bin.put("timeStamp",compostBin.timeStamp.toString())
                 }
-                if(it.compostLevel > 0) {
-                    bin.put("compostLevel",it.compostLevel.toString())
+                if(compostBin.compostLevel > 0) {
+                    bin.put("compostLevel",compostBin.compostLevel.toString())
+                }
+                if(compostBin.container.itemCount() > 0) {
+                    val compostContainer = saveContainer(compostBin.container)
+                    bin.put("compostContainer", compostContainer)
                 }
                 bins.add(bin)
             }
@@ -727,51 +714,30 @@ class PlayerSaver (val player: Player){
         }
     }
 
+    fun saveContainer(container: Container): JSONArray {
+        val json = JSONArray()
+        container.toArray().map{
+            if (it != null) {
+                val item = JSONObject()
+                item.put("slot", it.slot.toString())
+                item.put("id", it.id.toString())
+                item.put("amount", it.amount.toString())
+                item.put("charge", it.charge.toString())
+                json.add(item)
+            }
+        }
+        return json
+    }
+
     fun saveCoreData(root: JSONObject){
         val coreData = JSONObject()
-        val inventory = JSONArray()
-        var slot = 0
-        player.inventory.toArray().map {
-            if(it != null) {
-                val item = JSONObject()
-                item.put("slot",slot.toString())
-                item.put("id", it.id.toString())
-                item.put("amount", it.amount.toString())
-                item.put("charge", it.charge.toString())
-                inventory.add(item)
-            }
-            slot++
-        }
+        val inventory = saveContainer(player.inventory)
         coreData.put("inventory",inventory)
-        slot = 0
 
-        val bank = JSONArray()
-        player.bank.toArray().map {
-            if(it != null) {
-                val item = JSONObject()
-                item.put("slot",slot.toString())
-                item.put("id", it.id.toString())
-                item.put("amount", it.amount.toString())
-                item.put("charge", it.charge.toString())
-                bank.add(item)
-            }
-            slot++
-        }
-        slot = 0
+        val bank = saveContainer(player.bank)
         coreData.put("bank",bank)
 
-        val equipment = JSONArray()
-        player.equipment.toArray().map {
-            if(it != null) {
-                val item = JSONObject()
-                item.put("slot",slot.toString())
-                item.put("id", it.id.toString())
-                item.put("amount", it.amount.toString())
-                item.put("charge", it.charge.toString())
-                equipment.add(item)
-            }
-            slot++
-        }
+        val equipment = saveContainer(player.equipment)
         coreData.put("equipment",equipment)
 
         val loctemp = player.location
