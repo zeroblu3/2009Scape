@@ -31,7 +31,6 @@ import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
 import core.game.node.entity.combat.handlers.ChinchompaSwingHandler;
-import core.game.node.entity.combat.handlers.SalamanderSwingHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.player.info.RenderInfo;
@@ -60,7 +59,6 @@ import core.game.node.entity.player.link.grave.GraveManager;
 import core.game.node.entity.player.link.music.MusicPlayer;
 import core.game.node.entity.player.link.prayer.Prayer;
 import core.game.node.entity.player.link.prayer.PrayerType;
-import core.game.node.entity.player.link.prayer.crest.CrestCities;
 import core.game.node.entity.player.link.quest.QuestRepository;
 import core.game.node.entity.player.link.request.RequestManager;
 import core.game.node.entity.player.link.skillertasks.SkillerTasks;
@@ -324,11 +322,6 @@ public class Player extends Entity {
 	 * The logout plugins.
 	 */
 	private List<Plugin<Player>> logoutPlugins;
-	
-	/**
-	 * The crest of a player.
-	 */
-	private CrestCities crest = CrestCities.MISTHALIN;
 
 	/**
 	 * The boolean for the player playing.
@@ -1322,15 +1315,4 @@ public class Player extends Entity {
 
 	public BrawlingGlovesManager getBrawlingGlovesManager() { return brawlingGlovesManager;}
 
-	public CrestCities getCrest() {
-		return crest;
-	}
-
-	public boolean setCrest(CrestCities crest) {
-		if (CrestCities.eligable(crest, this)) {
-			this.crest = crest;
-			return true;
-		}
-		return false;
-	}
 }

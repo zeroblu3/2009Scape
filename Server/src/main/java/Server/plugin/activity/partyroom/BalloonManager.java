@@ -8,6 +8,7 @@ import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.GroundItem;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
@@ -256,6 +257,9 @@ public final class BalloonManager extends OptionHandler {
 								GroundItemManager.create(ground);
 								PartyRoomPlugin.getPartyChest().shift();
 								PartyRoomPlugin.update();
+								if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0, 12)) {
+									player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 0, 12, true);
+								}
 							}
 						}
 						return true;

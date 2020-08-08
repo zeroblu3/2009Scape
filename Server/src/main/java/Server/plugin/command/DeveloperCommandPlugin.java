@@ -63,6 +63,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
 
 /**
  * Handles the developer commands.
@@ -275,17 +276,36 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
             case "anim":
                 player.animate(new Animation(Integer.parseInt(args[1])));
                 break;
-            case "em":
-                final int[] y = new int[]{16044, 16045, 16256, 16259, 16260, 16334, 16381, 16556, 16564, 16638, 16642, 16673, 16710, 16713, 16715, 16722, 16796, 16797, 16805, 16831, 16886, 16890, 16926, 16938, 16942};
+            case "animrange":
+                int[] anims = IntStream.rangeClosed(toInteger(args[1]), toInteger(args[2])).toArray();
                 GameWorld.Pulser.submit(new Pulse(3) {
                     int anim = 0;
 
                     @Override
                     public boolean pulse() {
-                        if (anim == (y.length - 1)) {
+                        if (anim == (anims.length - 1)) {
                             player.sendChat("Done");
                             return true;
                         }
+                        player.animate(new Animation(anims[anim]));
+                        player.sendChat("Animation: " + anims[anim]);
+                        anim++;
+                        return false;
+                    }
+                });
+                break;
+            case "em":
+                final int[] y = new int[]{16044, 16045, 16256, 16259, 16260, 16334, 16381, 16556, 16564, 16638, 16642, 16673, 16710, 16713, 16715, 16722, 16796, 16797, 16805, 16831, 16886, 16890, 16926, 16938, 16942};
+                GameWorld.Pulser.submit(new Pulse(6) {
+                    int anim = 0;
+
+                    @Override
+                    public boolean pulse() {
+                        if (anim == (y.length)) {
+                            player.sendChat("Done");
+                            return true;
+                        }
+                        player.animate(new Animation(0));
                         player.animate(new Animation(y[anim]));
                         player.sendChat("Animation: " + y[anim]);
                         anim++;

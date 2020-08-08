@@ -176,6 +176,7 @@ public enum DiaryType {
 
     ),
     // https://runescape.wiki/w/Falador_achievements?oldid=900390
+    // TODO secondary rewards: extra farming xp from Falador farm (flower 7918, herb 8135, allotments 8576)
     FALADOR("Falador", 23,
             new String[]{"Easy", "Medium", "Hard"},
             new String[][]{
@@ -183,16 +184,16 @@ public enum DiaryType {
                             "Buy a Farming amulet from Sarah on the farm north of Port Sarim.",
                             "Buy a stat-boosting beer from a waitress in the Rising Sun Tavern.",
                             "Buy a black chainbody from Wayne's Chains, and<br><br>try it on in the shop.",
-                            "Climb to the top of the White Knights' Castle.", // TODO
-                            "Discover your family crest from Sir Renitee.", // TODO NPC not in the game yet?
-                            "Enter the mole's lair under Falador Park.", // TODO
+                            "Climb to the top of the White Knights' Castle.",
+                            "Discover your family crest from Sir Renitee.",
+                            "Enter the mole's lair under Falador Park.",
                             "Feed Ridgeley, the hairdresser's pet.",
                             "Fill a bucket from the pump north of the west Falador bank.",
                             "Heal an elemental wizard by casting an appropriate<br><br>elemental spell on him (Air, Water, Earth, Fire).",
                             "Kill a duck in Falador Park.",
                             "Kill a highwayman on the road south of Falador.",
                             "Make an air tiara.",
-                            "Pop a party balloon.", // TODO party room not functional
+                            "Pop a party balloon.",
                             "Recharge your Prayer points at the altar south-west of Port Sarim.",
                             "Take the boat to Entrana."
                     },
@@ -208,19 +209,19 @@ public enum DiaryType {
                             "Salute Sir Tiffy Cashien while wearing full initiate armour.",
                             "Smith blurite crossbow limbs on Thurgo's anvil.",
                             "Travel from Port Sarim to Musa Point for<br><br>free (with a little help from Charos).", // TODO can't actually obtain this ring yet...
-                            "Visit the Port Sarim rat pits." // TODO can't find ladder.  Ardougne rat pits manhole is functional but rest are not
+                            "Visit the Port Sarim rat pits."
                     },
                     {
-                            "Ascend the Dark Wizards' Tower while wearing full proselyte armour.", // TODO
-                            "Change your family crest to the Saradomin symbol.", // TODO Sir Renitee not spawned in the game yet
-                            "Craft 196 or more air runes simultaneously.", // TODO
+                            "Ascend the Dark Wizards' Tower while wearing full proselyte armour.",
+                            "Change your family crest to the Saradomin symbol.",
+                            "Craft 196 or more air runes simultaneously.",
                             "Cut down a Yew tree or Magic tree that you grew in Falador Park.", // TODO
-                            "Dial to the fairy ring on Mudskipper Point.", // TODO
-                            "Dye a cape pink with Pink dye from Betty in Port Sarim.", // TODO
-                            "Enter the Mining Guild.", // TODO
-                            "Kill a mogre at Mudskipper Point.", // TODO
-                            "Kill a skeletal wyvern in the Asgarnian Ice Dungeon.", // TODO
-                            "Summon an Ibis in the Port Sarim fish store." // TODO
+                            "Dial to the fairy ring on Mudskipper Point.",
+                            "Dye a cape pink with Pink dye from Betty in Port Sarim.",
+                            "Enter the Mining Guild.",
+                            "Kill a mogre at Mudskipper Point.",
+                            "Kill a skeletal wyvern in the Asgarnian Ice Dungeon.",
+                            "Summon an Ibis in the Port Sarim fish store."
                     }
             },
             // Falador Shields 1-3
@@ -231,7 +232,7 @@ public enum DiaryType {
                     {new Item(14579), new Item(14582)}
             },
             "",
-            // Redbeard Frank, Chemist, Squire // TODO dialogues for all these
+            // Redbeard Frank, Chemist, Squire
             new int[]{375, 367, 606}
     ),
     // https://runescape.wiki/w/Fremennik_achievements?oldid=877418

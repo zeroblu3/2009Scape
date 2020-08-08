@@ -163,7 +163,6 @@ public class Container {
      *
      * @param item   the item.
      * @param player the player.
-     * @param ground
      * @return {@code True} if added.
      */
     public boolean add(final Item item, final Player player) {
@@ -198,7 +197,6 @@ public class Container {
      *
      * @param item          The item to add.
      * @param fireListener  If we should update.
-     * @param preferredSlot The slot to add the item in, when possible.
      * @return {@code True} if the item got added.
      */
     public boolean add(Item item, boolean fireListener) {
@@ -655,9 +653,26 @@ public class Container {
     }
 
     /**
+     * Checks if the containers contains ONE item from a list of items.
+     *
+     * @param itemIds
+     * @return
+     */
+    public boolean containsOneItem(int[] itemIds) {
+        for (Item item : items) {
+            if (item != null
+                    && Arrays.stream(itemIds).anyMatch(i -> i == item.getId())
+                    && item.getAmount() == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Checks if the container contains all items.
      *
-     * @param the itemIds to check
+     * @param itemIds to check
      * @return {@code True} if so.
      */
     public boolean containsAll(int... itemIds) {

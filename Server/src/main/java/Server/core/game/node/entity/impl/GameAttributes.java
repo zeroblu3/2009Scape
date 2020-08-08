@@ -46,7 +46,7 @@ public final class GameAttributes {
 
 	/**
 	 * Writes the attribute data to the player buffer.
-	 * @param buffer The player's data buffer.
+	 * @param file The player's data buffer.
 	 */
 	public void dump(String file) {
 		//buffer.put((byte) savedAttributes.size());
@@ -106,7 +106,7 @@ public final class GameAttributes {
 
 	/**
 	 * Parses the saved attributes from the buffer.
-	 * @param buffer The buffer.
+	 * @param file The buffer.
 	 */
 	public void parse(String file) {
 		File saveFile = new File(ServerConstants.PLAYER_ATTRIBUTE_PATH + file);

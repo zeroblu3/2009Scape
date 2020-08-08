@@ -63,9 +63,9 @@ public final class FarmingPlugin extends OptionHandler {
 			public boolean handle(Player player, Node node, String option) {
 				if (node.getId() == 6036) {
 					player.getInventory().replace(new Item(229), ((Item) node).getSlot());
-					return true;
+				} else {
+					player.getInventory().replace(new Item(1925), ((Item) node).getSlot());
 				}
-				player.getInventory().replace(new Item(1925), ((Item) node).getSlot());
 				return true;
 			}
 

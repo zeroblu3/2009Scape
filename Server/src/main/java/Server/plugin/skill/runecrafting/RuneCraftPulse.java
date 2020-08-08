@@ -168,14 +168,26 @@ public final class RuneCraftPulse extends SkillPulse<Item> {
 		if (!altar.isOurania()) {
 			Item i = new Item(rune.getRune().getId(), amount * getMultiplier());
 			if (player.getInventory().remove(item) && player.getInventory().hasSpaceFor(i)) {
+				player.getInventory().add(i);
+				player.getSkills().addExperience(Skills.RUNECRAFTING, rune.getExperience() * amount, true);
+
+				// Achievement Diary handling
 				if (altar == Altar.EARTH && !player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(0, 10)) {
 					player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 0, 10, true);
 				} 
 				if (altar == Altar.COSMIC && i.getAmount() == 56 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 1)) {
 					player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 2, 1, true);
 				}
-			    player.getInventory().add(i);
-				player.getSkills().addExperience(Skills.RUNECRAFTING, rune.getExperience() * amount, true);
+				if (altar == Altar.NATURE && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(2, 2)) {
+					player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 2, 2, true);
+				}
+				if (altar == Altar.WATER && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(0, 2)) {
+					player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 0, 2, true);
+				}
+				if (altar == Altar.AIR && i.getAmount() >= 196 && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,2)) {
+					player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 2, 2, true);
+				}
+
 			}
 		} else {
 			if (player.getInventory().remove(item)) {
@@ -197,12 +209,8 @@ public final class RuneCraftPulse extends SkillPulse<Item> {
 				}
 			}
 		}
-		if (altar == Altar.NATURE && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(2, 2)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 2, 2, true);
-		}
-		if (altar == Altar.WATER && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(0, 2)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 0, 2, true);
-		}
+
+
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package plugin.skill.slayer;
 
 import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.CombatSwingHandler;
@@ -9,6 +10,7 @@ import core.game.node.entity.combat.handlers.DragonfireSwingHandler;
 import core.game.node.entity.combat.handlers.MultiSwingHandler;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.player.link.prayer.PrayerType;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
@@ -80,6 +82,17 @@ public final class SkeletalWyvernNPC extends AbstractNPC {
 			return COMBAT_HANDLER_FAR;
 		}
 		return COMBAT_HANDLER;
+	}
+
+	@Override
+	public void finalizeDeath(final Entity killer) {
+		super.finalizeDeath(killer);
+		if (killer instanceof Player) {
+			final Player player = killer.asPlayer();
+			if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2, 8)) {
+				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 2, 8, true);
+			}
+		}
 	}
 
 	@Override

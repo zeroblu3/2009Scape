@@ -3,6 +3,7 @@ package core.game.content.global.action;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.audio.Audio;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.object.Constructed;
 import core.game.node.object.GameObject;
 import core.game.node.object.ObjectBuilder;
@@ -116,6 +117,14 @@ public final class DoorActionHandler {
 				object.setCharge(1000);
 				if (second != null) {
 					second.setCharge(1000);
+				}
+				if (entity instanceof Player) {
+					System.out.println("checking mining guild falador task");
+					Player player = entity.asPlayer();
+					if (object.getId() == 2112 && player.getLocation().withinDistance(new Location(3046,9756,0),10)
+							&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,6)) {
+						player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 2, 6, true);
+					}
 				}
 				return true;
 			}

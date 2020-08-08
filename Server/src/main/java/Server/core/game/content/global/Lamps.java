@@ -15,6 +15,9 @@ public enum Lamps {
 	V_ACHIEVEMENT_1(new Item(11185), 2500, 30),
 	V_ACHIEVEMENT_2(new Item(11186), 7500, 40), 
 	V_ACHIEVEMENT_3(new Item(11187), 15000, 50),
+	F_ACHIEVEMENT_1(new Item(14580), 1000, 30),
+	F_ACHIEVEMENT_2(new Item(14581), 5000, 40),
+	F_ACHIEVEMENT_3(new Item(14582), 15000, 50),
 	ULTRA_LAMP(new Item(14820), 30000, 30);
 
 	/**

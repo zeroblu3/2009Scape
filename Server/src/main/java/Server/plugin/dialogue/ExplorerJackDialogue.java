@@ -101,7 +101,7 @@ public class ExplorerJackDialogue extends DialoguePlugin {
 			stage++;
 			break;
 		case 4:
-			npc("Spendid! I love a person with a sense of humour. I bet", "you're from Ardougne eh? Ha!");
+			npc("Splendid! I love a person with a sense of humour. I bet", "you're from Ardougne eh? Ha!");
 			stage = -1;
 			break;
 		case 10:

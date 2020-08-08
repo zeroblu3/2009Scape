@@ -190,19 +190,25 @@ public class AchievementDiary implements SavingModule {
 			started[level] = true;
 		}
 		if (!complete) {
-			player.sendMessage("<col=0040ff>Well done! A " + type.getName() + " task has been updated.");
+			player.sendMessage("Well done! A " + type.getName() + " task has been updated.");
 		} else {
 			completed[level][index] = true;
-			player.sendMessages("<col=dc143c>Well done! You have completed " + (level == 0 ? "an easy" : level == 1 ? "a medium" : "a hard") + " task in the " + type.getName() + " area. Your", "<col=dc143c>Achievement Diary has been updated.");
 		}
 		if (isComplete(level)) {
-			player.sendMessages("<col=dc143c>You have completed all of the " + getLevel(level).toLowerCase() + " tasks in the " + type.getName() + " area.", "<col=dc143c>Speak to " + NPCDefinition.forId(type.getNpc(level)).getName() + " to claim your reward.");
+			player.sendMessages("Congratulations! You have completed all of the " + getLevel(level).toLowerCase()
+					+ " tasks in the " + type.getName() + " area.", "Speak to "
+					+ NPCDefinition.forId(type.getNpc(level)).getName() + " to claim your reward.");
+		} else {
+			int tempLevel = this.type == DiaryType.LUMBRIDGE ? level - 1 : level;
+			player.sendMessages("Well done! You have completed "
+					+ (tempLevel == -1 ? "a beginner" : tempLevel == 0 ? "an easy" : tempLevel == 1 ? "a medium" : "a hard")
+					+ " task in the " + type.getName() + " area. Your", "Achievement Diary has been updated.");
 		}
 		drawStatus(player);
 	}
 
 	/**
-	 * Resets a task to unstarted
+	 * Resets a task to un-start
 	 */
 	public void resetTask(Player player, int level, int index) {
 		completed[level][index] = false;

@@ -5,6 +5,7 @@ import plugin.dialogue.FacialExpression;
 import core.game.content.global.BirdNest;
 import core.game.content.global.SkillcapePerks;
 import core.game.content.global.SkillingPets;
+import plugin.skill.farming.patch.Trees;
 import plugin.tutorial.TutorialSession;
 import plugin.tutorial.TutorialStage;
 import plugin.skill.Skills;
@@ -182,6 +183,15 @@ public class WoodcuttingSkillPulse extends Pulse {
                     PatchWrapper tree = player.getFarmingManager().getPatchWrapper(node.getWrapper().getId());
                     tree.addConfigValue(tree.getNode().getStumpBase());
                     tree.getCycle().setGrowthTime(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(resource.getRespawnDuration() + 10));
+
+                    // Achievement diary handling
+                    if (node.getId() == 8389
+                            && node.getLocation().equals(3003,3372,0)
+                            && Trees.forNode(tree.getNode()) != null
+                            && (Trees.forNode(tree.getNode()) == Trees.YEW || Trees.forNode(tree.getNode()) == Trees.MAGIC) && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,3)) {
+                        player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player,2,3,true);
+                    }
+
                     return true;
                 }
                 if (resource.getEmptyId() > -1) {
