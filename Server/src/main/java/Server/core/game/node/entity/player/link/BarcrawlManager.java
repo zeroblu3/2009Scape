@@ -4,6 +4,8 @@ import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -63,6 +65,14 @@ public final class BarcrawlManager implements SavingModule {
 			}
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONObject data){
+		started = (boolean) data.get("started");
+		JSONArray barsVisisted = (JSONArray) data.get("bars");
+		for(int i = 0; i < barsVisisted.size(); i++){
+			bars[i] = (boolean) barsVisisted.get(i);
+		}
 	}
 
 	@Override
@@ -169,4 +179,7 @@ public final class BarcrawlManager implements SavingModule {
 		this.started = started;
 	}
 
+	public boolean[] getBars() {
+		return bars;
+	}
 }

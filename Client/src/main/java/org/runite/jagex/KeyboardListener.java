@@ -33,23 +33,23 @@ final class KeyboardListener implements KeyListener, FocusListener {
          if(null != Class3_Sub13_Sub3.aClass148_3049) {
             Class3_Sub13_Sub33.anInt3398 = 0;
             int var2 = var1.getKeyCode();
-            switch(var2) {
-               case 112://f1
-                  var2 = 115;
-                  break;
-               case 113://f2
-                  var2 = 116;
-                  break;
-               case 114://f3
-                  var2 = 117;
-                  break;
-               case 115://f4
-                  var2 = 118;
-                  break;
-               case 116://f5
-                  var2 = 112;
-                  break;
-            }
+//            switch(var2) {
+//               case 112://f1
+//                  var2 = 115;
+//                  break;
+//               case 113://f2
+//                  var2 = 116;
+//                  break;
+//               case 114://f3
+//                  var2 = 117;
+//                  break;
+//               case 115://f4
+//                  var2 = 118;
+//                  break;
+//               case 116://f5
+//                  var2 = 112;
+//                  break;
+//            }
             if(0 <= var2 && Class117.anIntArray1611.length > var2) {
                var2 = Class117.anIntArray1611[var2];
                // System.out.println(var2);

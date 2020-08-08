@@ -1,5 +1,7 @@
 package plugin.skill.farming;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.skill.farming.compost.CompostManager;
 import plugin.skill.farming.pot.SeedlingManager;
 import plugin.skill.farming.wrapper.PatchWrapper;
@@ -70,6 +72,10 @@ public final class FarmingManager implements SavingModule {
 			seedlingManager.save(buffer.put((byte) 4));
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parseWrappers(JSONArray data){
+
 	}
 
 	@Override

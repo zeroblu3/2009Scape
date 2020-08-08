@@ -163,7 +163,7 @@ public class StakeContainer extends Container {
 			return;
 		}
 		player.getInventory().addAll(this);
-		PlayerParser.dump(player);
+		PlayerParser.save(player);
 	}
 
 	/**

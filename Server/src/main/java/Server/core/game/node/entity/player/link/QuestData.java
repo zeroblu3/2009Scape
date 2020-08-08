@@ -2,6 +2,8 @@ package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -79,6 +81,35 @@ public final class QuestData implements SavingModule {
 		SavedData.save(buffer, witchsExerimentStage, 9);
 		SavedData.save(buffer, witchsExerimentKilled, 10);
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONObject data){
+		JSONArray dl = (JSONArray) data.get("draynorLever");
+		for(int i = 0; i < dl.size(); i++){
+			draynorLever[i] = (boolean) dl.get(i);
+		}
+		JSONArray drs = (JSONArray) data.get("dragonSlayer");
+		for(int i = 0; i < drs.size(); i++){
+			dragonSlayer[i] = (boolean) drs.get(i);
+		}
+		dragonSlayerPlanks = Integer.parseInt( data.get("dragonSlayerPlanks").toString());
+		JSONArray des = (JSONArray) data.get("demonSlayer");
+		for(int i = 0; i < des.size(); i++){
+			demonSlayer[i] = (boolean) des.get(i);
+		}
+		JSONArray ca = (JSONArray) data.get("cooksAssistant");
+		for(int i = 0; i < ca.size(); i++){
+			cooksAssistant[i] = (boolean) ca.get(i);
+		}
+		gardenerAttack = (boolean) data.get("gardenerAttack");
+		talkedDrezel = (boolean) data.get("talkedDrezel");
+		JSONArray dtn = (JSONArray) data.get("desertTreasureNode");
+		for (int i = 0; i < dtn.size(); i++){
+			JSONObject item = (JSONObject) dtn.get(i);
+			desertTreasure[i] = new Item(Integer.parseInt(item.get("id").toString()), Integer.parseInt(item.get("amount").toString()));
+		}
+		witchsExerimentKilled = (boolean) data.get("witchsExperimentKilled");
+		witchsExerimentStage = Integer.parseInt( data.get("witchsExperimentStage").toString());
 	}
 
 	@Override
@@ -318,5 +349,17 @@ public final class QuestData implements SavingModule {
 
 	public void setWitchsExerimentKilled(boolean witchsExerimentKilled) {
 		this.witchsExerimentKilled = witchsExerimentKilled;
+	}
+
+	public boolean[] getDraynorLever() {
+		return draynorLever;
+	}
+
+	public boolean[] getDragonSlayer() {
+		return dragonSlayer;
+	}
+
+	public Item[] getDesertTreasure() {
+		return desertTreasure;
 	}
 }

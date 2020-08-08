@@ -4,9 +4,12 @@ import core.cache.def.impl.ItemDefinition;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Represents a container which contains items.
@@ -527,6 +530,23 @@ public class Container {
             total += item.getValue();
         }
         return total;
+    }
+
+    public void parse(JSONArray itemArray){
+        AtomicInteger total = new AtomicInteger(0);
+        itemArray.forEach(item -> {
+            JSONObject i = (JSONObject) item;
+            int slot = Integer.parseInt(i.get("slot").toString());
+            int id = Integer.parseInt(i.get("id").toString());
+            int amount = Integer.parseInt(i.get("amount").toString());
+            int charge = Integer.parseInt(i.get("charge").toString());
+            if (id >= ItemDefinition.getDefinitions().size() || id < 0 || slot >= items.length) {
+            } else {
+                Item it = items[slot] = new Item(id,amount,charge);
+                it.setIndex(slot);
+                total.set(total.get() + (int)it.getValue());
+            }
+        });
     }
 
     /**

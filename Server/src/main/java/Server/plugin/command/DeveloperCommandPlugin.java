@@ -6,7 +6,6 @@ import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.game.container.Container;
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.eco.EconomyManagement;
 import core.game.content.global.shop.Shop;
 import core.game.content.holiday.HolidayItem;
 import core.game.content.holiday.ItemLimitation;
@@ -55,7 +54,6 @@ import plugin.tutorial.TutorialSession;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -383,7 +381,7 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                     t.sendMessage("Iron man mode removed.");
                 }
                 player.sendMessage("Removed ironman mode.");
-                PlayerParser.dump(t);
+                PlayerParser.save(t);
                 break;
             case "holidayitemloc":
                 if (args.length < 1) {

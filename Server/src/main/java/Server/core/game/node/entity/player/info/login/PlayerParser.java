@@ -5,35 +5,45 @@ import core.game.node.entity.combat.CombatSpell;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.entity.player.link.emote.Emotes;
+import core.game.system.SystemLogger;
 import core.game.world.map.Location;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileChannel.MapMode;
 import java.util.Arrays;
 
 /**
- * Handles the parsing and dumping of a player's character file.
- * @author Emperor
+ * Class used to abstract the process of loading a player save.
+ * @author Ceikry
  */
 public final class PlayerParser {
-
 	/**
-	 * Parses a player's character file.
+	 * Parses or creates the player's save file depending on whether or not it exists.
 	 * @param player The player.
 	 */
-	@SuppressWarnings("deprecation")
 	public static void parse(Player player) {
-		player.getGameAttributes().parse(player.getName() + ".xml");
-		final File file = new File((ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".save"));
+		player.getGameAttributes().parse(player.getName() + ".xml"); //TODO: Re-merge the attributes back into the player save now that it's non-binary.
+		File JSON = new File(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".json");
+		File BIN = new File(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".save"); //for backwards compatibility.
 
-
-		if (!file.exists()) {
-			dump(player);
+		if(JSON.exists()) { //parse the new JSON type.
+			new PlayerSaveParser(player).parse();
+		} else if (BIN.exists()){ //parse the old BINARY type.
+			parseBinary(BIN,player);
+		} else { //Create new save
+			makeFromTemplate(player);
 		}
+	}
+
+	/**
+	 * Parses the old binary format for the sake of backwards compatibility with old saves.
+	 * @author Emperor (legacy) (legacy)
+	 * @param file the binary file to be parsed.
+	 * @param player the player we are parsing the file for.
+	 */
+	public static void parseBinary(File file, Player player){
 		try (RandomAccessFile raf = new RandomAccessFile(file, "r"); FileChannel channel = raf.getChannel()) {
 			ByteBuffer buffer = channel.map(MapMode.READ_ONLY, 0, channel.size());
 			int opcode;
@@ -63,11 +73,8 @@ public final class PlayerParser {
 					case 7://old emotes
 						int op;
 						while ((op = buffer.get() & 0xFF) != 0) {
-							switch (op) {
-								default: // Opcodes 22-40 are used for locked emotes.
-									player.getEmoteManager().unlock(Emotes.values()[op]);
-									break;
-							}
+							// Opcodes 22-40 are used for locked emotes.
+							player.getEmoteManager().unlock(Emotes.values()[op]);
 						}
 						break;
 					case 10:
@@ -163,171 +170,49 @@ public final class PlayerParser {
 						System.err.println("[Player parsing] Unhandled opcode: " + opcode + " for " + player.getName() + " - [log=" + Arrays.toString(opcodeLog) + "].");
 						break;
 				}
-				for (int i = opcodeLog.length - 2; i >= 0; i--) {
-					opcodeLog[i + 1] = opcodeLog[i];
-				}
+				System.arraycopy(opcodeLog, 0, opcodeLog, 1, opcodeLog.length - 2 + 1);
 				opcodeLog[0] = opcode;
 			}
 			player.getMonitor().setNetworth(networth);
-			raf.close();
-			channel.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException f) {
+			f.printStackTrace();
 			player.setAttribute("protect_data", true);
 		}
 	}
 
 	/**
-	 * Dumps the player's details to the character file.
+	 * Saves the player's details to the character file at data/players/player_name.json
 	 * @param player The player.
 	 */
-	public static void dump(Player player) {
-		dump(player, "data/");
+	public static void save(Player player) {
+		new PlayerSaver(player).save();
 	}
 
 	/**
-	 * Dumps the player's details to the character file.
-	 * @param player The player.
-	 * @param directory The saving directory.
+	 * Copies the template at data/players/template/template.json to data/players/player_name.json
+	 * @param player the player to copy the template for.
 	 */
-	public static void dump(Player player, String directory) {
-		if (player.getAttribute("protect_data", false)) {
-			System.err.println("Saving player " + player.getName() + " not allowed - data is corrupt due to exception in parsing!");
-			return;
-		}
-		ByteBuffer buffer = ByteBuffer.allocate(4096 << 2);
-		long networth = 0;
-		// Location
-		buffer.put((byte) 1).putShort((short) player.getLocation().getX()).putShort((short) player.getLocation().getY()).put((byte) player.getLocation().getZ());
-
-		// Inventory
-		if (!player.getInventory().isEmpty()) {
-			networth += player.getInventory().save(buffer.put((byte) 2));
-		}
-		// Equipment
-		if (!player.getEquipment().isEmpty()) {
-			networth += player.getEquipment().save(buffer.put((byte) 3));
-		}
-		// Bank
-		if (!player.getBank().isEmpty()) {
-			networth += player.getBank().save(buffer.put((byte) 4));
-		}
-		// Skills
-		player.getSkills().save(buffer.put((byte) 5));
-
-		// Settings
-		player.getSettings().save(buffer.put((byte) 6));
-
-		// Attributes
-		player.getGameAttributes().dump(player.getName() + ".xml");
-
-		// Slayer
-		player.getSlayer().save(buffer.put((byte) 14));
-
-		// Quests
-		player.getQuestRepository().save(buffer.put((byte) 17));
-
-		// Appearance
-		player.getAppearance().save(buffer.put((byte) 21));
-
-		// Gravestones
-		player.getGraveManager().save(buffer.put((byte) 23));
-
-		// Spellbook
-		if (player.getSpellBookManager().getSpellBook() != 192) {
-			player.getSpellBookManager().save(buffer.put((byte) 25));
-		}
-		// Grand exchange
-		if (player.getGrandExchange().hasActiveOffer()) {
-			player.getGrandExchange().save(buffer.put((byte) 26));
-		}
-		// Activity
-		player.getSavedData().save(buffer.put((byte) 27));
-
-		// 28 was used for communication!
-
-		// Autocasting
-		if (player.getProperties().getAutocastSpell() != null) {
-			CombatSpell spell = player.getProperties().getAutocastSpell();
-			buffer.put((byte) 29).put((byte) spell.getBook().ordinal()).put((byte) spell.getSpellId());
-		}
-		// Farming
-		player.getFarmingManager().save(buffer.put((byte) 30));
-
-		// Configurations
-		player.getConfigManager().save(buffer.put((byte) 31));
-
-		// Warning messages
-		player.getWarningMessages().save(buffer.put((byte) 32));
-
-		// Player monitor data
-		player.getMonitor().checkNetworth(player, networth);
-		player.getMonitor().save(buffer.put((byte) 33));
-
-		// Music
-		player.getMusicPlayer().save(buffer.put((byte) 34));
-
-		// Familiar/pet data
-		player.getFamiliarManager().save(buffer.put((byte) 35));
-
-		// Barcrawl miniquest.
-		player.getBarcrawlManager().save(buffer.put((byte) 36));
-
-		// States (poison/skull/...)
-		if (player.getStateManager().isSaveRequired()) {
-			player.getStateManager().save(buffer.put((byte) 37));
-		}
-
-		// Anti-macro event saving.
-		if (player.getAntiMacroHandler().isSaveRequired()) {
-			player.getAntiMacroHandler().save(buffer.put((byte) 38));
-		}
-
-		// Treasure trail saving
-		player.getTreasureTrailManager().save(buffer.put((byte) 39));
-
-		// Bank pin
-		player.getBankPinManager().save(buffer.put((byte) 40));
-
-		// Construction saving.
-		if (player.getHouseManager().hasHouse()) {
-			player.getHouseManager().save(buffer.put((byte) 41));
-		}
-
-		// Achievement Diary
-		player.getAchievementDiaryManager().save(buffer.put((byte) 42));
-
-		// Ironman Manager
-		player.getIronmanManager().save(buffer.put((byte) 43));
-
-		//Emotes
-		if (player.getEmoteManager().isSaveRequired()) {
-			player.getEmoteManager().save(buffer.put((byte) 44));
-		}
-
-		//Milestones
-		if (player.getSkills().getCombatMilestone() > 0 || player.getSkills().getSkillMilestone() > 0) {
-			buffer.put((byte) 45).put((byte) player.getSkills().getCombatMilestone()).put((byte) player.getSkills().getSkillMilestone());
-		}
-
-		//xp rate
-		player.getSkills().saveExpRate(buffer.put((byte) 46));
-
-		//stat manager
-		player.getStatisticsManager().save(buffer.put((byte)47));
-
-		//Brawling Gloves manager
-		player.getBrawlingGlovesManager().save(buffer.put((byte)48));
-
-		buffer.put((byte) 0); // EOF opcode
-		buffer.flip();
-		File file = new File(directory + "players/" + player.getName() + ".save");
-		try (RandomAccessFile raf = new RandomAccessFile(file, "rw"); FileChannel channel = raf.getChannel()) {
-			channel.write(buffer);
-			raf.close();
-			channel.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+	public static void makeFromTemplate(Player player){
+		InputStream is = null;
+		OutputStream os = null;
+		try {
+			is = new FileInputStream("data/players/template/template.json");
+			os = new FileOutputStream("data/players/" + player.getName() + ".json");
+			byte[] buffer = new byte[1024];
+			int length;
+			while ((length = is.read(buffer)) > 0) {
+				os.write(buffer, 0, length);
+			}
+		} catch (Exception ignored){
+		} finally {
+			try {
+				assert is != null;
+				is.close();
+				assert os != null;
+				os.close();
+			} catch (Exception f){
+				SystemLogger.log("Unable to close file copiers.");
+			}
 		}
 	}
 }

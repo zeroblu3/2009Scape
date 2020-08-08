@@ -12,6 +12,7 @@ import core.net.packet.context.StringContext;
 import core.net.packet.out.RepositionChild;
 import core.net.packet.out.StringPacket;
 import core.tools.RandomFunction;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -128,6 +129,23 @@ public class BankPinManager implements SavingModule {
 			buffer.put((byte) 5).putLong(tryDelay);
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONObject data){
+		if(data.containsKey("pin")) {
+			pin = data.get("pin").toString();
+		}
+		if(data.containsKey("status")){
+			int st = Integer.parseInt( data.get("status").toString());
+			status = PinStatus.values()[st];
+		}
+		if(data.containsKey("pendingDelay")){
+			this.pendingDelay = Long.parseLong(data.get("pendingDelay").toString());
+		}
+		if(data.containsKey("tryDelay")){
+			this.tryDelay = Long.parseLong(data.get("tryDelay").toString());
+		}
+		longRecovery = (boolean) data.get("longRecovery");
 	}
 
 	@Override
@@ -834,4 +852,11 @@ public class BankPinManager implements SavingModule {
 
 	}
 
+	public PinStatus getStatus() {
+		return status;
+	}
+
+	public long getPendingDelay() {
+		return pendingDelay;
+	}
 }

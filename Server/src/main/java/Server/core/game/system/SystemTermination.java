@@ -74,7 +74,7 @@ public final class SystemTermination {
 				if (p != null && !p.isArtificial()) { // Should never be null.
 					p.removeAttribute("combat-time");
 					p.clear();
-					PlayerParser.dump(p, directory);
+					PlayerParser.save(p);
 					p.getDetails().save();
 				}
 			} catch (Throwable t) {

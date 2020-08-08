@@ -45,6 +45,8 @@ public final class CompostBin {
 	 */
 	private final Container container = new Container(15);
 
+	public int compostLevel = 0;
+
 	/**
 	 * Represents the objects wrapper id.
 	 */

@@ -2,6 +2,8 @@ package core.game.node.entity.player.link.quest;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -62,6 +64,16 @@ public final class QuestRepository implements SavingModule {
             }
         }
         buffer.put((byte) 0);
+    }
+
+    public void parse(JSONObject questData){
+        points = Integer.parseInt( questData.get("points").toString());
+        JSONArray questArray = (JSONArray) questData.get("questStages");
+        questArray.forEach(quest -> {
+            JSONObject q = (JSONObject) quest;
+            quests.put(Integer.parseInt( q.get("questId").toString()),Integer.parseInt(q.get("questStage").toString()));
+        });
+        syncPoints();
     }
 
     @Override
@@ -290,5 +302,7 @@ public final class QuestRepository implements SavingModule {
     public static Map<String, Quest> getQuests() {
         return QUESTS;
     }
+
+    public Map<Integer, Integer> getQuestList() {return quests;}
 
 }
