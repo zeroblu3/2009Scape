@@ -33,6 +33,10 @@ import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
 
+/**
+ * API used by bot scripts
+ * @author Ceikry
+ */
 class ScriptAPI(private val bot: Player) {
     val GRAPHICSUP = Graphics(1576)
     val ANIMATIONUP = Animation(8939)

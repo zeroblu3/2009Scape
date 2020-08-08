@@ -7,6 +7,10 @@ import core.tools.RandomFunction
 import plugin.ai.AIPlayer
 import plugin.skill.Skills
 
+/**
+ * Produces combat bots
+ * @author Ceikry
+ */
 class CombatBotAssembler {
     enum class Type{
         RANGE,
