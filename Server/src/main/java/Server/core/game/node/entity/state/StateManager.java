@@ -160,4 +160,8 @@ public final class StateManager implements SavingModule {
 	public Entity getEntity() {
 		return entity;
 	}
+
+	public Map<EntityState, StatePulse> getStates() {
+		return states;
+	}
 }

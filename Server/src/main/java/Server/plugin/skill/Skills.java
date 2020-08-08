@@ -2,6 +2,8 @@ package plugin.skill;
 
 import core.game.content.global.SkillcapePerks;
 import core.game.world.GameWorld;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.ame.ExperienceMonitor;
 import plugin.tutorial.TutorialSession;
 import core.game.node.entity.Entity;
@@ -378,6 +380,21 @@ public final class Skills {
 			staticLevels[i] = buffer.get() & 0xFF;
 		}
 		experienceGained = buffer.getInt();
+	}
+
+	public void parse(JSONArray skillData){
+		for(int i = 0; i < skillData.size(); i++){
+			JSONObject skill = (JSONObject) skillData.get(i);
+			int id = Integer.parseInt( skill.get("id").toString());
+			dynamicLevels[id] = Integer.parseInt( skill.get("dynamic").toString());
+			if (id == HITPOINTS) {
+				lifepoints = dynamicLevels[i];
+			} else if (id == PRAYER) {
+				prayerPoints = dynamicLevels[i];
+			}
+			staticLevels[id] = Integer.parseInt( skill.get("static").toString());
+			experience[id] = Double.parseDouble(skill.get("experience").toString());
+		}
 	}
 
 	public void parseExpRate(ByteBuffer buffer) {
@@ -932,4 +949,7 @@ public final class Skills {
 		this.skillMilestone = skillMilestone;
 	}
 
+	public int[] getDynamicLevels() {
+		return dynamicLevels;
 	}
+}

@@ -4,6 +4,8 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -44,6 +46,17 @@ public final class CompostManager implements SavingModule {
 				bin.getContainer().save(buffer);
 			}
 			buffer.put((byte) 0);
+		}
+	}
+
+	public void parse(JSONArray data){
+		for(int i = 0; i < data.size(); i++){
+			JSONObject b = (JSONObject) data.get(i);
+
+			CompostBin bin = new CompostBin((int) b.get("wrapperId"));
+			bin.setTimeStamp((long) b.getOrDefault("timeStamp",0L));
+			bin.compostLevel = (int) b.getOrDefault("compostLevel",0);
+			bins.add(bin);
 		}
 	}
 

@@ -1,6 +1,7 @@
 package core.game.node.entity.player.link;
 
 import core.game.system.config.ItemConfigParser;
+import org.json.simple.JSONObject;
 import plugin.tutorial.TutorialSession;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
@@ -273,6 +274,27 @@ public final class Settings {
 		}
 	}
 
+	public void parse(JSONObject settingsData){
+		brightness = Integer.parseInt( settingsData.get("brightness").toString());
+		musicVolume = Integer.parseInt( settingsData.get("musicVolume").toString());
+		soundEffectVolume = Integer.parseInt( settingsData.get("soundEffectVolume").toString());
+		areaSoundVolume = Integer.parseInt( settingsData.get("areaSoundVolume").toString());
+		singleMouseButton = (boolean) settingsData.get("singleMouse");
+		disableChatEffects = (boolean) settingsData.get("disableChatEffects");
+		splitPrivateChat = (boolean) settingsData.get("splitPrivate");
+		acceptAid = (boolean) settingsData.get("acceptAid");
+		runToggled = (boolean) settingsData.get("runToggled");
+		publicChatSetting = Integer.parseInt( settingsData.get("publicChatSetting").toString());
+		privateChatSetting = Integer.parseInt( settingsData.get("privateChatSetting").toString());
+		clanChatSetting = Integer.parseInt( settingsData.get("clanChatSetting").toString());
+		tradeSetting = Integer.parseInt( settingsData.get("tradeSetting").toString());
+		assistSetting = Integer.parseInt( settingsData.get("assistSetting").toString());
+		runEnergy = Double.parseDouble( settingsData.get("runEnergy").toString());
+		specialEnergy = Integer.parseInt( settingsData.get("specialEnergy").toString());
+		attackStyleIndex = Integer.parseInt( settingsData.get("attackStyle").toString());
+		player.getProperties().setRetaliating((boolean) settingsData.get("retaliation"));
+	}
+
 	/**
 	 * Toggles the special attack bar.
 	 */
@@ -382,7 +404,7 @@ public final class Settings {
 
 	/**
 	 * Toggles the run button.
-	 * @param If the run button should be enabled.
+	 * If the run button should be enabled.
 	 */
 	public void setRunToggled(boolean enabled) {
 		runToggled = enabled;

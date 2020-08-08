@@ -3,6 +3,7 @@ package plugin.skill.construction;
 
 import core.game.node.entity.npc.NPC;
 import core.game.node.item.Item;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -63,6 +64,20 @@ public final class Servant extends NPC {
 	 * @param buffer The buffer.
 	 * @return The servant.
 	 */
+
+	public static Servant parse(JSONObject data){
+		int type = Integer.parseInt( data.get("type").toString());
+		Servant servant = new Servant(ServantType.values()[type]);
+		servant.uses = Integer.parseInt( data.get("uses").toString());
+		Object itemRaw = data.get("item");
+		if(itemRaw != null){
+			JSONObject item = (JSONObject) itemRaw;
+			servant.item = new Item((int)item.get("id"),(int)item.get("amount"));
+		}
+		servant.greet = (boolean) data.get("greet");
+		return servant;
+	}
+
 	public static Servant parse(ByteBuffer buffer) {
 		int type = buffer.get();
 		if (type == -1) {

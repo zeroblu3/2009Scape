@@ -3,6 +3,8 @@ package plugin.ttrail;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.tools.RandomFunction;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
@@ -71,6 +73,20 @@ public final class TreasureTrailManager implements SavingModule {
 			}
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONObject data){
+		JSONArray cc = (JSONArray) data.get("completedClues");
+		for(int i = 0; i < cc.size(); i++){
+			completedClues[i] = Integer.parseInt(cc.get(i).toString());
+		}
+
+		if(data.containsKey("trail")){
+			JSONObject trail = (JSONObject) data.get("trail");
+			clueId = Integer.parseInt(trail.get("clueId").toString());
+			trailLength = Integer.parseInt(trail.get("length").toString());
+			trailStage = Integer.parseInt(trail.get("stage").toString());
+		}
 	}
 
 	@Override
