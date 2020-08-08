@@ -34712,6 +34712,22 @@
       "safespot": null
     },
     {
+      "id": "4249",
+      "name": "Sir Renitee",
+      "examine": "Chief Herald of Falador.",
+      "lifepoints": "10",
+      "attack_level": "1",
+      "strength_level": "1",
+      "defence_level": "1",
+      "range_level": "1",
+      "melee_animation": "0",
+      "defence_animation": "0",
+      "death_animation": "0",
+      "magic_animation": "0",
+      "range_animation": "0",
+      "safespot": null
+    },
+    {
       "id": "4250",
       "name": "Sawmill operator",
       "examine": "He changes the shape of wood.",

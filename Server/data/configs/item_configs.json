@@ -9861,7 +9861,7 @@
     {
       "id": "1007",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A bright red cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -10005,7 +10005,7 @@
     {
       "id": "1019",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A warm black cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -10031,7 +10031,7 @@
     {
       "id": "1021",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A thick blue cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -10057,7 +10057,7 @@
     {
       "id": "1023",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A thick yellow cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -10106,7 +10106,7 @@
     {
       "id": "1027",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A thick green cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -10132,7 +10132,7 @@
     {
       "id": "1029",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A thick purple cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -10158,7 +10158,7 @@
     {
       "id": "1031",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "A thick orange cape.",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -49942,21 +49942,21 @@
     {
       "id": "5076",
       "name": "Bird's egg",
-      "examine": "A green/red/blue bird's egg.",
+      "examine": "A red bird's egg.",
       "archery_ticket_price": "0",
       "durability": null
     },
     {
       "id": "5077",
       "name": "Bird's egg",
-      "examine": "A green/red/blue bird's egg.",
+      "examine": "A blue bird's egg.",
       "archery_ticket_price": "0",
       "durability": null
     },
     {
       "id": "5078",
       "name": "Bird's egg",
-      "examine": "A green/red/blue bird's egg.",
+      "examine": "A green bird's egg.",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66927,7 +66927,7 @@
     {
       "id": "6959",
       "name": "Cape",
-      "examine": "A (bright/thick/warm) &lt;colour&gt; cape.",
+      "examine": "Use pink dye on a cape and this is what you get!",
       "tradeable": "true",
       "low_alchemy": "8",
       "high_alchemy": "12",
@@ -136748,12 +136748,12 @@
       "low_alchemy": "40",
       "high_alchemy": "60",
       "destroy": "true",
-      "destroy_message": "Destroy",
+      "destroy_message": "You will be able to get a replacement shield from Redbeard the Pirate in Port Sarim.",
       "shop_price": "100",
       "equipment_slot": "5",
       "attack_speed": "4",
       "absorb": "0,0,0",
-      "bonuses": "0,0,0,-8,-2,17,19,18,-1,18,10,0,0,3,0",
+      "bonuses": "0,0,0,-8,-2,17,19,18,-1,18,10,0,3,0,0",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -136764,12 +136764,12 @@
       "low_alchemy": "80",
       "high_alchemy": "120",
       "destroy": "true",
-      "destroy_message": "You will be able to get replacement shield from the chemist in Rimmington.",
+      "destroy_message": "You will be able to get a replacement shield from the chemist in Rimmington.",
       "shop_price": "200",
       "equipment_slot": "5",
       "attack_speed": "4",
       "absorb": "0,0,0",
-      "bonuses": "0,0,0,-8,-2,18,22,20,-1,20,20,0,0,5,0",
+      "bonuses": "0,0,0,-8,-2,18,22,20,-1,20,20,0,5,0,0",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -136785,7 +136785,7 @@
       "equipment_slot": "5",
       "attack_speed": "4",
       "absorb": "0,0,0",
-      "bonuses": "0,0,0,-8,-2,27,31,29,-1,29,30,0,0,7,0",
+      "bonuses": "0,0,0,-8,-2,27,31,29,-1,29,30,0,7,0,0",
       "archery_ticket_price": "0",
       "durability": null
     },
