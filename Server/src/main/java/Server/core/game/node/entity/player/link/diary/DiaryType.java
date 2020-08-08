@@ -6,13 +6,14 @@ import core.game.node.item.Item;
 /**
  * An achievement diary type.
  *
- * @author Vexia
+ * @author afaroutdude
  */
-// TODO figure out secondary rewards for all of these
+// TODO figure out how to convert saves
+// TODO figure out secondary rewards for karamja, lumbridge, varrock, seers, and fremennik
 public enum DiaryType {
     KARAMJA("Karamja", 11,
             new String[]{"Easy", "Medium", "Hard"},
-            new String[][]{ // TODO check that implementation is correct on all of these
+            new String[][]{ // TODO check that implementation is complete and correct on all of these
                     {
                             "Pick 5 bananas from the plantation located east of the <br><br>volcano.",
                             "Use the rope swing to travel to the small island north-west<br><br>of Karamja, where the moss giants are.",
@@ -176,7 +177,6 @@ public enum DiaryType {
 
     ),
     // https://runescape.wiki/w/Falador_achievements?oldid=900390
-    // TODO secondary rewards: extra farming xp from Falador farm (flower 7918, herb 8135, allotments 8576)
     FALADOR("Falador", 23,
             new String[]{"Easy", "Medium", "Hard"},
             new String[][]{
@@ -205,17 +205,17 @@ public enum DiaryType {
                             "Kill an ice giant in the Asgarnian Ice Dungeon.",
                             "Light a bullseye lantern in the chemist's.",
                             "Pickpocket a Falador guard.",
-                            "Place a scarecrow to protect your sweetcorn as it<br><br>grows in the patch north of Port Sarim.",  // TODO make this actually rely on corn
+                            "Place a scarecrow to protect your sweetcorn as it<br><br>grows in the patch north of Port Sarim.",
                             "Salute Sir Tiffy Cashien while wearing full initiate armour.",
                             "Smith blurite crossbow limbs on Thurgo's anvil.",
-                            "Travel from Port Sarim to Musa Point for<br><br>free (with a little help from Charos).", // TODO can't actually obtain this ring yet...
+                            "Travel from Port Sarim to Musa Point for<br><br>free (with a little help from Charos).", // TODO can't actually obtain Charos ring yet...
                             "Visit the Port Sarim rat pits."
                     },
                     {
                             "Ascend the Dark Wizards' Tower while wearing full proselyte armour.",
                             "Change your family crest to the Saradomin symbol.",
                             "Craft 196 or more air runes simultaneously.",
-                            "Cut down a Yew tree or Magic tree that you grew in Falador Park.", // TODO
+                            "Cut down a Yew tree or Magic tree that you grew in Falador Park.",
                             "Dial to the fairy ring on Mudskipper Point.",
                             "Dye a cape pink with Pink dye from Betty in Port Sarim.",
                             "Enter the Mining Guild.",

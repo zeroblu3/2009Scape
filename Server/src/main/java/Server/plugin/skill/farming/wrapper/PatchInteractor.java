@@ -8,6 +8,7 @@ import plugin.skill.farming.FarmingNode;
 import plugin.skill.farming.FarmingPatch;
 import plugin.skill.farming.patch.Allotments;
 import plugin.skill.farming.patch.Hops;
+import plugin.skill.farming.patch.PatchProtection;
 import plugin.skill.farming.tool.PatchTool;
 import plugin.skill.farming.tool.ToolAction;
 import core.game.node.entity.player.Player;
@@ -140,7 +141,14 @@ public final class PatchInteractor {
 		final int compostThreshold = wrapper.getCycle().getCompostThreshold();
 		player.animate(COMPOST_ANIMATION);
 		player.getInventory().replace(FarmingConstant.BUCKET, item.getSlot());
-		player.getSkills().addExperience(Skills.FARMING, 18, true);
+		double xp = 18;
+		// Check for falador shield bonus
+		int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+		if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
+				&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
+			xp = xp * 1.1;
+		}
+		player.getSkills().addExperience(Skills.FARMING, xp, true);
 		wrapper.getCycle().setCompostThreshold((regular && (compostThreshold == 2) || !regular && compostThreshold == 1) ? 3 : (regular ? 1 : 2));
 		if (wrapper.getPatch() == FarmingPatch.TREE) {
 			player.getPacketDispatch().sendMessage("You treat the tree patch with " + wrapper.getCycle().getCompostName() + ".");
@@ -197,7 +205,14 @@ public final class PatchInteractor {
 			GameWorld.Pulser.submit(new Pulse(1, player) {
 				@Override
 				public boolean pulse() {
-					player.getSkills().addExperience(Skills.FARMING, node.getExperiences()[0], true);
+					double xp = node.getExperiences()[0];
+					// Check for falador shield bonus
+					int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+					if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
+							&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
+						xp = xp * 1.1;
+					}
+					player.getSkills().addExperience(Skills.FARMING, xp, true);
 					if (!tree) {
 						player.getPacketDispatch().sendMessage("You plant " + seedRequirement + " " + item.getName().toLowerCase() + "" + (wrapper.getPatch().getSeedRequirement() > 1 ? "s" : "") + " in the " + wrapper.getName() + " patch.");
 					} else {
@@ -236,7 +251,14 @@ public final class PatchInteractor {
 				@Override
 				public boolean pulse() {
 					player.getInventory().add(wrapper.getNode().getProduct(), player);
-					player.getSkills().addExperience(Skills.FARMING, wrapper.getNode().getExperiences()[1], true);
+					double xp = wrapper.getNode().getExperiences()[1];
+					// Check for falador shield bonus
+					int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+					if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
+							&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
+						xp = xp * 1.1;
+					}
+					player.getSkills().addExperience(Skills.FARMING, xp, true);
 					wrapper.getCycle().clear(player);
 					if (wrapper.getPatch() == FarmingPatch.BELLADONNA && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 4)) {
 						player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 2, 4, true);

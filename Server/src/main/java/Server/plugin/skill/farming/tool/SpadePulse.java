@@ -1,8 +1,10 @@
 package plugin.skill.farming.tool;
 
+import core.game.container.impl.EquipmentContainer;
 import plugin.skill.Skills;
 import plugin.skill.farming.FarmingConstant;
 import plugin.skill.farming.FarmingPatch;
+import plugin.skill.farming.patch.PatchProtection;
 import plugin.skill.farming.patch.PickingNode;
 import plugin.skill.farming.patch.TreeNode;
 import plugin.skill.farming.patch.Trees;
@@ -52,7 +54,6 @@ public final class SpadePulse extends ToolAction {
 	 * Constructs a new {@code RakePulse} {@code Object}.
 	 * @param player the player.
 	 * @param wrapper the wrapper.
-	 * @param delay the delay.
 	 */
 	public SpadePulse(final Player player, final PatchWrapper wrapper) {
 		super(player, wrapper, null);
@@ -77,9 +78,16 @@ public final class SpadePulse extends ToolAction {
 			}
 		}
 		animate();
-		if ((wrapper.getPatch() == FarmingPatch.BUSHES && !command.equals("pick")) || (wrapper.getPatch() == FarmingPatch.FRUIT_TREE && !command.equals("pick")) || wrapper.getCycle().getDeathHandler().isDead() || wrapper.getCycle().getDiseaseHandler().isDiseased() || tree) {
+		if ((wrapper.getPatch() == FarmingPatch.BUSHES && !command.equals("pick"))
+				|| (wrapper.getPatch() == FarmingPatch.FRUIT_TREE && !command.equals("pick"))
+				|| wrapper.getCycle().getDeathHandler().isDead()
+				|| wrapper.getCycle().getDiseaseHandler().isDiseased()
+				|| tree) {
 			return clearPatch();
-		} else if (wrapper.getPatch() == FarmingPatch.BUSHES || wrapper.getPatch() == FarmingPatch.FRUIT_TREE || wrapper.getPatch() == FarmingPatch.CACTUS || wrapper.getPatch() == FarmingPatch.CALQUAT) {
+		} else if (wrapper.getPatch() == FarmingPatch.BUSHES
+				|| wrapper.getPatch() == FarmingPatch.FRUIT_TREE
+				|| wrapper.getPatch() == FarmingPatch.CACTUS
+				|| wrapper.getPatch() == FarmingPatch.CALQUAT) {
 			return pickBush();
 		} else if (wrapper.getCycle().getGrowthHandler().isFullGrown()) {
 			return !harvestPatch();
@@ -148,7 +156,14 @@ public final class SpadePulse extends ToolAction {
 								player.removeAttribute("roots");
 							}
 						}
-						player.getSkills().addExperience(Skills.FARMING, 6, true);
+						double xp = 6;
+						// Check for falador shield bonus
+						int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+						if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
+								&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
+							xp = xp * 1.1;
+						}
+						player.getSkills().addExperience(Skills.FARMING, xp, true);
 						player.getInventory().add(ROOTS[Trees.forNode(wrapper.getNode()).ordinal()], player);
 					}
 					player.getPacketDispatch().sendMessage("You dig up the tree stump.");
@@ -179,7 +194,14 @@ public final class SpadePulse extends ToolAction {
 	private boolean harvestPatch() {
 		final Item item = wrapper.getNode().getProduct();
 	    player.getInventory().add(item);
-		player.getSkills().addExperience(Skills.FARMING, wrapper.getNode().getExperiences()[1], true);
+		double xp = wrapper.getNode().getExperiences()[1];
+		// Check for falador shield bonus
+		int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+		if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
+				&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
+			xp = xp * 1.1;
+		}
+		player.getSkills().addExperience(Skills.FARMING, xp, true);
 		wrapper.getCycle().setHarvestAmount(wrapper.getCycle().getHarvestAmount() - 1);
 		if (wrapper.getCycle().getHarvestAmount() < 1) {
 			wrapper.getCycle().clear(player);
@@ -214,12 +236,20 @@ public final class SpadePulse extends ToolAction {
 			player.getPacketDispatch().sendMessage("There aren't any crops in this patch to dig up.");
 			return false;
 		}
-		boolean t = wrapper.getNode() != null && wrapper.getNode() instanceof TreeNode;
-		if (((wrapper.getPatch() == FarmingPatch.BUSHES && ((PickingNode) wrapper.getNode()).getProductAmount(wrapper.getState()) != 0) && command.equals("force") && !wrapper.getCycle().getDiseaseHandler().isDiseased() && !wrapper.getCycle().getDeathHandler().isDead()) || (wrapper.getCycle().getGrowthHandler().isGrowing() && !wrapper.getCycle().getGrowthHandler().isFullGrown()) && !wrapper.getCycle().getDiseaseHandler().isDiseased() && (t ? !((TreeNode) wrapper.getNode()).isStump(wrapper.getCycle()) : true)) {
+		boolean nodeIsTree = wrapper.getNode() != null && wrapper.getNode() instanceof TreeNode;
+		if (((wrapper.getPatch() == FarmingPatch.BUSHES && ((PickingNode) wrapper.getNode()).getProductAmount(wrapper.getState()) != 0)
+				&& command.equals("force")
+				&& !wrapper.getCycle().getDiseaseHandler().isDiseased()
+				&& !wrapper.getCycle().getDeathHandler().isDead())
+				|| (wrapper.getCycle().getGrowthHandler().isGrowing() && !wrapper.getCycle().getGrowthHandler().isFullGrown())
+				&& !wrapper.getCycle().getDiseaseHandler().isDiseased()
+				&& (!nodeIsTree || !((TreeNode) wrapper.getNode()).isStump(wrapper.getCycle()))) {
 			player.getDialogueInterpreter().sendDialogues(player, null, "Dig up these healthy plants? Why would I want to do", "that?");
 			return false;
 		}
-		if ((wrapper.getPatch() == FarmingPatch.TREE || wrapper.getPatch() == FarmingPatch.FRUIT_TREE && !command.equals("pick")) && !wrapper.getCycle().getDeathHandler().isDead() && !wrapper.getCycle().getDiseaseHandler().isDiseased()) {
+		if ((wrapper.getPatch() == FarmingPatch.TREE || wrapper.getPatch() == FarmingPatch.FRUIT_TREE && !command.equals("pick"))
+				&& !wrapper.getCycle().getDeathHandler().isDead()
+				&& !wrapper.getCycle().getDiseaseHandler().isDiseased()) {
 			if (!wrapper.getNode().isStump(wrapper.getCycle())) {
 				player.getPacketDispatch().sendMessage("You can only dig up tree stumps.");
 				return false;

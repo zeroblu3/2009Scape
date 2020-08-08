@@ -7,7 +7,10 @@ import core.game.component.ComponentDefinition;
 import core.game.component.ComponentPlugin;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
 import plugin.skill.Skills;
+import plugin.skill.farming.patch.Allotments;
+import plugin.skill.farming.patch.PatchProtection;
 import plugin.skill.farming.pot.Saplings;
 import plugin.skill.farming.tool.PatchTool;
 import plugin.skill.farming.wrapper.PatchWrapper;
@@ -471,10 +474,25 @@ public final class FarmingPlugin extends OptionHandler {
 			final Player player = event.getPlayer();
 			final PatchWrapper wrapper = player.getFarmingManager().getPatchWrapper(((GameObject) event.getUsedWith()).getWrapper().getId());
 			if (wrapper.getInteractor().addScarecrow()) {
-				// Achievement diary TODO: make this rely on corn being in the adjacent allotment patches!
-				if (event.getUsedWith().getLocation().equals(new Location(3054,3307,0))
+				// Achievement diary
+				if (event.getUsedWith().getLocation().equals(PatchProtection.FALADOR.getFlowerLocation())
 						&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1,7)) {
-					player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 1, 7, true);
+					// Check for nearby corn
+					Location[] allotmentLocations = PatchProtection.FALADOR.getAllotmentLocations();
+					boolean sweetcorn = false;
+					for (Location allotmentLocation : allotmentLocations) {
+						GameObject allotment = RegionManager.getObject(allotmentLocation);
+						if (allotment == null) { continue; }
+						PatchWrapper allotmentWrapper = player.getFarmingManager().getPatchWrapper(allotment.getWrapper().getId());
+						if (allotmentWrapper == null) { continue; }
+						if (wrapper.getNode() == Allotments.SWEETCORN.getFarmingNode()) {
+							sweetcorn = true;
+							break;
+						}
+					}
+					if (sweetcorn) {
+						player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 1, 7, true);
+					}
 				}
 			}
 			return true;
