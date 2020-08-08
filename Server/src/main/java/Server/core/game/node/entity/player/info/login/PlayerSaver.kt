@@ -353,6 +353,7 @@ class PlayerSaver (val player: Player){
             player.farmingManager.equipment.container.toArray().map {
                 if(it != null) {
                     val item = JSONObject()
+                    item.put("slot",it.slot.toString())
                     item.put("id", it.id.toString())
                     item.put("amount", it.amount.toString())
                     item.put("charge", it.charge.toString())
