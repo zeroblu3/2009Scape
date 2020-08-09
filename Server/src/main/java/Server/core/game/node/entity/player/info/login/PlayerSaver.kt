@@ -376,12 +376,13 @@ class PlayerSaver (val player: Player){
                 cycle.put("protection",it.cycle.isProtected)
                 wrapper.put("cycle",cycle)
                 if(it.node != null){
-                    wrapper.put("nodePosition",it.patch.getNodePosition(it.node).toString())
+                    wrapper.put("nodeId",it.patch.getNodePosition(it.node).toString())
                 }
                 wrappers.add(wrapper)
             }
             farming.put("wrappers",wrappers)
         }
+
         root.put("farming",farming)
     }
 
@@ -725,7 +726,6 @@ class PlayerSaver (val player: Player){
                 item.put("charge", it.charge.toString())
                 json.add(item)
             }
-            slot++
         }
         return json
     }
@@ -734,7 +734,6 @@ class PlayerSaver (val player: Player){
         val coreData = JSONObject()
         val inventory = saveContainer(player.inventory)
         coreData.put("inventory",inventory)
-        slot = 0
 
         val bank = saveContainer(player.bank)
         coreData.put("bank",bank)
