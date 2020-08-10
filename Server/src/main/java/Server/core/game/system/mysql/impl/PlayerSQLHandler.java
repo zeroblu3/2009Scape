@@ -24,7 +24,7 @@ public final class PlayerSQLHandler extends SQLEntryHandler<PlayerDetails> {
 	 * @param entry The player details.
 	 */
 	public PlayerSQLHandler(PlayerDetails entry) {
-		super(entry, (SQLManager.LOCAL ? "global" : ServerConstants.DATABASE_NAMES[1]) + ".members", "username", entry.getUsername());
+		super(entry, (SQLManager.LOCAL ? "global" : ServerConstants.DATABASE_NAME) + ".members", "username", entry.getUsername());
 	}
 
 	@Override

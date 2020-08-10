@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.cache.def.impl.ObjectDefinition
 import core.game.system.SystemLogger
 import org.json.simple.JSONArray
@@ -12,7 +13,7 @@ class ObjectConfigParser {
     var reader: FileReader? = null
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/object_configs.json")
+        reader = FileReader(ServerConstants.CONFIG_PATH + "object_configs.json")
         val obj = parser.parse(reader) as JSONObject
         val configlist = obj["object_configs"] as JSONArray
         for(config in configlist){

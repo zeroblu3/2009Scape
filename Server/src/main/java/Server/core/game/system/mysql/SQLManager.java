@@ -36,7 +36,7 @@ public final class SQLManager {
     /**
      * The database URL.
      */
-    public static final String DATABASE_URL = SQL_SERVER_ADDRESS + ":3306/" + ServerConstants.DATABASE_NAMES[0];
+    public static final String DATABASE_URL = SQL_SERVER_ADDRESS + ":3306/" + ServerConstants.DATABASE_NAME;
 
 	/**
 	 * IF the sql manager is initialized.

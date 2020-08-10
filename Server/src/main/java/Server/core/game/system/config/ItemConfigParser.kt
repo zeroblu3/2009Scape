@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.link.audio.Audio
@@ -213,7 +214,7 @@ class ItemConfigParser {
     var reader: FileReader? = null
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/item_configs.json")
+        reader = FileReader(ServerConstants.CONFIG_PATH + "item_configs.json")
         val obj = parser.parse(reader) as JSONObject
         val configlist = obj["item_configs"] as JSONArray
         for(config in configlist){

@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.cache.def.impl.NPCDefinition
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.impl.Animator
@@ -195,7 +196,7 @@ class NPCConfigParser {
     var reader: FileReader? = null
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/npc_configs.json")
+        reader = FileReader(ServerConstants.CONFIG_PATH + "npc_configs.json")
         val obj = parser.parse(reader) as JSONObject
         val configlist = obj["npc_configs"] as JSONArray
         for(config in configlist){

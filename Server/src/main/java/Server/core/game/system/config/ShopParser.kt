@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.game.content.global.shop.Shop
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
@@ -25,7 +26,7 @@ class ShopParser{
 
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/shops.json")
+        reader = FileReader(ServerConstants.CONFIG_PATH + "shops.json")
         val obj = parser.parse(reader) as JSONObject
         val configlist = obj["shops"] as JSONArray
         for(config in configlist){

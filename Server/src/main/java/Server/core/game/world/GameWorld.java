@@ -69,14 +69,14 @@ public final class GameWorld {
     /**
      * The game settings to use.
      */
-    private static GameSettings settings;
+    public static GameSettings settings;
 
     /**
      * The current amount of (600ms) cycles elapsed.
      */
     public static int ticks;
 
-    private static DatabaseManager dbm = new DatabaseManager(ServerConstants.DATABASES);
+    private static DatabaseManager dbm;
 
     private static int eventTicks;
 
@@ -160,6 +160,7 @@ public final class GameWorld {
         SystemLogger.log("Prompting " + GameWorld.getName() + " Game World...");
         Cache.init(ServerConstants.CACHE_PATH);
         ServerStore.init(ServerConstants.STORE_PATH);
+        dbm = new DatabaseManager(ServerConstants.DATABASE);
         dbm.connect();
         GrandExchangeDatabase.init();
         ScriptManager.load();
@@ -224,9 +225,6 @@ public final class GameWorld {
      * @return The settings.
      */
     public static GameSettings getSettings() {
-        if (settings == null) {
-            return (settings = GameSettings.Companion.parse("worldprops/server1.xml"));
-        }
         return settings;
     }
 
