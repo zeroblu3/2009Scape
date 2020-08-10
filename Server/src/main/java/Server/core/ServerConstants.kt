@@ -1,8 +1,6 @@
 package core
 
-import core.game.system.SystemLogger
 import core.game.system.mysql.SQLManager
-import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.tools.mysql.Database
 import org.json.simple.JSONObject
@@ -27,7 +25,7 @@ class ServerConstants {
 		var PLAYER_SAVE_PATH: String? = null
 
 		@JvmField
-		val PLAYER_ATTRIBUTE_PATH = "data" + File.separator + "players" + File.separator + "attributes" + File.separator
+		var PLAYER_ATTRIBUTE_PATH = "";
 
 		//path to the various config files, such as npc_spawns.json
 		var CONFIG_PATH: String? = null
@@ -141,7 +139,9 @@ class ServerConstants {
 			STORE_PATH = JSONUtils.parsePath(data["store_path"].toString())
 			PLAYER_SAVE_PATH = JSONUtils.parsePath(data["save_path"].toString())
 			CONFIG_PATH = JSONUtils.parsePath(data["configs_path"].toString())
-			DATABASE_NAME = JSONUtils.parsePath(data["database_name"].toString())
+			PLAYER_ATTRIBUTE_PATH = PLAYER_SAVE_PATH + "attributes" + File.separator
+
+			DATABASE_NAME = data["database_name"].toString()
 			DATABASE_USER = data["database_username"].toString()
 			DATABASE_PASS = data["database_password"].toString()
 			DATABASE_ADDRESS = data["database_address"].toString()

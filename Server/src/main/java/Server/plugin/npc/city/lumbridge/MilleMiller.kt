@@ -6,6 +6,11 @@ import core.plugin.InitializablePlugin
 import plugin.dialogue.DialoguePlugin
 import plugin.dialogue.FacialExpression
 
+/**
+ * Dialogue for Millie Miller
+ * @author Qweqker
+ */
+
 @InitializablePlugin
 class MillieMillerDialogue (player: Player? = null) : DialoguePlugin(player) {
 
@@ -29,7 +34,7 @@ class MillieMillerDialogue (player: Player? = null) : DialoguePlugin(player) {
         }
 
         //Who are you?
-        1 -> npc(FacialExpression.FRIENDLY,"I'm Miss Millicent Miller the Miller of Mill Lane Mill.","Our family have been milling flour for generations.").also { stage = 10 }
+        10 -> npc(FacialExpression.FRIENDLY,"I'm Miss Millicent Miller the Miller of Mill Lane Mill.","Our family have been milling flour for generations.").also { stage = 10 }
         11 -> player(FacialExpression.FRIENDLY,"It's a good business to be in. People will always need","flour.").also { stage++ }
         12 -> player(FacialExpression.ASKING,"How do I mill flour?").also { stage = 30 }
 
