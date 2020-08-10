@@ -1,5 +1,7 @@
 package core.game.node.entity.player.info.login
 
+import core.JSONUtils
+import core.ServerConstants
 import core.game.node.entity.combat.CombatSpell
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
@@ -24,7 +26,7 @@ import java.io.FileReader
  */
 class PlayerSaveParser(val player: Player) {
     var parser = JSONParser()
-    var reader: FileReader? = FileReader("data/players/${player.name.toLowerCase()}.json")
+    var reader: FileReader? = FileReader(ServerConstants.PLAYER_SAVE_PATH + player.name + ".json")
     var saveFile: JSONObject? = null
     var read = true
 
@@ -272,12 +274,10 @@ class PlayerSaveParser(val player: Player) {
         val bank = coreData["bank"] as JSONArray
         val equipment = coreData["equipment"] as JSONArray
         val location = coreData["location"] as String
-        val loctokens = location.toString().split(",").map { it -> it.toInt() }
-        val loc = Location(loctokens[0],loctokens[1],loctokens[2])
         player.inventory.parse(inventory)
         player.bank.parse(bank)
         player.equipment.parse(equipment)
-        player.location = loc
+        player.location = JSONUtils.parseLocation(location)
     }
 
     fun parseSkills() {
