@@ -27,7 +27,11 @@
     "store_path": "data/store",
     "save_path": "data/players",
     "configs_path": "data/configs",
-    "database_name": "global"
+    "database_name": "global",
+    "database_username": "root",
+    "database_password": "",
+    "database_address": "127.0.0.1",
+    "database_port": "3306"
   },
 
   "PluginToggles": {

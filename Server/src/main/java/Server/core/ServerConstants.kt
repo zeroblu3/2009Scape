@@ -52,6 +52,21 @@ class ServerConstants {
 		@JvmField
 		var DATABASE_NAME: String? = null
 
+		//username for the database
+		@JvmField
+		var DATABASE_USER: String? = null
+
+		//password for the database
+		@JvmField
+		var DATABASE_PASS: String? = null
+
+		//address for the database
+		@JvmField
+		var DATABASE_ADDRESS: String? = null
+
+		@JvmField
+		var DATABASE_PORT: String? = null
+
 		//location names for the ::to command.
 		val TELEPORT_DESTINATIONS = arrayOf(
 				arrayOf(Location.create(2974, 4383, 2), "corp", "corporal", "corporeal"),
@@ -127,7 +142,16 @@ class ServerConstants {
 			PLAYER_SAVE_PATH = JSONUtils.parsePath(data["save_path"].toString())
 			CONFIG_PATH = JSONUtils.parsePath(data["configs_path"].toString())
 			DATABASE_NAME = JSONUtils.parsePath(data["database_name"].toString())
-			DATABASE = Database(core.game.system.mysql.SQLManager.SQL_SERVER_ADDRESS, DATABASE_NAME, if (SQLManager.LOCAL) "root" else "username", if (SQLManager.LOCAL) "" else "password")
+			DATABASE_USER = data["database_username"].toString()
+			DATABASE_PASS = data["database_password"].toString()
+			DATABASE_ADDRESS = data["database_address"].toString()
+			DATABASE_PORT = data["database_port"].toString()
+
+			SQLManager.SQL_SERVER_ADDRESS = DATABASE_ADDRESS
+			SQLManager.USERNAME = DATABASE_USER
+			SQLManager.PASSWORD = DATABASE_PASS
+			SQLManager.PORT = DATABASE_PORT
+			DATABASE = Database(DATABASE_ADDRESS, DATABASE_NAME, DATABASE_USER, DATABASE_PASS)
 		}
 	}
 }
