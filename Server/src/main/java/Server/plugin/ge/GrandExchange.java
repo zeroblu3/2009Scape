@@ -218,15 +218,15 @@ public final class GrandExchange implements SavingModule {
             JSONArray history = (JSONArray) geData.get("history");
             for(int i = 0; i < offers.size(); i++){
                 JSONObject offer = (JSONObject) offers.get(i);
-                int index = (int) offer.get("offerIndex");
-                o = this.offers[index] = GEOfferDispatch.forUID((int) offer.get("offerUID"));
+                int index = Integer.parseInt(offer.get("offerIndex").toString());
+                o = this.offers[index] = GEOfferDispatch.forUID(Integer.parseInt(offer.get("offerUID").toString()));
                 o.setIndex(index);
             }
             for(int i = 0 ; i < history.size(); i++ ){
                 JSONObject offer = (JSONObject) history.get(i);
-                o = this.history[i] = new GrandExchangeOffer((int)offer.get("itemId"),(boolean) offer.get("isSell"));
-                o.setTotalCoinExchange((int) offer.get("totalCoinExchange"));
-                o.setCompletedAmount((int) offer.get("completedAmount"));
+                o = this.history[i] = new GrandExchangeOffer(Integer.parseInt(offer.get("itemId").toString()),(boolean) offer.get("isSell"));
+                o.setTotalCoinExchange(Integer.parseInt(offer.get("totalCoinExchange").toString()));
+                o.setCompletedAmount(Integer.parseInt(offer.get("completedAmount").toString()));
             }
         }
 

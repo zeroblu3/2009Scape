@@ -1,5 +1,6 @@
 package core.net.packet.in;
 
+import core.game.interaction.ItemOnBankBooth;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.npc.NPC;
@@ -128,6 +129,10 @@ public class ItemActionPacket implements IncomingPacket {
 			}
 			event = new NodeUsageEvent(player, 0, used, object);
 			if(PluginInteractionManager.handle(player,event)){
+				return;
+			}
+			if(object.getName().toLowerCase().contains("bank booth")){
+				new ItemOnBankBooth().handle(event);
 				return;
 			}
 			UseWithHandler.run(event);

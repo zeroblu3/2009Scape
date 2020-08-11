@@ -1,5 +1,6 @@
 package core.game.world
 
+import core.game.node.entity.combat.CombatStyle
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import plugin.ai.general.GeneralBotCreator
@@ -17,6 +18,7 @@ object ImmerseWorld {
             immerseSeersAndCatherby()
             immerseLumbridgeDraynor()
             immerseVarrock()
+            immerseWilderness()
         }
     }
 
@@ -52,5 +54,11 @@ object ImmerseWorld {
         GeneralBotCreator(VarrockEssenceMiner(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3253, 3420, 0)))
         GeneralBotCreator(VarrockSmither(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.RICH,Location.create(3189, 3436, 0)))
         GeneralBotCreator(NonBankingMiner(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3182, 3374, 0)))
+    }
+
+    fun immerseWilderness(){
+        GeneralBotCreator(GreenDragonKiller(CombatStyle.MELEE), assembler.assembleMeleeDragonBot(CombatBotAssembler.Tier.HIGH,Location.create(2979, 3603, 0)))
+        GeneralBotCreator(GreenDragonKiller(CombatStyle.MELEE), assembler.assembleMeleeDragonBot(CombatBotAssembler.Tier.MED,Location.create(2979, 3603, 0)))
+        GeneralBotCreator(GreenDragonKiller(CombatStyle.RANGE), assembler.assembleRangedBot(CombatBotAssembler.Tier.HIGH,Location.create(2979, 3603, 0)))
     }
 }

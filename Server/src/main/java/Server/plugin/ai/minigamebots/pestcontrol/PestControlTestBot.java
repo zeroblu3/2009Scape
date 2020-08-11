@@ -41,7 +41,7 @@ public class PestControlTestBot extends PvMBots {
 		if(num == 1){
 			new CombatBotAssembler().gearMeleeBot(this);
 		} else {
-			new CombatBotAssembler().gearRangedBot(this);
+			new CombatBotAssembler().gearRangedBot(this,new Random().nextInt() % 2 == 0);
 		}
 		randomType = new Random().nextInt(100);
 	}
@@ -58,7 +58,7 @@ public class PestControlTestBot extends PvMBots {
 
 		if (movetimer <= 0)
 		{
-		    movetimer = 0;
+			movetimer = 0;
 			State state = getState();
 			this.setCustomState(String.valueOf(state) + movetimer);
 
