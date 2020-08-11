@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.entity.player.link.audio.Audio;
 import core.game.node.item.Item;
+import core.game.system.SystemLogger;
 import core.game.system.monitor.PlayerMonitor;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.GrandExchangeContext;
@@ -219,6 +220,11 @@ public final class GrandExchange implements SavingModule {
             for(int i = 0; i < offers.size(); i++){
                 JSONObject offer = (JSONObject) offers.get(i);
                 int index = Integer.parseInt(offer.get("offerIndex").toString());
+                if(index > offers.size()){
+                    SystemLogger.log("Grand Exchange: INVALID OFFER INDEX FOR " + player.getName() + " INDEX: " + index + ", SKIPPING!");
+                    SystemLogger.log("IF YOU SEE THIS MESSAGE, THE GRAND EXCHANGE NEEDS TO BE FIXED.");
+                    return;
+                }
                 o = this.offers[index] = GEOfferDispatch.forUID(Integer.parseInt(offer.get("offerUID").toString()));
                 o.setIndex(index);
             }
