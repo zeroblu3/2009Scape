@@ -23,6 +23,7 @@ import core.tools.ItemNames
 import plugin.ai.AIPlayer
 import plugin.ai.AIRepository
 import plugin.ai.pvmbots.CombatBotAssembler
+import plugin.ge.OfferState
 import plugin.skill.Skills
 import plugin.zone.WildernessAreaZone
 
@@ -36,6 +37,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
     var state = State.KILLING
     var handler: CombatSwingHandler? = null
     var lootDelay = 0
+    var offerMade = false
 
     var myBorders: ZoneBorders? = null
     val type = when(style){
@@ -89,6 +91,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
             }
 
             State.LOOTING -> {
+                lootDelay = 0
                 val items = AIRepository.groundItems.get(bot)
                 if(items.isNullOrEmpty()) {state = State.KILLING; return}
                 if(bot.inventory.isFull) {
@@ -136,10 +139,10 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                             SystemLogger.log("Banked ${item.name}")
                         }
                         bot.inventory.clear()
-                        state = if(bot.bank.getAmount(ItemNames.DRAGON_BONES) >= 0 || bot.bank.getAmount(ItemNames.LOBSTER) < 10)
-                            State.TO_GE
+                        state = if(bot.bank.getAmount(ItemNames.LOBSTER) < 10)
+                            State.TO_GE.also { println("Going to GE to sell.") }
                          else
-                            State.TO_DRAGONS
+                            State.TO_DRAGONS.also { println("Going to dragons") }
                         for(item in inventory)
                             bot.inventory.add(item)
                         scriptAPI.withdraw(ItemNames.LOBSTER,10)
@@ -150,13 +153,27 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
             }
 
             State.BUYING_LOBSTERS -> {
-                scriptAPI.buyFromGE(ItemNames.LOBSTER,100)
-                if(bot.bank.getAmount(ItemNames.LOBSTER) >= 10){
-                    state = State.TO_DRAGONS
+                if(!offerMade) {
+                    scriptAPI.buyFromGE(ItemNames.LOBSTER, 100)
+                    offerMade = true
+                } else {
+                    val offer = AIRepository.getOffer(bot)
+                    if(offer == null){
+                        offerMade = false
+                    } else {
+                        if (offer.completedAmount == offer.amount) {
+                            state = State.TO_DRAGONS
+                            offer.state = OfferState.REMOVED
+                            bot.bank.add(Item(offer.itemId, offer.completedAmount))
+                            bot.bank.refresh()
+                            scriptAPI.withdraw(ItemNames.LOBSTER,10)
+                        }
+                    }
                 }
             }
 
             State.TO_DRAGONS -> {
+                offerMade = false
                 if(bot.location.x >= 3143){
                     if(bot.location != Location.create(3144, 3514, 0))
                         scriptAPI.walkTo(Location.create(3144, 3514, 0))
@@ -198,17 +215,13 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                 if(bot.location != Location.create(3165, 3487, 0)) {
                     scriptAPI.walkTo(Location.create(3165, 3487, 0))
                 } else {
-                    state = if(bot.bank.getAmount(ItemNames.LOBSTER) < 10){
-                        State.BUYING_LOBSTERS
-                    } else {
-                        State.SELL_GE
-                    }
+                    state = State.SELL_GE
                 }
             }
 
             State.SELL_GE -> {
                 scriptAPI.sellAllOnGe()
-                state = State.TO_DRAGONS
+                state = State.BUYING_LOBSTERS
             }
 
             State.REFRESHING -> {

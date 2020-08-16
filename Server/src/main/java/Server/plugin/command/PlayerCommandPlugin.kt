@@ -77,7 +77,7 @@ class PlayerCommandPlugin : CommandPlugin() {
             }
             "ge" -> {
                 val offers = HashMap<Int,Int>()
-                for(offer in GEOfferDispatch.getOfferMapping().values){
+                for(offer in GEOfferDispatch.offerMapping.values){
                     val item = offer.itemId
                     val amount = offer.amount - offer.completedAmount
                     if(offers[item] == null){

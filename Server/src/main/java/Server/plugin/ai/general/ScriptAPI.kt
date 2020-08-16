@@ -377,6 +377,7 @@ class ScriptAPI(private val bot: Player) {
             override fun pulse(): Boolean {
                 for(item in bot.bank.toArray()) {
                     item ?: continue
+                    if (item.id == ItemNames.LOBSTER) continue
                     SystemLogger.log("Checking ${item.id}")
                     if(!item.definition.isTradeable) {continue}
                     SystemLogger.log("Adding ${item.name}")
@@ -513,7 +514,6 @@ class ScriptAPI(private val bot: Player) {
             val latch = CountDownLatch(1)
             bot.pulseManager.run(object : Pulse(5) {
                 override fun pulse(): Boolean {
-                    SystemLogger.log("${offer.completedAmount}")
                     bought = offer.completedAmount == offer.amount
                     latch.countDown()
                     return true
@@ -523,10 +523,7 @@ class ScriptAPI(private val bot: Player) {
             if(bought){
                 bot.bank.add(Item(offer.itemId,offer.completedAmount))
                 bot.bank.refresh()
-            } else {
-                SystemLogger.log("OFFER DIDNT BUY")
             }
-            offer.state = OfferState.REMOVED
         }
     }
 

@@ -220,7 +220,7 @@ public final class GrandExchange implements SavingModule {
             for(int i = 0; i < offers.size(); i++){
                 JSONObject offer = (JSONObject) offers.get(i);
                 int index = Integer.parseInt(offer.get("offerIndex").toString());
-                if(index > offers.size()){
+                if(index > this.offers.length){
                     SystemLogger.log("Grand Exchange: INVALID OFFER INDEX FOR " + player.getName() + " INDEX: " + index + ", SKIPPING!");
                     SystemLogger.log("IF YOU SEE THIS MESSAGE, THE GRAND EXCHANGE NEEDS TO BE FIXED.");
                     return;
