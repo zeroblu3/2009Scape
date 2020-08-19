@@ -27,9 +27,9 @@ import plugin.ai.AIRepository
 import plugin.ai.general.scriptrepository.LobsterCatcher
 import plugin.ai.general.scriptrepository.SeersMagicTrees
 import plugin.consumable.Consumable
-import plugin.consumable.ConsumableProperties
 import plugin.consumable.Consumables
 import plugin.consumable.Food
+import plugin.consumable.effects.HealingEffect
 import plugin.ge.GEOfferDispatch
 import plugin.ge.GrandExchangeOffer
 import plugin.ge.OfferState
@@ -469,9 +469,9 @@ class ScriptAPI(private val bot: Player) {
             bot.lock(3)
             //this.animate(new Animation(829));
             val food = bot.inventory.getItem(foodItem)
-            var consumable: Consumable? = Consumables.getFoodByItemID(food.id)
+            var consumable: Consumable? = Consumables.getConsumableById(foodId)
             if (consumable == null) {
-                consumable = Food(food.id, ConsumableProperties(1))
+                consumable = Food(intArrayOf(food.id),HealingEffect(1))
             }
             consumable.consume(food, bot)
             bot.properties.combatPulse.delayNextAttack(3)
@@ -489,9 +489,9 @@ class ScriptAPI(private val bot: Player) {
             bot.lock(3)
             //this.animate(new Animation(829));
             val food = bot.inventory.getItem(foodItem)
-            var consumable: Consumable? = Consumables.getFoodByItemID(food.id)
+            var consumable: Consumable? = Consumables.getConsumableById(foodId)
             if (consumable == null) {
-                consumable = Food(food.id, ConsumableProperties(1))
+                consumable = Food(intArrayOf(foodId),HealingEffect(1))
             }
             consumable.consume(food, bot)
             bot.properties.combatPulse.delayNextAttack(3)

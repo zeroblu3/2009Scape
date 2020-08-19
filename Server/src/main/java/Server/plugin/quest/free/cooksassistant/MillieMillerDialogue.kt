@@ -1,3 +1,4 @@
+/*
 package plugin.quest.free.cooksassistant
 
 import core.ServerConstants
@@ -63,3 +64,4 @@ class MillieMillerDialogue (player: Player? = null) : DialoguePlugin(player) {
         return intArrayOf(3806)
     }
 }
+*/
