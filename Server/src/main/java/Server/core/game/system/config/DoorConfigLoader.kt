@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.game.system.SystemLogger
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
@@ -19,7 +20,7 @@ class DoorConfigLoader {
 
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/door_configs.json")
+        reader = FileReader(ServerConstants.CONFIG_PATH + "door_configs.json")
         var obj = parser.parse(reader) as JSONObject
         var configs = obj["door_configs"] as JSONArray
         for(config in configs){

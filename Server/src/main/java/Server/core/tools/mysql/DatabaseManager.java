@@ -13,42 +13,27 @@ import core.game.system.SystemLogger;
 
 public class DatabaseManager {
 
-	private Map<String, Connection> connections;
+	private Map<String, Connection> connections = new HashMap<>();
 	private Map<String, Database> databases;
 
+	private Database db;
 	private boolean connected;
 
-	public DatabaseManager(Database[] databases) {
-
-		this.connections = new HashMap<String, Connection>(databases.length);
-		this.databases = new HashMap<String, Database>(databases.length);
-
-		for (Database database : databases) {
-
-			if (databases().get(database.name()) != null)
-				continue;
-
-			databases().put(database.name(), database);
-
-		}
-
+	public DatabaseManager(Database db) {
+		this.db = db;
 	}
 
 	public DatabaseManager connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			for (Database database : databases().values()) {
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" + db.host() + "/" + db.name(), db.username(), db.password());
+				connections.put(db.name(), connection);
 
-				Connection connection = DriverManager.getConnection("jdbc:mysql://" + database.host() + "/" + database.name(), database.username(), database.password());
-
-				connections().put(database.name(), connection);
-
-				SystemLogger.log("Successfully connected with '" + database.name() + "'.");
+				SystemLogger.log("Successfully connected with '" + db.name() + "'.");
 
 				this.connected = true;
 
-			}
 
 		} catch (SQLException e) {
 			System.out.println("Couldn't connect to the database.");
@@ -109,10 +94,6 @@ public class DatabaseManager {
 
 	public boolean isConnected() {
 		return connected;
-	}
-
-	public enum Databases {
-		BLUEVISION, FROSTBLADES_317, FROSTBLADES_718;
 	}
 
 }

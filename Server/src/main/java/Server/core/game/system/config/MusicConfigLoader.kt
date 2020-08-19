@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.game.node.entity.player.link.music.MusicEntry
 import core.game.node.entity.player.link.music.MusicZone
 import core.game.system.SystemLogger
@@ -15,7 +16,7 @@ class MusicConfigLoader {
     var reader: FileReader? = null
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/music_configs.json")
+        reader = FileReader(ServerConstants.CONFIG_PATH + "music_configs.json")
         var obj = parser.parse(reader) as JSONObject
         var configs = obj["music_configs"] as JSONArray
 

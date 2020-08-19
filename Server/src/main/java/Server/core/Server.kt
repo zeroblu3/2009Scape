@@ -2,6 +2,7 @@ package core
 
 import core.game.system.SystemLogger
 import core.game.system.SystemShutdownHook
+import core.game.system.config.ServerConfigParser
 import core.game.system.mysql.SQLManager
 import core.game.world.GameSettings.Companion.parse
 import core.game.world.GameWorld
@@ -42,11 +43,10 @@ object Server {
     @JvmStatic
     fun main(args: Array<String>) {
         if (args.isNotEmpty()) {
-            try {
-                GameWorld.setSettings(parse(args))
-            } catch(e: Exception){
-                print("Unable to find config file $args")
-            }
+            ServerConfigParser(args[0])
+        } else {
+            println("No config file supplied! Attempting to use default...")
+            ServerConfigParser("worldprops/default.json")
         }
         if (GameWorld.getSettings()!!.isGui) {
             try {

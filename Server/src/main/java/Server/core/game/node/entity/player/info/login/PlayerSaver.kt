@@ -24,7 +24,6 @@ import javax.script.ScriptEngineManager
  */
 class PlayerSaver (val player: Player){
     fun save() {
-        val start = System.currentTimeMillis()
         val saveFile = JSONObject()
         saveCoreData(saveFile)
         saveSkills(saveFile)

@@ -19,24 +19,26 @@ public final class SQLManager {
 	/**
 	 * If the sql manager is locally hosted.
 	 */
-	public static final boolean LOCAL = true;
+	public static final boolean LOCAL = false;
 
-	public static final String SQL_SERVER_ADDRESS = LOCAL ? "127.0.0.1" : "mywebsite.com";
+	public static String SQL_SERVER_ADDRESS;
 
 	/**
 	 * The username of the user.
 	 */
-	private static final String USERNAME = LOCAL ? "root" : "username";
+	public static String USERNAME;
 
 	/**
 	 * The password of the user.
 	 */
-	private static final String PASSWORD = LOCAL ? "" : "password";
+	public static String PASSWORD;
+
+	public static String PORT;
 
     /**
      * The database URL.
      */
-    public static final String DATABASE_URL = SQL_SERVER_ADDRESS + ":3306/" + ServerConstants.DATABASE_NAMES[0];
+    public static String DATABASE_URL;
 
 	/**
 	 * IF the sql manager is initialized.
@@ -87,6 +89,7 @@ public final class SQLManager {
 	 * @return The connection.
 	 */
 	public static Connection getConnection() {
+		DATABASE_URL  = SQL_SERVER_ADDRESS + ":" + PORT + "/" + ServerConstants.DATABASE_NAME;
 		try {
 			return DriverManager.getConnection("jdbc:mysql://" +   DATABASE_URL, USERNAME, PASSWORD);
 		} catch (SQLException e) {
