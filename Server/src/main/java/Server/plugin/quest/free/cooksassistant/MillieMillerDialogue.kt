@@ -7,6 +7,11 @@ import core.plugin.InitializablePlugin
 import plugin.dialogue.DialoguePlugin
 import plugin.dialogue.FacialExpression
 
+/**
+ * Dialogue for Millie Miller.
+ * @author Qweqker
+ */
+
 @InitializablePlugin
 class MillieMillerDialogue (player: Player? = null) : DialoguePlugin(player) {
 
@@ -64,4 +69,3 @@ class MillieMillerDialogue (player: Player? = null) : DialoguePlugin(player) {
         return intArrayOf(3806)
     }
 }
-*/

@@ -14,6 +14,7 @@ import core.tools.backup.AutoBackup
 import plugin.ge.GEAutoStock
 import java.io.File
 import java.net.BindException
+import java.util.*
 
 /**
  * The main class, for those that are unable to read the class' name.
@@ -65,10 +66,16 @@ object Server {
         try {
             NioReactor.configure(43594 + GameWorld.getSettings()!!.worldId).start()
         } catch (e: BindException) {
-            println("Port " + 43594 + GameWorld.getSettings()!!.worldId + " is already in use!")
+            println("Port " + (43594 + GameWorld.getSettings()!!.worldId) + " is already in use!")
             throw e
         }
-        WorldCommunicator.connect()
+        val timer = java.util.Timer()
+        val task = object : TimerTask() {
+            override fun run() {
+                autoReconnect()
+            }
+        }
+        timer.schedule(task, 0, 1000 * 60 * 5)
         SystemLogger.log(GameWorld.getName() + " flags " + GameWorld.getSettings().toString())
         SystemLogger.log(GameWorld.getName() + " started in " + t.duration(false, "") + " milliseconds.")
         GEAutoStock.parse("data" + File.separator + "eco" + File.separator + "itemstostock.xml")
@@ -76,6 +83,10 @@ object Server {
 //		ResourceManager.kickStartEconomy();
     }
 
+    fun autoReconnect() {
+        SystemLogger.log("Attempting autoreconnect of server")
+        WorldCommunicator.connect()
+    }
     /**
      * Gets the startTime.
      * @return the startTime
