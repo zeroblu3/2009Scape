@@ -4,6 +4,7 @@ import core.ServerConstants
 import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
+import core.game.system.SystemLogger
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import plugin.interaction.item.brawling_gloves.BrawlingGloves
@@ -13,6 +14,7 @@ import plugin.skill.summoning.pet.Pet
 import java.io.FileWriter
 import java.io.IOException
 import java.lang.Math.ceil
+import java.util.*
 import javax.script.ScriptEngineManager
 
 
@@ -52,6 +54,7 @@ class PlayerSaver (val player: Player){
         saveEmoteData(saveFile)
         saveStatManager(saveFile)
         saveBrawlingGloves(saveFile)
+        saveAttributes(saveFile)
 
         val manager = ScriptEngineManager()
         val scriptEngine = manager.getEngineByName("JavaScript")
@@ -69,6 +72,36 @@ class PlayerSaver (val player: Player){
         }
 
         player.gameAttributes.dump(player.name + ".xml")
+    }
+
+    fun saveAttributes(root: JSONObject){
+        if(player.gameAttributes.savedAttributes.isNotEmpty()){
+            val attrs = JSONArray()
+            for(key in player.gameAttributes.savedAttributes){
+                val value = player.gameAttributes.attributes[key]
+                value ?: continue
+                val attr = JSONObject()
+                val type = when(value){
+                    is Int -> "int"
+                    is Boolean -> "bool"
+                    is Long -> "long"
+                    is Short -> "short"
+                    is String -> "str"
+                    is Byte -> "byte"
+                    else -> "null".also { SystemLogger.log("Invalid attribute type for key: $key") }
+                }
+                attr.put("type",type)
+                attr.put("key",key)
+                if(value is Byte){
+                    val asString = Base64.getEncoder().encodeToString(byteArrayOf(value))
+                    attr.put("value",asString)
+                } else {
+                    attr.put("value", if (value is Boolean) value else value.toString())
+                }
+                attrs.add(attr)
+            }
+            root.put("attributes",attrs)
+        }
     }
 
     fun saveBrawlingGloves(root: JSONObject){
