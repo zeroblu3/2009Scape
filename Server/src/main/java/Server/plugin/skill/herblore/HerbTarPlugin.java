@@ -2,12 +2,16 @@ package plugin.skill.herblore;
 
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.net.packet.out.RepositionChild;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
+import plugin.dialogue.SkillDialogueHandler;
 
 /**
  * Represents the plugin used to create a herb tar.
- * @author 'Vexia
+ * @author  Ceikry, fawk Vexia and his bad design.
  * @version 1.0
  */
 @InitializablePlugin
@@ -30,7 +34,19 @@ public final class HerbTarPlugin extends UseWithHandler {
 
 	@Override
 	public boolean handle(NodeUsageEvent event) {
-		event.getPlayer().getDialogueInterpreter().open(2827673, Tars.forItem(event.getUsedItem().getId() == 1939 ? event.getBaseItem() : event.getUsedItem()));
+		//Tars.forItem(event.getUsedItem().getId() == 1939 ? event.getBaseItem() : event.getUsedItem())
+		SkillDialogueHandler handler = new SkillDialogueHandler(event.getPlayer(), SkillDialogueHandler.SkillDialogue.ONE_OPTION,Tars.forItem(event.getUsedItem().getId() == 1939 ? event.getBaseItem() : event.getUsedItem()).getTar()){
+			@Override
+			public void create(int amount, int index) {
+				event.getPlayer().getPulseManager().run(new HerbTarPulse(event.getPlayer(), null, Tars.forItem(event.getUsedItem().getId() == 1939 ? event.getBaseItem() : event.getUsedItem()), amount));
+			}
+			@Override
+			public int getAll(int index) {
+				return event.getPlayer().getInventory().getAmount(event.getUsedItem());
+			}
+		};
+		handler.open();
+		PacketRepository.send(RepositionChild.class, new ChildPositionContext(event.getPlayer(), 309, 2, 210, 15));
 		return true;
 	}
 
