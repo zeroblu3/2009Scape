@@ -59,8 +59,8 @@ class FairyRingPlugin : OptionHandler() {
     class FairyInterfaceHandler : ComponentPlugin() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {
-            ComponentDefinition.forId(734).plugin = this
-            ComponentDefinition.forId(735).plugin = this
+           // ComponentDefinition.forId(734).plugin = this
+           // ComponentDefinition.forId(735).plugin = this
             return this
         }
 
