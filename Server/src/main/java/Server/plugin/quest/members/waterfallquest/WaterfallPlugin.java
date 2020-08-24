@@ -112,8 +112,8 @@ public final class WaterfallPlugin extends OptionHandler {
 		ObjectDefinition.forId(32711).getConfigurations().put("option:open", this);
 		ObjectDefinition.forId(33046).getConfigurations().put("option:open", this);
 		ObjectDefinition.forId(42313).getConfigurations().put("option:open",this);
-		ObjectDefinition.forId(42313).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(42313).getConfigurations().put("option:close", this);
+		ObjectDefinition.forId(33047).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(33047).getConfigurations().put("option:close", this);
 		ObjectDefinition.forId(1993).getConfigurations().put("option:search", this);
 		ObjectDefinition.forId(1999).getConfigurations().put("option:search", this);
 		ObjectDefinition.forId(42319).getConfigurations().put("option:climb-up", this);
@@ -208,7 +208,7 @@ public final class WaterfallPlugin extends OptionHandler {
 				ClimbActionHandler.climbLadder(player, (GameObject) node, option);
 			}
 			break;
-		case 42313:
+		case 33047:
 			switch (option) {
 			case "open":
 			case "search":
@@ -222,7 +222,7 @@ public final class WaterfallPlugin extends OptionHandler {
 				}
 				break;
 			case "close":
-				ObjectBuilder.add(new GameObject(42313, Location.create(2530, 9844, 0), 10, 1));
+				ObjectBuilder.add(new GameObject(33046, Location.create(2530, 9844, 0), 10, 1));
 				break;
 			}
 			break;
