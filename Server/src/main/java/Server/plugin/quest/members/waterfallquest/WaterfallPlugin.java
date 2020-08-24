@@ -114,7 +114,7 @@ public final class WaterfallPlugin extends OptionHandler {
 		ObjectDefinition.forId(42313).getConfigurations().put("option:open",this);
 		ObjectDefinition.forId(33047).getConfigurations().put("option:search", this);
 		ObjectDefinition.forId(33047).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(1993).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(33066).getConfigurations().put("option:search", this);
 		ObjectDefinition.forId(1999).getConfigurations().put("option:search", this);
 		ObjectDefinition.forId(42319).getConfigurations().put("option:climb-up", this);
 		ObjectDefinition.forId(2002).getConfigurations().put("option:open", this);
@@ -226,7 +226,7 @@ public final class WaterfallPlugin extends OptionHandler {
 				break;
 			}
 			break;
-		case 1993:
+		case 33066:
 			if (quest.getStage(player) >= 30) {
 				if (!player.getInventory().contains(296, 1)) {
 					player.getPacketDispatch().sendMessage("You search the coffin and inside you find an urn full of ashes.");
