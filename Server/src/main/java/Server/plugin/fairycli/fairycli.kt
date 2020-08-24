@@ -8,7 +8,7 @@ import core.game.system.command.CommandSet
 import core.game.world.map.Location
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import sun.audio.AudioPlayer
+import plugin.stringtools.shuffle
 import kotlin.math.abs
 
 
@@ -101,6 +101,6 @@ class fairycli : CommandPlugin() {
 
             }
         }
-        return true
+        return false
     }
 }

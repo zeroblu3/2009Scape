@@ -770,6 +770,15 @@ class PlayerSaver (val player: Player){
         val bank = saveContainer(player.bank)
         coreData.put("bank",bank)
 
+        val bankTabs = JSONArray()
+        for(i in player.bank.tabStartSlot.indices){
+            val tab = JSONObject()
+            tab.put("index",i.toString())
+            tab.put("startSlot",player.bank.tabStartSlot[i].toString())
+            bankTabs.add(tab)
+        }
+        coreData.put("bankTabs",bankTabs)
+
         val equipment = saveContainer(player.equipment)
         coreData.put("equipment",equipment)
 
