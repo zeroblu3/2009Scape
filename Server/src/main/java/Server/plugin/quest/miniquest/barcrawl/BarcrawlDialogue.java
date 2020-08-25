@@ -12,7 +12,6 @@ import plugin.dialogue.DialoguePlugin;
  * @author 'Vexia
  * @version 1.0
  */
-@InitializablePlugin
 public final class BarcrawlDialogue extends DialoguePlugin {
 
     /**
