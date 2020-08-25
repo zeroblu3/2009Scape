@@ -24,7 +24,6 @@ public final class PlayerParser {
 	 * @param player The player.
 	 */
 	public static void parse(Player player) {
-		player.getGameAttributes().parse(player.getName() + ".xml"); //TODO: Re-merge the attributes back into the player save now that it's non-binary.
 		File JSON = new File(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".json");
 		File BIN = new File(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".save"); //for backwards compatibility.
 
