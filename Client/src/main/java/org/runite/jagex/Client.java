@@ -1750,6 +1750,7 @@ public final class Client extends GameShell {
 
 						for(var3 = 0; var3 < 29; ++var3) { //TODO
 							var2 += RSByteBuffer.aClass151_Sub1Array2601[var3].method2111(-61) * Class3_Sub13_Sub23.anIntArray3288[var3] / 100;
+							System.out.println("var2 = " + var2);
 						}
 
 						if(var2 < 100) { //!= 100

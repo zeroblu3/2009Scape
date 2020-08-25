@@ -103,6 +103,12 @@ public final class LoginConfiguration {
         player.getPacketDispatch().sendString(" ", 378, 39);
         player.getPacketDispatch().sendString("Discord Invite", 378, 14);
         player.getPacketDispatch().sendString("Discord Invite", 378, 129);
+        player.getPacketDispatch().sendString("Credit display has not been implemented yet.", 378, 94);
+        player.getPacketDispatch().sendString("0", 378, 96);
+        player.getPacketDispatch().sendString(" ", 378, 229);
+        player.getPacketDispatch().sendString("Want to contribute to 2009scape? <br>Visit the github using the link below!", 378, 230);
+        player.getPacketDispatch().sendString(" ", 378, 231);
+        player.getPacketDispatch().sendString("Github", 378, 240);
         player.getPacketDispatch().sendString(GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
         player.getPacketDispatch().sendString("You can gain more credits by voting, reporting bugs and various other methods of contribution.", 378, 93);
         player.getInterfaceManager().openWindowsPane(LOBBY_PANE);

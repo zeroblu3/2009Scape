@@ -862,7 +862,7 @@ class RSByteBuffer extends Class3 {
 				this.method749(false);
 			}
 
-			return (this.buffer[-1 + this.index] << 322035176 & '\uff00') - -(255 & -128 + this.buffer[this.index + -2]);
+			return (this.buffer[-1 + this.index] << 8 & '\uff00') - -(255 & -128 + this.buffer[this.index + -2]);
 		} catch (RuntimeException var3) {
 			throw Class44.method1067(var3, "wa.TB(" + var1 + ')');
 		}
@@ -876,7 +876,7 @@ class RSByteBuffer extends Class3 {
 				this.method763((byte)-14);
 			}
 
-			return (255 & this.buffer[-4 + this.index]) + (16711680 & this.buffer[this.index - 2] << 1572599856) + ((255 & this.buffer[this.index + -1]) << -34836040) + ((this.buffer[-3 + this.index] & 255) << 481963272);
+			return (255 & this.buffer[-4 + this.index]) + (16711680 & this.buffer[this.index - 2] << 16) + ((255 & this.buffer[this.index + -1]) << 24) + ((this.buffer[-3 + this.index] & 255) << 8);
 		} catch (RuntimeException var3) {
 			throw Class44.method1067(var3, "wa.EA(" + var1 + ')');
 		}
@@ -885,7 +885,7 @@ class RSByteBuffer extends Class3 {
 	final void putShortA(int var1, int var2) {
 		try {
 			if(var2 == -268435456) {
-				this.buffer[this.index++] = (byte)(var1 >> -702824440);
+				this.buffer[this.index++] = (byte)(var1 >> 8);
 				this.buffer[this.index++] = (byte)(128 + var1);
 			}
 		} catch (RuntimeException var4) {
@@ -910,10 +910,10 @@ class RSByteBuffer extends Class3 {
 	final void putLEInt(int var1, byte var2) {
 		try {
 			this.buffer[this.index++] = (byte)var1;
-			this.buffer[this.index++] = (byte)(var1 >> -1080682200);
+			this.buffer[this.index++] = (byte)(var1 >> 8);
 			if(var2 <= -118) {
 				this.buffer[this.index++] = (byte)(var1 >> 16);
-				this.buffer[this.index++] = (byte)(var1 >> 12970328);
+				this.buffer[this.index++] = (byte)(var1 >> 24);
 			}
 		} catch (RuntimeException var4) {
 			throw Class44.method1067(var4, "wa.IA(" + var1 + ',' + var2 + ')');
@@ -935,7 +935,7 @@ class RSByteBuffer extends Class3 {
 	final int getShort(byte var1) {
 		try {
 			this.index += 2;
-			int var2 = (this.buffer[-1 + this.index] & 255) + ((255 & this.buffer[this.index + -2]) << -2034851416);
+			int var2 = (this.buffer[-1 + this.index] & 255) + ((255 & this.buffer[this.index + -2]) << 8);
 			if(var1 < 4) {
 				return -83;
 			} else {
@@ -955,7 +955,7 @@ class RSByteBuffer extends Class3 {
 	final int method788(int var1) {
 		try {
 			this.index += 2;
-			int var2 = ((this.buffer[this.index - 1] & 255) << 1510012168) - -(this.buffer[-2 + this.index] - 128 & 255);
+			int var2 = ((this.buffer[this.index - 1] & 255) << 8) - -(this.buffer[-2 + this.index] - 128 & 255);
 			if(var1 != -1741292848) {
 				this.encryptRSA((BigInteger)null, (BigInteger)null, 11);
 			}
@@ -1056,7 +1056,7 @@ class RSByteBuffer extends Class3 {
 			}
 
 			this.index += 3;
-			return (16711680 & this.buffer[this.index + -3] << -2022440336) + (('\uff00' & this.buffer[-2 + this.index] << -54462168) - -(this.buffer[this.index + -1] & 255));
+			return (16711680 & this.buffer[this.index + -3] << 16) + (('\uff00' & this.buffer[-2 + this.index] << 8) - -(this.buffer[this.index + -1] & 255));
 		} catch (RuntimeException var3) {
 			throw Class44.method1067(var3, "wa.GB(" + var1 + ')');
 		}
@@ -1081,7 +1081,7 @@ class RSByteBuffer extends Class3 {
 			}
 
 			this.buffer[this.index++] = (byte)var2;
-			this.buffer[this.index++] = (byte)(var2 >> 203327944);
+			this.buffer[this.index++] = (byte)(var2 >> 8);
 		} catch (RuntimeException var4) {
 			throw Class44.method1067(var4, "wa.PA(" + var1 + ',' + var2 + ')');
 		}
@@ -1104,7 +1104,7 @@ class RSByteBuffer extends Class3 {
 		try {
 			int var2 = -83 / ((16 - var1) / 50);
 			this.index += 4;
-			return ((this.buffer[-3 + this.index] & 255) << -1597905000) - -(16711680 & this.buffer[this.index + -4] << 861399376) + (((this.buffer[this.index + -1] & 255) << 979767016) - -(255 & this.buffer[this.index + -2]));
+			return ((this.buffer[-3 + this.index] & 255) << 24) - -(16711680 & this.buffer[this.index + -4] << 16) + (((this.buffer[this.index + -1] & 255) << 8) - -(255 & this.buffer[this.index + -2]));
 		} catch (RuntimeException var3) {
 			throw Class44.method1067(var3, "wa.NC(" + var1 + ')');
 		}
@@ -1228,9 +1228,9 @@ class RSByteBuffer extends Class3 {
 	final void method801(int var1, float var2) {
 		try {
 			int var3 = Float.floatToRawIntBits(var2);
-			this.buffer[this.index++] = (byte)(var3 >> -1164789608);
-			this.buffer[this.index++] = (byte)(var3 >> -259929904);
-			this.buffer[this.index++] = (byte)(var3 >> 1414718216);
+			this.buffer[this.index++] = (byte)(var3 >> 24);
+			this.buffer[this.index++] = (byte)(var3 >> 16);
+			this.buffer[this.index++] = (byte)(var3 >> 8);
 			if(var1 == 881) {
 				this.buffer[this.index++] = (byte)var3;
 			}
@@ -1265,7 +1265,7 @@ class RSByteBuffer extends Class3 {
 
 	final void putShort(int var2) {
 		try {
-			this.buffer[this.index++] = (byte)(var2 >> 2124857032);
+			this.buffer[this.index++] = (byte)(var2 >> 8);
 			this.buffer[this.index++] = (byte)var2;
 		} catch (RuntimeException var4) {
 			throw Class44.method1067(var4, "wa.JC('" +  var2 + ')');
