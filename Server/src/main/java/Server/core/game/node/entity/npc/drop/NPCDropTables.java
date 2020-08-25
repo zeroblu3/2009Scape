@@ -1,7 +1,7 @@
 package core.game.node.entity.npc.drop;
 
 import core.cache.def.impl.NPCDefinition;
-import core.game.node.item.GroundItem;
+import core.game.node.item.*;
 import core.game.system.config.ItemConfigParser;
 import plugin.ai.AIPlayer;
 import plugin.ai.AIRepository;
@@ -12,9 +12,6 @@ import plugin.skill.Skills;
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.node.item.ChanceItem;
-import core.game.node.item.GroundItemManager;
-import core.game.node.item.Item;
 import core.game.system.SystemLogger;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
@@ -44,17 +41,17 @@ public final class NPCDropTables {
 	/**
 	 * The default drop table (holding the 100% drops).
 	 */
-	private final List<ChanceItem> defaultTable = new ArrayList<>();
+	private final List<WeightedChanceItem> defaultTable = new ArrayList<>();
 
 	/**
 	 * The charms drop table (holding the charm drops).
 	 */
-	private final List<ChanceItem> charmTable = new ArrayList<>();
+	private final List<WeightedChanceItem> charmTable = new ArrayList<>();
 
 	/**
 	 * The main drop table (holding the main drops).
 	 */
-	private final List<ChanceItem> mainTable = new ArrayList<>();
+	private final List<WeightedChanceItem> mainTable = new ArrayList<>();
 
 	/**
 	 * The NPC definitions.
@@ -97,17 +94,15 @@ public final class NPCDropTables {
 		if (!charmTable.isEmpty()) {
 			boolean rollCharms = RandomFunction.random(5) == 3;
 			if(rollCharms) {
-				List<Item> reward = RandomFunction.rollChanceTable(false, charmTable);
-				reward.stream().forEach(item -> {
-					createDrop(item, p, npc, npc.getDropLocation());
-				});
+				createDrop(RandomFunction.rollWeightedChanceTable(charmTable),p,npc,npc.getDropLocation());
 			}
 		}
-		RandomFunction.rollChanceTable(false,defaultTable).stream().forEach(item -> {
-			createDrop(item, p, npc, npc.getDropLocation());
+		defaultTable.forEach(drop -> {
+			createDrop(drop.getItem(),p,npc,npc.getDropLocation());
 		});
-		RandomFunction.rollChanceTable(false,mainTable).stream().forEach(item -> {
+		Item item = RandomFunction.rollWeightedChanceTable(mainTable);
 			//boolean hasWealthRing = p != null && p.getEquipment().getNew(EquipmentContainer.SLOT_RING).getId() == 2572;
+		if(item != null) {
 			boolean isRDTSlot = item.getId() == RareDropTable.SLOT_ITEM_ID;
 			if (isRDTSlot) {
 				item = RareDropTable.retrieve();
@@ -115,7 +110,7 @@ public final class NPCDropTables {
 			if (item != null && p != null && npc != null) {
 				createDrop(item, p, npc, npc.getDropLocation());
 			}
-		});
+		}
 	}
 
 	/**
@@ -263,21 +258,21 @@ public final class NPCDropTables {
 	/**
 	 * @return the defaultTable.
 	 */
-	public List<ChanceItem> getDefaultTable() {
+	public List<WeightedChanceItem> getDefaultTable() {
 		return defaultTable;
 	}
 
 	/**
 	 * @return the charmTable.
 	 */
-	public List<ChanceItem> getCharmTable() {
+	public List<WeightedChanceItem> getCharmTable() {
 		return charmTable;
 	}
 
 	/**
 	 * @return the mainTable.
 	 */
-	public List<ChanceItem> getMainTable() {
+	public List<WeightedChanceItem> getMainTable() {
 		return mainTable;
 	}
 
