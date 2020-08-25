@@ -1,6 +1,7 @@
 package plugin.interaction.city;
 
 import core.cache.def.impl.ObjectDefinition;
+import core.game.component.Component;
 import plugin.activity.ActivityManager;
 import core.game.content.global.action.ClimbActionHandler;
 import plugin.skill.Skills;
@@ -41,6 +42,7 @@ public final class LumbridgeNodePlugin extends OptionHandler {
 		ObjectDefinition.forId(36976).getConfigurations().put("option:ring", this);
 		ObjectDefinition.forId(22114).getConfigurations().put("option:open", this);
 		ObjectDefinition.forId(29355).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(37655).getConfigurations().put("option:view", this);
 		return this;
 	}
 
@@ -98,6 +100,12 @@ public final class LumbridgeNodePlugin extends OptionHandler {
 		case 36976:
 			player.getPacketDispatch().sendMessage("The towns people wouldn't appreciate you ringing their bell.");
 			break;
+		case 37655:
+			player.getInterfaceManager().open(new Component(270));
+			break;
+
+
+
 		}
 		return true;
 	}

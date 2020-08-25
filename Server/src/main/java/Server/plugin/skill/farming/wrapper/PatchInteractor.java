@@ -92,13 +92,13 @@ public final class PatchInteractor {
 	 */
 	public void openGuide() {
 		player.getInterfaceManager().open(new Component(499));
-		player.setAttribute("skillMenu", 20);
+		player.setAttribute("skillMenu", 21);
 		if (wrapper.getPatch() != null) {
 			int ordinal = wrapper.getPatch().ordinal();
 			if (wrapper.getPatch().ordinal() > 7) {
 				ordinal = 7;
 			}
-			player.getConfigManager().set(965, 20 + (10 + ordinal - 10) * 1024);
+			player.getConfigManager().set(965, 21 + (10 + ordinal - 10) * 1024);
 		}
 	}
 

@@ -74,7 +74,24 @@ class GameSettings
         val enable_default_clan: Boolean,
         val enable_bots: Boolean,
         val autostock_ge: Boolean,
-        val allow_token_purchase: Boolean
+        val allow_token_purchase: Boolean,
+
+        /**"Lobby" interface
+         * The message of the week models to display
+         * 15 & 22 = keys & lock || 16 = fly swat || 17 = person with question marks || 18 & 447 = wise old man
+         * 19 = man & woman with mouth closed || 20 = man & lock & key || 21 = closed chests
+         * 23 = snowmen || 405 = Construction houses || 622 = Two sets of 3 people range, mage, melee
+         * 623 = Woodcutting || 679 = Summoning || 715 = Easter || 800 = Halloween
+         * Any value that isn't one listed above = random selection
+         */
+        val message_model: Int,
+
+        /**"Lobby" interface
+         * The message of the week text
+         * The "child" for writing text to these interfaces is located inside of LoginConfiguration.java
+         * method: getMessageChild
+         */
+        val message_string: String
         ) {
     val isHosted: Boolean
         get() = !isDevMode
@@ -106,7 +123,9 @@ class GameSettings
             val enable_bots = data["enable_bots"] as Boolean
             val autostock_ge = data["autostock_ge"] as Boolean
             val allow_token_purchase = data["allow_token_purchase"] as Boolean
-            return GameSettings(name,debug,dev,startGui,worldId,countryId,activity,true,pvpWorld,false,false,msip,default_xp_rate,allow_slayer_reroll,enable_default_clan,enable_bots,autostock_ge,allow_token_purchase)
+            val message_of_the_week_identifier = data["message_of_the_week_identifier"].toString().toInt()
+            val message_of_the_week_text = data["message_of_the_week_text"].toString()
+            return GameSettings(name,debug,dev,startGui,worldId,countryId,activity,true,pvpWorld,false,false,msip,default_xp_rate,allow_slayer_reroll,enable_default_clan,enable_bots,autostock_ge,allow_token_purchase,message_of_the_week_identifier,message_of_the_week_text)
         }
 
         /**

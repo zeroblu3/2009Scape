@@ -12102,14 +12102,14 @@
     {
       "id": "1220",
       "name": "Vampire",
-      "examine": "Could his name be \\'Lurch\\'?",
+      "examine": "A feral vampyre. It looks really hungry!",
       "lifepoints": "50",
       "attack_level": "52",
       "strength_level": "1",
       "defence_level": "52",
       "range_level": "1",
       "melee_animation": "7183",
-      "death_animation": "7185",
+      "death_animation": "10977",
       "slayer_exp": "50",
       "clue_level": "1",
       "safespot": null
@@ -60743,6 +60743,7 @@
     {
       "id": "6942",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -60765,7 +60766,7 @@
     {
       "id": "6944",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62363,6 +62364,7 @@
     {
       "id": "7210",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62385,6 +62387,7 @@
     {
       "id": "7212",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62407,6 +62410,7 @@
     {
       "id": "7214",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62429,6 +62433,7 @@
     {
       "id": "7216",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62451,6 +62456,7 @@
     {
       "id": "7218",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62473,6 +62479,7 @@
     {
       "id": "7220",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62495,6 +62502,7 @@
     {
       "id": "7222",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62539,6 +62547,7 @@
     {
       "id": "7226",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62561,7 +62570,7 @@
     {
       "id": "7228",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62578,7 +62587,7 @@
     {
       "id": "7229",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62595,7 +62604,7 @@
     {
       "id": "7230",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62612,7 +62621,7 @@
     {
       "id": "7231",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62629,7 +62638,7 @@
     {
       "id": "7232",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62646,7 +62655,7 @@
     {
       "id": "7233",
       "name": "Baby monkey",
-      "examine": "It\\'s a tiny",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62663,6 +62672,7 @@
     {
       "id": "7234",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62674,6 +62684,7 @@
     {
       "id": "7235",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",
@@ -62685,6 +62696,7 @@
     {
       "id": "7236",
       "name": "Baby monkey",
+      "examine": "It's a tiny, cheeky monkey.",
       "lifepoints": "10",
       "attack_level": "1",
       "strength_level": "1",

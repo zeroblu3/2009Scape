@@ -104,7 +104,7 @@ public class ShieldofArrav extends Quest {
 			line(player, BLUE + "as the " + RED + "VTAM Corporation" + BLUE + ". I should find them and join.", 8+ 7);
 			line(player, "<str>I also spoke to Charlie the tramp in Varrock.", 9+ 7);
 			line(player, BLUE + "According to him there is a criminal organisation known as", 10+ 7);
-			line(player, BLUE + "the " + RED + "'Black Army Gang' " + BLUE + "down an alley near to him. I should", 11+ 7);
+			line(player, BLUE + "the " + RED + "'Black Arm Gang' " + BLUE + "down an alley near to him. I should", 11+ 7);
 			line(player, BLUE + "speak to their " + RED + "leader, Katrine" + BLUE + ", about joining.", 12+ 7);
 			break;
 		case 60:

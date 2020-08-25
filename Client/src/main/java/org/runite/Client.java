@@ -22,7 +22,7 @@ public class Client {
 	/**
 	 * The game settings.
 	 */
-	public static GameSetting SETTINGS = new GameSetting("2009Scape", "127.0.0.1", 3, "live", false);
+	public static GameSetting SETTINGS = new GameSetting("2009Scape", "127.0.0.1", 1, "live", false);
 	
 	/**
 	 * The main method.
