@@ -88,7 +88,7 @@ class OttoGodblessedDialogue(player: Player? = null) : DialoguePlugin(player) {
             24 -> npc(FacialExpression.ANGRY, "No, not the whole pole!").also { stage++ }
             25 -> npc("Look, just... grab the pole under my bed","and go click on that fishing spot.").also { stage++ }
             26 -> player(FacialExpression.ASKING,"...click?").also { stage++ }
-            27 -> npc(FacialExpression.FURIOUS, "JUST GO DO IT!").also { stage++; player.setAttribute("barbtraining:fishing",true) }
+            27 -> npc(FacialExpression.FURIOUS, "JUST GO DO IT!").also { stage++; player.setAttribute("/save:barbtraining:fishing",true) }
             28 -> end()
         }
         return true
