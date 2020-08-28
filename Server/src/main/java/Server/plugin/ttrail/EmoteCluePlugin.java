@@ -95,7 +95,7 @@ public final class EmoteCluePlugin extends EmoteClueScroll {
 		emote = Emotes.HEADBANG;
 		register(new EmoteCluePlugin("al-kharid-headbang", 2702, ClueLevel.EASY, emote, new int[][] { { 1833 }, { 1059 }, { 1061 } }, "Headbang in the mine north of Al<br>Kharid.<br>Equip a desert shirt, leather gloves and<br>leather boots.", new ZoneBorders(3297, 3286, 3301, 3316)));
 		emote = Emotes.JUMP_FOR_JOY;
-		register(new EmoteCluePlugin("beehive-jump", 2703, ClueLevel.EASY, emote, new int[][] { { 1833 }, { 648 }, { 1353 } }, "Jump for joy at the beehives.<br>Equip a desert shirt, green<br>gnome robe bottoms and a<br>steel axe.", new ZoneBorders(2752, 3437, 2766, 3449)));
+		register(new EmoteCluePlugin("beehive-jump", 2703, ClueLevel.EASY, emote, new int[][] { { 1833 }, { 648 }, { 1353 } }, "Jump for joy at the beehives.<br>Equip a desert shirt, green<br>gnome robe bottoms and a<br>steel axe.", new ZoneBorders(2762, 3439, 2764, 3441)));
 		register(new EmoteCluePlugin("yanille-jump", 2704, ClueLevel.MEDIUM, emote, Emotes.JIG, new int[][] { { 1757 }, { 1145 }, { 6324 } }, "Jump for joy in Yanille<br>bank. Dance a jig before you<br>talk to me.<br>Equip a brown apron,<br>adamantite medium helmet<br>and snakeskin chaps.", new ZoneBorders(2609, 3088, 2614, 3097)));
 		register(new EmoteCluePlugin("tzhaar-jump", 2705, ClueLevel.MEDIUM, emote, Emotes.SHRUG, new int[][] { { 1295 }, { 2499 }, { 4095 } }, "Jump for joy in the TzHaar<br>sword shop. Shrug before you<br>talk to me.<br>Equip a Steel longsword,<br>Blue D'hide body and blue<br>mystic gloves.", new ZoneBorders(2477, 5144, 2480, 5147)));
 		emote = Emotes.LAUGH;
