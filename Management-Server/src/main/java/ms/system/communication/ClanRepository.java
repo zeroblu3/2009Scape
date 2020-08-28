@@ -1,17 +1,13 @@
 package ms.system.communication;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import ms.net.packet.WorldPacketRepository;
 import ms.system.util.StringUtils;
 import ms.world.GameServer;
 import ms.world.PlayerSession;
 import ms.world.WorldDatabase;
 import ms.world.info.UIDInfo;
+
+import java.util.*;
 
 /**
  * Holds clan related information.
@@ -83,7 +79,7 @@ public final class ClanRepository {
 	 * @param player The player.
 	 */
 	public void enter(PlayerSession player) {
-		if (players.size() >= MAX_MEMBERS && !owner.getUsername().equals("keldagrim")) {
+		if (players.size() >= MAX_MEMBERS && !owner.getUsername().equals("2009scape")) {
 			WorldPacketRepository.sendPlayerMessage(player, "The channel you tried to join is full.:clan:");
 			return;
 		}
@@ -200,7 +196,7 @@ public final class ClanRepository {
 	public ClanRank getRank(PlayerSession player) {
 		ClanRank rank = owner.getCommunication().getContacts().get(player.getUsername());
 		if (player.getRights() == 2 && player != owner) {
-			return ClanRank.KELDAGRIM_MOD;
+			return ClanRank.ADMINISTRATOR;
 		}
 		if (rank == null) {
 			if (player == owner) {

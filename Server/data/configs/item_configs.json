@@ -97044,7 +97044,7 @@
       "equipment_slot": "3",
       "attack_speed": "7",
       "bonuses": "3,8,3,0,0,0,3,1,0,0,0,10,0,0,0",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "3",
       "archery_ticket_price": "0",
       "durability": null
@@ -97997,7 +97997,7 @@
       "attack_speed": "7",
       "bonuses": "-4,27,21,4,0,0,0,0,4,-1,0,26,0,0,0",
       "weapon_interface": "7",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "3.6",
       "archery_ticket_price": "0",
       "durability": null
@@ -98267,7 +98267,7 @@
       "bonuses": "-2,10,92,0,0,0,0,0,0,0,0,100,0,0,0",
       "weapon_interface": "8",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "5865,5865,5865,5865",
       "defence_anim": "5866",
       "weight": "30",
@@ -101224,7 +101224,7 @@
       "bonuses": "0,0,0,0,95,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "426,426,426,426",
       "defence_anim": "424",
       "attack_audios": "3731,0,0,0",
@@ -101511,7 +101511,7 @@
       "equipment_slot": "3",
       "attack_speed": "4",
       "weapon_interface": "14",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "0.2",
       "archery_ticket_price": "0",
       "durability": null
@@ -104553,7 +104553,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,8,0,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "7041,7041,7048,7049",
       "defence_anim": "7050",
       "attack_audios": "3846,0,0,0",
@@ -104595,7 +104595,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,8,0,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "7041,7041,7048,7049",
       "defence_anim": "7050",
       "attack_audios": "3846,0,0,0",
@@ -104637,7 +104637,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,8,0,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "7041,7041,7048,7049",
       "defence_anim": "7050",
       "attack_audios": "3846,0,0,0",
@@ -104678,7 +104678,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,8,0,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "7041,7041,7048,7049",
       "defence_anim": "7050",
       "attack_audios": "3846,0,0,0",
@@ -104878,7 +104878,7 @@
       "bonuses": "85,65,65,0,0,13,13,12,0,13,0,75,2,0,0",
       "weapon_interface": "14",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "requirements": "{0,70}",
@@ -105089,7 +105089,7 @@
       "bonuses": "0,82,60,0,0,0,0,0,0,0,0,82,2,0,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "7041,7041,7048,7049",
       "defence_anim": "7050",
       "attack_audios": "3846,0,0,0",
@@ -117924,7 +117924,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "9097,9097,9097,9097",
       "defence_anim": "9048",
       "weight": "5",
@@ -117950,7 +117950,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -117970,7 +117970,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -117993,7 +117993,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118017,7 +118017,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118041,7 +118041,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118065,7 +118065,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118089,7 +118089,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118113,7 +118113,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118137,7 +118137,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118161,7 +118161,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118185,7 +118185,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118209,7 +118209,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118233,7 +118233,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118257,7 +118257,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118281,7 +118281,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118305,7 +118305,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118329,7 +118329,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118353,7 +118353,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118377,7 +118377,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118401,7 +118401,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118425,7 +118425,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118449,7 +118449,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118473,7 +118473,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118497,7 +118497,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118521,7 +118521,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118545,7 +118545,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118569,7 +118569,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118593,7 +118593,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -118617,7 +118617,7 @@
       "bonuses": "0,16,11,6,0,2,3,1,6,0,0,26,5,0,0",
       "weapon_interface": "23",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "weight": "5",
       "archery_ticket_price": "0",
       "durability": null
@@ -121154,7 +121154,7 @@
       "bonuses": "0,0,0,0,95,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121560,7 +121560,7 @@
       "bonuses": "-4,92,80,-4,0,0,0,0,0,-1,0,93,0,0,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121767,7 +121767,7 @@
       "bonuses": "0,0,81,0,0,0,0,0,0,0,0,79,0,0,0",
       "weapon_interface": "10",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121839,7 +121839,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,0,8,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121859,7 +121859,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,0,8,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121879,7 +121879,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,0,8,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121899,7 +121899,7 @@
       "bonuses": "0,132,80,0,0,0,0,0,0,0,0,132,0,8,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -121919,7 +121919,7 @@
       "bonuses": "85,65,65,0,0,13,13,12,0,13,0,75,0,2,0",
       "weapon_interface": "14",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -122035,7 +122035,7 @@
       "bonuses": "0,82,60,0,0,0,0,0,0,0,0,82,0,2,0",
       "weapon_interface": "7",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -122335,7 +122335,7 @@
       "bonuses": "70,95,0,-4,0,-1,4,5,0,0,0,89,0,0,0",
       "weapon_interface": "15",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123064,7 +123064,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,29,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123082,7 +123082,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,29,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123100,7 +123100,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,47,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123118,7 +123118,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,47,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123137,7 +123137,7 @@
       "bonuses": "0,0,0,0,69,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123156,7 +123156,7 @@
       "bonuses": "0,0,0,0,69,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123175,7 +123175,7 @@
       "bonuses": "0,0,0,0,69,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123360,7 +123360,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,22,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123379,7 +123379,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,49,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -123399,7 +123399,7 @@
       "bonuses": "0,0,0,0,71,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126483,7 +126483,7 @@
       "bonuses": "26,38,-4,0,0,10,19,5,0,0,0,39,0,0,0",
       "weapon_interface": "9",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126558,7 +126558,7 @@
       "absorb": "0,0,0",
       "bonuses": "36,36,36,0,0,1,1,0,0,0,0,42,0,0,0",
       "weapon_interface": "14",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126578,7 +126578,7 @@
       "bonuses": "55,55,55,0,0,5,5,5,5,5,0,60,0,0,0",
       "weapon_interface": "14",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -126595,7 +126595,7 @@
       "attack_speed": "5",
       "absorb": "0,0,0",
       "bonuses": "36,36,36,0,0,1,1,0,0,0,0,42,0,0,0",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126611,7 +126611,7 @@
       "absorb": "0,0,0",
       "bonuses": "55,55,55,0,0,5,5,5,5,5,0,60,0,0,0",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -126628,7 +126628,7 @@
       "attack_speed": "5",
       "absorb": "0,0,0",
       "bonuses": "36,36,36,0,0,1,1,0,0,0,0,42,0,0,0",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126644,7 +126644,7 @@
       "absorb": "0,0,0",
       "bonuses": "55,55,55,0,0,5,5,5,5,5,0,60,0,0,0",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -126661,7 +126661,7 @@
       "attack_speed": "5",
       "absorb": "0,0,0",
       "bonuses": "36,36,36,0,0,1,1,0,0,0,0,42,0,0,0",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126677,7 +126677,7 @@
       "absorb": "0,0,0",
       "bonuses": "55,55,55,0,0,5,5,5,5,5,0,60,0,0,0",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -126716,7 +126716,7 @@
       "absorb": "0,0,0",
       "bonuses": "-4,69,50,-4,0,0,0,0,0,-1,0,70,0,0,0",
       "weapon_interface": "7",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -126735,7 +126735,7 @@
       "absorb": "0,0,0",
       "bonuses": "48,67,0,-4,0,-1,4,5,0,0,0,68,0,0,0",
       "weapon_interface": "15",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -128811,7 +128811,7 @@
       "bonuses": "133,113,120,0,0,18,21,21,0,0,0,122,0,0,0",
       "weapon_interface": "14",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "weight": "4.2",
@@ -128830,7 +128830,7 @@
       "shop_price": "300000",
       "grand_exchange_price": "5264612",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -128851,7 +128851,7 @@
       "bonuses": "133,113,120,0,0,18,21,21,0,0,0,122,0,0,0",
       "weapon_interface": "14",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -129249,7 +129249,7 @@
       "absorb": "0,0,0",
       "bonuses": "133,113,120,0,0,18,21,21,0,0,0,122,0,0,0",
       "weapon_interface": "14",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "archery_ticket_price": "0",
       "durability": null
@@ -129266,7 +129266,7 @@
       "shop_price": "125000",
       "grand_exchange_price": "343474",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -129286,7 +129286,7 @@
       "absorb": "0,0,0",
       "bonuses": "133,113,120,0,0,18,21,21,0,0,0,122,0,0,0",
       "weapon_interface": "14",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -130307,7 +130307,7 @@
       "absorb": "0,0,0",
       "bonuses": "55,55,55,0,0,5,5,5,5,5,0,60,0,0,0",
       "weapon_interface": "14",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -130325,7 +130325,7 @@
       "shop_price": "40000",
       "grand_exchange_price": "920922",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -130347,7 +130347,7 @@
       "absorb": "0,0,0",
       "bonuses": "55,55,55,0,0,5,5,5,5,5,0,60,0,0,0",
       "weapon_interface": "14",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "2080,2081,2082,2080",
       "defence_anim": "2079",
       "archery_ticket_price": "0",
@@ -131229,7 +131229,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,47,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132165,7 +132165,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,55,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132178,7 +132178,7 @@
       "destroy_message": "Drop",
       "shop_price": "30",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132194,7 +132194,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,90,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132207,7 +132207,7 @@
       "destroy_message": "Drop",
       "shop_price": "60",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132223,7 +132223,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,135,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132236,7 +132236,7 @@
       "destroy_message": "Drop",
       "shop_price": "90",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132252,7 +132252,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,180,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132265,7 +132265,7 @@
       "destroy_message": "Drop",
       "shop_price": "120",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132281,7 +132281,7 @@
       "absorb": "0,0,0",
       "bonuses": "0,0,0,0,225,0,0,0,0,0,0,0,0,0,0",
       "weapon_interface": "16",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -132294,7 +132294,7 @@
       "destroy_message": "Drop",
       "shop_price": "150",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -135871,7 +135871,7 @@
       "bonuses": "41,57,-4,0,0,13,26,7,0,0,0,56,0,0,0",
       "weapon_interface": "9",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "attack_anims": "393,393,1067,393",
       "defence_anim": "397",
       "requirements": "{0,60}",
@@ -135891,7 +135891,7 @@
       "shop_price": "67500",
       "grand_exchange_price": "1472441",
       "attack_speed": "4",
-      "two_handed": "1",
+      "two_handed": "true",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -135910,7 +135910,7 @@
       "bonuses": "41,57,-4,0,0,13,26,7,0,0,0,56,0,0,0",
       "weapon_interface": "9",
       "has_special": "true",
-      "two_handed": "1",
+      "two_handed": "true",
       "requirements": "{0,60}",
       "archery_ticket_price": "0",
       "durability": null
