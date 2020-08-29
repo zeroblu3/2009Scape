@@ -236,7 +236,7 @@ class ItemConfigParser {
                                         requirements.put(tokens[0].toInt(),tokens[1].toInt())
                                     }
                             }
-                        "attack_audio" -> configs.put(it.key.toString(),it.value.toString().split(",").map { i -> Audio(i.toInt()) }.toTypedArray())
+                        "attack_audios" -> configs.put(it.key.toString(),it.value.toString().split(",").map { i -> Audio(i.toInt()) }.toTypedArray())
                         "attack_anims" -> configs.put(it.key.toString(),it.value.toString().split(",").map { i -> Animation(i.toInt(), Animator.Priority.HIGH) }.toTypedArray())
 
                         //int arrays

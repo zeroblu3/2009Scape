@@ -14,6 +14,7 @@ import java.util.HashMap;
  */
 public enum FishingOption {
 
+	CRAYFISH_CAGE(new Item(13431), 1, Animation.create(619), null, "cage", Fish.CRAYFISH),
 	SMALL_NET(new Item(303), 1, Animation.create(621), null, "net", Fish.SHRIMP, Fish.ANCHOVIE),
 	BAIT(new Item(307), 5, Animation.create(622), new Item(313), "bait", Fish.SARDINE, Fish.HERRING), 
 	LURE(new Item(309), 20, new Animation(622), new Item(314), "lure", Fish.TROUT, Fish.SALMON, Fish.RAINBOW_FISH), 
