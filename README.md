@@ -4,6 +4,8 @@ Join our Discord server: https://discord.gg/43YPGND
 
 We also have a live game in the [Releases](https://github.com/2009scape/2009scape/releases) section that always runs the latest code.
 
+For information about what data we store, read over [this](https://github.com/2009scape/2009Scape/wiki/Information-We-Store).
+
 # Running your own instance
 Please follow this [self hosting guide](selfhosting.md)
 
