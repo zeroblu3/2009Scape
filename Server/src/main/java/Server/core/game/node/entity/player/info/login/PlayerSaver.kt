@@ -323,13 +323,6 @@ class PlayerSaver (val player: Player){
             familiar.put("lifepoints",player.familiarManager.familiar.skills.lifepoints)
             familiarManager.put("familiar",familiar)
         }
-        if(player.familiarManager.insuredPets.size > 0){
-            val insuredPets = JSONArray()
-            player.familiarManager.insuredPets.map {
-                insuredPets.add(it.babyItemId.toString())
-            }
-            familiarManager.put("insuredPets",insuredPets)
-        }
         root.put("familiarManager",familiarManager)
     }
 
