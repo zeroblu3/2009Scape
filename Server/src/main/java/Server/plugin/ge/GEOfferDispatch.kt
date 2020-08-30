@@ -212,7 +212,7 @@ class GEOfferDispatch : Pulse(), CallBack {
             offer.timeStamp = System.currentTimeMillis()
             player.grandExchange.update(offer)
             if (offer.isSell) {
-                Repository.sendNews(player.username + " just offered " + offer.amount + " " + ItemDefinition.forId(offer.itemId).name.toLowerCase() + " on the GE.")
+                Repository.sendMarketUpdate(player.username + " just offered " + offer.amount + " " + ItemDefinition.forId(offer.itemId).name.toLowerCase() + " on the GE.")
             } else {
                 updateOffer(offer)
             }
