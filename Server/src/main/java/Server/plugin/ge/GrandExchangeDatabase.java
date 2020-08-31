@@ -108,10 +108,12 @@ public final class GrandExchangeDatabase {
 	public static void initNewDB(){
 		SystemLogger.log("Initializing new Grand Exchange DB! This may take a moment...");
 		ItemDefinition.getDefinitions().values().forEach(def -> {
-			GrandExchangeEntry e = new GrandExchangeEntry(def.getId());
-			e.setValue(def.getValue());
-			e.setLogLength(0);
-			DATABASE.put(def.getId(),e);
+			if(def.getId() != 2572){
+				GrandExchangeEntry e = new GrandExchangeEntry(def.getId());
+				e.setValue(def.getValue());
+				e.setLogLength(0);
+				DATABASE.put(def.getId(), e);
+			}
 		});
 		initialized = true;
 	}

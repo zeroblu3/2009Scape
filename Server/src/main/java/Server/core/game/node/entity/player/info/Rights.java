@@ -1,6 +1,7 @@
 package core.game.node.entity.player.info;
 
 import core.game.node.entity.player.Player;
+import core.game.system.SystemLogger;
 
 /**
  * Represent the rights of a player.
@@ -25,6 +26,7 @@ public enum Rights {
 			return c.toInteger();
 		}
 		if (player.getIronmanManager().isIronman()) {
+			SystemLogger.log("Should have icon");
 			return player.getIronmanManager().getMode().getIcon();
 		}
 		return 0;

@@ -4,6 +4,7 @@ import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.entity.player.link.emote.Emotes;
 import core.game.node.entity.player.link.music.MusicEntry;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
@@ -95,6 +96,13 @@ public final class LoginConfiguration {
      */
     public static void sendLobbyScreen(Player player) {
         messModel = autoSelect();
+        for(Player p : Repository.getLobbyPlayers()){
+            if(p.getName().equals(player.getName())){
+                p.clear();
+                Repository.getLobbyPlayers().remove(p);
+                break;
+            }
+        }
         Repository.getLobbyPlayers().add(player);
         player.getPacketDispatch().sendString(getLastLogin(player), 378, 116);
         player.getPacketDispatch().sendString("Welcome to " + GameWorld.getName(), 378, 115);
@@ -103,8 +111,8 @@ public final class LoginConfiguration {
         player.getPacketDispatch().sendString(" ", 378, 39);
         player.getPacketDispatch().sendString("Discord Invite", 378, 14);
         player.getPacketDispatch().sendString("Discord Invite", 378, 129);
-        player.getPacketDispatch().sendString("Credit display has not been implemented yet.", 378, 94);
-        player.getPacketDispatch().sendString("0", 378, 96);
+        player.getPacketDispatch().sendString("Credits", 378, 94);
+        player.getPacketDispatch().sendString(player.getDetails().credits + "", 378, 96);
         player.getPacketDispatch().sendString(" ", 378, 229);
         player.getPacketDispatch().sendString("Want to contribute to 2009scape? <br>Visit the github using the link below!", 378, 230);
         player.getPacketDispatch().sendString(" ", 378, 231);
@@ -135,6 +143,9 @@ public final class LoginConfiguration {
         player.getPlayerFlags().setUpdateSceneGraph(true);
         player.getStateManager().init();
         player.getPacketDispatch().sendInterfaceConfig(226, 1, true);
+        if(player.getGlobalData().getTestStage() == 3 && !player.getEmoteManager().isUnlocked(Emotes.SAFETY_FIRST)){
+            player.getEmoteManager().unlock(Emotes.SAFETY_FIRST);
+        }
 		/*if (GameWorld.getSettings().isPvp()) {
 			player.getPacketDispatch().sendString("", 226, 1);
 		}*/

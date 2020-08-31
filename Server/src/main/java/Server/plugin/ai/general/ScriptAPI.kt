@@ -558,7 +558,7 @@ class ScriptAPI(private val bot: Player) {
             ItemNames.DRAGON_BONES ->          1250
             ItemNames.GREEN_DRAGONHIDE_1753 -> 550
             ItemNames.BOW_STRING_1777 ->       250
-            ItemNames.MAGIC_LOGS_1513 ->       750
+            ItemNames.MAGIC_LOGS_1513 ->       450
             ItemNames.GRIMY_RANARR ->          1214
             ItemNames.GRIMY_AVANTOE ->         453
             ItemNames.GRIMY_CADANTINE ->       232
@@ -570,6 +570,8 @@ class ScriptAPI(private val bot: Player) {
             ItemNames.GRIMY_LANTADYME ->       115
             ItemNames.GRIMY_MARRENTILL ->      250
             ItemNames.LOBSTER ->               268
+            ItemNames.LOOP_HALF_OF_KEY ->      5250
+            ItemNames.TOOTH_HALF_OF_KEY ->     4263
             else -> null
         }
     }

@@ -241,6 +241,7 @@ public final class AntiMacroHandler implements SavingModule {
 		event = getRandomEvent(skillId);
 		if (event != null) {
 			if ((event = event.create(player)).start(player, false, args)) {
+				if(event == null) return true;
 				System.out.println("Anti-Macro: Firing event " + event.getName() + " for player: " + player.getUsername());
 				//resetTrigger();
 				return true;

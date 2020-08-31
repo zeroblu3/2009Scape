@@ -2,6 +2,7 @@ package core.net.packet.context;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
+import core.game.system.SystemLogger;
 import core.net.packet.Context;
 
 /**
@@ -61,6 +62,7 @@ public final class MessageContext implements Context {
 		this.player = player;
 		this.other = other.getName();
 		this.chatIcon = Rights.getChatIcon(other);
+		SystemLogger.log("" + chatIcon + " E");
 		this.opcode = opcode;
 		this.message = message;
 	}

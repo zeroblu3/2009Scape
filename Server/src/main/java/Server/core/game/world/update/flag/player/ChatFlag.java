@@ -1,6 +1,7 @@
 package core.game.world.update.flag.player;
 
 import core.game.node.entity.player.info.Rights;
+import core.game.system.SystemLogger;
 import core.game.world.update.flag.UpdateFlag;
 import core.game.world.update.flag.context.ChatMessage;
 import core.net.packet.IoBuffer;
@@ -29,6 +30,7 @@ public class ChatFlag extends UpdateFlag<ChatMessage> {
 													// need to send something
 													// extra.
 		buffer.put((byte) Rights.getChatIcon(context.getPlayer()));
+		SystemLogger.log(Rights.getChatIcon(context.getPlayer()) + " EEE");
 		buffer.put(offset + 1);
 		buffer.putReverse(chatStr, 0, offset);
 	}

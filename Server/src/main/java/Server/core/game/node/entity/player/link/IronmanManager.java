@@ -2,6 +2,7 @@ package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
+import core.game.system.SystemLogger;
 
 import java.nio.ByteBuffer;
 
@@ -94,6 +95,7 @@ public class IronmanManager implements SavingModule {
 	 * @return the mode
 	 */
 	public IronmanMode getMode() {
+		SystemLogger.log(mode.name());
 		return mode;
 	}
 

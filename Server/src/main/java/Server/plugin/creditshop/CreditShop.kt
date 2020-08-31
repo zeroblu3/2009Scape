@@ -13,6 +13,7 @@ import core.tools.ItemNames
  * @author Ceikry
  */
 class CreditShop : Shop("Credit Shop <3", listOf(
+        Item(ItemNames.CHRISTMAS_CRACKER_962,100),
         Item(ItemNames.RED_PARTYHAT,100),
         Item(ItemNames.BLUE_PARTYHAT, 100),
         Item(ItemNames.GREEN_PARTYHAT, 100),
@@ -22,9 +23,12 @@ class CreditShop : Shop("Credit Shop <3", listOf(
         Item(ItemNames.RED_HALLOWEEN_MASK,100),
         Item(ItemNames.BLUE_HALLOWEEN_MASK, 100),
         Item(ItemNames.GREEN_HALLOWEEN_MASK,100),
-        Item(ItemNames.SCYTHE_10735,200)
+        Item(ItemNames.SANTA_HAT, 100),
+        Item(ItemNames.SCYTHE_10735,100)
 ).toTypedArray(),false){
     val prices = hashMapOf(
+            ItemNames.SANTA_HAT to 35,
+            ItemNames.CHRISTMAS_CRACKER_962 to 40,
             ItemNames.RED_PARTYHAT to 50,
             ItemNames.BLUE_PARTYHAT to 50,
             ItemNames.GREEN_PARTYHAT to 50,
