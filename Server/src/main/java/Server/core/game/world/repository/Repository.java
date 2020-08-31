@@ -63,6 +63,31 @@ public final class Repository {
 	 * @param icon The icon id.
 	 * @param color The color of the text.
 	 */
+	public static void sendMarketUpdate(String string, int icon, String color) {
+		Object[] players = PLAYER_NAMES.values().toArray();
+		int size = players.length;
+		for (int i = 0; i < size; i++) {
+			Player player = (Player) players[i];
+			if (player == null) {
+				continue;
+			}
+			player.sendMessage("<img=" + icon + ">" + color + "Market Update: " + string);
+		}
+	}
+
+	/**
+	 * Sends a news message to all players.
+	 * @param string The string.
+	 * @param color The color.
+	 */
+	public static void sendMarketUpdate(String string) { sendMarketUpdate(string, 12, "<col=CC6600>");}
+
+	/**
+	 * Sends a news message to all players.
+	 * @param string the string.
+	 * @param icon The icon id.
+	 * @param color The color of the text.
+	 */
 	public static void sendNews(String string, int icon, String color) {
 		Object[] players = PLAYER_NAMES.values().toArray();
 		int size = players.length;

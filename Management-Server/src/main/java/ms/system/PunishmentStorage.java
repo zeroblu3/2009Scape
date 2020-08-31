@@ -1,16 +1,16 @@
 package ms.system;
 
+import ms.net.packet.WorldPacketRepository;
+import ms.system.mysql.SQLManager;
+import ms.world.GameServer;
+import ms.world.PlayerSession;
+import ms.world.WorldDatabase;
+import ms.world.info.UIDInfo;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import ms.world.GameServer;
-import ms.world.PlayerSession;
-import ms.world.WorldDatabase;
-import ms.net.packet.WorldPacketRepository;
-import ms.system.mysql.SQLManager;
-import ms.world.info.UIDInfo;
 
 /**
  * Used for storing and handling punishment data.
@@ -115,9 +115,6 @@ public final class PunishmentStorage {
 			}
 			break;
 		case 7: //Request info
-			if (player.getUsername().equals("ethan") || player.getUsername().equals("austin") || player.getUsername().equals("charlie") || player.getUsername().equals("castiel")) {
-				return;
-			}
 			WorldPacketRepository.sendPlayerMessage(staff, "[----------Player info----------]");
 			WorldPacketRepository.sendPlayerMessage(staff, "Name: " + player.getUsername());
 			WorldPacketRepository.sendPlayerMessage(staff, "IP address: " + player.getIpAddress());

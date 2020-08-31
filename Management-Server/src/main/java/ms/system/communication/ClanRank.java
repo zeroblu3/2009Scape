@@ -14,7 +14,7 @@ public enum ClanRank {
 	CAPTAIN(5, "Captain+"),
 	GENERAL(6, "General+"),
 	OWNER(7, "Only me"),
-	KELDAGRIM_MOD(127, "No-one");
+	ADMINISTRATOR(127, "No-one");
 	
 	/**
 	 * The value of the rank.

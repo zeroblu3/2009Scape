@@ -79,4 +79,19 @@ public class ColorCore {
      */
     static Color loadingbarcolor = new Color(140, 17, 17);
 
+    /**
+     * Rgb context color
+     * Can't be used because of RSString and statics, statics everywhere, Thanks Jamflex!
+     */
+    static float hue = 0.0f;
+    static float sat = 1.0f;
+    static float bri = 1.0f;
+
+    static int getHexColors() {
+        hue += 0.0005;
+        Color base = new Color(Color.HSBtoRGB(hue, sat, bri));
+        Color color = new Color(base.getRed(), base.getGreen(), base.getBlue(), 125);
+        return color.getRGB();
+    }
+
 }

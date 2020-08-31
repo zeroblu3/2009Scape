@@ -187,7 +187,7 @@ public final class GatheringSkillPulse extends SkillPulse<GameObject> {
 				}
 				int chance = 282;
 				boolean altered = false;
-				if (player.getEquipment().getNew(EquipmentContainer.SLOT_RING).getId() == 2572) {
+				if (new Item(player.getEquipment().getId(12)).getName().toLowerCase().contains("ring of wealth")) {
 					chance /= 1.5;
 					altered = true;
 				}

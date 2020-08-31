@@ -1,9 +1,6 @@
 package core.game.content.global;
 
-import plugin.skill.slayer.Tasks;
 import core.game.node.entity.player.Player;
-import core.game.node.item.Item;
-import core.game.world.repository.Repository;
 
 /**
  * The BossKillcounter keeps track of the amount of bosses the player has slain.
@@ -119,47 +116,47 @@ public enum BossKillCounter {
 		}
 		killer.getSavedData().getGlobalData().getBossCounters()[boss.ordinal()]++;
 		killer.getPacketDispatch().sendMessage("Your " + boss.getName() + " killcount is now: <col=ff0000>" + killer.getSavedData().getGlobalData().getBossCounters()[boss.ordinal()] + "</col>.");
-		addBossPet(killer, npcid, boss);
+//		addBossPet(killer, npcid, boss);
 	}
 	
-	/**
-	 * Gives the player the pet if they killed a certain boss.
-	 * The chance by default is 1/5000. This rate lowers to 1/2200 if the <GlobalEvents> for Boss Pets is active.
-	 * Note: Not all bosses have pet versions of themselves.
-	 */
-	private static void addBossPet(Player killer, int npcid, BossKillCounter boss){
-		if(boss.getPetId() == -1){ //The boss does not have a pet version.
-			return;
-		}
-		int number = 5000;
-		if (npcid == 2745) {
-			number = 200;
-			if (killer.getSlayer().getTask() == Tasks.JAD) {
-				number = 100;
-			}
-		} else if (npcid == 3200) {
-			number = 300;
-		}
-		int rand = number;
-		if(rand == 10){
-			for (int i = 0; i < killer.getFamiliarManager().getInsuredPets().size(); i++) {
-				if (killer.getFamiliarManager().getInsuredPets().get(i).getBabyItemId() == boss.getPetId()) {
-					return;
-				}
-			}
-			if(killer.getFamiliarManager().hasFamiliar() && killer.getInventory().freeSlots() < 1){
-				return;
-			}
-			if(!killer.getFamiliarManager().hasFamiliar()){
-				killer.getFamiliarManager().summon(new Item(boss.getPetId()),  true);
-				killer.sendNotificationMessage("You have a funny feeling like you're being followed.");
-			} else if (killer.getInventory().freeSlots() > 0){
-				killer.getInventory().add(new Item(boss.getPetId(), 1));
-				killer.sendNotificationMessage("You feel something weird sneaking into your backpack.");
-			}
-			Repository.sendNews(killer.getUsername()+" now commands a miniature "+(boss.equals(CORPOREAL_BEAST) ? "Dark core" : boss.getName())+"!");
-		}
-	}
+//	/**
+//	 * Gives the player the pet if they killed a certain boss.
+//	 * The chance by default is 1/5000. This rate lowers to 1/2200 if the <GlobalEvents> for Boss Pets is active.
+//	 * Note: Not all bosses have pet versions of themselves.
+//	 */
+//	private static void addBossPet(Player killer, int npcid, BossKillCounter boss){
+//		if(boss.getPetId() == -1){ //The boss does not have a pet version.
+//			return;
+//		}
+//		int number = 5000;
+//		if (npcid == 2745) {
+//			number = 200;
+//			if (killer.getSlayer().getTask() == Tasks.JAD) {
+//				number = 100;
+//			}
+//		} else if (npcid == 3200) {
+//			number = 300;
+//		}
+//		int rand = number;
+//		if(rand == 10){
+//			for (int i = 0; i < killer.getFamiliarManager().getInsuredPets().size(); i++) {
+//				if (killer.getFamiliarManager().getInsuredPets().get(i).getBabyItemId() == boss.getPetId()) {
+//					return;
+//				}
+//			}
+//			if(killer.getFamiliarManager().hasFamiliar() && killer.getInventory().freeSlots() < 1){
+//				return;
+//			}
+//			if(!killer.getFamiliarManager().hasFamiliar()){
+//				killer.getFamiliarManager().summon(new Item(boss.getPetId()),  true);
+//				killer.sendNotificationMessage("You have a funny feeling like you're being followed.");
+//			} else if (killer.getInventory().freeSlots() > 0){
+//				killer.getInventory().add(new Item(boss.getPetId(), 1));
+//				killer.sendNotificationMessage("You feel something weird sneaking into your backpack.");
+//			}
+//			Repository.sendNews(killer.getUsername()+" now commands a miniature "+(boss.equals(CORPOREAL_BEAST) ? "Dark core" : boss.getName())+"!");
+//		}
+//	}
 
 	/**
 	 * Increments the player's Barrows chest counter.

@@ -567,8 +567,12 @@ public final class BankingPlugin extends OptionHandler {
 				return npc.getLocation().transform(dir.getStepX() << 1, dir.getStepY() << 1, 0);
 			}
 			if (npc.getId() == 6533) {
+				return Location.create(3167, 3489, 0);// ge bankers.
+			} else if (npc.getId() == 6534) {
 				return Location.create(3167, 3490, 0);// ge bankers.
 			} else if (npc.getId() == 6535) {
+				return Location.create(3162, 3489, 0);
+			} else if (npc.getId() == 6532) {
 				return Location.create(3162, 3489, 0);
 			} else if (npc.getId() == 4907) {
 				return npc.getLocation().transform(0, -2, 0);

@@ -127,9 +127,9 @@ public class SpawnData implements SavingModule {
 		sendString(player, "Starter Packages Below...", 23);
 		sendString(player, "Information:", 12, null, -1);
 		sendString(player, "PK Points: " + player.getSavedData().getSpawnData().getPkPoints(), 13);
-		sendString(player, "Keldagrim Kills: " + getKills(), 14);
-		sendString(player, "Keldagrim Deaths: " + getDeaths(), 15);
-		sendString(player, "Keldagrim KDR: " + getKdr(), 16);
+		sendString(player, "Kills: " + getKills(), 14);
+		sendString(player, "Deaths: " + getDeaths(), 15);
+		sendString(player, "KDR: " + getKdr(), 16);
 		sendString(player, "Title: " + "<col=" + getTitle().getTitleColor() + ">" + getTitle().getName(), 17);
 		sendString(player, " ", 20);
 		sendString(player, "Starter Packages:", 31);
@@ -203,7 +203,7 @@ public class SpawnData implements SavingModule {
 				p.sendChat("<col=FF0000>My KDR is: " + p.getSavedData().getSpawnData().getKdr() + "!");
 				break;
 			case 14:
-				p.sendChat("<col=FF0000>I have killed " + p.getSavedData().getSpawnData().getKills() + " Keldagrim player" + (p.getSavedData().getSpawnData().getKills() != 1 ? "s" : "") + "!");
+				p.sendChat("<col=FF0000>I have killed " + p.getSavedData().getSpawnData().getKills() + " player" + (p.getSavedData().getSpawnData().getKills() != 1 ? "s" : "") + "!");
 				break;
 			case 15:
 				p.sendChat("<col=FF0000>I have been killed " + p.getSavedData().getSpawnData().getDeaths() + " time" + (p.getSavedData().getSpawnData().getDeaths() != 1 ? "s" : "") + "!");
@@ -482,7 +482,7 @@ public class SpawnData implements SavingModule {
 		PKTitle.checkTitle(killer);
 		drawStatsTab(killer);
 		killedInfo.drawStatsTab(killed);
-		killer.sendMessage("<col=FF0000>You have killed " + killed.getUsername() + "! Your Keldagrim PK Points have increased by " + increment + ".");
+		killer.sendMessage("<col=FF0000>You have killed " + killed.getUsername() + "! Your PK Points have increased by " + increment + ".");
 		killer.sendMessage("<col=FF0000>You are now on a " + killStreak + " killstreak!");
 		if (killStreak > 4) {
 			Repository.sendNews("<img=10><col=CC6600>News: " + getStreakMessage(killer, killed));
