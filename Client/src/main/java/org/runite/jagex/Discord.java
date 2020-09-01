@@ -40,6 +40,7 @@ public class Discord {
             DiscordRichPresence.Builder presence = new DiscordRichPresence.Builder("An open source MMO.");
             presence.setDetails("World " + ObjectDefinition.worldId);
             presence.setBigImage("jarfix-300x300", "Check out our github!");
+            presence.setStartTimestamps(System.currentTimeMillis());
             DiscordRPC.discordUpdatePresence(presence.build());
         }
     }
