@@ -6,18 +6,19 @@ import org.runite.Configurations;
 
 final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 
-	static Class3_Sub30_Sub1 outgoingBuffer = new Class3_Sub30_Sub1();
+	static Class3_Sub30_Sub1 outgoingBuffer = new Class3_Sub30_Sub1(5000);
 	private int anInt3036 = 0;
 	private int anInt3037 = 1;
 	private int anInt3038 = 0;
 	static RSString aClass2323;
 	static String aString2324;
 	static RSString aClass2325;
+	static RSString aClass16_1543;
 	static RSString aClass94_3039 = RSString.createRSString("0");
 	static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array3041 = new Class3_Sub28_Sub5[14];
 
 
-	static void method167(int var0) {
+	static final void method167(int var0) {
 		try {
 			if(Class3_Sub13_Sub3.aClass148_3049 != null) {
 				KeyboardListener var1 = Class3_Sub13_Sub3.aClass148_3049;
@@ -31,7 +32,7 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 			}
 
 		} catch (RuntimeException var4) {
-			throw Class44.clientError(var4, "ag.B(" + var0 + ')');
+			throw Class44.method1067(var4, "ag.B(" + var0 + ')');
 		}
 	}
 
@@ -49,13 +50,13 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 			aClass94_3039 = null;
 			outgoingBuffer = null;
 		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "ag.F(" + var0 + ')');
+			throw Class44.method1067(var2, "ag.F(" + var0 + ')');
 		}
 	}
 
 	final int[] method154(int var1, byte var2) {
 		try {
-			int[] var3 = this.aClass114_2382.method1709(var1);
+			int[] var3 = this.aClass114_2382.method1709(-16409, var1);
 			int var4;
 			if(this.aClass114_2382.aBoolean1580) {
 				var4 = Class163_Sub3.anIntArray2999[var1];
@@ -89,15 +90,16 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 				}
 			}
 
-            return var3;
+			var4 = -64 / ((30 - var2) / 36);
+			return var3;
 		} catch (RuntimeException var11) {
-			throw Class44.clientError(var11, "ag.D(" + var1 + ',' + var2 + ')');
+			throw Class44.method1067(var11, "ag.D(" + var1 + ',' + var2 + ')');
 		}
 	}
 
-	static void method229() {
+	static final void method229(int var0) {
 		RSByteBuffer buffer = outgoingBuffer;
-		buffer.putString(aClass2323);
+		buffer.putString(0, aClass2323);
 		for (char c : aString2324.toCharArray()) {
 			if (c == '-') {
 				c = ':';
@@ -105,29 +107,35 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 			buffer.putByte((byte) -7, c);
 		}
 		buffer.putByte((byte) -66, 0);
-		buffer.putString(aClass2325);
+		buffer.putString(0, aClass2325);
 	}
 
-	static void method169() {
+	static final void method169(int var0) {
 		try {
 			Class32.method995();
+			if(var0 != 22230) {
+				method167(124);
+			}
 
 			for(int var1 = 0; 4 > var1; ++var1) {
-				Class86.aClass91Array1182[var1].method1496();
+				Class86.aClass91Array1182[var1].method1496(var0 + -22230);
 			}
 
 			System.gc();
 		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "ag.O(" + 22230 + ')');
+			throw Class44.method1067(var2, "ag.O(" + var0 + ')');
 		}
 	}
 
-	static Class method170(String var1) throws ClassNotFoundException {
+	static final Class method170(int var0, String var1) throws ClassNotFoundException {
 		try {
+			if(var0 != 6092) {
+				aClass3_Sub28_Sub5Array3041 = (Class3_Sub28_Sub5[])null;
+			}
 
 			return var1.equals("B")?Byte.TYPE:(!var1.equals("I")?(var1.equals("S")?Short.TYPE:(!var1.equals("J")?(var1.equals("Z")?Boolean.TYPE:(var1.equals("F")?Float.TYPE:(var1.equals("D")?Double.TYPE:(var1.equals("C")?Character.TYPE:Class.forName(Configurations.PACKAGE_JAGEX + "." + var1))))):Long.TYPE)):Integer.TYPE);
 		} catch (RuntimeException var3) {
-			throw Class44.clientError(var3, "ag.C(" + 6092 + ',' + (var1 != null?"{...}":"null") + ')');
+			throw Class44.method1067(var3, "ag.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
 		}
 	}
 
@@ -139,27 +147,30 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 			}
 
 		} catch (RuntimeException var3) {
-			throw Class44.clientError(var3, "ag.P(" + var1 + ')');
+			throw Class44.method1067(var3, "ag.P(" + var1 + ')');
 		}
 	}
 
-	static void method171(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+	static final void method171(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
 		try {
 			if(var0 != -101) {
 				method167(-46);
 			}
 
-			if(Canvas_Sub2.loadInterface(var1)) {
+			if(Canvas_Sub2.loadInterface(var1, 104)) {
 				Class47.method1095(var2, var8, var4, GameObject.aClass11ArrayArray1834[var1], var3, -1, var7, var6, (byte)119, var5);
-			} else if (var5 == -1) {
-				for (int var9 = 0; var9 < 100; ++var9) {
-					Class3_Sub28_Sub14.aBooleanArray3674[var9] = true;
-				}
 			} else {
-				Class3_Sub28_Sub14.aBooleanArray3674[var5] = true;
+				if(var5 == -1) {
+					for(int var9 = 0; var9 < 100; ++var9) {
+						Class3_Sub28_Sub14.aBooleanArray3674[var9] = true;
+					}
+				} else {
+					Class3_Sub28_Sub14.aBooleanArray3674[var5] = true;
+				}
+
 			}
 		} catch (RuntimeException var10) {
-			throw Class44.clientError(var10, "ag.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ')');
+			throw Class44.method1067(var10, "ag.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ')');
 		}
 	}
 
@@ -170,15 +181,17 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 			}
 
 			if(var1 == 0) {
-				this.anInt3038 = var2.getByteB();
-			} else if (1 == var1) {
-				this.anInt3036 = var2.getByteB();
-			} else if (var1 == 3) {
-				this.anInt3037 = var2.getByteB();
+				this.anInt3038 = var2.getByte((byte)-70);
+			} else {
+				if(1 == var1) {
+					this.anInt3036 = var2.getByte((byte)-119);
+				} else if(var1 == 3) {
+					this.anInt3037 = var2.getByte((byte)-113);
+				}
 			}
 
 		} catch (RuntimeException var5) {
-			throw Class44.clientError(var5, "ag.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+			throw Class44.method1067(var5, "ag.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
 		}
 	}
 

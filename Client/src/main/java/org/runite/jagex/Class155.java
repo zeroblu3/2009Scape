@@ -3,6 +3,7 @@ import java.awt.Component;
 
 class Class155 {
 
+   private int anInt1968 = 32;
    static int[] anIntArray1969 = new int[100];
    static RSString char_colon = RSString.createRSString(":");
    static int anInt1971;
@@ -13,10 +14,10 @@ class Class155 {
    static int anInt1977 = 0;
    static int[] anIntArray1978 = new int[128];
    private long aLong1979 = 0L;
-   private final Class3_Sub24[] aClass3_Sub24Array1980 = new Class3_Sub24[8];
+   private Class3_Sub24[] aClass3_Sub24Array1980 = new Class3_Sub24[8];
    private int anInt1981 = 0;
    private long aLong1982 = 0L;
-   private final Class3_Sub24[] aClass3_Sub24Array1983 = new Class3_Sub24[8];
+   private Class3_Sub24[] aClass3_Sub24Array1983 = new Class3_Sub24[8];
    private boolean aBoolean1984 = true;
    private int anInt1985 = 0;
    private int anInt1986;
@@ -26,23 +27,23 @@ class Class155 {
    int anInt1990;
 
 
-   void method2149() {}
+   void method2149() throws Exception {}
 
    void method2150(int var1) throws Exception {}
 
    void method2151() throws Exception {}
 
-   private void method2152(int[] var1) {
-      int var3 = 256;
+   private final void method2152(int[] var1, int var2) {
+      int var3 = var2;
       if(RSString.aBoolean2150) {
-         var3 = 256 << 1;
+         var3 = var2 << 1;
       }
 
       Class76.method1363(var1, 0, var3);
-      this.anInt1987 -= 256;
+      this.anInt1987 -= var2;
       if(this.aClass3_Sub24_1973 != null && this.anInt1987 <= 0) {
          this.anInt1987 += Class21.anInt443 >> 4;
-         Class97.method1591(this.aClass3_Sub24_1973);
+         Class97.method1591(true, this.aClass3_Sub24_1973);
          this.method2155(this.aClass3_Sub24_1973, this.aClass3_Sub24_1973.method412(), (byte)-24);
          int var4 = 0;
          int var5 = 255;
@@ -80,8 +81,7 @@ class Class155 {
                            var12.anInt2374 += var13;
                         }
 
-                        int anInt1968 = 32;
-                        if(var4 >= anInt1968) {
+                        if(var4 >= this.anInt1968) {
                            break label101;
                         }
 
@@ -130,13 +130,13 @@ class Class155 {
       }
 
       if(this.aClass3_Sub24_1973 != null) {
-         this.aClass3_Sub24_1973.method413(var1, 0, 256);
+         this.aClass3_Sub24_1973.method413(var1, 0, var2);
       }
 
       this.aLong1972 = Class5.method830((byte)-55);
    }
 
-   final synchronized void method2153() {
+   final synchronized void method2153(byte var1) {
       try {
          if(null != this.anIntArray1975) {
             long var2 = Class5.method830((byte)-55);
@@ -181,7 +181,7 @@ class Class155 {
 
                while(var4 < var5) {
                   var4 += 256;
-                  this.method2152(this.anIntArray1975);
+                  this.method2152(this.anIntArray1975, 256);
                   this.method2149();
                }
 
@@ -214,8 +214,12 @@ class Class155 {
                   var2 = this.aLong1972;
                }
 
+               if(var1 != -34) {
+                  return;
+               }
+
                while(var2 > this.aLong1972 + 5000L) {
-                  this.method2161();
+                  this.method2161(256, 1);
                   this.aLong1972 += (long)(256000 / Class21.anInt443);
                }
             } catch (Exception var6) {
@@ -224,19 +228,20 @@ class Class155 {
 
          }
       } catch (RuntimeException var8) {
-         throw Class44.clientError(var8, "vh.Q(" + (byte) -34 + ')');
+         throw Class44.method1067(var8, "vh.Q(" + var1 + ')');
       }
    }
 
    final synchronized void method2154(int var1, Class3_Sub24 var2) {
       try {
+         int var3 = -128 / ((var1 - -58) / 54);
          this.aClass3_Sub24_1973 = var2;
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "vh.I(" + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.method1067(var4, "vh.I(" + var1 + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
-   private void method2155(Class3_Sub24 var1, int var2, byte var3) {
+   private final void method2155(Class3_Sub24 var1, int var2, byte var3) {
       try {
          if(var3 != -24) {
             this.method2155((Class3_Sub24)null, -105, (byte)87);
@@ -253,31 +258,34 @@ class Class155 {
          this.aClass3_Sub24Array1983[var4] = var1;
          var1.anInt2543 = var2;
       } catch (RuntimeException var6) {
-         throw Class44.clientError(var6, "vh.H(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ')');
+         throw Class44.method1067(var6, "vh.H(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ')');
       }
    }
 
-   static Class10 method2156(RSByteBuffer var1) {
+   static final Class10 method2156(int var0, RSByteBuffer var1) {
       try {
          Class10 var2 = new Class10();
-         var2.anInt149 = var1.getShort();
+         var2.anInt149 = var1.getShort(var0 + -1023);
+         if(var0 != 1024) {
+            method2162((GameObject)null, 34, 103, -93);
+         }
 
-         var2.aClass3_Sub28_Sub4_151 = Class3_Sub29.method733(var2.anInt149);
+         var2.aClass3_Sub28_Sub4_151 = Class3_Sub29.method733(12345678, var2.anInt149);
          return var2;
       } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "vh.M(" + 1024 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.method1067(var3, "vh.M(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
-   int method2157() {
+   int method2157() throws Exception {
       try {
          return this.anInt1990;
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "vh.B()");
+         throw Class44.method1067(var2, "vh.B()");
       }
    }
 
-   final synchronized void method2158() {
+   final synchronized void method2158(byte var1) {
       try {
          this.aBoolean1984 = true;
 
@@ -287,8 +295,10 @@ class Class155 {
             this.method2160();
             this.aLong1982 = Class5.method830((byte)-55) + 2000L;
          }
+
+         int var2 = 91 % ((var1 - 47) / 60);
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "vh.L(" + (byte) -78 + ')');
+         throw Class44.method1067(var4, "vh.L(" + var1 + ')');
       }
    }
 
@@ -296,32 +306,37 @@ class Class155 {
       try {
          this.aBoolean1984 = true;
          if(var1 <= 54) {
+            this.aBoolean1984 = true;
          }
 
       } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "vh.J(" + var1 + ')');
+         throw Class44.method1067(var3, "vh.J(" + var1 + ')');
       }
    }
 
    void method2160() {}
 
-   private void method2161() {
+   private final void method2161(int var1, int var2) {
       try {
-         this.anInt1987 -= 256;
+         this.anInt1987 -= var1;
          if(0 > this.anInt1987) {
             this.anInt1987 = 0;
          }
 
+         if(var2 != 1) {
+            this.aLong1972 = -60L;
+         }
+
          if(null != this.aClass3_Sub24_1973) {
-            this.aClass3_Sub24_1973.method415(256);
+            this.aClass3_Sub24_1973.method415(var1);
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "vh.K(" + 256 + ',' + 1 + ')');
+         throw Class44.method1067(var4, "vh.K(" + var1 + ',' + var2 + ')');
       }
    }
 
-   static void method2162(GameObject var0, int var1, int var2, int var3) {
+   static final void method2162(GameObject var0, int var1, int var2, int var3) {
       Class3_Sub2 var4;
       if(var2 < IOHandler.anInt1234) {
          var4 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var1][var2 + 1][var3];
@@ -353,7 +368,7 @@ class Class155 {
 
    }
 
-   final synchronized void method2163() {
+   final synchronized void method2163(boolean var1) {
       try {
          if(null != Class38_Sub1.aClass15_2613) {
             boolean var2 = true;
@@ -381,8 +396,11 @@ class Class155 {
 
          this.method2160();
          this.anIntArray1975 = null;
+         if(!var1) {
+            ;
+         }
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "vh.P(" + false + ')');
+         throw Class44.method1067(var4, "vh.P(" + var1 + ')');
       }
    }
 
@@ -399,7 +417,7 @@ class Class155 {
          anIntArray1969 = null;
          anIntArray1978 = null;
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "vh.G(" + var0 + ')');
+         throw Class44.method1067(var2, "vh.G(" + var0 + ')');
       }
    }
 

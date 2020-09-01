@@ -9,6 +9,7 @@ final class Class119 {
    static Class33 aClass33_1626;
    static WorldListCountry[] countries;
    static CacheIndex aClass153_1628;
+   static int anInt1629;
    static RSString aClass94_1630 = RSString.createRSString("Mem:");
 
 
@@ -25,11 +26,11 @@ final class Class119 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "qh.B(" + var0 + ')');
+         throw Class44.method1067(var2, "qh.B(" + var0 + ')');
       }
    }
 
-   static void method1729() {
+   static final void method1729(boolean var0) {
       try {
          Object var1;
          if(null == Class3_Sub13_Sub10.aFrame3121) {
@@ -79,40 +80,48 @@ final class Class119 {
             Class124.method1746(true, (byte)-125);
          }
 
+         if(!var0) {
+            method1728(39);
+         }
+
          Class80.method1396(-1);
       } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "qh.C(" + true + ')');
+         throw Class44.method1067(var3, "qh.C(" + var0 + ')');
       }
    }
 
-   static void method1730(Signlink var0) {
+   static final void method1730(Signlink var0, byte var1) {
       try {
-         Class122 var2 = null;
+         if(var1 == 14) {
+            Class122 var2 = null;
 
-         try {
-            Class64 var3 = var0.method1433("runescape", 12);
+            try {
+               Class64 var3 = var0.method1433("runescape", 12);
 
-            while(0 == var3.anInt978) {
-               Class3_Sub13_Sub34.method331(1L, 64);
+               while(0 == var3.anInt978) {
+                  Class3_Sub13_Sub34.method331(1L, 64);
+               }
+
+               if(var3.anInt978 == 1) {
+                  var2 = (Class122)var3.anObject974;
+                  RSByteBuffer var4 = Class23.method939((byte)-116);
+                  var2.method1738(116, var4.buffer, var4.index, 0);
+               }
+            } catch (Exception var6) {
+               ;
             }
 
-            if(var3.anInt978 == 1) {
-               var2 = (Class122)var3.anObject974;
-               RSByteBuffer var4 = Class23.method939();
-               var2.method1738(116, var4.buffer, var4.index, 0);
+            try {
+               if(var2 != null) {
+                  var2.close(1);
+               }
+            } catch (Exception var5) {
+               ;
             }
-         } catch (Exception var6) {
+
          }
-
-         try {
-            if(var2 != null) {
-               var2.close(1);
-            }
-         } catch (Exception var5) {
-         }
-
       } catch (RuntimeException var7) {
-         throw Class44.clientError(var7, "qh.A(" + (var0 != null?"{...}":"null") + ',' + (byte) 14 + ')');
+         throw Class44.method1067(var7, "qh.A(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }
    }
 

@@ -16,11 +16,15 @@ final class Class144_Sub1 extends Class144 {
       this.aByteBuffer2940.put(var2);
    }
 
-   final byte[] method2064() {
+   final byte[] method2064(int var1) {
       byte[] var2 = new byte[this.aByteBuffer2940.capacity()];
       this.aByteBuffer2940.position(0);
-       this.aByteBuffer2940.get(var2);
-       return var2;
+      if(var1 == 26) {
+         this.aByteBuffer2940.get(var2);
+         return var2;
+      } else {
+         return (byte[])null;
+      }
    }
 
 }

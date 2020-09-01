@@ -1,7 +1,5 @@
 package org.runite.jagex;
 
-import java.util.Objects;
-
 final class ObjectDefinition {
 
    private short[] aShortArray1476;
@@ -70,8 +68,9 @@ final class ObjectDefinition {
    boolean aBoolean1542;
 
 
-   final boolean method1684(int var2) {
+   final boolean method1684(int var1, int var2) {
       try {
+         int var3 = -1 % ((31 - var1) / 41);
          if(this.configuration != null) {
             for(int var7 = 0; var7 < this.configuration.length; ++var7) {
                if(this.configuration[var7] == var2) {
@@ -94,7 +93,7 @@ final class ObjectDefinition {
             return true;
          }
       } catch (RuntimeException var6) {
-         throw Class44.clientError(var6, "pb.H(" + 115 + ',' + var2 + ')');
+         throw Class44.method1067(var6, "pb.H(" + var1 + ',' + var2 + ')');
       }
    }
 
@@ -106,23 +105,23 @@ final class ObjectDefinition {
 
          int var2 = -1;
          if(this.ConfigFileId != -1) {
-            var2 = NPCDefinition.method1484(this.ConfigFileId);
+            var2 = NPCDefinition.method1484(64835055, this.ConfigFileId);
          } else if(this.ConfigId != -1) {
-            var2 = ItemDefinition.ram[this.ConfigId];
+            var2 = Class163_Sub1.anIntArray2985[this.ConfigId];
          }
 
          if(var2 >= 0 && this.ChildrenIds.length - 1 > var2 && this.ChildrenIds[var2] != -1) {
-            return Class162.getObjectDefinition(this.ChildrenIds[var2]);
+            return Class162.getObjectDefinition(4, this.ChildrenIds[var2]);
          } else {
             int var3 = this.ChildrenIds[-1 + this.ChildrenIds.length];
-            return var3 == -1 ?null:Class162.getObjectDefinition(var3);
+            return var3 == -1 ?null:Class162.getObjectDefinition(4, var3);
          }
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "pb.C(" + var1 + ')');
+         throw Class44.method1067(var4, "pb.C(" + var1 + ')');
       }
    }
 
-   private Model_Sub1 method1686(int var1, int var2) {
+   private final Model_Sub1 method1686(int var1, int var2, int var3) {
       try {
          Model_Sub1 var4 = null;
          boolean var5 = this.aBoolean1536;
@@ -149,9 +148,9 @@ final class ObjectDefinition {
                   var8 += 65536;
                }
 
-               var4 = (Model_Sub1)Class99.aClass93_1401.get((long)var8);
+               var4 = (Model_Sub1)Class99.aClass93_1401.get((long)var8, (byte)121);
                if(var4 == null) {
-                  var4 = Model_Sub1.method2015(Class69.aClass153_1043, var8 & '\uffff');
+                  var4 = Model_Sub1.method2015(Class69.aClass153_1043, var8 & '\uffff', 0);
                   if(var4 == null) {
                      return null;
                   }
@@ -190,9 +189,9 @@ final class ObjectDefinition {
                var7 += 65536;
             }
 
-            var4 = (Model_Sub1)Class99.aClass93_1401.get((long)var7);
+            var4 = (Model_Sub1)Class99.aClass93_1401.get((long)var7, (byte)121);
             if(null == var4) {
-               var4 = Model_Sub1.method2015(Class69.aClass153_1043, var7 & '\uffff');
+               var4 = Model_Sub1.method2015(Class69.aClass153_1043, var7 & '\uffff', 0);
                if(null == var4) {
                   return null;
                }
@@ -206,24 +205,36 @@ final class ObjectDefinition {
          }
 
          boolean var11;
-         var11 = 128 != this.anInt1479 || this.anInt1488 != 128 || 128 != this.anInt1481;
+         if(128 == this.anInt1479 && this.anInt1488 == 128 && 128 == this.anInt1481) {
+            var11 = false;
+         } else {
+            var11 = true;
+         }
 
          boolean var12;
-         var12 = this.anInt1496 != 0 || this.anInt1511 != 0 || 0 != this.SecondBool;
+         if(this.anInt1496 == 0 && this.anInt1511 == 0 && 0 == this.SecondBool) {
+            var12 = false;
+         } else {
+            var12 = true;
+         }
 
-         Model_Sub1 var13 = new Model_Sub1(Objects.requireNonNull(var4), var1 == 0 && !var11 && !var12, this.OriginalColors == null, null == this.aShortArray1476);
+         Model_Sub1 var13 = new Model_Sub1(var4, var3 == ~var1 && !var11 && !var12, this.OriginalColors == null, null == this.aShortArray1476, true);
          if(var2 == 4 && var1 > 3) {
-            var13.method2011();
+            var13.method2011(256);
             var13.method2001(45, 0, -45);
          }
 
          var1 &= 3;
          if(var1 == 1) {
             var13.method1991();
-         } else if (var1 == 2) {
-            var13.method1989();
-         } else if (3 == var1) {
-            var13.method2018();
+         } else {
+            if(var1 == 2) {
+               var13.method1989();
+            } else {
+               if(3 == var1) {
+                  var13.method2018();
+               }
+            }
          }
 
          int var9;
@@ -253,7 +264,7 @@ final class ObjectDefinition {
 
          return var13;
       } catch (RuntimeException var10) {
-         throw Class44.clientError(var10, "pb.O(" + var1 + ',' + var2 + ',' + -1 + ')');
+         throw Class44.method1067(var10, "pb.O(" + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
@@ -266,16 +277,18 @@ final class ObjectDefinition {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "pb.B(" + var0 + ')');
+         throw Class44.method1067(var2, "pb.B(" + var0 + ')');
       }
    }
 
-   static void method1688(int var0, int var1, int var2) {
+   static final Class72 method1688(int var0, int var1, int var2) {
       Class3_Sub2 var3 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2];
       if(var3 == null) {
+         return null;
       } else {
          Class72 var4 = var3.aClass72_2245;
          var3.aClass72_2245 = null;
+         return var4;
       }
    }
 
@@ -304,19 +317,22 @@ final class ObjectDefinition {
          }
 
       } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "pb.D(" + var1 + ')');
+         throw Class44.method1067(var3, "pb.D(" + var1 + ')');
       }
    }
 
-   final boolean method1690() {
+   final boolean method1690(int var1) {
       try {
          if(this.ChildrenIds == null) {
             return this.anInt1512 != -1 || this.anIntArray1539 != null;
          } else {
+            if(var1 != 28933) {
+               this.method1696(34, 54, (int[][])((int[][])null), 55, 80, (int[][])((int[][])null), true, (LDIndexedSprite)null, (byte)127, true, -38);
+            }
 
             for(int var2 = 0; this.ChildrenIds.length > var2; ++var2) {
                if(this.ChildrenIds[var2] != -1) {
-                  ObjectDefinition var3 = Class162.getObjectDefinition(this.ChildrenIds[var2]);
+                  ObjectDefinition var3 = Class162.getObjectDefinition(var1 + -28929, this.ChildrenIds[var2]);
                   if(var3.anInt1512 != -1 || var3.anIntArray1539 != null) {
                      return true;
                   }
@@ -326,7 +342,7 @@ final class ObjectDefinition {
             return false;
          }
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "pb.F(" + 28933 + ')');
+         throw Class44.method1067(var4, "pb.F(" + var1 + ')');
       }
    }
 
@@ -341,14 +357,14 @@ final class ObjectDefinition {
             return var4 != null?var4.anInt2467:var1;
          }
       } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "pb.N(" + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.method1067(var5, "pb.N(" + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
    final void method1692(int var1, RSByteBuffer var2) {
       try {
          while(true) {
-            int var3 = var2.getByteB();
+            int var3 = var2.getByte((byte)-89);
             if(var3 == 0) {
                if(var1 != 6219) {
                   this.method1696(105, -55, (int[][])((int[][])null), -39, 71, (int[][])((int[][])null), true, (LDIndexedSprite)null, (byte)-117, false, -25);
@@ -357,28 +373,31 @@ final class ObjectDefinition {
                return;
             }
 
-            this.parseOpcode(var2, var3);
+            this.parseOpcode(var2, var3, -80);
          }
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "pb.G(" + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.method1067(var4, "pb.G(" + var1 + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
-   private void parseOpcode(RSByteBuffer buffer, int opcode) {
+   private final void parseOpcode(RSByteBuffer buffer, int opcode, int var3) {
       try {
+         if(var3 != -80) {
+            this.anInt1522 = -122;
+         }
 
          int var4;
          int var5;
          if(1 == opcode) {
-            var4 = buffer.getByteB();
+            var4 = buffer.getByte((byte)-77);
             if(var4 > 0) {
                if(this.models == null || Class47.aBoolean742) {
                   this.configuration = new int[var4];
                   this.models = new int[var4];
 
                   for(var5 = 0; var4 > var5; ++var5) {
-                     this.models[var5] = buffer.getShort();
-                     this.configuration[var5] = buffer.getByteB();
+                     this.models[var5] = buffer.getShort(Class93.method1519(var3, -79));
+                     this.configuration[var5] = buffer.getByte((byte)-75);
                   }
                } else {
                   buffer.index += var4 * 3;
@@ -387,30 +406,30 @@ final class ObjectDefinition {
          } else if(opcode == 2) {
             this.name = buffer.getString();
          } else if(opcode == 5) {
-            var4 = buffer.getByteB();
+            var4 = buffer.getByte((byte)-62);
             if(var4 > 0) {
                if(null == this.models || Class47.aBoolean742) {
                   this.models = new int[var4];
                   this.configuration = null;
 
                   for(var5 = 0; var4 > var5; ++var5) {
-                     this.models[var5] = buffer.getShort();
+                     this.models[var5] = buffer.getShort(1);
                   }
                } else {
                   buffer.index += var4 * 2;
                }
             }
          } else if (opcode == 14) {
-            this.SizeX = buffer.getByteB();
+            this.SizeX = buffer.getByte((byte) -124);
          } else if (opcode == 15) {
-            this.SizeY = buffer.getByteB();
+            this.SizeY = buffer.getByte((byte) -42);
          } else if (opcode == 17) {
             this.ClipType = 0;
             this.ProjectileClipped = false;
          } else if (18 == opcode) {
             this.ProjectileClipped = false;
          } else if (opcode == 19) {
-            this.SecondInt = buffer.getByteB();
+            this.SecondInt = buffer.getByte((byte) -79);
          } else if (opcode == 21) {
             this.aByte1505 = 1;
          } else if (opcode == 22) {
@@ -418,14 +437,14 @@ final class ObjectDefinition {
          } else if (opcode == 23) {
             this.aBoolean1542 = true;
          } else if (opcode == 24) {
-            this.animationId = buffer.getShort();
+            this.animationId = buffer.getShort(var3 ^ -79);
             if (this.animationId == 65535) {
                this.animationId = -1;
             }
          } else if (opcode == 27) {
             this.ClipType = 1;
          } else if (28 == opcode) {
-            this.anInt1528 = buffer.getByteB();
+            this.anInt1528 = buffer.getByte((byte) -112);
          } else if (opcode == 29) {
             this.anInt1494 = buffer.getByte();
          } else if (39 == opcode) {
@@ -436,44 +455,44 @@ final class ObjectDefinition {
                this.options[-30 + opcode] = null;
             }
          } else if (opcode == 40) {
-            var4 = buffer.getByteB();
+            var4 = buffer.getByte((byte) -27);
             this.OriginalColors = new short[var4];
             this.ModifiedColors = new short[var4];
 
             for (var5 = 0; var5 < var4; ++var5) {
-               this.OriginalColors[var5] = (short) buffer.getShort();
-               this.ModifiedColors[var5] = (short) buffer.getShort();
+               this.OriginalColors[var5] = (short) buffer.getShort(1);
+               this.ModifiedColors[var5] = (short) buffer.getShort(1);
             }
          } else if (opcode == 41) {
-            var4 = buffer.getByteB();
+            var4 = buffer.getByte((byte) -79);
             this.aShortArray1495 = new short[var4];
             this.aShortArray1476 = new short[var4];
 
             for (var5 = 0; var4 > var5; ++var5) {
-               this.aShortArray1476[var5] = (short) buffer.getShort();
-               this.aShortArray1495[var5] = (short) buffer.getShort();
+               this.aShortArray1476[var5] = (short) buffer.getShort(1);
+               this.aShortArray1495[var5] = (short) buffer.getShort(Class93.method1519(var3, -79));
             }
          } else if (opcode == 42) {
-            var4 = buffer.getByteB();
+            var4 = buffer.getByte((byte) -118);
             this.aByteArray1513 = new byte[var4];
 
             for (var5 = 0; var4 > var5; ++var5) {
                this.aByteArray1513[var5] = buffer.getByte();
             }
          } else if (opcode == 60) {
-            this.MapIcon = buffer.getShort();
+            this.MapIcon = buffer.getShort(var3 ^ -79);
          } else if (opcode == 62) {
             this.aBoolean1536 = true;
          } else if (opcode == 64) {
             this.aBoolean1525 = false;
          } else if (opcode == 65) {
-            this.anInt1479 = buffer.getShort();
+            this.anInt1479 = buffer.getShort(1);
          } else if (opcode == 66) {
-            this.anInt1488 = buffer.getShort();
+            this.anInt1488 = buffer.getShort(1);
          } else if (opcode == 67) {
-            this.anInt1481 = buffer.getShort();
+            this.anInt1481 = buffer.getShort(var3 + 81);
          } else if (opcode == 69) {
-            this.WalkingFlag = buffer.getByteB();
+            this.WalkingFlag = buffer.getByte((byte) -55);
          } else if (70 == opcode) {
             this.anInt1496 = buffer.getShort((byte) 123);
          } else if (71 == opcode) {
@@ -485,31 +504,31 @@ final class ObjectDefinition {
          } else if (opcode == 74) {
             this.NotClipped = true;
          } else if (75 == opcode) {
-            this.anInt1540 = buffer.getByteB();
+            this.anInt1540 = buffer.getByte((byte) -66);
          } else if (opcode == 77 || opcode == 92) {
             var4 = -1;
-            this.ConfigFileId = buffer.getShort();
+            this.ConfigFileId = buffer.getShort(1);
             if ('\uffff' == this.ConfigFileId) {
                this.ConfigFileId = -1;
             }
 
-            this.ConfigId = buffer.getShort();
+            this.ConfigId = buffer.getShort(1);
             if ('\uffff' == this.ConfigId) {
                this.ConfigId = -1;
             }
 
             if (92 == opcode) {
-               var4 = buffer.getShort();
+               var4 = buffer.getShort(1);
                if (var4 == '\uffff') {
                   var4 = -1;
                }
             }
 
-            var5 = buffer.getByteB();
+            var5 = buffer.getByte((byte) -66);
             this.ChildrenIds = new int[var5 - -2];
 
             for (int var6 = 0; var5 >= var6; ++var6) {
-               this.ChildrenIds[var6] = buffer.getShort();
+               this.ChildrenIds[var6] = buffer.getShort(1);
                if ('\uffff' == this.ChildrenIds[var6]) {
                   this.ChildrenIds[var6] = -1;
                }
@@ -517,21 +536,21 @@ final class ObjectDefinition {
 
             this.ChildrenIds[1 + var5] = var4;
          } else if (78 == opcode) {
-            this.anInt1512 = buffer.getShort();
-            this.anInt1484 = buffer.getByteB();
+            this.anInt1512 = buffer.getShort(var3 + 81);
+            this.anInt1484 = buffer.getByte((byte) -90);
          } else if (opcode == 79) {
-            this.anInt1518 = buffer.getShort();
-            this.anInt1515 = buffer.getShort();
-            this.anInt1484 = buffer.getByteB();
-            var4 = buffer.getByteB();
+            this.anInt1518 = buffer.getShort(1);
+            this.anInt1515 = buffer.getShort(1);
+            this.anInt1484 = buffer.getByte((byte) -100);
+            var4 = buffer.getByte((byte) -95);
             this.anIntArray1539 = new int[var4];
 
             for (var5 = 0; var5 < var4; ++var5) {
-               this.anIntArray1539[var5] = buffer.getShort();
+               this.anIntArray1539[var5] = buffer.getShort(1);
             }
          } else if (81 == opcode) {
             this.aByte1505 = 2;
-            this.aShort1500 = (short) (256 * buffer.getByteB());
+            this.aShort1500 = (short) (256 * buffer.getByte((byte) -52));
          } else if (opcode == 82) {
             this.aBoolean1530 = true;
          } else if (opcode == 88) {
@@ -544,7 +563,7 @@ final class ObjectDefinition {
             this.aBoolean1491 = true;
          } else if (opcode == 93) {
             this.aByte1505 = 3;
-            this.aShort1500 = (short) buffer.getShort();
+            this.aShort1500 = (short) buffer.getShort(1);
          } else if (opcode == 94) {
             this.aByte1505 = 4;
          } else if (opcode == 95) {
@@ -556,24 +575,24 @@ final class ObjectDefinition {
          } else if (opcode == 98) {
             this.aBoolean1510 = true;
          } else if (opcode == 99) {
-            this.anInt1493 = buffer.getByteB();
-            this.anInt1517 = buffer.getShort();
+            this.anInt1493 = buffer.getByte((byte) -115);
+            this.anInt1517 = buffer.getShort(1);
          } else if (opcode == 100) {
-            this.anInt1520 = buffer.getByteB();
-            this.anInt1522 = buffer.getShort();
+            this.anInt1520 = buffer.getByte((byte) -27);
+            this.anInt1522 = buffer.getShort(var3 ^ -79);
          } else if (opcode == 101) {
-            this.anInt1478 = buffer.getByteB();
+            this.anInt1478 = buffer.getByte((byte) -114);
          } else if (opcode == 102) {
-            this.anInt1516 = buffer.getShort();
+            this.anInt1516 = buffer.getShort(1);
          } else if (249 == opcode) {
-            var4 = buffer.getByteB();
+            var4 = buffer.getByte((byte) -88);
             if (null == this.aClass130_1501) {
                var5 = Class95.method1585((byte) 83, var4);
                this.aClass130_1501 = new Class130(var5);
             }
 
             for (var5 = 0; var4 > var5; ++var5) {
-               boolean var10 = buffer.getByteB() == 1;
+               boolean var10 = buffer.getByte((byte) -84) == 1;
                int var7 = buffer.getTriByte((byte) 122);
                Object var8;
                if (var10) {
@@ -582,15 +601,15 @@ final class ObjectDefinition {
                   var8 = new Class3_Sub18(buffer.getInt());
                }
 
-               this.aClass130_1501.method1779((Class3) var8, (long) var7);
+               this.aClass130_1501.method1779(var3 ^ -79, (Class3) var8, (long) var7);
             }
          }
       } catch (RuntimeException var9) {
-         throw Class44.clientError(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + -80 + ')');
+         throw Class44.method1067(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + var3 + ')');
       }
    }
 
-   final boolean hasModels() {
+   final boolean hasModels(boolean var1) {
       try {
          if(null == this.models) {
             return true;
@@ -601,18 +620,18 @@ final class ObjectDefinition {
                var2 &= Class69.aClass153_1043.method2129((byte)64, 0, '\uffff' & this.models[var3]);
             }
 
-            return var2;
+            return var1?true:var2;
          }
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "pb.I(" + false + ')');
+         throw Class44.method1067(var4, "pb.I(" + var1 + ')');
       }
    }
 
-   private Class140_Sub1_Sub1 method1695(int var1, boolean var2, int var4) {
+   private final Class140_Sub1_Sub1 method1695(int var1, boolean var2, boolean var3, int var4) {
       try {
          int var6 = this.anInt1494 + 64;
          int var7 = 5 * this.anInt1489 + 768;
-         Class140_Sub1_Sub1 var5;
+         Class140_Sub1_Sub1 var5 = null;
          int var8;
          int var12;
          if(this.configuration == null) {
@@ -639,12 +658,12 @@ final class ObjectDefinition {
                var16 = ~var16;
             }
 
-            var5 = (Class140_Sub1_Sub1)Class99.aClass93_1401.get(var16);
+            var5 = (Class140_Sub1_Sub1)Class99.aClass93_1401.get(var16, (byte)121);
             if(null == var5) {
                Model_Sub1 var17 = null;
 
                for(var12 = 0; var12 < var8; ++var12) {
-                  var17 = Model_Sub1.method2015(Class69.aClass153_1043, this.models[var12] & '\uffff');
+                  var17 = Model_Sub1.method2015(Class69.aClass153_1043, this.models[var12] & '\uffff', 0);
                   if(null == var17) {
                      return null;
                   }
@@ -681,9 +700,9 @@ final class ObjectDefinition {
                var9 += 65536;
             }
 
-            var5 = (Class140_Sub1_Sub1)Class99.aClass93_1401.get((long)var9);
+            var5 = (Class140_Sub1_Sub1)Class99.aClass93_1401.get((long)var9, (byte)121);
             if(null == var5) {
-               Model_Sub1 var10 = Model_Sub1.method2015(Class69.aClass153_1043, '\uffff' & var9);
+               Model_Sub1 var10 = Model_Sub1.method2015(Class69.aClass153_1043, '\uffff' & var9, 0);
                if(null == var10) {
                   return null;
                }
@@ -700,13 +719,13 @@ final class ObjectDefinition {
 
          boolean var15 = 128 == this.anInt1488 && this.anInt1511 == 0;
          boolean var18 = var1 == 0 && 128 == this.anInt1479 && this.anInt1481 == 128 && this.anInt1496 == 0 && this.SecondBool == 0 && !var14;
-         Class140_Sub1_Sub1 var19 = var5.method1926(var18, var15, this.OriginalColors == null, var6 == var5.method1903(), var1 == 0 && !var14, true, var5.method1924() == var7, !var14, this.aShortArray1476 == null);
+         Class140_Sub1_Sub1 var19 = var5.method1926(var18, var15, this.OriginalColors == null, true, var6 == var5.method1903(), var1 == 0 && !var14, var3, var5.method1924() == var7, true, !var14, this.aShortArray1476 == null);
          if(var14) {
             var19.method1931();
          }
 
          if(var4 == 4 && 3 < var1) {
-            var19.method1932();
+            var19.method1932(256);
             var19.method1897(45, 0, -45);
          }
 
@@ -715,8 +734,10 @@ final class ObjectDefinition {
             var19.method1925();
          } else if(var1 == 2) {
             var19.method1911();
-         } else if (var1 == 3) {
-            var19.method1902();
+         } else {
+            if(var1 == 3) {
+               var19.method1902();
+            }
          }
 
          if(null != this.OriginalColors) {
@@ -749,7 +770,7 @@ final class ObjectDefinition {
 
          return var19;
       } catch (RuntimeException var13) {
-         throw Class44.clientError(var13, "pb.L(" + var1 + ',' + var2 + ',' + true + ',' + var4 + ')');
+         throw Class44.method1067(var13, "pb.L(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -766,11 +787,11 @@ final class ObjectDefinition {
                   var12 = (long)(var1 + (this.objectId << 10) - -(var4 << 3));
                }
 
-               Class136 var16 = (Class136)Class3_Sub28_Sub7_Sub1.aClass93_4051.get(var12);
+               Class136 var16 = (Class136)Class3_Sub28_Sub7_Sub1.aClass93_4051.get(var12, (byte)121);
                Class140_Sub1_Sub1 var14;
                LDIndexedSprite var15;
                if(null == var16) {
-                  var14 = this.method1695(var1, false, var4);
+                  var14 = this.method1695(var1, false, true, var4);
                   if(null == var14) {
                      Class100.aClass136_1413.aClass140_1777 = null;
                      Class100.aClass136_1413.aClass109_Sub1_1770 = null;
@@ -797,15 +818,16 @@ final class ObjectDefinition {
                }
 
                boolean var17 = this.aBoolean1541 & var7;
-               Class140_Sub1_Sub1 var18 = var14.method1926(3 != this.aByte1505, this.aByte1505 == 0, true, true, true, !var17, true, true, true);
+               Class140_Sub1_Sub1 var18 = var14.method1926(3 != this.aByte1505, this.aByte1505 == 0, true, true, true, true, !var17, true, true, true, true);
                if(this.aByte1505 != 0) {
                   var18.method1919(this.aByte1505, this.aShort1500, var14, var3, var6, var2, var5, var11);
                }
 
-               var18.method1920(this.SecondInt == 0 && !this.aBoolean1510, true, true, this.SecondInt == 0, true, false);
+               var18.method1920(this.SecondInt == 0 && !this.aBoolean1510, true, true, true, this.SecondInt == 0, true, false);
                Class100.aClass136_1413.aClass140_1777 = var18;
                var18.aBoolean3809 = var17;
                Class100.aClass136_1413.aClass109_Sub1_1770 = var15;
+               return Class100.aClass136_1413;
             } else {
                if(this.configuration == null) {
                   var12 = (long)((this.objectId << 10) + var1);
@@ -821,9 +843,9 @@ final class ObjectDefinition {
                   var20 = false;
                }
 
-               Object var22 = (GameObject)Class3_Sub28_Sub7_Sub1.aClass93_4051.get(var12);
+               Object var22 = (GameObject)Class3_Sub28_Sub7_Sub1.aClass93_4051.get(var12, (byte)121);
                if(null == var22) {
-                  Model_Sub1 var21 = this.method1686(var1, var4);
+                  Model_Sub1 var21 = this.method1686(var1, var4, -1);
                   if(var21 == null) {
                      Class100.aClass136_1413.aClass140_1777 = null;
                      return Class100.aClass136_1413;
@@ -831,7 +853,7 @@ final class ObjectDefinition {
 
                   var21.method2010();
                   if(var4 == 10 && var1 > 3) {
-                     var21.method2011();
+                     var21.method2011(256);
                   }
 
                   if(var20) {
@@ -853,24 +875,26 @@ final class ObjectDefinition {
                if(0 != this.aByte1505) {
                   if(var22 instanceof Class140_Sub1_Sub2) {
                      var22 = ((Class140_Sub1_Sub2)var22).method1941(this.aByte1505, this.aShort1500, var3, var6, var2, var5, var11, true);
-                  } else if (var22 instanceof Model_Sub1) {
-                     var22 = ((Model_Sub1) var22).method1999(this.aByte1505, this.aShort1500, var3, var6, var2, var5, var11);
+                  } else {
+                     if(var22 instanceof Model_Sub1) {
+                        var22 = ((Model_Sub1)var22).method1999(this.aByte1505, this.aShort1500, var3, var6, var2, var5, var11, true, false);
+                     }
                   }
                }
 
                Class100.aClass136_1413.aClass140_1777 = (GameObject)var22;
+               return Class100.aClass136_1413;
             }
-            return Class100.aClass136_1413;
          }
       } catch (RuntimeException var19) {
-         throw Class44.clientError(var19, "pb.A(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ',' + (var6 != null?"{...}":"null") + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + var9 + ',' + var10 + ',' + var11 + ')');
+         throw Class44.method1067(var19, "pb.A(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ',' + (var6 != null?"{...}":"null") + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + var9 + ',' + var10 + ',' + var11 + ')');
       }
    }
 
    final Class136 method1697(int var1, int var2, LDIndexedSprite var3, int var4, AnimationDefinition var5, int var6, int[][] var7, boolean var8, int var9, int var10, int[][] var11, int var12, int var13, int var14) {
       try {
          if(var10 != 8308) {
-            this.hasModels();
+            this.hasModels(false);
          }
 
          long var15;
@@ -881,22 +905,22 @@ final class ObjectDefinition {
                var15 = (long)((var13 << 3) + ((this.objectId << 10) - -var6));
             }
 
-            Class140_Sub1_Sub1 var23 = (Class140_Sub1_Sub1)Class154.aClass93_1965.get(var15);
+            Class140_Sub1_Sub1 var23 = (Class140_Sub1_Sub1)Class154.aClass93_1965.get(var15, (byte)121);
             if(var23 == null) {
-               var23 = this.method1695(var6, true, var13);
+               var23 = this.method1695(var6, true, true, var13);
                if(null == var23) {
                   return null;
                }
 
                var23.method1908();
-               var23.method1920(false, false, false, false, false, true);
+               var23.method1920(false, false, false, true, false, false, true);
                Class154.aClass93_1965.put((byte)-75, var23, var15);
             }
 
             boolean var19 = false;
             Class140_Sub1_Sub1 var22 = var23;
             if(null != var5) {
-               var22 = (Class140_Sub1_Sub1)var5.method2056(var12, var9, var14, var6, var23);
+               var22 = (Class140_Sub1_Sub1)var5.method2056(var12, var9, var14, var6, var23, 3);
                var19 = true;
             }
 
@@ -917,6 +941,7 @@ final class ObjectDefinition {
 
             if(this.aByte1505 != 0) {
                if(!var19) {
+                  var19 = true;
                   var22 = (Class140_Sub1_Sub1)var22.method1890(true, true, true);
                }
 
@@ -924,6 +949,7 @@ final class ObjectDefinition {
             }
 
             Class100.aClass136_1413.aClass140_1777 = var22;
+            return Class100.aClass136_1413;
          } else {
             if(this.configuration == null) {
                var15 = (long)((this.objectId << 10) + var6);
@@ -931,9 +957,9 @@ final class ObjectDefinition {
                var15 = (long)(var6 + (this.objectId << 10) + (var13 << 3));
             }
 
-            Class140_Sub1_Sub2 var17 = (Class140_Sub1_Sub2)Class154.aClass93_1965.get(var15);
+            Class140_Sub1_Sub2 var17 = (Class140_Sub1_Sub2)Class154.aClass93_1965.get(var15, (byte)121);
             if(var17 == null) {
-               Model_Sub1 var18 = this.method1686(var6, var13);
+               Model_Sub1 var18 = this.method1686(var6, var13, -1);
                if(var18 == null) {
                   return null;
                }
@@ -945,7 +971,7 @@ final class ObjectDefinition {
             boolean var21 = false;
             if(var5 != null) {
                var21 = true;
-               var17 = (Class140_Sub1_Sub2)var5.method2054(var9, var12, var17, var6, var14);
+               var17 = (Class140_Sub1_Sub2)var5.method2054(19749, var9, var12, var17, var6, var14);
             }
 
             if(var13 == 10 && var6 > 3) {
@@ -960,21 +986,25 @@ final class ObjectDefinition {
             if(this.aByte1505 != 0) {
                if(!var21) {
                   var17 = (Class140_Sub1_Sub2)var17.method1890(true, true, true);
+                  var21 = true;
                }
 
                var17 = var17.method1941(this.aByte1505, this.aShort1500, var7, var11, var2, var4, var1, false);
             }
 
             Class100.aClass136_1413.aClass140_1777 = var17;
+            return Class100.aClass136_1413;
          }
-         return Class100.aClass136_1413;
       } catch (RuntimeException var20) {
-         throw Class44.clientError(var20, "pb.M(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ',' + var6 + ',' + (var7 != null?"{...}":"null") + ',' + var8 + ',' + var9 + ',' + var10 + ',' + (var11 != null?"{...}":"null") + ',' + var12 + ',' + var13 + ',' + var14 + ')');
+         throw Class44.method1067(var20, "pb.M(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ',' + var6 + ',' + (var7 != null?"{...}":"null") + ',' + var8 + ',' + var9 + ',' + var10 + ',' + (var11 != null?"{...}":"null") + ',' + var12 + ',' + var13 + ',' + var14 + ')');
       }
    }
 
-   final RSString method1698(RSString var1, int var3) {
+   final RSString method1698(RSString var1, int var2, int var3) {
       try {
+         if(var2 != -23085) {
+            method1688(108, -11, 57);
+         }
 
          if(null == this.aClass130_1501) {
             return var1;
@@ -983,7 +1013,7 @@ final class ObjectDefinition {
             return var4 == null?var1:var4.aClass94_2586;
          }
       } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "pb.E(" + (var1 != null?"{...}":"null") + ',' + -23085 + ',' + var3 + ')');
+         throw Class44.method1067(var5, "pb.E(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ')');
       }
    }
 
