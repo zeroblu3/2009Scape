@@ -1,5 +1,6 @@
 package org.runite.jagex;
 import java.awt.Frame;
+import java.util.Objects;
 
 final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
@@ -7,42 +8,36 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
   
    static boolean[][] aBooleanArrayArray3118 = new boolean[][]{new boolean[0], {true, false, true}, {true, false, false, true}, {false, false, true, true}, {true, true, false}, {false, true, true}, {true, false, false, true}, {false, false, false, true, true}, {false, true, true}, {true, false, true, true, true}, {false, true, true, true, true}, {false, true, true, true, true, false}};
    static Frame aFrame3121;
-   static int anInt3122;
    static RSString COMMAND_NOCLIP = RSString.createRSString("::noclip");
    static Signlink aClass87_3125;
    private int anInt3126 = 2048;
    private int anInt3127 = 3072;
    private int anInt3128 = 1024;
 
-   static final int method210(int var0, int var1, int var2, int var3) {
+   static int method210(int var1, int var2, int var3) {
       try {
          if(var3 == var2) {
             return var2;
          } else {
             int var4 = -var1 + 128;
-            if(var0 != 18348) {
-               method213(82, -103, 50, -59, (GameObject)null, 126L, (GameObject)null, (GameObject)null);
-            }
 
-            int var5 = var1 * ((-16711936 & var3) >>> 7) + var4 * ((-16711936 & var2) >>> 7) & -16711936;
+             int var5 = var1 * ((-16711936 & var3) >>> 7) + var4 * ((-16711936 & var2) >>> 7) & -16711936;
             int var6 = var4 * (16711935 & var2) - -((var3 & 16711935) * var1) & -16711936;
             return var5 - -(var6 >> 7);
          }
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "fh.O(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var7, "fh.O(" + 18348 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3128 = var2.getShort(1);
-         } else {
-            if(var1 == 1) {
-               this.anInt3127 = var2.getShort(1);
-            } else if(var1 == 2) {
-               this.aBoolean2375 = var2.getByte((byte)-117) == 1;
-            }
+            this.anInt3128 = var2.getShort();
+         } else if (var1 == 1) {
+            this.anInt3127 = var2.getShort();
+         } else if (var1 == 2) {
+            this.aBoolean2375 = var2.getByteB() == 1;
          }
 
          if(!var3) {
@@ -50,7 +45,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "fh.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "fh.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
@@ -64,14 +59,13 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
          aBooleanArrayArray3118 = (boolean[][])null;
          aClass87_3125 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "fh.C(" + var0 + ')');
+         throw Class44.clientError(var2, "fh.C(" + var0 + ')');
       }
    }
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var3 = 71 / ((var2 - 30) / 36);
-         int[] var7 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var7 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
             int[] var4 = this.method152(0, var1, 32755);
 
@@ -82,16 +76,15 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
          return var7;
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "fh.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var6, "fh.D(" + var1 + ',' + var2 + ')');
       }
    }
 
-   static final void method212(long var0, int var2) {
+   static void method212(long var0) {
       try {
          if(0L != var0) {
-            for(int var3 = var2; Class3_Sub28_Sub5.anInt3591 > var3; ++var3) {
+            for(int var3 = 0; Class3_Sub28_Sub5.anInt3591 > var3; ++var3) {
                if(Class114.ignores[var3] == var0) {
-                  ++Class137.anInt1781;
                   --Class3_Sub28_Sub5.anInt3591;
 
                   for(int var4 = var3; var4 < Class3_Sub28_Sub5.anInt3591; ++var4) {
@@ -108,11 +101,11 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "fh.E(" + var0 + ',' + var2 + ')');
+         throw Class44.clientError(var5, "fh.E(" + var0 + ',' + 0 + ')');
       }
    }
 
-   static final void method213(int var0, int var1, int var2, int var3, GameObject var4, long var5, GameObject var7, GameObject var8) {
+   static void method213(int var0, int var1, int var2, int var3, GameObject var4, long var5, GameObject var7, GameObject var8) {
       Class72 var9 = new Class72();
       var9.aClass140_1073 = var4;
       var9.anInt1078 = var1 * 128 + 64;
@@ -143,7 +136,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
       Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2].aClass72_2245 = var9;
    }
 
-   static final void method214(GameObject var0, int var1, int var2, int var3, int var4, int var5) {
+   static void method214(GameObject var0, int var1, int var2, int var3, int var4, int var5) {
       boolean var6 = true;
       int var7 = var2;
       int var8 = var2 + var4;
@@ -191,7 +184,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
    }
 
-   static final void method215(byte var0, LDIndexedSprite var1) {
+   static void method215(byte var0, LDIndexedSprite var1) {
       try {
          short var2 = 256;
          int var3 = 0;
@@ -212,36 +205,26 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
          int var5;
          int var6;
-         for(var3 = 0; var3 < 20; ++var3) {
-            for(var4 = 1; var4 < -1 + var2; ++var4) {
-               for(var5 = 1; var5 < 127; ++var5) {
-                  var6 = var5 - -(var4 << 7);
-                  OutputStream_Sub1.anIntArray49[var6] = (Class161.anIntArray2026[128 + var6] + Class161.anIntArray2026[-1 + var6] + Class161.anIntArray2026[1 + var6] - -Class161.anIntArray2026[-128 + var6]) / 4;
-               }
-            }
-
-            int[] var10 = Class161.anIntArray2026;
-            Class161.anIntArray2026 = OutputStream_Sub1.anIntArray49;
-            OutputStream_Sub1.anIntArray49 = var10;
-         }
-
-         if(var1 != null) {
-            var3 = 0;
-
-            for(var4 = 0; var1.anInt1468 > var4; ++var4) {
-               for(var5 = 0; var1.anInt1461 > var5; ++var5) {
-                  if(var1.aByteArray2674[var3++] != 0) {
-                     var6 = var1.anInt1470 + var5 + 16;
-                     int var7 = var1.anInt1464 + (var4 - -16);
-                     int var8 = var6 - -(var7 << 7);
-                     Class161.anIntArray2026[var8] = 0;
+         try {
+            for (; true; ++var3) {
+               for (var4 = 1; true; ++var4) {
+                  for (var5 = 1; true; ++var5) {
+                     var6 = var5 - -(var4 << 7);
+                     OutputStream_Sub1.anIntArray49[var6] = (Class161.anIntArray2026[128 + var6] + Class161.anIntArray2026[-1 + var6] + Class161.anIntArray2026[1 + var6] - -Class161.anIntArray2026[-128 + var6]) / 4;
                   }
                }
             }
+         } catch (Exception e) {
+            System.out.println("breaking you out of the stupid endless triple for loop");
+            System.out.println("If you see this message it's a bug. this function should never run but it does sometimes for inexplicable reasons.");
+            System.out.println("Without this code here to break you out the game would crash.");
+            System.out.println("Once this client is deobbed fully this code will probably be deleted/unneeded");
+            System.out.println("- Your friendly neighborhood moth");
          }
 
+
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "fh.F(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var9, "fh.F(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
@@ -250,7 +233,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
          int[][] var3 = this.aClass97_2376.method1594((byte)-118, var2);
          if(this.aClass97_2376.aBoolean1379) {
             int[][] var4 = this.method162(var2, 0, (byte)-50);
-            int[] var6 = var4[1];
+            int[] var6 = Objects.requireNonNull(var4)[1];
             int[] var7 = var4[2];
             int[] var5 = var4[0];
             int[] var8 = var3[0];
@@ -270,7 +253,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var12) {
-         throw Class44.method1067(var12, "fh.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var12, "fh.T(" + var1 + ',' + var2 + ')');
       }
    }
 
@@ -280,7 +263,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
             this.anInt3126 = this.anInt3127 - this.anInt3128;
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fh.P(" + var1 + ')');
+         throw Class44.clientError(var3, "fh.P(" + var1 + ')');
       }
    }
 
@@ -288,11 +271,11 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
       super(1, false);
    }
 
-   static final void method216(RSByteBuffer var0, int var1) {
+   static void method216(RSByteBuffer var0) {
       try {
          for(int var2 = 0; var2 < Class57.activeWorldListSize; ++var2) {
-            int var3 = var0.getSmart(true);
-            int var4 = var0.getShort(1);
+            int var3 = var0.getSmart();
+            int var4 = var0.getShort();
             if(var4 == 65535) {
                var4 = -1;
             }
@@ -302,12 +285,8 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
             }
          }
 
-         if(var1 != -14991) {
-            COMMAND_NOCLIP = (RSString)null;
-         }
-
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "fh.Q(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var5, "fh.Q(" + (var0 != null?"{...}":"null") + ',' + -14991 + ')');
       }
    }
 

@@ -81,7 +81,7 @@ final class Model_Sub1 extends GameObject {
       this.method2007();
    }
 
-   private final void method1992(int var1) {
+   private void method1992(int var1) {
       int var2 = anIntArray2871[var1];
       int var3 = anIntArray2863[var1];
 
@@ -94,7 +94,7 @@ final class Model_Sub1 extends GameObject {
       this.method2007();
    }
 
-   private final void method1993() {
+   private void method1993() {
       if(!this.aBoolean2853) {
          this.aBoolean2853 = true;
          int var1 = 32767;
@@ -152,11 +152,11 @@ final class Model_Sub1 extends GameObject {
       this.method2007();
    }
 
-   final GameObject method1861(int var1, int var2, int var3) {
-      return this.method2008(this.aShort2879, this.aShort2876, var1, var2, var3);
+   final GameObject method1861() {
+      return this.method2008(this.aShort2879, this.aShort2876, -50, -10, -50);
    }
 
-   private final int method1995(Model_Sub1 var1, int var2, short var3) {
+   private int method1995(Model_Sub1 var1, int var2, short var3) {
       int var4 = var1.anIntArray2885[var2];
       int var5 = var1.anIntArray2881[var2];
       int var6 = var1.anIntArray2892[var2];
@@ -179,10 +179,7 @@ final class Model_Sub1 extends GameObject {
       return this.anInt2887++;
    }
 
-   private final void method1996(int[][] var1, int var2, int var3, int var4, int var5, int var6) {
-      boolean var7 = false;
-      boolean var8 = false;
-      boolean var9 = false;
+   private void method1996(int[][] var1, int var2, int var3, int var4, int var5, int var6) {
       int var10 = -var5 / 2;
       int var11 = -var6 / 2;
       int var12 = method2009(var1, var2 + var10, var4 + var11);
@@ -312,7 +309,7 @@ final class Model_Sub1 extends GameObject {
       }
    }
 
-   final Model_Sub1 method1999(int var1, int var2, int[][] var3, int[][] var4, int var5, int var6, int var7, boolean var8, boolean var9) {
+   final Model_Sub1 method1999(int var1, int var2, int[][] var3, int[][] var4, int var5, int var6, int var7) {
       this.method1993();
       int var10 = var5 + this.aShort2850;
       int var11 = var5 + this.aShort2873;
@@ -340,53 +337,49 @@ final class Model_Sub1 extends GameObject {
          }
 
           Model_Sub1 var14;
-         if(var8) {
-            var14 = new Model_Sub1();
-            var14.anInt2887 = this.anInt2887;
-            var14.anInt2849 = this.anInt2849;
-            var14.anInt2862 = this.anInt2862;
-            var14.anIntArray2865 = this.anIntArray2865;
-            var14.anIntArray2878 = this.anIntArray2878;
-            var14.anIntArray2864 = this.anIntArray2864;
-            var14.aByteArray2859 = this.aByteArray2859;
-            var14.aByteArray2889 = this.aByteArray2889;
-            var14.aByteArray2843 = this.aByteArray2843;
-            var14.aByteArray2866 = this.aByteArray2866;
-            var14.aShortArray2870 = this.aShortArray2870;
-            var14.aShortArray2858 = this.aShortArray2858;
-            var14.aByte2848 = this.aByte2848;
-            var14.aByteArray2857 = this.aByteArray2857;
-            var14.aShortArray2884 = this.aShortArray2884;
-            var14.aShortArray2846 = this.aShortArray2846;
-            var14.aShortArray2891 = this.aShortArray2891;
-            var14.aShortArray2888 = this.aShortArray2888;
-            var14.aShortArray2882 = this.aShortArray2882;
-            var14.aShortArray2851 = this.aShortArray2851;
-            var14.aByteArray2845 = this.aByteArray2845;
-            var14.aByteArray2867 = this.aByteArray2867;
-            var14.aByteArray2877 = this.aByteArray2877;
-            var14.aByteArray2852 = this.aByteArray2852;
-            var14.aByteArray2869 = this.aByteArray2869;
-            var14.anIntArray2860 = this.anIntArray2860;
-            var14.anIntArray2847 = this.anIntArray2847;
-            var14.anIntArrayArray2890 = this.anIntArrayArray2890;
-            var14.anIntArrayArray2856 = this.anIntArrayArray2856;
-            var14.aShort2879 = this.aShort2879;
-            var14.aShort2876 = this.aShort2876;
-            var14.aClass50Array2872 = this.aClass50Array2872;
-            var14.aClass120Array2886 = this.aClass120Array2886;
-            var14.aClass50Array2883 = this.aClass50Array2883;
-            if(var1 == 3) {
-               var14.anIntArray2885 = Class65.method1233(this.anIntArray2885, 2);
-               var14.anIntArray2881 = Class65.method1233(this.anIntArray2881, 2);
-               var14.anIntArray2892 = Class65.method1233(this.anIntArray2892, 2);
-            } else {
-               var14.anIntArray2885 = this.anIntArray2885;
-               var14.anIntArray2881 = new int[var14.anInt2887];
-               var14.anIntArray2892 = this.anIntArray2892;
-            }
+         var14 = new Model_Sub1();
+         var14.anInt2887 = this.anInt2887;
+         var14.anInt2849 = this.anInt2849;
+         var14.anInt2862 = this.anInt2862;
+         var14.anIntArray2865 = this.anIntArray2865;
+         var14.anIntArray2878 = this.anIntArray2878;
+         var14.anIntArray2864 = this.anIntArray2864;
+         var14.aByteArray2859 = this.aByteArray2859;
+         var14.aByteArray2889 = this.aByteArray2889;
+         var14.aByteArray2843 = this.aByteArray2843;
+         var14.aByteArray2866 = this.aByteArray2866;
+         var14.aShortArray2870 = this.aShortArray2870;
+         var14.aShortArray2858 = this.aShortArray2858;
+         var14.aByte2848 = this.aByte2848;
+         var14.aByteArray2857 = this.aByteArray2857;
+         var14.aShortArray2884 = this.aShortArray2884;
+         var14.aShortArray2846 = this.aShortArray2846;
+         var14.aShortArray2891 = this.aShortArray2891;
+         var14.aShortArray2888 = this.aShortArray2888;
+         var14.aShortArray2882 = this.aShortArray2882;
+         var14.aShortArray2851 = this.aShortArray2851;
+         var14.aByteArray2845 = this.aByteArray2845;
+         var14.aByteArray2867 = this.aByteArray2867;
+         var14.aByteArray2877 = this.aByteArray2877;
+         var14.aByteArray2852 = this.aByteArray2852;
+         var14.aByteArray2869 = this.aByteArray2869;
+         var14.anIntArray2860 = this.anIntArray2860;
+         var14.anIntArray2847 = this.anIntArray2847;
+         var14.anIntArrayArray2890 = this.anIntArrayArray2890;
+         var14.anIntArrayArray2856 = this.anIntArrayArray2856;
+         var14.aShort2879 = this.aShort2879;
+         var14.aShort2876 = this.aShort2876;
+         var14.aClass50Array2872 = this.aClass50Array2872;
+         var14.aClass120Array2886 = this.aClass120Array2886;
+         var14.aClass50Array2883 = this.aClass50Array2883;
+         if(var1 == 3) {
+            var14.anIntArray2885 = Class65.method1233(this.anIntArray2885, 2);
+            var14.anIntArray2881 = Class65.method1233(this.anIntArray2881, 2);
+            var14.anIntArray2892 = Class65.method1233(this.anIntArray2892, 2);
          } else {
-            var14 = this;
+            var14.anIntArray2885 = this.anIntArray2885;
+            var14.anIntArray2881 = new int[var14.anInt2887];
+            var14.anIntArray2892 = this.anIntArray2892;
          }
 
          int var15;
@@ -473,18 +466,14 @@ final class Model_Sub1 extends GameObject {
             }
          }
 
-         if(var9) {
-            var14.method2007();
-         } else {
-            this.aBoolean2853 = false;
-         }
+         this.aBoolean2853 = false;
 
          return var14;
       }
    }
 
-   final Class140_Sub1_Sub2 method2000(int var1, int var2, int var3, int var4, int var5) {
-      return new Class140_Sub1_Sub2(this, var1, var2, var3, var4, var5);
+   final Class140_Sub1_Sub2 method2000(int var1, int var2) {
+      return new Class140_Sub1_Sub2(this, var1, var2, -50, -10, -50);
    }
 
    final void method1867(int var1, int var2, int var3, int var4, int var5) {}
@@ -518,7 +507,7 @@ final class Model_Sub1 extends GameObject {
       return true;
    }
 
-   private final void method2003(byte[] var1) {
+   private void method2003(byte[] var1) {
       RSByteBuffer var2 = new RSByteBuffer(var1);
       RSByteBuffer var3 = new RSByteBuffer(var1);
       RSByteBuffer var4 = new RSByteBuffer(var1);
@@ -527,22 +516,22 @@ final class Model_Sub1 extends GameObject {
       RSByteBuffer var7 = new RSByteBuffer(var1);
       RSByteBuffer var8 = new RSByteBuffer(var1);
       var2.index = var1.length - 23;
-      int var9 = var2.getShort(1);
-      int var10 = var2.getShort(1);
-      int var11 = var2.getByte((byte)-100);
-      int var12 = var2.getByte((byte)-35);
+      int var9 = var2.getShort();
+      int var10 = var2.getShort();
+      int var11 = var2.getByteB();
+      int var12 = var2.getByteB();
       boolean var13 = (var12 & 1) == 1;
       boolean var14 = (var12 & 2) == 2;
-      int var15 = var2.getByte((byte)-35);
-      int var16 = var2.getByte((byte)-99);
-      int var17 = var2.getByte((byte)-25);
-      int var18 = var2.getByte((byte)-73);
-      int var19 = var2.getByte((byte)-94);
-      int var20 = var2.getShort(1);
-      int var21 = var2.getShort(1);
-      int var22 = var2.getShort(1);
-      int var23 = var2.getShort(1);
-      int var24 = var2.getShort(1);
+      int var15 = var2.getByteB();
+      int var16 = var2.getByteB();
+      int var17 = var2.getByteB();
+      int var18 = var2.getByteB();
+      int var19 = var2.getByteB();
+      int var20 = var2.getShort();
+      int var21 = var2.getShort();
+      int var22 = var2.getShort();
+      int var23 = var2.getShort();
+      int var24 = var2.getShort();
       int var25 = 0;
       int var26 = 0;
       int var27 = 0;
@@ -698,7 +687,7 @@ final class Model_Sub1 extends GameObject {
       int var57;
       int var56;
       for(var53 = 0; var53 < var9; ++var53) {
-         var54 = var2.getByte((byte)-28);
+         var54 = var2.getByteB();
          var55 = 0;
          if((var54 & 1) != 0) {
             var55 = var3.getSmart(-21208);
@@ -721,7 +710,7 @@ final class Model_Sub1 extends GameObject {
          var51 = this.anIntArray2881[var53];
          var52 = this.anIntArray2892[var53];
          if(var19 == 1) {
-            this.anIntArray2860[var53] = var6.getByte((byte)-32);
+            this.anIntArray2860[var53] = var6.getByteB();
          }
       }
 
@@ -734,7 +723,7 @@ final class Model_Sub1 extends GameObject {
       var8.index = var38;
 
       for(var53 = 0; var53 < var10; ++var53) {
-         this.aShortArray2870[var53] = (short)var2.getShort(1);
+         this.aShortArray2870[var53] = (short)var2.getShort();
          if(var13) {
             this.aByteArray2859[var53] = var3.getByte();
          }
@@ -748,18 +737,18 @@ final class Model_Sub1 extends GameObject {
          }
 
          if(var17 == 1) {
-            this.anIntArray2847[var53] = var6.getByte((byte)-115);
+            this.anIntArray2847[var53] = var6.getByteB();
          }
 
          if(var18 == 1) {
-            this.aShortArray2858[var53] = (short)(var7.getShort(1) - 1);
+            this.aShortArray2858[var53] = (short)(var7.getShort() - 1);
          }
 
          if(this.aByteArray2866 != null) {
             if(this.aShortArray2858[var53] == -1) {
                this.aByteArray2866[var53] = -1;
             } else {
-               this.aByteArray2866[var53] = (byte)(var8.getByte((byte)-28) - 1);
+               this.aByteArray2866[var53] = (byte)(var8.getByteB() - 1);
             }
          }
       }
@@ -773,7 +762,7 @@ final class Model_Sub1 extends GameObject {
 
       int var58;
       for(var57 = 0; var57 < var10; ++var57) {
-         var58 = var3.getByte((byte)-83);
+         var58 = var3.getByteB();
          if(var58 == 1) {
             var53 = var2.getSmart(-21208) + var56;
             var54 = var2.getSmart(-21208) + var53;
@@ -824,30 +813,30 @@ final class Model_Sub1 extends GameObject {
       for(var57 = 0; var57 < var11; ++var57) {
          var58 = this.aByteArray2857[var57] & 255;
          if(var58 == 0) {
-            this.aShortArray2884[var57] = (short)var2.getShort(1);
-            this.aShortArray2846[var57] = (short)var2.getShort(1);
-            this.aShortArray2891[var57] = (short)var2.getShort(1);
+            this.aShortArray2884[var57] = (short)var2.getShort();
+            this.aShortArray2846[var57] = (short)var2.getShort();
+            this.aShortArray2891[var57] = (short)var2.getShort();
          }
 
          if(var58 == 1) {
-            this.aShortArray2884[var57] = (short)var3.getShort(1);
-            this.aShortArray2846[var57] = (short)var3.getShort(1);
-            this.aShortArray2891[var57] = (short)var3.getShort(1);
-            this.aShortArray2888[var57] = (short)var4.getShort(1);
-            this.aShortArray2882[var57] = (short)var4.getShort(1);
-            this.aShortArray2851[var57] = (short)var4.getShort(1);
+            this.aShortArray2884[var57] = (short)var3.getShort();
+            this.aShortArray2846[var57] = (short)var3.getShort();
+            this.aShortArray2891[var57] = (short)var3.getShort();
+            this.aShortArray2888[var57] = (short)var4.getShort();
+            this.aShortArray2882[var57] = (short)var4.getShort();
+            this.aShortArray2851[var57] = (short)var4.getShort();
             this.aByteArray2845[var57] = var5.getByte();
             this.aByteArray2867[var57] = var6.getByte();
             this.aByteArray2877[var57] = var7.getByte();
          }
 
          if(var58 == 2) {
-            this.aShortArray2884[var57] = (short)var3.getShort(1);
-            this.aShortArray2846[var57] = (short)var3.getShort(1);
-            this.aShortArray2891[var57] = (short)var3.getShort(1);
-            this.aShortArray2888[var57] = (short)var4.getShort(1);
-            this.aShortArray2882[var57] = (short)var4.getShort(1);
-            this.aShortArray2851[var57] = (short)var4.getShort(1);
+            this.aShortArray2884[var57] = (short)var3.getShort();
+            this.aShortArray2846[var57] = (short)var3.getShort();
+            this.aShortArray2891[var57] = (short)var3.getShort();
+            this.aShortArray2888[var57] = (short)var4.getShort();
+            this.aShortArray2882[var57] = (short)var4.getShort();
+            this.aShortArray2851[var57] = (short)var4.getShort();
             this.aByteArray2845[var57] = var5.getByte();
             this.aByteArray2867[var57] = var6.getByte();
             this.aByteArray2877[var57] = var7.getByte();
@@ -856,12 +845,12 @@ final class Model_Sub1 extends GameObject {
          }
 
          if(var58 == 3) {
-            this.aShortArray2884[var57] = (short)var3.getShort(1);
-            this.aShortArray2846[var57] = (short)var3.getShort(1);
-            this.aShortArray2891[var57] = (short)var3.getShort(1);
-            this.aShortArray2888[var57] = (short)var4.getShort(1);
-            this.aShortArray2882[var57] = (short)var4.getShort(1);
-            this.aShortArray2851[var57] = (short)var4.getShort(1);
+            this.aShortArray2884[var57] = (short)var3.getShort();
+            this.aShortArray2846[var57] = (short)var3.getShort();
+            this.aShortArray2891[var57] = (short)var3.getShort();
+            this.aShortArray2888[var57] = (short)var4.getShort();
+            this.aShortArray2882[var57] = (short)var4.getShort();
+            this.aShortArray2851[var57] = (short)var4.getShort();
             this.aByteArray2845[var57] = var5.getByte();
             this.aByteArray2867[var57] = var6.getByte();
             this.aByteArray2877[var57] = var7.getByte();
@@ -870,12 +859,12 @@ final class Model_Sub1 extends GameObject {
 
       if(var14) {
          var2.index = var28;
-         var57 = var2.getByte((byte)-53);
+         var57 = var2.getByteB();
          if(var57 > 0) {
             var2.index += 4 * var57;
          }
 
-         var58 = var2.getByte((byte)-42);
+         var58 = var2.getByteB();
          if(var58 > 0) {
             var2.index += 4 * var58;
          }
@@ -888,9 +877,7 @@ final class Model_Sub1 extends GameObject {
       if(this.aByteArray2859 != null) {
          var1.aByteArray2859 = new byte[this.anInt2849];
 
-         for(int var2 = 0; var2 < this.anInt2849; ++var2) {
-            var1.aByteArray2859[var2] = this.aByteArray2859[var2];
-         }
+          if (this.anInt2849 >= 0) System.arraycopy(this.aByteArray2859, 0, var1.aByteArray2859, 0, this.anInt2849);
       }
 
       var1.anInt2887 = this.anInt2887;
@@ -931,19 +918,19 @@ final class Model_Sub1 extends GameObject {
       return var1;
    }
 
-   final int method2005(int var1, int var2, int var3, byte var4, short var5, byte var6) {
+   final void method2005(int var1, int var2, int var3, short var5, byte var6) {
       this.anIntArray2865[this.anInt2849] = var1;
       this.anIntArray2878[this.anInt2849] = var2;
       this.anIntArray2864[this.anInt2849] = var3;
-      this.aByteArray2859[this.anInt2849] = var4;
+      this.aByteArray2859[this.anInt2849] = (byte) 1;
       this.aByteArray2866[this.anInt2849] = -1;
       this.aShortArray2870[this.anInt2849] = var5;
       this.aShortArray2858[this.anInt2849] = -1;
       this.aByteArray2843[this.anInt2849] = var6;
-      return this.anInt2849++;
+       this.anInt2849++;
    }
 
-   private final void method2006(int var1) {
+   private void method2006(int var1) {
       int var2 = anIntArray2871[var1];
       int var3 = anIntArray2863[var1];
 
@@ -956,7 +943,7 @@ final class Model_Sub1 extends GameObject {
       this.method2007();
    }
 
-   private final void method2007() {
+   private void method2007() {
       this.aClass50Array2872 = null;
       this.aClass50Array2883 = null;
       this.aClass120Array2886 = null;
@@ -973,7 +960,7 @@ final class Model_Sub1 extends GameObject {
       }
    }
 
-   private static final int method2009(int[][] var0, int var1, int var2) {
+   private static int method2009(int[][] var0, int var1, int var2) {
       int var3 = var1 >> 7;
       int var4 = var2 >> 7;
       if(var3 >= 0 && var4 >= 0 && var3 < var0.length && var4 < var0[0].length) {
@@ -1085,9 +1072,9 @@ final class Model_Sub1 extends GameObject {
       }
    }
 
-   final void method2011(int var1) {
-      int var2 = anIntArray2871[var1];
-      int var3 = anIntArray2863[var1];
+   final void method2011() {
+      int var2 = anIntArray2871[256];
+      int var3 = anIntArray2863[256];
 
       for(int var4 = 0; var4 < this.anInt2887; ++var4) {
          int var5 = this.anIntArray2892[var4] * var2 + this.anIntArray2885[var4] * var3 >> 16;
@@ -1197,21 +1184,21 @@ final class Model_Sub1 extends GameObject {
 
    }
 
-   final int method2014(int var1, int var2, int var3) {
+   final int method2014(int var1, int var3) {
       for(int var4 = 0; var4 < this.anInt2887; ++var4) {
-         if(this.anIntArray2885[var4] == var1 && this.anIntArray2881[var4] == var2 && this.anIntArray2892[var4] == var3) {
+         if(this.anIntArray2885[var4] == var1 && this.anIntArray2881[var4] == 0 && this.anIntArray2892[var4] == var3) {
             return var4;
          }
       }
 
       this.anIntArray2885[this.anInt2887] = var1;
-      this.anIntArray2881[this.anInt2887] = var2;
+      this.anIntArray2881[this.anInt2887] = 0;
       this.anIntArray2892[this.anInt2887] = var3;
       return this.anInt2887++;
    }
 
-   static final Model_Sub1 method2015(CacheIndex var0, int var1, int var2) {
-      byte[] var3 = var0.getFile(var1, (byte)-122, var2);
+   static Model_Sub1 method2015(CacheIndex var0, int var1) {
+      byte[] var3 = var0.getFile(var1, 0);
       return var3 == null?null:new Model_Sub1(var3);
    }
 
@@ -1224,7 +1211,7 @@ final class Model_Sub1 extends GameObject {
 
    }
 
-   private final void method2017(byte[] var1) {
+   private void method2017(byte[] var1) {
       boolean var2 = false;
       boolean var3 = false;
       RSByteBuffer var4 = new RSByteBuffer(var1);
@@ -1233,18 +1220,18 @@ final class Model_Sub1 extends GameObject {
       RSByteBuffer var7 = new RSByteBuffer(var1);
       RSByteBuffer var8 = new RSByteBuffer(var1);
       var4.index = var1.length - 18;
-      int var9 = var4.getShort(1);
-      int var10 = var4.getShort(1);
-      int var11 = var4.getByte((byte)-61);
-      int var12 = var4.getByte((byte)-24);
-      int var13 = var4.getByte((byte)-114);
-      int var14 = var4.getByte((byte)-73);
-      int var15 = var4.getByte((byte)-77);
-      int var16 = var4.getByte((byte)-47);
-      int var17 = var4.getShort(1);
-      int var18 = var4.getShort(1);
-      int var19 = var4.getShort(1);
-      int var20 = var4.getShort(1);
+      int var9 = var4.getShort();
+      int var10 = var4.getShort();
+      int var11 = var4.getByteB();
+      int var12 = var4.getByteB();
+      int var13 = var4.getByteB();
+      int var14 = var4.getByteB();
+      int var15 = var4.getByteB();
+      int var16 = var4.getByteB();
+      int var17 = var4.getShort();
+      int var18 = var4.getShort();
+      var4.getShort();
+      int var20 = var4.getShort();
       byte var21 = 0;
       int var45 = var21 + var9;
       int var23 = var45;
@@ -1284,7 +1271,6 @@ final class Model_Sub1 extends GameObject {
       var45 += var17;
       int var33 = var45;
       var45 += var18;
-      int var10000 = var45 + var19;
       this.anInt2887 = var9;
       this.anInt2849 = var10;
       this.anInt2862 = var11;
@@ -1341,7 +1327,7 @@ final class Model_Sub1 extends GameObject {
       int var40;
       int var41;
       for(var38 = 0; var38 < var9; ++var38) {
-         var39 = var4.getByte((byte)-51);
+         var39 = var4.getByteB();
          var40 = 0;
          if((var39 & 1) != 0) {
             var40 = var5.getSmart(-21208);
@@ -1364,7 +1350,7 @@ final class Model_Sub1 extends GameObject {
          var36 = this.anIntArray2881[var38];
          var37 = this.anIntArray2892[var38];
          if(var16 == 1) {
-            this.anIntArray2860[var38] = var8.getByte((byte)-62);
+            this.anIntArray2860[var38] = var8.getByteB();
          }
       }
 
@@ -1375,9 +1361,9 @@ final class Model_Sub1 extends GameObject {
       var8.index = var25;
 
       for(var38 = 0; var38 < var10; ++var38) {
-         this.aShortArray2870[var38] = (short)var4.getShort(1);
+         this.aShortArray2870[var38] = (short)var4.getShort();
          if(var12 == 1) {
-            var39 = var5.getByte((byte)-40);
+            var39 = var5.getByteB();
             if((var39 & 1) == 1) {
                this.aByteArray2859[var38] = 1;
                var2 = true;
@@ -1407,7 +1393,7 @@ final class Model_Sub1 extends GameObject {
          }
 
          if(var15 == 1) {
-            this.anIntArray2847[var38] = var8.getByte((byte)-47);
+            this.anIntArray2847[var38] = var8.getByteB();
          }
       }
 
@@ -1421,7 +1407,7 @@ final class Model_Sub1 extends GameObject {
       int var43;
       int var44;
       for(var42 = 0; var42 < var10; ++var42) {
-         var43 = var5.getByte((byte)-55);
+         var43 = var5.getByteB();
          if(var43 == 1) {
             var38 = var4.getSmart(-21208) + var41;
             var39 = var4.getSmart(-21208) + var38;
@@ -1466,9 +1452,9 @@ final class Model_Sub1 extends GameObject {
 
       for(var42 = 0; var42 < var11; ++var42) {
          this.aByteArray2857[var42] = 0;
-         this.aShortArray2884[var42] = (short)var4.getShort(1);
-         this.aShortArray2846[var42] = (short)var4.getShort(1);
-         this.aShortArray2891[var42] = (short)var4.getShort(1);
+         this.aShortArray2884[var42] = (short)var4.getShort();
+         this.aShortArray2846[var42] = (short)var4.getShort();
+         this.aShortArray2891[var42] = (short)var4.getShort();
       }
 
       if(this.aByteArray2866 != null) {
@@ -1521,7 +1507,7 @@ final class Model_Sub1 extends GameObject {
 
    }
 
-   Model_Sub1(int var1, int var2, int var3) {
+   Model_Sub1(int var1, int var2) {
       this.anIntArray2885 = new int[var1];
       this.anIntArray2881 = new int[var1];
       this.anIntArray2892 = new int[var1];
@@ -1536,20 +1522,6 @@ final class Model_Sub1 extends GameObject {
       this.aShortArray2858 = new short[var2];
       this.aByteArray2866 = new byte[var2];
       this.anIntArray2847 = new int[var2];
-      if(var3 > 0) {
-         this.aByteArray2857 = new byte[var3];
-         this.aShortArray2884 = new short[var3];
-         this.aShortArray2846 = new short[var3];
-         this.aShortArray2891 = new short[var3];
-         this.aShortArray2888 = new short[var3];
-         this.aShortArray2882 = new short[var3];
-         this.aShortArray2851 = new short[var3];
-         this.aByteArray2845 = new byte[var3];
-         this.aByteArray2867 = new byte[var3];
-         this.aByteArray2877 = new byte[var3];
-         this.aByteArray2852 = new byte[var3];
-         this.aByteArray2869 = new byte[var3];
-      }
 
    }
 
@@ -1563,8 +1535,6 @@ final class Model_Sub1 extends GameObject {
       this.anInt2887 = 0;
       this.anInt2849 = 0;
       this.anInt2862 = 0;
-      byte var9 = 0;
-      byte var10 = 0;
       this.aByte2848 = -1;
 
       int var11;
@@ -1626,14 +1596,6 @@ final class Model_Sub1 extends GameObject {
          this.aByteArray2866 = new byte[this.anInt2849];
       }
 
-      if(var9 > 0) {
-         ;
-      }
-
-      if(var10 > 0) {
-         ;
-      }
-
       this.aShortArray2870 = new short[this.anInt2849];
       this.aShortArray2855 = new short[this.anInt2849];
       if(this.anInt2862 > 0) {
@@ -1654,8 +1616,6 @@ final class Model_Sub1 extends GameObject {
       this.anInt2887 = 0;
       this.anInt2849 = 0;
       this.anInt2862 = 0;
-      boolean var16 = false;
-      boolean var17 = false;
 
       for(var11 = 0; var11 < var2; ++var11) {
          short var18 = (short)(1 << var11);
@@ -1739,7 +1699,7 @@ final class Model_Sub1 extends GameObject {
 
    }
 
-   Model_Sub1(Model_Sub1 var1, boolean var2, boolean var3, boolean var4, boolean var5) {
+   Model_Sub1(Model_Sub1 var1, boolean var2, boolean var3, boolean var4) {
       this.anInt2887 = var1.anInt2887;
       this.anInt2849 = var1.anInt2849;
       this.anInt2862 = var1.anInt2862;
@@ -1780,20 +1740,7 @@ final class Model_Sub1 extends GameObject {
          }
       }
 
-       if(var5) {
-         this.aByteArray2843 = var1.aByteArray2843;
-      } else {
-         this.aByteArray2843 = new byte[this.anInt2849];
-         if(var1.aByteArray2843 == null) {
-            for(var6 = 0; var6 < this.anInt2849; ++var6) {
-               this.aByteArray2843[var6] = 0;
-            }
-         } else {
-            for(var6 = 0; var6 < this.anInt2849; ++var6) {
-               this.aByteArray2843[var6] = var1.aByteArray2843[var6];
-            }
-         }
-      }
+      this.aByteArray2843 = var1.aByteArray2843;
 
       this.anIntArray2865 = var1.anIntArray2865;
       this.anIntArray2878 = var1.anIntArray2878;

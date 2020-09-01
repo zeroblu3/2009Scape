@@ -12,7 +12,7 @@ final class Class132 {
    static CacheIndex libIndex;
 
 
-   static final void method1798(int var0, Class3_Sub4 var1) {
+   static void method1798(int var0, Class3_Sub4 var1) {
       try {
          long var2 = 0L;
          int var4 = -1;
@@ -48,16 +48,15 @@ final class Class132 {
          var1.anInt2253 = var5;
          var1.anInt2257 = var6;
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "sf.B(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var7, "sf.B(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
-   static final void method1799(byte var0, CacheIndex var1) {
+   static void method1799(byte var0, CacheIndex var1) {
       try {
          Class3_Sub13_Sub7.aClass153_3098 = var1;
-         int var2 = 113 / ((1 - var0) / 63);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "sf.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var3, "sf.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
@@ -66,15 +65,14 @@ final class Class132 {
          aClass94Array1739 = null;
          aClass153_1735 = null;
          if(var0 <= 52) {
-            aClass94Array1739 = (RSString[])null;
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sf.A(" + var0 + ')');
+         throw Class44.clientError(var2, "sf.A(" + var0 + ')');
       }
    }
 
-   static final void method1801(byte var0) {
+   static void method1801(byte var0) {
       try {
          if(var0 >= -94) {
             method1799((byte)-90, (CacheIndex)null);
@@ -85,7 +83,7 @@ final class Class132 {
          int var2;
          int var3;
          for(var2 = 0; Class3_Sub13_Sub34.anInt3415 > var2; ++var2) {
-            var3 = Class168.aClass3_Sub28_Sub17_2096.method682(RSByteBuffer.method802(var2, true));
+            var3 = Class168.aClass3_Sub28_Sub17_2096.method682(RSByteBuffer.method802(var2));
             if(var3 > var1) {
                var1 = var3;
             }
@@ -134,7 +132,7 @@ final class Class132 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "sf.D(" + var0 + ')');
+         throw Class44.clientError(var5, "sf.D(" + var0 + ')');
       }
    }
 

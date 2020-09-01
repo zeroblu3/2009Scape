@@ -23,11 +23,11 @@ final class Class134 {
          aLongArray1766 = null;
          aClass94_1760 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sh.D(" + var0 + ')');
+         throw Class44.clientError(var2, "sh.D(" + var0 + ')');
       }
    }
 
-   static final synchronized byte[] method1807(int var0, int var1) {
+   static synchronized byte[] method1807(int var1) {
       try {
          byte[] var2;
          if(var1 == 100 && Class65.anInt984 > 0) {
@@ -35,11 +35,8 @@ final class Class134 {
             Class3_Sub13_Sub39.aByteArrayArray3461[Class65.anInt984] = null;
             return var2;
          } else {
-            if(var0 < 55) {
-               method1806(-79);
-            }
 
-            if(var1 == 5000 && MouseListeningClass.anInt1927 > 0) {
+             if(var1 == 5000 && MouseListeningClass.anInt1927 > 0) {
                var2 = Class9.aByteArrayArray125[--MouseListeningClass.anInt1927];
                Class9.aByteArrayArray125[MouseListeningClass.anInt1927] = null;
                return var2;
@@ -52,23 +49,20 @@ final class Class134 {
             }
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "sh.A(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "sh.A(" + 66 + ',' + var1 + ')');
       }
    }
 
-   static final void method1808(int var0, boolean var1, byte var2, int var3, boolean var4) {
+   static void method1808(int var0, boolean var1, int var3, boolean var4) {
       try {
-         Class41.method1047(var0, var3, Class3_Sub13_Sub16.aClass44_Sub1Array3201.length - 1, var4, 0, var1, false);
-         if(var2 != 30) {
-            aClass94_1760 = (RSString)null;
-         }
+         Class41.method1047(var0, var3, Class3_Sub13_Sub16.aClass44_Sub1Array3201.length - 1, var4, 0, var1);
 
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "sh.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var6, "sh.C(" + var0 + ',' + var1 + ',' + (byte) 30 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
-   static final void method1809(int var0, long[] var1, int var2, int var3, Object[] var4) {
+   static void method1809(int var0, long[] var1, int var2, int var3, Object[] var4) {
       try {
          if(var2 < 85) {
             aClass61_1758 = (Class61)null;
@@ -104,7 +98,7 @@ final class Class134 {
          }
 
       } catch (RuntimeException var14) {
-         throw Class44.method1067(var14, "sh.B(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var14, "sh.B(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ')');
       }
    }
 

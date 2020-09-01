@@ -13,12 +13,11 @@ final class IOHandler implements Runnable {
     private InputStream anInputStream1232;
     private byte[] aByteArray1233;
     static int anInt1234;
-    private Socket aSocket1235;
+    private final Socket aSocket1235;
     private int anInt1236 = 0;
     private Class64 aClass64_1237;
     static Class33 aClass33_1238;
-    private Signlink aClass87_1239;
-    static int anInt1240;
+    private final Signlink aClass87_1239;
     private boolean aBoolean1241 = false;
     static Class61 aClass61_1242 = new Class61();
     private boolean aBoolean1243 = false;
@@ -41,7 +40,6 @@ final class IOHandler implements Runnable {
                                 try {
                                     this.wait();
                                 } catch (InterruptedException var9) {
-                                    ;
                                 }
                             }
 
@@ -88,7 +86,6 @@ final class IOHandler implements Runnable {
                             this.aSocket1235.close();
                         }
                     } catch (IOException var6) {
-                        ;
                     }
 
                     this.aByteArray1233 = null;
@@ -99,45 +96,39 @@ final class IOHandler implements Runnable {
                 return;
             }
         } catch (RuntimeException var12) {
-            throw Class44.method1067(var12, "ma.run()");
+            throw Class44.clientError(var12, "ma.run()");
         }
     }
 
-    static final void method1460(int var0, int var1, byte var2, int var3, int var4, int var5, int var6) {
+    static void method1460(int var0, int var1, int var3, int var4, int var5, int var6) {
         try {
             if(Class101.anInt1425 <= var5 - var4 && Class3_Sub28_Sub18.anInt3765 >= var5 - -var4 && Class159.anInt2020 <= -var4 + var1 && Class57.anInt902 >= var4 + var1) {
-                Class3_Sub13_Sub2.method175(var6, var0, var1, true, var3, var4, var5);
+                Class3_Sub13_Sub2.method175(var6, var0, var1, var3, var4, var5);
             } else {
-                Class168.method2275(var3, (byte)109, var1, var4, var6, var0, var5);
-            }
-
-            if(var2 > -107) {
-                anInt1244 = 89;
+                Class168.method2275(var3, var1, var4, var6, var0, var5);
             }
 
         } catch (RuntimeException var8) {
-            throw Class44.method1067(var8, "ma.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ')');
+            throw Class44.clientError(var8, "ma.A(" + var0 + ',' + var1 + ',' + (byte) -113 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ')');
         }
     }
 
-    final void readBytes(int var1, int var2, int var3, byte[] var4) throws IOException {
+    final void readBytes(int var1, int var2, byte[] var4) throws IOException {
         try {
-            if(var3 == -18455) {
-                if(!this.aBoolean1241) {
-                    while(var2 > 0) {
-                        int var5 = this.anInputStream1232.read(var4, var1, var2);
-                        if(0 >= var5) {
-                            throw new EOFException();
-                        }
-
-                        var1 += var5;
-                        var2 -= var5;
+            if(!this.aBoolean1241) {
+                while(var2 > 0) {
+                    int var5 = this.anInputStream1232.read(var4, var1, var2);
+                    if(0 >= var5) {
+                        throw new EOFException();
                     }
 
+                    var1 += var5;
+                    var2 -= var5;
                 }
+
             }
         } catch (RuntimeException var6) {
-            throw Class44.method1067(var6, "ma.D(" + var1 + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ')');
+            throw Class44.clientError(var6, "ma.D(" + var1 + ',' + var2 + ',' + -18455 + ',' + (var4 != null?"{...}":"null") + ')');
         }
     }
 
@@ -149,7 +140,7 @@ final class IOHandler implements Runnable {
 
             return !this.aBoolean1241?this.anInputStream1232.read():0;
         } catch (RuntimeException var3) {
-            throw Class44.method1067(var3, "ma.E(" + var1 + ')');
+            throw Class44.clientError(var3, "ma.E(" + var1 + ')');
         }
     }
 
@@ -162,11 +153,11 @@ final class IOHandler implements Runnable {
             aClass61_1242 = null;
             aClass33_1238 = null;
         } catch (RuntimeException var2) {
-            throw Class44.method1067(var2, "ma.I(" + var0 + ')');
+            throw Class44.clientError(var2, "ma.I(" + var0 + ')');
         }
     }
 
-    final void sendBytes(boolean var1, int var2, byte[] var3, int var4) throws IOException {
+    final void sendBytes(byte[] var3, int var4) throws IOException {
         try {
             if(!this.aBoolean1241) {
                 if(this.aBoolean1243) {
@@ -179,7 +170,7 @@ final class IOHandler implements Runnable {
 
                     synchronized(this) {
                         for(int var6 = 0; var6 < var4; ++var6) {
-                            this.aByteArray1233[this.anInt1230] = var3[var2 + var6];
+                            this.aByteArray1233[this.anInt1230] = var3[var6];
                             this.anInt1230 = (this.anInt1230 + 1) % 5000;
                             if((4900 + this.anInt1236) % 5000 == this.anInt1230) {
                                 throw new IOException();
@@ -190,16 +181,12 @@ final class IOHandler implements Runnable {
                             this.aClass64_1237 = this.aClass87_1239.method1451(0, 3, this);
                         }
 
-                        if(var1) {
-                            aClass61_1242 = (Class61)null;
-                        }
-
                         this.notifyAll();
                     }
                 }
             }
         } catch (RuntimeException var9) {
-            throw Class44.method1067(var9, "ma.K(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ')');
+            throw Class44.clientError(var9, "ma.K(" + false + ',' + 0 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ')');
         }
     }
 
@@ -207,7 +194,7 @@ final class IOHandler implements Runnable {
         try {
             this.close(14821);
         } catch (RuntimeException var2) {
-            throw Class44.method1067(var2, "ma.finalize()");
+            throw Class44.clientError(var2, "ma.finalize()");
         }
     }
 
@@ -219,13 +206,12 @@ final class IOHandler implements Runnable {
 
             return this.aBoolean1241?0:this.anInputStream1232.available();
         } catch (RuntimeException var3) {
-            throw Class44.method1067(var3, "ma.B(" + var1 + ')');
+            throw Class44.clientError(var3, "ma.B(" + var1 + ')');
         }
     }
 
-    final void method1466(int var1) throws IOException {
+    final void method1466() {
         try {
-            int var2 = -97 % ((52 - var1) / 50);
             if(!this.aBoolean1241) {
                 if(this.aBoolean1243) {
                     this.aBoolean1243 = false;
@@ -234,22 +220,19 @@ final class IOHandler implements Runnable {
                 }
             }
         } catch (RuntimeException var3) {
-            throw Class44.method1067(var3, "ma.G(" + var1 + ')');
+            throw Class44.clientError(var3, "ma.G(" + 127 + ')');
         }
     }
 
-    final void method1467(boolean var1) {
+    final void method1467() {
         try {
-            if(var1) {
-                method1469((int[])null, 19, 31, -15, 103, 77);
-            }
 
             if(!this.aBoolean1241) {
                 this.anInputStream1232 = new InputStream_Sub1();
                 this.anOutputStream1231 = new OutputStream_Sub1();
             }
         } catch (RuntimeException var3) {
-            throw Class44.method1067(var3, "ma.H(" + var1 + ')');
+            throw Class44.clientError(var3, "ma.H(" + false + ')');
         }
     }
 
@@ -273,7 +256,6 @@ final class IOHandler implements Runnable {
                         try {
                             ((Thread)this.aClass64_1237.anObject974).join();
                         } catch (InterruptedException var4) {
-                            ;
                         }
                     }
                 }
@@ -281,11 +263,11 @@ final class IOHandler implements Runnable {
                 this.aClass64_1237 = null;
             }
         } catch (RuntimeException var6) {
-            throw Class44.method1067(var6, "ma.J(" + var1 + ')');
+            throw Class44.clientError(var6, "ma.J(" + var1 + ')');
         }
     }
 
-    static final void method1469(int[] var0, int var1, int var2, int var3, int var4, int var5) {
+    static void method1469(int[] var0, int var1, int var2, int var3, int var4, int var5) {
         Class3_Sub2 var6 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var3][var4][var5];
         if(var6 != null) {
             Class126 var7 = var6.aClass126_2240;
@@ -357,11 +339,11 @@ final class IOHandler implements Runnable {
             this.anInputStream1232 = this.aSocket1235.getInputStream();
             this.anOutputStream1231 = this.aSocket1235.getOutputStream();
         } catch (RuntimeException var4) {
-            throw Class44.method1067(var4, "ma.<init>(" + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ')');
+            throw Class44.clientError(var4, "ma.<init>(" + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ')');
         }
     }
 
-    static final void method1470(int var0, AnimationDefinition var1, int var2, int var3, boolean var4, int var5) {
+    static void method1470(int var0, AnimationDefinition var1, int var2, int var3, boolean var4, int var5) {
         try {
             if(Class113.anInt1552 < 50) {
                 if(var1.anIntArrayArray1867 != null && var1.anIntArrayArray1867.length > var5 && null != var1.anIntArrayArray1867[var5]) {
@@ -379,29 +361,27 @@ final class IOHandler implements Runnable {
                     int var9 = var6 & 31;
                     if(var9 == 0) {
                         if(var4) {
-                            Class3_Sub13_Sub6.method199(var8, var7, 0, -799);
+                            Class3_Sub13_Sub6.method199(var8, var7, 0);
                         }
 
-                    } else {
-                        if(0 != Class14.anInt340) {
-                            Class3_Sub25.anIntArray2550[Class113.anInt1552] = var7;
-                            Class166.anIntArray2068[Class113.anInt1552] = var8;
-                            int var11 = (-64 + var0) / 128;
-                            var10 = (var3 + -64) / 128;
-                            RSString.anIntArray2157[Class113.anInt1552] = 0;
-                            Class102.aClass135Array2131[Class113.anInt1552] = null;
-                            Class3_Sub13_Sub6.anIntArray3083[Class113.anInt1552] = var9 + (var10 << 16) + (var11 << 8);
-                            if(var2 != 183921384) {
-                                aClass33_1238 = (Class33)null;
-                            }
-
-                            ++Class113.anInt1552;
+                    } else if (0 != Class14.anInt340) {
+                        Class3_Sub25.anIntArray2550[Class113.anInt1552] = var7;
+                        Class166.anIntArray2068[Class113.anInt1552] = var8;
+                        int var11 = (-64 + var0) / 128;
+                        var10 = (var3 + -64) / 128;
+                        RSString.anIntArray2157[Class113.anInt1552] = 0;
+                        Class102.aClass135Array2131[Class113.anInt1552] = null;
+                        Class3_Sub13_Sub6.anIntArray3083[Class113.anInt1552] = var9 + (var10 << 16) + (var11 << 8);
+                        if (var2 != 183921384) {
+                            aClass33_1238 = (Class33) null;
                         }
+
+                        ++Class113.anInt1552;
                     }
                 }
             }
         } catch (RuntimeException var12) {
-            throw Class44.method1067(var12, "ma.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
+            throw Class44.clientError(var12, "ma.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
         }
     }
 

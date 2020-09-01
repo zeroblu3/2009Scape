@@ -3,7 +3,6 @@ import java.awt.Frame;
 
 final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
 
-   static int anInt4054;
    Class41 aClass41_4056;
    static RSString aClass94_4057 = RSString.createRSString("Mem:");
    byte[] aByteArray4059;
@@ -13,11 +12,8 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
    static boolean aBoolean4063 = false;
 
 
-   final byte[] method587(boolean var1) {
+   final byte[] method587() {
       try {
-         if(var1) {
-            aBoolean4063 = true;
-         }
 
          if(this.aBoolean3632) {
             throw new RuntimeException();
@@ -25,11 +21,11 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
             return this.aByteArray4059;
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "c.E(" + var1 + ')');
+         throw Class44.clientError(var3, "c.E(" + false + ')');
       }
    }
 
-   static final boolean method591(int var0) {
+   static boolean method591(int var0) {
       try {
          KeyboardListener var1 = Class3_Sub13_Sub3.aClass148_3049;
          synchronized(var1) {
@@ -47,7 +43,7 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
             }
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "c.F(" + var0 + ')');
+         throw Class44.clientError(var4, "c.F(" + var0 + ')');
       }
    }
 
@@ -56,15 +52,12 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
          aClass25Array4060 = null;
          aClass94_4057 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "c.P(" + var0 + ')');
+         throw Class44.clientError(var2, "c.P(" + var0 + ')');
       }
    }
 
-   static final void method593(Frame var0, boolean var1, Signlink var2) {
+   static void method593(Frame var0, Signlink var2) {
       try {
-         if(!var1) {
-            method594(110, 94);
-         }
 
          while(true) {
             Class64 var3 = var2.method1436(var0, 86);
@@ -82,23 +75,20 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
             Class3_Sub13_Sub34.method331(100L, 64);
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "c.R(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var4, "c.R(" + (var0 != null?"{...}":"null") + ',' + true + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
-   final int method586(boolean var1) {
+   final int method586() {
       try {
-         if(var1) {
-            this.aClass41_4056 = (Class41)null;
-         }
 
          return this.aBoolean3632?0:100;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "c.A(" + var1 + ')');
+         throw Class44.clientError(var3, "c.A(" + false + ')');
       }
    }
 
-   static final void method594(int var0, int var1) {
+   static void method594(int var0, int var1) {
       try {
          if(var0 < 83) {
             method592((byte)122);
@@ -106,18 +96,16 @@ final class Class3_Sub28_Sub10_Sub1 extends Class3_Sub28_Sub10 {
 
          Class128.aClass93_1683.method1522(-127, var1);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "c.Q(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "c.Q(" + var0 + ',' + var1 + ')');
       }
    }
 
-   static final void method595(int var0, int var1) {
+   static void method595() {
       try {
-         if(var1 > 108) {
-            Class41.aClass93_684.method1522(-128, var0);
-            Class163_Sub1.aClass93_2984.method1522(-125, var0);
-         }
+         Class41.aClass93_684.method1522(-128, 5);
+         Class163_Sub1.aClass93_2984.method1522(-125, 5);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "c.O(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "c.O(" + 5 + ',' + 109 + ')');
       }
    }
 

@@ -14,11 +14,11 @@ final class Class88 {
    static int anInt1229 = -1;
 
 
-   static final void method1454() {
+   static void method1454() {
       byte[] var1;
       if(aByteBuffer1226 == null) {
          Class164_Sub2_Sub1 var0 = new Class164_Sub2_Sub1();
-         var1 = var0.method2250(64, 64, 64);
+         var1 = var0.method2250();
          aByteBuffer1226 = ByteBuffer.allocateDirect(var1.length);
          aByteBuffer1226.position(0);
          aByteBuffer1226.put(var1);
@@ -27,7 +27,7 @@ final class Class88 {
 
       if(aByteBuffer1225 == null) {
          Class164_Sub1_Sub1 var2 = new Class164_Sub1_Sub1();
-         var1 = var2.method2243(64, 64, 64);
+         var1 = var2.method2243();
          aByteBuffer1225 = ByteBuffer.allocateDirect(var1.length);
          aByteBuffer1225.position(0);
          aByteBuffer1225.put(var1);
@@ -36,7 +36,7 @@ final class Class88 {
 
    }
 
-   static final void method1455() {
+   static void method1455() {
       GL var0;
       int[] var1;
       if(anInt1228 != -1) {
@@ -71,7 +71,7 @@ final class Class88 {
 
    }
 
-   static final void method1456() {
+   static void method1456() {
       aBoolean1227 = HDToolKit.aBoolean1802;
       method1454();
       method1458();
@@ -85,7 +85,7 @@ final class Class88 {
       aByteBuffer1225 = null;
    }
 
-   private static final void method1458() {
+   private static void method1458() {
       javax.media.opengl.GL var0 = HDToolKit.gl;
       if(aBoolean1227) {
          int[] var1 = new int[1];
@@ -96,7 +96,6 @@ final class Class88 {
          var0.glTexParameteri('\u806f', 10241, 9729);
          var0.glTexParameteri('\u806f', 10240, 9729);
          anInt1228 = var1[0];
-         Class31.anInt580 += aByteBuffer1226.limit() * 2;
       } else {
          anIntArray1224 = new int[64];
          var0.glGenTextures(64, anIntArray1224, 0);
@@ -109,12 +108,12 @@ final class Class88 {
             var0.glTexParameteri(3553, 10240, 9729);
          }
 
-         Class31.anInt580 += aByteBuffer1226.limit() * 2;
       }
+      Class31.anInt580 += aByteBuffer1226.limit() * 2;
 
    }
 
-   private static final void method1459() {
+   private static void method1459() {
       javax.media.opengl.GL var0 = HDToolKit.gl;
       if(aBoolean1227) {
          int[] var1 = new int[1];
@@ -125,7 +124,6 @@ final class Class88 {
          var0.glTexParameteri('\u806f', 10241, 9729);
          var0.glTexParameteri('\u806f', 10240, 9729);
          anInt1229 = var1[0];
-         Class31.anInt580 += aByteBuffer1225.limit() * 2;
       } else {
          anIntArray1223 = new int[64];
          var0.glGenTextures(64, anIntArray1223, 0);
@@ -138,8 +136,8 @@ final class Class88 {
             var0.glTexParameteri(3553, 10240, 9729);
          }
 
-         Class31.anInt580 += aByteBuffer1225.limit() * 2;
       }
+      Class31.anInt580 += aByteBuffer1225.limit() * 2;
 
    }
 

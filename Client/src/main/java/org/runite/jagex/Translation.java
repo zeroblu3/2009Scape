@@ -6,7 +6,7 @@ public class Translation {
 
 
     //Class 9 englishToFrench
-    static final void englishToFrench(byte var0) {
+    static void englishToFrench() {
         try {
             TextCore.LoadedConfig = RSString.createRSString("Fichiers config charg-Bs");
             TextCore.LoadingConfig = RSString.createRSString("Chargement des fichiers config )2 ");
@@ -27,9 +27,6 @@ public class Translation {
             TextCore.TextColorRed = RSString.createRSString("rouge:");
             TextCore.TextWave = RSString.createRSString("ondulation:");
             TextCore.LoadingConnecting = RSString.createRSString("Connexion au serveur de mise -9 jour en cours");
-            if(var0 != 121) {
-                Class9.method848(-68);
-            }
             TextCore.HasFriendsAlready = RSString.createRSString(" est d-Bj-9 dans votre liste d(Wamis)3");
             TextCore.TextShake = RSString.createRSString("tremblement:");
             TextCore.LoadingTitleScreen = RSString.createRSString("Chargement de l(W-Bcran)2titre )2 ");
@@ -102,13 +99,13 @@ public class Translation {
             TextCore.HasScroll = RSString.createRSString("d-Broulement:");
             TextCore.LoadingWLD = RSString.createRSString("Chargement de la liste des serveurs");
         } catch (RuntimeException var2) {
-            throw Class44.method1067(var2, "bb.C(" + var0 + ')');
+            throw Class44.clientError(var2, "bb.C(" + (byte) 121 + ')');
         }
     }
 
 
     //Class3_Sub28_Sub11 English to German
-    static final void englishToGerman(boolean var0) {
+    static void englishToGerman(boolean var0) {
         try {
             TextCore.TextWave = RSString.createRSString("welle:");
             TextCore.HasMoreOptions = RSString.createRSString(" weitere Optionen");
@@ -204,7 +201,7 @@ public class Translation {
             TextCore.PreparedSoundEngine = RSString.createRSString("Musik)2Engine vorbereitet)3");
             TextCore.HasLevel = RSString.createRSString("Stufe: ");
         } catch (RuntimeException var2) {
-            throw Class44.method1067(var2, "lk.A(" + var0 + ')');
+            throw Class44.clientError(var2, "lk.A(" + var0 + ')');
         }
     }
 }

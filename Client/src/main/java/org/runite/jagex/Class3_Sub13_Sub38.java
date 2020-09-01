@@ -1,4 +1,5 @@
 package org.runite.jagex;
+import java.util.Objects;
 import java.util.Random;
 
 final class Class3_Sub13_Sub38 extends Class3_Sub13 {
@@ -25,7 +26,7 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
             anIntArray3456 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "vc.B(" + var0 + ')');
+         throw Class44.clientError(var2, "vc.B(" + var0 + ')');
       }
    }
 
@@ -37,31 +38,26 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "vc.P(" + var1 + ')');
+         throw Class44.clientError(var3, "vc.P(" + var1 + ')');
       }
    }
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3454 = var2.getByte((byte)-34);
+            this.anInt3454 = var2.getByteB();
          } else if(var1 == 1) {
-            this.anInt3447 = var2.getShort(1);
+            this.anInt3447 = var2.getShort();
          } else if(var1 == 2) {
-            this.anInt3451 = var2.getByte((byte)-116);
-         } else {
-            if(3 == var1) {
-               this.anInt3444 = var2.getShort(1);
-            } else if(var1 == 4) {
-               this.anInt3450 = var2.getShort(1);
-            }
+            this.anInt3451 = var2.getByteB();
+         } else if (3 == var1) {
+             this.anInt3444 = var2.getShort();
+         } else if (var1 == 4) {
+             this.anInt3450 = var2.getShort();
          }
 
-         if(var3) {
-            ;
-         }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "vc.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "vc.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
@@ -71,8 +67,7 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var4 = 64 % ((var2 - 30) / 36);
-         int[] var3 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var3 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
             int var5 = this.anInt3450 >> 1;
             int[][] var6 = this.aClass114_2382.method1710((byte)93);
@@ -140,9 +135,9 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
 
                      int var26 = RenderAnimationDefinition.anInt396 & var24;
                      if(var16) {
-                        var6[var27][var26] = var25;
+                        Objects.requireNonNull(var6)[var27][var26] = var25;
                      } else {
-                        var6[var26][var27] = var25;
+                        Objects.requireNonNull(var6)[var26][var27] = var25;
                      }
                   }
                }
@@ -151,7 +146,7 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var28) {
-         throw Class44.method1067(var28, "vc.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var28, "vc.D(" + var1 + ',' + var2 + ')');
       }
    }
 

@@ -18,45 +18,37 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3164 = var2.getShort(1);
-         } else {
-            if(var1 == 1) {
-               this.anInt3163 = var2.getShort(1);
-            } else {
-               if(var1 == 2) {
-                  this.anInt3160 = var2.getShort(1);
-               } else {
-                  if(var1 == 3) {
-                     this.anInt3165 = var2.getShort(1);
-                  }
-               }
-            }
+            this.anInt3164 = var2.getShort();
+         } else if (var1 == 1) {
+            this.anInt3163 = var2.getShort();
+         } else if (var1 == 2) {
+            this.anInt3160 = var2.getShort();
+         } else if (var1 == 3) {
+            this.anInt3165 = var2.getShort();
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "gm.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "gm.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
-   static final void method236(byte var0) {
+   static void method236() {
       try {
-         if(var0 == 64) {
-            Class3_Sub13_Sub32.aBoolean3387 = true;
-         }
+          Class3_Sub13_Sub32.aBoolean3387 = true;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "gm.C(" + var0 + ')');
+         throw Class44.clientError(var2, "gm.C(" + (byte) 64 + ')');
       }
    }
 
    static final int[] NPC_RENDER_LOG = new int[3];
    
-   static final void renderNPCs(int var0) {
+   static void renderNPCs(int var0) {
       try {
          Class66.maskUpdateCount = 0;
          Class139.anInt1829 = 0;
-         Class24.renderLocalNPCs((byte)-11);
+         Class24.renderLocalNPCs();
          NPC_RENDER_LOG[0] = GraphicDefinition.incomingBuffer.index;
-         Class167.addLocalNPCs(113);
+         Class167.addLocalNPCs();
          NPC_RENDER_LOG[1] = GraphicDefinition.incomingBuffer.index;
          Class75_Sub4.renderNPCMasks(var0 ^ 8106);
          NPC_RENDER_LOG[2] = GraphicDefinition.incomingBuffer.index;
@@ -65,11 +57,11 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
          for(var1 = 0; Class139.anInt1829 > var1; ++var1) {
             int var2 = Class3_Sub7.anIntArray2292[var1];
             if(Class44.anInt719 != Class3_Sub13_Sub24.npcs[var2].anInt2838) {
-               if(Class3_Sub13_Sub24.npcs[var2].definition.method1474(-1)) {
-                  Class3_Sub28_Sub8.method574(Class3_Sub13_Sub24.npcs[var2], false);
+               if(Class3_Sub13_Sub24.npcs[var2].definition.method1474()) {
+                  Class3_Sub28_Sub8.method574(Class3_Sub13_Sub24.npcs[var2]);
                }
 
-               Class3_Sub13_Sub24.npcs[var2].setDefinitions(-1, (NPCDefinition)null);
+               Class3_Sub13_Sub24.npcs[var2].setDefinitions((NPCDefinition)null);
                Class3_Sub13_Sub24.npcs[var2] = null;
             }
          }
@@ -92,29 +84,26 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
 //            throw new RuntimeException("gnp1 pos:" + Class28.incomingBuffer.index + " psize:" + Class130.incomingPacketLength);
           }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "gm.B(" + var0 + ')');
+         throw Class44.clientError(var3, "gm.B(" + var0 + ')');
       }
    }
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var4 = -72 % ((30 - var2) / 36);
-         int[] var3 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var3 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
             for(int var5 = 0; var5 < Class113.anInt1559; ++var5) {
                int var7 = this.anInt3165 + (Class163_Sub3.anIntArray2999[var1] << 12) / this.anInt3164;
                int var6 = this.anInt3160 + (Class102.anIntArray2125[var5] << 12) / this.anInt3164;
-               int var8 = var6;
                int var10 = var6;
-               int var9 = var7;
                int var11 = var7;
                int var14 = 0;
                int var12 = var6 * var6 >> 12;
 
                for(int var13 = var7 * var7 >> 12; var12 - -var13 < 16384 && var14 < this.anInt3163; var12 = var10 * var10 >> 12) {
-                  var11 = (var10 * var11 >> 12) * 2 + var9;
+                  var11 = (var10 * var11 >> 12) * 2 + var7;
                   ++var14;
-                  var10 = var12 + -var13 + var8;
+                  var10 = var12 + -var13 + var6;
                   var13 = var11 * var11 >> 12;
                }
 
@@ -124,7 +113,7 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "gm.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var15, "gm.D(" + var1 + ',' + var2 + ')');
       }
    }
 
@@ -138,7 +127,7 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
             aClass94_3161 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "gm.E(" + var0 + ')');
+         throw Class44.clientError(var2, "gm.E(" + var0 + ')');
       }
    }
 

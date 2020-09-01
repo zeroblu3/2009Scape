@@ -28,9 +28,9 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
             for(int var8 = 0; Class113.anInt1559 > var8; ++var8) {
                int var9 = this.anIntArray3284[var7 + var8 % this.anInt3280];
-               var6[var8] = Class3_Sub28_Sub15.method633(255, var9) << 4;
-               var5[var8] = Class3_Sub28_Sub15.method633(var9 >> 4, 4080);
-               var4[var8] = Class3_Sub28_Sub15.method633(16711680, var9) >> 12;
+               var6[var8] = Class69.bitwiseAnd(255, var9) << 4;
+               var5[var8] = Class69.bitwiseAnd(var9 >> 4, 4080);
+               var4[var8] = Class69.bitwiseAnd(16711680, var9) >> 12;
             }
          }
 
@@ -40,13 +40,12 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
          return var3;
       } catch (RuntimeException var10) {
-         throw Class44.method1067(var10, "kd.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var10, "kd.T(" + var1 + ',' + var2 + ')');
       }
    }
 
-   static final void method282(int[] var0, int var1, int var2, int var3, int var4) {
+   static void method282(int[] var0, int var1, int var2, int var3, int var4) {
       try {
-         int var5 = 116 / ((24 - var2) / 63);
          --var1;
          --var3;
 
@@ -74,24 +73,21 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
          }
 
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "kd.B(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var7, "kd.B(" + "null" + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
-   static final void method283(String var0, byte var1) {
+   static void method283(String var0) {
       try {
-         if(var1 != 38) {
-            anIntArray4035 = (int[])null;
-         }
 
          System.out.println("Bad " + var0 + ", Usage: worldid, <live/rc/wip>, <english/german>, <game0/game1>");
          System.exit(1);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "kd.O(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var3, "kd.O(" + (var0 != null?"{...}":"null") + ',' + (byte) 38 + ')');
       }
    }
 
-   static final void method284(float[][] var0, int[][] var1, int var2, float[][] var3, int var4, int[] var5, Class37 var6, byte var7, Class43 var8, float[][] var9, int var10) {
+   static void method284(float[][] var0, int[][] var1, int var2, float[][] var3, int var4, int[] var5, Class37 var6, byte var7, Class43 var8, float[][] var9, int var10) {
       try {
          int[] var11 = new int[var5.length / 2];
 
@@ -104,17 +100,13 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
                var15 = var13;
                var13 = var14;
                var14 = -var15 + 128;
-            } else {
-               if(var10 == 2) {
-                  var14 = -var14 + 128;
-                  var13 = -var13 + 128;
-               } else {
-                  if(var10 == 3) {
-                     var15 = var13;
-                     var13 = 128 - var14;
-                     var14 = var15;
-                  }
-               }
+            } else if (var10 == 2) {
+               var14 = -var14 + 128;
+               var13 = -var13 + 128;
+            } else if (var10 == 3) {
+               var15 = var13;
+               var13 = 128 - var14;
+               var14 = var15;
             }
 
             float var17;
@@ -163,42 +155,34 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
          }
 
          var6.method1022(var11);
-         var12 = 105 % ((-20 - var7) / 54);
       } catch (RuntimeException var23) {
-         throw Class44.method1067(var23, "kd.Q(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ',' + (var6 != null?"{...}":"null") + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + (var9 != null?"{...}":"null") + ',' + var10 + ')');
+         throw Class44.clientError(var23, "kd.Q(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ',' + (var6 != null?"{...}":"null") + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + (var9 != null?"{...}":"null") + ',' + var10 + ')');
       }
    }
 
-   static final Class158 method285(int var0, int var1, boolean var2, Component var3) {
+   static Class158 method285(int var0, int var1, Component var3) {
       try {
-         if(var2) {
-            try {
-               Class var4 = Class.forName(Configurations.PACKAGE_JAGEX + ".Class158_Sub2");
-               Class158 var8 = (Class158)var4.newInstance();
-               var8.method2185(var0, false, var1, var3);
-               return var8;
-            } catch (Throwable var6) {
-               Class158_Sub1 var5 = new Class158_Sub1();
-               var5.method2185(var0, false, var1, var3);
-               return var5;
-            }
-         } else {
-            return (Class158)null;
+         try {
+            Class var4 = Class.forName(Configurations.PACKAGE_JAGEX + ".Class158_Sub2");
+            Class158 var8 = (Class158)var4.newInstance();
+            var8.method2185(var0, var1, var3);
+            return var8;
+         } catch (Throwable var6) {
+            Class158_Sub1 var5 = new Class158_Sub1();
+            var5.method2185(var0, var1, var3);
+            return var5;
          }
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "kd.C(" + var0 + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var7, "kd.C(" + var0 + ',' + var1 + ',' + true + ',' + (var3 != null?"{...}":"null") + ')');
       }
    }
 
-   static final Class3_Sub28_Sub16[] method286(int var0, int var1, int var2, CacheIndex var3) {
+   static Class3_Sub28_Sub16[] method286(int var2, CacheIndex var3) {
       try {
-         if(var0 != -1) {
-            method285(-95, 48, true, (Component)null);
-         }
          //System.out.println("Class3_Sub13_Sub_23_Sub1 " + var2);
-         return !Class75_Sub4.method1351(var3, var1, var2, -30901)?null:Class15.method891(var0 ^ 4);
+         return !Class75_Sub4.method1351(var3, 0, var2, -30901)?null:Class15.method891(~4);
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "kd.F(" + var0 + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var5, "kd.F(" + -1 + ',' + 0 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
       }
    }
 
@@ -211,7 +195,7 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "kd.E(" + var0 + ')');
+         throw Class44.clientError(var2, "kd.E(" + ')');
       }
    }
 

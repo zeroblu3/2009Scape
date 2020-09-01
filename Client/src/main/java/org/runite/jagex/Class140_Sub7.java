@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class140_Sub7 extends GameObject {
 
    static RSString aClass94_2928 = RSString.createRSString("null");
-   static int[] anIntArray2929 = new int[1000];
    int anInt2930;
    static int[] anIntArray2931;
    private int anInt2932 = -32768;
@@ -16,12 +15,12 @@ final class Class140_Sub7 extends GameObject {
    static CacheIndex aClass153_2939;
 
 
-   static final boolean method2029(byte var0, CacheIndex var1, int var2) {
+   static boolean method2029(byte var0, CacheIndex var1, int var2) {
       try {
          if(var0 > -116) {
             return false;
          } else {
-            byte[] var3 = var1.method2138(var2, 0);
+            byte[] var3 = var1.method2138(var2);
             if(null == var3) {
                return false;
             } else {
@@ -30,13 +29,13 @@ final class Class140_Sub7 extends GameObject {
             }
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "uj.B(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
+         throw Class44.clientError(var4, "uj.B(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
       }
    }
 
    public static void method2030(byte var0) {
       try {
-         anIntArray2929 = null;
+         ItemDefinition.intsStack = null;
          if(var0 < 82) {
             method2031((byte)-61, false, -20, 24, (Class3_Sub2[][][])((Class3_Sub2[][][])null), 124);
          }
@@ -47,11 +46,11 @@ final class Class140_Sub7 extends GameObject {
          aClass94_2928 = null;
          aClass153_2939 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "uj.C(" + var0 + ')');
+         throw Class44.clientError(var2, "uj.C(" + var0 + ')');
       }
    }
 
-   static final boolean method2031(byte var0, boolean var1, int var2, int var3, Class3_Sub2[][][] var4, int var5) {
+   static boolean method2031(byte var0, boolean var1, int var2, int var3, Class3_Sub2[][][] var4, int var5) {
       try {
          byte var6 = !var1?(byte)(255 & Class79.anInt1127):1;
          if(Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var2][var3] == var6) {
@@ -246,41 +245,37 @@ final class Class140_Sub7 extends GameObject {
             return true;
          }
       } catch (RuntimeException var22) {
-         throw Class44.method1067(var22, "uj.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ',' + var5 + ')');
+         throw Class44.clientError(var22, "uj.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ',' + var5 + ')');
       }
    }
 
    final void method1867(int var1, int var2, int var3, int var4, int var5) {}
 
-   static final int method2032(int var0, int var1) {
+   static int method2032(int var0) {
       try {
-         if(var1 != 5439488) {
-            anInt2937 = 102;
-         }
 
          return var0 >>> 10;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "uj.E(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "uj.E(" + var0 + ',' + 5439488 + ')');
       }
    }
 
-   static final RSString method2033(RSByteBuffer var0, int var1, int var2) {
+   static RSString method2033(RSByteBuffer var0) {
       try {
          try {
-            int var3 = var0.getSmart(true);
-            if(var2 < var3) {
-               var3 = var2;
+            int var3 = var0.getSmart();
+            if(32767 < var3) {
+               var3 = 32767;
             }
 
             byte[] var4 = new byte[var3];
-            var0.index += Class3_Sub13_Sub9.aClass36_3112.method1017(0, var3, var4, var1 ^ -1247, var0.buffer, var0.index);
-            RSString var5 = Class3_Sub13_Sub3.method178(var4, -4114, var3, 0);
-            return var1 != 1?(RSString)null:var5;
+            var0.index += Class3_Sub13_Sub9.aClass36_3112.method1017(0, var3, var4, var0.buffer, var0.index);
+            return Class3_Sub13_Sub3.method178(var4, var3, 0);
          } catch (Exception var6) {
             return Class159.aClass94_2018;
          }
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "uj.D(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var7, "uj.D(" + (var0 != null?"{...}":"null") + ',' + 1 + ',' + 32767 + ')');
       }
    }
 
@@ -292,7 +287,7 @@ final class Class140_Sub7 extends GameObject {
             this.anInt2932 = var13.method1871();
          }
       } catch (RuntimeException var14) {
-         throw Class44.method1067(var14, "uj.IA(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var14, "uj.IA(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ')');
       }
    }
 
@@ -300,7 +295,7 @@ final class Class140_Sub7 extends GameObject {
       try {
          return this.anInt2932;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "uj.MA()");
+         throw Class44.clientError(var2, "uj.MA()");
       }
    }
 

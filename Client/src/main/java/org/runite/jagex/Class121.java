@@ -27,28 +27,24 @@ final class Class121 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ql.C(" + var0 + ')');
+         throw Class44.clientError(var2, "ql.C(" + var0 + ')');
       }
    }
 
-   static final int method1734(int var0, float var1, int var2, int var3, int[][] var4, int[][] var5, int var6, float[][] var7, int var8, byte var9, int var10, boolean var11, Class3_Sub11 var12, float[][] var13, int var14, int var15, float[][] var16, int var17) {
+   static int method1734(int var0, float var1, int var2, int var3, int[][] var4, int[][] var5, int var6, float[][] var7, int var8, byte var9, int var10, boolean var11, Class3_Sub11 var12, float[][] var13, int var14, int var15, float[][] var16, int var17) {
       try {
          int var18;
          if(var10 == 1) {
             var18 = var15;
             var15 = var17;
             var17 = -var18 + 128;
-         } else {
-            if(var10 == 2) {
-               var17 = -var17 + 128;
-               var15 = -var15 + 128;
-            } else {
-               if(var10 == 3) {
-                  var18 = var15;
-                  var15 = 128 + -var17;
-                  var17 = var18;
-               }
-            }
+         } else if (var10 == 2) {
+            var17 = -var17 + 128;
+            var15 = -var15 + 128;
+         } else if (var10 == 3) {
+            var18 = var15;
+            var15 = 128 + -var17;
+            var17 = var18;
          }
 
          float var19;
@@ -93,9 +89,9 @@ final class Class121 {
             var26 += (-var26 + var7[1 + var6][var14 - -1]) * var22;
             var20 += (-var20 + var7[var6 - -1][var14]) * var22;
             var20 += (-var20 + var26) * var23;
-            int var27 = Class3_Sub13_Sub10.method210(18348, var15, var2, var3);
-            int var28 = Class3_Sub13_Sub10.method210(18348, var15, var0, var8);
-            var21 = Class3_Sub13_Sub10.method210(18348, var17, var27, var28);
+            int var27 = Class3_Sub13_Sub10.method210(var15, var2, var3);
+            int var28 = Class3_Sub13_Sub10.method210(var15, var0, var8);
+            var21 = Class3_Sub13_Sub10.method210(var17, var27, var28);
          }
 
          if(var9 > -111) {
@@ -107,11 +103,11 @@ final class Class121 {
             return var12.method146(var31, var33, var32, var30, var19, var20, !var11?var21:-256 & var21, var4 != null?(float)(var33 + -Class3_Sub23.method408(var15, (byte)103, var14, var4, var6, var17)) / var1:0.0F);
          }
       } catch (RuntimeException var29) {
-         throw Class44.method1067(var29, "ql.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ',' + (var5 != null?"{...}":"null") + ',' + var6 + ',' + (var7 != null?"{...}":"null") + ',' + var8 + ',' + var9 + ',' + var10 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ',' + (var13 != null?"{...}":"null") + ',' + var14 + ',' + var15 + ',' + (var16 != null?"{...}":"null") + ',' + var17 + ')');
+         throw Class44.clientError(var29, "ql.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + (var4 != null?"{...}":"null") + ',' + (var5 != null?"{...}":"null") + ',' + var6 + ',' + (var7 != null?"{...}":"null") + ',' + var8 + ',' + var9 + ',' + var10 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ',' + (var13 != null?"{...}":"null") + ',' + var14 + ',' + var15 + ',' + (var16 != null?"{...}":"null") + ',' + var17 + ')');
       }
    }
 
-   static final int method1735(int var0) {
+   static int method1735() {
       try {
          try {
             if(Class43.anInt692 == 0) {
@@ -148,8 +144,8 @@ final class Class121 {
                }
 
                Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-67, 255);
-               Class3_Sub13_Sub1.outgoingBuffer.putInt(var0 + -30105, wlUpdateStamp);
-               Class3_Sub15.aClass89_2429.sendBytes(false, 0, Class3_Sub13_Sub1.outgoingBuffer.buffer, Class3_Sub13_Sub1.outgoingBuffer.index);
+               Class3_Sub13_Sub1.outgoingBuffer.putInt(29984 + -30105, wlUpdateStamp);
+               Class3_Sub15.aClass89_2429.sendBytes(Class3_Sub13_Sub1.outgoingBuffer.buffer, Class3_Sub13_Sub1.outgoingBuffer.index);
                if(null != WorldListEntry.aClass155_2627) {
                   WorldListEntry.aClass155_2627.method2159(67);
                }
@@ -158,14 +154,14 @@ final class Class121 {
                   Class3_Sub21.aClass155_2491.method2159(101);
                }
 
-               var2 = Class3_Sub15.aClass89_2429.readByte(var0 ^ 29984);
+               var2 = Class3_Sub15.aClass89_2429.readByte(0);
                //System.out.println(var2); //Not sure what this was debugging
                if(WorldListEntry.aClass155_2627 != null) {
                   WorldListEntry.aClass155_2627.method2159(55);
                }
 
                if(null != Class3_Sub21.aClass155_2491) {
-                  Class3_Sub21.aClass155_2491.method2159(var0 ^ 30075);
+                  Class3_Sub21.aClass155_2491.method2159(29984 ^ 30075);
                }
 
                if(var2 != 0) {
@@ -189,7 +185,7 @@ final class Class121 {
             }
 
             if(Class43.anInt692 == 3) {
-               wlUpdateStamp = Class3_Sub15.aClass89_2429.availableBytes(var0 + -48342);
+               wlUpdateStamp = Class3_Sub15.aClass89_2429.availableBytes(29984 + -48342);
                if(1 > wlUpdateStamp) {
                   return -1;
                }
@@ -198,10 +194,10 @@ final class Class121 {
                   wlUpdateStamp = Class66.wlPacketSize + -Class3_Sub20.wlPacketIndex;
                }
 
-               Class3_Sub15.aClass89_2429.readBytes(Class3_Sub20.wlPacketIndex, wlUpdateStamp, -18455, Class3_Sub13_Sub33.aByteArray3396);
+               Class3_Sub15.aClass89_2429.readBytes(Class3_Sub20.wlPacketIndex, wlUpdateStamp, Class3_Sub13_Sub33.aByteArray3396);
                Class3_Sub20.wlPacketIndex += wlUpdateStamp;
                if(Class3_Sub20.wlPacketIndex >= Class66.wlPacketSize) {
-                  if(Class3_Sub13_Sub23.handleWorldListUpdate(4, Class3_Sub13_Sub33.aByteArray3396)) {
+                  if(Class3_Sub13_Sub23.handleWorldListUpdate(Class3_Sub13_Sub33.aByteArray3396)) {
                      Class3_Sub13_Sub16.aClass44_Sub1Array3201 = new WorldListEntry[Class57.activeWorldListSize];
                      var2 = 0;
 
@@ -231,17 +227,13 @@ final class Class121 {
             return Class3_Sub13_Sub3.method179((byte)92, 1003);
          }
 
-         if(var0 != 29984) {
-            method1734(13, 0.10791027F, 20, 124, (int[][])((int[][])null), (int[][])((int[][])null), -85, (float[][])((float[][])null), -119, (byte)-105, -5, false, (Class3_Sub11)null, (float[][])((float[][])null), 5, -100, (float[][])((float[][])null), -36);
-         }
-
          return -1;
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "ql.D(" + var0 + ')');
+         throw Class44.clientError(var6, "ql.D(" + 29984 + ')');
       }
    }
 
-   static final int method1736(int var0, int var1, int var2, int var3) {
+   static int method1736(int var0, int var1, int var2, int var3) {
       try {
          if(null == Class44.anIntArrayArrayArray723) {
             return 0;
@@ -264,7 +256,7 @@ final class Class121 {
             }
          }
       } catch (RuntimeException var11) {
-         throw Class44.method1067(var11, "ql.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var11, "ql.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 

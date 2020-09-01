@@ -1,9 +1,10 @@
 package org.runite.jagex;
 
+import java.util.Objects;
+
 final class Class3_Sub13_Sub34 extends Class3_Sub13 {
 
-   static int anInt3402;
-   private int[] anIntArray3403 = new int[3];
+   private final int[] anIntArray3403 = new int[3];
    private int anInt3404 = 409;
    private int anInt3405 = 4096;
    private int anInt3406 = 4096;
@@ -18,35 +19,32 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
    static int anInt3417;
 
 
-   static final void method328(int var0, RSByteBuffer var1) {
+   static void method328(RSByteBuffer var1) {
       try {
-         if(var0 != -21774) {
-            method330(-115, 107, 60, 70, -41, 115);
-         }
 
          while(var1.index < var1.buffer.length) {
             int var4 = 0;
             boolean var3 = false;
             int var5 = 0;
-            if(var1.getByte((byte)-23) == 1) {
+            if(var1.getByteB() == 1) {
                var3 = true;
-               var4 = var1.getByte((byte)-76);
-               var5 = var1.getByte((byte)-88);
+               var4 = var1.getByteB();
+               var5 = var1.getByteB();
             }
 
-            int var6 = var1.getByte((byte)-70);
-            int var7 = var1.getByte((byte)-89);
+            int var6 = var1.getByteB();
+            int var7 = var1.getByteB();
             int var8 = -Class3_Sub13_Sub21.anInt3256 + var6 * 64;
             int var9 = Class108.anInt1460 + -1 - -Class2.anInt65 - 64 * var7;
             byte var2;
             int var10;
-            if(-1 >= ~var8 && ~(-63 + var9) <= -1 && Class23.anInt455 > var8 + 63 && ~var9 > ~Class108.anInt1460) {
+            if(var8 >= 0 && (var9 - 63) >= 0 && Class23.anInt455 > var8 + 63 && Class108.anInt1460 > var9) {
                var10 = var8 >> 6;
                int var11 = var9 >> 6;
 
                for(int var12 = 0; 64 > var12; ++var12) {
-                  for(int var13 = 0; ~var13 > -65; ++var13) {
-                     if(!var3 || ~(var4 * 8) >= ~var12 && 8 + 8 * var4 > var12 && var13 >= var5 * 8 && 8 + var5 * 8 > var13) {
+                  for(int var13 = 0; var13 < 64; ++var13) {
+                     if(!var3 || var12 >= (var4 * 8) && 8 + 8 * var4 > var12 && var13 >= var5 * 8 && 8 + var5 * 8 > var13) {
                         var2 = var1.getByte();
                         if(var2 != 0) {
                            if(null == Class3_Sub13_Sub33.aByteArrayArrayArray3390[var10][var11]) {
@@ -65,9 +63,9 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                   }
                }
             } else {
-               for(var10 = 0; ~var10 > ~(!var3?4096:64); ++var10) {
+               for(var10 = 0; (!var3 ? 4096 : 64) > var10; ++var10) {
                   var2 = var1.getByte();
-                  if(-1 != ~var2) {
+                  if(var2 != 0) {
                      ++var1.index;
                   }
                }
@@ -75,11 +73,11 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "sk.F(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var15, "sk.F(" + -21774 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
-   static final void method329(int var0, int var1, int var2, int var3, byte var4, int var5, int var6, int var7) {
+   static void method329(int var0, int var1, int var2, int var3, int var5, int var6, int var7) {
       try {
          int var8 = 0;
          int var11 = -var3 + var0;
@@ -105,7 +103,6 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
          int var30 = var16 << 2;
          int var31 = var17 * 3;
          int var32 = (var21 + -3) * var18;
-         int var34 = -113 % ((var4 - 56) / 41);
          int var29 = var15 << 2;
          int var33 = var19 * 3;
          int var35 = (-3 + var22) * var20;
@@ -119,10 +116,10 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
          int var44;
          if(var5 >= Class159.anInt2020 && Class57.anInt902 >= var5) {
             int[] var40 = Class38.anIntArrayArray663[var5];
-            var41 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - var0, (byte)0, Class101.anInt1425);
-            var42 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - -var0, (byte)0, Class101.anInt1425);
-            var43 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 + -var11, (byte)0, Class101.anInt1425);
-            var44 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - -var11, (byte)0, Class101.anInt1425);
+            var41 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - var0, Class101.anInt1425);
+            var42 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - -var0, Class101.anInt1425);
+            var43 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 + -var11, Class101.anInt1425);
+            var44 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - -var11, Class101.anInt1425);
             Class3_Sub13_Sub23_Sub1.method282(var40, var41, 127, var43, var2);
             Class3_Sub13_Sub23_Sub1.method282(var40, var43, 105, var44, var1);
             Class3_Sub13_Sub23_Sub1.method282(var40, var44, -67, var42, var2);
@@ -139,7 +136,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                }
             }
 
-            boolean var49 = ~var9 >= ~var12;
+            boolean var49 = (var12 >= var9);
             if(0 > var24) {
                var24 += var36;
                var23 += var31;
@@ -149,16 +146,13 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
             }
 
             if(var49) {
-               if(-1 < ~var25) {
-                  while(var25 < 0) {
-                     ++var10;
-                     var26 += var38;
-                     var38 += var30;
-                     var25 += var33;
-                     var33 += var30;
-                  }
+               while(var25 < 0) {
+                  ++var10;
+                  var26 += var38;
+                  var38 += var30;
+                  var25 += var33;
+                  var33 += var30;
                }
-
                if(var26 < 0) {
                   ++var10;
                   var26 += var38;
@@ -181,11 +175,11 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
             var42 = var5 - -var9;
             var41 = -var9 + var5;
             if(Class159.anInt2020 <= var42 && Class57.anInt902 >= var41) {
-               var43 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 + var8, (byte)0, Class101.anInt1425);
-               var44 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, -var8 + var6, (byte)0, Class101.anInt1425);
+               var43 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 + var8, Class101.anInt1425);
+               var44 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, -var8 + var6, Class101.anInt1425);
                if(var49) {
-                  int var45 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 + var10, (byte)0, Class101.anInt1425);
-                  int var46 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - var10, (byte)0, Class101.anInt1425);
+                  int var45 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 + var10, Class101.anInt1425);
+                  int var46 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var6 - var10, Class101.anInt1425);
                   int[] var47;
                   if(Class159.anInt2020 <= var41) {
                      var47 = Class38.anIntArrayArray663[var41];
@@ -194,14 +188,14 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                      Class3_Sub13_Sub23_Sub1.method282(var47, var45, -102, var43, var2);
                   }
 
-                  if(~var42 >= ~Class57.anInt902) {
+                  if(Class57.anInt902 >= var42) {
                      var47 = Class38.anIntArrayArray663[var42];
                      Class3_Sub13_Sub23_Sub1.method282(var47, var44, 87, var46, var2);
                      Class3_Sub13_Sub23_Sub1.method282(var47, var46, -92, var45, var1);
                      Class3_Sub13_Sub23_Sub1.method282(var47, var45, 124, var43, var2);
                   }
                } else {
-                  if(~Class159.anInt2020 >= ~var41) {
+                  if(var41 >= Class159.anInt2020) {
                      Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var41], var44, -122, var43, var2);
                   }
 
@@ -213,7 +207,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var48) {
-         throw Class44.method1067(var48, "sk.Q(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var48, "sk.Q(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + (byte) -54 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 
@@ -221,31 +215,27 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
       try {
          if(var3) {
             if(var1 == 0) {
-               this.anInt3404 = var2.getShort(1);
-            } else if(1 != var1) {
-               if(~var1 == -3) {
-                  this.anInt3406 = var2.getShort(1);
-               } else if(var1 != 3) {
-                  if(4 == var1) {
-                     int var4 = var2.getTriByte((byte)107);
-                     this.anIntArray3403[2] = Class3_Sub28_Sub15.method633(var4, 255) >> 12;
-                     this.anIntArray3403[1] = Class3_Sub28_Sub15.method633(var4 >> 4, 4080);
-                     this.anIntArray3403[0] = Class3_Sub28_Sub15.method633(16711680, var4) << 4;
-                  }
-               } else {
-                  this.anInt3410 = var2.getShort(1);
-               }
-            } else {
-               this.anInt3405 = var2.getShort(1);
+               this.anInt3404 = var2.getShort();
+            } else if(1 == var1) {
+               this.anInt3405 = var2.getShort();
+            } else if (var1 == 2) {
+                this.anInt3406 = var2.getShort();
+            } else if (var1 == 3) {
+                this.anInt3410 = var2.getShort();
+            } else if (4 == var1) {
+                int var4 = var2.getTriByte((byte) 107);
+                this.anIntArray3403[2] = Class69.bitwiseAnd(var4, 255) >> 12;
+                this.anIntArray3403[1] = Class69.bitwiseAnd(var4 >> 4, 4080);
+                this.anIntArray3403[0] = Class69.bitwiseAnd(16711680, var4) << 4;
             }
 
          }
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "sk.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var6, "sk.A(" + var1 + ',' + (var2 != null ? "{...}" : "null") + ',' + ')');
       }
    }
 
-   static final void method330(int var0, int var1, int var2, int var3, int var4, int var5) {
+   static void method330(int var0, int var1, int var2, int var3, int var4, int var5) {
       try {
          if(var1 > -83) {
             anInt3415 = 115;
@@ -258,14 +248,14 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                Class3_Sub8.method126(false, var2, var4, var0, var3);
             }
 
-         } else if(-1 == ~var7) {
-            Class75_Sub4.method1354(var3, var0, true, var5, var4);
+         } else if(var7 == 0) {
+            Class75_Sub4.method1354(var3, var0, var5, var4);
          } else {
             int var12 = (var7 << 12) / var6;
             int var13 = -(var12 * var3 >> 12) + var4;
             int var8;
             int var10;
-            if(~Class101.anInt1425 < ~var3) {
+            if(var3 < Class101.anInt1425) {
                var8 = Class101.anInt1425;
                var10 = (Class101.anInt1425 * var12 >> 12) + var13;
             } else if(var3 > Class3_Sub28_Sub18.anInt3765) {
@@ -278,7 +268,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
 
             int var9;
             int var11;
-            if(~var5 <= ~Class101.anInt1425) {
+            if(Class101.anInt1425 <= var5) {
                if(Class3_Sub28_Sub18.anInt3765 < var5) {
                   var9 = Class3_Sub28_Sub18.anInt3765;
                   var11 = var13 - -(var12 * Class3_Sub28_Sub18.anInt3765 >> 12);
@@ -291,8 +281,8 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                var11 = var13 + (var12 * Class101.anInt1425 >> 12);
             }
 
-            if(~Class159.anInt2020 >= ~var11) {
-               if(~var11 < ~Class57.anInt902) {
+            if(var11 >= Class159.anInt2020) {
+               if(Class57.anInt902 < var11) {
                   var11 = Class57.anInt902;
                   var9 = (Class57.anInt902 - var13 << 12) / var12;
                }
@@ -301,7 +291,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                var11 = Class159.anInt2020;
             }
 
-            if(~var10 > ~Class159.anInt2020) {
+            if(Class159.anInt2020 > var10) {
                var10 = Class159.anInt2020;
                var8 = (Class159.anInt2020 + -var13 << 12) / var12;
             } else if(Class57.anInt902 < var10) {
@@ -312,7 +302,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
             GameObject.method1869((byte)6, var0, var11, var10, var9, var8);
          }
       } catch (RuntimeException var14) {
-         throw Class44.method1067(var14, "sk.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
+         throw Class44.clientError(var14, "sk.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
       }
    }
 
@@ -320,14 +310,14 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
       super(1, false);
    }
 
-   static final void method331(long var0, int var2) {
+   static void method331(long var0, int var2) {
       try {
          if(0L < var0) {
-            if(0L != var0 % 10L) {
-               Class128.method1762(var0, (byte)-128);
-            } else {
+            if(0L == var0 % 10L) {
                Class128.method1762(var0 + -1L, (byte)-123);
                Class128.method1762(1L, (byte)24);
+            } else {
+               Class128.method1762(var0, (byte)-128);
             }
 
             if(var2 != 64) {
@@ -336,19 +326,23 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
 
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "sk.O(" + var0 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "sk.O(" + var0 + ',' + var2 + ')');
       }
    }
 
-   static final int method332(int var0, int var1) {
+   static int method332(int var0, int var1) {
       try {
          if(var0 != 2) {
             anInt3414 = -40;
          }
 
-         return (~var1 > -66 || var1 > 90) && (-193 < ~var1 || var1 > 222 || var1 == 215)?(~var1 != -160?(var1 != 140?var1:156):255):32 + var1;
+         if ((var1 < 65 || var1 > 90) && (var1 < 192 || var1 > 222 || var1 == 215)) {
+            if (var1 != 159) return var1 != 140 ? var1 : 156;
+            return 255;
+         }
+         return 32 + var1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "sk.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "sk.C(" + var0 + ',' + var1 + ')');
       }
    }
 
@@ -358,15 +352,15 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
          aClass93_3412 = null;
          aClass47_3407 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sk.B(" + var0 + ')');
+         throw Class44.clientError(var2, "sk.B(" + var0 + ')');
       }
    }
 
-   static final boolean method334(CacheIndex var0, int var1) {
+   static boolean method334(CacheIndex var0) {
       try {
-         return var0.method2144(var1, NPC.anInt4001);
+         return var0.method2144(NPC.anInt4001);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "sk.R(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var3, "sk.R(" + (var0 != null?"{...}":"null") + ',' + 0 + ')');
       }
    }
 
@@ -379,7 +373,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
          int[][] var3 = this.aClass97_2376.method1594((byte)91, var2);
          if(this.aClass97_2376.aBoolean1379) {
             int[][] var4 = this.method162(var2, 0, (byte)-96);
-            int[] var5 = var4[0];
+            int[] var5 = Objects.requireNonNull(var4)[0];
             int[] var6 = var4[1];
             int[] var7 = var4[2];
             int[] var8 = var3[0];
@@ -389,7 +383,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
             for(int var11 = 0; var11 < Class113.anInt1559; ++var11) {
                int var13 = var5[var11];
                int var12 = -this.anIntArray3403[0] + var13;
-               if(~var12 > -1) {
+               if(var12 < 0) {
                   var12 = -var12;
                }
 
@@ -400,7 +394,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                } else {
                   int var14 = var6[var11];
                   var12 = var14 + -this.anIntArray3403[1];
-                  if(-1 < ~var12) {
+                  if(var12 < 0) {
                      var12 = -var12;
                   }
 
@@ -415,7 +409,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
                         var12 = -var12;
                      }
 
-                     if(~var12 >= ~this.anInt3404) {
+                     if(this.anInt3404 >= var12) {
                         var8[var11] = this.anInt3410 * var13 >> 12;
                         var9[var11] = this.anInt3406 * var14 >> 12;
                         var10[var11] = this.anInt3405 * var15 >> 12;
@@ -431,7 +425,7 @@ final class Class3_Sub13_Sub34 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var16) {
-         throw Class44.method1067(var16, "sk.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var16, "sk.T(" + var1 + ',' + var2 + ')');
       }
    }
 

@@ -25,18 +25,15 @@ final class Class95 {
          }
          COMMAND_BREAK_CONNECTION = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "nb.D(" + var0 + ')');
+         throw Class44.clientError(var2, "nb.D(" + var0 + ')');
       }
    }
 
-   static final void method1583(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
+   static void method1583(int var0, int var1, int var2, int var4, int var5, int var6, int var7, int var8, int var9) {
       try {
-         if(var3 != 3) {
-            method1582(45);
-         }
 
-         if(var1 == var0 && var2 == var9 && var8 == var7 && var5 == var6) {
-            Class3_Sub13_Sub34.method330(var4, var3 + -111, var5, var0, var9, var7);
+          if(var1 == var0 && var2 == var9 && var8 == var7 && var5 == var6) {
+            Class3_Sub13_Sub34.method330(var4, 3 + -111, var5, var0, var9, var7);
          } else {
             int var10 = var0;
             int var13 = 3 * var9;
@@ -71,32 +68,26 @@ final class Class95 {
          }
 
       } catch (RuntimeException var35) {
-         throw Class44.method1067(var35, "nb.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ')');
+         throw Class44.clientError(var35, "nb.B(" + var0 + ',' + var1 + ',' + var2 + ',' + 3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ')');
       }
    }
 
-   static final void method1584(int var0, int var1, int var2, int var3, int var4, int var5) {
+   static void method1584(int var0, int var1, int var2, int var3, int var5) {
       try {
-         if(var4 != -26571) {
-            method1586(92, 25);
-         }
 
-         if(var5 == var1) {
-            Class43.method1058(var5, var2, var0, var3, (byte)-47);
+          if(var5 == var1) {
+            Class43.method1058(var5, var2, var0, var3);
+         } else if (Class101.anInt1425 <= var2 - var5 && var2 + var5 <= Class3_Sub28_Sub18.anInt3765 && -var1 + var3 >= Class159.anInt2020 && Class57.anInt902 >= var3 - -var1) {
+            Class3_Sub9.method135(var3, var2, var5, -111, var1, var0);
          } else {
-            if(Class101.anInt1425 <= var2 - var5 && var2 + var5 <= Class3_Sub28_Sub18.anInt3765 && -var1 + var3 >= Class159.anInt2020 && Class57.anInt902 >= var3 - -var1) {
-               Class3_Sub9.method135(var3, var2, var5, -111, var1, var0);
-            } else {
-               Class3_Sub28_Sub5.method556(var0, var1, var5, (byte)-123, var2, var3);
-            }
-
+            Class3_Sub28_Sub5.method556(var0, var1, var5, (byte) -123, var2, var3);
          }
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "nb.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
+         throw Class44.clientError(var7, "nb.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + -26571 + ',' + var5 + ')');
       }
    }
 
-   static final int method1585(byte var0, int var1) {
+   static int method1585(byte var0, int var1) {
       try {
          --var1;
          var1 |= var1 >>> 1;
@@ -106,27 +97,20 @@ final class Class95 {
          var1 |= var1 >>> 16;
          return 1 + var1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "nb.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "nb.C(" + var0 + ',' + var1 + ')');
       }
    }
 
-   static final RSString method1586(int var0, int var1) {
+   static RSString method1586() {
       try {
-         if(var1 > 0 && var1 <= 255) {
-            RSString var2 = new RSString();
-            if(var0 != 23161) {
-               aClass3_Sub28_Sub16_1339 = (Class3_Sub28_Sub16)null;
-            }
+         RSString var2 = new RSString();
 
-            var2.length = 1;
-            var2.byteArray = new byte[1];
-            var2.byteArray[0] = (byte)var1;
-            return var2;
-         } else {
-            throw new IllegalArgumentException();
-         }
+         var2.length = 1;
+         var2.byteArray = new byte[1];
+         var2.byteArray[0] = (byte) 160;
+         return var2;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "nb.A(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "nb.A(" + 23161 + ',' + 160 + ')');
       }
    }
 
