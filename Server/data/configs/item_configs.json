@@ -6174,7 +6174,7 @@
       "id": "617",
       "name": "Coins",
       "examine": "100,000 or more: \"X x coins\" where X is the exact number of coins in the stack.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -27216,7 +27216,7 @@
       "name": "Lamp",
       "examine": "Wonder what happens if I rub it...",
       "weight": "0.1",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -44500,7 +44500,7 @@
       "render_anim": "1426",
       "equipment_slot": "3",
       "weapon_interface": "12",
-      "bankable": "0",
+      "bankable": "false",
       "fun_weapon": "true",
       "archery_ticket_price": "0",
       "durability": null
@@ -65565,7 +65565,7 @@
       "name": "Lamp",
       "examine": "Wonder what happens if I rub it...",
       "weight": "0.1",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66330,7 +66330,7 @@
       "id": "6888",
       "name": "Guardian statue",
       "examine": "A guardian of the arena.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66377,7 +66377,7 @@
       "grand_exchange_price": "189",
       "bonuses": "0,0,0,0,0,0,1,1,0,0,0,0,0,0,0",
       "weight": "0.3",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66390,7 +66390,7 @@
       "absorb": "3,0,6",
       "bonuses": "0,0,0,-8,-2,27,31,29,-1,29,30,0,0,0,0",
       "weight": "5.8",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66403,7 +66403,7 @@
       "absorb": "1,0,2",
       "bonuses": "0,0,0,-3,-1,14,15,13,-1,14,6,0,0,0,0",
       "weight": "1.8",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66414,7 +66414,7 @@
       "tradeable": "true",
       "shop_price": "350",
       "grand_exchange_price": "644",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66430,7 +66430,7 @@
       "bonuses": "38,47,-2,0,0,0,3,2,0,0,0,49,0,0,0",
       "attack_audios": "2500,2500,2517,2500",
       "weight": "1.8",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66438,7 +66438,7 @@
       "id": "6898",
       "name": "Cylinder",
       "examine": "A green cylinder",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66446,7 +66446,7 @@
       "id": "6899",
       "name": "Cube",
       "examine": "A yellow cube",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66454,7 +66454,7 @@
       "id": "6900",
       "name": "Icosahedron",
       "examine": "A blue icosahedron.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66462,7 +66462,7 @@
       "id": "6901",
       "name": "Pentamid",
       "examine": "A red pentamid.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66470,7 +66470,7 @@
       "id": "6902",
       "name": "Orb",
       "examine": "This looks valuable.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66480,7 +66480,7 @@
       "examine": "This looks valuable.",
       "tradeable": "true",
       "weight": "0.3",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -66980,7 +66980,7 @@
       "id": "6964",
       "name": "Coins",
       "examine": "100,000 or more: \"X x coins\" where X is the exact number of coins in the stack.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -80615,7 +80615,7 @@
       "id": "8890",
       "name": "Coins",
       "examine": "100,000 or more: \"X x coins\" where X is the exact number of coins in the stack.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105512,7 +105512,7 @@
       "destroy": "true",
       "destroy_message": "Another can be found in the Grim Reaper's house.",
       "weight": "1",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105522,7 +105522,7 @@
       "examine": "Someone's Last Will and Testament.",
       "destroy": "true",
       "destroy_message": "You'll have to find another from the Grim Reaper's house.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105533,7 +105533,7 @@
       "destroy": "true",
       "destroy_message": "You'll have to find another from the Grim Reaper's house.",
       "weight": "1",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105544,7 +105544,7 @@
       "destroy": "true",
       "destroy_message": "You'll have to find another from the Grim Reaper's house.",
       "weight": "1",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105554,7 +105554,7 @@
       "examine": "There's not much sand left in the top half...",
       "destroy": "true",
       "destroy_message": "You can get a replacement from Diango in Draynor Village.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105565,7 +105565,7 @@
       "destroy": "true",
       "destroy_message": "Another can be found in the Grim Reaper's house.",
       "weight": "1",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105575,7 +105575,7 @@
       "examine": "That's gross. Why am I carrying it around?",
       "destroy": "true",
       "destroy_message": "You'll have to find another from the Grim Reaper's house.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -105585,7 +105585,7 @@
       "examine": "A 'Voice of Doom' potion, used to deepen your voice.",
       "destroy": "true",
       "destroy_message": "You'll have to find another from the Grim Reaper's house.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107294,7 +107294,7 @@
       "examine": "Add this to a snowman to make a snow warrior.",
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107305,7 +107305,7 @@
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
       "attack_audios": "2555,0,0,0",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107315,7 +107315,7 @@
       "examine": "Add this to a snowman to make a snow ranger.",
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107325,7 +107325,7 @@
       "examine": "Add this to a snowman to make a barbarian snowman.",
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107335,7 +107335,7 @@
       "examine": "It's actually made of cardboard, but it looks like a dragon full helm.",
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107345,7 +107345,7 @@
       "examine": "Use this to make your snowman look like a dwarf.",
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107355,7 +107355,7 @@
       "examine": "Arr! Shiver me snowman!",
       "destroy": "true",
       "destroy_message": "Talk to a snow imp to get another.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
@@ -107365,7 +107365,7 @@
       "examine": "The most traditional snowman hat.",
       "destroy": "true",
       "destroy_message": "You can get another from a snow imp.",
-      "bankable": "0",
+      "bankable": "false",
       "archery_ticket_price": "0",
       "durability": null
     },
