@@ -3,51 +3,50 @@ import java.util.Random;
 
 abstract class Class164 {
 
-   private short[] aShortArray2047 = new short[512];
+   private final short[] aShortArray2047 = new short[512];
    static int[] anIntArray2048;
    private short[] aShortArray2049;
    static int anInt2050;
    static int anInt2051;
    static CacheIndex aClass153_2052;
-   private int anInt2054 = 0;
+   private final int anInt2054;
    static RSInterface aClass11_2055;
-   private int anInt2056 = 4;
-   private int anInt2057 = 4;
+   private final int anInt2056;
+   private final int anInt2057;
    static Model_Sub1[] aClass140_Sub5Array2058 = new Model_Sub1[4];
-   static int anInt2059;
-   private int anInt2060 = 4;
+   private final int anInt2060;
    static RSString aClass94_2061 = RSString.createRSString("Forced tweening disabled)3");
-   int anInt2062 = 4;
+   int anInt2062;
 
 
-   final void method2230(int var1, int var2, int var3, int var4) {
+   final void method2230(int var1) {
       try {
-         int[] var39 = new int[var2];
-         int[] var40 = new int[var4];
-         int[] var41 = new int[var3];
+         int[] var39 = new int[64];
+         int[] var40 = new int[64];
+         int[] var41 = new int[64];
 
          int var42;
-         for(var42 = 0; var42 < var2; ++var42) {
-            var39[var42] = (var42 << 12) / var2;
+         for(var42 = 0; var42 < 64; ++var42) {
+            var39[var42] = (var42 << 12) / 64;
          }
 
          if(var1 > -68) {
             this.method2236(64);
          }
 
-         for(var42 = 0; var42 < var4; ++var42) {
-            var40[var42] = (var42 << 12) / var4;
+         for(var42 = 0; var42 < 64; ++var42) {
+            var40[var42] = (var42 << 12) / 64;
          }
 
-         for(var42 = 0; var42 < var3; ++var42) {
-            var41[var42] = (var42 << 12) / var3;
+         for(var42 = 0; var42 < 64; ++var42) {
+            var41[var42] = (var42 << 12) / 64;
          }
 
-         this.method2233(-949697716);
+         this.method2233();
 
-         for(int var37 = 0; var37 < var3; ++var37) {
-            for(int var36 = 0; var36 < var4; ++var36) {
-               for(int var35 = 0; var35 < var2; ++var35) {
+         for(int var37 = 0; var37 < 64; ++var37) {
+            for(int var36 = 0; var36 < 64; ++var36) {
+               for(int var35 = 0; var35 < 64; ++var35) {
                   for(int var38 = 0; var38 < this.anInt2062; ++var38) {
                      var42 = this.aShortArray2049[var38] << 12;
                      int var8 = this.anInt2057 * var42 >> 12;
@@ -115,7 +114,7 @@ abstract class Class164 {
                      var30 = Class131.method1788(var20, var22, var21, this.aShortArray2047[var12 + var28], true);
                      var32 = var29 + ((-var29 + var30) * var17 >> 12);
                      int var34 = var31 - -((var32 + -var31) * var18 >> 12);
-                     this.method2237(((-var33 + var34) * var19 >> 12) + var33, var38, -20975);
+                     this.method2237(((-var33 + var34) * var19 >> 12) + var33, var38);
                   }
 
                   this.method2231((byte)-92);
@@ -124,19 +123,16 @@ abstract class Class164 {
          }
 
       } catch (RuntimeException var43) {
-         throw Class44.method1067(var43, "wf.M(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var43, "wf.M(" + var1 + ',' + 64 + ',' + 64 + ',' + 64 + ')');
       }
    }
 
    abstract void method2231(byte var1);
 
-   private final void method2232(byte var1) {
+   private void method2232() {
       try {
          this.aShortArray2049 = new short[this.anInt2062];
          int var2 = 0;
-         if(var1 != -60) {
-            method2234(-92, 105);
-         }
 
          while(var2 < this.anInt2062) {
             this.aShortArray2049[var2] = (short)((int)Math.pow(2.0D, (double)var2));
@@ -144,20 +140,11 @@ abstract class Class164 {
          }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "wf.L(" + var1 + ')');
+         throw Class44.clientError(var3, "wf.L(" + (byte) -60 + ')');
       }
    }
 
-   abstract void method2233(int var1);
-
-   static final int method2234(int var0, int var1) {
-      try {
-         int var2 = -27 / ((var1 - -87) / 39);
-         return 1023 & var0;
-      } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "wf.K(" + var0 + ',' + var1 + ')');
-      }
-   }
+   abstract void method2233();
 
    public static void method2235(int var0) {
       try {
@@ -169,11 +156,11 @@ abstract class Class164 {
             aClass11_2055 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "wf.J(" + var0 + ')');
+         throw Class44.clientError(var2, "wf.J(" + var0 + ')');
       }
    }
 
-   private final void method2236(int var1) {
+   private void method2236(int var1) {
       try {
          Random var2 = new Random((long)this.anInt2054);
 
@@ -195,23 +182,23 @@ abstract class Class164 {
          }
 
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "wf.N(" + var1 + ')');
+         throw Class44.clientError(var7, "wf.N(" + var1 + ')');
       }
    }
 
-   abstract void method2237(int var1, int var2, int var3);
+   abstract void method2237(int var1, int var2);
 
-   Class164(int var1, int var2, int var3, int var4, int var5) {
+   Class164(int var1, int var3, int var4) {
       try {
          this.anInt2056 = var4;
-         this.anInt2062 = var2;
+         this.anInt2062 = 5;
          this.anInt2054 = var1;
-         this.anInt2060 = var5;
+         this.anInt2060 = 2;
          this.anInt2057 = var3;
-         this.method2232((byte)-60);
+         this.method2232();
          this.method2236(-190126388);
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "wf.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
+         throw Class44.clientError(var7, "wf.<init>(" + var1 + ',' + 5 + ',' + var3 + ',' + var4 + ',' + 2 + ')');
       }
    }
 

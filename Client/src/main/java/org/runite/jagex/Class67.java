@@ -20,7 +20,7 @@ final class Class67 implements Runnable {
             aClass93_1013 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "jd.B(" + var0 + ')');
+         throw Class44.clientError(var2, "jd.B(" + var0 + ')');
       }
    }
 
@@ -38,35 +38,33 @@ final class Class67 implements Runnable {
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "jd.run()");
+         throw Class44.clientError(var4, "jd.run()");
       }
    }
 
-   static final int method1258(byte var0) {
+   static int method1258(byte var0) {
       try {
          Class136.anInt1780 = 0;
          if(var0 != -53) {
             method1258((byte)-35);
          }
 
-         return Class3_Sub13_Sub17.method251(-1);
+         return Class3_Sub13_Sub17.method251();
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "jd.D(" + var0 + ')');
+         throw Class44.clientError(var2, "jd.D(" + var0 + ')');
       }
    }
 
-   static final void method1259(int var0, byte var1) {
+   static void method1259(int var0) {
       try {
-         if(var1 > 12) {
-            Class3_Sub28_Sub6 var2 = Class3_Sub24_Sub3.method466(4, 12, var0);
-            var2.a(true);
-         }
+         Class3_Sub28_Sub6 var2 = Class3_Sub24_Sub3.method466(12, var0);
+         var2.a();
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "jd.A(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "jd.A(" + var0 + ',' + (byte) 109 + ')');
       }
    }
 
-   static final void method1260(int var0, int var1, RSInterface[] var2) {
+   static void method1260(int var0, int var1, RSInterface[] var2) {
       try {
          for(int var3 = 0; var3 < var2.length; ++var3) {
             RSInterface var4 = var2[var3];
@@ -76,7 +74,7 @@ final class Class67 implements Runnable {
                      continue;
                   }
 
-                  method1260(var0 ^ 0, var4.anInt279, var2);
+                  method1260(var0, var4.anInt279, var2);
                   if(var4.aClass11Array262 != null) {
                      method1260(23206, var4.anInt279, var4.aClass11Array262);
                   }
@@ -98,24 +96,22 @@ final class Class67 implements Runnable {
                      }
 
                      if(var6 != -1) {
-                        AnimationDefinition var7 = Client.getAnimationDefinition(var6, (byte)-20);
-                        if(null != var7) {
-                           for(var4.anInt267 += Class106.anInt1446; var7.duration[var4.anInt283] < var4.anInt267; Class20.method909(115, var4)) {
-                              var4.anInt267 -= var7.duration[var4.anInt283];
-                              ++var4.anInt283;
-                              if(var7.frames.length <= var4.anInt283) {
-                                 var4.anInt283 -= var7.anInt1865;
-                                 if(var4.anInt283 < 0 || var7.frames.length <= var4.anInt283) {
-                                    var4.anInt283 = 0;
-                                 }
+                        AnimationDefinition var7 = Client.getAnimationDefinition(var6);
+                        for(var4.anInt267 += Class106.anInt1446; var7.duration[var4.anInt283] < var4.anInt267; Class20.method909(115, var4)) {
+                           var4.anInt267 -= var7.duration[var4.anInt283];
+                           ++var4.anInt283;
+                           if(var7.frames.length <= var4.anInt283) {
+                              var4.anInt283 -= var7.anInt1865;
+                              if(var4.anInt283 < 0 || var7.frames.length <= var4.anInt283) {
+                                 var4.anInt283 = 0;
                               }
+                           }
 
-                              var4.anInt260 = var4.anInt283 + 1;
-                              if(var7.frames.length <= var4.anInt260) {
-                                 var4.anInt260 -= var7.anInt1865;
-                                 if(var4.anInt260 < 0 || var7.frames.length <= var4.anInt260) {
-                                    var4.anInt260 = -1;
-                                 }
+                           var4.anInt260 = var4.anInt283 + 1;
+                           if(var7.frames.length <= var4.anInt260) {
+                              var4.anInt260 -= var7.anInt1865;
+                              if(var4.anInt260 < 0 || var7.frames.length <= var4.anInt260) {
+                                 var4.anInt260 = -1;
                               }
                            }
                         }
@@ -140,11 +136,11 @@ final class Class67 implements Runnable {
          }
 
       } catch (RuntimeException var8) {
-         throw Class44.method1067(var8, "jd.E(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var8, "jd.E(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
-   static final RSString method1261(int var0, int var1, RSString[] var2, int var3) {
+   static RSString method1261(int var0, int var1, RSString[] var2) {
       try {
          int var4 = 0;
 
@@ -167,18 +163,15 @@ final class Class67 implements Runnable {
 
          RSString var11 = new RSString();
          var11.length = var4;
-         if(var3 != 2774) {
-            method1262(83, 28);
-         }
 
          var11.byteArray = var10;
          return var11;
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "jd.C(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var9, "jd.C(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + 2774 + ')');
       }
    }
 
-   static final int method1262(int var0, int var1) {
+   static int method1262(int var0, int var1) {
       try {
          if(var0 < 20) {
             method1262(15, 87);
@@ -186,7 +179,7 @@ final class Class67 implements Runnable {
 
          return var1 & 127;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "jd.F(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "jd.F(" + var0 + ',' + var1 + ')');
       }
    }
 

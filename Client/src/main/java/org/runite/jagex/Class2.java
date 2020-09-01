@@ -13,15 +13,12 @@ final class Class2 {
 	static Interface5[] anInterface5Array70;
 
 
-	static final boolean method73(short var0, int var1) {
+	static boolean method73(short var0) {
 		try {
 			if(var0 != 47 && var0 != 5 && var0 != 43 && var0 != 35 && var0 != 58 && var0 != 22 && var0 != 40 && var0 != 3) {
 				if(var0 != 9 && var0 != 12 && var0 != 1006 && var0 != 1003) {
-					if(var1 <= 42) {
-						anInt59 = 1;
-					}
 
-					return var0 != 25 && var0 != 23 && 48 != var0 && var0 != 7 && var0 != 13 ?var0 == 8 || var0 == 32 || var0 == 28 || var0 == 59 || var0 == 51 || var0 == 41 :true;
+					return var0 == 25 || var0 == 23 || 48 == var0 || var0 == 7 || var0 == 13 || (var0 == 8 || var0 == 32 || var0 == 28 || var0 == 59 || var0 == 51 || var0 == 41);
 				} else {
 					return true;
 				}
@@ -29,14 +26,14 @@ final class Class2 {
 				return true;
 			}
 		} catch (RuntimeException var3) {
-			throw Class44.method1067(var3, "aa.C(" + var0 + ',' + var1 + ')');
+			throw Class44.clientError(var3, "aa.C(" + var0 + ',' + 121 + ')');
 		}
 	}
 
 	final void method74(byte var1, RSByteBuffer var2, int var3) {
 		try {
 			while(true) {
-				int var4 = var2.getByte((byte)-34);
+				int var4 = var2.getByteB();
 				if(var4 == 0) {
 					if(var1 > -108) {
 						this.method74((byte)85, (RSByteBuffer)null, 63);
@@ -45,61 +42,59 @@ final class Class2 {
 					return;
 				}
 
-				this.method79(var4, var2, var3, 95);
+				this.method79(var4, var2, var3);
 			}
 		} catch (RuntimeException var5) {
-			throw Class44.method1067(var5, "aa.F(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+			throw Class44.clientError(var5, "aa.F(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
 		}
 	}
 
-	static final void method75(RSInterface[] var0, boolean var1, int var2) {
+	static void method75(RSInterface[] var0, int var2) {
 		try {
-			if(var1) {
-				for(int var3 = 0; var0.length > var3; ++var3) {
-					RSInterface var4 = var0[var3];
-					if(null != var4) {
-						if(var4.type == 0) {
-							if(null != var4.aClass11Array262) {
-								method75(var4.aClass11Array262, true, var2);
-							}
-
-							Class3_Sub31 var5 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1780((long)var4.anInt279, 0);
-							if(null != var5) {
-								Class3_Sub8.method124(49, var2, var5.anInt2602);
-							}
+			for(int var3 = 0; var0.length > var3; ++var3) {
+				RSInterface var4 = var0[var3];
+				if(null != var4) {
+					if(var4.type == 0) {
+						if(null != var4.aClass11Array262) {
+							method75(var4.aClass11Array262, var2);
 						}
 
-						CS2Script var7;
-						if(var2 == 0 && null != var4.anObjectArray206) {
-							var7 = new CS2Script();
-							var7.arguments = var4.anObjectArray206;
-							var7.aClass11_2449 = var4;
-							Class43.method1065(1073376993, var7);
-						}
-
-						if(var2 == 1 && var4.anObjectArray176 != null) {
-							if(var4.anInt191 >= 0) {
-								RSInterface var8 = Class7.getRSInterface((byte)121, var4.anInt279);
-								if(null == var8 || null == var8.aClass11Array262 || var8.aClass11Array262.length <= var4.anInt191 || var8.aClass11Array262[var4.anInt191] != var4) {
-									continue;
-								}
-							}
-
-							var7 = new CS2Script();
-							var7.arguments = var4.anObjectArray176;
-							var7.aClass11_2449 = var4;
-							Class43.method1065(1073376993, var7);
+						Class3_Sub31 var5 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1780((long)var4.anInt279, 0);
+						if(null != var5) {
+							Class3_Sub8.method124(49, var2, var5.anInt2602);
 						}
 					}
-				}
 
+					CS2Script var7;
+					if(var2 == 0 && null != var4.anObjectArray206) {
+						var7 = new CS2Script();
+						var7.arguments = var4.anObjectArray206;
+						var7.aClass11_2449 = var4;
+						Class43.method1065(var7);
+					}
+
+					if(var2 == 1 && var4.anObjectArray176 != null) {
+						if(var4.anInt191 >= 0) {
+							RSInterface var8 = Class7.getRSInterface((byte)121, var4.anInt279);
+							if(null == var8 || null == var8.aClass11Array262 || var8.aClass11Array262.length <= var4.anInt191 || var8.aClass11Array262[var4.anInt191] != var4) {
+								continue;
+							}
+						}
+
+						var7 = new CS2Script();
+						var7.arguments = var4.anObjectArray176;
+						var7.aClass11_2449 = var4;
+						Class43.method1065(var7);
+					}
+				}
 			}
+
 		} catch (RuntimeException var6) {
-			throw Class44.method1067(var6, "aa.I(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ')');
+			throw Class44.clientError(var6, "aa.I(" + (var0 != null?"{...}":"null") + ',' + true + ',' + var2 + ')');
 		}
 	}
 
-	static final boolean method76(int var0, int var1, int var2, int var3, int var4, boolean var5, int var6, int var7, int var8, int var9, int var10, int var11) {
+	static boolean method76(int var0, int var1, int var2, int var3, int var4, boolean var5, int var6, int var7, int var8, int var9, int var11) {
 		try {
 			int var12;
 			int var13;
@@ -133,7 +128,7 @@ final class Class2 {
 				}
 
 				if(var1 != 0) {
-					if((5 > var1 || var1 == 10) && Class86.aClass91Array1182[WorldListCountry.localPlane].method1488(var4, var12, false, var13, var8, -1 + var1, 2, var7)) {
+					if((5 > var1 || var1 == 10) && Class86.aClass91Array1182[WorldListCountry.localPlane].method1488(var4, var12, var13, var8, -1 + var1, 2, var7)) {
 						var16 = true;
 						break;
 					}
@@ -144,7 +139,7 @@ final class Class2 {
 					}
 				}
 
-				if(0 != var0 && var6 != 0 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1498(true, var8, var13, var12, 2, var0, var2, var4, var6)) {
+				if(0 != var0 && var6 != 0 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1498(var8, var13, var12, 2, var0, var2, var4, var6)) {
 					var16 = true;
 					break;
 				}
@@ -298,27 +293,22 @@ final class Class2 {
 			}
 
 			if(var15 <= 0) {
-				if(1 == var9) {
-					return false;
-				} else {
-					return true;
-				}
+				return 1 != var9;
 			} else {
 				Class3_Sub13_Sub27.method299(113, var15, var9);
 				return true;
 			}
 		} catch (RuntimeException var26) {
-			throw Class44.method1067(var26, "aa.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var10 + ',' + var11 + ')');
+			throw Class44.clientError(var26, "aa.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + 127 + ',' + var11 + ')');
 		}
 	}
 
 	final LDIndexedSprite method77(int var1, byte var2) {
 		try {
-			LDIndexedSprite var3 = (LDIndexedSprite)Class3_Sub13_Sub31.aClass93_3369.get((long)(var1 << 16 | this.anInt64), (byte)121);
+			LDIndexedSprite var3 = (LDIndexedSprite)Class3_Sub13_Sub31.aClass93_3369.get((long)(var1 << 16 | this.anInt64));
 			if(var3 == null) {
-				KeyboardListener.aClass153_1916.method2144(0, this.anInt64);
-				int var4 = 125 % ((var2 - -21) / 50);
-				var3 = RSString.method1539(0, true, this.anInt64, KeyboardListener.aClass153_1916);
+				KeyboardListener.aClass153_1916.method2144(this.anInt64);
+				var3 = RSString.method1539(this.anInt64, KeyboardListener.aClass153_1916);
 				if(var3 != null) {
 					var3.method1668(Class102.anInt2136, Class46.anInt740, Class158.anInt2015);
 					var3.anInt1469 = var3.anInt1461;
@@ -331,50 +321,37 @@ final class Class2 {
 					Class3_Sub13_Sub31.aClass93_3369.put((byte)-125, var3, (long)(var1 << 16 | this.anInt64));
 				}
 
-				return var3;
-			} else {
-				return var3;
 			}
+			return var3;
 		} catch (RuntimeException var6) {
-			throw Class44.method1067(var6, "aa.D(" + var1 + ',' + var2 + ')');
+			throw Class44.clientError(var6, "aa.D(" + var1 + ',' + var2 + ')');
 		}
 	}
 
-	static final void method78(int var0, boolean var1, int var2) {
+	static void method78(int var0, int var2) {
 		try {
-			++CacheIndex.anInt1944;
 			Class3_Sub13_Sub1.outgoingBuffer.putOpcode(132);
 			Class3_Sub13_Sub1.outgoingBuffer.putIntA(var2);
-			if(!var1) {
-				Class3_Sub13_Sub1.outgoingBuffer.putLEShort(-1, var0);
-			}
+			Class3_Sub13_Sub1.outgoingBuffer.putLEShort(var0);
 		} catch (RuntimeException var4) {
-			throw Class44.method1067(var4, "aa.E(" + var0 + ',' + var1 + ',' + var2 + ')');
+			throw Class44.clientError(var4, "aa.E(" + var0 + ',' + false + ',' + var2 + ')');
 		}
 	}
 
-	private final void method79(int var1, RSByteBuffer var2, int var3, int var4) {
+	private void method79(int var1, RSByteBuffer var2, int var3) {
 		try {
 			if(var1 == 1) {
-				this.anInt64 = var2.getShort(1);
+				this.anInt64 = var2.getShort();
 			} else if(var1 == 2) {
 				this.anInt61 = var2.getTriByte((byte)96);
-			} else {
-				if(var1 == 3) {
-					this.aBoolean69 = true;
-				} else {
-					if(var1 == 4) {
-						this.anInt64 = -1;
-					}
-				}
-			}
-
-			if(var4 <= 7) {
-				anInt65 = 123;
+			} else if (var1 == 3) {
+				this.aBoolean69 = true;
+			} else if (var1 == 4) {
+				this.anInt64 = -1;
 			}
 
 		} catch (RuntimeException var6) {
-			throw Class44.method1067(var6, "aa.B(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ')');
+			throw Class44.clientError(var6, "aa.B(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + 95 + ')');
 		}
 	}
 
@@ -386,15 +363,12 @@ final class Class2 {
 			}
 			anInterface5Array70 = null;
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "aa.G(" + var0 + ')');
+			throw Class44.clientError(var2, "aa.G(" + var0 + ')');
 		}
 	}
 
-	static final void method81(byte var0, RSInterface var1) {
+	static void method81(RSInterface var1) {
 		try {
-			if(var0 != -128) {
-				method75((RSInterface[])null, true, 21);
-			}
 
 			int var2 = var1.anInt189;
 			if(324 == var2) {
@@ -409,43 +383,39 @@ final class Class2 {
 					var1.spriteArchiveId = Class84.anInt1165;
 				}
 
-			} else {
-				if(var2 == 325) {
-					if(-1 == Class3_Sub13_Sub21.anInt3260) {
-						Class84.anInt1165 = var1.anInt296;
-						Class3_Sub13_Sub21.anInt3260 = var1.spriteArchiveId;
-					}
+			} else if (var2 == 325) {
+				if (-1 == Class3_Sub13_Sub21.anInt3260) {
+					Class84.anInt1165 = var1.anInt296;
+					Class3_Sub13_Sub21.anInt3260 = var1.spriteArchiveId;
+				}
 
-					if(Class77.aClass52_1112.aBoolean864) {
-						var1.spriteArchiveId = Class84.anInt1165;
-					} else {
-						var1.spriteArchiveId = Class3_Sub13_Sub21.anInt3260;
-					}
-
+				if (Class77.aClass52_1112.aBoolean864) {
+					var1.spriteArchiveId = Class84.anInt1165;
 				} else {
-					if(var2 == 327) {
-						var1.anInt182 = 150;
-						var1.anInt308 = 2047 & (int)(Math.sin((double)Class44.anInt719 / 40.0D) * 256.0D);
-						var1.modelType = 5;
-						var1.itemId = -1;
-					} else if(var2 == 328) {
-						if(null == Class102.player.displayName) {
-							var1.itemId = 0;
-						} else {
-							var1.anInt182 = 150;
-							var1.anInt308 = 2047 & (int)(256.0D * Math.sin((double)Class44.anInt719 / 40.0D));
-							var1.modelType = 5;
-							var1.itemId = 2047 + ((int)Class102.player.displayName.toLong(var0 + 18) << 11);
-							var1.anInt260 = Class102.player.anInt2793;
-							var1.anInt267 = 0;
-							var1.animationId = Class102.player.anInt2764;
-							var1.anInt283 = Class102.player.anInt2813;
-						}
-					}
+					var1.spriteArchiveId = Class3_Sub13_Sub21.anInt3260;
+				}
+
+			} else if (var2 == 327) {
+				var1.anInt182 = 150;
+				var1.anInt308 = 2047 & (int) (Math.sin((double) Class44.anInt719 / 40.0D) * 256.0D);
+				var1.modelType = 5;
+				var1.itemId = -1;
+			} else if (var2 == 328) {
+				if (null == Class102.player.displayName) {
+					var1.itemId = 0;
+				} else {
+					var1.anInt182 = 150;
+					var1.anInt308 = 2047 & (int) (256.0D * Math.sin((double) Class44.anInt719 / 40.0D));
+					var1.modelType = 5;
+					var1.itemId = 2047 + ((int) Class102.player.displayName.toLong((byte) -128 + 18) << 11);
+					var1.anInt260 = Class102.player.anInt2793;
+					var1.anInt267 = 0;
+					var1.animationId = Class102.player.anInt2764;
+					var1.anInt283 = Class102.player.anInt2813;
 				}
 			}
 		} catch (RuntimeException var3) {
-			throw Class44.method1067(var3, "aa.H(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+			throw Class44.clientError(var3, "aa.H(" + (byte) -128 + ',' + (var1 != null?"{...}":"null") + ')');
 		}
 	}
 

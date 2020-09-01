@@ -12,29 +12,25 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
    static RSString aClass94_3196 = RSString.createRSString("Fps:");
    private int anInt3197 = 0;
    static int anInt3198 = 0;
-   static int anInt3199;
    private short[] aShortArray3200 = new short[512];
    static WorldListEntry[] aClass44_Sub1Array3201 = new WorldListEntry[0];
    static long aLong3202;
    private int anInt3203 = 5;
    private int anInt3204 = 5;
-   static int anInt3205;
 
 
-   private final void method242(byte var1) {
+   private void method242() {
       try {
          Random var2 = new Random((long)this.anInt3197);
          this.aShortArray3200 = new short[512];
-         if(var1 == 37) {
-            if(0 < this.anInt3193) {
-               for(int var3 = 0; 512 > var3; ++var3) {
-                  this.aShortArray3200[var3] = (short)Class100.method1603((byte)23, this.anInt3193, var2);
-               }
-            }
+          if(0 < this.anInt3193) {
+             for(int var3 = 0; 512 > var3; ++var3) {
+                this.aShortArray3200[var3] = (short)Class100.method1603((byte)23, this.anInt3193, var2);
+             }
+          }
 
-         }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "hm.C(" + var1 + ')');
+         throw Class44.clientError(var4, "hm.C(" + (byte) 37 + ')');
       }
    }
 
@@ -45,34 +41,30 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
          }
 
          this.aByteArray3195 = Class49.method1123(var1 ^ 16727940, this.anInt3197);
-         this.method242((byte)37);
+         this.method242();
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "hm.P(" + var1 + ')');
+         throw Class44.clientError(var3, "hm.P(" + var1 + ')');
       }
    }
 
-   static final int method243(RSString var0, byte var1) {
+   static int method243(RSString var0) {
       try {
-         if(var1 != 13) {
-            method245(-29);
-         }
 
-         for(int var2 = 0; Class3_Sub13_Sub19.aClass94Array3238.length > var2; ++var2) {
-            if(Class3_Sub13_Sub19.aClass94Array3238[var2].equals(var1 + 40, var0)) {
+          for(int var2 = 0; Class3_Sub13_Sub19.aClass94Array3238.length > var2; ++var2) {
+            if(Class3_Sub13_Sub19.aClass94Array3238[var2].equals((byte) 13 + 40, var0)) {
                return var2;
             }
          }
 
          return -1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "hm.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var3, "hm.F(" + (var0 != null?"{...}":"null") + ',' + (byte) 13 + ')');
       }
    }
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var4 = 68 % ((30 - var2) / 36);
-         int[] var3 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var3 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
             int var5 = this.anInt3204 * Class163_Sub3.anIntArray2999[var1] + 2048;
             int var6 = var5 >> 12;
@@ -99,25 +91,23 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
                      int var12;
                      if(var19 == 1) {
                         var12 = var11 * var11 + var10 * var10 >> 12;
+                     } else if (3 == var19) {
+                         var10 = var10 < 0 ? -var10 : var10;
+                         var11 = var11 >= 0 ? var11 : -var11;
+                         var12 = var11 >= var10 ? var11 : var10;
+                     } else if (4 == var19) {
+                         var10 = (int) (Math.sqrt((double) ((float) (0 > var10 ? -var10 : var10) / 4096.0F)) * 4096.0D);
+                         var11 = (int) (Math.sqrt((double) ((float) (var11 >= 0 ? var11 : -var11) / 4096.0F)) * 4096.0D);
+                         var12 = var11 + var10;
+                         var12 = var12 * var12 >> 12;
+                     } else if (var19 == 5) {
+                         var10 *= var10;
+                         var11 *= var11;
+                         var12 = (int) (Math.sqrt(Math.sqrt((double) ((float) (var11 + var10) / 1.6777216E7F))) * 4096.0D);
+                     } else if (2 == var19) {
+                         var12 = (var10 >= 0 ? var10 : -var10) - -(var11 < 0 ? -var11 : var11);
                      } else {
-                        if(3 == var19) {
-                           var10 = var10 < 0?-var10:var10;
-                           var11 = var11 >= 0 ?var11:-var11;
-                           var12 = var11 >= var10?var11:var10;
-                        } else if(4 == var19) {
-                           var10 = (int)(Math.sqrt((double)((float)(0 > var10?-var10:var10) / 4096.0F)) * 4096.0D);
-                           var11 = (int)(Math.sqrt((double)((float)(var11 >= 0 ?var11:-var11) / 4096.0F)) * 4096.0D);
-                           var12 = var11 + var10;
-                           var12 = var12 * var12 >> 12;
-                        } else if(var19 == 5) {
-                           var10 *= var10;
-                           var11 *= var11;
-                           var12 = (int)(Math.sqrt(Math.sqrt((double)((float)(var11 + var10) / 1.6777216E7F))) * 4096.0D);
-                        } else if(2 == var19) {
-                           var12 = (var10 >= 0 ?var10:-var10) - -(var11 < 0 ?-var11:var11);
-                        } else {
-                           var12 = (int)(4096.0D * Math.sqrt((double)((float)(var11 * var11 + var10 * var10) / 1.6777216E7F)));
-                        }
+                         var12 = (int) (4096.0D * Math.sqrt((double) ((float) (var11 * var11 + var10 * var10) / 1.6777216E7F)));
                      }
 
                      if(var12 >= Class3_Sub28_Sub5.anInt3589) {
@@ -147,25 +137,23 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
                   var3[var15] = Class3_Sub28_Sub5.anInt3589;
                } else if(var19 == 1) {
                   var3[var15] = Class69.anInt1042;
-               } else {
-                  if(var19 == 3) {
-                     var3[var15] = KeyboardListener.anInt1914;
-                  } else if(var19 == 4) {
-                     var3[var15] = Class3_Sub13_Sub36.anInt3422;
-                  } else if(var19 == 2) {
-                     var3[var15] = Class69.anInt1042 + -Class3_Sub28_Sub5.anInt3589;
-                  }
+               } else if (var19 == 3) {
+                   var3[var15] = KeyboardListener.anInt1914;
+               } else if (var19 == 4) {
+                   var3[var15] = Class3_Sub13_Sub36.anInt3422;
+               } else if (var19 == 2) {
+                   var3[var15] = Class69.anInt1042 + -Class3_Sub28_Sub5.anInt3589;
                }
             }
          }
 
          return var3;
       } catch (RuntimeException var20) {
-         throw Class44.method1067(var20, "hm.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var20, "hm.D(" + var1 + ',' + var2 + ')');
       }
    }
 
-   static final void method244(int var0, int var1, int var2, int var3, int var4) {
+   static void method244(int var1, int var2, int var3, int var4) {
       try {
          int var5;
          if(var3 >= var1) {
@@ -178,12 +166,8 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
             }
          }
 
-         if(var0 != 2) {
-            anInt3198 = -110;
-         }
-
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "hm.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var6, "hm.E(" + 2 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -194,25 +178,23 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
          }
 
          if(var1 == 0) {
-            this.anInt3203 = this.anInt3204 = var2.getByte((byte)-57);
+            this.anInt3203 = this.anInt3204 = var2.getByteB();
          } else if(var1 == 1) {
-            this.anInt3197 = var2.getByte((byte)-57);
+            this.anInt3197 = var2.getByteB();
          } else if(2 == var1) {
-            this.anInt3193 = var2.getShort(1);
-         } else {
-            if(var1 == 3) {
-               this.anInt3191 = var2.getByte((byte)-55);
-            } else if(var1 == 4) {
-               this.anInt3194 = var2.getByte((byte)-124);
-            } else if(var1 == 5) {
-               this.anInt3203 = var2.getByte((byte)-51);
-            } else if(var1 == 6) {
-               this.anInt3204 = var2.getByte((byte)-64);
-            }
+            this.anInt3193 = var2.getShort();
+         } else if (var1 == 3) {
+             this.anInt3191 = var2.getByteB();
+         } else if (var1 == 4) {
+             this.anInt3194 = var2.getByteB();
+         } else if (var1 == 5) {
+             this.anInt3203 = var2.getByteB();
+         } else if (var1 == 6) {
+             this.anInt3204 = var2.getByteB();
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "hm.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "hm.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
@@ -231,7 +213,7 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
          aClass94_3190 = null;
          aClass94_3196 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "hm.B(" + var0 + ')');
+         throw Class44.clientError(var2, "hm.B(" + var0 + ')');
       }
    }
 

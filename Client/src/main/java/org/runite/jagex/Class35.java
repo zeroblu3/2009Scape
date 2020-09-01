@@ -242,11 +242,7 @@ final class Class35 {
          var33 = var7;
       }
 
-      if(var7 > var7) {
-         var34 = var7;
-      }
-
-      if(var8 < var33) {
+       if(var8 < var33) {
          var33 = var8;
       }
 
@@ -262,8 +258,6 @@ final class Class35 {
          var34 = var9;
       }
 
-      var33 /= 14;
-      var34 /= 14;
    }
 
 }

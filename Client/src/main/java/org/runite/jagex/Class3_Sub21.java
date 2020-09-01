@@ -11,19 +11,16 @@ final class Class3_Sub21 extends Class3 {
    static RSString aClass94_2498 = RSString.createRSString("(U (X");
 
 
-   final boolean method393(byte var1, int var2, int var3) {
+   final boolean method393(int var2, int var3) {
       try {
-         if(var1 != -45) {
-            method394(6, -105);
-         }
 
-         return var3 >= this.anInt2492 && var3 <= this.anInt2495 && this.anInt2494 <= var2 && var2 <= this.anInt2497;
+          return var3 >= this.anInt2492 && var3 <= this.anInt2495 && this.anInt2494 <= var2 && var2 <= this.anInt2497;
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "lh.D(" + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var5, "lh.D(" + (byte) -45 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
-   static final void method394(int var0, int var1) {
+   static void method394(int var0, int var1) {
       try {
          Class3_Sub13_Sub23.anInt3285 = var0;
          Class3_Sub18.method383(-32584, 3);
@@ -33,11 +30,11 @@ final class Class3_Sub21 extends Class3 {
          }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "lh.E(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "lh.E(" + var0 + ',' + var1 + ')');
       }
    }
 
-   static final void method395(Class35 var0, int var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
+   static void method395(Class35 var0, int var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
       int var8 = var0.anIntArray627.length;
 
       int var9;
@@ -88,10 +85,7 @@ final class Class3_Sub21 extends Class3 {
             }
 
             if(!HDToolKit.highDetail && !var7) {
-               Class51.aBoolean849 = false;
-               if(var13 < 0 || var14 < 0 || var15 < 0 || var13 > Class51.anInt847 || var14 > Class51.anInt847 || var15 > Class51.anInt847) {
-                  Class51.aBoolean849 = true;
-               }
+               Class51.aBoolean849 = var13 < 0 || var14 < 0 || var15 < 0 || var13 > Class51.anInt847 || var14 > Class51.anInt847 || var15 > Class51.anInt847;
 
                if(var0.anIntArray616 != null && var0.anIntArray616[var9] != -1) {
                   if(Class3_Sub13_Sub22.aBoolean3275) {
@@ -122,21 +116,21 @@ final class Class3_Sub21 extends Class3 {
          aClass155_2491 = null;
          aClass94_2498 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "lh.B(" + var0 + ')');
+         throw Class44.clientError(var2, "lh.B(" + var0 + ')');
       }
    }
 
-   static final void method397(byte var0) {
+   static void method397(byte var0) {
       try {
-         Class114.aClass93_1569.method1524(3);
-         Class3_Sub15.aClass93_2428.method1524(3);
+         Class114.aClass93_1569.method1524();
+         Class3_Sub15.aClass93_2428.method1524();
          if(var0 != -41) {
             method394(14, 52);
          }
 
-         Class47.aClass93_743.method1524(3);
+         Class47.aClass93_743.method1524();
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "lh.C(" + var0 + ')');
+         throw Class44.clientError(var2, "lh.C(" + var0 + ')');
       }
    }
 
@@ -147,7 +141,7 @@ final class Class3_Sub21 extends Class3 {
          this.anInt2495 = var3;
          this.anInt2492 = var1;
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "lh.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var6, "lh.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 

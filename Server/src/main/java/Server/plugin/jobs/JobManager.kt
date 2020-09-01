@@ -24,10 +24,10 @@ object JobManager {
             sJob = SlayingJob.values()[jobId]
         }
 
-        if(new % 5 == 0 && sJob != null){
+        if(new % 5 == 0 && sJob != null && new > 0){
             player.sendMessage("You have $new ${NPC(sJob.ids[0]).name.toLowerCase()} left to go.")
         }
-        if(new <= 0 && sJob != null){
+        if(new == 0 && sJob != null){
             player.sendMessage("You have completed your job.")
         }
         player.setAttribute("jobs:amount",new)
@@ -35,7 +35,10 @@ object JobManager {
 
     @JvmStatic
     fun handleDeath(npc: Int, player: Player) {
-        updateJobRemaining(player,1)
+        val jobId = player.getAttribute("jobs:id",0)
+        if(SlayingJob.values()[jobId].ids.contains(npc)) {
+            updateJobRemaining(player, 1)
+        }
     }
 
     @JvmStatic
@@ -49,6 +52,8 @@ object JobManager {
             val needed = player.getAttribute("jobs:amount",0)
             if(amount < needed){
                 player.dialogueInterpreter.sendItemMessage(GatheringJobs.values()[jobId].itemId,"You still need to gather ${needed - amount} more.")
+                player.inventory.remove(Item(it.id,amount))
+                player.setAttribute("jobs:amount",needed - amount)
                 return
             }
             player.inventory.remove(Item(it.id,amount))

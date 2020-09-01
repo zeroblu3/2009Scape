@@ -10,24 +10,19 @@ final class Class80 {
    static Class93 aClass93_1131 = new Class93(5);
    private int anInt1132 = 0;
    static RSString aClass94_1133 = RSString.createRSString(")4j");
-   private Class130 aClass130_1134;
+   private final Class130 aClass130_1134;
    static Class93 aClass93_1135 = new Class93(4);
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array1136;
    static int anInt1137 = 2;
    static int[] anIntArray1138;
 
 
-   final Class3 method1392(int var1) {
+   final Class3 method1392() {
       try {
-         if(var1 != 0) {
-            method1396(-100);
-         }
 
-         Class3 var2;
+          Class3 var2;
          if(this.anInt1132 > 0 && this.aClass130_1134.aClass3Array1697[this.anInt1132 + -1] != this.aClass3_1130) {
             var2 = this.aClass3_1130;
-            this.aClass3_1130 = var2.aClass3_74;
-            return var2;
          } else {
             do {
                if(this.anInt1132 >= this.aClass130_1134.anInt1700) {
@@ -37,46 +32,42 @@ final class Class80 {
                var2 = this.aClass130_1134.aClass3Array1697[this.anInt1132++].aClass3_74;
             } while(var2 == this.aClass130_1134.aClass3Array1697[-1 + this.anInt1132]);
 
-            this.aClass3_1130 = var2.aClass3_74;
-            return var2;
          }
+         this.aClass3_1130 = var2.aClass3_74;
+         return var2;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "l.D(" + var1 + ')');
+         throw Class44.clientError(var3, "l.D(" + 0 + ')');
       }
    }
 
-   final Class3 method1393(byte var1) {
+   final Class3 method1393() {
       try {
-         if(var1 < 79) {
-            this.anInt1132 = 78;
-         }
 
-         this.anInt1132 = 0;
-         return this.method1392(0);
+          this.anInt1132 = 0;
+         return this.method1392();
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "l.C(" + var1 + ')');
+         throw Class44.clientError(var3, "l.C(" + (byte) 125 + ')');
       }
    }
 
    public static void method1394(byte var0) {
       try {
          anIntArray1138 = null;
-         int var1 = 118 / ((-33 - var0) / 45);
          aClass93_1131 = null;
          aClass94_1133 = null;
          aClass93_1135 = null;
          aClass3_Sub28_Sub16Array1136 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "l.E(" + var0 + ')');
+         throw Class44.clientError(var2, "l.E(" + var0 + ')');
       }
    }
 
-   static final long method1395(int var0, int var1, int var2) {
+   static long method1395(int var0, int var1, int var2) {
       Class3_Sub2 var3 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2];
       return var3 != null && var3.aClass19_2233 != null?var3.aClass19_2233.aLong428:0L;
    }
 
-   static final void method1396(int var0) {
+   static void method1396(int var0) {
       try {
          int var2 = Class106.anInt1442;
          int var1 = Class84.anInt1164;
@@ -119,12 +110,11 @@ final class Class80 {
                   var11.fillRect(var6, -var4 + var7 + Class70.anInt1047, Class3_Sub9.anInt2334, var4);
                }
             } catch (Exception var9) {
-               ;
             }
          }
 
       } catch (RuntimeException var10) {
-         throw Class44.method1067(var10, "l.A(" + var0 + ')');
+         throw Class44.clientError(var10, "l.A(" + var0 + ')');
       }
    }
 
@@ -132,7 +122,7 @@ final class Class80 {
       try {
          this.aClass130_1134 = var1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "l.<init>(" + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var3, "l.<init>(" + (var1 != null?"{...}":"null") + ')');
       }
    }
 

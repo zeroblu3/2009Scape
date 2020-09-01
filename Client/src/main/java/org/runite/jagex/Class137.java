@@ -2,37 +2,29 @@ package org.runite.jagex;
 
 final class Class137 {
 
-   static int anInt1781;
    static boolean aBoolean1784 = false;
 
 
-   static final int method1817(byte var0) {
+   static int method1817() {
       try {
-         if(var0 != 70) {
-            method1818(true);
-         }
 
-         return !Class73.aBoolean1084?(!NPC.method1986(var0 ^ 28)?1:(Class3_Sub28_Sub7.aBoolean3604?2:1)):0;
+          return !Class73.aBoolean1084?(!NPC.method1986((byte) 70 ^ 28)?1:(Class3_Sub28_Sub7.aBoolean3604?2:1)):0;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "tc.B(" + var0 + ')');
+         throw Class44.clientError(var2, "tc.B(" + (byte) 70 + ')');
       }
    }
 
    public static void method1818(boolean var0) { //TODO: Misplaced Check Method
       try {
-         ;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "tc.C(" + var0 + ')');
+         throw Class44.clientError(var2, "tc.C(" + var0 + ')');
       }
    }
 
-   static final void method1819(int var0, int var1, RSInterface var2, byte var3, int var4, int var5, int var6, int var7) {
+   static void method1819(int var0, int var1, RSInterface var2, int var4, int var5, int var6, int var7) {
       try {
-         if(var3 >= -89) {
-            method1818(true);
-         }
 
-         if(Class158_Sub1.aBoolean2981) {
+          if(Class158_Sub1.aBoolean2981) {
             Class19.anInt433 = 32;
          } else {
             Class19.anInt433 = 0;
@@ -70,7 +62,7 @@ final class Class137 {
          }
 
       } catch (RuntimeException var11) {
-         throw Class44.method1067(var11, "tc.A(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var11, "tc.A(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + (byte) -101 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 

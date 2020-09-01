@@ -3,7 +3,7 @@ package org.runite.jagex;
 final class Class3_Sub28_Sub7_Sub1 extends Class3_Sub28_Sub7 {
 
    static Class93 aClass93_4043 = new Class93(64);
-   private Object anObject4044;
+   private final Object anObject4044;
    static volatile int anInt4045 = 0;
    static Class130 aClass130_4046 = new Class130(16);
    static MouseListeningClass aClass149_4047 = new MouseListeningClass();
@@ -14,22 +14,20 @@ final class Class3_Sub28_Sub7_Sub1 extends Class3_Sub28_Sub7 {
    static RSString aClass94_4052 = RSString.createRSString("www");
 
 
-   static final void method569(int var0, int var1) {
+   static void method569(int var1) {
       try {
-         if(var0 < -78) {
-            Class3_Sub28_Sub6 var2 = Class3_Sub24_Sub3.method466(4, 7, var1);
-            var2.a(true);
-         }
+         Class3_Sub28_Sub6 var2 = Class3_Sub24_Sub3.method466(7, var1);
+         var2.a();
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "he.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "he.C(" + -82 + ',' + var1 + ')');
       }
    }
 
-   final Object method567(boolean var1) {
+   final Object method567() {
       try {
-         return !var1?(Object)null:this.anObject4044;
+         return this.anObject4044;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "he.B(" + var1 + ')');
+         throw Class44.clientError(var3, "he.B(" + true + ')');
       }
    }
 
@@ -48,15 +46,15 @@ final class Class3_Sub28_Sub7_Sub1 extends Class3_Sub28_Sub7 {
 
          aClass93_4051 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "he.D(" + var0 + ')');
+         throw Class44.clientError(var2, "he.D(" + var0 + ')');
       }
    }
 
-   final boolean method568(int var1) {
+   final boolean method568() {
       try {
-         return var1 != -22358;
+         return false;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "he.A(" + var1 + ')');
+         throw Class44.clientError(var3, "he.A(" + -22358 + ')');
       }
    }
 
@@ -64,7 +62,7 @@ final class Class3_Sub28_Sub7_Sub1 extends Class3_Sub28_Sub7 {
       try {
          this.anObject4044 = var1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "he.<init>(" + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var3, "he.<init>(" + (var1 != null?"{...}":"null") + ')');
       }
    }
 

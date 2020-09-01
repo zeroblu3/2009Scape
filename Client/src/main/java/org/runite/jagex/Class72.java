@@ -16,46 +16,40 @@ final class Class72 {
    long aLong1079;
 
 
-   static final Class3_Sub28_Sub11 method1292(byte var0, int var1) {
+   static Class3_Sub28_Sub11 method1292(byte var0, int var1) {
       try {
-         Class3_Sub28_Sub11 var2 = (Class3_Sub28_Sub11)Class3_Sub13_Sub34.aClass47_3407.method1092((long)var1, 1400);
+         Class3_Sub28_Sub11 var2 = (Class3_Sub28_Sub11)Class3_Sub13_Sub34.aClass47_3407.method1092((long)var1);
          if(var2 == null) {
 
-            byte[] var3 = Class12.aClass153_322.getFile(26, (byte)-122, var1);
+            byte[] var3 = Class12.aClass153_322.getFile(26, var1);
             var2 = new Class3_Sub28_Sub11();
             if(var3 != null) {
-               var2.method608(5, new RSByteBuffer(var3));
+               var2.method608(new RSByteBuffer(var3));
             }
 
             Class3_Sub13_Sub34.aClass47_3407.method1097(var2, (long)var1, (byte)59);
-            return var2;
-         } else {
-            return var2;
          }
+         return var2;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "jj.D(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var4, "jj.D(" + var0 + ',' + var1 + ')');
       }
    }
 
-   static final void method1293(boolean var0) {
+   static void method1293() {
       try {
          if(!Class3_Sub28_Sub19.aBoolean3779 && Class44.anInt718 != 2) {
             try {
-               InputStream_Sub1.aClass94_38.method1577(-1857, Class126.aClient1671);
-               if(!var0) {
-                  method1298((byte)-25, 1);
-               }
+               InputStream_Sub1.aClass94_38.method1577(Class126.aClient1671);
             } catch (Throwable var2) {
-               ;
             }
 
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "jj.G(" + var0 + ')');
+         throw Class44.clientError(var3, "jj.G(" + true + ')');
       }
    }
 
-   static final void method1294() {
+   static void method1294() {
       Class126.anInt1672 = 0;
 
       label188:
@@ -209,7 +203,7 @@ final class Class72 {
 
    }
 
-   static final RSString combatLevelColor(int otherPlayer, byte levelByte, int yourPlayer) {
+   static RSString combatLevelColor(int otherPlayer, byte levelByte, int yourPlayer) {
       try {
          int playerLevelDiff = -otherPlayer + yourPlayer;
          if (levelByte > -52)
@@ -234,7 +228,7 @@ final class Class72 {
          return ColorCore.LvlDiffDefault;//Yellow
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "jj.E(" + otherPlayer + ',' + levelByte + ',' + yourPlayer + ')');
+         throw Class44.clientError(var4, "jj.E(" + otherPlayer + ',' + levelByte + ',' + yourPlayer + ')');
       }
    }
 
@@ -245,37 +239,33 @@ final class Class72 {
         	LEFT_PARENTHESES = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "jj.F(" + var0 + ')');
+         throw Class44.clientError(var2, "jj.F(" + var0 + ')');
       }
    }
 
-   static final float[] method1297(byte var0) {
+   static float[] method1297() {
       try {
          float var1 = Class92.method1514() + Class92.getLightingModelAmbient();
          int var2 = Class92.screenColorRgb();
          float var3 = (float)(255 & var2 >> 16) / 255.0F;
          MouseListeningClass.aFloatArray1919[3] = 1.0F;
-         if(var0 == -50) {
-            float var4 = (float)(('\uff59' & var2) >> 8) / 255.0F;
-            float var6 = 0.58823526F;
-            float var5 = (float)(255 & var2) / 255.0F;
-            MouseListeningClass.aFloatArray1919[2] = Class151.aFloatArray1934[2] * var5 * var6 * var1;
-            MouseListeningClass.aFloatArray1919[0] = Class151.aFloatArray1934[0] * var3 * var6 * var1;
-            MouseListeningClass.aFloatArray1919[1] = var1 * var6 * var4 * Class151.aFloatArray1934[1];
-            return MouseListeningClass.aFloatArray1919;
-         } else {
-            return (float[])null;
-         }
+         float var4 = (float)(('\uff59' & var2) >> 8) / 255.0F;
+         float var6 = 0.58823526F;
+         float var5 = (float)(255 & var2) / 255.0F;
+         MouseListeningClass.aFloatArray1919[2] = Class151.aFloatArray1934[2] * var5 * var6 * var1;
+         MouseListeningClass.aFloatArray1919[0] = Class151.aFloatArray1934[0] * var3 * var6 * var1;
+         MouseListeningClass.aFloatArray1919[1] = var1 * var6 * var4 * Class151.aFloatArray1934[1];
+         return MouseListeningClass.aFloatArray1919;
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "jj.A(" + var0 + ')');
+         throw Class44.clientError(var7, "jj.A(" + (byte) -50 + ')');
       }
    }
 
-   static final RSString method1298(byte var0, int var1) {
+   static RSString method1298(byte var0, int var1) {
       try {
-         return var0 != 9?(RSString)null:Class118.method1723((byte)-117, false, 10, var1);
+         return var0 != 9?(RSString)null:Class118.method1723((byte)-117, false, var1);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "jj.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "jj.C(" + var0 + ',' + var1 + ')');
       }
    }
 

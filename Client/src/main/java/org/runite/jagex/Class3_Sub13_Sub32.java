@@ -7,7 +7,7 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
    static volatile int anInt3389 = 0;
 
 
-   static final int method319(int var0, int var1, int var2) {
+   static int method319(int var0, int var1, int var2) {
       try {
          if(var1 >= -99) {
             aBoolean3387 = true;
@@ -16,7 +16,7 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
          int var3 = var0 >>> 31;
          return (var0 + var3) / var2 - var3;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "sa.E(" + var0 + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "sa.E(" + var0 + ',' + var1 + ',' + var2 + ')');
       }
    }
 
@@ -24,7 +24,7 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
       super(0, true);
    }
 
-   static final void method320(int var0, int var1, int var2, byte var3, int var4) {
+   static void method320(int var0, int var1, int var2, byte var3, int var4) {
       try {
          if(var2 >= var4) {
             Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var1], var4, -83, var2, var0);
@@ -37,14 +37,13 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "sa.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var6, "sa.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var4 = -76 / ((var2 - 30) / 36);
-         int[] var3 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var3 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
             int var5 = Class163_Sub3.anIntArray2999[var1];
 
@@ -85,7 +84,7 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "sa.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var9, "sa.D(" + var1 + ',' + var2 + ')');
       }
    }
 
@@ -97,7 +96,7 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sa.B(" + var0 + ')');
+         throw Class44.clientError(var2, "sa.B(" + var0 + ')');
       }
    }
 
@@ -108,11 +107,11 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
          }
 
          if(var1 == 0) {
-            this.anInt3385 = var2.getShort(1);
+            this.anInt3385 = var2.getShort();
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "sa.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "sa.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 

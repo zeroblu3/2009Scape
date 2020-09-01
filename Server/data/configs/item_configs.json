@@ -1,5 +1,4 @@
-{
-  "item_configs": [
+[
     {
       "id": "0",
       "name": "Dwarf remains",
@@ -24706,7 +24705,7 @@
       "tradeable": "true",
       "low_alchemy": "1",
       "high_alchemy": "2",
-      "shop_price": "30",
+      "shop_price": "4",
       "grand_exchange_price": "418",
       "weight": "0.1",
       "ge_buy_limit": "1000",
@@ -44714,7 +44713,7 @@
       "lendable": "true",
       "low_alchemy": "40000",
       "high_alchemy": "60000",
-      "shop_price": "120000",
+      "shop_price": "100000",
       "grand_exchange_price": "65400",
       "stand_anim": "808",
       "stand_turn_anim": "823",
@@ -137559,5 +137558,4 @@
       "archery_ticket_price": "0",
       "durability": null
     }
-  ]
-}
+]

@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import java.util.Objects;
+
 final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
    static CacheIndex aClass153_3214;
@@ -9,12 +11,9 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
    static int[] anIntArray3218 = new int[]{1, 4};
 
 
-   static final void method254(boolean var0, Class3_Sub31 var1, boolean var2) {
+   static void method254(boolean var0, Class3_Sub31 var1) {
       try {
          int var4 = (int)var1.aLong71;
-         if(var2) {
-            method258(25);
-         }
 
          int var3 = var1.anInt2602;
          var1.method86(-1024);
@@ -22,7 +21,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
             Class60.method1208((byte)79, var3);
          }
 
-         Class164_Sub2.method2249((byte)83, var3);
+         Class164_Sub2.method2249(var3);
          RSInterface var5 = Class7.getRSInterface((byte)109, var4);
          if(null != var5) {
             Class20.method909(107, var5);
@@ -32,20 +31,20 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
          int var7;
          for(var7 = 0; var6 > var7; ++var7) {
-            if(Class2.method73(Class3_Sub13_Sub7.aShortArray3095[var7], 121)) {
-               Class3_Sub25.method509(1, var7);
+            if(Class2.method73(Class3_Sub13_Sub7.aShortArray3095[var7])) {
+               Class3_Sub25.method509(var7);
             }
          }
 
          if(Class3_Sub13_Sub34.anInt3415 == 1) {
             Class38_Sub1.aBoolean2615 = false;
-            Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, (byte)-40, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
+            Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
          } else {
-            Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, (byte)-40, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
+            Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
             var7 = Class168.aClass3_Sub28_Sub17_2096.method682(TextCore.HasChooseOptions);
 
             for(int var8 = 0; Class3_Sub13_Sub34.anInt3415 > var8; ++var8) {
-               int var9 = Class168.aClass3_Sub28_Sub17_2096.method682(RSByteBuffer.method802(var8, true));
+               int var9 = Class168.aClass3_Sub28_Sub17_2096.method682(RSByteBuffer.method802(var8));
                if(var7 < var9) {
                   var7 = var9;
                }
@@ -60,17 +59,17 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var10) {
-         throw Class44.method1067(var10, "ke.O(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
+         throw Class44.clientError(var10, "ke.O(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + false + ')');
       }
    }
 
-   static final void method255(int var0, int var1, int var2) {
+   static void method255(int var0, int var1, int var2) {
       try {
-         Class3_Sub28_Sub6 var3 = Class3_Sub24_Sub3.method466(4, var2, var0);
-         var3.g((byte)33);
+         Class3_Sub28_Sub6 var3 = Class3_Sub24_Sub3.method466(var2, var0);
+         var3.g();
          var3.anInt3598 = var1;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "ke.Q(" + var0 + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "ke.Q(" + var0 + ',' + var1 + ',' + var2 + ')');
       }
    }
 
@@ -100,7 +99,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                int var14 = (var12 >> 12) + var9 & RenderAnimationDefinition.anInt396;
                int var15 = Class3_Sub20.anInt2487 & var2 - -(var13 >> 12);
                int[][] var16 = this.method162(var15, 0, (byte)-117);
-               var6[var9] = var16[0][var14];
+               var6[var9] = Objects.requireNonNull(var16)[0][var14];
                var7[var9] = var16[1][var14];
                var8[var9] = var16[2][var14];
             }
@@ -108,14 +107,13 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var17) {
-         throw Class44.method1067(var17, "ke.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var17, "ke.T(" + var1 + ',' + var2 + ')');
       }
    }
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var3 = -89 / ((30 - var2) / 36);
-         int[] var4 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var4 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
             int[] var5 = this.method152(1, var1, 32755);
             int[] var6 = this.method152(2, var1, 32755);
@@ -134,18 +132,16 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
          return var4;
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "ke.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var15, "ke.D(" + var1 + ',' + var2 + ')');
       }
    }
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3217 = var2.getShort(1) << 4;
-         } else {
-            if(var1 == 1) {
-               this.aBoolean2375 = var2.getByte((byte) -107) == 1;
-            }
+            this.anInt3217 = var2.getShort() << 4;
+         } else if (var1 == 1) {
+            this.aBoolean2375 = var2.getByteB() == 1;
          }
 
          if(!var3) {
@@ -153,14 +149,14 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "ke.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "ke.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
-   static final void method256(int var0, int var1, int var2, byte var3, int var4) {
+   static void method256(int var0, int var1, int var2, byte var3, int var4) {
       try {
-         Class3_Sub28_Sub6 var5 = Class3_Sub24_Sub3.method466(4, 4, var2);
-         var5.g((byte)33);
+         Class3_Sub28_Sub6 var5 = Class3_Sub24_Sub3.method466(4, var2);
+         var5.g();
          var5.anInt3597 = var4;
          var5.anInt3596 = var0;
          if(var3 >= -108) {
@@ -169,16 +165,13 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
          var5.anInt3598 = var1;
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "ke.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var6, "ke.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
-   static final void method257(byte var0) {
+   static void method257() {
       try {
          int var1 = 0;
-         if(var0 <= 122) {
-            method259((Class126)null, 69, 54, -87, 72, -85, 88, 37, true);
-         }
 
          for(int var2 = 0; var2 < 104; ++var2) {
             for(int var3 = 0; var3 < 104; ++var3) {
@@ -193,7 +186,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "ke.C(" + var0 + ')');
+         throw Class44.clientError(var4, "ke.C(" + (byte) 125 + ')');
       }
    }
 
@@ -201,14 +194,13 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
       try {
          anIntArray3218 = null;
          anIntArrayArray3215 = (int[][])null;
-         int var1 = -20 % ((-31 - var0) / 39);
          aClass153_3214 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ke.B(" + var0 + ')');
+         throw Class44.clientError(var2, "ke.B(" + var0 + ')');
       }
    }
 
-   static final void method259(Class126 var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8) {
+   static void method259(Class126 var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8) {
       int var9;
       int var10 = var9 = (var6 << 7) - Class129_Sub1.anInt2697;
       int var11;
@@ -265,10 +257,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                      }
 
                      if(!HDToolKit.highDetail && !var8) {
-                        Class51.aBoolean849 = false;
-                        if(var26 < 0 || var28 < 0 || var24 < 0 || var26 > Class51.anInt847 || var28 > Class51.anInt847 || var24 > Class51.anInt847) {
-                           Class51.aBoolean849 = true;
-                        }
+                        Class51.aBoolean849 = var26 < 0 || var28 < 0 || var24 < 0 || var26 > Class51.anInt847 || var28 > Class51.anInt847 || var24 > Class51.anInt847;
 
                         if(var0.anInt1670 == -1) {
                            if(var0.anInt1664 != 12345678) {
@@ -294,10 +283,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                      }
 
                      if(!HDToolKit.highDetail && !var8) {
-                        Class51.aBoolean849 = false;
-                        if(var22 < 0 || var24 < 0 || var28 < 0 || var22 > Class51.anInt847 || var24 > Class51.anInt847 || var28 > Class51.anInt847) {
-                           Class51.aBoolean849 = true;
-                        }
+                        Class51.aBoolean849 = var22 < 0 || var24 < 0 || var28 < 0 || var22 > Class51.anInt847 || var24 > Class51.anInt847 || var28 > Class51.anInt847;
 
                         if(var0.anInt1670 == -1) {
                            if(var0.anInt1675 != 12345678) {
@@ -326,7 +312,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
          Class8.method844((byte)-9);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ke.P(" + var1 + ')');
+         throw Class44.clientError(var3, "ke.P(" + var1 + ')');
       }
    }
 

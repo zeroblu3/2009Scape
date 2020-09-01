@@ -6,37 +6,30 @@ final class Class32 {
    static RSString aClass94_592 = RSString.createRSString("<img=0>");
 
 
-   static final RSString method992(RSByteBuffer var0, int var1) {
+   static RSString method992(RSByteBuffer var0) {
       try {
-         if(var1 != 29488) {
-            anInt590 = 22;
-         }
 
-         return Class140_Sub7.method2033(var0, 1, 32767);
+         return Class140_Sub7.method2033(var0);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fc.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var3, "fc.C(" + (var0 != null?"{...}":"null") + ',' + 29488 + ')');
       }
    }
 
-   static final int method993(int var0, int var1, int var2) {
+   static int method993(int var0, int var2) {
       try {
-         int var3 = -128 + (Class65.method1234(4, var2 + '\ub135', var0 - -91923, 512) + (Class65.method1234(2, var2 + 10294, '\u93bd' + var0, 512) + -128 >> 1) - -(Class65.method1234(1, var2, var0, 512) + -128 >> 2));
+         int var3 = -128 + (Class65.method1234(4, var2 + '\ub135', var0 - -91923) + (Class65.method1234(2, var2 + 10294, '\u93bd' + var0) + -128 >> 1) - -(Class65.method1234(1, var2, var0) + -128 >> 2));
          var3 = 35 + (int)(0.3D * (double)var3);
-         if(var1 < 110) {
-            return 102;
-         } else {
-            if(var3 >= 10) {
-               if(var3 > 60) {
-                  var3 = 60;
-               }
-            } else {
-               var3 = 10;
-            }
+          if(var3 >= 10) {
+             if(var3 > 60) {
+                var3 = 60;
+             }
+          } else {
+             var3 = 10;
+          }
 
-            return var3;
-         }
+          return var3;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "fc.B(" + var0 + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "fc.B(" + var0 + ',' + 125 + ',' + var2 + ')');
       }
    }
 
@@ -46,11 +39,11 @@ final class Class32 {
             aClass94_592 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "fc.A(" + var0 + ')');
+         throw Class44.clientError(var2, "fc.A(" + var0 + ')');
       }
    }
 
-   static final void method995() {
+   static void method995() {
       int var0;
       int var1;
       int var2;
@@ -78,9 +71,6 @@ final class Class32 {
       Class3_Sub13_Sub28.aClass3_Sub11ArrayArray3346 = (Class3_Sub11[][])null;
       Class3_Sub4.anInt2249 = 0;
       if(Class3_Sub28_Sub8.aClass113Array3610 != null) {
-         for(var0 = 0; var0 < Class3_Sub4.anInt2249; ++var0) {
-            Class3_Sub28_Sub8.aClass113Array3610[var0] = null;
-         }
       }
 
       if(AnimationDefinition.aClass25Array1868 != null) {
@@ -99,11 +89,8 @@ final class Class32 {
 
    }
 
-   static final void method996(int var0) {
+   static void method996() {
       try {
-         if(var0 >= -35) {
-            method993(3, 100, -24);
-         }
 
          KeyboardListener var1 = Class3_Sub13_Sub3.aClass148_3049;
          synchronized(var1) {
@@ -131,7 +118,7 @@ final class Class32 {
             Class134.anInt1762 = Class25.anInt491;
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "fc.E(" + var0 + ')');
+         throw Class44.clientError(var5, "fc.E(" + -43 + ')');
       }
    }
 

@@ -11,33 +11,28 @@ abstract class Class146 {
    static int anInt1904;
 
 
-   abstract int method2078(int var1);
+   abstract int method2078();
 
-   static final boolean updateInterfacePacketCounter(int packetCounter, byte var1) {
+   static void updateInterfacePacketCounter(int packetCounter) {
       try {
-         if(var1 != -25) {
-            anInt1901 = 102;
-         }
-
          Class113.interfacePacketCounter = packetCounter + 1 & '\uffff';
          RenderAnimationDefinition.aBoolean402 = true;
-         return true;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "uc.D(" + packetCounter + ',' + var1 + ')');
+         throw Class44.clientError(var3, "uc.D(" + packetCounter + ',' + (byte) -25 + ')');
       }
    }
 
-   static final int method2080(int var0, int var1) {
+   static int method2080(int var0) {
       try {
          var0 = (-715827883 & var0 >>> 1) + (1431655765 & var0);
          var0 = ((-858993460 & var0) >>> 2) + (var0 & 858993459);
          var0 = 252645135 & (var0 >>> 4) + var0;
          var0 += var0 >>> 8;
          var0 += var0 >>> 16;
-         int var2 = -9 / ((var1 - -80) / 42);
+         int var2 = -9 / ((-125 - -80) / 42);
          return 255 & var0;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "uc.E(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "uc.E(" + var0 + ',' + -125 + ')');
       }
    }
 
@@ -48,13 +43,13 @@ abstract class Class146 {
             aClass153_1902 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "uc.A(" + var0 + ')');
+         throw Class44.clientError(var2, "uc.A(" + var0 + ')');
       }
    }
 
-   abstract void method2082(boolean var1, Component var2);
+   abstract void method2082(Component var2);
 
-   static final void method2083(int var0, int var1, int var2, byte[][][] var3, int var4, byte var5, int var6, int var7) {
+   static void method2083(int var0, int var1, int var2, byte[][][] var3, int var4, byte var5, int var6, int var7) {
       ++Class3_Sub28_Sub1.anInt3539;
       GameShell.anInt3 = 0;
       int var8 = var6 - 16;
@@ -75,11 +70,7 @@ abstract class Class146 {
                   if(Class23.aBooleanArrayArray457[var14 - Class97.anInt1375 + Class3_Sub13_Sub39.anInt3466][var15 - Class3_Sub13_Sub27.anInt3340 + Class3_Sub13_Sub39.anInt3466] && (var3 == null || var12 < var4 || var3[var12][var14][var15] != var5)) {
                      var16.aBoolean2222 = true;
                      var16.aBoolean2225 = true;
-                     if(var16.anInt2223 > 0) {
-                        var16.aBoolean2236 = true;
-                     } else {
-                        var16.aBoolean2236 = false;
-                     }
+                     var16.aBoolean2236 = var16.anInt2223 > 0;
 
                      ++GameShell.anInt3;
                   } else {
@@ -128,7 +119,7 @@ abstract class Class146 {
          var24.glTranslatef((float)(-var0), (float)(-var1), (float)(-var2));
          if(var22) {
             Class3_Sub22.method403();
-            Class3_Sub28_Sub4.method551(0, -1, 3);
+            Class3_Sub28_Sub4.method551(-1, 3);
             Class3_Sub13_Sub17.aBoolean3207 = true;
             Class165.method2254();
             IOHandler.anInt1244 = -1;
@@ -140,7 +131,7 @@ abstract class Class146 {
                if(var28.anInt2355 != IOHandler.anInt1244) {
                   IOHandler.anInt1244 = var28.anInt2355;
                   Class3_Sub28_Sub2.method535((byte)56, var28.anInt2355);
-                  Class92.method1512(Class72.method1297((byte)-50));
+                  Class92.method1512(Class72.method1297());
                }
 
                var28.method149(Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, var26, false);
@@ -161,11 +152,11 @@ abstract class Class146 {
 
                if(var14 == 0 && Class80.anInt1137 > 0) {
                   HDToolKit.method1832(101.5F);
-                  Class141.method2038(Class97.anInt1375, Class3_Sub13_Sub27.anInt3340, Class3_Sub13_Sub39.anInt3466, var1, Class23.aBooleanArrayArray457, Class44.anIntArrayArrayArray723[0]);
+                  Class141.method2038(Class97.anInt1375, Class3_Sub13_Sub27.anInt3340, Class3_Sub13_Sub39.anInt3466, Class23.aBooleanArrayArray457);
                }
             }
 
-            Class68.method1277(Class97.anInt1375, Class3_Sub13_Sub27.anInt3340, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638);
+            Class68.method1277(Class75_Sub2.aClass3_Sub2ArrayArrayArray2638);
          }
 
          var24.glPopMatrix();

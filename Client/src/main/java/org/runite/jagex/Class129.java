@@ -10,7 +10,7 @@ abstract class Class129 {
    static int[] anIntArray1695;
 
 
-   static final int method1765(int var0, int var1) {
+   static int method1765(int var0, int var1) {
       try {
          if(var1 != -1732504441) {
             method1765(97, -97);
@@ -18,7 +18,7 @@ abstract class Class129 {
 
          return var0 >>> 7;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "s.D(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "s.D(" + var0 + ',' + var1 + ')');
       }
    }
 
@@ -33,16 +33,16 @@ abstract class Class129 {
          anIntArray1693 = null;
          aClass94_1694 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "s.E(" + var0 + ')');
+         throw Class44.clientError(var2, "s.E(" + var0 + ')');
       }
    }
 
    abstract int method1767(int var1, int var2, int var3);
 
-   static final void method1768(int var0, int var1, int var2) {
+   static void method1768(int var0, int var2) {
       try {
          if(KeyboardListener.anInt1908 > 0) {
-            Class159.method2195(KeyboardListener.anInt1908, 0);
+            Class159.method2195(KeyboardListener.anInt1908);
             KeyboardListener.anInt1908 = 0;
          }
 
@@ -77,7 +77,7 @@ abstract class Class129 {
                   }
 
                   var10 = Class52.anIntArray861[var10];
-                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Class3_Sub28_Sub15.method633(var13 * Class3_Sub28_Sub15.method633(var11, 16711935) + Class3_Sub28_Sub15.method633(16711935, var10) * var12, -16711936) - -Class3_Sub28_Sub15.method633(Class3_Sub28_Sub15.method633(var10, '\uff00') * var12 - -(Class3_Sub28_Sub15.method633('\uff00', var11) * var13), 16711680) >> 8;
+                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Class69.bitwiseAnd(var13 * Class69.bitwiseAnd(var11, 16711935) + Class69.bitwiseAnd(16711935, var10) * var12, -16711936) - -Class69.bitwiseAnd(Class69.bitwiseAnd(var10, '\uff00') * var12 - -(Class69.bitwiseAnd('\uff00', var11) * var13), 16711680) >> 8;
                }
             }
 
@@ -88,20 +88,18 @@ abstract class Class129 {
             var5 += Class74.anInt1092 + -128;
          }
 
-         if(var1 > 70) {
-            if(HDToolKit.highDetail) {
-               Class22.method926(Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081, var0, var2, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3707, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3696);
-            } else {
-               Class97.aClass3_Sub28_Sub16_Sub2_1381.method635(var0, var2);
-            }
+          if(HDToolKit.highDetail) {
+             Class22.method926(Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081, var0, var2, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3707, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3696);
+          } else {
+             Class97.aClass3_Sub28_Sub16_Sub2_1381.method635(var0, var2);
+          }
 
-         }
       } catch (RuntimeException var14) {
-         throw Class44.method1067(var14, "s.F(" + var0 + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var14, "s.F(" + var0 + ',' + 95 + ',' + var2 + ')');
       }
    }
 
-   static final void method1769(float[][] var0, byte[][] var1, byte[][] var2, Class43[] var3, int var4, int var5, float[][] var6, byte[][] var7, byte[][] var8, int[][] var9, int var10, float[][] var11) {
+   static void method1769(float[][] var0, byte[][] var1, byte[][] var2, Class43[] var3, int var4, int var5, float[][] var6, byte[][] var7, byte[][] var8, int[][] var9, float[][] var11) {
       try {
          for(int var12 = 0; var5 > var12; ++var12) {
             Class43 var13 = var3[var12];
@@ -208,13 +206,6 @@ abstract class Class129 {
                                  var32 = var23 > var34 && var35 > var23;
                               }
 
-                              if(var31 && var32) {
-                                 var29 = Class134.anIntArrayArray1763[0];
-                              } else if(var31) {
-                                 var29 = Class134.anIntArrayArray1763[1];
-                              } else if(var32) {
-                                 var29 = Class134.anIntArrayArray1763[1];
-                              }
                            } else {
                               var31 = var21 <= -1 + var23;
                               var32 = var22 >= var23 + 1;
@@ -232,15 +223,13 @@ abstract class Class129 {
                                  var32 = var23 > var34 && var23 < var35;
                               }
 
-                              if(var31 && var32) {
-                                 var29 = Class134.anIntArrayArray1763[0];
-                              } else if(var31) {
-                                 var29 = Class134.anIntArrayArray1763[1];
-                              } else {
-                                 if(var32) {
-                                    var29 = Class134.anIntArrayArray1763[1];
-                                 }
-                              }
+                           }
+                           if(var31 && var32) {
+                              var29 = Class134.anIntArrayArray1763[0];
+                           } else if(var31) {
+                              var29 = Class134.anIntArrayArray1763[1];
+                           } else if(var32) {
+                              var29 = Class134.anIntArrayArray1763[1];
                            }
 
                            if(null != var29) {
@@ -306,18 +295,16 @@ abstract class Class129 {
                            Class3_Sub13_Sub23_Sub1.method284(var0, var9, var23, var6, var19, Class134.anIntArrayArray1763[var7[var23][var19]], var14, (byte)-88, var13, var11, var2[var23][var19]);
                            continue;
                         }
-                     } else {
-                        if(var43 != 0) {
-                           var46 = Class3_Sub13_Sub37.method350((byte)113, -1 + var43);
-                           if(-1 == var46.anInt2103) {
-                              Class3_Sub13_Sub23_Sub1.method284(var0, var9, var23, var6, var19, Class25.anIntArrayArray499[var7[var23][var19]], var14, (byte)116, var13, var11, var2[var23][var19]);
-                              continue;
-                           }
+                     } else if (var43 != 0) {
+                        var46 = Class3_Sub13_Sub37.method350((byte) 113, -1 + var43);
+                        if (-1 == var46.anInt2103) {
+                           Class3_Sub13_Sub23_Sub1.method284(var0, var9, var23, var6, var19, Class25.anIntArrayArray499[var7[var23][var19]], var14, (byte) 116, var13, var11, var2[var23][var19]);
+                           continue;
+                        }
 
-                           byte var48 = var7[var23][var19];
-                           if(var48 != 0) {
-                              var39 = true;
-                           }
+                        byte var48 = var7[var23][var19];
+                        if (var48 != 0) {
+                           var39 = true;
                         }
                      }
 
@@ -378,11 +365,9 @@ abstract class Class129 {
                               } else if(var32) {
                                  var38 = 0;
                                  var45 = Class134.anIntArrayArray1763[1];
-                              } else {
-                                 if(var51) {
-                                    var45 = Class134.anIntArrayArray1763[1];
-                                    var38 = 2;
-                                 }
+                              } else if (var51) {
+                                 var45 = Class134.anIntArrayArray1763[1];
+                                 var38 = 2;
                               }
                            }
 
@@ -411,15 +396,11 @@ abstract class Class129 {
             }
          }
 
-         if(var10 != -8771) {
-            method1765(-30, -124);
-         }
-
       } catch (RuntimeException var37) {
-         throw Class44.method1067(var37, "s.C(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ',' + (var6 != null?"{...}":"null") + ',' + (var7 != null?"{...}":"null") + ',' + (var8 != null?"{...}":"null") + ',' + (var9 != null?"{...}":"null") + ',' + var10 + ',' + (var11 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var37, "s.C(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ',' + (var6 != null?"{...}":"null") + ',' + (var7 != null?"{...}":"null") + ',' + (var8 != null?"{...}":"null") + ',' + (var9 != null?"{...}":"null") + ',' + -8771 + ',' + (var11 != null?"{...}":"null") + ')');
       }
    }
 
-   abstract void method1770(int var1);
+   abstract void method1770();
 
 }

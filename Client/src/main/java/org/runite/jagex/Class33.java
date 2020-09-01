@@ -10,14 +10,14 @@ import java.awt.image.PixelGrabber;
 final class Class33 {
 
    private byte[] aByteArray594 = new byte[100000];
-   private boolean aBoolean595 = false;
-   private int anInt596 = 0;
+   private boolean aBoolean595;
+   private int anInt596;
    private static String aString597 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"??$%^&*()-_=+[{]};:\'@#~,<.>/?\\| " + String.valueOf('\u00c4') + '\u00cb' + '\u00cf' + '\u00d6' + '\u00dc' + '\u00e4' + '\u00eb' + '\u00ef' + '\u00f6' + '\u00fc' + '\u00ff' + '\u00df' + '\u00c1' + '\u00c0' + '\u00c9' + '\u00c8' + '\u00cd' + '\u00cc' + '\u00d3' + '\u00d2' + '\u00da' + '\u00d9' + '\u00e1' + '\u00e0' + '\u00e9' + '\u00e8' + '\u00ed' + '\u00ec' + '\u00f3' + '\u00f2' + '\u00fa' + '\u00f9' + '\u00c2' + '\u00ca' + '\u00ce' + '\u00d4' + '\u00db' + '\u00e2' + '\u00ea' + '\u00ee' + '\u00f4' + '\u00fb' + '\u00c6' + '\u00e6';
-   private static int anInt598 = aString597.length();
+   private static final int anInt598 = aString597.length();
    private static int[] anIntArray599 = new int[256];
 
 
-   private final void method997(RSString var1, int var2, int var3, int var4, boolean var5) {
+   private void method997(RSString var1, int var2, int var3, int var4, boolean var5) {
       if(this.aBoolean595 || var4 == 0) {
          var5 = false;
       }
@@ -44,7 +44,7 @@ final class Class33 {
       anIntArray599 = null;
    }
 
-   private final void method1000(int[] var1, byte[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
+   private void method1000(int[] var1, byte[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
       for(int var10 = -var7; var10 < 0; ++var10) {
          for(int var11 = -var6; var11 < 0; ++var11) {
             int var12 = var2[var4++] & 255;
@@ -66,7 +66,7 @@ final class Class33 {
 
    }
 
-   private final void method1001(int var1, int var2, int var3, int var4, byte[] var5) {
+   private void method1001(int var1, int var2, int var3, int var4, byte[] var5) {
       int var6 = var2 + var5[var1 + 5];
       int var7 = var3 - var5[var1 + 6];
       int var8 = var5[var1 + 3];
@@ -115,7 +115,7 @@ final class Class33 {
 
    }
 
-   private final void method1002(int[] var1, byte[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
+   private void method1002(int[] var1, byte[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
       int var10 = -(var6 >> 2);
       var6 = -(var6 & 3);
 
@@ -161,21 +161,21 @@ final class Class33 {
 
    }
 
-   final void method1003(RSString var1, int var2, int var3, int var4, boolean var5) {
+   final void method1003(RSString var1, int var2, int var3, int var4) {
       int var6 = this.method1005(var1) / 2;
       int var7 = this.method1006();
       if(var2 - var6 <= Class74.anInt1096) {
          if(var2 + var6 >= Class74.anInt1093) {
             if(var3 - var7 <= Class74.anInt1099) {
                if(var3 >= 0) {
-                  this.method997(var1, var2 - var6, var3, var4, var5);
+                  this.method997(var1, var2 - var6, var3, var4, true);
                }
             }
          }
       }
    }
 
-   private final void method1004(Font var1, FontMetrics var2, char var3, int var4, boolean var5) {
+   private void method1004(Font var1, FontMetrics var2, char var3, int var4, boolean var5) {
       int var6 = var2.charWidth(var3);
       int var7 = var6;
       if(var5) {
@@ -188,7 +188,6 @@ final class Class33 {
                ++var6;
             }
          } catch (Exception var23) {
-            ;
          }
       }
 
@@ -212,12 +211,10 @@ final class Class33 {
       try {
          var14.grabPixels();
       } catch (Exception var22) {
-         ;
       }
 
       var11.flush();
-      var11 = null;
-      int var15 = 0;
+       int var15 = 0;
       int var16 = 0;
       int var17 = var6;
       int var18 = var9;
@@ -269,7 +266,7 @@ final class Class33 {
          }
       }
 
-      this.aByteArray594[var4 * 9 + 0] = (byte)(this.anInt596 / 16384);
+      this.aByteArray594[var4 * 9] = (byte)(this.anInt596 / 16384);
       this.aByteArray594[var4 * 9 + 1] = (byte)(this.anInt596 / 128 & 127);
       this.aByteArray594[var4 * 9 + 2] = (byte)(this.anInt596 & 127);
       this.aByteArray594[var4 * 9 + 3] = (byte)(var17 - var15);
@@ -292,7 +289,7 @@ final class Class33 {
 
    }
 
-   private final int method1005(RSString var1) {
+   private int method1005(RSString var1) {
       int var2 = 0;
 
       for(int var3 = 0; var3 < var1.length(-97); ++var3) {
@@ -312,10 +309,10 @@ final class Class33 {
       return this.aByteArray594[6];
    }
 
-   Class33(int var1, boolean var2, Component var3) {
+   Class33(int var1, Component var3) {
       this.anInt596 = anInt598 * 9;
       this.aBoolean595 = false;
-      Font var4 = new Font("Helvetica", var2?1:0, var1);
+      Font var4 = new Font("Helvetica", Font.BOLD, var1);
       FontMetrics var5 = var3.getFontMetrics(var4);
 
       int var6;
@@ -323,10 +320,10 @@ final class Class33 {
          this.method1004(var4, var5, aString597.charAt(var6), var6, false);
       }
 
-      if(var2 && this.aBoolean595) {
+      if(this.aBoolean595) {
          this.anInt596 = anInt598 * 9;
          this.aBoolean595 = false;
-         var4 = new Font("Helvetica", 0, var1);
+         var4 = new Font("Helvetica", Font.PLAIN, var1);
          var5 = var3.getFontMetrics(var4);
 
          for(var6 = 0; var6 < anInt598; ++var6) {
@@ -345,9 +342,7 @@ final class Class33 {
 
       byte[] var8 = new byte[this.anInt596];
 
-      for(int var7 = 0; var7 < this.anInt596; ++var7) {
-         var8[var7] = this.aByteArray594[var7];
-      }
+      if (this.anInt596 >= 0) System.arraycopy(this.aByteArray594, 0, var8, 0, this.anInt596);
 
       this.aByteArray594 = var8;
    }

@@ -74,7 +74,7 @@ final class Class3_Sub27 extends Class3 {
                      Class3_Sub6 var13 = (Class3_Sub6)this.aClass130_2564.method1780((long)var12, 0);
                      if(var13 == null) {
                         var13 = new Class3_Sub6(new byte[128]);
-                        this.aClass130_2564.method1779(1, var13, (long)var12);
+                        this.aClass130_2564.method1779(var13, (long)var12);
                      }
 
                      var13.aByteArray2289[var10] = 1;
@@ -88,15 +88,15 @@ final class Class3_Sub27 extends Class3 {
       }
    }
 
-   static final Class3_Sub27 method517(CacheIndex var0, int var1, int var2) {
-      byte[] var3 = var0.getFile(var1, (byte)-122, var2);
+   static Class3_Sub27 method517(CacheIndex var0, int var1, int var2) {
+      byte[] var3 = var0.getFile(var1, var2);
       return var3 == null?null:new Class3_Sub27(new RSByteBuffer(var3));
    }
 
    private Class3_Sub27(RSByteBuffer var1) {
       var1.index = var1.buffer.length - 3;
-      int var2 = var1.getByte((byte)-34);
-      int var3 = var1.getShort(1);
+      int var2 = var1.getByteB();
+      int var3 = var1.getShort();
       int var4 = 14 + var2 * 10;
       var1.index = 0;
       int var5 = 0;
@@ -115,7 +115,7 @@ final class Class3_Sub27 extends Class3 {
          var14 = -1;
 
          while(true) {
-            var15 = var1.getByte((byte)-118);
+            var15 = var1.getByteB();
             if(var15 != var14) {
                ++var4;
             }
@@ -178,35 +178,33 @@ final class Class3_Sub27 extends Class3 {
 
       int var29;
       for(var29 = 0; var29 < var6; ++var29) {
-         var28 = var28 + var1.getByte((byte)-80) & 127;
+         var28 = var28 + var1.getByteB() & 127;
          if(var28 == 0 || var28 == 32) {
             ++var12;
+         } else if (var28 == 1) {
+            ++var16;
+         } else if (var28 == 33) {
+            ++var17;
+         } else if (var28 == 7) {
+            ++var18;
+         } else if (var28 == 39) {
+            ++var19;
+         } else if (var28 == 10) {
+            ++var20;
+         } else if (var28 == 42) {
+            ++var21;
+         } else if (var28 == 99) {
+            ++var22;
+         } else if (var28 == 98) {
+            ++var23;
+         } else if (var28 == 101) {
+            ++var24;
+         } else if (var28 == 100) {
+            ++var25;
+         } else if (var28 != 64 && var28 != 65 && var28 != 120 && var28 != 121 && var28 != 123) {
+            ++var27;
          } else {
-            if(var28 == 1) {
-               ++var16;
-            } else if(var28 == 33) {
-               ++var17;
-            } else if(var28 == 7) {
-               ++var18;
-            } else if(var28 == 39) {
-               ++var19;
-            } else if(var28 == 10) {
-               ++var20;
-            } else if(var28 == 42) {
-               ++var21;
-            } else if(var28 == 99) {
-               ++var22;
-            } else if(var28 == 98) {
-               ++var23;
-            } else if(var28 == 101) {
-               ++var24;
-            } else if(var28 == 100) {
-               ++var25;
-            } else if(var28 != 64 && var28 != 65 && var28 != 120 && var28 != 121 && var28 != 123) {
-               ++var27;
-            } else {
-               ++var26;
-            }
+            ++var26;
          }
       }
 
@@ -280,7 +278,7 @@ final class Class3_Sub27 extends Class3 {
 
          while(true) {
             int var63 = var1.method741((byte)113);
-            var51.method771(17038, var63);
+            var51.method771(var63);
             int var64 = var1.buffer[var29++] & 255;
             boolean var65 = var64 != var62;
             var62 = var64 & 15;
@@ -291,7 +289,7 @@ final class Class3_Sub27 extends Class3 {
 
                var51.putByte((byte)-45, 47);
                var51.putByte((byte)-72, 0);
-               var51.method742(83, var51.index - var61);
+               var51.method742(var51.index - var61);
                ++var60;
                break;
             }
@@ -336,32 +334,30 @@ final class Class3_Sub27 extends Class3 {
                   byte var66;
                   if(var28 == 0 || var28 == 32) {
                      var66 = var1.buffer[var44++];
+                  } else if (var28 == 1) {
+                     var66 = var1.buffer[var34++];
+                  } else if (var28 == 33) {
+                     var66 = var1.buffer[var41++];
+                  } else if (var28 == 7) {
+                     var66 = var1.buffer[var35++];
+                  } else if (var28 == 39) {
+                     var66 = var1.buffer[var42++];
+                  } else if (var28 == 10) {
+                     var66 = var1.buffer[var36++];
+                  } else if (var28 == 42) {
+                     var66 = var1.buffer[var43++];
+                  } else if (var28 == 99) {
+                     var66 = var1.buffer[var46++];
+                  } else if (var28 == 98) {
+                     var66 = var1.buffer[var47++];
+                  } else if (var28 == 101) {
+                     var66 = var1.buffer[var48++];
+                  } else if (var28 == 100) {
+                     var66 = var1.buffer[var49++];
+                  } else if (var28 != 64 && var28 != 65 && var28 != 120 && var28 != 121 && var28 != 123) {
+                     var66 = var1.buffer[var39++];
                   } else {
-                     if(var28 == 1) {
-                        var66 = var1.buffer[var34++];
-                     } else if(var28 == 33) {
-                        var66 = var1.buffer[var41++];
-                     } else if(var28 == 7) {
-                        var66 = var1.buffer[var35++];
-                     } else if(var28 == 39) {
-                        var66 = var1.buffer[var42++];
-                     } else if(var28 == 10) {
-                        var66 = var1.buffer[var36++];
-                     } else if(var28 == 42) {
-                        var66 = var1.buffer[var43++];
-                     } else if(var28 == 99) {
-                        var66 = var1.buffer[var46++];
-                     } else if(var28 == 98) {
-                        var66 = var1.buffer[var47++];
-                     } else if(var28 == 101) {
-                        var66 = var1.buffer[var48++];
-                     } else if(var28 == 100) {
-                        var66 = var1.buffer[var49++];
-                     } else if(var28 != 64 && var28 != 65 && var28 != 120 && var28 != 121 && var28 != 123) {
-                        var66 = var1.buffer[var39++];
-                     } else {
-                        var66 = var1.buffer[var30++];
-                     }
+                     var66 = var1.buffer[var30++];
                   }
 
                    int var67 = var66 + var59[var28];
