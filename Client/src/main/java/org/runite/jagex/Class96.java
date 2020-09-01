@@ -17,10 +17,8 @@ final class Class96 {
    static int anInt1358 = 0;
    int anInt1359;
    int anInt1360;
-   static int anInt1361;
 
-
-   static final void method1587(byte var0, RSByteBuffer var1) {
+   static void method1587(RSByteBuffer var1) {
       try {
          label134:
          while(true) {
@@ -28,14 +26,14 @@ final class Class96 {
                boolean var18 = false;
                int var5 = 0;
                int var6 = 0;
-               if(var1.getByte((byte) -29) == 1) {
-                  var5 = var1.getByte((byte)-73);
+               if(var1.getByteB() == 1) {
+                  var5 = var1.getByteB();
                   var18 = true;
-                  var6 = var1.getByte((byte)-61);
+                  var6 = var1.getByteB();
                }
 
-               int var7 = var1.getByte((byte)-101);
-               int var8 = var1.getByte((byte)-109);
+               int var7 = var1.getByteB();
+               int var8 = var1.getByteB();
                int var9 = -Class3_Sub13_Sub21.anInt3256 + 64 * var7;
                int var10 = -(var8 * 64) - (-Class2.anInt65 - -1) + Class108.anInt1460;
                int var11;
@@ -52,11 +50,11 @@ final class Class96 {
 
                      for(int var14 = 0; var14 < 64; ++var14) {
                         if(!var18 || var13 >= 8 * var5 && 8 * var5 - -8 > var13 && 8 * var6 <= var14 && var14 < var6 * 8 - -8) {
-                           int var15 = var1.getByte((byte)-118);
+                           int var15 = var1.getByteB();
                            if(0 != var15) {
                               int var2;
                               if(1 == (1 & var15)) {
-                                 var2 = var1.getByte((byte)-23);
+                                 var2 = var1.getByteB();
                                  if(Class36.aByteArrayArrayArray640[var11][var12] == null) {
                                     Class36.aByteArrayArrayArray640[var11][var12] = new byte[4096];
                                  }
@@ -80,7 +78,7 @@ final class Class96 {
                                  }
 
                                  --var2;
-                                 ObjectDefinition var3 = Class162.getObjectDefinition(4, var2);
+                                 ObjectDefinition var3 = Class162.getObjectDefinition(var2);
                                  if(null != var3.ChildrenIds) {
                                     var3 = var3.method1685(0);
                                     if(var3 == null || var3.MapIcon == -1) {
@@ -93,7 +91,7 @@ final class Class96 {
                                  var16.anInt2532 = var3.MapIcon;
                                  var16.anInt2531 = var9;
                                  var16.anInt2539 = var10;
-                                 Class84.aClass61_1162.method1215(true, var16);
+                                 Class84.aClass61_1162.method1215(var16);
                               }
                            }
                         }
@@ -110,7 +108,7 @@ final class Class96 {
                      continue label134;
                   }
 
-                  var12 = var1.getByte((byte)-28);
+                  var12 = var1.getByteB();
                   if(var12 != 0) {
                      if((var12 & 1) == 1) {
                         ++var1.index;
@@ -128,12 +126,10 @@ final class Class96 {
                   ++var11;
                }
             }
-
-            int var4 = -58 % ((var0 - 42) / 32);
             return;
          }
       } catch (RuntimeException var17) {
-         throw Class44.method1067(var17, "nc.A(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var17, "nc.A(" + (byte) -83 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
@@ -145,7 +141,7 @@ final class Class96 {
 
          aClass94_1349 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "nc.B(" + var0 + ')');
+         throw Class44.clientError(var2, "nc.B(" + var0 + ')');
       }
    }
 

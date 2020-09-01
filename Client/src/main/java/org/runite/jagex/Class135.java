@@ -3,11 +3,11 @@ package org.runite.jagex;
 final class Class135 {
 
    private int anInt1767;
-   private Class116[] aClass116Array1768 = new Class116[10];
+   private final Class116[] aClass116Array1768 = new Class116[10];
    private int anInt1769;
 
 
-   private final byte[] method1810() {
+   private byte[] method1810() {
       int var1 = 0;
 
       int var2;
@@ -44,14 +44,14 @@ final class Class135 {
       }
    }
 
-   static final Class135 method1811(CacheIndex var0, int var1, int var2) {
-      byte[] var3 = var0.getFile(var1, (byte)-122, var2);
+   static Class135 method1811(CacheIndex var0, int var1, int var2) {
+      byte[] var3 = var0.getFile(var1, var2);
       return var3 == null?null:new Class135(new RSByteBuffer(var3));
    }
 
    final Class3_Sub12_Sub1 method1812() {
       byte[] var1 = this.method1810();
-      return new Class3_Sub12_Sub1(22050, var1, 22050 * this.anInt1769 / 1000, 22050 * this.anInt1767 / 1000);
+      return new Class3_Sub12_Sub1(var1, 22050 * this.anInt1769 / 1000, 22050 * this.anInt1767 / 1000);
    }
 
    final int method1813() {
@@ -88,7 +88,7 @@ final class Class135 {
 
    private Class135(RSByteBuffer var1) {
       for(int var2 = 0; var2 < 10; ++var2) {
-         int var3 = var1.getByte((byte)-48);
+         int var3 = var1.getByteB();
          if(var3 != 0) {
             --var1.index;
             this.aClass116Array1768[var2] = new Class116();
@@ -96,8 +96,8 @@ final class Class135 {
          }
       }
 
-      this.anInt1769 = var1.getShort(1);
-      this.anInt1767 = var1.getShort(1);
+      this.anInt1769 = var1.getShort();
+      this.anInt1767 = var1.getShort();
    }
 
    private Class135() {}

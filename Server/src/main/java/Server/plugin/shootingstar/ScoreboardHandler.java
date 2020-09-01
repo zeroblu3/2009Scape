@@ -7,10 +7,10 @@ import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import core.plugin.PluginManifest;
+
+import java.util.concurrent.TimeUnit;
 
 @InitializablePlugin
-@PluginManifest(name="ShootingStars")
 public class ScoreboardHandler extends OptionHandler {
     int index = 0;
     int ifaceid = ShootingStarScoreboard.iface.getId();

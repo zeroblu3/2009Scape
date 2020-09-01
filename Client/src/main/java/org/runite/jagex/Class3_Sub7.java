@@ -16,13 +16,13 @@ final class Class3_Sub7 extends Class3 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "eb.B(" + var0 + ')');
+         throw Class44.clientError(var2, "eb.B(" + var0 + ')');
       }
    }
 
-   static final int method121(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+   static int method121(int var0, int var1, int var2, int var3, int var4, int var6) {
       try {
-         if((var2 & 1) == var5) {
+         if((var2 & 1) == 1) {
             int var7 = var4;
             var4 = var3;
             var3 = var7;
@@ -31,21 +31,20 @@ final class Class3_Sub7 extends Class3 {
          var1 &= 3;
          return 0 != var1?(var1 != 1 ?(var1 != 2?-var0 + 7 + 1 + -var3:-var6 + (7 - (var4 + -1))):var0):var6;
       } catch (RuntimeException var8) {
-         throw Class44.method1067(var8, "eb.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ')');
+         throw Class44.clientError(var8, "eb.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + 1 + ',' + var6 + ')');
       }
    }
 
-   static final void method122(int var0) {
+   static void method122(int var0) {
       try {
-         int var1 = -101 / ((var0 - 10) / 59);
-         GameObject.aClass11ArrayArray1834 = new RSInterface[Class3_Sub13_Sub29.aClass153_3361.method2121(0)][];
-         Class130.aBooleanArray1703 = new boolean[Class3_Sub13_Sub29.aClass153_3361.method2121(0)];
+         GameObject.aClass11ArrayArray1834 = new RSInterface[Class3_Sub13_Sub29.aClass153_3361.method2121()][];
+         Class130.aBooleanArray1703 = new boolean[Class3_Sub13_Sub29.aClass153_3361.method2121()];
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "eb.D(" + var0 + ')');
+         throw Class44.clientError(var2, "eb.D(" + var0 + ')');
       }
    }
 
-   static final RSString itemStackColor(int var0, int var1) {
+   static RSString itemStackColor(int var0, int var1) {
       try {
          if(100000 > var1) {
             return RenderAnimationDefinition.method903(new RSString[]{ColorCore.DefaultStackColor, Class72.method1298((byte)9, var1), Class72.aClass94_1076}, (byte)-65);
@@ -57,7 +56,7 @@ final class Class3_Sub7 extends Class3 {
             return var1 >= 10000000?RenderAnimationDefinition.method903(new RSString[]{ColorCore.MillionStackColor, Class72.method1298((byte)9, var1 / 1000000), TextCore.MillionM, Class72.aClass94_1076}, (byte)-85):RenderAnimationDefinition.method903(new RSString[]{ColorCore.ThousandStackColor, Class72.method1298((byte)9, var1 / 1000), TextCore.ThousandK, Class72.aClass94_1076}, (byte)-124);
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "eb.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "eb.C(" + var0 + ',' + var1 + ')');
       }
    }
 
@@ -67,7 +66,7 @@ final class Class3_Sub7 extends Class3 {
       try {
          this.aLong2295 = var1;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "eb.<init>(" + var1 + ')');
+         throw Class44.clientError(var4, "eb.<init>(" + var1 + ')');
       }
    }
 

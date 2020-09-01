@@ -1,14 +1,12 @@
 package plugin.penguinhns
 
 import core.game.component.Component
-import core.game.component.ComponentPlugin
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.plugin.InitializablePlugin
 import plugin.dialogue.DialoguePlugin
-import plugin.interaction.inter.ExperienceLampInterface
 
 @InitializablePlugin
 class LarryHandler(player: Player? = null) : DialoguePlugin(player){
@@ -47,12 +45,35 @@ class LarryHandler(player: Player? = null) : DialoguePlugin(player){
             21 -> options("Coins","Experience").also { stage++ }
             22 -> when(buttonId){
                 1 -> player.inventory.add(Item(995, 6500 * player.getAttribute("phns:points",0))).also { player("Thanks!"); player.removeAttribute("phns:points");stage = 1000 }
-                2 -> player.interfaceManager.open(Component(134))
+                2 -> {
+                    player.setAttribute("caller",this)
+                    player.interfaceManager.open(Component(134).setCloseEvent { player1: Player?, c: Component? ->
+                        player.interfaceManager.openDefaultTabs()
+                        player.removeAttribute("lamp")
+                        player.unlock()
+                        true
+                    }).also { end() }
+                }
             }
 
             1000 -> end()
         }
         return true
+    }
+
+    override fun handleSelectionCallback(skill: Int, player: Player?) {
+        val points = player?.getAttribute("phns:points",0)
+        if(points == 0){
+            player.sendMessage("Sorry, but you have no points to redeem.")
+            return
+        }
+
+        val level = player?.skills?.getLevel(skill) ?: 0
+        System.out.println("Level: $level")
+        val expGained = points?.toDouble()?.times((level * 25))
+        System.out.print("exp: $expGained")
+        player?.skills?.addExperience(skill,expGained!!)
+        player?.setAttribute("/save:phns:points",0)
     }
 
     override fun getIds(): IntArray {

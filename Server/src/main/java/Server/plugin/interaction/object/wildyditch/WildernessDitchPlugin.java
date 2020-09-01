@@ -51,15 +51,17 @@ public final class WildernessDitchPlugin extends OptionHandler {
 		player.faceLocation(node.getLocation());
 		GameObject ditch = (GameObject) node;
 		player.setAttribute("wildy_ditch", ditch);
-		if (ditch.getRotation() % 2 == 0) {
-			if (player.getLocation().getY() <= node.getLocation().getY()) {
-				player.getInterfaceManager().open(new Component(382));
-				return;
-			}
-		} else {
-			if (player.getLocation().getX() > node.getLocation().getX()) {
-				player.getInterfaceManager().open(new Component(382));
-				return;
+		if(!player.isArtificial()) {
+			if (ditch.getRotation() % 2 == 0) {
+				if (player.getLocation().getY() <= node.getLocation().getY()) {
+					player.getInterfaceManager().open(new Component(382));
+					return;
+				}
+			} else {
+				if (player.getLocation().getX() > node.getLocation().getX()) {
+					player.getInterfaceManager().open(new Component(382));
+					return;
+				}
 			}
 		}
 		WildernessInterfacePlugin.handleDitch(player);

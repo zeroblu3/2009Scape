@@ -1,7 +1,8 @@
 package plugin.npc.familiar;
 
+import core.game.node.entity.combat.ImpactHandler;
+import plugin.consumable.Consumable;
 import plugin.consumable.Consumables;
-import plugin.consumable.Food;
 import plugin.skill.Skills;
 import plugin.skill.cooking.CookableItems;
 import plugin.skill.fishing.Fish;
@@ -90,8 +91,8 @@ public class BunyipNPC extends Familiar {
 			player.sendMessage("You can't use this special on an object like that.");
 			return false;
 		}
-		Food food = Consumables.getFoodByItemID(special.getItem().getId() + 2);
-		if (food == null) {
+		Consumable consumable = Consumables.getConsumableById(special.getItem().getId() + 2);
+		if (consumable == null) {
 			player.sendMessage("Error: Report to admin.");
 			return false;
 		}
@@ -102,7 +103,12 @@ public class BunyipNPC extends Familiar {
 		if (player.getInventory().remove(special.getItem())) {
 			animate(Animation.create(7747));
 			graphics(Graphics.create(1481));
-			owner.getSkills().heal(food.getProperties().getHealing());
+			final int healthEffectValue = consumable.getHealthEffectValue(player);
+			if (healthEffectValue > 0) {
+				owner.getSkills().heal(consumable.getHealthEffectValue(player));
+			} else {
+				owner.getImpactHandler().manualHit(player, healthEffectValue, ImpactHandler.HitsplatType.NORMAL);
+			}
 		}
 		return true;
 	}
@@ -129,12 +135,12 @@ public class BunyipNPC extends Familiar {
 			public boolean handle(NodeUsageEvent event) {
 				Player player = event.getPlayer();
 				Fish fish = Fish.forItem(event.getUsedItem());
-				Food food = Consumables.getFoodByItemID(fish.getItem().getId() + 2);
-				if (food == null) {
+				Consumable consumable = Consumables.getConsumableById(fish.getItem().getId() + 2);
+				if (consumable == null) {
 					return true;
 				}
 				player.lock(1);
-				Item runes = new Item(555, RandomFunction.random(1, food.getProperties().getHealing()));
+				Item runes = new Item(555, RandomFunction.random(1, consumable.getHealthEffectValue(player)));
 				if (player.getInventory().remove(event.getUsedItem())) {
 					player.animate(Animation.create(2779));
 					Projectile.create(player, event.getUsedWith().asNpc(), 1435).send();

@@ -30,7 +30,7 @@ public final class ExaminePacket implements IncomingPacket {
 			//String coords = id + ", " + player.getLocation().getX() + ", " + player.getLocation().getY() + ", " + player.getLocation().getZ();
 			player.debug("Object id: " + id + ", models: " + (d.getModelIds() != null ? Arrays.toString(d.getModelIds()) : null) + ", anim: " + d.animationId + ", config: " + (d.getConfigFileId() != -1 ? d.getConfigFileId() + " (file)" : d.getConfigId()) + ".");
 			player.getPacketDispatch().sendMessage(""+name+"");
-			/*if (player.getName().equalsIgnoreCase("ethan") || player.getName().equalsIgnoreCase("austin")) {
+			/*if {
 				Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection("LandscapeParser.removeGameObject(new GameObject("+coords+"));//"+ d.getName() ), null);
 			}*/
 			break;

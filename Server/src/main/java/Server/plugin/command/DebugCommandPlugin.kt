@@ -314,7 +314,7 @@ class DebugCommandPlugin : CommandPlugin() {
                     i++
                 }
                 if (!foundItem) {
-                    player!!.sendMessage("@red@Unable to find item: $itemName")
+                    player!!.sendMessage("<col=ff0000>Unable to find item: $itemName</col>")
                 }
                 return true
             }

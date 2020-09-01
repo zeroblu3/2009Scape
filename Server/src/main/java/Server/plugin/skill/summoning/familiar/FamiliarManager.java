@@ -3,6 +3,8 @@ package plugin.skill.summoning.familiar;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
 import core.game.container.Container;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.skill.Skills;
 import plugin.skill.summoning.SummoningPouch;
 import plugin.skill.summoning.pet.Pet;
@@ -100,6 +102,40 @@ public final class FamiliarManager implements SavingModule {
 			}
 		}
 		buffer.put((byte) 0);
+	}
+
+	public final void parse(JSONObject familiarData){
+		JSONArray petDetails = (JSONArray) familiarData.get("petDetails");
+		for(int i = 0 ; i < petDetails.size(); i++){
+			JSONObject detail = (JSONObject) petDetails.get(i);
+			PetDetails details = new PetDetails(0);
+			details.updateHunger(Double.parseDouble(detail.get("hunger").toString()));
+			details.updateGrowth(Double.parseDouble(detail.get("growth").toString()));
+			details.setStage(Integer.parseInt(detail.get("stage").toString()));
+			this.petDetails.put(Integer.parseInt(detail.get("petId").toString()),details);
+		}
+
+		if(familiarData.containsKey("currentPet")){
+			int currentPet = Integer.parseInt( familiarData.get("currentPet").toString());
+			PetDetails details = this.petDetails.get(currentPet);
+			Pets pets = Pets.forId(currentPet);
+			if (details == null) {
+				details = new PetDetails(pets.getGrowthRate() == 0.0 ? 100.0 : 0.0);
+				this.petDetails.put(currentPet, details);
+			}
+			familiar = new Pet(player, details, currentPet, pets.getNpcId(details.getStage()));
+		} else if(familiarData.containsKey("familiar")){
+			JSONObject currentFamiliar = (JSONObject) familiarData.get("familiar");
+			int familiarId = Integer.parseInt( currentFamiliar.get("originalId").toString());
+			familiar = FAMILIARS.get(familiarId).construct(player,familiarId);
+			familiar.ticks = Integer.parseInt( currentFamiliar.get("ticks").toString());
+			familiar.specialPoints = Integer.parseInt( currentFamiliar.get("specialPoints").toString());
+			JSONArray famInv = (JSONArray) currentFamiliar.get("inventory");
+			if(famInv != null){
+				((BurdenBeast) familiar).container.parse(famInv);
+			}
+			familiar.setAttribute("hp",Integer.parseInt( currentFamiliar.get("lifepoints").toString()));
+		}
 	}
 
 	@Override
@@ -546,18 +582,8 @@ public final class FamiliarManager implements SavingModule {
 		this.summoningCombatLevel = summoningCombatLevel;
 	}
 
-	/**
-	 * @return the insuredPets
-	 */
-	public List<Pets> getInsuredPets() {
-		return insuredPets;
-	}
 
-	/**
-	 * @param insuredPets the insuredPets to set
-	 */
-	public void setInsuredPets(List<Pets> insuredPets) {
-		this.insuredPets = insuredPets;
+	public Map<Integer, PetDetails> getPetDetails() {
+		return petDetails;
 	}
-
 }

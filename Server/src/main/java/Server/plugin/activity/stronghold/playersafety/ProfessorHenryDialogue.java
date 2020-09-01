@@ -1,6 +1,7 @@
 package plugin.activity.stronghold.playersafety;
 
 import core.game.component.Component;
+import core.game.node.entity.player.link.emote.Emotes;
 import plugin.dialogue.DialoguePlugin;
 import plugin.dialogue.FacialExpression;
 import core.game.node.entity.npc.NPC;
@@ -199,6 +200,7 @@ public class ProfessorHenryDialogue extends DialoguePlugin {
 		if (!player.hasItem(new Item(4447, 2))) {
 			player.getInventory().add(new Item(4447, 2), player);
 		}
+		player.getEmoteManager().unlock(Emotes.SAFETY_FIRST);
 	}
 
 	@Override

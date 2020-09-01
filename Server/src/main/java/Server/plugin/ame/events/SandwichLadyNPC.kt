@@ -55,6 +55,9 @@ class SandwichLadyEvent : AntiMacroEvent("Sandwich Lady",false,false, 0,1,2,3,4,
         }
 
         override fun handleTickActions() {
+            if(player == null || player?.isActive == false || player?.location?.withinDistance(this.location) == false){
+                onRegionInactivity()
+            }
             if(RandomFunction.random(20) == 3){
                 sendChat(QUOTES.random())
             }

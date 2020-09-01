@@ -2,6 +2,8 @@ package plugin.skill.slayer;
 
 import core.cache.def.impl.NPCDefinition;
 import core.game.system.config.NPCConfigParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -78,6 +80,31 @@ public final class SlayerManager implements SavingModule {
 	 * If the player can earn points (taskTotal > 4)
 	 */
 	private boolean canEarnPoints = false;
+
+	public void parse(JSONObject slayerData){
+		Object m = slayerData.get("master");
+		if(m != null) {
+			int master = Integer.parseInt( m.toString());
+			int taskId = Integer.parseInt(slayerData.get("taskId").toString());
+				this.master = Master.forId(master);
+				task = Tasks.values()[taskId];
+				amount = Integer.parseInt(slayerData.get("taskAmount").toString());
+		}
+		slayerPoints = Integer.parseInt( slayerData.get("points").toString());
+		taskCount = Integer.parseInt( slayerData.get("taskStreak").toString());
+		JSONArray learnedArray = (JSONArray) slayerData.get("learned_rewards");
+		for(int i = 0; i < learnedArray.size(); i++){
+			learned[i] = (boolean) learnedArray.get(i);
+ 		}
+		JSONArray removedTasks = (JSONArray) slayerData.get("removedTasks");
+		if(removedTasks != null){
+			for(int i = 0; i < removedTasks.size(); i++){
+				removed.add(Tasks.values()[Integer.parseInt(removedTasks.get(i).toString())]);
+			}
+		}
+		taskTotal = Integer.parseInt( slayerData.get("totalTasks").toString());
+		canEarnPoints = (boolean) slayerData.get("canEarnPoints");
+	}
 
 	@Override
 	public void parse(ByteBuffer buffer) {
@@ -184,7 +211,7 @@ public final class SlayerManager implements SavingModule {
 	 * @param npc The NPC. You're currently
 	 */
 	public void finalizeDeath(Player player, NPC npc) {
-		player.getSkills().addExperience(Skills.SLAYER, npc.getDefinition().getConfiguration(NPCConfigParser.SLAYER_EXP, npc.getSkills().getStaticLevel(Skills.HITPOINTS)), true);
+		player.getSkills().addExperience(Skills.SLAYER, npc.getDefinition().getConfiguration(NPCConfigParser.SLAYER_EXP, (double) npc.getSkills().getStaticLevel(Skills.HITPOINTS)), true);
 		decrementAmount(1);
 		if (!hasTask()) {
 			clear();
@@ -438,5 +465,9 @@ public final class SlayerManager implements SavingModule {
 	}
 
 	public int getTotalTasks() {return taskTotal;}
+
+	public boolean isCanEarnPoints(){
+		return canEarnPoints;
+	}
 
 }

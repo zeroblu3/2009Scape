@@ -17,20 +17,19 @@ final class Class25 {
    int anInt490;
    static int anInt491 = 0;
    int anInt493;
-   static int anInt494;
    int anInt495;
    int anInt496;
    static int anInt497;
    long aLong498 = 0L;
    static int[][] anIntArrayArray499 = new int[][]{new int[0], {128, 0, 128, 128, 0, 128}, {0, 0, 128, 0, 128, 128, 64, 128}, {0, 128, 0, 0, 128, 0, 64, 128}, {0, 0, 64, 128, 0, 128}, {128, 128, 64, 128, 128, 0}, {64, 0, 128, 0, 128, 128, 64, 128}, {128, 0, 128, 128, 0, 128, 0, 64, 64, 0}, {0, 0, 64, 0, 0, 64}, {0, 0, 128, 0, 128, 128, 64, 96, 32, 64}, {0, 128, 0, 0, 32, 64, 64, 96, 128, 128}, {0, 128, 0, 0, 32, 32, 96, 32, 128, 0, 128, 128}};
 
-   static final void method953(int var0, int var1) {
+   static void method953() {
       try {
-         Class114.aClass93_1569.method1522(var0 ^ 13501, var1);
-         Class3_Sub15.aClass93_2428.method1522(-126, var1);
-         Class47.aClass93_743.method1522(-126, var1);
+         Class114.aClass93_1569.method1522(-13508 ^ 13501, 50);
+         Class3_Sub15.aClass93_2428.method1522(-126, 50);
+         Class47.aClass93_743.method1522(-126, 50);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ec.D(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "ec.D(" + -13508 + ',' + 50 + ')');
       }
    }
 
@@ -42,11 +41,11 @@ final class Class25 {
             method954(113);
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ec.A(" + var0 + ')');
+         throw Class44.clientError(var2, "ec.A(" + var0 + ')');
       }
    }
 
-   static final void method955(int[][] var0, boolean var1, int var2, Class3_Sub11 var3, int[] var4, int var5, int var6, int var7, boolean var8, float[][] var9, boolean var10, int var11, float[][] var12, int var13, int var14, int var15, boolean var16, int[][] var17, float[][] var18, byte var19, int var20, boolean[] var21) {
+   static void method955(int[][] var0, boolean var1, int var2, Class3_Sub11 var3, int[] var4, int var5, int var6, int var7, boolean var8, float[][] var9, boolean var10, int var11, float[][] var12, int var13, int var14, int var15, boolean var16, int[][] var17, float[][] var18, byte var19, int var20, boolean[] var21) {
       try {
          int var22 = (var2 << 8) + (var1?255:0);
          int var24 = (!var8?0:255) + (var15 << 8);
@@ -63,11 +62,11 @@ final class Class25 {
 
          var3.method150(var6, var7, var5, var26, (int[])null, false);
       } catch (RuntimeException var31) {
-         throw Class44.method1067(var31, "ec.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + (var9 != null?"{...}":"null") + ',' + var10 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ',' + var13 + ',' + var14 + ',' + var15 + ',' + var16 + ',' + (var17 != null?"{...}":"null") + ',' + (var18 != null?"{...}":"null") + ',' + var19 + ',' + var20 + ',' + (var21 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var31, "ec.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + (var9 != null?"{...}":"null") + ',' + var10 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ',' + var13 + ',' + var14 + ',' + var15 + ',' + var16 + ',' + (var17 != null?"{...}":"null") + ',' + (var18 != null?"{...}":"null") + ',' + var19 + ',' + var20 + ',' + (var21 != null?"{...}":"null") + ')');
       }
    }
 
-   static final void method956(Object[] var0, int var1, int[] var2, int var3, int var4) {
+   static void method956(Object[] var0, int var1, int[] var2, int var3, int var4) {
       try {
          if(var4 < var1) {
             int var5 = (var4 + var1) / 2;
@@ -103,31 +102,28 @@ final class Class25 {
          }
 
       } catch (RuntimeException var12) {
-         throw Class44.method1067(var12, "ec.G(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var12, "ec.G(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ')');
       }
    }
 
-   static final void method957(int var0, boolean var1) {
+   static void method957(boolean var1) {
       try {
-         if(var0 == 96) {
-            Class3_Sub28_Sub13.aBoolean3665 = var1;
-            Class47.aBoolean742 = !NPC.method1986(42);
-         }
+          Class3_Sub28_Sub13.aBoolean3665 = var1;
+          Class47.aBoolean742 = !NPC.method1986(42);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ec.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "ec.C(" + 96 + ',' + var1 + ')');
       }
    }
 
-   static final void method958(byte var0) {
+   static void method958(byte var0) {
       try {
          if(GameObject.aBoolean1837) {
-            int var2 = 88 / ((57 - var0) / 59);
-            RSInterface var1 = Class3_Sub28_Sub16.method638((byte)-19, Class54.anInt872, RSInterface.anInt278);
+            RSInterface var1 = Class3_Sub28_Sub16.method638(Class3_Sub30_Sub1.anInt872, RSInterface.anInt278);
             if(null != var1 && var1.anObjectArray303 != null) {
                CS2Script var3 = new CS2Script();
                var3.arguments = var1.anObjectArray303;
                var3.aClass11_2449 = var1;
-               Class43.method1065(1073376993, var3);
+               Class43.method1065(var3);
             }
 
             GameObject.aBoolean1837 = false;
@@ -135,19 +131,16 @@ final class Class25 {
             Class20.method909(-107, var1);
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "ec.E(" + var0 + ')');
+         throw Class44.clientError(var4, "ec.E(" + var0 + ')');
       }
    }
 
-   static final void method959(int var0) {
+   static void method959() {
       try {
-         CS2Script.aClass93_2450.method1524(3);
-         if(var0 != 0) {
-            method957(121, true);
-         }
+         CS2Script.aClass93_2450.method1524();
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ec.B(" + var0 + ')');
+         throw Class44.clientError(var2, "ec.B(" + 0 + ')');
       }
    }
 

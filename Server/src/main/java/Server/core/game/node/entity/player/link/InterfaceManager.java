@@ -2,7 +2,7 @@ package core.game.node.entity.player.link;
 
 import core.game.component.Component;
 import core.game.component.InterfaceType;
-import plugin.tutorial.TutorialSession;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.net.packet.PacketRepository;
@@ -246,7 +246,7 @@ public final class InterfaceManager {
 		component.open(player);
 		if (component.getCloseEvent() == null) {
 			component.setCloseEvent((player, c) -> {
-				openDefaultTabs();
+//				openDefaultTabs();
 				return true;
 			});
 		}

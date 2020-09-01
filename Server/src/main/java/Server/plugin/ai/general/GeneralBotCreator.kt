@@ -35,12 +35,17 @@ class GeneralBotCreator {
                 return false
             }
             if (!botScript.bot.pulseManager.hasPulseRunning()) {
+
                 if (ticks++ >= RandomFunction.random(90000,120000)) {
                     AIPlayer.deregister(botScript.bot.uid)
                     ticks = 0
+                    SystemLogger.log("Submitting transition pulse from ticks")
                     GameWorld.Pulser.submit(TransitionPulse(botScript))
                     return true
                 }
+                if(!botScript.running) return true //has to be separated this way or it double-submits the respawn pulse.
+
+
                 val idleRoll = RandomFunction.random(50)
                 if(idleRoll == 2 && botScript !is Idler){
                     randomDelay += RandomFunction.random(2,20)
@@ -52,8 +57,9 @@ class GeneralBotCreator {
         }
 
         override fun stop() {
-            ticks = 13000
-            pulse()
+            ticks = Integer.MAX_VALUE - 20 //Sets the ticks as high as they can go (safely) and then runs pulse again
+            pulse()                        //to trigger the transition pulse to be submitted.
+            super.stop()
         }
     }
 

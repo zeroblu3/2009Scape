@@ -2,16 +2,16 @@ package org.runite.jagex;
 
 final class Class83 {
 
-   private CacheIndex aClass153_1153;
+   private final CacheIndex aClass153_1153;
    static Class3_Sub27 aClass3_Sub27_1154;
-   private Class130 aClass130_1155 = new Class130(256);
+   private final Class130 aClass130_1155 = new Class130(256);
    static int anInt1156 = 0;
-   private CacheIndex aClass153_1157;
+   private final CacheIndex aClass153_1157;
    static boolean aBoolean1158 = false;
-   private Class130 aClass130_1159 = new Class130(256);
+   private final Class130 aClass130_1159 = new Class130(256);
 
 
-   static final void method1410(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10) {
+   static void method1410(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10) {
       try {
          int var11 = var4 - var6;
          int var12 = -var3 + var2;
@@ -45,7 +45,6 @@ final class Class83 {
          int var32;
          int var33;
          int[][] var41;
-         int var10000;
          for(var13 = 0; var13 < var11; ++var13) {
             var14 = var13 * var8 + var1 >> 16;
             var15 = (var13 + 1) * var8 + var1 >> 16;
@@ -115,7 +114,7 @@ final class Class83 {
                               var35 = var42[var28] != null?var42[var28][var31]:0;
                               var36 = var35 & 252;
                               if(var36 != 0 && var16 > 1 && var27 > 1) {
-                                 Class168.method2272(Class74.anIntArray1100, var33, var14, var35 & 3, var32, var36 >> 2, var27, var16, var25, true, (byte)21);
+                                 Class168.method2272(Class74.anIntArray1100, var33, var14, var35 & 3, var32, var36 >> 2, var27, var16, var25, true);
                               } else {
                                  Class74.method1323(var14, var25, var16, var27, var33);
                               }
@@ -132,7 +131,7 @@ final class Class83 {
                                  Class74.method1323(var14, var25, var16, var27, var34);
                               }
 
-                              Class168.method2272(Class74.anIntArray1100, var34, var14, var35 & 3, 0, var36 >> 2, var27, var16, var25, var33 == 0, (byte)21);
+                              Class168.method2272(Class74.anIntArray1100, var34, var14, var35 & 3, 0, var36 >> 2, var27, var16, var25, var33 == 0);
                            }
                         }
 
@@ -164,49 +163,37 @@ final class Class83 {
                                  Class74.method1317(var14, var25, var16, var38);
                               } else if(3 == var49) {
                                  Class74.method1318(var36, var25, var27, var38);
+                              } else if (var49 == 4) {
+                                 Class74.method1317(var14, var37, var16, var38);
+                              } else if (var49 == 9) {
+                                 Class74.method1318(var14, var25, var27, 16777215);
+                                 Class74.method1317(var14, var25, var16, var38);
+                              } else if (var49 == 10) {
+                                 Class74.method1318(var36, var25, var27, 16777215);
+                                 Class74.method1317(var14, var25, var16, var38);
+                              } else if (var49 == 11) {
+                                 Class74.method1318(var36, var25, var27, 16777215);
+                                 Class74.method1317(var14, var37, var16, var38);
+                              } else if (var49 == 12) {
+                                 Class74.method1318(var14, var25, var27, 16777215);
+                                 Class74.method1317(var14, var37, var16, var38);
+                              } else if (var49 == 17) {
+                                 Class74.method1317(var14, var25, 1, var38);
+                              } else if (var49 == 18) {
+                                 Class74.method1317(var36, var25, 1, var38);
+                              } else if (var49 == 19) {
+                                 Class74.method1317(var36, var37, 1, var38);
+                              } else if (var49 == 20) {
+                                 Class74.method1317(var14, var37, 1, var38);
                               } else {
-                                 if(var49 == 4) {
-                                    Class74.method1317(var14, var37, var16, var38);
-                                 } else {
-                                    if(var49 == 9) {
-                                       Class74.method1318(var14, var25, var27, 16777215);
-                                       Class74.method1317(var14, var25, var16, var38);
-                                    } else {
-                                       if(var49 == 10) {
-                                          Class74.method1318(var36, var25, var27, 16777215);
-                                          Class74.method1317(var14, var25, var16, var38);
-                                       } else {
-                                          if(var49 == 11) {
-                                             Class74.method1318(var36, var25, var27, 16777215);
-                                             Class74.method1317(var14, var37, var16, var38);
-                                          } else if(var49 == 12) {
-                                             Class74.method1318(var14, var25, var27, 16777215);
-                                             Class74.method1317(var14, var37, var16, var38);
-                                          } else {
-                                             if(var49 == 17) {
-                                                Class74.method1317(var14, var25, 1, var38);
-                                             } else if(var49 == 18) {
-                                                Class74.method1317(var36, var25, 1, var38);
-                                             } else {
-                                                if(var49 == 19) {
-                                                   Class74.method1317(var36, var37, 1, var38);
-                                                } else if(var49 == 20) {
-                                                   Class74.method1317(var14, var37, 1, var38);
-                                                } else {
-                                                   int var39;
-                                                   if(25 == var49) {
-                                                      for(var39 = 0; var27 > var39; ++var39) {
-                                                         Class74.method1317(var39 + var14, -var39 + var37, 1, var38);
-                                                      }
-                                                   } else if(26 == var49) {
-                                                      for(var39 = 0; var39 < var27; ++var39) {
-                                                         Class74.method1317(var39 + var14, var25 + var39, 1, var38);
-                                                      }
-                                                   }
-                                                }
-                                             }
-                                          }
-                                       }
+                                 int var39;
+                                 if (25 == var49) {
+                                    for (var39 = 0; var27 > var39; ++var39) {
+                                       Class74.method1317(var39 + var14, -var39 + var37, 1, var38);
+                                    }
+                                 } else if (26 == var49) {
+                                    for (var39 = 0; var39 < var27; ++var39) {
+                                       Class74.method1317(var39 + var14, var25 + var39, 1, var38);
                                     }
                                  }
                               }
@@ -236,7 +223,6 @@ final class Class83 {
                      Class74.method1323(var14, var20, var16, var22, var19);
                   }
 
-                  var10000 = var15 + var5;
                }
             }
          }
@@ -248,7 +234,6 @@ final class Class83 {
             if(var16 > 0) {
                var14 += var5;
                var17 = var6 + var13 >> 6;
-               var10000 = var15 + var5;
                if(var17 >= 0 && Class29.anIntArrayArrayArray558.length + -1 >= var17) {
                   var41 = Class29.anIntArrayArrayArray558[var17];
 
@@ -259,7 +244,6 @@ final class Class83 {
                      if(var22 > 0) {
                         var20 += var0;
                         int var44 = var19 - -var3 >> 6;
-                        var10000 = var21 + var0;
                         if(var44 >= 0 && var44 <= -1 + var41.length) {
                            var24 = ((63 & var3 + var19) << 6) - -(var13 - -var6 & 63);
                            if(null != var41[var44]) {
@@ -267,7 +251,7 @@ final class Class83 {
                               var26 = 16383 & var25;
                               if(var26 != 0) {
                                  var28 = ('\ud228' & var25) >> 14;
-                                 Class2 var47 = Class3_Sub28_Sub6.c(-1 + var26, 0);
+                                 Class2 var47 = Class3_Sub28_Sub6.c(-1 + var26);
                                  LDIndexedSprite var48 = var47.method77(var28, (byte)-71);
                                  if(var48 != null) {
                                     var31 = var22 * var48.anInt1468 / 4;
@@ -303,11 +287,11 @@ final class Class83 {
          }
 
       } catch (RuntimeException var40) {
-         throw Class44.method1067(var40, "le.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var10 + ')');
+         throw Class44.clientError(var40, "le.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var10 + ')');
       }
    }
 
-   static final int method1411(int var0) {
+   static int method1411(int var0) {
       try {
          if(Class3_Sub13_Sub10.aFrame3121 == null) {
             if(HDToolKit.highDetail && Class3_Sub15.aBoolean2427) {
@@ -317,66 +301,57 @@ final class Class83 {
                   aBoolean1158 = false;
                }
 
-               return HDToolKit.highDetail && !Class3_Sub15.aBoolean2427?1:0;
+               return HDToolKit.highDetail ?1:0;
             }
          } else {
             return 3;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "le.D(" + var0 + ')');
+         throw Class44.clientError(var2, "le.D(" + var0 + ')');
       }
    }
 
-   private final Class3_Sub12_Sub1 method1412(int[] var1, int var2, int var3, int var4) {
+   private Class3_Sub12_Sub1 method1412(int[] var1, int var3, int var4) {
       try {
-         if(var2 == 31947) {
-            int var5 = var4 ^ (var3 >>> 12 | var3 << 4 & '\ufff3');
-            var5 |= var3 << 16;
-            long var6 = (long)var5;
-            Class3_Sub12_Sub1 var8 = (Class3_Sub12_Sub1)this.aClass130_1159.method1780(var6, 0);
-            if(var8 != null) {
-               return var8;
-            } else if(null != var1 && var1[0] <= 0) {
+         int var5 = var4 ^ (var3 >>> 12 | var3 << 4 & '\ufff3');
+         var5 |= var3 << 16;
+         long var6 = (long)var5;
+         Class3_Sub12_Sub1 var8 = (Class3_Sub12_Sub1)this.aClass130_1159.method1780(var6, 0);
+         if(var8 != null) {
+            return var8;
+         } else if(null != var1 && var1[0] <= 0) {
+            return null;
+         } else {
+            Class135 var9 = Class135.method1811(this.aClass153_1153, var3, var4);
+            if(null == var9) {
                return null;
             } else {
-               Class135 var9 = Class135.method1811(this.aClass153_1153, var3, var4);
-               if(null == var9) {
-                  return null;
-               } else {
-                  var8 = var9.method1812();
-                  this.aClass130_1159.method1779(1, var8, var6);
-                  if(var1 != null) {
-                     var1[0] -= var8.aByteArray3030.length;
-                  }
-
-                  return var8;
+               var8 = var9.method1812();
+               this.aClass130_1159.method1779(var8, var6);
+               if(var1 != null) {
+                  var1[0] -= var8.aByteArray3030.length;
                }
+
+               return var8;
             }
-         } else {
-            return (Class3_Sub12_Sub1)null;
          }
       } catch (RuntimeException var10) {
-         throw Class44.method1067(var10, "le.B(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var10, "le.B(" + (var1 != null?"{...}":"null") + ',' + 31947 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
-   final Class3_Sub12_Sub1 method1413(int var1, int var2, int[] var3) {
+   final Class3_Sub12_Sub1 method1413(int var1, int[] var3) {
       try {
-         if(1 == this.aClass153_1153.method2121(0)) {
-            return this.method1412(var3, 31947, 0, var1);
+         if(1 == this.aClass153_1153.method2121()) {
+            return this.method1412(var3, 0, var1);
+         } else if (this.aClass153_1153.getFileAmount(var1, (byte) 83) == 1) {
+            return this.method1412(var3, var1, 0);
          } else {
-            if(this.aClass153_1153.getFileAmount(var1, (byte) 83) == 1) {
-               return this.method1412(var3, 31947, var1, 0);
-            } else {
-               if(var2 < 0) {
-                  this.aClass130_1159 = (Class130)null;
-               }
 
-               throw new RuntimeException();
-            }
+             throw new RuntimeException();
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "le.A(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var5, "le.A(" + var1 + ',' + 33 + ',' + (var3 != null?"{...}":"null") + ')');
       }
    }
 
@@ -388,11 +363,11 @@ final class Class83 {
 
          aClass3_Sub27_1154 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "le.E(" + var0 + ')');
+         throw Class44.clientError(var2, "le.E(" + var0 + ')');
       }
    }
 
-   private final Class3_Sub12_Sub1 method1415(int var1, int[] var2, int var3, byte var4) {
+   private Class3_Sub12_Sub1 method1415(int var1, int[] var2, int var3) {
       try {
          int var5 = var3 ^ (var1 >>> 12 | '\ufff3' & var1 << 4);
          var5 |= var1 << 16;
@@ -410,7 +385,7 @@ final class Class83 {
                   return null;
                }
 
-               this.aClass130_1155.method1779(1, var9, var6);
+               this.aClass130_1155.method1779(var9, var6);
             }
 
             var8 = var9.method359(var2);
@@ -418,33 +393,28 @@ final class Class83 {
                return null;
             } else {
                var9.method86(-1024);
-               this.aClass130_1159.method1779(1, var8, var6);
-               if(var4 != 11) {
-                  this.method1413(64, -18, (int[])null);
-               }
+               this.aClass130_1159.method1779(var8, var6);
 
                return var8;
             }
          }
       } catch (RuntimeException var10) {
     	 // var10.printStackTrace();
-    	  throw Class44.method1067(var10, "le.F(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ')');
+    	  throw Class44.clientError(var10, "le.F(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + (byte) 11 + ')');
       }
    }
 
-   final Class3_Sub12_Sub1 method1416(int var1, int var2, int[] var3) {
+   final Class3_Sub12_Sub1 method1416(int var2, int[] var3) {
       try {
-         if(var1 != 10089) {
-            return (Class3_Sub12_Sub1)null;
-         } else if(this.aClass153_1157.method2121(0) == 1) {
-            return this.method1415(0, var3, var2, (byte)11);
+         if(this.aClass153_1157.method2121() == 1) {
+            return this.method1415(0, var3, var2);
          } else if(this.aClass153_1157.getFileAmount(var2, (byte) 99) == 1) {
-            return this.method1415(var2, var3, 0, (byte)11);
+            return this.method1415(var2, var3, 0);
          } else {
             throw new RuntimeException();
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "le.G(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var5, "le.G(" + 10089 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
       }
    }
 
@@ -453,7 +423,7 @@ final class Class83 {
          this.aClass153_1153 = var1;
          this.aClass153_1157 = var2;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "le.<init>(" + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var4, "le.<init>(" + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 

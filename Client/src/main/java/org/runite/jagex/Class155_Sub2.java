@@ -26,10 +26,9 @@ final class Class155_Sub2 extends Class155 {
    final void method2164(Component var1) {
       Info[] var2 = AudioSystem.getMixerInfo();
       if(null != var2) {
-         Info[] var3 = var2;
 
-         for(int var4 = 0; var3.length > var4; ++var4) {
-            Info var5 = var3[var4];
+         for(int var4 = 0; var2.length > var4; ++var4) {
+            Info var5 = var2[var4];
             if(null != var5) {
                String var6 = var5.getName();
                if(null != var6 && var6.toLowerCase().indexOf("soundmax") >= 0) {
@@ -51,7 +50,7 @@ final class Class155_Sub2 extends Class155 {
          this.aSourceDataLine2972.start();
          this.anInt2971 = var1;
       } catch (LineUnavailableException var3) {
-         if(Class146.method2080(var1, -125) == 1) {
+         if(Class146.method2080(var1) == 1) {
             this.aSourceDataLine2972 = null;
             throw var3;
          } else {

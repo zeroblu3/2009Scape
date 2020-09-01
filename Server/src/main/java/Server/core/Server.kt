@@ -2,6 +2,7 @@ package core
 
 import core.game.system.SystemLogger
 import core.game.system.SystemShutdownHook
+import core.game.system.config.ServerConfigParser
 import core.game.system.mysql.SQLManager
 import core.game.world.GameSettings.Companion.parse
 import core.game.world.GameWorld
@@ -10,9 +11,11 @@ import core.net.NioReactor
 import core.net.amsc.WorldCommunicator
 import core.tools.TimeStamp
 import core.tools.backup.AutoBackup
+import plugin.ge.BotGrandExchange
 import plugin.ge.GEAutoStock
 import java.io.File
 import java.net.BindException
+import java.util.*
 
 /**
  * The main class, for those that are unable to read the class' name.
@@ -42,11 +45,10 @@ object Server {
     @JvmStatic
     fun main(args: Array<String>) {
         if (args.isNotEmpty()) {
-            try {
-                GameWorld.setSettings(parse(args))
-            } catch(e: Exception){
-                print("Unable to find config file $args")
-            }
+            ServerConfigParser(args[0])
+        } else {
+            println("No config file supplied! Attempting to use default...")
+            ServerConfigParser("Server/worldprops/default.json")
         }
         if (GameWorld.getSettings()!!.isGui) {
             try {
@@ -65,17 +67,28 @@ object Server {
         try {
             NioReactor.configure(43594 + GameWorld.getSettings()!!.worldId).start()
         } catch (e: BindException) {
-            println("Port " + 43594 + GameWorld.getSettings()!!.worldId + " is already in use!")
+            println("Port " + (43594 + GameWorld.getSettings()!!.worldId) + " is already in use!")
             throw e
         }
-        WorldCommunicator.connect()
+        val timer = java.util.Timer()
+        val task = object : TimerTask() {
+            override fun run() {
+                autoReconnect()
+            }
+        }
+        timer.schedule(task, 0, 1000 * 60 * 5)
         SystemLogger.log(GameWorld.getName() + " flags " + GameWorld.getSettings().toString())
         SystemLogger.log(GameWorld.getName() + " started in " + t.duration(false, "") + " milliseconds.")
-        GEAutoStock.parse("data" + File.separator + "eco" + File.separator + "itemstostock.xml")
+        GEAutoStock.parse(ServerConstants.GRAND_EXCHANGE_DATA_PATH + "itemstostock.xml")
+        BotGrandExchange.loadOffersFromDB()
         // TODO Run the eco kick starter 1 time for the live server then comment it out
 //		ResourceManager.kickStartEconomy();
     }
 
+    fun autoReconnect() {
+        SystemLogger.log("Attempting autoreconnect of server")
+        WorldCommunicator.connect()
+    }
     /**
      * Gets the startTime.
      * @return the startTime

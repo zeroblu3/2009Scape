@@ -48,66 +48,16 @@ public final class GameAttributes {
 	 * Writes the attribute data to the player buffer.
 	 * @param buffer The player's data buffer.
 	 */
+	@Deprecated
 	public void dump(String file) {
-		//buffer.put((byte) savedAttributes.size());
-		File pathDir = new File(ServerConstants.PLAYER_ATTRIBUTE_PATH);
-		File saveFile = new File(ServerConstants.PLAYER_ATTRIBUTE_PATH + file);
-		if(!pathDir.exists()){
-			pathDir.mkdirs();
-		}
-		if(saveFile.exists()){
-			saveFile.delete();
-		}
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.newDocument();
 
-			Element root = doc.createElement("attributes");
-			doc.appendChild(root);
-
-			for (String key : savedAttributes){
-				Element attrElement = doc.createElement("GameAttribute");
-				Attr keyAttr = doc.createAttribute("key");
-				Attr valAttr = doc.createAttribute("value");
-				Attr typeAttr = doc.createAttribute("type");
-				Object value = attributes.get(key);
-				keyAttr.setValue(key);
-				valAttr.setValue("" + value);
-				if(value instanceof Integer){
-					typeAttr.setValue("int");
-				} else if (value instanceof Short){
-					typeAttr.setValue("short");
-				} else if (value instanceof Long){
-					typeAttr.setValue("long");
-				} else if (value instanceof Byte){
-					typeAttr.setValue("byte");
-				} else if (value instanceof Boolean){
-					typeAttr.setValue("bool");
-				} else if (value instanceof  String){
-					typeAttr.setValue("string");
-				}
-				attrElement.setAttributeNode(keyAttr);
-				attrElement.setAttributeNode(valAttr);
-				attrElement.setAttributeNode(typeAttr);
-				root.appendChild(attrElement);
-			}
-			TransformerFactory tfactory = TransformerFactory.newInstance();
-			Transformer transformer = tfactory.newTransformer();
-			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(saveFile);
-			transformer.transform(source,result);
-		} catch (Exception e){
-			e.printStackTrace();
-		}
 	}
 
 	/**
 	 * Parses the saved attributes from the buffer.
 	 * @param buffer The buffer.
 	 */
+	@Deprecated
 	public void parse(String file) {
 		File saveFile = new File(ServerConstants.PLAYER_ATTRIBUTE_PATH + file);
 		if(!saveFile.exists()){

@@ -1,9 +1,12 @@
 package plugin.skill.farming.compost;
 
+import core.game.container.Container;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -44,6 +47,18 @@ public final class CompostManager implements SavingModule {
 				bin.getContainer().save(buffer);
 			}
 			buffer.put((byte) 0);
+		}
+	}
+
+	public void parse(JSONArray data){
+		for(int i = 0; i < data.size(); i++){
+			JSONObject b = (JSONObject) data.get(i);
+
+			CompostBin bin = new CompostBin(Integer.parseInt(b.get("wrapperId").toString()));
+			bin.setTimeStamp(Long.parseLong(b.getOrDefault("timeStamp",0L).toString()));
+			bin.compostLevel = Integer.parseInt(b.getOrDefault("compostLevel",0).toString());
+			bin.getContainer().parse((JSONArray) b.getOrDefault("compostContainer", new JSONArray()));
+			bins.add(bin);
 		}
 	}
 

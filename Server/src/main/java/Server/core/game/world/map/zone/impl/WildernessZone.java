@@ -159,6 +159,9 @@ public final class WildernessZone extends MapZone {
 			Player p = (Player) e;
 			if(!p.isArtificial()) {
 				show(p);
+			} else {
+				p.getSkullManager().setWilderness(true);
+				p.getSkullManager().setLevel(getWilderness(p));
 			}
 			p.getAntiMacroHandler().isDisabled = true;
 			for (int i = 0; i < 7; i++) {

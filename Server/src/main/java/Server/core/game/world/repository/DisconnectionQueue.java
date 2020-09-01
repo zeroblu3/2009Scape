@@ -92,7 +92,7 @@ public final class DisconnectionQueue {
 	 */
 	public static boolean save(Player player, boolean sql) {
 		try {
-			PlayerParser.dump(player);
+			PlayerParser.save(player);
 			if (sql) {
 				player.getDetails().getSqlManager().update(player);
 				player.getDetails().save();

@@ -11,11 +11,9 @@ final class OutputStream_Sub1 extends OutputStream {
    static int[] anIntArray49;
 
 
-   static final short[] method65(int var0, short[] var1) {
+   static short[] method65(short[] var1) {
       try {
-         if(var0 != 23032) {
-            return (short[])null;
-         } else if(null == var1) {
+         if(null == var1) {
             return null;
          } else {
             short[] var2 = new short[var1.length];
@@ -23,26 +21,26 @@ final class OutputStream_Sub1 extends OutputStream {
             return var2;
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "vg.A(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var3, "vg.A(" + 23032 + ',' + "{...}" + ')');
       }
    }
 
-   static final void method66(RSString var0, int var1, int var2, byte var3, int var4) {
+   static void method66(RSString var0, int var1, int var2, byte var3, int var4) {
       try {
-         RSInterface var5 = Class3_Sub28_Sub16.method638((byte)-19, var4, var1);
+         RSInterface var5 = Class3_Sub28_Sub16.method638(var4, var1);
          if(null != var5) {
             if(var5.anObjectArray314 != null) {
                CS2Script var6 = new CS2Script();
                var6.arguments = var5.anObjectArray314;
                var6.aClass11_2449 = var5;
                var6.aClass94_2439 = var0;
-               var6.anInt2445 = var2;
-               Class43.method1065(1073376993, var6);
+               var6.interfaceButtons = var2; // Set to 1 for jukebox/friends/all/game chat. set to non 1 for all other chat settings
+               Class43.method1065(var6);
             }
 
             boolean var8 = true;
             if(0 < var5.anInt189) {
-               var8 = Class3_Sub28_Sub19.method715(205, var5);
+               var8 = Class3_Sub28_Sub19.method715(var5);
             }
 
             if(var8) {
@@ -50,20 +48,17 @@ final class OutputStream_Sub1 extends OutputStream {
                   if(1 == var2) {
                      Class3_Sub13_Sub1.outgoingBuffer.putOpcode(155);
                      Class3_Sub13_Sub1.outgoingBuffer.putInt(-120, var4);
-                     ++Class61.anInt937;
                      Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                   }
 
                   if(var3 < -7) {
                      if(var2 == 2) {
-                        ++Class3_Sub13_Sub10.anInt3122;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(196);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-122, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
                      if(var2 == 3) {
-                        ++Class56.anInt889;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(124);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-122, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
@@ -73,25 +68,21 @@ final class OutputStream_Sub1 extends OutputStream {
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(199);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-126, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
-                        ++KeyboardListener.anInt1909;
                      }
 
                      if(var2 == 5) {
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(234);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-123, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
-                        ++Class166.anInt2081;
                      }
 
                      if(6 == var2) {
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(168);
-                        ++Class85.anInt1172;
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-120, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
                      if(var2 == 7) {
-                        ++Class40.anInt674;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(166);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-123, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
@@ -99,20 +90,17 @@ final class OutputStream_Sub1 extends OutputStream {
 
                      if(var2 == 8) {
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(64);
-                        ++Class57.anInt903;
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-127, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
                      if(var2 == 9) {
-                        ++Class85.anInt1166;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(53);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-123, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
                      }
 
                      if(var2 == 10) {
-                        ++Class91.anInt1307;
                         Class3_Sub13_Sub1.outgoingBuffer.putOpcode(9);
                         Class3_Sub13_Sub1.outgoingBuffer.putInt(-125, var4);
                         Class3_Sub13_Sub1.outgoingBuffer.putShort(var1);
@@ -123,7 +111,7 @@ final class OutputStream_Sub1 extends OutputStream {
             }
          }
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "vg.D(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var7, "vg.D(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -136,20 +124,20 @@ final class OutputStream_Sub1 extends OutputStream {
 
          anIntArray49 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "vg.B(" + var0 + ')');
+         throw Class44.clientError(var2, "vg.B(" + var0 + ')');
       }
    }
 
-   static final void method68(int var0, int var1, Class140_Sub4 var2) {
+   static void method68(int var0, Class140_Sub4 var2) {
       try {
          if(var2.anInt2800 <= Class44.anInt719) {
             if(var2.anInt2790 >= Class44.anInt719) {
-               Class168.method2270(var2, (byte)-56);
+               Class168.method2270(var2);
             } else {
                Class55.method1180((byte)-22, var2);
             }
          } else {
-            Class140_Sub2.method1950(var2, true);
+            Class140_Sub2.method1950(var2);
          }
 
          if(var2.anInt2819 < 128 || var2.anInt2829 < 128 || var2.anInt2819 >= 13184 || var2.anInt2829 >= 13184) {
@@ -157,27 +145,25 @@ final class OutputStream_Sub1 extends OutputStream {
             var2.anInt2842 = -1;
             var2.anInt2800 = 0;
             var2.anInt2790 = 0;
-            var2.anInt2819 = 128 * var2.anIntArray2767[0] - -(64 * var2.getSize((byte)114));
-            var2.anInt2829 = var2.anIntArray2755[0] * 128 + var2.getSize((byte)114) * 64;
-            var2.method1973(var1 + -2395);
+            var2.anInt2819 = 128 * var2.anIntArray2767[0] - -(64 * var2.getSize());
+            var2.anInt2829 = var2.anIntArray2755[0] * 128 + var2.getSize() * 64;
+            var2.method1973(2279 + -2395);
          }
 
-         if(var1 == 2279) {
-            if(var2 == Class102.player && (var2.anInt2819 < 1536 || var2.anInt2829 < 1536 || var2.anInt2819 >= 11776 || var2.anInt2829 >= 11776)) {
-               var2.anInt2842 = -1;
-               var2.anInt2800 = 0;
-               var2.anInt2790 = 0;
-               var2.anInt2771 = -1;
-               var2.anInt2819 = var2.anIntArray2767[0] * 128 + var2.getSize((byte)114) * 64;
-               var2.anInt2829 = 128 * var2.anIntArray2755[0] + 64 * var2.getSize((byte)114);
-               var2.method1973(-98);
-            }
-
-            Class17.method904(65536, var2);
-            RenderAnimationDefinition.method900(var2, -11973);
+         if(var2 == Class102.player && (var2.anInt2819 < 1536 || var2.anInt2829 < 1536 || var2.anInt2819 >= 11776 || var2.anInt2829 >= 11776)) {
+            var2.anInt2842 = -1;
+            var2.anInt2800 = 0;
+            var2.anInt2790 = 0;
+            var2.anInt2771 = -1;
+            var2.anInt2819 = var2.anIntArray2767[0] * 128 + var2.getSize() * 64;
+            var2.anInt2829 = 128 * var2.anIntArray2755[0] + 64 * var2.getSize();
+            var2.method1973(-98);
          }
+
+         Class17.method904(65536, var2);
+         RenderAnimationDefinition.method900(var2, -11973);
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "vg.C(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var4, "vg.C(" + var0 + ',' + 2279 + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
@@ -185,7 +171,7 @@ final class OutputStream_Sub1 extends OutputStream {
       try {
          throw new IOException();
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "vg.write(" + var1 + ')');
+         throw Class44.clientError(var3, "vg.write(" + var1 + ')');
       }
    }
 

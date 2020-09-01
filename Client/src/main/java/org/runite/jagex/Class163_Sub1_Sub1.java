@@ -2,6 +2,7 @@ package org.runite.jagex;
 import java.awt.Component;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Objects;
 
 final class Class163_Sub1_Sub1 extends Class163_Sub1 {
 
@@ -11,8 +12,6 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
    static boolean[] aBooleanArray4008 = new boolean[100];
    static int[] anIntArray4009 = new int[5];
    static int[][] anIntArrayArray4010 = new int[104][104];
-   static int anInt4011;
-
 
    public static void method2213(byte var0) {
       try {
@@ -26,47 +25,39 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
          aClass94_4007 = null;
          anIntArrayArray4010 = (int[][])null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ch.F(" + var0 + ')');
+         throw Class44.clientError(var2, "ch.F(" + var0 + ')');
       }
    }
 
-   static final void method2214(int var0) {
+   static void method2214() {
       try {
-         if(var0 != 0) {
-            aByteArray4005 = (byte[])null;
-         }
 
          if(NPC.method1986(90) || WorldListCountry.localPlane == Class140_Sub3.anInt2745) {
-            if(Class58.anInt909 != WorldListCountry.localPlane && Class3_Sub19.method385(var0 + 0, WorldListCountry.localPlane)) {
+            if(Class58.anInt909 != WorldListCountry.localPlane && Class3_Sub19.method385(WorldListCountry.localPlane)) {
                Class58.anInt909 = WorldListCountry.localPlane;
-               RSByteBuffer.method792(var0 + 9179409);
+               RSByteBuffer.method792();
             }
 
          } else {
-            Class73.method1301(WorldListCountry.localPlane, Class3_Sub7.anInt2294, Class3_Sub28_Sub7.anInt3606, Class102.player.anIntArray2755[0], false, Class102.player.anIntArray2767[0], true);
+            Class73.method1301(WorldListCountry.localPlane, Class3_Sub7.anInt2294, Class3_Sub28_Sub7.anInt3606, Class102.player.anIntArray2755[0], false, Class102.player.anIntArray2767[0]);
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ch.E(" + var0 + ')');
+         throw Class44.clientError(var2, "ch.E(" + 0 + ')');
       }
    }
 
-   static final void method2215(Component var0, int var1) {
+   static void method2215(Component var0) {
       try {
-         if(var1 == -9320) {
-            var0.removeKeyListener(Class3_Sub13_Sub3.aClass148_3049);
-            var0.removeFocusListener(Class3_Sub13_Sub3.aClass148_3049);
-            Class3_Sub13.anInt2384 = -1;
-         }
+         var0.removeKeyListener(Class3_Sub13_Sub3.aClass148_3049);
+         var0.removeFocusListener(Class3_Sub13_Sub3.aClass148_3049);
+         Class3_Sub13.anInt2384 = -1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ch.G(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var3, "ch.G(" + (var0 != null?"{...}":"null") + ',' + -9320 + ')');
       }
    }
 
-   static final void method2216(byte var0) {
+   static void method2216() {
       try {
-         if(var0 != 81) {
-            method2215((Component)null, 14);
-         }
 
          if(Class3_Sub13_Sub31.anInt3375 != 0) {
             try {
@@ -93,13 +84,13 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                }
 
                if(Class3_Sub13_Sub31.anInt3375 == 1) {
-                  Class3_Sub9.aClass64_2318 = Class38.aClass87_665.method1441((byte)8, RuntimeException_Sub1.worldListHost, Class123.anInt1658);
+                  Class3_Sub9.aClass64_2318 = Class38.aClass87_665.method1441((byte)8, ClientErrorException.worldListHost, Class123.anInt1658);
                   Class3_Sub13_Sub31.anInt3375 = 2;
                }
 
                int var1;
                if(Class3_Sub13_Sub31.anInt3375 == 2) {
-                  if(Class3_Sub9.aClass64_2318.anInt978 == 2) {
+                  if(Objects.requireNonNull(Class3_Sub9.aClass64_2318).anInt978 == 2) {
                      throw new IOException();
                   }
 
@@ -109,7 +100,7 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
 
                   Class3_Sub15.aClass89_2429 = new IOHandler((Socket)Class3_Sub9.aClass64_2318.anObject974, Class38.aClass87_665);
                   Class3_Sub9.aClass64_2318 = null;
-                  Class3_Sub15.aClass89_2429.sendBytes(false, 0, Class3_Sub13_Sub1.outgoingBuffer.buffer, Class3_Sub13_Sub1.outgoingBuffer.index);
+                  Class3_Sub15.aClass89_2429.sendBytes(Class3_Sub13_Sub1.outgoingBuffer.buffer, Class3_Sub13_Sub1.outgoingBuffer.index);
                   if(WorldListEntry.aClass155_2627 != null) {
                      WorldListEntry.aClass155_2627.method2159(83);
                   }
@@ -153,9 +144,9 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                   }
 
                   Class3_Sub13_Sub31.anInt3375 = 0;
-                  Class3_Sub15.aClass89_2429.close(var0 + 14740);
+                  Class3_Sub15.aClass89_2429.close((byte) 81 + 14740);
                   Class3_Sub15.aClass89_2429 = null;
-                  Class24.method951(0);
+                  Class24.method951();
                   return;
                }
             } catch (IOException var2) {
@@ -182,7 +173,7 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
 
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ch.D(" + var0 + ')');
+         throw Class44.clientError(var3, "ch.D(" + (byte) 81 + ')');
       }
    }
 

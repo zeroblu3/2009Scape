@@ -1,6 +1,8 @@
 package org.runite.jagex;
 
 
+import java.util.Objects;
+
 final class NPCDefinition {
 
    int size = 1;
@@ -62,39 +64,36 @@ final class NPCDefinition {
          int var2 = -1;
          if(this.configId == -1) {
             if(this.configFileId != -1) {
-               var2 = Class163_Sub1.anIntArray2985[this.configFileId];
+               var2 = ItemDefinition.ram[this.configFileId];
             }
          } else {
-            var2 = method1484(64835055, this.configId);
+            var2 = method1484(this.configId);
          }
 
          int var3;
          if(0 <= var2 && -1 + this.childNPCs.length > var2 && this.childNPCs[var2] != -1) {
-            var3 = -24 % ((-46 - var1) / 41);
-            return Node.method522(this.childNPCs[var2], 27112);
+             return Node.method522(this.childNPCs[var2]);
          } else {
             var3 = this.childNPCs[-1 + this.childNPCs.length];
-            return var3 == -1 ?null:Node.method522(var3, 27112);
+            return var3 == -1 ?null:Node.method522(var3);
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "me.G(" + var1 + ')');
+         throw Class44.clientError(var4, "me.G(" + var1 + ')');
       }
    }
 
-   final boolean method1472(byte var1) {
+   final boolean method1472() {
       try {
-         if(var1 != 74) {
-            return true;
-         } else if(null == this.childNPCs) {
+         if(null == this.childNPCs) {
             return true;
          } else {
             int var2 = -1;
             if(-1 == this.configId) {
                if(this.configFileId != -1) {
-                  var2 = Class163_Sub1.anIntArray2985[this.configFileId];
+                  var2 = ItemDefinition.ram[this.configFileId];
                }
             } else {
-               var2 = method1484(64835055, this.configId);
+               var2 = method1484(this.configId);
             }
 
             if(var2 >= 0 && var2 < -1 + this.childNPCs.length && -1 != this.childNPCs[var2]) {
@@ -105,7 +104,7 @@ final class NPCDefinition {
             }
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "me.L(" + var1 + ')');
+         throw Class44.clientError(var4, "me.L(" + (byte) 74 + ')');
       }
    }
 
@@ -116,22 +115,19 @@ final class NPCDefinition {
             anInt1297 = -20;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "me.K(" + var0 + ')');
+         throw Class44.clientError(var2, "me.K(" + var0 + ')');
       }
    }
 
-   final boolean method1474(int var1) {
+   final boolean method1474() {
       try {
-         if(var1 != -1) {
-            method1480(false, (RSString)null, -57);
-         }
 
          if(this.childNPCs == null) {
             return -1 != this.anInt1262 || this.anInt1293 != -1 || this.anInt1276 != -1;
          } else {
             for(int var2 = 0; var2 < this.childNPCs.length; ++var2) {
                if(this.childNPCs[var2] != -1) {
-                  NPCDefinition var3 = Node.method522(this.childNPCs[var2], 27112);
+                  NPCDefinition var3 = Node.method522(this.childNPCs[var2]);
                   if(var3.anInt1262 != -1 || var3.anInt1293 != -1 || var3.anInt1276 != -1) {
                      return true;
                   }
@@ -141,11 +137,11 @@ final class NPCDefinition {
             return false;
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "me.E(" + var1 + ')');
+         throw Class44.clientError(var4, "me.E(" + -1 + ')');
       }
    }
 
-   final int method1475(int var1, int var2, int var3) {
+   final int method1475(int var1, int var3) {
       try {
          if(null == this.aClass130_1272) {
             return var3;
@@ -154,14 +150,14 @@ final class NPCDefinition {
             return var4 != null?var4.anInt2467:var3;
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "me.N(" + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var5, "me.N(" + var1 + ',' + -26460 + ',' + var3 + ')');
       }
    }
 
    final Model method1476(Class145[] var1, int var2, byte var3, int var4, int var5, int var6, int var7, AnimationDefinition var8, int var9, AnimationDefinition var10) {
       try {
          if(this.childNPCs == null) {
-            Model var11 = (Model)CS2Script.aClass93_2442.get((long)this.npcId, (byte)121);
+            Model var11 = (Model)CS2Script.aClass93_2442.get((long)this.npcId);
             boolean var12;
             int var17;
             int var16;
@@ -191,7 +187,7 @@ final class NPCDefinition {
 
                for(int var15 = 0; var15 < this.models.length; ++var15) {
                   if(this.models[var15] != -1) {
-                     var14[var15] = Model_Sub1.method2015(Class3_Sub13_Sub14.aClass153_3173, this.models[var15], 0);
+                     var14[var15] = Model_Sub1.method2015(Class3_Sub13_Sub14.aClass153_3173, this.models[var15]);
                      if(null != this.anIntArrayArray1261 && this.anIntArrayArray1261[var15] != null && var14[var15] != null) {
                         var14[var15].method2001(this.anIntArrayArray1261[var15][0], this.anIntArrayArray1261[var15][1], this.anIntArrayArray1261[var15][2]);
                      }
@@ -200,7 +196,7 @@ final class NPCDefinition {
 
                RenderAnimationDefinition render = null;
                if(-1 != this.renderAnimationId) {
-                  render = Class3_Sub10.getRenderAnimationDefinition(false, this.renderAnimationId);
+                  render = Class3_Sub10.getRenderAnimationDefinition(this.renderAnimationId);
                }
 
                if(render != null && null != render.anIntArrayArray359) {
@@ -272,22 +268,22 @@ final class NPCDefinition {
                if(this.aShortArray1248 != null) {
                   for(var16 = 0; var16 < this.aShortArray1248.length; ++var16) {
                      if(null != this.aByteArray1247 && var16 < this.aByteArray1247.length) {
-                        var34.method2016(this.aShortArray1248[var16], Class136.aShortArray1779[this.aByteArray1247[var16] & 255]);
+                        Objects.requireNonNull(var34).method2016(this.aShortArray1248[var16], Class136.aShortArray1779[this.aByteArray1247[var16] & 255]);
                      } else {
-                        var34.method2016(this.aShortArray1248[var16], this.aShortArray1254[var16]);
+                        Objects.requireNonNull(var34).method2016(this.aShortArray1248[var16], this.aShortArray1254[var16]);
                      }
                   }
                }
 
                if(null != this.aShortArray1271) {
                   for(var16 = 0; this.aShortArray1271.length > var16; ++var16) {
-                     var34.method1998(this.aShortArray1271[var16], this.aShortArray1246[var16]);
+                     Objects.requireNonNull(var34).method1998(this.aShortArray1271[var16], this.aShortArray1246[var16]);
                   }
                }
 
-               var11 = var34.method2008(this.anInt1251 + 64, this.anInt1282 + 850, -30, -50, -30);
+               var11 = Objects.requireNonNull(var34).method2008(this.anInt1251 + 64, this.anInt1282 + 850, -30, -50, -30);
                if(HDToolKit.highDetail) {
-                  ((Class140_Sub1_Sub1)var11).method1920(false, false, false, true, false, false, true);
+                  ((Class140_Sub1_Sub1)var11).method1920(false, false, false, false, false, true);
                }
 
                CS2Script.aClass93_2442.put((byte)-90, var11, (long)this.npcId);
@@ -300,19 +296,19 @@ final class NPCDefinition {
             var16 = null != var1?var1.length:0;
             for(var17 = 0; var17 < var16; ++var17) {
                if(var1[var17] != null) {
-                  AnimationDefinition def = Client.getAnimationDefinition(var1[var17].animationId, (byte)-20);
+                  AnimationDefinition def = Client.getAnimationDefinition(var1[var17].animationId);
                   if(null != def.frames) {
                      Class85.aClass142Array1168[var17] = def;
                      var20 = var1[var17].anInt1891;
                      var12 = true;
                      var19 = var1[var17].anInt1893;
                      var21 = def.frames[var19];
-                     Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17] = Class3_Sub9.method133(var21 >>> 16, 0);
+                     Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17] = Class3_Sub9.method133(var21 >>> 16);
                      var21 &= '\uffff';
                      Class58.anIntArray912[var17] = var21;
                      if(Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17] != null) {
                         var35 |= Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17].method561(var21, (byte)124);
-                        var37 |= Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17].method559(1317095745, var21);
+                        var37 |= Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17].method559(var21);
                         var36 |= def.aBoolean1848;
                      }
 
@@ -320,12 +316,12 @@ final class NPCDefinition {
                         Class38.anIntArray664[var17] = def.duration[var19];
                         Node.anIntArray2574[var17] = var1[var17].anInt1897;
                         var22 = def.frames[var20];
-                        Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17] = Class3_Sub9.method133(var22 >>> 16, 0);
+                        Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17] = Class3_Sub9.method133(var22 >>> 16);
                         var22 &= '\uffff';
                         Class30.anIntArray574[var17] = var22;
                         if(null != Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17]) {
                            var35 |= Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17].method561(var22, (byte)124);
-                           var37 |= Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17].method559(1317095745, var22);
+                           var37 |= Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17].method559(var22);
                         }
                      } else {
                         Class38.anIntArray664[var17] = 0;
@@ -354,10 +350,10 @@ final class NPCDefinition {
                   var17 = var10.frames[var7];
                   var22 = var17 >>> 16;
                   var17 &= '\uffff';
-                  var40 = Class3_Sub9.method133(var22, 0);
+                  var40 = Class3_Sub9.method133(var22);
                   if(null != var40) {
                      var35 |= var40.method561(var17, (byte)126);
-                     var37 |= var40.method559(1317095745, var17);
+                     var37 |= var40.method559(var17);
                      var36 |= var10.aBoolean1848;
                   }
 
@@ -369,12 +365,12 @@ final class NPCDefinition {
                      if(var22 == var42) {
                         var43 = var40;
                      } else {
-                        var43 = Class3_Sub9.method133(var18 >>> 16, 0);
+                        var43 = Class3_Sub9.method133(var18 >>> 16);
                      }
 
                      if(var43 != null) {
                         var35 |= var43.method561(var18, (byte)115);
-                        var37 |= var43.method559(1317095745, var18);
+                        var37 |= var43.method559(var18);
                      }
                   }
                }
@@ -392,10 +388,10 @@ final class NPCDefinition {
                   var22 = var8.frames[var4];
                   var27 = var22 >>> 16;
                   var22 &= '\uffff';
-                  var44 = Class3_Sub9.method133(var27, 0);
+                  var44 = Class3_Sub9.method133(var27);
                   if(var44 != null) {
                      var35 |= var44.method561(var22, (byte)124);
-                     var37 |= var44.method559(1317095745, var22);
+                     var37 |= var44.method559(var22);
                      var36 |= var8.aBoolean1848;
                   }
 
@@ -407,12 +403,12 @@ final class NPCDefinition {
                      if(var27 == var28) {
                         var46 = var44;
                      } else {
-                        var46 = Class3_Sub9.method133(var42 >>> 16, 0);
+                        var46 = Class3_Sub9.method133(var42 >>> 16);
                      }
 
                      if(null != var46) {
                         var35 |= var46.method561(var42, (byte)124);
-                        var37 |= var46.method559(1317095745, var42);
+                        var37 |= var46.method559(var42);
                      }
                   }
                }
@@ -455,77 +451,68 @@ final class NPCDefinition {
             return null != var33?var33.method1476(var1, var2, (byte)-102, var4, var5, var6, var7, var8, var9, var10):null;
          }
       } catch (RuntimeException var32) {
-         throw Class44.method1067(var32, "me.M(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + var9 + ',' + (var10 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var32, "me.M(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + var9 + ',' + (var10 != null?"{...}":"null") + ')');
       }
    }
 
-   final RSString method1477(int var1, RSString var2, boolean var3) {
+   final RSString method1477(int var1, RSString var2) {
       try {
          if(null == this.aClass130_1272) {
             return var2;
          } else {
             Class3_Sub29 var4 = (Class3_Sub29)this.aClass130_1272.method1780((long)var1, 0);
-            return !var3?(RSString)null:(null == var4?var2:var4.aClass94_2586);
+            return (null == var4?var2:var4.aClass94_2586);
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "me.I(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "me.I(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + true + ')');
       }
    }
 
-   final void method1478(RSByteBuffer var1, int var2) {
+   final void method1478(RSByteBuffer var1) {
       try {
          while(true) {
-            int var3 = var1.getByte((byte)-123);
+            int var3 = var1.getByteB();
             if(var3 == 0) {
-               var3 = -88 % ((5 - var2) / 52);
                return;
             }
 
             this.parseOpcode(27, var3, var1);
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "me.F(" + (var1 != null?"{...}":"null") + ',' + var2 + ')');
+         throw Class44.clientError(var4, "me.F(" + (var1 != null?"{...}":"null") + ',' + 74 + ')');
       }
    }
 
-   static final void method1479(int var0, byte var1) {
+   static void method1479(int var0) {
       try {
          Class3_Sub13_Sub30.anInt3362 = -1;
-         if(var1 < 5) {//@splinter
-            anIntArray1277 = (int[])null;
-         }
 
          if(var0 == 37) {
             NPC.aFloat3979 = 3.0F;
          } else if(50 == var0) {
             NPC.aFloat3979 = 4.0F;
-         } else {
-            if(var0 == 75) {
-               NPC.aFloat3979 = 6.0F;
-            } else if(var0 == 100) {
-               NPC.aFloat3979 = 8.0F;
-            } else {
-               if(var0 == 200) {
-                  NPC.aFloat3979 = 16.0F;
-               }
-            }
+         } else if (var0 == 75) {
+            NPC.aFloat3979 = 6.0F;
+         } else if (var0 == 100) {
+            NPC.aFloat3979 = 8.0F;
+         } else if (var0 == 200) {
+            NPC.aFloat3979 = 16.0F;
          }
 
-         Class3_Sub13_Sub30.anInt3362 = -1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "me.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "me.C(" + var0 + ',' + (byte) 56 + ')');
       }
    }
 
-   static final void method1480(boolean var0, RSString var1, int var2) {
+   static void method1480(boolean var0, RSString var1) {
       try {
          short[] var3 = new short[16];
-         var1 = var1.method1534(-98);
+         var1 = var1.method1534();
          int var4 = 0;
 
          for(int var5 = 0; Class3_Sub13_Sub23.itemDefinitionSize > var5; ++var5) {
             ItemDefinition var6 = Class38.getItemDefinition(var5, (byte)93);
-            if((!var0 || var6.aBoolean807) && var6.anInt791 == -1 && -1 == var6.anInt762 && var6.anInt800 == 0 && var6.name.method1534(-98).indexOf(var1, 116) != -1) {
+            if((!var0 || var6.aBoolean807) && var6.anInt791 == -1 && -1 == var6.anInt762 && var6.anInt800 == 0 && var6.name.method1534().indexOf(var1, 116) != -1) {
                if(var4 >= 250) {
                   Class99.aShortArray1398 = null;
                   Class62.anInt952 = -1;
@@ -535,9 +522,7 @@ final class NPCDefinition {
                if(var3.length <= var4) {
                   short[] var7 = new short[2 * var3.length];
 
-                  for(int var8 = 0; var8 < var4; ++var8) {
-                     var7[var8] = var3[var8];
-                  }
+                  System.arraycopy(var3, 0, var7, 0, var4);
 
                   var3 = var7;
                }
@@ -555,18 +540,9 @@ final class NPCDefinition {
             var10[var11] = Class38.getItemDefinition(var3[var11], (byte)112).name;
          }
 
-         int var12 = -44 / ((45 - var2) / 33);
          Class3_Sub13_Sub29.method307(var10, Class99.aShortArray1398, 77);
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "me.J(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
-      }
-   }
-
-   final void method1481(int var1) {
-      try {
-         int var2 = 36 % ((12 - var1) / 41);
-      } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "me.D(" + var1 + ')');
+         throw Class44.clientError(var9, "me.J(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + 102 + ')');
       }
    }
 
@@ -576,7 +552,7 @@ final class NPCDefinition {
             if(null == this.anIntArray1250) {
                return null;
             } else {
-               Model var12 = (Model)Class154.aClass93_1964.get((long)this.npcId, (byte)121);
+               Model var12 = (Model)Class154.aClass93_1964.get((long)this.npcId);
                if(var12 == null) {
                   boolean var7 = false;
 
@@ -593,7 +569,7 @@ final class NPCDefinition {
                   Model_Sub1[] var14 = new Model_Sub1[this.anIntArray1250.length];
 
                   for(int var9 = 0; this.anIntArray1250.length > var9; ++var9) {
-                     var14[var9] = Model_Sub1.method2015(Class3_Sub13_Sub14.aClass153_3173, this.anIntArray1250[var9], 0);
+                     var14[var9] = Model_Sub1.method2015(Class3_Sub13_Sub14.aClass153_3173, this.anIntArray1250[var9]);
                   }
 
                   Model_Sub1 var15;
@@ -607,20 +583,20 @@ final class NPCDefinition {
                   if(null != this.aShortArray1248) {
                      for(var10 = 0; var10 < this.aShortArray1248.length; ++var10) {
                         if(this.aByteArray1247 != null && this.aByteArray1247.length > var10) {
-                           var15.method2016(this.aShortArray1248[var10], Class136.aShortArray1779[255 & this.aByteArray1247[var10]]);
+                           Objects.requireNonNull(var15).method2016(this.aShortArray1248[var10], Class136.aShortArray1779[255 & this.aByteArray1247[var10]]);
                         } else {
-                           var15.method2016(this.aShortArray1248[var10], this.aShortArray1254[var10]);
+                           Objects.requireNonNull(var15).method2016(this.aShortArray1248[var10], this.aShortArray1254[var10]);
                         }
                      }
                   }
 
                   if(this.aShortArray1271 != null) {
                      for(var10 = 0; this.aShortArray1271.length > var10; ++var10) {
-                        var15.method1998(this.aShortArray1271[var10], this.aShortArray1246[var10]);
+                        Objects.requireNonNull(var15).method1998(this.aShortArray1271[var10], this.aShortArray1246[var10]);
                      }
                   }
 
-                  var12 = var15.method2008(64, 768, -50, -10, -50);
+                  var12 = Objects.requireNonNull(var15).method2008(64, 768, -50, -10, -50);
                   Class154.aClass93_1964.put((byte)-119, var12, (long)this.npcId);
                }
 
@@ -628,7 +604,6 @@ final class NPCDefinition {
                   var12 = var1.method2055(var12, (byte)-75, var3, var2, var5);
                }
 
-               int var13 = 5 % ((var4 - -64) / 36);
                return var12;
             }
          } else {
@@ -636,242 +611,209 @@ final class NPCDefinition {
             return null == var6?null:var6.getChatModel(var1, var2, var3, 54, var5);
          }
       } catch (RuntimeException var11) {
-         throw Class44.method1067(var11, "me.A(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
+         throw Class44.clientError(var11, "me.A(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
       }
    }
 
-   private final void parseOpcode(int var1, int opcode, RSByteBuffer buffer) {
+   private void parseOpcode(int var1, int opcode, RSByteBuffer buffer) {
       try {
          int var4;
          int var5;
          if(1 == opcode) {
-            var4 = buffer.getByte((byte)-67);
+            var4 = buffer.getByteB();
             this.models = new int[var4];
 
             for(var5 = 0; var4 > var5; ++var5) {
-               this.models[var5] = buffer.getShort(1);
+               this.models[var5] = buffer.getShort();
                if(this.models[var5] == '\uffff') {
                   this.models[var5] = -1;
                }
             }
          } else if(opcode == 2) {
             this.aClass94_1273 = buffer.getString();
+         } else if (opcode == 12) {
+            this.size = buffer.getByteB();
+         } else if (opcode >= 30 && opcode < 35) {
+            this.options[-30 + opcode] = buffer.getString();
+            if (this.options[-30 + opcode].equals(-122, TextCore.HasHidden)) {
+               this.options[opcode - 30] = null;
+            }
+         } else if (opcode == 40) {
+            var4 = buffer.getByteB();
+            this.aShortArray1254 = new short[var4];
+            this.aShortArray1248 = new short[var4];
+
+            for (var5 = 0; var4 > var5; ++var5) {
+               this.aShortArray1248[var5] = (short) buffer.getShort();
+               this.aShortArray1254[var5] = (short) buffer.getShort();
+            }
+         } else if (opcode == 41) {
+            var4 = buffer.getByteB();
+            this.aShortArray1246 = new short[var4];
+            this.aShortArray1271 = new short[var4];
+
+            for (var5 = 0; var5 < var4; ++var5) {
+               this.aShortArray1271[var5] = (short) buffer.getShort();
+               this.aShortArray1246[var5] = (short) buffer.getShort();
+            }
+         } else if (opcode == 42) {
+            var4 = buffer.getByteB();
+            this.aByteArray1247 = new byte[var4];
+
+            for (var5 = 0; var4 > var5; ++var5) {
+               this.aByteArray1247[var5] = buffer.getByte();
+            }
+         } else if (opcode == 60) {
+            var4 = buffer.getByteB();
+            this.anIntArray1250 = new int[var4];
+
+            for (var5 = 0; var5 < var4; ++var5) {
+               this.anIntArray1250[var5] = buffer.getShort();
+            }
+         } else if (93 == opcode) {
+            this.aBoolean1285 = false;
+         } else if (opcode == 95) {
+            this.anInt1260 = buffer.getShort();
+         } else if (opcode == 97) {
+            this.anInt1264 = buffer.getShort();
+         } else if (opcode == 98) {
+            this.anInt1266 = buffer.getShort();
+         } else if (opcode == 99) {
+            this.aBoolean1263 = true;
+         } else if (opcode == 100) {
+            this.anInt1251 = buffer.getByte();
+         } else if (opcode == 101) {
+            this.anInt1282 = buffer.getByte() * 5;
+         } else if (opcode == 102) {
+            this.anInt1269 = buffer.getShort();
+         } else if (103 == opcode) {
+            this.anInt1274 = buffer.getShort();
          } else {
-            if(opcode == 12) {
-               this.size = buffer.getByte((byte)-48);
-            } else {
-               if(opcode >= 30 && opcode < 35) {
-                  this.options[-30 + opcode] = buffer.getString();
-                  if(this.options[-30 + opcode].equals(-122, TextCore.HasHidden)) {
-                     this.options[opcode - 30] = null;
-                  }
-               } else if(opcode == 40) {
-                  var4 = buffer.getByte((byte)-125);
-                  this.aShortArray1254 = new short[var4];
-                  this.aShortArray1248 = new short[var4];
+            int var6;
+            if (106 == opcode || opcode == 118) {
+               this.configId = buffer.getShort();
+               var4 = -1;
+               if (this.configId == 65535) {
+                  this.configId = -1;
+               }
 
-                  for(var5 = 0; var4 > var5; ++var5) {
-                     this.aShortArray1248[var5] = (short)buffer.getShort(1);
-                     this.aShortArray1254[var5] = (short)buffer.getShort(1);
-                  }
-               } else {
-                  if(opcode == 41) {
-                     var4 = buffer.getByte((byte)-66);
-                     this.aShortArray1246 = new short[var4];
-                     this.aShortArray1271 = new short[var4];
+               this.configFileId = buffer.getShort();
+               if (this.configFileId == 65535) {
+                  this.configFileId = -1;
+               }
 
-                     for(var5 = 0; var5 < var4; ++var5) {
-                        this.aShortArray1271[var5] = (short)buffer.getShort(1);
-                        this.aShortArray1246[var5] = (short)buffer.getShort(1);
-                     }
+               if (opcode == 118) {
+                  var4 = buffer.getShort();
+                  if (var4 == 65535) {
+                     var4 = -1;
+                  }
+               }
+
+               var5 = buffer.getByteB();
+               this.childNPCs = new int[2 + var5];
+
+               for (var6 = 0; var6 <= var5; ++var6) {
+                  this.childNPCs[var6] = buffer.getShort();
+                  if (this.childNPCs[var6] == 65535) {
+                     this.childNPCs[var6] = -1;
+                  }
+               }
+
+               this.childNPCs[1 + var5] = var4;
+            } else if (opcode == 107) {
+               this.aBoolean1270 = false;
+            } else if (opcode == 109) {
+               this.aBoolean1255 = false;
+            } else if (opcode == 111) {
+               this.aBoolean1249 = false;
+            } else if (opcode == 113) {
+               this.aShort1286 = (short) buffer.getShort();
+               this.aShort1256 = (short) buffer.getShort();
+            } else if (opcode == 114) {
+               this.aByte1287 = buffer.getByte();
+               this.aByte1275 = buffer.getByte();
+            } else if (opcode == 115) {
+               buffer.getByteB();
+               buffer.getByteB();
+            } else if (119 == opcode) {
+               this.aByte1267 = buffer.getByte();
+            } else if (121 == opcode) {
+               this.anIntArrayArray1261 = new int[this.models.length][];
+               var4 = buffer.getByteB();
+
+               for (var5 = 0; var5 < var4; ++var5) {
+                  var6 = buffer.getByteB();
+                  int[] var7 = this.anIntArrayArray1261[var6] = new int[3];
+                  var7[0] = buffer.getByte();
+                  var7[1] = buffer.getByte();
+                  var7[2] = buffer.getByte();
+               }
+            } else if (122 == opcode) {
+               this.anInt1279 = buffer.getShort();
+            } else if (opcode == 123) {
+               this.anInt1265 = buffer.getShort();
+            } else if (opcode == 125) {
+               this.aByte1268 = buffer.getByte();
+            } else if (126 == opcode) {
+               this.anInt1283 = buffer.getShort();
+            } else if (127 == opcode) {
+               this.renderAnimationId = buffer.getShort();
+            } else if (128 == opcode) {
+               buffer.getByteB();
+            } else if (opcode == 134) {
+               this.anInt1262 = buffer.getShort();
+               if (this.anInt1262 == '\uffff') {
+                  this.anInt1262 = -1;
+               }
+
+               this.anInt1290 = buffer.getShort();
+               if (this.anInt1290 == 65535) {
+                  this.anInt1290 = -1;
+               }
+
+               this.anInt1293 = buffer.getShort();
+               if (this.anInt1293 == 65535) {
+                  this.anInt1293 = -1;
+               }
+
+               this.anInt1276 = buffer.getShort();
+               if (this.anInt1276 == 65535) {
+                  this.anInt1276 = -1;
+               }
+
+               this.anInt1291 = buffer.getByteB();
+            } else if (opcode == 135) {
+               this.anInt1296 = buffer.getByteB();
+               this.anInt1253 = buffer.getShort();
+            } else if (opcode == 136) {
+               this.anInt1289 = buffer.getByteB();
+               this.anInt1278 = buffer.getShort();
+            } else if (opcode == 137) {
+               this.anInt1298 = buffer.getShort();
+            } else if (opcode == 249) {
+               var4 = buffer.getByteB();
+               if (null == this.aClass130_1272) {
+                  var5 = Class95.method1585((byte) 109, var4);
+                  this.aClass130_1272 = new Class130(var5);
+               }
+
+               for (var5 = 0; var4 > var5; ++var5) {
+                  boolean var11 = 1 == buffer.getByteB();
+                  int var10 = buffer.getTriByte((byte) 83);
+                  Object var8;
+                  if (var11) {
+                     var8 = new Class3_Sub29(buffer.getString());
                   } else {
-                     if(opcode == 42) {
-                        var4 = buffer.getByte((byte)-116);
-                        this.aByteArray1247 = new byte[var4];
-
-                        for(var5 = 0; var4 > var5; ++var5) {
-                           this.aByteArray1247[var5] = buffer.getByte();
-                        }
-                     } else if(opcode == 60) {
-                        var4 = buffer.getByte((byte)-69);
-                        this.anIntArray1250 = new int[var4];
-
-                        for(var5 = 0; var5 < var4; ++var5) {
-                           this.anIntArray1250[var5] = buffer.getShort(1);
-                        }
-                     } else if(93 == opcode) {
-                        this.aBoolean1285 = false;
-                     } else {
-                        if(opcode == 95) {
-                           this.anInt1260 = buffer.getShort(1);
-                        } else {
-                           if(opcode == 97) {
-                              this.anInt1264 = buffer.getShort(1);
-                           } else {
-                              if(opcode == 98) {
-                                 this.anInt1266 = buffer.getShort(1);
-                              } else if(opcode == 99) {
-                                 this.aBoolean1263 = true;
-                              } else {
-                                 if(opcode == 100) {
-                                    this.anInt1251 = buffer.getByte();
-                                 } else {
-                                    if(opcode == 101) {
-                                       this.anInt1282 = buffer.getByte() * 5;
-                                    } else if(opcode == 102) {
-                                       this.anInt1269 = buffer.getShort(1);
-                                    } else if(103 == opcode) {
-                                       this.anInt1274 = buffer.getShort(1);
-                                    } else {
-                                       int var6;
-                                       if(106 == opcode || opcode == 118) {
-                                          this.configId = buffer.getShort(1);
-                                          var4 = -1;
-                                          if(this.configId == 65535) {
-                                             this.configId = -1;
-                                          }
-
-                                          this.configFileId = buffer.getShort(1);
-                                          if(this.configFileId == 65535) {
-                                             this.configFileId = -1;
-                                          }
-
-                                          if(opcode == 118) {
-                                             var4 = buffer.getShort(1);
-                                             if(var4 == 65535) {
-                                                var4 = -1;
-                                             }
-                                          }
-
-                                          var5 = buffer.getByte((byte)-93);
-                                          this.childNPCs = new int[2 + var5];
-
-                                          for(var6 = 0; var6 <= var5; ++var6) {
-                                             this.childNPCs[var6] = buffer.getShort(1);
-                                             if(this.childNPCs[var6] == 65535) {
-                                                this.childNPCs[var6] = -1;
-                                             }
-                                          }
-
-                                          this.childNPCs[1 + var5] = var4;
-                                       } else {
-                                          if(opcode == 107) {
-                                             this.aBoolean1270 = false;
-                                          } else if(opcode == 109) {
-                                             this.aBoolean1255 = false;
-                                          } else {
-                                             if(opcode == 111) {
-                                                this.aBoolean1249 = false;
-                                             } else if(opcode == 113) {
-                                                this.aShort1286 = (short)buffer.getShort(1);
-                                                this.aShort1256 = (short)buffer.getShort(1);
-                                             } else if(opcode == 114) {
-                                                this.aByte1287 = buffer.getByte();
-                                                this.aByte1275 = buffer.getByte();
-                                             } else if(opcode == 115) {
-                                                buffer.getByte((byte)-23);
-                                                buffer.getByte((byte)-106);
-                                             } else {
-                                                if(119 == opcode) {
-                                                   this.aByte1267 = buffer.getByte();
-                                                } else if(121 == opcode) {
-                                                   this.anIntArrayArray1261 = new int[this.models.length][];
-                                                   var4 = buffer.getByte((byte)-41);
-
-                                                   for(var5 = 0; var5 < var4; ++var5) {
-                                                      var6 = buffer.getByte((byte)-109);
-                                                      int[] var7 = this.anIntArrayArray1261[var6] = new int[3];
-                                                      var7[0] = buffer.getByte();
-                                                      var7[1] = buffer.getByte();
-                                                      var7[2] = buffer.getByte();
-                                                   }
-                                                } else if(122 == opcode) {
-                                                   this.anInt1279 = buffer.getShort(1);
-                                                } else if(opcode == 123) {
-                                                   this.anInt1265 = buffer.getShort(1);
-                                                } else if(opcode == 125) {
-                                                   this.aByte1268 = buffer.getByte();
-                                                } else {
-                                                   if(126 == opcode) {
-                                                      this.anInt1283 = buffer.getShort(1);
-                                                   } else {
-                                                      if(127 == opcode) {
-                                                         this.renderAnimationId = buffer.getShort(1);
-                                                      } else if(128 == opcode) {
-                                                         buffer.getByte((byte)-125);
-                                                      } else if(opcode == 134) {
-                                                         this.anInt1262 = buffer.getShort(1);
-                                                         if(this.anInt1262 == '\uffff') {
-                                                            this.anInt1262 = -1;
-                                                         }
-
-                                                         this.anInt1290 = buffer.getShort(1);
-                                                         if(this.anInt1290 == 65535) {
-                                                            this.anInt1290 = -1;
-                                                         }
-
-                                                         this.anInt1293 = buffer.getShort(1);
-                                                         if(this.anInt1293 == 65535) {
-                                                            this.anInt1293 = -1;
-                                                         }
-
-                                                         this.anInt1276 = buffer.getShort(1);
-                                                         if(this.anInt1276 == 65535) {
-                                                            this.anInt1276 = -1;
-                                                         }
-
-                                                         this.anInt1291 = buffer.getByte((byte)-113);
-                                                      } else {
-                                                         if(opcode == 135) {
-                                                            this.anInt1296 = buffer.getByte((byte)-38);
-                                                            this.anInt1253 = buffer.getShort(1);
-                                                         } else if(opcode == 136) {
-                                                            this.anInt1289 = buffer.getByte((byte)-89);
-                                                            this.anInt1278 = buffer.getShort(1);
-                                                         } else if(opcode == 137) {
-                                                            this.anInt1298 = buffer.getShort(1);
-                                                         } else {
-                                                            if(opcode == 249) {
-                                                               var4 = buffer.getByte((byte)-98);
-                                                               if(null == this.aClass130_1272) {
-                                                                  var5 = Class95.method1585((byte)109, var4);
-                                                                  this.aClass130_1272 = new Class130(var5);
-                                                               }
-
-                                                               for(var5 = 0; var4 > var5; ++var5) {
-                                                                  boolean var11 = 1 == buffer.getByte((byte)-95);
-                                                                  int var10 = buffer.getTriByte((byte)83);
-                                                                  Object var8;
-                                                                  if(var11) {
-                                                                     var8 = new Class3_Sub29(buffer.getString());
-                                                                  } else {
-                                                                     var8 = new Class3_Sub18(buffer.getInt());
-                                                                  }
-
-                                                                  this.aClass130_1272.method1779(1, (Class3)var8, (long)var10);
-                                                               }
-                                                            }
-                                                         }
-                                                      }
-                                                   }
-                                                }
-                                             }
-                                          }
-                                       }
-                                    }
-                                 }
-                              }
-                           }
-                        }
-                     }
+                     var8 = new Class3_Sub18(buffer.getInt());
                   }
+
+                  this.aClass130_1272.method1779((Class3) var8, (long) var10);
                }
             }
          }
 
-         var4 = 11 % ((-39 - var1) / 60);
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "me.H(" + var1 + ',' + opcode + ',' + (buffer != null?"{...}":"null") + ')');
+         throw Class44.clientError(var9, "me.H(" + var1 + ',' + opcode + ',' + (buffer != null?"{...}":"null") + ')');
       }
    }
 
@@ -909,20 +851,17 @@ final class NPCDefinition {
       this.anInt1298 = -1;
    }
 
-   static final int method1484(int var0, int var1) {
+   static int method1484(int var1) {
       try {
-         if(var0 != 64835055) {
-            anIntArray1277 = (int[])null;
-         }
 
          Class79 var2 = CS2Script.method378(var1, (byte)127);
-         int var3 = var2.anInt1128;
+         int var3 = Objects.requireNonNull(var2).anInt1128;
          int var5 = var2.anInt1125;
          int var4 = var2.anInt1123;
          int var6 = Class3_Sub6.anIntArray2288[var5 + -var4];
-         return Class163_Sub1.anIntArray2985[var3] >> var4 & var6;
+         return ItemDefinition.ram[var3] >> var4 & var6;
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "me.B(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var7, "me.B(" + 64835055 + ',' + var1 + ')');
       }
    }
 

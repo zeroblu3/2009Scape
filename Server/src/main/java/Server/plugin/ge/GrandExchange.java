@@ -13,10 +13,13 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.entity.player.link.audio.Audio;
 import core.game.node.item.Item;
+import core.game.system.SystemLogger;
 import core.game.system.monitor.PlayerMonitor;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.GrandExchangeContext;
 import core.net.packet.out.GrandExchangePacket;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
@@ -205,6 +208,35 @@ public final class GrandExchange implements SavingModule {
             buffer.putInt(o.getTotalCoinExchange());
             buffer.putInt(o.getCompletedAmount());
         }
+    }
+
+    public void parse(JSONObject geData){
+        Object offersRaw = geData.get("offers");
+        GrandExchangeOffer o;
+
+        if(offersRaw != null){
+            JSONArray offers = (JSONArray) offersRaw;
+            JSONArray history = (JSONArray) geData.get("history");
+            for(int i = 0; i < offers.size(); i++){
+                JSONObject offer = (JSONObject) offers.get(i);
+                int index = Integer.parseInt(offer.get("offerIndex").toString());
+                if(index > this.offers.length){
+                    SystemLogger.log("Grand Exchange: INVALID OFFER INDEX FOR " + player.getName() + " INDEX: " + index + ", SKIPPING!");
+                    SystemLogger.log("IF YOU SEE THIS MESSAGE, THE GRAND EXCHANGE NEEDS TO BE FIXED.");
+                    return;
+                }
+                o = this.offers[index] = GEOfferDispatch.forUID(Integer.parseInt(offer.get("offerUID").toString()));
+                o.setIndex(index);
+            }
+            for(int i = 0 ; i < history.size(); i++ ){
+                JSONObject offer = (JSONObject) history.get(i);
+                o = this.history[i] = new GrandExchangeOffer(Integer.parseInt(offer.get("itemId").toString()),(boolean) offer.get("isSell"));
+                o.setTotalCoinExchange(Integer.parseInt(offer.get("totalCoinExchange").toString()));
+                o.setCompletedAmount(Integer.parseInt(offer.get("completedAmount").toString()));
+            }
+        }
+
+
     }
 
     @Override

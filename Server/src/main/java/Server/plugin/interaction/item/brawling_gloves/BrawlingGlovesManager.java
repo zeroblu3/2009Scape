@@ -32,7 +32,7 @@ public class BrawlingGlovesManager implements SavingModule {
     public void save(ByteBuffer buffer) {
         if(!GloveCharges.isEmpty()){
             GloveCharges.forEach((key,value) -> {
-                buffer.put(BrawlingGloves.forId(key).getIndicator());
+                buffer.putInt(BrawlingGloves.forId(key).getIndicator());
                 buffer.putInt(value);
             });
         }

@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 public enum DropTables {
     //FORMAT NPC(int[] ids, int.... shared table weights, new Item[] always drops, new ChanceItem[] charms, new WeightedChanceItem[] main drop table)
     CHICKEN(new int[] {41,288,951,1017,1401,1402,2313,2314,2315},0,0,0,0,0,0,0,0,
-            new Item[]{new Item(ItemNames.BONES_2530),new Item(ItemNames.RAW_CHICKEN)},
+            new Item[]{new Item(ItemNames.BONES),new Item(ItemNames.RAW_CHICKEN)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.FEATHER,5,2),
@@ -23,7 +23,7 @@ public enum DropTables {
                     new WeightedChanceItem(0,1,1)
             }),
     MAN_AND_THIEF(new int[]{1, 2, 3, 4, 5, 6, 8}, 0, 0, 0, 0, 0, 0, 23, 0,
-            new Item[]{new Item(ItemNames.BONES_2530)}, //always drops
+            new Item[]{new Item(ItemNames.BONES)}, //always drops
             new ChanceItem[]{}, // charms
             new WeightedChanceItem[]{ //main drop table v
                     new WeightedChanceItem(ItemNames.BRONZE_MED_HELM, 1, 2),
@@ -44,7 +44,7 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.CABBAGE, 1, 1)
             }),
     FARMER(new int[]{7}, 0, 0, 0, 0, 27, 0, 11, 0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.EARTH_RUNE, 4, 2),
@@ -62,7 +62,7 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.WATERING_CAN8_5340, 1, 1)
             }),
     GUARD(new int[]{9, 32, 206, 296, 297, 298, 299, 344, 345, 346, 368}, 0, 18, 0, 0, 0, 0, 0, 0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.IRON_BOLTS_9140, 2, 12, 10),
@@ -88,7 +88,7 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.IRON_ORE, 1, 1)
             }),
     BARBARIAN(new int[]{12, 3246, 3247, 3248, 3249, 3250, 3251, 3252, 3253, 3255, 3256, 3257, 3258, 3259, 3260, 3261, 3262, 3263, 3264}, 0, 0, 0, 0, 0, 0, 0, 0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.IRON_AXE, 1, 6),
@@ -165,7 +165,7 @@ public enum DropTables {
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID, 1, 8)
             }),
     ANKOU(new int[]{4381, 4382, 4383}, 1, 0, 0, 0, 0, 0, 3, 0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.BLACK_KNIFE_869, 1, 1),
@@ -187,7 +187,7 @@ public enum DropTables {
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID, 1, 2)
             }),
     AVIANSIE(IntStream.range(6232, 6247).toArray(), 0, 0, 0, 0, 0, 0, 15, 0,
-            new Item[]{new Item(ItemNames.BONES_2530), new Item(ItemNames.FEATHER, 6)},
+            new Item[]{new Item(ItemNames.BONES), new Item(ItemNames.FEATHER, 6)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.RUNE_DAGGERP__5678, 1, 11),
@@ -236,7 +236,7 @@ public enum DropTables {
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID, 1, 8)
             }),
     BASILISK(new int[]{1616, 1617}, 0, 0, 0, 0, 0, 0, 140, 0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{
                     new ChanceItem(12158, 1, DropFrequency.COMMON),
                     new ChanceItem(12159, 1, DropFrequency.COMMON),
@@ -275,13 +275,13 @@ public enum DropTables {
             new WeightedChanceItem[]{}),
     BEARS(new int[]{106, 105, 1195, 3645, 3664, 1326, 1327}, 0, 0, 0, 0, 0, 0, 0, 0,
             new Item[]{
-                    new Item(ItemNames.BONES_2530),
+                    new Item(ItemNames.BONES),
                     new Item(ItemNames.BEAR_FUR_948),
                     new Item(ItemNames.RAW_BEAR_MEAT)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{}),
     BIRDS(new int[]{1475, 5120, 5121, 5122, 5123, 5133, 1475, 1476, 41, 951, 1017, 1401, 1402, 2313, 2314, 2315, 1016, 1550, 147, 1180, 1754, 1755, 1756, 2252, 4570, 4571, 1911, 6114, 46, 2693, 6113, 6112, 146, 149, 150, 450, 451, 1179, 1322, 1323, 1324, 1325, 1400, 2726, 2727, 3197, 138, 48, 4373, 4374, 4535, 139, 1751, 148, 1181, 6382, 2459, 2460, 2461, 2462, 2707, 2708, 6115, 6116, 3296, 6378, 1996, 3675, 3676, 6792}, 0, 0, 0, 0, 0, 0, 0, 0,
-            new Item[]{new Item(ItemNames.BONES_2530), new Item(ItemNames.FEATHER, 2)},
+            new Item[]{new Item(ItemNames.BONES), new Item(ItemNames.FEATHER, 2)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{}),
     BLACK_DEMONS(new int[]{84, 677, 4702, 4703, 4704, 4705}, 0, 0, 0, 0, 0, 0, 23, 0,
@@ -347,7 +347,7 @@ public enum DropTables {
                     new ChanceItem(ItemNames.DRACONIC_VISAGE,1,10000)
             }),
     BLOODVELD(new int[]{1618, 1619, 6215, 7643, 7642},0,0,0,0,0,0,1,0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{
                     new ChanceItem(12158, 1, DropFrequency.COMMON),
                     new ChanceItem(12159, 1, DropFrequency.COMMON),
@@ -371,7 +371,7 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.COINS,200,10),
                     new WeightedChanceItem(ItemNames.COINS,10,7),
                     new WeightedChanceItem(ItemNames.COINS,450,1),
-                    new WeightedChanceItem(ItemNames.BONES_2530,1,10),
+                    new WeightedChanceItem(ItemNames.BONES,1,10),
                     new WeightedChanceItem(ItemNames.BIG_BONES,1,7),
                     new WeightedChanceItem(ItemNames.BIG_BONES,3,3),
                     new WeightedChanceItem(ItemNames.MEAT_PIZZA,1,3),
@@ -408,7 +408,7 @@ public enum DropTables {
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,5)
             }),
     BRINE_RAT(new int[] {3707},0,0,0,0,0,0,0,0,
-            new Item[]{new Item(ItemNames.BONES_2530), new Item(ItemNames.RAW_RAT_MEAT)},
+            new Item[]{new Item(ItemNames.BONES), new Item(ItemNames.RAW_RAT_MEAT)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.BRINE_SABRE_11037,1,1),
@@ -470,7 +470,7 @@ public enum DropTables {
                     new ChanceItem(ItemNames.DRAGON_PLATESKIRT,1,2048)
             }),
     CATABLEPON(new int[] {4397, 4398, 4399},0,0,0,0,1,0,3,0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{
                     new ChanceItem(12158, 1, DropFrequency.COMMON),
                     new ChanceItem(12159, 1, DropFrequency.COMMON),
@@ -597,7 +597,7 @@ public enum DropTables {
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,4)
             }),
     COCKATRICE(new int[] {1620, 1621, 4227}, 0,18,0,0,0,0,10,0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{
                     new ChanceItem(12158, 1, DropFrequency.COMMON),
                     new ChanceItem(12159, 1, DropFrequency.COMMON),
@@ -631,7 +631,7 @@ public enum DropTables {
             new Item[]{
                     new Item(ItemNames.COWHIDE,1),
                     new Item(ItemNames.RAW_BEEF,1),
-                    new Item(ItemNames.BONES_2530,1)
+                    new Item(ItemNames.BONES,1)
             },
             new ChanceItem[]{
                     new ChanceItem(12158, 1, DropFrequency.COMMON)
@@ -656,7 +656,7 @@ public enum DropTables {
                     new WeightedChanceItem(ItemNames.NOTHING,1,44)
             }),
     CROCODILE(new int[]{1993, 6779},0,0,0,0,0,0,0,0,
-            new Item[]{new Item(ItemNames.BONES_2530)}, new ChanceItem[]{}, new WeightedChanceItem[]{}),
+            new Item[]{new Item(ItemNames.BONES)}, new ChanceItem[]{}, new WeightedChanceItem[]{}),
     CYCLOPES(new int[]{ 116, 4291, 4292, 6078, 6079, 6080, 6081, 6269, 6270},1,0,0,0,0,0,3,0,
             new Item[]{new Item(ItemNames.BIG_BONES,1)},
             new ChanceItem[]{
@@ -690,7 +690,7 @@ public enum DropTables {
                     new WeightedChanceItem(RareDropTable.SLOT_ITEM_ID,1,2)
             }),
     DAGGANOTHS(new int[]{1338, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 2454, 2455, 2456, 2887, 2888, 3591},0,0,18,0,0,0,0,0,
-            new Item[]{new Item(ItemNames.BONES_2530)},
+            new Item[]{new Item(ItemNames.BONES)},
             new ChanceItem[]{},
             new WeightedChanceItem[]{
                     new WeightedChanceItem(ItemNames.IRON_SPEAR,1,6),

@@ -118,6 +118,13 @@ public final class LoginParser implements Runnable {
 			public boolean pulse() {
 				try {
 					if (details.getSession().isActive()) {
+						if(Repository.PLAYER_NAMES.get(player.getName()) != null){
+							Player p = Repository.PLAYER_NAMES.get(player.getName());
+							p.clear();
+							Repository.getPlayerNames().remove(p.getName());
+							Repository.getLobbyPlayers().remove(p);
+							Repository.getPlayers().remove(p);
+						}
 						if (!Repository.getPlayers().contains(player)) {
 							Repository.getPlayers().add(player);
 						}

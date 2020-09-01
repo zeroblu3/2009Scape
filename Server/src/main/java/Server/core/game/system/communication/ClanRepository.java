@@ -61,7 +61,7 @@ public final class ClanRepository {
 	/**
 	 * The rank required for loot-share.
 	 */
-	private ClanRank lootRequirement = ClanRank.KELDAGRIM_MOD;
+	private ClanRank lootRequirement = ClanRank.ADMINISTRATOR;
 
 	/**
 	 * The members mapping.
@@ -97,7 +97,7 @@ public final class ClanRepository {
 	 * @return {@code True} if the player successfully entered the clan chat.
 	 */
 	public boolean enter(Player player) {
-		if (!owner.equals("keldagrim") && players.size() >= MAX_MEMBERS) {
+		if (!owner.equals("2009scape") && players.size() >= MAX_MEMBERS) {
 			player.getPacketDispatch().sendMessage("The channel you tried to join is full.:clan:");
 			return false;
 		}
@@ -313,7 +313,7 @@ public final class ClanRepository {
 	public ClanRank getRank(Player player) {
 		ClanRank rank = ranks.get(player.getName());
 		if (player.getDetails().getRights() == Rights.ADMINISTRATOR && !player.getName().equals(owner)) {
-			return ClanRank.KELDAGRIM_MOD;
+			return ClanRank.ADMINISTRATOR;
 		}
 		if (rank == null) {
 			if (player.getName().equals(owner)) {

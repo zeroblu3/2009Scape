@@ -22,7 +22,7 @@ public final class HighscoreSQLHandler extends SQLEntryHandler<Player> {
 	 * Constructs a new {@code HighscoreSQLHandler} {@code Object}.
 	 */
 	public HighscoreSQLHandler(Player entry) {
-		super(entry, (SQLManager.LOCAL ? "global" : ServerConstants.DATABASE_NAMES[1]) + ".highscores", "username", entry.getName());
+		super(entry, (SQLManager.LOCAL ? "global" : ServerConstants.DATABASE_NAME) + ".highscores", "username", entry.getName());
 	}
 
 	@Override

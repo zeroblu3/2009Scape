@@ -14,6 +14,7 @@ import core.game.node.item.Item;
  * @version 1.1
  * @notice Modified March 2nd, 2015 to allow the bulk buying of shards.
  * @notice The previous notice is a fucking lie and whoever claimed that is a retard
+ * @notice Spirit shard packs were released 9 September 2009, outside of 530. Option removed.
  */
 @InitializablePlugin
 public final class PikkupstixDialogue extends DialoguePlugin {
@@ -623,10 +624,10 @@ public final class PikkupstixDialogue extends DialoguePlugin {
 			switch (stage) {
 			case 0:
 				if (player.getSkills().getStaticLevel(Skills.SUMMONING) == 99) {
-					options("So, what's Summmoning all about, then?", "Can I buy some Summoning supplies?", "Can I buy a Summoning skillcape?", "I'd like to buy shards in bulk.");
+					options("So, what's Summmoning all about, then?", "Can I buy some Summoning supplies?", "Can I buy a Summoning skillcape?");
 					stage = 600;
 				} else {
-					options("So, what's Summmoning all about, then?", "Can I buy some Summoning supplies?", "Please tell me about skillcapes.", "I'd like to buy shards in bulk.");
+					options("So, what's Summmoning all about, then?", "Can I buy some Summoning supplies?", "Please tell me about skillcapes.");
 					stage = 1;
 				}
 				break;
@@ -643,10 +644,6 @@ public final class PikkupstixDialogue extends DialoguePlugin {
 				case 3:
 					player("Please tell me about skillcapes.");
 					stage = 400;
-					break;
-				case 4:
-					player("I'd like to buy some of your spirit shards in bulk.");
-					stage = 9000;
 					break;
 				}
 				break;
@@ -746,7 +743,7 @@ public final class PikkupstixDialogue extends DialoguePlugin {
 				stage = 401;
 				break;
 			case 401:
-				interpreter.sendOptions("Choose an option:", "So, what's Summmoning all about, then?", "Can I buy some Summoning supplies?", "Please tell me about skillcapes.", "I'd like to buy some shards in bulk.");
+				interpreter.sendOptions("Choose an option:", "So, what's Summmoning all about, then?", "Can I buy some Summoning supplies?", "Please tell me about skillcapes.");
 				stage = 1;
 				break;
 			case 600:

@@ -35,7 +35,7 @@ final class Class125 implements Interface5 {
          var1.glCallList(this.anInt2186);
          var1.glActiveTexture('\u84c1');
          var1.glMatrixMode(5890);
-         var1.glTranslatef((float)Class9.anInt144, (float)Class3_Sub28_Sub15.anInt3695, (float)Class3_Sub29.anInt2587);
+         var1.glTranslatef((float)Class9.anInt144, (float) Class69.anInt3695, (float)Class3_Sub29.anInt2587);
          var1.glRotatef(-((float)Class3_Sub13_Sub8.anInt3103 * 360.0F) / 2048.0F, 0.0F, 1.0F, 0.0F);
          var1.glRotatef(-((float)Class140_Sub7.anInt2938 * 360.0F) / 2048.0F, 1.0F, 0.0F, 0.0F);
          var1.glRotatef(-180.0F, 1.0F, 0.0F, 0.0F);
@@ -66,7 +66,7 @@ final class Class125 implements Interface5 {
       }
    }
 
-   private final void method1749() {
+   private void method1749() {
       javax.media.opengl.GL var1 = HDToolKit.gl;
       this.anInt2186 = var1.glGenLists(2);
       var1.glNewList(this.anInt2186, 4864);
@@ -98,7 +98,7 @@ final class Class125 implements Interface5 {
       var1.glEndList();
    }
 
-   private final void method1750() {
+   private void method1750() {
       if(this.anInt2186 >= 0) {
          javax.media.opengl.GL var1 = HDToolKit.gl;
          int[] var2 = new int[1];
@@ -143,44 +143,42 @@ final class Class125 implements Interface5 {
    }
 
    public Class125() {
-      if(this.anInt2186 < 0) {
-         if(HDToolKit.aBoolean1818 && HDToolKit.anInt1789 >= 2) {
-            int[] var1 = new int[1];
-            javax.media.opengl.GL var2 = HDToolKit.gl;
-            var2.glGenProgramsARB(1, var1, 0);
-            this.anInt2184 = var1[0];
-            int[][] var3 = Class15.method895(false, 3, 64, 256, 0, 4, 8, 0.4F, (byte)-73);
-            int[][] var4 = Class15.method895(false, 3, 64, 256, 8, 4, 8, 0.4F, (byte)-109);
-            RSByteBuffer var5 = new RSByteBuffer(262144);
+       if(HDToolKit.aBoolean1818 && HDToolKit.anInt1789 >= 2) {
+          int[] var1 = new int[1];
+          GL var2 = HDToolKit.gl;
+          var2.glGenProgramsARB(1, var1, 0);
+          this.anInt2184 = var1[0];
+          int[][] var3 = Class15.method895(0, (byte)-73);
+          int[][] var4 = Class15.method895(8, (byte)-109);
+          RSByteBuffer var5 = new RSByteBuffer(262144);
 
-            for(int var6 = 0; var6 < 256; ++var6) {
-               int[] var7 = var3[var6];
-               int[] var8 = var4[var6];
+          for(int var6 = 0; var6 < 256; ++var6) {
+             int[] var7 = var3[var6];
+             int[] var8 = var4[var6];
 
-               for(int var9 = 0; var9 < 64; ++var9) {
-                  if(HDToolKit.aBoolean1790) {
-                     var5.method801(881, (float)var7[var9] / 4096.0F);
-                     var5.method801(881, (float)var8[var9] / 4096.0F);
-                     var5.method801(881, 1.0F);
-                     var5.method801(881, 1.0F);
-                  } else {
-                     var5.method762((float)var7[var9] / 4096.0F, (byte)109);
-                     var5.method762((float)var8[var9] / 4096.0F, (byte)66);
-                     var5.method762(1.0F, (byte)116);
-                     var5.method762(1.0F, (byte)66);
-                  }
-               }
-            }
+             for(int var9 = 0; var9 < 64; ++var9) {
+                if(HDToolKit.aBoolean1790) {
+                   var5.method801((float)var7[var9] / 4096.0F);
+                   var5.method801((float)var8[var9] / 4096.0F);
+                   var5.method801(1.0F);
+                   var5.method801(1.0F);
+                } else {
+                   var5.method762((float)var7[var9] / 4096.0F, (byte)109);
+                   var5.method762((float)var8[var9] / 4096.0F, (byte)66);
+                   var5.method762(1.0F, (byte)116);
+                   var5.method762(1.0F, (byte)66);
+                }
+             }
+          }
 
-            ByteBuffer var10 = ByteBuffer.allocateDirect(var5.index).order(ByteOrder.nativeOrder());
-            var10.put(var5.buffer, 0, var5.index);
-            var10.flip();
-            this.aFloatBuffer2183 = var10.asFloatBuffer().asReadOnlyBuffer();
-            this.method1749();
-            this.method1750();
-         }
+          ByteBuffer var10 = ByteBuffer.allocateDirect(var5.index).order(ByteOrder.nativeOrder());
+          var10.put(var5.buffer, 0, var5.index);
+          var10.flip();
+          this.aFloatBuffer2183 = var10.asFloatBuffer().asReadOnlyBuffer();
+          this.method1749();
+          this.method1750();
+       }
 
-      }
    }
 
 }

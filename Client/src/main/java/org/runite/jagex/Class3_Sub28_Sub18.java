@@ -7,8 +7,8 @@ import java.nio.ByteBuffer;
 final class Class3_Sub28_Sub18 extends Node {
 
    static int anInt3757;
-   private int anInt3759 = -1;
-   private int anInt3760;
+   private int anInt3759;
+   private final int anInt3760;
    static int anInt3764;
    static int anInt3765 = 100;
    static int anInt3766 = 0;
@@ -27,11 +27,11 @@ final class Class3_Sub28_Sub18 extends Node {
 
          super.finalize();
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sd.finalize()");
+         throw Class44.clientError(var2, "sd.finalize()");
       }
    }
 
-   static final void method709(int var0, int var1) {
+   static void method709(int var0, int var1) {
       Class3_Sub2 var2 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[0][var0][var1];
 
       for(int var3 = 0; var3 < 3; ++var3) {
@@ -56,13 +56,11 @@ final class Class3_Sub28_Sub18 extends Node {
       Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[3][var0][var1] = null;
    }
 
-   static final void method710(byte var0) {
+   static void method710() {
       try {
-         if(var0 >= 122) {
-            Class44.aClass93_725.method1523((byte)-104);
-         }
+         Class44.aClass93_725.method1523((byte)-104);
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sd.C(" + var0 + ')');
+         throw Class44.clientError(var2, "sd.C(" + (byte) 126 + ')');
       }
    }
 
@@ -70,13 +68,13 @@ final class Class3_Sub28_Sub18 extends Node {
       try {
          anIntArray3768 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "sd.B(" + var0 + ')');
+         throw Class44.clientError(var2, "sd.B(" + var0 + ')');
       }
    }
 
-   final void method712(byte var1) {
+   final void method712() {
       try {
-         int var2 = Class27.method961(var1 + 1530);
+         int var2 = Class27.method961();
          if((1 & var2) == 0) {
             HDToolKit.bindTexture2D(this.anInt3759);
          }
@@ -89,29 +87,25 @@ final class Class3_Sub28_Sub18 extends Node {
             HDToolKit.method1847(0);
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "sd.E(" + var1 + ')');
+         throw Class44.clientError(var3, "sd.E(" + (byte) 6 + ')');
       }
    }
 
-   static final void method713(int var0) {
+   static void method713() {
       try {
          try {
-            Method var1 = Runtime.class.getMethod("maxMemory", new Class[var0]);
-            if(null != var1) {
-               try {
-                  Runtime var2 = Runtime.getRuntime();
-                  Long var3 = (Long)var1.invoke(var2, (Object[])null);
-                  Class3_Sub24_Sub3.anInt3492 = (int)(var3.longValue() / 1048576L) - -1;
-               } catch (Throwable var4) {
-                  ;
-               }
+            Method var1 = Runtime.class.getMethod("maxMemory", new Class[0]);
+            try {
+               Runtime var2 = Runtime.getRuntime();
+               Long var3 = (Long)var1.invoke(var2, (Object[])null);
+               Class3_Sub24_Sub3.anInt3492 = (int)(var3.longValue() / 1048576L) - -1;
+            } catch (Throwable var4) {
             }
          } catch (Exception var5) {
-            ;
          }
 
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "sd.A(" + var0 + ')');
+         throw Class44.clientError(var6, "sd.A(" + 0 + ')');
       }
    }
 
@@ -132,7 +126,7 @@ final class Class3_Sub28_Sub18 extends Node {
          Class31.anInt580 += var6.limit() - this.anInt3767;
          this.anInt3767 = var6.limit();
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "sd.<init>(" + var1 + ')');
+         throw Class44.clientError(var7, "sd.<init>(" + var1 + ')');
       }
    }
 

@@ -4,7 +4,6 @@ import java.awt.Image;
 final class Class129_Sub1 extends Class129 {
 
    private long aLong2683;
-   static int anInt2684;
    private int anInt2685;
    static Class47 aClass47_2686 = new Class47(128);
    private int anInt2688;
@@ -13,7 +12,7 @@ final class Class129_Sub1 extends Class129 {
    private int anInt2691;
    private int anInt2692;
    static int anInt2693 = 0;
-   private long[] aLongArray2694 = new long[10];
+   private final long[] aLongArray2694 = new long[10];
    static Image anImage2695;
    static int[] anIntArray2696 = new int[2];
    static int anInt2697;
@@ -30,20 +29,19 @@ final class Class129_Sub1 extends Class129 {
          aClass3_Sub28_Sub16Array2690 = null;
          aClass47_2686 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "lj.G(" + var0 + ')');
+         throw Class44.clientError(var2, "lj.G(" + var0 + ')');
       }
    }
 
-   final void method1770(int var1) {
+   final void method1770() {
       try {
          int var2;
          for(var2 = 0; var2 < 10; ++var2) {
             this.aLongArray2694[var2] = 0L;
          }
 
-         var2 = -114 % ((var1 - -82) / 42);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "lj.A(" + var1 + ')');
+         throw Class44.clientError(var3, "lj.A(" + -124 + ')');
       }
    }
 
@@ -102,7 +100,7 @@ final class Class129_Sub1 extends Class129 {
          this.anInt2692 &= 255;
          return var6;
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "lj.B(" + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var7, "lj.B(" + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
@@ -118,7 +116,7 @@ final class Class129_Sub1 extends Class129 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "lj.<init>()");
+         throw Class44.clientError(var2, "lj.<init>()");
       }
    }
 

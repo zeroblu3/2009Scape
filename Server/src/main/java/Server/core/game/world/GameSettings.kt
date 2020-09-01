@@ -1,15 +1,10 @@
 package core.game.world
 
-import core.game.system.SystemLogger
-import core.plugin.PluginManager
-import org.w3c.dom.Element
-import org.w3c.dom.Node
-import java.io.File
+import core.ServerConstants
+import org.json.simple.JSONObject
 import java.io.FileInputStream
 import java.io.IOException
 import java.util.*
-import javax.xml.parsers.DocumentBuilderFactory
-
 /**
  * Represents the game settings used for this game instance.
  * @author Vexia
@@ -76,9 +71,27 @@ class GameSettings
         val msAddress: String,
         val default_xp_rate: Double,
         val allow_slayer_reroll: Boolean,
+        val enable_default_clan: Boolean,
         val enable_bots: Boolean,
         val autostock_ge: Boolean,
-        val allow_token_purchase: Boolean
+        val allow_token_purchase: Boolean,
+
+        /**"Lobby" interface
+         * The message of the week models to display
+         * 15 & 22 = keys & lock || 16 = fly swat || 17 = person with question marks || 18 & 447 = wise old man
+         * 19 = man & woman with mouth closed || 20 = man & lock & key || 21 = closed chests
+         * 23 = snowmen || 405 = Construction houses || 622 = Two sets of 3 people range, mage, melee
+         * 623 = Woodcutting || 679 = Summoning || 715 = Easter || 800 = Halloween
+         * Any value that isn't one listed above = random selection
+         */
+        val message_model: Int,
+
+        /**"Lobby" interface
+         * The message of the week text
+         * The "child" for writing text to these interfaces is located inside of LoginConfiguration.java
+         * method: getMessageChild
+         */
+        val message_string: String
         ) {
     val isHosted: Boolean
         get() = !isDevMode
@@ -89,61 +102,30 @@ class GameSettings
 
     companion object {
         /**
-         * Parses the game settings from the program arguments.
-         * @param args The program arguments.
-         * @return The game settings.
+         * Parses a JSONObject and creates a new GameSettings object from it.
+         * @param data the JSONObject to parse.
+         * @return the settings object.
+         * @author Ceikry
          */
-        fun parse(args: Array<String>): GameSettings? {
-            return parse(args[0])
-        }
-
-        /**
-         * Parses a game settings file.
-         * @param path the path.
-         * @return the settings.
-         */
-        fun parse(path: String): GameSettings? {
-            val f = File(path)
-            if (!f.exists()) {
-                return null
-            }
-            val factory = DocumentBuilderFactory.newInstance()
-            try {
-                val builder = factory.newDocumentBuilder()
-                val doc = builder.parse(path)
-                val settings = doc.getElementsByTagName("GameSettings").item(0) as Element
-                val name = settings.getAttribute("name")
-                val beta = java.lang.Boolean.parseBoolean(settings.getAttribute("debug"))
-                val devMode = java.lang.Boolean.parseBoolean(settings.getAttribute("dev"))
-                val startGui = java.lang.Boolean.parseBoolean(settings.getAttribute("startGui"))
-                val worldId = settings.getAttribute("worldID").toInt()
-                val countryId = settings.getAttribute("countryID").toInt()
-                val activity = settings.getAttribute("activity")
-                val pvp = java.lang.Boolean.parseBoolean(settings.getAttribute("pvpWorld"))
-                val ipAddress = settings.getAttribute("msip")
-                val defaultXpRate = settings.getAttribute("default_xp_rate").toDouble()
-                val allowSlayerReroll = settings.getAttribute("allow_slayer_reroll")!!.toBoolean()
-                val enableBots = settings.getAttribute("enable_bots")!!.toBoolean()
-                val autostockGe = settings.getAttribute("autostock_ge")!!.toBoolean()
-                val allow_token_purchase = settings.getAttribute("allow_token_purchase")!!.toBoolean()
-                val pluginSettings = doc.getElementsByTagName("PluginSetting")
-                for (i in 0 until pluginSettings.length) {
-                    val settingsNode = pluginSettings.item(i)
-                    if (settingsNode.nodeType == Node.ELEMENT_NODE) {
-                        val pluginSetting = settingsNode as Element
-                        val pName = pluginSetting.getAttribute("name")
-                        val enabled = java.lang.Boolean.parseBoolean(pluginSetting.getAttribute("enabled"))
-                        if (!enabled) {
-                            println("Setting $pName as disabled.")
-                            PluginManager.disabledPlugins.putIfAbsent(pName, false)
-                        }
-                    }
-                }
-                return GameSettings(name, beta, devMode, startGui, worldId, countryId, activity, true, pvp, false, false, ipAddress,defaultXpRate,allowSlayerReroll,enableBots,autostockGe,allow_token_purchase)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-            return null
+        fun parse(data: JSONObject): GameSettings? {
+            val name = ServerConstants.SERVER_NAME
+            val debug = data["debug"] as Boolean
+            val dev = data["dev"] as Boolean
+            val startGui = data["startGui"] as Boolean
+            val worldId = data["worldID"].toString().toInt()
+            val countryId = data["countryID"].toString().toInt()
+            val activity = data["activity"].toString()
+            val pvpWorld = data["pvpWorld"] as Boolean
+            val msip = data["msip"].toString()
+            val default_xp_rate = data["default_xp_rate"].toString().toDouble()
+            val allow_slayer_reroll = data["allow_slayer_reroll"] as Boolean
+            val enable_default_clan = data["enable_default_clan"] as Boolean
+            val enable_bots = data["enable_bots"] as Boolean
+            val autostock_ge = data["autostock_ge"] as Boolean
+            val allow_token_purchase = data["allow_token_purchase"] as Boolean
+            val message_of_the_week_identifier = data["message_of_the_week_identifier"].toString().toInt()
+            val message_of_the_week_text = data["message_of_the_week_text"].toString()
+            return GameSettings(name,debug,dev,startGui,worldId,countryId,activity,true,pvpWorld,false,false,msip,default_xp_rate,allow_slayer_reroll,enable_default_clan,enable_bots,autostock_ge,allow_token_purchase,message_of_the_week_identifier,message_of_the_week_text)
         }
 
         /**

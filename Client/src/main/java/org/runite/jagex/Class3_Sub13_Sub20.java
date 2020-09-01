@@ -1,25 +1,22 @@
 package org.runite.jagex;
 
+import java.util.Objects;
+
 final class Class3_Sub13_Sub20 extends Class3_Sub13 {
 
    static int anInt3244 = 0;
    private int anInt3245 = 4096;
-   static int anInt3248;
    private int anInt3250 = 4096;
    private int anInt3252 = 4096;
 
    final void method157(int var1, RSByteBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3252 = var2.getShort(1);
-         } else {
-            if(var1 == 1) {
-               this.anInt3245 = var2.getShort(1);
-            } else {
-               if(2 == var1) {
-                  this.anInt3250 = var2.getShort(1);
-               }
-            }
+            this.anInt3252 = var2.getShort();
+         } else if (var1 == 1) {
+             this.anInt3245 = var2.getShort();
+         } else if (2 == var1) {
+             this.anInt3250 = var2.getShort();
          }
 
          if(!var3) {
@@ -27,15 +24,14 @@ final class Class3_Sub13_Sub20 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "mg.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "mg.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
    public static void method266(int var0) {//TODO: Misplaced Check Method
       try {
-         ;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "mg.U(" + var0 + ')');
+         throw Class44.clientError(var2, "mg.U(" + var0 + ')');
       }
    }
 
@@ -48,7 +44,7 @@ final class Class3_Sub13_Sub20 extends Class3_Sub13 {
          int[][] var3 = this.aClass97_2376.method1594((byte)-115, var2);
          if(this.aClass97_2376.aBoolean1379) {
             int[][] var4 = this.method162(var2, 0, (byte)-74);
-            int[] var5 = var4[0];
+            int[] var5 = Objects.requireNonNull(var4)[0];
             int[] var6 = var4[1];
             int[] var7 = var4[2];
             int[] var9 = var3[1];
@@ -73,7 +69,7 @@ final class Class3_Sub13_Sub20 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "mg.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var15, "mg.T(" + var1 + ',' + var2 + ')');
       }
    }
 

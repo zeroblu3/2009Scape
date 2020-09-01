@@ -29,12 +29,11 @@ final class Class3_Sub13_Sub26 extends Class3_Sub13 {
 			aByteArrayArray3335 = (byte[][])null;
 			anIntArray3329 = null;
 			anIntArray3336 = null;
-			int var1 = -62 % ((-59 - var0) / 47);
 			anIntArray3321 = null;
 			anIntArray3318 = null;
 			anIntArray3331 = null;
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "pg.B(" + var0 + ')');
+			throw Class44.clientError(var2, "pg.B(" + var0 + ')');
 		}
 	}
 
@@ -44,8 +43,7 @@ final class Class3_Sub13_Sub26 extends Class3_Sub13 {
 
 	final int[] method154(int var1, byte var2) {
 		try {
-			int var3 = 42 / ((30 - var2) / 36);
-			int[] var4 = this.aClass114_2382.method1709(-16409, var1);
+			int[] var4 = this.aClass114_2382.method1709(var1);
 			if(this.aClass114_2382.aBoolean1580) {
 				int[] var5 = this.method152(0, var1 - 1 & Class3_Sub20.anInt2487, 32755);
 				int[] var6 = this.method152(0, var1, 32755);
@@ -66,7 +64,7 @@ final class Class3_Sub13_Sub26 extends Class3_Sub13 {
 
 			return var4;
 		} catch (RuntimeException var17) {
-			throw Class44.method1067(var17, "pg.D(" + var1 + ',' + var2 + ')');
+			throw Class44.clientError(var17, "pg.D(" + var1 + ',' + var2 + ')');
 		}
 	}
 
@@ -77,11 +75,11 @@ final class Class3_Sub13_Sub26 extends Class3_Sub13 {
 			}
 
 			if(var1 == 0) {
-				this.anInt3322 = var2.getShort(1);
+				this.anInt3322 = var2.getShort();
 			}
 
 		} catch (RuntimeException var5) {
-			throw Class44.method1067(var5, "pg.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+			throw Class44.clientError(var5, "pg.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
 		}
 	}
 

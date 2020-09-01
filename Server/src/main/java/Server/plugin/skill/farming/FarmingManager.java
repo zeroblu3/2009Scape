@@ -1,5 +1,7 @@
 package plugin.skill.farming;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.skill.farming.compost.CompostManager;
 import plugin.skill.farming.pot.SeedlingManager;
 import plugin.skill.farming.wrapper.PatchWrapper;
@@ -70,6 +72,23 @@ public final class FarmingManager implements SavingModule {
 			seedlingManager.save(buffer.put((byte) 4));
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parseWrappers(JSONArray data){
+		for (int i = 0; i < data.size(); i++) {
+			JSONObject wrapperData = (JSONObject) data.get(i);
+			JSONObject cycleData = (JSONObject) wrapperData.get("cycle");
+
+			PatchWrapper wrapper = new PatchWrapper(player, Integer.parseInt(wrapperData.get("wrapperId").toString()));
+			wrapper.getCycle().setCompostThreshold(Integer.parseInt(cycleData.get("compostThreshold").toString()));
+			wrapper.getCycle().setGrowthTime(Long.parseLong(cycleData.get("growthTime").toString()));
+			wrapper.getCycle().setHarvestAmount(Integer.parseInt(cycleData.get("harvestAmount").toString()));
+			wrapper.getCycle().setProtection(Boolean.parseBoolean(cycleData.get("protection").toString()));
+			if(cycleData.containsKey("nodeId")) {
+				wrapper.setNode(wrapper.getPatch().getNodes()[Integer.parseInt(wrapperData.get("nodeId").toString())]);
+			}
+			patches.add(wrapper);
+		}
 	}
 
 	@Override

@@ -89,10 +89,9 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 						break;
 					case 3:
 						//About Iron Man Mode...
-						if (player.getIronmanManager().isIronman())
-						{
-							interpreter.sendOptions("Select an Option", "I no longer want to be an Iron Man", "I'd like to change my Iron Man mode", "What is an Iron Man?", "Go Back...");
-							stage = 100;
+						if (player.getIronmanManager().isIronman()) {
+							npc("Your ironman mode is: " + player.getIronmanManager().getMode().name().toLowerCase());
+							stage = 50;
 						} else {
 							interpreter.sendOptions("Select an Option", "I would like to be an Iron Man.", "What is an Iron Man?", "Go Back...");
 							stage = 110;
@@ -297,7 +296,7 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 					case 1:
 						npc("Voila, you should now get random events!");
 						player.getAntiMacroHandler().isDisabled = false;
-						player.setAttribute("randoms:disabled",false);
+						player.setAttribute("/save:randoms:disabled",false);
 						player.getAntiMacroHandler().init();
 						stage = 131;
 						break;

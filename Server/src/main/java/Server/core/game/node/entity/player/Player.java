@@ -12,10 +12,10 @@ import core.game.container.impl.BankContainer;
 import core.game.container.impl.EquipmentContainer;
 import core.game.container.impl.InventoryListener;
 import core.game.node.entity.combat.equipment.EquipmentDegrader;
+import core.tools.TickUtilsKt;
 import plugin.ame.AntiMacroHandler;
 import plugin.dialogue.DialogueInterpreter;
 import plugin.ge.GrandExchange;
-import plugin.jobs.JobsMinigameManager;
 import plugin.ttrail.TreasureTrailManager;
 import plugin.skill.Skills;
 import plugin.skill.construction.HouseManager;
@@ -31,7 +31,6 @@ import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
 import core.game.node.entity.combat.handlers.ChinchompaSwingHandler;
-import core.game.node.entity.combat.handlers.SalamanderSwingHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.player.info.RenderInfo;
@@ -39,7 +38,7 @@ import core.game.node.entity.player.info.Rights;
 import core.game.node.entity.player.info.UIDInfo;
 import core.game.node.entity.player.info.login.LoginConfiguration;
 import core.game.node.entity.player.link.BankPinManager;
-import core.game.node.entity.player.link.BarcrawlManager;
+import plugin.quest.miniquest.barcrawl.BarcrawlManager;
 import core.game.node.entity.player.link.ConfigurationManager;
 import core.game.node.entity.player.link.GlobalData;
 import core.game.node.entity.player.link.HintIconManager;
@@ -102,6 +101,8 @@ import core.tools.StringUtils;
 
 import plugin.activity.pyramidplunder.PlunderObjectManager;
 import plugin.interaction.item.brawling_gloves.BrawlingGlovesManager;
+
+import static plugin.stringtools.StringToolsKt.colorize;
 
 /**
  * Represents a player entity.
@@ -305,12 +306,7 @@ public class Player extends Entity {
 	 * The Ironman manager.
 	 */
 	private final IronmanManager ironmanManager = new IronmanManager(this);
-	
-	/**
-	 * The jobs minigame manager.
-	 */
-	private final JobsMinigameManager jobsManager = new JobsMinigameManager(this);
-	
+
 	/**
 	 * The statistics manager.
 	 */
@@ -439,6 +435,27 @@ public class Player extends Entity {
 		antiMacroHandler.pulse();
 		hunterManager.pulse();
 		musicPlayer.tick();
+		if(getAttribute("fire:immune",0) > 0){
+			int time = getAttribute("fire:immune",0) - GameWorld.getTicks();
+			if(time == TickUtilsKt.secondsToTicks(30)){
+				sendMessage(colorize("%RYou have 30 seconds remaining on your antifire potion."));
+			}
+			if(time == 0){
+				sendMessage(colorize("%RYour antifire potion has expired."));
+				removeAttribute("fire:immune");
+			}
+		}
+		if(getAttribute("poison:immunity",0) > 0){
+			int time = getAttribute("poison:immunity",0) - GameWorld.getTicks();
+			debug(time + "");
+			if(time == TickUtilsKt.secondsToTicks(30)){
+				sendMessage(colorize("%RYou have 30 seconds remaining on your antipoison potion."));
+			}
+			if(time == 0){
+				sendMessage(colorize("%RYour antipoison potion has expired."));
+				removeAttribute("poison:immunity");
+			}
+		}
 		if (!artificial && (System.currentTimeMillis() - getSession().getLastPing()) > 20_000L) {
 			details.getSession().disconnect();
 			getSession().setLastPing(Long.MAX_VALUE);
@@ -578,12 +595,8 @@ public class Player extends Entity {
 						ground = new GroundItem(item.getDropItem(), getLocation(), k);
 					}
 					items.add(ground);
-					if (k.getIronmanManager().checkRestriction()) {
-						ground.setDropper(this);
-					}
-					if (getIronmanManager().getMode() != IronmanMode.ULTIMATE) {
-						GroundItemManager.create(ground);
-					}
+					ground.setDropper(this); //Checking for ironman mode in any circumstance for death items is inaccurate to how it works in both runescapes.
+					GroundItemManager.create(ground);
 				}
 			}
 			equipment.clear();
@@ -1310,10 +1323,6 @@ public class Player extends Entity {
 
 	public void setArcheryTotal(int archeryTotal) {
 		this.archeryTotal = archeryTotal;
-	}
-
-	public JobsMinigameManager getJobsManager() {
-		return jobsManager;
 	}
 
 	public PlayerStatisticsManager getStatisticsManager() {

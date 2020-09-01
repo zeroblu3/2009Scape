@@ -2,6 +2,8 @@ package core.game.node.entity.player.link.diary;
 
 import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import plugin.skill.smithing.smelting.Bar;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
@@ -40,6 +42,12 @@ public class AchievementDiaryManager implements SavingModule {
 			diary.save(buffer);
 		}
 		buffer.put((byte) 0);
+	}
+
+	public void parse(JSONArray data){
+		for(int i = 0; i < data.size(); i++){
+			diarys[i].parse((JSONObject) data.get(i));
+		}
 	}
 
 	@Override

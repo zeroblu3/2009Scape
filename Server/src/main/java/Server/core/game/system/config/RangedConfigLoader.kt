@@ -1,5 +1,6 @@
 package core.game.system.config
 
+import core.ServerConstants
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.combat.equipment.Ammunition
 import core.game.node.entity.combat.equipment.BoltEffect
@@ -21,9 +22,8 @@ class RangedConfigLoader {
 
     fun load(){
         var count = 0
-        reader = FileReader("data/configs/ammo_configs.json")
-        var obj = parser.parse(reader) as JSONObject
-        var configs = obj["ammo_configs"] as JSONArray
+        reader = FileReader(ServerConstants.CONFIG_PATH + "ammo_configs.json")
+        var configs = parser.parse(reader) as JSONArray
         for(entry in configs){
             val e = entry as JSONObject
             var dbowgfx: Graphics? = null
@@ -58,9 +58,8 @@ class RangedConfigLoader {
         SystemLogger.log("[Config Parser]: Parsed $count ammo configs...")
 
         count = 0
-        reader = FileReader("data/configs/ranged_weapon_configs.json")
-        obj = parser.parse(reader) as JSONObject
-        configs = obj["ranged_weapon_configs"] as JSONArray
+        reader = FileReader(ServerConstants.CONFIG_PATH + "ranged_weapon_configs.json")
+        configs = parser.parse(reader) as JSONArray
         for(entry in configs){
             val e = entry as JSONObject
             val id = Integer.parseInt(e["itemId"].toString())

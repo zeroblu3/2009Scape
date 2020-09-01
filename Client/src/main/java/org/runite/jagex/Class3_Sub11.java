@@ -10,7 +10,7 @@ final class Class3_Sub11 extends Class3 {
    int anInt2344 = 0;
    private ByteBuffer aByteBuffer2345;
    private float[] aFloatArray2346;
-   private boolean aBoolean2347;
+   private final boolean aBoolean2347;
    private int[] anIntArray2348;
    private int[] anIntArray2349;
    private int[] anIntArray2350;
@@ -36,10 +36,10 @@ final class Class3_Sub11 extends Class3 {
    private boolean[] aBooleanArray2370;
    private int[] anIntArray2371;
    private static RSByteBuffer aClass3_Sub30_2372;
-   private float aFloat2373;
+   private final float aFloat2373;
 
 
-   static final void method144() {
+   static void method144() {
       aClass3_Sub30_2372 = null;
       aClass3_Sub30_2362 = null;
       aByteBuffer2368 = null;
@@ -96,7 +96,7 @@ final class Class3_Sub11 extends Class3 {
       this.aFloatArray2354[this.anInt2343] = var6;
       this.anIntArray2348[this.anInt2343] = var7;
       if(var9 != 0L) {
-         this.aClass130_2353.method1779(1, new Class3_Sub18(this.anInt2343), var9);
+         this.aClass130_2353.method1779(new Class3_Sub18(this.anInt2343), var9);
       }
 
       return this.anInt2343++;
@@ -114,17 +114,17 @@ final class Class3_Sub11 extends Class3 {
 
       for(int var2 = 0; var2 < this.anInt2343; ++var2) {
          if(HDToolKit.aBoolean1790) {
-            var1.method801(881, (float)this.anIntArray2371[var2]);
-            var1.method801(881, (float)this.anIntArray2358[var2]);
-            var1.method801(881, (float)this.anIntArray2352[var2]);
+            var1.method801((float)this.anIntArray2371[var2]);
+            var1.method801((float)this.anIntArray2358[var2]);
+            var1.method801((float)this.anIntArray2352[var2]);
             var1.putInt(-123, this.anIntArray2348[var2]);
-            var1.method801(881, this.aFloatArray2369[var2]);
-            var1.method801(881, this.aFloatArray2365[var2]);
-            var1.method801(881, this.aFloatArray2354[var2]);
-            var1.method801(881, (float)this.anIntArray2371[var2] / this.aFloat2373);
-            var1.method801(881, (float)this.anIntArray2352[var2] / this.aFloat2373);
+            var1.method801(this.aFloatArray2369[var2]);
+            var1.method801(this.aFloatArray2365[var2]);
+            var1.method801(this.aFloatArray2354[var2]);
+            var1.method801((float)this.anIntArray2371[var2] / this.aFloat2373);
+            var1.method801((float)this.anIntArray2352[var2] / this.aFloat2373);
             if(this.aBoolean2347) {
-               var1.method801(881, this.aFloatArray2346[var2]);
+               var1.method801(this.aFloatArray2346[var2]);
             }
          } else {
             var1.method762((float)this.anIntArray2371[var2], (byte)94);
@@ -239,7 +239,7 @@ final class Class3_Sub11 extends Class3 {
          GL var10 = HDToolKit.gl;
          if(this.anInt2351 == -1 || var3) {
             HDToolKit.bindTexture2D(-1);
-            Class3_Sub28_Sub4.method551(0, 0, 0);
+            Class3_Sub28_Sub4.method551(0, 0);
          } else {
             Class51.anInterface2_838.method8(this.anInt2351, true);
          }
@@ -318,7 +318,7 @@ final class Class3_Sub11 extends Class3 {
       }
    }
 
-   final int method150(int var1, int var2, int var3, int[] var4, int[] var5, boolean var6) {
+   final void method150(int var1, int var2, int var3, int[] var4, int[] var5, boolean var6) {
       if(this.aBoolean2364) {
          this.anIntArrayArray2360[this.anInt2366] = var5;
          this.aBooleanArray2370[this.anInt2366] = var6;
@@ -339,7 +339,7 @@ final class Class3_Sub11 extends Class3 {
       this.anIntArray2350[this.anInt2366] = var2;
       this.anIntArray2349[this.anInt2366] = var3;
       this.anIntArrayArray2357[this.anInt2366] = var4;
-      return this.anInt2366++;
+       this.anInt2366++;
    }
 
    Class3_Sub11(int var1, float var2, boolean var3, boolean var4, int var5) {
