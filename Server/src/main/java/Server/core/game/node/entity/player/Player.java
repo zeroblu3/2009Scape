@@ -16,6 +16,7 @@ import core.tools.TickUtilsKt;
 import plugin.ame.AntiMacroHandler;
 import plugin.dialogue.DialogueInterpreter;
 import plugin.ge.GrandExchange;
+import plugin.skill.runecrafting.PouchManager;
 import plugin.ttrail.TreasureTrailManager;
 import plugin.skill.Skills;
 import plugin.skill.construction.HouseManager;
@@ -121,6 +122,8 @@ public class Player extends Entity {
 	public BankContainer dropLog = new BankContainer(this);
 
 	public EquipmentDegrader degrader = new EquipmentDegrader();
+
+	public PouchManager pouchManager = new PouchManager(this);
 
 	/**
 	 * The inventory.

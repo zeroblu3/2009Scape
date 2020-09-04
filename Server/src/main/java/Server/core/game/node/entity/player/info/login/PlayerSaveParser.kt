@@ -69,7 +69,13 @@ class PlayerSaveParser(val player: Player) {
             parseStatistics()
             parseBrawlingGloves()
             parseAttributes()
+            parsePouches()
         }
+    }
+
+    fun parsePouches() {
+        if(saveFile!!.containsKey("pouches"))
+        player.pouchManager.parse(saveFile!!["pouches"] as JSONArray)
     }
 
     fun parseAttributes() {

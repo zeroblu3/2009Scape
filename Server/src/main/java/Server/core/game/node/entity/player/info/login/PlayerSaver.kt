@@ -55,6 +55,7 @@ class PlayerSaver (val player: Player){
         saveStatManager(saveFile)
         saveBrawlingGloves(saveFile)
         saveAttributes(saveFile)
+        savePouches(saveFile)
 
         val manager = ScriptEngineManager()
         val scriptEngine = manager.getEngineByName("JavaScript")
@@ -72,6 +73,10 @@ class PlayerSaver (val player: Player){
         }
 
         player.gameAttributes.dump(player.name + ".xml")
+    }
+
+    fun savePouches(root: JSONObject){
+        player.pouchManager.save(root)
     }
 
     fun saveAttributes(root: JSONObject){

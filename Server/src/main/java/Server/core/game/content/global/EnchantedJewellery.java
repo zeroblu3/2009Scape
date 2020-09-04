@@ -20,7 +20,8 @@ public enum EnchantedJewellery {
 	GAMES_NECKLACE(new String[] { "Burthorpe", "Barbarian Assault", "Clan Wars", "Bounty Hunter", "Corporeal Beast" }, new Location[] { Location.create(2899, 3563, 0), Location.create(2520, 3571, 0), Location.create(3266, 3686, 0), Location.create(3179, 3685, 0), Location.create(2885, 4372, 2) }, true, 3853, 3855, 3857, 3859, 3861, 3863, 3865, 3867), 
 	DIGSITE_PENDANT(new String[] {}, new Location[] { Location.create(3342, 3445, 0) }, true, 11194, 11193, 11192, 11191, 11190), 
 	COMBAT_BRACELET(new String[] { "Champions' Guild", "Monastery", "Ranging Guild", "Warriors' Guild", "Nowhere." }, new Location[] { Location.create(3191, 3365, 0), Location.create(3052, 3472, 0), Location.create(2657, 3439, 0), Location.create(2878, 3546, 0) }, 11118, 11120, 11122, 11124, 11126), 
-	SKILLS_NECKLACE(new String[] { "Fishing Guild", "Mining Guild", "Crafting Guild", "Cooking Guild", "Nowhere." }, new Location[] { Location.create(2611, 3392, 0), Location.create(3016, 3338, 0), Location.create(2933, 3290, 0), Location.create(3143, 3442, 0) }, 11105, 11107, 11109, 11111, 11113);
+	SKILLS_NECKLACE(new String[] { "Fishing Guild", "Mining Guild", "Crafting Guild", "Cooking Guild", "Nowhere." }, new Location[] { Location.create(2611, 3392, 0), Location.create(3016, 3338, 0), Location.create(2933, 3290, 0), Location.create(3143, 3442, 0) }, 11105, 11107, 11109, 11111, 11113),
+	RING_OF_WEALTH(new String[] {"Grand Exchange","Nowhere."}, new Location[] {Location.create(3163, 3464, 0)},14646,14644,14642,14640,14638);
 
 	/**
 	 * Represents the teleport animation.

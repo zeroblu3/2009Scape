@@ -36,8 +36,12 @@ object JobManager {
     @JvmStatic
     fun handleDeath(npc: Int, player: Player) {
         val jobId = player.getAttribute("jobs:id",0)
-        if(SlayingJob.values()[jobId].ids.contains(npc)) {
-            updateJobRemaining(player, 1)
+        val type = player.getAttribute("jobs:type",0)
+        if(type == 1) {
+            val job = SlayingJob.values()[jobId]
+            if (job.ids.contains(npc)) {
+                updateJobRemaining(player, 1)
+            }
         }
     }
 

@@ -23,7 +23,7 @@ class TriviaManager : ManagerPlugin(){
     private val rewards = arrayListOf<WeightedChanceItem>()
     private var nextQuestion = 0
     val CONFIG_DIR = "Server" + File.separator + "data" + File.separator + "plugin" + File.separator + "Trivia" + File.separator
-    var questions = QuestionLoader().loadQuestions()
+    var questions = ""//QuestionLoader().loadQuestions()
     val DELAY = 30
 
     override fun tick() {
@@ -87,7 +87,7 @@ class TriviaManager : ManagerPlugin(){
     }
 
     fun getNewQuestion(){
-        question = questions.get(RandomFunction.random(questions.size))
+        question = QuestionLoader.TriviaQuestion("E","E")//questions.get(RandomFunction.random(questions.size))
         hasSession = true
     }
 
