@@ -9,15 +9,18 @@ final class Class115 {
       try {
          aClass86ArrayArray1581 = (Class86[][])null;
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ph.B(" + var0 + ')');
+         throw Class44.method1067(var2, "ph.B(" + var0 + ')');
       }
    }
 
-   static void method1713() {
+   static final void method1713(byte var0) {
       try {
+         if(var0 > -45) {
+            aClass86ArrayArray1581 = (Class86[][])((Class86[][])null);
+         }
 
-          while(true) {
-            Class3_Sub5 var1 = (Class3_Sub5)Class3_Sub18.aClass61_2468.method1220();
+         while(true) {
+            Class3_Sub5 var1 = (Class3_Sub5)Class3_Sub18.aClass61_2468.method1220((byte)-3);
             if(var1 == null) {
                return;
             }
@@ -37,7 +40,10 @@ final class Class115 {
             }
 
             if(var2 != null) {
-               ObjectDefinition var20 = Class162.getObjectDefinition(var1.anInt2270);
+               ObjectDefinition var20 = Class162.getObjectDefinition(4, var1.anInt2270);
+               if(WorldListCountry.localPlane < 3) {
+                  ;
+               }
 
                int var4;
                int var5;
@@ -67,15 +73,17 @@ final class Class115 {
                   if(null != var21) {
                      var12 = var21.aClass140_429;
                   }
-               } else if (2 == var13) {
-                  Class25 var23 = Class75.method1336(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
-                  if (null != var23) {
-                     var12 = var23.aClass140_479;
-                  }
-               } else if (var13 == 3) {
-                  Class12 var24 = RSByteBuffer.method784(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
-                  if (null != var24) {
-                     var12 = var24.object;
+               } else {
+                  if(2 == var13) {
+                     Class25 var23 = Class75.method1336(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
+                     if(null != var23) {
+                        var12 = var23.aClass140_479;
+                     }
+                  } else if(var13 == 3) {
+                     Class12 var24 = RSByteBuffer.method784(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
+                     if(null != var24) {
+                        var12 = var24.object;
+                     }
                   }
                }
 
@@ -112,17 +120,20 @@ final class Class115 {
             }
          }
       } catch (RuntimeException var19) {
-         throw Class44.clientError(var19, "ph.A(" + (byte) -91 + ')');
+         throw Class44.method1067(var19, "ph.A(" + var0 + ')');
       }
    }
 
-   static void method1714() {
+   static final void method1714(byte var0) {
       try {
          KeyboardListener.aClass93_1911.method1523((byte)-112);
+         if(var0 != -6) {
+            method1712(-114);
+         }
 
-          Class80.aClass93_1131.method1523((byte)-100);
+         Class80.aClass93_1131.method1523((byte)-100);
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ph.C(" + (byte) -6 + ')');
+         throw Class44.method1067(var2, "ph.C(" + var0 + ')');
       }
    }
 

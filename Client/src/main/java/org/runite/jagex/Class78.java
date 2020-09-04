@@ -2,7 +2,7 @@ package org.runite.jagex;
 
 final class Class78 {
 
-   private final RSByteBuffer aClass3_Sub30_1113 = new RSByteBuffer((byte[])null);
+   private RSByteBuffer aClass3_Sub30_1113 = new RSByteBuffer((byte[])null);
    int[] anIntArray1114;
    private int[] anIntArray1115;
    int anInt1116;
@@ -56,7 +56,8 @@ final class Class78 {
    }
 
    final int method1375(int var1) {
-       return this.method1379(var1);
+      int var2 = this.method1379(var1);
+      return var2;
    }
 
    final void method1376(int var1) {
@@ -68,10 +69,10 @@ final class Class78 {
       this.anIntArray1114[var1] += var2;
    }
 
-   private int method1378(int var1, int var2) {
+   private final int method1378(int var1, int var2) {
       int var4;
       if(var2 == 255) {
-         int var7 = this.aClass3_Sub30_1113.getByteB();
+         int var7 = this.aClass3_Sub30_1113.getByte((byte)-60);
          var4 = this.aClass3_Sub30_1113.method741((byte)123);
          if(var7 == 47) {
             this.aClass3_Sub30_1113.index += var4;
@@ -92,18 +93,18 @@ final class Class78 {
          byte var3 = aByteArray1117[var2 - 128];
          var4 = var2;
          if(var3 >= 1) {
-            var4 = var2 | this.aClass3_Sub30_1113.getByteB() << 8;
+            var4 = var2 | this.aClass3_Sub30_1113.getByte((byte)-69) << 8;
          }
 
          if(var3 >= 2) {
-            var4 |= this.aClass3_Sub30_1113.getByteB() << 16;
+            var4 |= this.aClass3_Sub30_1113.getByte((byte)-60) << 16;
          }
 
          return var4;
       }
    }
 
-   private int method1379(int var1) {
+   private final int method1379(int var1) {
       byte var2 = this.aClass3_Sub30_1113.buffer[this.aClass3_Sub30_1113.index];
       int var5;
       if(var2 < 0) {
@@ -135,8 +136,8 @@ final class Class78 {
    final void method1380(byte[] var1) {
       this.aClass3_Sub30_1113.buffer = var1;
       this.aClass3_Sub30_1113.index = 10;
-      int var2 = this.aClass3_Sub30_1113.getShort();
-      this.anInt1116 = this.aClass3_Sub30_1113.getShort();
+      int var2 = this.aClass3_Sub30_1113.getShort(1);
+      this.anInt1116 = this.aClass3_Sub30_1113.getShort(1);
       this.anInt1121 = 500000;
       this.anIntArray1118 = new int[var2];
 

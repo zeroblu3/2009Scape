@@ -12,7 +12,7 @@ public final class Class3_Sub28_Sub12 extends Node {
    static int anInt3655 = -1;
 
 
-   static boolean method609(RSInterface var0, int var1) {
+   static final boolean method609(RSInterface var0, int var1) {
       try {
          if(null == var0.anIntArray275) {
             return false;
@@ -45,26 +45,33 @@ public final class Class3_Sub28_Sub12 extends Node {
             return true;
          }
       } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "md.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.method1067(var5, "md.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }
    }
 
-   final void method610(RSByteBuffer var1) {
+   final void method610(RSByteBuffer var1, int var2) {
       try {
          while(true) {
-            int var3 = var1.getByteB();
+            int var3 = var1.getByte((byte)-97);
             if(0 == var3) {
                return;
             }
 
-            this.method614(var1, var3);
+            this.method614(var1, var3, false);
          }
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "md.E(" + (var1 != null?"{...}":"null") + ',' + 0 + ')');
+         throw Class44.method1067(var4, "md.E(" + (var1 != null?"{...}":"null") + ',' + var2 + ')');
       }
    }
+   
+   /**
+    * Sends a default chatbox game message.
+    */
+   static final void sendMessage(String str){
+	   sendGameMessage(-1, 11, RSString.createRSString(str), RSString.createRSString(""), RSString.createRSString(""));
+   }
 
-   static void sendGameMessage(int var0, int type, RSString message, RSString var3, RSString var5) {
+   static final void sendGameMessage(int var0, int type, RSString message, RSString var3, RSString var5) {
       try {
          for(int i = 99; i > 0; --i) {
             Class3_Sub13_Sub6.anIntArray3082[i] = Class3_Sub13_Sub6.anIntArray3082[i - 1];
@@ -82,15 +89,15 @@ public final class Class3_Sub28_Sub12 extends Node {
          Class3_Sub29.aClass94Array2580[0] = message;
          Class163_Sub3.aClass94Array3003[0] = var3;
       } catch (RuntimeException var7) {
-         throw Class44.clientError(var7, "md.D(" + var0 + ',' + type + ',' + (message != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + (byte) 50 + ',' + (var5 != null?"{...}":"null") + ')');
+         throw Class44.method1067(var7, "md.D(" + var0 + ',' + type + ',' + (message != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + (byte) 50 + ',' + (var5 != null?"{...}":"null") + ')');
       }
    }
 
-   static RSString method612(long var0, byte var2) {
+   static final RSString method612(long var0, byte var2) {
       try {
          return var2 <= 85?(RSString)null:Class3_Sub13_Sub8.method207(10, false, 116, var0);
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "md.F(" + var0 + ',' + var2 + ')');
+         throw Class44.method1067(var4, "md.F(" + var0 + ',' + var2 + ')');
       }
    }
 
@@ -103,19 +110,22 @@ public final class Class3_Sub28_Sub12 extends Node {
             aClass94_3651 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "md.B(" + var0 + ')');
+         throw Class44.method1067(var2, "md.B(" + var0 + ')');
       }
    }
 
-   private void method614(RSByteBuffer var1, int var2) {
+   private final void method614(RSByteBuffer var1, int var2, boolean var3) {
       try {
+         if(var3) {
+            this.method610((RSByteBuffer)null, -89);
+         }
 
-          if(var2 == 2) {
-            this.anInt3647 = var1.getShort();
+         if(var2 == 2) {
+            this.anInt3647 = var1.getShort(1);
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "md.A(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + false + ')');
+         throw Class44.method1067(var5, "md.A(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ')');
       }
    }
 

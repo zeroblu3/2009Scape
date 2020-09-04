@@ -14,7 +14,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
    private int anInt2681;
 
 
-   private void method1678(byte[] var1, int[] var2) {
+   private final void method1678(byte[] var1, int[] var2) {
       this.anInt2681 = Class95.method1585((byte)62, this.anInt1461);
       this.anInt2680 = Class95.method1585((byte)99, this.anInt1468);
       byte[] var3 = new byte[this.anInt2681 * this.anInt2680 * 4];
@@ -61,19 +61,24 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
       var2 += this.anInt1464;
       javax.media.opengl.GL var4 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt2675);
-      this.method1679();
+      this.method1679(1);
       var4.glColor4f(1.0F, 1.0F, 1.0F, (float)var3 / 256.0F);
       var4.glTranslatef((float)var1, (float)(HDToolKit.anInt1811 - var2), 0.0F);
       var4.glCallList(this.anInt2676);
       var4.glLoadIdentity();
    }
 
-   private void method1679() {
-      if(this.anInt2677 != 1) {
-         this.anInt2677 = 1;
+   private final void method1679(int var1) {
+      if(this.anInt2677 != var1) {
+         this.anInt2677 = var1;
          javax.media.opengl.GL var2 = HDToolKit.gl;
-          var2.glTexParameteri(3553, 10241, 9728);
-          var2.glTexParameteri(3553, 10240, 9728);
+         if(var1 == 2) {
+            var2.glTexParameteri(3553, 10241, 9729);
+            var2.glTexParameteri(3553, 10240, 9729);
+         } else {
+            var2.glTexParameteri(3553, 10241, 9728);
+            var2.glTexParameteri(3553, 10240, 9728);
+         }
 
       }
    }
@@ -84,7 +89,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
       var2 += this.anInt1464;
       javax.media.opengl.GL var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt2675);
-      this.method1679();
+      this.method1679(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.anInt1811 - var2), 0.0F);
       var3.glCallList(this.anInt2676);
       var3.glLoadIdentity();
@@ -105,7 +110,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
       super.finalize();
    }
 
-   private void method1680() {
+   private final void method1680() {
       float var1 = (float)this.anInt1461 / (float)this.anInt2681;
       float var2 = (float)this.anInt1468 / (float)this.anInt2680;
       javax.media.opengl.GL var3 = HDToolKit.gl;

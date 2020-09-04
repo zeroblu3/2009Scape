@@ -1,10 +1,7 @@
 package org.runite.jagex;
-import javax.swing.*;
-
-import net.arikia.dev.drpc.DiscordEventHandlers;
-import net.arikia.dev.drpc.DiscordRPC;
 import org.runite.GameLaunch;
 
+import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.net.MalformedURLException;
@@ -157,4 +154,14 @@ public class ClientLoader extends Applet {
 		}
 	}
 
+	private static LibraryDownloader dler;
+	
+	public static LibraryDownloader getLibraryDownloader() {
+		if(dler==null){
+			dler = new LibraryDownloader();
+		}
+		return dler;
+	}
+
+	
 }
