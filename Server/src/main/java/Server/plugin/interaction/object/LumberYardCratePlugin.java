@@ -26,7 +26,7 @@ public final class LumberYardCratePlugin extends OptionHandler {
 	/**
 	 * Represents the kittem item.
 	 */
-	private static final Item KITTEN = new Item(1555);
+	private static final Item KITTEN = new Item(13236);
 
 	@Override
 	public boolean handle(Player player, Node node, String option) {

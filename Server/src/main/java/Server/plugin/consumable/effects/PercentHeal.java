@@ -13,9 +13,9 @@ public class PercentHeal extends ConsumableEffect {
     @Override
     public void activate(Player p) {
         int amount = (int) Math.floor(p.getSkills().getMaximumLifepoints() * perc);
-        if(p.getSkills().getLifepoints() + amount > p.getSkills().getMaximumLifepoints()){
-            amount = p.getSkills().getMaximumLifepoints() - p.getSkills().getLifepoints();
+        if(p.getSkills().getLifepoints() + amount > (p.getSkills().getMaximumLifepoints() + (p.getSkills().getMaximumLifepoints() * perc))){
+            amount = 0;
         }
-        p.getSkills().heal(amount);
+        p.getSkills().healNoRestrictions(amount);
     }
 }

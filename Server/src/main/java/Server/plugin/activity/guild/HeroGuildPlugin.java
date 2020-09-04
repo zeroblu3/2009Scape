@@ -58,7 +58,7 @@ public final class HeroGuildPlugin extends OptionHandler {
 		/**
 		 * The ids of rechargeable items.
 		 */
-		private static final int[] IDS = new int[] { 1710, 1708, 1706, 1704, 11107, 11109, 11111, 11113, 11120, 11122, 11124, 11126, 10354, 10356, 10358, 10360, 10362 };
+		private static final int[] IDS = new int[] { 1710, 1708, 1706, 1704, 11107, 11109, 11111, 11113, 11120, 11122, 11124, 11126, 10354, 10356, 10358, 10360, 10362, 14644,14642,14640,14638, 2572 };
 
 		/**
 		 * Constructs a new {@Code JewelleryRechargePlugin} {@Code
@@ -80,7 +80,7 @@ public final class HeroGuildPlugin extends OptionHandler {
 		public boolean handle(NodeUsageEvent event) {
 			final Player player = event.getPlayer();
 			final EnchantedJewellery jewellery = EnchantedJewellery.forItem(event.getUsedItem());
-			if (jewellery == null) {
+			if (jewellery == null && event.getUsedItem().getId() != 2572) {
 				return true;
 			}
 			boolean fam = event.getUsedWith() instanceof NPC;
@@ -96,7 +96,11 @@ public final class HeroGuildPlugin extends OptionHandler {
 			}
 			player.lock(1);
 			player.animate(Animation.create(832));
-			player.getInventory().replace(new Item(jewellery.getIds()[0]), event.getUsedItem().getSlot());
+			if(event.getUsedItem().getId() == 2572){
+				player.getInventory().replace(new Item(14646), event.getUsedItem().getSlot());
+			} else {
+				player.getInventory().replace(new Item(jewellery.getIds()[0]), event.getUsedItem().getSlot());
+			}
 			String name = event.getUsedItem().getName().toLowerCase();
 			for (int i = 0; i < 4; i++) {
 				name = name.replace("(" + (i + 1) + ")", "").trim();

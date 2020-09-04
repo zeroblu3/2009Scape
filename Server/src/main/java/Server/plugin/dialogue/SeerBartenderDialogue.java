@@ -105,7 +105,7 @@ public class SeerBartenderDialogue extends DialoguePlugin {
 				break;
 			case 4:
 				interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I don't really want anything thanks.");
-				stage = 30;
+				stage = 99;
 				break;
 
 			}

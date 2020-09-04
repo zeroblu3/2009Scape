@@ -689,6 +689,11 @@ public final class Skills {
 		return left;
 	}
 
+	public void healNoRestrictions(int amount){
+		lifepoints += amount;
+		lifepointsUpdate = true;
+	}
+
 	/**
 	 * @Deprecated Use
 	 * {@link ImpactHandler#manualHit(Entity, int, ImpactHandler.HitsplatType)}

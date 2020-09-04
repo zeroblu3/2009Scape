@@ -14,6 +14,7 @@ public enum SpecialLadders {
     SWENSEN_DOWN(Location.create(2644, 3657, 0), Location.create(2631, 10006, 0)),
     SWENSEN_UP(Location.create(2665, 10037, 0),Location.create(2649, 3661, 0)),
     FOG_ENTER(Location.create(3240,3575,0),Location.create(1675,5599,0)),
+    FOG_LEAVE(Location.create(1673,5598,0),Location.create(3242, 3574, 0)),
     INTRO_LEAVE(Location.create(2522, 4999, 0),Location.create(3230, 3240, 0)),
 
 
