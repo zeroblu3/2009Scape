@@ -146,13 +146,25 @@ public final class DarkMageDialogue extends DialoguePlugin {
 		player.pouchManager.getPouches().forEach((id, pouch) -> {
 			pouch.setCurrentCap(pouch.getCapacity());
 			pouch.setCharges(10);
-			if(player.getInventory().contains(id + 1, 1)){
-				player.getInventory().remove(new Item(id + 1, 1));
-				player.getInventory().add(new Item(id, 1));
+			Item essence = null;
+			if(!pouch.getContainer().isEmpty()){
+				int ess = pouch.getContainer().get(0).getId();
+				int amount = pouch.getContainer().getAmount(ess);
+				essence = new Item(ess,amount);
 			}
-			if(player.getBank().contains(id + 1, 1)){
-				player.getBank().remove(new Item(id + 1, 1));
-				player.getBank().add(new Item(id,1));
+			pouch.remakeContainer();
+			if(essence != null){
+				pouch.getContainer().add(essence);
+			}
+			if(id != 5509) {
+				if (player.getInventory().contains(id + 1, 1)) {
+					player.getInventory().remove(new Item(id + 1, 1));
+					player.getInventory().add(new Item(id, 1));
+				}
+				if (player.getBank().contains(id + 1, 1)) {
+					player.getBank().remove(new Item(id + 1, 1));
+					player.getBank().add(new Item(id, 1));
+				}
 			}
 		});
 		return true;

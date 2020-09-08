@@ -68,7 +68,7 @@ class PouchManager(val player: Player) {
         val pouch = pouches[pouchId]
         pouch ?: return
         val playerFree = player.inventory.freeSlots()
-        var amount = pouch.capacity - pouch.container.freeSlots()
+        var amount = pouch.currentCap - pouch.container.freeSlots()
         if (amount > playerFree) amount = playerFree
         if(amount == 0) return
         val essence = Item(pouch.container.get(0).id,amount)
@@ -88,7 +88,9 @@ class PouchManager(val player: Player) {
             }
             pouch.remakeContainer()
             pouch.charges = 10
-            player.sendMessage(colorize("%RYour ${Item(pouchId).name.toLowerCase()} has degraded slightly from use."))
+            if(pouchId != 5509) {
+                player.sendMessage(colorize("%RYour ${Item(pouchId).name.toLowerCase()} has degraded slightly from use."))
+            }
         }
 
     }
@@ -175,6 +177,7 @@ class PouchManager(val player: Player) {
 
 
     fun isDecayedPouch(pouchId: Int): Boolean{
+        if(pouchId == 5510) return false
         return pouches[pouchId - 1] != null
     }
 
