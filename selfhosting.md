@@ -1,5 +1,9 @@
 # 2009Scape selfhosting guide
 
+Note: We strongly recommend just setting the server up for development. This guide is really a reference to existing developers, and if the live server ever goes down. 
+
+See the [README.md](https://github.com/2009scape/2009Scape/blob/master/README.md) file for setting up 2009scape for development
+
 ## Requirements
 You will need:
 ```
