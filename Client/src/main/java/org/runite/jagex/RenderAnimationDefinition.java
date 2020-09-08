@@ -48,27 +48,26 @@ final class RenderAnimationDefinition {
          }
          aByteArrayArrayArray383 = (byte[][][])null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ck.A(" + var0 + ')');
+         throw Class44.clientError(var2, "ck.A(" + ')');
       }
    }
 
-   static final boolean method897(int var0, Class3_Sub24_Sub4 var1, CacheIndex var2, CacheIndex var3, CacheIndex var4) {
+   static void method897(int var0, Class3_Sub24_Sub4 var1, CacheIndex var2, CacheIndex var3, CacheIndex var4) {
       try {
          Class124.aClass153_1661 = var2;
          Class40.aClass153_679 = var4;
          Class3_Sub28_Sub20.aClass153_3786 = var3;
          Class101.aClass3_Sub24_Sub4_1421 = var1;
-         return true;
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "ck.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var6, "ck.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ')');
       }
    }
 
-   static final GraphicDefinition getGraphicDefinition(byte var0, int graphicId) {
+   static GraphicDefinition getGraphicDefinition(byte var0, int graphicId) {
       try {
-         GraphicDefinition def = (GraphicDefinition)Class3_Sub31.aClass93_2604.get((long)graphicId, (byte)121);
+         GraphicDefinition def = (GraphicDefinition)Class3_Sub31.aClass93_2604.get((long)graphicId);
          if(def == null) {
-            byte[] var3 = Class3_Sub13_Sub18.aClass153_3214.getFile(InputStream_Sub1.method64(true, graphicId), (byte)-122, Class75.method1338(graphicId, var0 ^ 7));
+            byte[] var3 = Class3_Sub13_Sub18.aClass153_3214.getFile(InputStream_Sub1.method64(graphicId), Class75.method1338(graphicId, var0 ^ 7));
             def = new GraphicDefinition();
             def.graphicId = graphicId;
             if(var0 != 42) {
@@ -76,37 +75,32 @@ final class RenderAnimationDefinition {
             }
 
             if(null != var3) {
-               def.parse(new RSByteBuffer(var3), (byte)-113);
+               def.parse(new RSByteBuffer(var3));
             }
 
             Class3_Sub31.aClass93_2604.put((byte)-109, def, (long)graphicId);
-            return def;
-         } else {
-            return def;
          }
+         return def;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "ck.D(" + var0 + ',' + graphicId + ')');
+         throw Class44.clientError(var4, "ck.D(" + var0 + ',' + graphicId + ')');
       }
    }
 
-   final void method899(int var1) {
+   final void method899() {
       try {
-         if(var1 <= 68) {
-            method900((Class140_Sub4)null, -23);
-         }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ck.B(" + var1 + ')');
+         throw Class44.clientError(var3, "ck.B(" + 96 + ')');
       }
    }
 
-   static final void method900(Class140_Sub4 var0, int var1) {
+   static void method900(Class140_Sub4 var0, int var1) {
       try {
          var0.aBoolean2810 = false;
          AnimationDefinition var2;
          if(-1 != var0.anInt2764) {
-            var2 = Client.getAnimationDefinition(var0.anInt2764, (byte)-20);
-            if(null == var2 || null == var2.frames) {
+            var2 = Client.getAnimationDefinition(var0.anInt2764);
+            if(null == var2.frames) {
                var0.anInt2764 = -1;
             } else {
                ++var0.anInt2802;
@@ -136,8 +130,8 @@ final class RenderAnimationDefinition {
             if(var6 == -1) {
                var0.anInt2842 = -1;
             } else {
-               AnimationDefinition var3 = Client.getAnimationDefinition(var6, (byte)-20);
-               if(var3 == null || var3.frames == null) {
+               AnimationDefinition var3 = Client.getAnimationDefinition(var6);
+               if(var3.frames == null) {
                   var0.anInt2842 = -1;
                } else {
                   if(0 > var0.anInt2805) {
@@ -165,7 +159,7 @@ final class RenderAnimationDefinition {
          }
 
          if(var0.anInt2771 != -1 && var0.anInt2828 <= 1) {
-            var2 = Client.getAnimationDefinition(var0.anInt2771, (byte)-20);
+            var2 = Client.getAnimationDefinition(var0.anInt2771);
             if(var2.anInt1866 == 1 && var0.anInt2811 > 0 && var0.anInt2800 <= Class44.anInt719 && Class44.anInt719 > var0.anInt2790) {
                var0.anInt2828 = 1;
                return;
@@ -174,8 +168,8 @@ final class RenderAnimationDefinition {
 
          if(var1 == -11973) {
             if(var0.anInt2771 != -1 && var0.anInt2828 == 0) {
-               var2 = Client.getAnimationDefinition(var0.anInt2771, (byte)-20);
-               if(var2 == null || var2.frames == null) {
+               var2 = Client.getAnimationDefinition(var0.anInt2771);
+               if(var2.frames == null) {
                   var0.anInt2771 = -1;
                } else {
                   ++var0.anInt2760;
@@ -223,8 +217,8 @@ final class RenderAnimationDefinition {
                Class145 var7 = var0.aClass145Array2809[var6];
                if(null != var7) {
                   if(var7.anInt1900 <= 0) {
-                     AnimationDefinition var4 = Client.getAnimationDefinition(var7.animationId, (byte)-20);
-                     if(null == var4 || var4.frames == null) {
+                     AnimationDefinition var4 = Client.getAnimationDefinition(var7.animationId);
+                     if(var4.frames == null) {
                         var0.aClass145Array2809[var6] = null;
                      } else {
                         ++var7.anInt1897;
@@ -268,34 +262,31 @@ final class RenderAnimationDefinition {
 
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "ck.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var5, "ck.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }
    }
 
-   final void parse(int var1, RSByteBuffer var2) {
+   final void parse(RSByteBuffer var2) {
       try {
-         if(var1 != -1) {
-            method900((Class140_Sub4)null, -18);
-         }
 
          while(true) {
-            int opcode = var2.getByte((byte)-34);
+            int opcode = var2.getByteB();
             if(opcode == 0) {
                return;
             }
 
-            this.parseOpcode(opcode, (byte)-106, var2);
+            this.parseOpcode(opcode, var2);
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "ck.H(" + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var4, "ck.H(" + -1 + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
-   private final void parseOpcode(int var1, byte var2, RSByteBuffer var3) {
+   private void parseOpcode(int var1, RSByteBuffer var3) {
       try {
          if(var1 == 1) {
-            this.anInt368 = var3.getShort(1);
-            this.anInt382 = var3.getShort(1);
+            this.anInt368 = var3.getShort();
+            this.anInt382 = var3.getShort();
             if(this.anInt382 == 65535) {
                this.anInt382 = -1;
             }
@@ -304,92 +295,88 @@ final class RenderAnimationDefinition {
                this.anInt368 = -1;
             }
          } else if(var1 == 2) {
-            this.anInt398 = var3.getShort(var2 ^ -105);
+            this.anInt398 = var3.getShort();
          } else if(var1 == 3) {
-            this.anInt372 = var3.getShort(var2 ^ -105);
+            this.anInt372 = var3.getShort();
          } else if (4 == var1) {
-            this.anInt406 = var3.getShort(1);
+            this.anInt406 = var3.getShort();
          } else if (var1 == 5) {
-            this.anInt379 = var3.getShort(1);
+            this.anInt379 = var3.getShort();
          } else if (6 == var1) {
-            this.anInt393 = var3.getShort(1);
+            this.anInt393 = var3.getShort();
          } else if (7 == var1) {
-            this.anInt386 = var3.getShort(1);
+            this.anInt386 = var3.getShort();
          } else if (var1 == 8) {
-            this.anInt373 = var3.getShort(1);
+            this.anInt373 = var3.getShort();
          } else if (var1 == 9) {
-            this.anInt375 = var3.getShort(1);
+            this.anInt375 = var3.getShort();
          } else if (var1 == 26) {
-            this.anInt395 = (short) (4 * var3.getByte((byte) -35));
-            this.anInt381 = (short) (4 * var3.getByte((byte) -110));
+            this.anInt395 = (short) (4 * var3.getByteB());
+            this.anInt381 = (short) (4 * var3.getByteB());
          } else if (var1 == 27) {
             if (this.anIntArrayArray359 == null) {
                this.anIntArrayArray359 = new int[12][];
             }
 
-            int var4 = var3.getByte((byte) -94);
+            int var4 = var3.getByteB();
             this.anIntArrayArray359[var4] = new int[6];
 
             for (int var5 = 0; var5 < 6; ++var5) {
                this.anIntArrayArray359[var4][var5] = var3.getShort((byte) 85);
             }
          } else if (var1 == 29) {
-            this.anInt369 = var3.getByte((byte) -80);
+            this.anInt369 = var3.getByteB();
          } else if (var1 == 30) {
-            this.anInt357 = var3.getShort(1);
+            this.anInt357 = var3.getShort();
          } else if (var1 == 31) {
-            this.anInt387 = var3.getByte((byte) -106);
+            this.anInt387 = var3.getByteB();
          } else if (32 == var1) {
-            this.anInt370 = var3.getShort(1);
+            this.anInt370 = var3.getShort();
          } else if (33 == var1) {
             this.anInt400 = var3.getShort((byte) 41);
          } else if (34 == var1) {
-            this.anInt403 = var3.getByte((byte) -79);
+            this.anInt403 = var3.getByteB();
          } else if (var1 == 35) {
-            this.anInt399 = var3.getShort(1);
+            this.anInt399 = var3.getShort();
          } else if (var1 == 36) {
             this.anInt371 = var3.getShort((byte) 122);
          } else if (var1 == 37) {
-            this.anInt360 = var3.getByte((byte) -48);
+            this.anInt360 = var3.getByteB();
          } else if (var1 == 38) {
-            this.anInt367 = var3.getShort(1);
+            this.anInt367 = var3.getShort();
          } else if (39 == var1) {
-            this.anInt407 = var3.getShort(1);
+            this.anInt407 = var3.getShort();
          } else if (var1 == 40) {
-            this.anInt389 = var3.getShort(1);
+            this.anInt389 = var3.getShort();
          } else if (41 == var1) {
-            this.anInt390 = var3.getShort(1);
+            this.anInt390 = var3.getShort();
          } else if (var1 == 42) {
-            this.anInt364 = var3.getShort(1);
+            this.anInt364 = var3.getShort();
          } else if (var1 == 43) {
-            var3.getShort(var2 ^ -105);
+            var3.getShort();
          } else if (var1 == 44) {
-            var3.getShort(1);
+            var3.getShort();
          } else if (var1 == 45) {
-            var3.getShort(1);
-         }
-
-         if(var2 != -106) {
-            this.parse(96, (RSByteBuffer)null);
+            var3.getShort();
          }
 
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "ck.E(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var6, "ck.E(" + var1 + ',' + (byte) -106 + ',' + (var3 != null?"{...}":"null") + ')');
       }
    }
 
-   static final RSString method903(RSString[] var0, byte var1) {
+   static RSString method903(RSString[] var0, byte var1) {
       try {
          if(var0.length >= 2) {
             if(var1 >= -57) {
                method897(-13, (Class3_Sub24_Sub4)null, (CacheIndex)null, (CacheIndex)null, (CacheIndex)null);
             }
-            return Class67.method1261(0, var0.length, var0, 2774);
+            return Class67.method1261(0, var0.length, var0);
          } else {
             throw new IllegalArgumentException();
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "ck.G(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var3, "ck.G(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }
    }
 

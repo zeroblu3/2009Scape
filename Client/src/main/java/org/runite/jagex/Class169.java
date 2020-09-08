@@ -9,7 +9,7 @@ final class Class169 {
    private Class156 aClass156_2105;
    boolean aBoolean2106 = true;
    private ByteBuffer aByteBuffer2107;
-   private int anInt2108;
+   private final int anInt2108;
    private ByteBuffer aByteBuffer2109;
    private Class156 aClass156_2110;
    private static byte[] aByteArray2111 = new byte[16384];
@@ -23,11 +23,11 @@ final class Class169 {
       for(int var5 = 0; var5 <= 8; ++var5) {
          for(var6 = 0; var6 <= 8; ++var6) {
             if(HDToolKit.aBoolean1790) {
-               var4.method801(881, (float)var6 / 8.0F);
-               var4.method801(881, (float)var5 / 8.0F);
-               var4.method801(881, (float)(var6 * 128));
-               var4.method801(881, (float)var1[var6 + var2][var5 + var3]);
-               var4.method801(881, (float)(var5 * 128));
+               var4.method801((float)var6 / 8.0F);
+               var4.method801((float)var5 / 8.0F);
+               var4.method801((float)(var6 * 128));
+               var4.method801((float)var1[var6 + var2][var5 + var3]);
+               var4.method801((float)(var5 * 128));
             } else {
                var4.method762((float)var6 / 8.0F, (byte)104);
                var4.method762((float)var5 / 8.0F, (byte)65);
@@ -82,7 +82,7 @@ final class Class169 {
 
    }
 
-   final boolean method2282(LDIndexedSprite var1, int var2, int var3) {
+   final void method2282(LDIndexedSprite var1, int var2, int var3) {
       byte[] var4 = var1.aByteArray2674;
       int var5 = var1.anInt1461;
       int var6 = var2 * 128 + 1 + (var3 * 128 + 1) * var5;
@@ -103,7 +103,6 @@ final class Class169 {
       }
 
       if(var7 == this.anInt2112) {
-         return false;
       } else {
          this.anInt2112 = var7;
          var6 = var2 * 128 + 1 + (var3 * 128 + 1) * var5;
@@ -145,7 +144,6 @@ final class Class169 {
          var13.limit(16384);
          HDToolKit.bindTexture2D(this.anInt2108);
          var12.glTexImage2D(3553, 0, 6406, 128, 128, 0, 6406, 5121, var13);
-         return true;
       }
    }
 
@@ -162,14 +160,13 @@ final class Class169 {
          }
 
          var1.glInterleavedArrays(10791, 20, this.aByteBuffer2109);
-         HDToolKit.aBoolean1798 = false;
       } else {
          this.aClass156_2110.method2169();
          var1.glInterleavedArrays(10791, 20, 0L);
-         HDToolKit.aBoolean1798 = false;
       }
+      HDToolKit.aBoolean1798 = false;
 
-       if(this.aClass156_2105 == null) {
+      if(this.aClass156_2105 == null) {
           if(HDToolKit.aBoolean1813) {
              var1.glBindBufferARB('\u8893', 0);
           }

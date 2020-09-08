@@ -27,7 +27,7 @@ final class Class37 {
       long var8 = 0L;
       if((var2 & 127) == 0 || (var4 & 127) == 0) {
          var8 = (long)(var2 + (var4 << 16));
-         Class3_Sub18 var10 = (Class3_Sub18)this.aClass130_656.method1780(var8, 0);
+         Class3_Sub18 var10 = (Class3_Sub18)this.aClass130_656.method1780(var8);
          if(var10 != null) {
             return var10.anInt2467;
          }
@@ -79,7 +79,7 @@ final class Class37 {
       this.anIntArray645[this.anInt653] = var2;
       this.anIntArray649[this.anInt653] = var3;
       this.anIntArray648[this.anInt653] = var4;
-      this.aClass130_656.method1779(1, new Class3_Sub18(this.anInt653), var8);
+      this.aClass130_656.method1779(new Class3_Sub18(this.anInt653), var8);
       return this.anInt653++;
    }
 
@@ -93,9 +93,9 @@ final class Class37 {
             var2.putByte((byte)-7, this.aByteArray644[var3]);
             var2.putByte((byte)-126, this.aByteArray650[var3]);
             var2.putByte((byte)-13, 255);
-            var2.method801(881, (float)this.anIntArray645[var3]);
-            var2.method801(881, (float)this.anIntArray649[var3]);
-            var2.method801(881, (float)this.anIntArray648[var3]);
+            var2.method801((float)this.anIntArray645[var3]);
+            var2.method801((float)this.anIntArray649[var3]);
+            var2.method801((float)this.anIntArray648[var3]);
          }
 
          for(var3 = 0; var3 < this.anInt655; ++var3) {
@@ -163,10 +163,6 @@ final class Class37 {
          this.aClass156_646.method2171();
          var1.glDrawElements(4, this.anInt655, 5125, 0L);
       } else {
-         if(HDToolKit.aBoolean1813) {
-            var1.glBindBufferARB('\u8892', 0);
-            var1.glBindBufferARB('\u8893', 0);
-         }
 
          var1.glInterleavedArrays(10787, 16, this.aByteBuffer647);
          HDToolKit.aBoolean1798 = false;

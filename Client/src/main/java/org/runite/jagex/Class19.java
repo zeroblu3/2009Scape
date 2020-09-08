@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class19 {
 
    int anInt420;
-   static int anInt421;
    static RSString aClass94_422 = RSString.createRSString("loc");
    GameObject aClass140_423;
    int anInt424;
@@ -24,7 +23,7 @@ final class Class19 {
             method906((byte)-42);
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "df.A(" + var0 + ')');
+         throw Class44.clientError(var2, "df.A(" + var0 + ')');
       }
    }
 

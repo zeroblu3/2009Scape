@@ -100,6 +100,7 @@ public enum Consumables {
 	MINT_CAKE(new Food(new int[] {9475}, new EnergyEffect(50))),
 
 	/** Vegetables */
+	POTATO(new Food(new int[] {1942}, new HealingEffect(1))),
 	BAKED_POTATO(new Food(new int[] {6701}, new HealingEffect(2))),
 	SPICY_SAUCE(new Food(new int[] {7072, 1923}, new HealingEffect(2))),
 	CHILLI_CON_CARNE(new Food(new int[] {7062, 1923}, new HealingEffect(5))),
@@ -305,13 +306,13 @@ public enum Consumables {
 	AGILITY(new Potion(new int[] {3032, 3034, 3036, 3038}, new SkillEffect(Skills.AGILITY, 3, 0))),
 	HUNTER(new Potion(new int[] {9998, 10000, 10002, 10004}, new SkillEffect(Skills.HUNTER, 3, 0))),
 	RESTORE(new Potion(new int[] {2430, 127, 129, 131}, new RestoreEffect(10, 0.3))),
-	SARA_BREW(new Potion(new int[] {6685, 6687, 6689, 6691}, new MultiEffect(new PercentHeal(0.15), new SkillEffect(Skills.ATTACK, 0, -0.10), new SkillEffect(Skills.STRENGTH, 0, -0.10), new SkillEffect(Skills.MAGIC, 0, -0.10), new SkillEffect(Skills.RANGE, 0, -0.10), new SkillEffect(Skills.DEFENCE, 2, 0.2)))),
+	SARA_BREW(new Potion(new int[] {6685, 6687, 6689, 6691}, new MultiEffect(new SkillEffect(Skills.HITPOINTS, 0, 0.15), new SkillEffect(Skills.ATTACK, 0, -0.10), new SkillEffect(Skills.STRENGTH, 0, -0.10), new SkillEffect(Skills.MAGIC, 0, -0.10), new SkillEffect(Skills.RANGE, 0, -0.10), new SkillEffect(Skills.DEFENCE, 2, 0.2)))),
 	SUMMONING(new Potion(new int[] {12140, 12142, 12144, 12146}, new SkillEffect(Skills.SUMMONING, 7, 0.25))),
 	COMBAT(new Potion(new int[] {9739, 9741, 9743, 9745}, new MultiEffect(new SkillEffect(Skills.STRENGTH, 3, .1), new SkillEffect(Skills.ATTACK, 3, .1)))),
 	ENERGY(new Potion(new int[] {3008, 3010, 3012, 3014}, new MultiEffect(new EnergyEffect(10), new HealingEffect(3)))),
 	FISHING(new Potion(new int[] {2438, 151, 153, 155}, new SkillEffect(Skills.FISHING, 3, 0))),
 	PRAYER(new Potion(new int[] {2434, 139, 141, 143}, new PrayerEffect(7, 0.25))),
-	SUPER_RESTO(new Potion(new int[] {3024, 3026, 3028, 3030}, new MultiEffect(new RestoreEffect(8, 0.25), new PrayerEffect(8, 0.25), new RestoreSummoning(0.25)))),
+	SUPER_RESTO(new Potion(new int[] {3024, 3026, 3028, 3030}, new MultiEffect(new RestoreEffect(8, 0.25), new PrayerEffect(8, 0.25)))),
 	ZAMMY_BREW(new Potion(new int[] {2450, 189, 191, 193}, new MultiEffect(new DamageEffect(0.1, true), new SkillEffect(Skills.ATTACK, 0, 0.15), new SkillEffect(Skills.STRENGTH, 0, 0.25), new SkillEffect(Skills.DEFENCE, 0, -0.1), new RandomPrayerEffect(0, 10)))),
 	ANTIFIRE(new Potion(new int[] {2452, 2454, 2456, 2458}, new SetAttributeEffect("fire:immune", 600, true))),
 	GUTH_REST(new Potion(new int[] {4417, 4419, 4421, 4423}, new MultiEffect(new RemoveStateEffect(EntityState.POISONED.ordinal()), new EnergyEffect(5), new HealingEffect(5)))),

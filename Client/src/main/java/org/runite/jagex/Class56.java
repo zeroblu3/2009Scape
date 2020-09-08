@@ -6,20 +6,19 @@ final class Class56 {
    static Class47 aClass47_885 = new Class47(128);
    static RSInterface aClass11_886 = null;
    static int[] localPlayerIndexes = new int[2048];
-   static int anInt889;
    static Class106[] aClass106Array890;
    
    static RSString aClass94_892 = RSString.createRSString(" )2> <col=ffffff>");
    static int anInt893 = 0;
 
-   static final int method1186(int var0, int var1) {
+   static int method1186(int var1) {
       try {
          double var2 = (double)(255 & var1 >> 16) / 256.0D;
          double var4 = (double)(255 & var1 >> 8) / 256.0D;
          double var12 = 0.0D;
          double var6 = (double)(255 & var1) / 256.0D;
          double var8 = var2;
-         double var14 = (double)var0;
+         double var14 = (double) 0;
          double var10 = var2;
          if(var2 > var4) {
             var8 = var4;
@@ -90,7 +89,7 @@ final class Class56 {
 
          return (var18 >> 2 << 10) + (var19 >> 5 << 7) + (var20 >> 1);
       } catch (RuntimeException var21) {
-         throw Class44.method1067(var21, "ib.A(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var21, "ib.A(" + 0 + ',' + var1 + ')');
       }
    }
 
@@ -106,11 +105,11 @@ final class Class56 {
          aClass106Array890 = null;
          aClass3_Sub26_884 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ib.B(" + var0 + ')');
+         throw Class44.clientError(var2, "ib.B(" + var0 + ')');
       }
    }
 
-   static final void method1188(int var0) {
+   static void method1188() {
       try {
          MouseListeningClass.anIntArray1920 = null;
          Class38_Sub1.anIntArrayArrayArray2609 = (int[][][])null;
@@ -124,11 +123,11 @@ final class Class56 {
          Class129.anIntArray1695 = null;
          Class3_Sub31.anIntArray2606 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "ib.D(" + var0 + ')');
+         throw Class44.clientError(var2, "ib.D(" + -113 + ')');
       }
    }
 
-   static final boolean method1189(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, GameObject var8, int var9, boolean var10, long var11) {
+   static boolean method1189(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, GameObject var8, int var9, boolean var10, long var11) {
       boolean var13 = Class44.anIntArrayArrayArray723 == Class3_Sub28_Sub7.anIntArrayArrayArray3605;
       int var14 = 0;
 

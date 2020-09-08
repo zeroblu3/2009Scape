@@ -2,11 +2,9 @@ package org.runite.jagex;
 
 final class Class23 {
 
-   static int anInt452;
    static int anInt453 = 0;
    static int anInt454;
    static int anInt455;
-   static int anInt456;
    static boolean[][] aBooleanArrayArray457;
 
 
@@ -14,27 +12,26 @@ final class Class23 {
       try {
          aBooleanArrayArray457 = (boolean[][])null;
          if(var0 != 0) {
-            aBooleanArrayArray457 = (boolean[][])((boolean[][])null);
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "dl.A(" + var0 + ')');
+         throw Class44.clientError(var2, "dl.A(" + var0 + ')');
       }
    }
 
-   static final void method938(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+   static void method938(int var0, int var1, int var2, int var3, int var4, int var5, int var7, int var8) {
       try {
          int var9 = var2 - var7;
          int var10 = var3 - var8;
          int var11 = (-var1 + var0 << 16) / var9;
          int var12 = (-var5 + var4 << 16) / var10;
-         Class136.method1814(var1, var3, var2, var12, var7, 0, 0, 127, var11, var8, var5);
+         Class136.method1814(var1, var3, var2, var12, var7, var11, var8, var5);
       } catch (RuntimeException var13) {
-         throw Class44.method1067(var13, "dl.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ')');
+         throw Class44.clientError(var13, "dl.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + 1 + ',' + var7 + ',' + var8 + ')');
       }
    }
 
-   static final RSByteBuffer method939(byte var0) {
+   static RSByteBuffer method939() {
       try {
          RSByteBuffer var1 = new RSByteBuffer(34);
          var1.putByte((byte)-40, 11);
@@ -49,7 +46,7 @@ final class Class23 {
          var1.putByte((byte)-6, !Class140_Sub6.aBoolean2910?0:1);
          var1.putByte((byte)-83, Class80.anInt1137);
          var1.putByte((byte)-29, !Class106.aBoolean1441?0:1);
-         var1.putByte(var0, Class128.aBoolean1685?1:0);
+         var1.putByte((byte) -116, Class128.aBoolean1685?1:0);
          var1.putByte((byte)-45, Class38.aBoolean661?1:0);
          var1.putByte((byte)-78, Class3_Sub28_Sub9.anInt3622);
          var1.putByte((byte)-118, !Class3_Sub13_Sub15.aBoolean3184?0:1);
@@ -68,11 +65,11 @@ final class Class23 {
          var1.putByte((byte)-79, Class163_Sub3.aBoolean3004?1:0);
          return var1;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "dl.C(" + var0 + ')');
+         throw Class44.clientError(var2, "dl.C(" + (byte) -116 + ')');
       }
    }
 
-   static final void method940(int var0, int var1) {
+   static void method940(int var0, int var1) {
       try {
          if(var0 >= 101) {
             MouseListeningClass var2 = Class3_Sub28_Sub7_Sub1.aClass149_4047;
@@ -81,7 +78,7 @@ final class Class23 {
             }
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "dl.D(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var5, "dl.D(" + var0 + ',' + var1 + ')');
       }
    }
 

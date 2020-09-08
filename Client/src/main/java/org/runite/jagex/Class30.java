@@ -6,7 +6,7 @@ import java.io.IOException;
 final class Class30 {
 
    private long aLong563;
-   private byte[] aByteArray564;
+   private final byte[] aByteArray564;
    static RSString COMMAND_TOGGLE_FPSOFF = RSString.createRSString("::fpsoff");
    private int anInt566 = 0;
    static RSString cmdChalReq = RSString.createRSString(":chalreq:");
@@ -14,8 +14,8 @@ final class Class30 {
    private long aLong569;
    private long aLong570;
    private long aLong571 = -1L;
-   private byte[] aByteArray572;
-   private Class122 aClass122_573;
+   private final byte[] aByteArray572;
+   private final Class122 aClass122_573;
    static int[] anIntArray574 = new int[14];
    private int anInt575;
    private long aLong576 = -1L;
@@ -33,13 +33,12 @@ final class Class30 {
             COMMAND_TOGGLE_FPSOFF = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "en.G(" + var0 + ')');
+         throw Class44.clientError(var2, "en.G(" + var0 + ')');
       }
    }
 
-   private final void method975(byte var1) throws IOException {
+   private void method975(byte var1) throws IOException {
       try {
-         int var2 = 56 % ((45 - var1) / 44);
          if(-1L != this.aLong571) {
             if(this.aLong571 != this.aLong570) {
                this.aClass122_573.method1737((byte)-10, this.aLong571);
@@ -76,7 +75,7 @@ final class Class30 {
          }
 
       } catch (RuntimeException var8) {
-         throw Class44.method1067(var8, "en.C(" + var1 + ')');
+         throw Class44.clientError(var8, "en.C(" + var1 + ')');
       }
    }
 
@@ -88,23 +87,20 @@ final class Class30 {
 
          return this.aLong568;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "en.J(" + var1 + ')');
+         throw Class44.clientError(var3, "en.J(" + var1 + ')');
       }
    }
 
-   private final File method977(int var1) {
+   private File method977() {
       try {
-         if(var1 != 281669816) {
-            method974(true);
-         }
 
-         return this.aClass122_573.method1742(-83);
+          return this.aClass122_573.method1742(-83);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "en.D(" + var1 + ')');
+         throw Class44.clientError(var3, "en.D(" + 281669816 + ')');
       }
    }
 
-   final void method978(int var1, byte[] var2, int var3, int var4) throws IOException {
+   final void method978(int var1, byte[] var2, int var3) throws IOException {
       try {
          try {
             if(var1 - -var3 > var2.length) {
@@ -146,7 +142,7 @@ final class Class30 {
                   var1 += var9;
                }
             } else if(var3 > 0) {
-               this.method981(4393);
+               this.method981();
                var9 = var3;
                if(var3 > this.anInt575) {
                   var9 = this.anInt575;
@@ -200,49 +196,39 @@ final class Class30 {
             throw var14;
          }
 
-         if(var4 < var3) {
+         if(0 < var3) {
             throw new EOFException();
          }
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "en.F(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var15, "en.F(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + 0 + ')');
       }
    }
 
-   static final void method979(int var0, int var1, int var2, byte var3) {
+   static void method979(int var0, int var1, int var2) {
       try {
          RSString var4 = RenderAnimationDefinition.method903(new RSString[]{Class52.aClass94_853, Class72.method1298((byte)9, var2), Class3_Sub13_Sub22.aClass94_3268, Class72.method1298((byte)9, var0 >> 6), Class3_Sub13_Sub22.aClass94_3268, Class72.method1298((byte)9, var1 >> 6), Class3_Sub13_Sub22.aClass94_3268, Class72.method1298((byte)9, var0 & 63), Class3_Sub13_Sub22.aClass94_3268, Class72.method1298((byte)9, 63 & var1)}, (byte)-90);
-         var4.method1549(false);
-         if(var3 != -4) {
-            aClass94_577 = (RSString)null;
-         }
 
-         Class73.ClientCommands(var4, false);
+          Class73.ClientCommands(var4);
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "en.I(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var5, "en.I(" + var0 + ',' + var1 + ',' + var2 + ',' + (byte) -4 + ')');
       }
    }
 
-   final void method980(boolean var1) throws IOException {
+   final void method980() throws IOException {
       try {
          this.method975((byte)-75);
          this.aClass122_573.close(1);
-         if(var1) {
-            this.aLong569 = 91L;
-         }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "en.K(" + var1 + ')');
+         throw Class44.clientError(var3, "en.K(" + false + ')');
       }
    }
 
-   private final void method981(int var1) throws IOException {
+   private void method981() throws IOException {
       try {
          this.anInt575 = 0;
-         if(var1 != 4393) {
-            this.method976(-127);
-         }
 
-         if(this.aLong570 != this.aLong569) {
+          if(this.aLong570 != this.aLong569) {
             this.aClass122_573.method1737((byte)-10, this.aLong569);
             this.aLong570 = this.aLong569;
          }
@@ -263,19 +249,16 @@ final class Class30 {
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "en.A(" + var1 + ')');
+         throw Class44.clientError(var4, "en.A(" + 4393 + ')');
       }
    }
 
-   final void method982(boolean var1, byte[] var2) throws IOException {
+   final void method982(byte[] var2) throws IOException {
       try {
-         if(var1) {
-            method979(-72, 3, 3, (byte)-115);
-         }
 
-         this.method978(0, var2, var2.length, 0);
+          this.method978(0, var2, var2.length);
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "en.B(" + var1 + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var4, "en.B(" + false + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 
@@ -358,7 +341,7 @@ final class Class30 {
          }
 
       } catch (RuntimeException var11) {
-         throw Class44.method1067(var11, "en.H(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var11, "en.H(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -371,22 +354,22 @@ final class Class30 {
             }
 
          } else {
-            throw new IOException("Invalid seek to " + var2 + " in file " + this.method977(281669816));
+            throw new IOException("Invalid seek to " + var2 + " in file " + this.method977());
          }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "en.E(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var5, "en.E(" + var1 + ',' + var2 + ')');
       }
    }
 
-   Class30(Class122 var1, int var2, int var3) throws IOException {
+   Class30(Class122 var1, int var2) throws IOException {
       try {
          this.aClass122_573 = var1;
          this.aLong568 = this.aLong563 = var1.method1741(-1);
-         this.aByteArray572 = new byte[var3];
+         this.aByteArray572 = new byte[0];
          this.aByteArray564 = new byte[var2];
          this.aLong569 = 0L;
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "en.<init>(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var5, "en.<init>(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + 0 + ')');
       }
    }
 

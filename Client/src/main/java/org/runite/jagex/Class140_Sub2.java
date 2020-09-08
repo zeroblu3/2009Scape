@@ -8,84 +8,76 @@ final class Class140_Sub2 extends GameObject {
    static boolean aBoolean2705 = true;
    private int anInt2706 = 0;
    static RSString aClass94_2707 = RSString.createRSString("<br>(X100(U(Y");
-   private int anInt2708;
+   private final int anInt2708;
    static int[] anIntArray2709 = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, '\uffff', 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, Integer.MAX_VALUE, -1};
    int anInt2710;
    private AnimationDefinition aClass142_2711;
    int anInt2712;
    static boolean aBoolean2713;
-   private int anInt2714 = -1;
    private int anInt2715 = -32768;
    int anInt2716;
    int anInt2717;
-   boolean aBoolean2718 = false;
+   boolean aBoolean2718;
    private int anInt2719 = 0;
 
 
-   private final Model method1949(boolean var1) {
+   private Model method1949() {
       try {
          GraphicDefinition var2 = RenderAnimationDefinition.getGraphicDefinition((byte)42, this.anInt2708);
-         if(var1) {
-            aClass94_2707 = (RSString)null;
-         }
 
          Model var3;
          if(this.aBoolean2718) {
-            var3 = var2.method966(-1, (byte)-30, -1, 0);
+            var3 = var2.method966(-1, -1, 0);
          } else {
-            var3 = var2.method966(this.anInt2714, (byte)-30, this.anInt2706, this.anInt2719);
+            int anInt2714 = -1;
+            var3 = var2.method966(anInt2714, this.anInt2706, this.anInt2719);
          }
 
-         return var3 == null?null:var3;
+         return var3;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "bh.E(" + var1 + ')');
+         throw Class44.clientError(var4, "bh.E(" + false + ')');
       }
    }
 
-   static final void method1950(Class140_Sub4 var0, boolean var1) {
+   static void method1950(Class140_Sub4 var0) {
       try {
          int var2 = var0.anInt2800 - Class44.anInt719;
-         int var3 = 128 * var0.anInt2784 - -(64 * var0.getSize((byte)114));
-         if(var1) {
-            int var4 = 128 * var0.anInt2835 - -(var0.getSize((byte)114) * 64);
-            if(0 == var0.anInt2840) {
-               var0.anInt2806 = 1024;
-            }
+         int var3 = 128 * var0.anInt2784 - -(64 * var0.getSize());
+          int var4 = 128 * var0.anInt2835 - -(var0.getSize() * 64);
+          if(0 == var0.anInt2840) {
+             var0.anInt2806 = 1024;
+          }
 
-            var0.anInt2819 += (-var0.anInt2819 + var3) / var2;
-            var0.anInt2829 += (var4 + -var0.anInt2829) / var2;
-            if(var0.anInt2840 == 1) {
-               var0.anInt2806 = 1536;
-            }
+          var0.anInt2819 += (-var0.anInt2819 + var3) / var2;
+          var0.anInt2829 += (var4 + -var0.anInt2829) / var2;
+          if(var0.anInt2840 == 1) {
+             var0.anInt2806 = 1536;
+          }
 
-            var0.anInt2824 = 0;
-            if(var0.anInt2840 == 2) {
-               var0.anInt2806 = 0;
-            }
+          var0.anInt2824 = 0;
+          if(var0.anInt2840 == 2) {
+             var0.anInt2806 = 0;
+          }
 
-            if(var0.anInt2840 == 3) {
-               var0.anInt2806 = 512;
-            }
+          if(var0.anInt2840 == 3) {
+             var0.anInt2806 = 512;
+          }
 
-         }
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "bh.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
+         throw Class44.clientError(var5, "bh.F(" + (var0 != null?"{...}":"null") + ',' + true + ')');
       }
    }
 
-   static final int method1951(int var0, byte var1) {
+   static int method1951(int var0) {
       try {
-         if(var1 > -67) {
-            aBoolean2713 = false;
-         }
 
          return var0 >>> 8;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "bh.D(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "bh.D(" + var0 + ',' + (byte) -115 + ')');
       }
    }
 
-   static final void method1952(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   static void method1952(int var0, int var2, int var3, int var4, int var5, int var6, int var7) {
       try {
          int var8;
          int var9;
@@ -124,30 +116,23 @@ final class Class140_Sub2 extends GameObject {
             var12 = var12 * var14 >> 16;
          }
 
-         if(var1 != -1907397104) {
-            method1950((Class140_Sub4)null, false);
-         }
-
          Class139.anInt1823 = var7;
          Class3_Sub13_Sub25.anInt3315 = var5;
          Class77.anInt1111 = var6 + -var12;
          NPC.anInt3995 = var0 + -var10;
          Class7.anInt2162 = -var11 + var3;
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "bh.G(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var15, "bh.G(" + var0 + ',' + -1907397104 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 
-   static final WorldListEntry method1953(byte var0) {
+   static WorldListEntry method1953() {
       try {
-         if(var0 <= 97) {
-            anIntArray2709 = (int[])null;
-         }
 
          Class3_Sub6.anInt2291 = 0;
          return ItemDefinition.method1107(5422);
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "bh.H(" + var0 + ')');
+         throw Class44.clientError(var2, "bh.H(" + (byte) 124 + ')');
       }
    }
 
@@ -155,7 +140,7 @@ final class Class140_Sub2 extends GameObject {
       try {
          return this.anInt2715;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "bh.MA()");
+         throw Class44.clientError(var2, "bh.MA()");
       }
    }
 
@@ -166,28 +151,25 @@ final class Class140_Sub2 extends GameObject {
             aClass94_2707 = null;
          }
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "bh.B(" + var0 + ')');
+         throw Class44.clientError(var2, "bh.B(" + var0 + ')');
       }
    }
 
    final void animate(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9, int var11, Class127_Sub1 var12) {
       try {
-         Model var13 = this.method1949(false);
+         Model var13 = this.method1949();
          if(var13 != null) {
             var13.animate(var1, var2, var3, var4, var5, var6, var7, var8, var9, var11, this.aClass127_Sub1_2704);
             this.anInt2715 = var13.method1871();
          }
       } catch (RuntimeException var14) {
-         throw Class44.method1067(var14, "bh.IA(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var14, "bh.IA(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + var9 + ',' + var11 + ',' + (var12 != null?"{...}":"null") + ')');
       }
    }
 
-   final void method1955(boolean var1, int var2) {
+   final void method1955(int var2) {
       try {
          if(!this.aBoolean2718) {
-            if(!var1) {
-               this.method1955(true, -72);
-            }
 
             this.anInt2719 += var2;
 
@@ -202,11 +184,11 @@ final class Class140_Sub2 extends GameObject {
 
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "bh.A(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "bh.A(" + true + ',' + var2 + ')');
       }
    }
 
-   static final void method1956(int var0, int var1, int var2, int var3) {
+   static void method1956(int var0, int var1, int var2, int var3) {
       Class3_Sub2 var4 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2];
       if(var4 != null) {
          Class19 var5 = var4.aClass19_2233;
@@ -232,11 +214,11 @@ final class Class140_Sub2 extends GameObject {
             this.aBoolean2718 = true;
          } else {
             this.aBoolean2718 = false;
-            this.aClass142_2711 = Client.getAnimationDefinition(var8, (byte)-20);
+            this.aClass142_2711 = Client.getAnimationDefinition(var8);
          }
 
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "bh.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var9, "bh.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 

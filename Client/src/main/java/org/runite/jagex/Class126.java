@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class Class126 {
 
-   static int[] anIntArray1662;
    int anInt1663;
    int anInt1664;
    static int anInt1665;
@@ -14,24 +13,22 @@ final class Class126 {
    static Client aClient1671;
    static int anInt1672 = 0;
    int anInt1673;
-   boolean aBoolean1674 = true;
+   boolean aBoolean1674;
    int anInt1675;
    static int anInt1676 = 0;
-   static int anInt1677;
 
 
    public static void method1751(byte var0) {
       try {
          aClass13_1666 = null;
          aClient1671 = null;
-         anIntArray1662 = null;
+         ItemDefinition.intArguments = null;
          aClass3_Sub28_Sub17_1669 = null;
          if(var0 != -58) {
-            aClass13_1666 = (NodeList)null;
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "rh.A(" + var0 + ')');
+         throw Class44.clientError(var2, "rh.A(" + var0 + ')');
       }
    }
 
@@ -45,7 +42,7 @@ final class Class126 {
          this.anInt1663 = var4;
          this.anInt1670 = var5;
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "rh.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var9, "rh.<init>(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 

@@ -11,7 +11,7 @@ public class Display {
    private DisplayMode aDisplayMode446;
 
 
-   private void method917(Frame var1, byte var2) {
+   private void method917(Frame var1) {
       boolean var3 = false;
 
       Field var4;
@@ -25,7 +25,6 @@ public class Display {
             var3 = true;
          }
       } catch (Throwable var15) {
-         ;
       }
 
       var5 = false;
@@ -33,19 +32,13 @@ public class Display {
       try {
          var5 = true;
          this.aGraphicsDevice445.setFullScreenWindow(var1);
-         if(var2 == -63) {
-            var5 = false;
-         } else {
-            this.method918(90, -112, -67, 27, (Frame)null, -49);
-            var5 = false;
-         }
+          var5 = false;
       } finally {
          if(var5 && var3) {
             try {
                Field var7 = Class.forName("sun.awt.Win32GraphicsDevice").getDeclaredField("valid");
                var7.set(this.aGraphicsDevice445, Boolean.TRUE);
             } catch (Throwable var13) {
-               ;
             }
          }
 
@@ -56,7 +49,6 @@ public class Display {
             var4 = Class.forName("sun.awt.Win32GraphicsDevice").getDeclaredField("valid");
             var4.set(this.aGraphicsDevice445, Boolean.TRUE);
          } catch (Throwable var14) {
-            ;
          }
       }
 
@@ -73,7 +65,7 @@ public class Display {
       } else {
          var5.setUndecorated(true);
          var5.enableInputMethods(false);
-         this.method917(var5, (byte)-63);
+         this.method917(var5);
          if(var2 == 0) {
             int var7 = this.aDisplayMode446.getRefreshRate();
             DisplayMode[] var8 = this.aGraphicsDevice445.getDisplayModes();
@@ -116,7 +108,7 @@ public class Display {
       }
    }
 
-   public void method920(int var1) {
+   public void method920() {
       if(this.aDisplayMode446 != null) {
          this.aGraphicsDevice445.setDisplayMode(this.aDisplayMode446);
          if(!this.aGraphicsDevice445.getDisplayMode().equals(this.aDisplayMode446)) {
@@ -126,19 +118,16 @@ public class Display {
          this.aDisplayMode446 = null;
       }
 
-      this.method917((Frame)null, (byte)-63);
-      int var2 = -121 / ((-64 - var1) / 47);
+      this.method917((Frame)null);
    }
 
    public Display() throws Exception {
       GraphicsEnvironment var1 = GraphicsEnvironment.getLocalGraphicsEnvironment();
       this.aGraphicsDevice445 = var1.getDefaultScreenDevice();
       if(!this.aGraphicsDevice445.isFullScreenSupported()) {
-         GraphicsDevice[] var2 = var1.getScreenDevices();
-         GraphicsDevice[] var3 = var2;
 
-         for(int var4 = 0; var3.length > var4; ++var4) {
-            GraphicsDevice var5 = var3[var4];
+         for(int var4 = 0; var1.getScreenDevices().length > var4; ++var4) {
+            GraphicsDevice var5 = var1.getScreenDevices()[var4];
             if(var5 != null && var5.isFullScreenSupported()) {
                this.aGraphicsDevice445 = var5;
                return;

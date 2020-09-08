@@ -19,11 +19,11 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
 
          aClass148_3049 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "an.E(" + var0 + ')');
+         throw Class44.clientError(var2, "an.E(" + var0 + ')');
       }
    }
 
-   static final RSString method178(byte[] var0, int var1, int var2, int var3) {
+   static RSString method178(byte[] var0, int var2, int var3) {
       try {
          RSString var4 = new RSString();
          var4.byteArray = new byte[var2];
@@ -41,7 +41,7 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
          }
          return var4;
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "an.B(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var6, "an.B(" + (var0 != null?"{...}":"null") + ',' + -4114 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
@@ -56,17 +56,17 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
          }
 
          if(0 == var1) {
-            this.anInt3047 = var2.getShort(1);
+            this.anInt3047 = var2.getShort();
          } else if(var1 == 1) {
-            this.aBoolean3050 = var2.getByte((byte)-88) == 1;
+            this.aBoolean3050 = var2.getByteB() == 1;
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "an.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "an.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
-   static final int method179(byte var0, int var1) {
+   static int method179(byte var0, int var1) {
       try {
          if(var0 == 92) {
             if(null != Class3_Sub15.aClass89_2429) {
@@ -93,11 +93,11 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
             return 122;
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "an.F(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "an.F(" + var0 + ',' + var1 + ')');
       }
    }
 
-   static final void method180(int var0, int var1, int var2) {
+   static void method180(int var0, int var1, int var2) {
       try {
          int var3;
          if(Class113.anInt1559 != var2) {
@@ -112,7 +112,6 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
             Class113.anInt1559 = var2;
          }
 
-         var3 = 111 / ((56 - var0) / 38);
          if(Class101.anInt1427 != var1) {
             if(Class113.anInt1559 == var1) {
                Class163_Sub3.anIntArray2999 = Class102.anIntArray2125;
@@ -129,20 +128,17 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "an.S(" + var0 + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var5, "an.S(" + var0 + ',' + var1 + ',' + var2 + ')');
       }
    }
 
-   static final boolean method181(int var0) {
+   static boolean method181() {
       try {
-         if(var0 != -15450) {
-            method182(false);
-         }
 
          try {
-            return PacketParser.parseIncomingPackets((byte)-83);
+            return PacketParser.parseIncomingPackets();
          } catch (IOException var4) {
-            Class3_Sub13_Sub24.method289(false);
+            Class3_Sub13_Sub24.method289();
             return true;
          } catch (Exception var5) {
             String var2 = "T2 - " + RSString.incomingOpcode + "," + Class7.anInt2166 + "," + Class24.anInt469 + " - " + Class130.incomingPacketLength + "," + (Class131.anInt1716 - -Class102.player.anIntArray2767[0]) + "," + (Class102.player.anIntArray2755[0] + Class82.anInt1152) + " - ";
@@ -156,48 +152,42 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
             return true;
          }
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "an.C(" + var0 + ')');
+         throw Class44.clientError(var6, "an.C(" + -15450 + ')');
       }
    }
 
-   static final void method182(boolean var0) {
+   static void method182() {
       try {
-         if(!var0) {
+         if(false) {
             method179((byte)120, -73);
          }
 
-         Class82.aClass93_1146.method1524(3);
-         Class159.aClass93_2016.method1524(3);
+         Class82.aClass93_1146.method1524();
+         Class159.aClass93_2016.method1524();
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "an.Q(" + var0 + ')');
+         throw Class44.clientError(var2, "an.Q(" + true + ')');
       }
    }
 
-   static final void method183(int var0) {
+   static void method183() {
       try {
-         if(var0 > -91) {
-            aClass148_3049 = (KeyboardListener)null;
-         }
 
-         Class41.aClass93_684.method1524(3);
-         Class163_Sub1.aClass93_2984.method1524(3);
+         Class41.aClass93_684.method1524();
+         Class163_Sub1.aClass93_2984.method1524();
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "an.O(" + var0 + ')');
+         throw Class44.clientError(var2, "an.O(" + -108 + ')');
       }
    }
 
-   static final void method184(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+   static void method184(int var0, int var1, int var2, int var3, int var5, int var6) {
       try {
-         int var11 = Class40.method1040(Class57.anInt902, var6, (byte)0, Class159.anInt2020);
-         int var12 = Class40.method1040(Class57.anInt902, var0, (byte)0, Class159.anInt2020);
-         int var13 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var3, (byte)0, Class101.anInt1425);
-         int var14 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var2, (byte)0, Class101.anInt1425);
-         if(var4 != 1) {
-            method183(-1);
-         }
+         int var11 = Class40.method1040(Class57.anInt902, var6, Class159.anInt2020);
+         int var12 = Class40.method1040(Class57.anInt902, var0, Class159.anInt2020);
+         int var13 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var3, Class101.anInt1425);
+         int var14 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var2, Class101.anInt1425);
 
-         int var7 = Class40.method1040(Class57.anInt902, var6 + var1, (byte)0, Class159.anInt2020);
-         int var8 = Class40.method1040(Class57.anInt902, -var1 + var0, (byte)0, Class159.anInt2020);
+         int var7 = Class40.method1040(Class57.anInt902, var6 + var1, Class159.anInt2020);
+         int var8 = Class40.method1040(Class57.anInt902, -var1 + var0, Class159.anInt2020);
 
          int var15;
          for(var15 = var11; var7 > var15; ++var15) {
@@ -208,17 +198,17 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
             Class3_Sub13_Sub23_Sub1.method282(Class38.anIntArrayArray663[var15], var13, -76, var14, var5);
          }
 
-         int var9 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var1 + var3, (byte)0, Class101.anInt1425);
-         int var10 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, -var1 + var2, (byte)0, Class101.anInt1425);
+         int var9 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, var1 + var3, Class101.anInt1425);
+         int var10 = Class40.method1040(Class3_Sub28_Sub18.anInt3765, -var1 + var2, Class101.anInt1425);
 
          for(var15 = var7; var8 >= var15; ++var15) {
             int[] var16 = Class38.anIntArrayArray663[var15];
             Class3_Sub13_Sub23_Sub1.method282(var16, var13, -59, var9, var5);
-            Class3_Sub13_Sub23_Sub1.method282(var16, var10, var4 + -97, var14, var5);
+            Class3_Sub13_Sub23_Sub1.method282(var16, var10, 1 + -97, var14, var5);
          }
 
       } catch (RuntimeException var17) {
-         throw Class44.method1067(var17, "an.R(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ')');
+         throw Class44.clientError(var17, "an.R(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + 1 + ',' + var5 + ',' + var6 + ')');
       }
    }
 
@@ -272,7 +262,7 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var21) {
-         throw Class44.method1067(var21, "an.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var21, "an.T(" + var1 + ',' + var2 + ')');
       }
    }
 
