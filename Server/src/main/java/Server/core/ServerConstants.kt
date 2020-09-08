@@ -180,10 +180,6 @@ class ServerConstants {
 			DATABASE_ADDRESS = data["database_address"].toString()
 			DATABASE_PORT = data["database_port"].toString()
 
-			SQLManager.SQL_SERVER_ADDRESS = DATABASE_ADDRESS
-			SQLManager.USERNAME = DATABASE_USER
-			SQLManager.PASSWORD = DATABASE_PASS
-			SQLManager.PORT = DATABASE_PORT
 			DATABASE = Database(DATABASE_ADDRESS, DATABASE_NAME, DATABASE_USER, DATABASE_PASS)
 		}
 	}

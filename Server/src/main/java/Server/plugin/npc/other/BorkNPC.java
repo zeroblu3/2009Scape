@@ -1,16 +1,7 @@
 package plugin.npc.other;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import core.game.component.Component;
-import plugin.activity.ActivityPlugin;
-import plugin.activity.CutscenePlugin;
-import plugin.dialogue.DialogueInterpreter;
-import plugin.dialogue.DialoguePlugin;
-import plugin.dialogue.FacialExpression;
 import core.game.content.global.BossKillCounter;
-import plugin.skill.Skills;
 import core.game.interaction.Option;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
@@ -30,14 +21,23 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphics;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.CameraContext;
-import core.net.packet.context.MinimapStateContext;
 import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.context.MinimapStateContext;
 import core.net.packet.out.CameraViewPacket;
 import core.net.packet.out.MinimapState;
+import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.plugin.PluginManager;
-import core.plugin.InitializablePlugin;
 import core.tools.RandomFunction;
+import plugin.activity.ActivityPlugin;
+import plugin.activity.CutscenePlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.dialogue.FacialExpression;
+import plugin.skill.Skills;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles the bork npc.
@@ -161,7 +161,7 @@ public class BorkNPC extends AbstractNPC {
 		} else {
 			player.getSkills().addExperience(Skills.SLAYER, 1500, true);
 		}
-		ChanceItem[] drops = player.getEquipment().contains(2572, 1) ? RING_DROPS : DROPS;
+		ChanceItem[] drops = new Item(player.getEquipment().getId(12)).getName().toLowerCase().contains("ring of wealth") ? RING_DROPS : DROPS;
 		for (int i = 0; i < drops.length; i++) {
 			Item item = new Item(drops[i].getId(), RandomFunction.random(drops[i].getMinimumAmount(), drops[i].getMaximumAmount()));
 			GroundItemManager.create(item, getLocation(), player);

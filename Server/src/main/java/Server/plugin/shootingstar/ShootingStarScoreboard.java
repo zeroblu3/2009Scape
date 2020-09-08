@@ -6,10 +6,8 @@ import core.game.component.ComponentPlugin;
 import core.game.node.entity.player.Player;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import core.plugin.PluginManifest;
 
 @InitializablePlugin
-@PluginManifest(name="ShootingStars")
 public class ShootingStarScoreboard extends ComponentPlugin {
     public static Component iface = new Component(787);
 

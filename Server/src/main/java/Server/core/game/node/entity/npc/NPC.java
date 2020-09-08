@@ -4,8 +4,8 @@ import core.cache.def.impl.NPCDefinition;
 import core.game.system.config.NPCConfigParser;
 import core.game.system.config.ShopParser;
 import plugin.dialogue.DialoguePlugin;
-import plugin.jobs.impl.SlayingJob;
 import core.game.content.global.shop.Shop;
+import plugin.jobs.JobManager;
 import plugin.shops.Shops;
 import plugin.skill.Skills;
 import plugin.skill.slayer.Tasks;
@@ -507,8 +507,8 @@ public class NPC extends Entity {
 		if (task != null && killer instanceof Player && ((Player) killer).getSlayer().getTask() == task) {
 			((Player) killer).getSlayer().finalizeDeath(killer.asPlayer(), this);
 		}
-		if (killer instanceof Player && ((Player)killer).getJobsManager().getJob() != null && ((Player)killer).getJobsManager().getJob() instanceof SlayingJob) {
-			((SlayingJob) ((Player)killer).getJobsManager().getJob() ).handleDeath(this);
+		if (killer instanceof Player && killer.getAttribute("jobs:id",null) != null) {
+			JobManager.handleDeath(id,(Player) killer);
 		}
 		setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
 		Player p = killer == null || !(killer instanceof Player) ? null : (Player) killer;

@@ -1,5 +1,13 @@
 package ms.system.communication;
 
+import ms.ServerConstants;
+import ms.net.packet.WorldPacketRepository;
+import ms.system.util.ByteBufferUtils;
+import ms.system.util.StringUtils;
+import ms.world.GameServer;
+import ms.world.PlayerSession;
+import ms.world.WorldDatabase;
+
 import java.nio.ByteBuffer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import ms.ServerConstants;
-import ms.net.packet.WorldPacketRepository;
-import ms.system.util.ByteBufferUtils;
-import ms.system.util.StringUtils;
-import ms.world.GameServer;
-import ms.world.PlayerSession;
-import ms.world.WorldDatabase;
 
 /**
  * Holds communication information.
@@ -48,7 +48,7 @@ public final class CommunicationInfo {
 	/**
 	 * The current clan this player is in.
 	 */
-	private String currentClan = "keldagrim";
+	private String currentClan = "2009scape";
 
 	/**
 	 * The rank required for joining.
@@ -68,7 +68,7 @@ public final class CommunicationInfo {
 	/**
 	 * The rank required for loot-share.
 	 */
-	private ClanRank lootRequirement = ClanRank.KELDAGRIM_MOD;
+	private ClanRank lootRequirement = ClanRank.ADMINISTRATOR;
 
 	/**
 	 * The public chat setting.
@@ -479,7 +479,7 @@ public final class CommunicationInfo {
 	public ClanRank getRank(String contact) {
 		for (String name : ServerConstants.ADMINISTRATORS) {
 			if (contact.equals(name)) {
-				return ClanRank.KELDAGRIM_MOD;
+				return ClanRank.ADMINISTRATOR;
 			}
 		}
 		return contacts.get(contact);

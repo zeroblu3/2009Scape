@@ -9,6 +9,7 @@ import java.util.HashMap;
  * @author ceikry
  */
 public enum Fish {
+	CRAYFISH(new Item(13435),1,10),
 	SHRIMP(new Item(317), 1, 10), 
 	SARDINE(new Item(327), 5, 20), 
 	KARAMBWANJI(new Item(3150), 5, 5),

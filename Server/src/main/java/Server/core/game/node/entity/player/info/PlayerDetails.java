@@ -79,6 +79,8 @@ public class PlayerDetails {
 	 * The chat icon value.
 	 */
 	private Icon icon;
+
+	public int credits;
 	
 	/**
 	 * Represents the session.

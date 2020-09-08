@@ -12,10 +12,11 @@ import core.game.container.impl.BankContainer;
 import core.game.container.impl.EquipmentContainer;
 import core.game.container.impl.InventoryListener;
 import core.game.node.entity.combat.equipment.EquipmentDegrader;
+import core.tools.TickUtilsKt;
 import plugin.ame.AntiMacroHandler;
 import plugin.dialogue.DialogueInterpreter;
 import plugin.ge.GrandExchange;
-import plugin.jobs.JobsMinigameManager;
+import plugin.skill.runecrafting.PouchManager;
 import plugin.ttrail.TreasureTrailManager;
 import plugin.skill.Skills;
 import plugin.skill.construction.HouseManager;
@@ -102,6 +103,8 @@ import core.tools.StringUtils;
 import plugin.activity.pyramidplunder.PlunderObjectManager;
 import plugin.interaction.item.brawling_gloves.BrawlingGlovesManager;
 
+import static plugin.stringtools.StringToolsKt.colorize;
+
 /**
  * Represents a player entity.
  * @author Emperor
@@ -119,6 +122,8 @@ public class Player extends Entity {
 	public BankContainer dropLog = new BankContainer(this);
 
 	public EquipmentDegrader degrader = new EquipmentDegrader();
+
+	public PouchManager pouchManager = new PouchManager(this);
 
 	/**
 	 * The inventory.
@@ -304,12 +309,7 @@ public class Player extends Entity {
 	 * The Ironman manager.
 	 */
 	private final IronmanManager ironmanManager = new IronmanManager(this);
-	
-	/**
-	 * The jobs minigame manager.
-	 */
-	private final JobsMinigameManager jobsManager = new JobsMinigameManager(this);
-	
+
 	/**
 	 * The statistics manager.
 	 */
@@ -438,6 +438,27 @@ public class Player extends Entity {
 		antiMacroHandler.pulse();
 		hunterManager.pulse();
 		musicPlayer.tick();
+		if(getAttribute("fire:immune",0) > 0){
+			int time = getAttribute("fire:immune",0) - GameWorld.getTicks();
+			if(time == TickUtilsKt.secondsToTicks(30)){
+				sendMessage(colorize("%RYou have 30 seconds remaining on your antifire potion."));
+			}
+			if(time == 0){
+				sendMessage(colorize("%RYour antifire potion has expired."));
+				removeAttribute("fire:immune");
+			}
+		}
+		if(getAttribute("poison:immunity",0) > 0){
+			int time = getAttribute("poison:immunity",0) - GameWorld.getTicks();
+			debug(time + "");
+			if(time == TickUtilsKt.secondsToTicks(30)){
+				sendMessage(colorize("%RYou have 30 seconds remaining on your antipoison potion."));
+			}
+			if(time == 0){
+				sendMessage(colorize("%RYour antipoison potion has expired."));
+				removeAttribute("poison:immunity");
+			}
+		}
 		if (!artificial && (System.currentTimeMillis() - getSession().getLastPing()) > 20_000L) {
 			details.getSession().disconnect();
 			getSession().setLastPing(Long.MAX_VALUE);
@@ -572,12 +593,8 @@ public class Player extends Entity {
 						ground = new GroundItem(item.getDropItem(), getLocation(), k);
 					}
 					items.add(ground);
-					if (k.getIronmanManager().checkRestriction()) {
-						ground.setDropper(this);
-					}
-					if (getIronmanManager().getMode() != IronmanMode.ULTIMATE) {
-						GroundItemManager.create(ground);
-					}
+					ground.setDropper(this); //Checking for ironman mode in any circumstance for death items is inaccurate to how it works in both runescapes.
+					GroundItemManager.create(ground);
 				}
 			}
 			equipment.clear();
@@ -1304,10 +1321,6 @@ public class Player extends Entity {
 
 	public void setArcheryTotal(int archeryTotal) {
 		this.archeryTotal = archeryTotal;
-	}
-
-	public JobsMinigameManager getJobsManager() {
-		return jobsManager;
 	}
 
 	public PlayerStatisticsManager getStatisticsManager() {

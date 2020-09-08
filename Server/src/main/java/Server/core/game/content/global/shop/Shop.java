@@ -359,24 +359,29 @@ public class Shop {
         if (add.getAmount() > container.getMaximumAdd(add)) {
             add.setAmount(container.getMaximumAdd(add));
         }
+        player.debug("" + add.getAmount());
         if (!container.hasSpaceFor(add) || add.getAmount() < 1) {
             player.getPacketDispatch().sendMessage("The shop has ran out of space.");
             return;
         }
         final Item currency = new Item(getCurrency(), getSellingValue(add, player));
-        if (!player.getInventory().hasSpaceFor(currency)) {
-            player.getPacketDispatch().sendMessage("You don't have enough space for that many " + currency.getName().toLowerCase() + ".");
-            return;
+        if(item.getDefinition().isStackable()){
+            if (!player.getInventory().hasSpaceFor(currency)) {
+                player.getPacketDispatch().sendMessage("You don't have enough space for that many " + currency.getName().toLowerCase() + ".");
+                return;
+            }
         }
-        if (currency.getAmount() > player.getInventory().getMaximumAdd(currency)) {
-            currency.setAmount(player.getInventory().getMaximumAdd(currency));
-        }
+        player.debug("Selling item");
         if (player.getInventory().remove(add, slot, true)) {
+            if (currency.getAmount() > player.getInventory().getMaximumAdd(currency)) {
+                currency.setAmount(player.getInventory().getMaximumAdd(currency));
+            }
             if (!add.getDefinition().isUnnoted()) {
                 add = new Item(add.getNoteChange(), add.getAmount());
             }
             if (container.add(add)) {
                 if (currency.getAmount() > 0) {
+                    player.debug("Adding coins to inventory");
                     player.getInventory().add(currency);
                 }
                 final ShopViewer viewer = player.getExtension(ShopViewer.class);

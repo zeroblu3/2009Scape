@@ -26,6 +26,7 @@ import core.plugin.InitializablePlugin
 import core.plugin.Plugin
 import core.tools.RandomFunction
 import core.tools.StringUtils
+import plugin.creditshop.CreditShop
 import plugin.ge.GEOfferDispatch
 import plugin.skill.Skills
 
@@ -43,6 +44,9 @@ class PlayerCommandPlugin : CommandPlugin() {
 
     override fun parse(player: Player?, name: String?, arguments: Array<String?>?): Boolean {
         when (name) {
+            "shop" -> {
+                CreditShop().open(player).also { return true }
+            }
             "stats" -> {
                 player!!.setAttribute("runscript", object : RunScript() {
                     override fun handle(): Boolean {

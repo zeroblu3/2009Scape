@@ -14,7 +14,6 @@ import java.nio.ByteBuffer;
  * Manages the players barcrawl quest.
  * @author 'Vexia
  */
-@InitializablePlugin
 public final class BarcrawlManager implements SavingModule {
 
 	/**

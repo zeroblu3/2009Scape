@@ -1,20 +1,13 @@
 package core.game.node.entity.player.info.login;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import core.game.component.CloseEvent;
 import core.game.component.Component;
+import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.entity.player.link.emote.Emotes;
 import core.game.node.entity.player.link.music.MusicEntry;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
-import plugin.quest.tutorials.tutorialisland.CharacterDesign;
-import plugin.quest.tutorials.tutorialisland.TutorialSession;
-import core.game.node.entity.player.Player;
-import core.game.system.SystemManager;
 import core.game.world.GameWorld;
 import core.game.world.map.RegionManager;
 import core.game.world.repository.Repository;
@@ -26,6 +19,15 @@ import core.net.packet.PacketRepository;
 import core.net.packet.context.InterfaceContext;
 import core.net.packet.out.Interface;
 import core.plugin.Plugin;
+import plugin.quest.tutorials.tutorialisland.CharacterDesign;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 
 /**
@@ -47,6 +49,12 @@ public final class LoginConfiguration {
      * The lobby pane component.
      */
     private static final Component LOBBY_PANE = new Component(549);
+
+    /**
+     * The lobby message of the week models & constant to be set for auto selecting the models
+     */
+    private static final int[] MESSAGE_MODEL = {15, 16, 17, 18, 19, 20, 21, 22, 23, 405, 447, 622, 623, 679, 715, 800};
+    private static int messModel;
 
     /**
      * The lobby interface close event.
@@ -87,15 +95,34 @@ public final class LoginConfiguration {
      * @param player The player.
      */
     public static void sendLobbyScreen(Player player) {
+        messModel = autoSelect();
+        for(Player p : Repository.getLobbyPlayers()){
+            if(p.getName().equals(player.getName())){
+                p.clear();
+                Repository.getLobbyPlayers().remove(p);
+                break;
+            }
+        }
         Repository.getLobbyPlayers().add(player);
         player.getPacketDispatch().sendString(getLastLogin(player), 378, 116);
         player.getPacketDispatch().sendString("Welcome to " + GameWorld.getName(), 378, 115);
-        player.getPacketDispatch().sendString(SystemManager.getSystemConfig().getConfig("weeklyMessage", "Welcome to RuneScape!"), SystemManager.getSystemConfig().getConfig("messageInterface", 18), getMessageChild(SystemManager.getSystemConfig().getConfig("messageInterface", 18)));
+        player.getPacketDispatch().sendString(" ", 378, 37);
+        player.getPacketDispatch().sendString("Want to stay up to date with the latest news and updates? Join our <br>discord by using the link below!", 378, 38);
+        player.getPacketDispatch().sendString(" ", 378, 39);
+        player.getPacketDispatch().sendString("Discord Invite", 378, 14);
+        player.getPacketDispatch().sendString("Discord Invite", 378, 129);
+        player.getPacketDispatch().sendString("Credits", 378, 94);
+        player.getPacketDispatch().sendString(player.getDetails().credits + "", 378, 96);
+        player.getPacketDispatch().sendString(" ", 378, 229);
+        player.getPacketDispatch().sendString("Want to contribute to 2009scape? <br>Visit the github using the link below!", 378, 230);
+        player.getPacketDispatch().sendString(" ", 378, 231);
+        player.getPacketDispatch().sendString("Github", 378, 240);
+        player.getPacketDispatch().sendString(GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
         player.getPacketDispatch().sendString("You can gain more credits by voting, reporting bugs and various other methods of contribution.", 378, 93);
         player.getInterfaceManager().openWindowsPane(LOBBY_PANE);
         player.getInterfaceManager().setOpened(LOBBY_INTERFACE);
         PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 2, 378, true));
-        PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 3, SystemManager.getSystemConfig().getConfig("messageInterface", 18), true));//UPDATE `configs` SET `value`=FLOOR(RAND()*(25-10)+10) WHERE key_="messageInterface"
+        PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 3, messModel, true));//UPDATE `configs` SET `value`=FLOOR(RAND()*(25-10)+10) WHERE key_="messageInterface"
     }
 
     /**
@@ -116,6 +143,9 @@ public final class LoginConfiguration {
         player.getPlayerFlags().setUpdateSceneGraph(true);
         player.getStateManager().init();
         player.getPacketDispatch().sendInterfaceConfig(226, 1, true);
+        if(player.getGlobalData().getTestStage() == 3 && !player.getEmoteManager().isUnlocked(Emotes.SAFETY_FIRST)){
+            player.getEmoteManager().unlock(Emotes.SAFETY_FIRST);
+        }
 		/*if (GameWorld.getSettings().isPvp()) {
 			player.getPacketDispatch().sendString("", 226, 1);
 		}*/
@@ -249,30 +279,35 @@ public final class LoginConfiguration {
 
     /**
      * Gets the message child for the inter id.
-     *
+     * @notice GameSettings.kt contains the list of what these are
      * @param interfaceId The interface id.
      * @return The child id.
      */
     public static int getMessageChild(int interfaceId) {
-        //15 = keys & lock
-        //16 = fly swat
-        //17 = person with question marks
-        //18 = wise old man
-        //19 = man & woman with mouth closed
-        //20 = man & lock & key
-        //21 = closed chests
-        //22 = same as 15
-        //23 = snowmen
-        if (interfaceId == 16) {
+        if (interfaceId == 622) {
+            return 8;
+        } else if (interfaceId == 16) {
             return 6;
-        } else if (interfaceId == 17 || interfaceId == 15 || interfaceId == 18 || interfaceId == 19 || interfaceId == 21 || interfaceId == 22) {
+        } else if (interfaceId == 17 || interfaceId == 15 || interfaceId == 18 || interfaceId == 19 || interfaceId == 21 || interfaceId == 22 || interfaceId == 447 || interfaceId == 405) {
             return 4;
-        } else if (interfaceId == 20) {
+        } else if (interfaceId == 20 || interfaceId == 623) {
             return 5;
-        } else if (interfaceId == 23) {
+        } else if (interfaceId == 23 || interfaceId == 800) {
             return 3;
+        } else if (interfaceId == 715) {
+            return 2;
+        } else if (interfaceId == 679) {
+            return 1;
         }
         return 0;
+    }
+
+    /**
+     * Sets a random interface id for the "message of the week" models
+     */
+    private final static int autoSelect() {
+        boolean contains = IntStream.of(MESSAGE_MODEL).anyMatch(x -> x == GameWorld.getSettings().getMessage_model());
+        return contains ? GameWorld.getSettings().getMessage_model():MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
     }
 
     /**

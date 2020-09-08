@@ -69,7 +69,13 @@ class PlayerSaveParser(val player: Player) {
             parseStatistics()
             parseBrawlingGloves()
             parseAttributes()
+            parsePouches()
         }
+    }
+
+    fun parsePouches() {
+        if(saveFile!!.containsKey("pouches"))
+        player.pouchManager.parse(saveFile!!["pouches"] as JSONArray)
     }
 
     fun parseAttributes() {
@@ -300,6 +306,17 @@ class PlayerSaveParser(val player: Player) {
         val bank = coreData["bank"] as JSONArray
         val equipment = coreData["equipment"] as JSONArray
         val location = coreData["location"] as String
+        val bankTabData = coreData["bankTabs"]
+        if(bankTabData != null){
+            val tabData = bankTabData as JSONArray
+            for(i in tabData){
+                i ?: continue
+                val tab = i as JSONObject
+                val index = tab["index"].toString().toInt()
+                val startSlot = tab["startSlot"].toString().toInt()
+                player.bank.tabStartSlot[index] = startSlot
+            }
+        }
         player.inventory.parse(inventory)
         player.bank.parse(bank)
         player.equipment.parse(equipment)

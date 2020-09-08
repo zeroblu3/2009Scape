@@ -1,5 +1,7 @@
 package core.plugin;
 
+import core.game.node.entity.player.Player;
+
 /**
  * Represents a plugin.
  * @author Emperor
@@ -21,5 +23,7 @@ public interface Plugin<T> {
 	 * @return Specified by the plugin implementation.
 	 */
 	Object fireEvent(String identifier, Object... args);
+
+	public default void handleSelectionCallback(int skill, Player player){};
 
 }

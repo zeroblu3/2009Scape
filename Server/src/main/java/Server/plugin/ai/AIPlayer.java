@@ -18,6 +18,7 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.map.path.Pathfinder;
+import core.game.world.map.zone.impl.WildernessZone;
 import core.game.world.repository.Repository;
 import core.net.packet.context.MessageContext;
 import core.net.packet.in.InteractionPacket;
@@ -295,6 +296,9 @@ public class AIPlayer extends Player {
     @Override
     public void tick() {
         super.tick();
+        if(getSkullManager().isWilderness()) {
+            getSkullManager().setLevel(WildernessZone.getWilderness(this));
+        }
         if(getSkills().getLifepoints() <= 0){
             //deregister(this.uid);
 

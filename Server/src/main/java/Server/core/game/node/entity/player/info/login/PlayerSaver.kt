@@ -55,6 +55,7 @@ class PlayerSaver (val player: Player){
         saveStatManager(saveFile)
         saveBrawlingGloves(saveFile)
         saveAttributes(saveFile)
+        savePouches(saveFile)
 
         val manager = ScriptEngineManager()
         val scriptEngine = manager.getEngineByName("JavaScript")
@@ -72,6 +73,10 @@ class PlayerSaver (val player: Player){
         }
 
         player.gameAttributes.dump(player.name + ".xml")
+    }
+
+    fun savePouches(root: JSONObject){
+        player.pouchManager.save(root)
     }
 
     fun saveAttributes(root: JSONObject){
@@ -322,13 +327,6 @@ class PlayerSaver (val player: Player){
             }
             familiar.put("lifepoints",player.familiarManager.familiar.skills.lifepoints)
             familiarManager.put("familiar",familiar)
-        }
-        if(player.familiarManager.insuredPets.size > 0){
-            val insuredPets = JSONArray()
-            player.familiarManager.insuredPets.map {
-                insuredPets.add(it.babyItemId.toString())
-            }
-            familiarManager.put("insuredPets",insuredPets)
         }
         root.put("familiarManager",familiarManager)
     }
@@ -769,6 +767,15 @@ class PlayerSaver (val player: Player){
 
         val bank = saveContainer(player.bank)
         coreData.put("bank",bank)
+
+        val bankTabs = JSONArray()
+        for(i in player.bank.tabStartSlot.indices){
+            val tab = JSONObject()
+            tab.put("index",i.toString())
+            tab.put("startSlot",player.bank.tabStartSlot[i].toString())
+            bankTabs.add(tab)
+        }
+        coreData.put("bankTabs",bankTabs)
 
         val equipment = saveContainer(player.equipment)
         coreData.put("equipment",equipment)

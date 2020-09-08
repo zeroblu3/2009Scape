@@ -5,6 +5,7 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.PluginManager;
+import plugin.skill.Skills;
 
 /**
  * Represents the dwarf cannon quest.
@@ -108,6 +109,7 @@ public class DwarfCannon extends Quest {
 		player.getPacketDispatch().sendString("Permission to purchase and", 277, 10 + 2);
 		player.getPacketDispatch().sendString("use the Dwarf Multicannon", 277, 11 + 2);
 		player.getPacketDispatch().sendItemZoomOnInterface(TOOL_KIT.getId(), 235, 277, 3 + 2);
+		player.getSkills().addExperience(Skills.CRAFTING, 750);
 		player.getQuestRepository().syncronizeTab(player);
 	}
 

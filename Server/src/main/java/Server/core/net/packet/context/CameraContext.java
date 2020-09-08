@@ -1,6 +1,7 @@
 package core.net.packet.context;
 
 import core.game.node.entity.player.Player;
+import core.game.system.SystemLogger;
 import core.net.packet.Context;
 
 /**
@@ -100,6 +101,7 @@ public final class CameraContext implements Context {
 		this.height = height;
 		this.speed = speed;
 		this.zoomSpeed = zoomSpeed;
+		SystemLogger.log("Camera packet sent");
 	}
 
 	/**
