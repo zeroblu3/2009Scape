@@ -1,4 +1,6 @@
-# 2009Scape - The most complete Runescape Emulation server. Pull requests welcome! ![Gameplay image](https://i.imgur.com/31b6KpU.png)
+# 2009Scape - The most complete Runescape Emulation server. 
+
+![Gameplay image](https://i.imgur.com/31b6KpU.png)
 
 Join our Discord server: https://discord.gg/43YPGND
 
@@ -6,10 +8,7 @@ We also have a live game in the [Releases](https://github.com/2009scape/2009scap
 
 For information about what data we store, read over [this](https://github.com/2009scape/2009Scape/wiki/Information-We-Store).
 
-# Running your own instance
-Please follow this [self hosting guide](selfhosting.md)
-
-# Setting up the project for debugging
+# Setting up the project for development
 Requirements:
 - General knowledge of git
 - General knowledge of SQL
@@ -78,3 +77,9 @@ CRC Mismatch
 
 Bridges not working/general compilation issues
 - This project uses JDK/OpenJDK 8. Make sure you are on version 8. Anything besides JDK or OpenJDK we will not help you troubleshoot.
+
+# Running your own instance
+Note: We strongly recommend playing our [live server](https://github.com/2009scape/2009Scape/releases). This self hosting guide is really a reference for existing developers or if the live server goes down. If you really want your own instance, we recommend setting the project up for development and hosting it that way.
+
+Please follow this [self hosting guide](selfhosting.md)
+
