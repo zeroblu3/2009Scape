@@ -1,4 +1,5 @@
 # 2009Scape - The most complete Runescape Emulation server. 
+Disclaimer: All game assets (the cache) and the client are copyright Jagex Ltd. We claim absolutely no rights to these. The code used for the server is entirely original and licensed under the Affero GPL. The content of the license can be found in the Server subdirectory of the project. Server/LICENSE. 
 
 ![Gameplay image](https://i.imgur.com/31b6KpU.png)
 
