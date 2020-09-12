@@ -61,7 +61,6 @@ public final class Servant extends NPC {
 	
 	/**
 	 * Parses the servant from the buffer.
-	 * @param buffer The buffer.
 	 * @return The servant.
 	 */
 
@@ -72,7 +71,7 @@ public final class Servant extends NPC {
 		Object itemRaw = data.get("item");
 		if(itemRaw != null){
 			JSONObject item = (JSONObject) itemRaw;
-			servant.item = new Item((int)item.get("id"),(int)item.get("amount"));
+			servant.item = new Item(Integer.parseInt(item.get("id").toString()),Integer.parseInt(item.get("amount").toString()));
 		}
 		servant.greet = (boolean) data.get("greet");
 		return servant;
