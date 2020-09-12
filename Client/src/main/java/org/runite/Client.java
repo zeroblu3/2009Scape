@@ -32,7 +32,7 @@ public class Client {
 	 */
 	public static void main(String[]args) {
 		try {
-			PUBLIC_IP_ADDRESS = "play.2009scape.org";
+			PUBLIC_IP_ADDRESS = "localhost";
 		} catch (Exception e){
 			System.out.println("Can't find config file " + CONF_FILE + " defaulting to IP 127.0.0.1");
 			PUBLIC_IP_ADDRESS = "play.2009scape.org";
