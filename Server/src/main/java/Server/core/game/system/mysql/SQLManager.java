@@ -44,13 +44,6 @@ public final class SQLManager {
 	 * Initializes the sql manager.
 	 */
 	public static void init() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			initialized = false;
-			return;
-		}
 		initialized = true;
 		SystemManager.getSystemConfig().parse();
 	}
@@ -75,7 +68,7 @@ public final class SQLManager {
 	 * @return The connection.
 	 */
 	public static Connection getConnection() {
-		DATABASE_URL  = ServerConstants.DATABASE_ADDRESS + ":" + ServerConstants.DATABASE_PORT + "/" + ServerConstants.DATABASE_NAME;
+		DATABASE_URL  = ServerConstants.DATABASE_ADDRESS + ":" + ServerConstants.DATABASE_PORT + "/" + ServerConstants.DATABASE_NAME + "?useTimezone=true&serverTimezone=UTC";
 		try {
 			return DriverManager.getConnection("jdbc:mysql://" +   DATABASE_URL, ServerConstants.DATABASE_USER, ServerConstants.DATABASE_PASS);
 		} catch (SQLException e) {

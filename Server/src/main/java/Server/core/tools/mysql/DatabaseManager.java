@@ -25,9 +25,7 @@ public class DatabaseManager {
 
 	public DatabaseManager connect() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-				Connection connection = DriverManager.getConnection("jdbc:mysql://" + db.host() + "/" + db.name(), db.username(), db.password());
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" + db.host() + "/" + db.name() + "?useTimezone=true&serverTimezone=UTC", db.username(), db.password());
 				connections.put(db.name(), connection);
 
 				SystemLogger.log("Successfully connected with '" + db.name() + "'.");
@@ -39,7 +37,6 @@ public class DatabaseManager {
 			System.out.println("Couldn't connect to the database.");
 			e.printStackTrace();
 			ServerConstants.MYSQL = false;
-		} catch (ClassNotFoundException e) {
 		}
 		return this;
 	}
