@@ -1,7 +1,8 @@
-package plugin.penguinhns
+package plugin.worldevents.penguinhns
 
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
+import plugin.worldevents.WorldEvents
 import kotlin.collections.ArrayList
 
 class PenguinSpawner {
@@ -40,12 +41,13 @@ class PenguinSpawner {
     )
 
     fun spawnPenguins(amount: Int): ArrayList<Penguin> {
+        var event = WorldEvents.get("penguin-hns") as PenguinHNSEvent
         var counter = 0
         val list = penguins.toMutableList()
         val penguinList = ArrayList<Penguin>()
         while(counter < amount){
             val peng = list.random()
-            penguinList.add(peng).also { NPC(peng.id,peng.loc).init() }
+            penguinList.add(peng).also { NPC(peng.id,peng.loc).also {PenguinManager.npcs.add(it);it.isNeverWalks = false; it.isWalks = true}.init() }
             list.remove(peng)
             counter++
         }

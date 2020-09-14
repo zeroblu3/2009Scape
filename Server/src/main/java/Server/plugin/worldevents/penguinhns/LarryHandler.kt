@@ -1,4 +1,4 @@
-package plugin.penguinhns
+package plugin.worldevents.penguinhns
 
 import core.game.component.Component
 import core.game.node.entity.player.Player
@@ -8,7 +8,6 @@ import core.game.world.GameWorld
 import core.plugin.InitializablePlugin
 import plugin.dialogue.DialoguePlugin
 
-@InitializablePlugin
 class LarryHandler(player: Player? = null) : DialoguePlugin(player){
     override fun open(vararg args: Any?): Boolean {
         options("Can I have a spy notebook?","Can I have a hint?","I'd like to turn in my points.").also { stage = 0; return true }

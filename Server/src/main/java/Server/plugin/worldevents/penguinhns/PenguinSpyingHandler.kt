@@ -1,4 +1,4 @@
-package plugin.penguinhns
+package plugin.worldevents.penguinhns
 
 import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
@@ -13,7 +13,6 @@ import core.plugin.Plugin
 import plugin.quest.PluginInteraction
 import plugin.quest.PluginInteractionManager
 
-@InitializablePlugin
 class PenguinSpyingHandler : PluginInteraction(8107,8108,8104,8105,8109,8110){
 
     class SpyPulse(val player: Player) : Pulse() {
