@@ -1,4 +1,4 @@
-package plugin.shootingstar;
+package plugin.worldevents.shootingstar;
 
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;
@@ -7,7 +7,6 @@ import core.game.node.entity.player.Player;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 
-@InitializablePlugin
 public class ShootingStarScoreboard extends ComponentPlugin {
     public static Component iface = new Component(787);
 

@@ -1,4 +1,4 @@
-package plugin.shootingstar;
+package plugin.worldevents.shootingstar;
 
 import core.game.node.entity.player.Player;
 import core.game.system.SystemLogger;

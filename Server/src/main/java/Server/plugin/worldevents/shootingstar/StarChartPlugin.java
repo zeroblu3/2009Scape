@@ -1,4 +1,4 @@
-package plugin.shootingstar;
+package plugin.worldevents.shootingstar;
 
 import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
@@ -12,7 +12,6 @@ import core.plugin.Plugin;
 import core.plugin.PluginManager;
 import core.plugin.PluginManifest;
 
-@InitializablePlugin
 @PluginManifest(name="ShootingStars")
 public class StarChartPlugin extends ComponentPlugin {
     private Component iface = new Component(104);

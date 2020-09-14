@@ -42,7 +42,6 @@ public class PluginInteractionManager {
     }
 
     public static boolean handle(Player player, GameObject object){
-        SystemLogger.log("Trying to run...");
         PluginInteraction i = objectInteractions.get(object.getId());
         if(i == null) {
             return false;
@@ -52,7 +51,6 @@ public class PluginInteractionManager {
     }
 
     public static boolean handle(Player player, NodeUsageEvent event){
-        SystemLogger.log("Trying to handle: used: " + event.getUsed().getId() + " with: " + event.getUsedWith().getId() );
         PluginInteraction i = useWithInteractions.get(event.getUsed().asItem().getId());
         if(i == null) {
             return false;

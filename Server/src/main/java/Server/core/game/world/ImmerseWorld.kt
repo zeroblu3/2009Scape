@@ -20,6 +20,7 @@ object ImmerseWorld {
             immerseVarrock()
             immerseWilderness()
             immerseFalador()
+            immerseSlayer()
         }
     }
 
@@ -65,5 +66,9 @@ object ImmerseWorld {
 
     fun immerseFalador(){
         GeneralBotCreator(CoalMiner(), skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR,Location.create(3037, 9737, 0)))
+    }
+
+    fun immerseSlayer(){
+        GeneralBotCreator(GenericSlayerBot(), assembler.produce(CombatBotAssembler.Type.MELEE,CombatBotAssembler.Tier.HIGH,Location.create(2673, 3635, 0)))
     }
 }

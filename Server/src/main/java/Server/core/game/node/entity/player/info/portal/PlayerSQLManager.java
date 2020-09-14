@@ -54,6 +54,7 @@ public final class PlayerSQLManager {
 			new SQLColumn("clanReqs", String.class),
 			new SQLColumn("timePlayed", Long.class),
 			new SQLColumn("lastLogin", Long.class),
+			new SQLColumn("online", Integer.class),
 			new SQLColumn("lastGameIp", String.class));
 
 	/**

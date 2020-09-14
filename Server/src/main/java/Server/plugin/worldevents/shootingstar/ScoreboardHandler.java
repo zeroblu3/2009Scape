@@ -1,4 +1,4 @@
-package plugin.shootingstar;
+package plugin.worldevents.shootingstar;
 
 import core.cache.def.impl.ObjectDefinition;
 import core.game.interaction.OptionHandler;
@@ -8,9 +8,6 @@ import core.game.world.GameWorld;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 
-import java.util.concurrent.TimeUnit;
-
-@InitializablePlugin
 public class ScoreboardHandler extends OptionHandler {
     int index = 0;
     int ifaceid = ShootingStarScoreboard.iface.getId();
