@@ -1,4 +1,4 @@
-package plugin.penguinhns
+package plugin.worldevents.penguinhns
 
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
@@ -7,7 +7,6 @@ import core.game.node.entity.player.Player
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
 
-@InitializablePlugin
 class NotebookHandler : OptionHandler(){
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         val total = player?.getAttribute("phns:points",0)
