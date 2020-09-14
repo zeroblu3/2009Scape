@@ -95,7 +95,6 @@ public class IronmanManager implements SavingModule {
 	 * @return the mode
 	 */
 	public IronmanMode getMode() {
-		SystemLogger.log(mode.name());
 		return mode;
 	}
 

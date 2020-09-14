@@ -1,4 +1,4 @@
-package plugin.shootingstar;
+package plugin.worldevents.shootingstar;
 
 public class ScoreboardEntry{
     public String playerName;

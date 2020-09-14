@@ -146,7 +146,6 @@ class PouchManager(val player: Player) {
                 val item = it["itemId"].toString().toInt()
                 val amount = it["amount"].toString().toInt()
                 p.container.add(Item(item,amount))
-                SystemLogger.log("Added $amount of $item to pouch $id")
             }
         }
     }

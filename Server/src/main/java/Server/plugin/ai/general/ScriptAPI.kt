@@ -377,9 +377,7 @@ class ScriptAPI(private val bot: Player) {
                 for(item in bot.bank.toArray()) {
                     item ?: continue
                     if (item.id == ItemNames.LOBSTER) continue
-                    SystemLogger.log("Checking ${item.id}")
                     if(!item.definition.isTradeable) {continue}
-                    SystemLogger.log("Adding ${item.name}")
                     val itemAmt = item.amount
                     val offeredValue = checkPriceOverrides(item.id) ?: item.definition.value
                     BotGrandExchange.sellOnGE(item.id, offeredValue, itemAmt)
@@ -445,8 +443,6 @@ class ScriptAPI(private val bot: Player) {
                 val logs = bot.inventory.getAmount(item)
                 bot.inventory.remove(Item(item,logs))
                 bot.bank.add(Item(item,logs))
-                SystemLogger.log("${bot.username}: Banked $logs ${ItemDefinition.forId(item).name.toLowerCase()}")
-                SystemLogger.log("${bot.username}: Bank currently contains ${bot.bank.getAmount(item)} ${ItemDefinition.forId(item).name.toLowerCase()}")
                 return true
             }
         }
