@@ -7,12 +7,10 @@ import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
 import core.tools.ItemNames
-import java.util.*
 
 /**
  * Handles the work-for actions for the NPCs
@@ -64,6 +62,7 @@ class WorkForOptionHandler : OptionHandler() {
         NPCDefinition.forId(3807).configurations["option:work-for"] = this
         NPCDefinition.forId(1861).configurations["option:work-for"] = this
         NPCDefinition.forId(922).configurations["option:work-for"] = this
+        NPCDefinition.forId(758).configurations["option:work-for"] = this
         NPCDefinition.forId(705).configurations["option:work-for"] = this
         NPCDefinition.forId(0).configurations["option:work-for"] = this
         return this
