@@ -8,6 +8,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
+import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Plugin;
 import core.plugin.InitializablePlugin;
@@ -35,6 +36,13 @@ public final class SheepShearPlugin extends OptionHandler {
 	@Override
 	public boolean handle(Player player, Node node, String option) {
 		final NPC sheep = (NPC) node;
+		if (sheep.getId() == 3579) {
+			player.animate(ANIMATION);
+			player.getPacketDispatch().sendMessage("The... whatever it is... manages to get away from you!");
+			sheep.animate(Animation.create(3570));
+			sheep.moveStep();
+			return true;
+		}
 		if (!player.getInventory().contains(1735, 1)) {
 			player.getPacketDispatch().sendMessage("You need shears to shear a sheep.");
 			return true;
