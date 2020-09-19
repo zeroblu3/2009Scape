@@ -1,6 +1,7 @@
 package plugin.interaction.city;
 
 import core.cache.def.impl.ObjectDefinition;
+import core.game.node.entity.player.link.diary.DiaryType;
 import plugin.activity.ActivityManager;
 import core.game.content.global.action.ClimbActionHandler;
 import plugin.skill.Skills;
@@ -91,6 +92,7 @@ public final class LumbridgeNodePlugin extends OptionHandler {
                                 case 12:
                                     player.sendMessage("...and slowly descends.");
                                     player.unlock();
+                                    player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 0, 1);
                                     break;
                             }
                             return counter >= 20;
@@ -143,7 +145,7 @@ public final class LumbridgeNodePlugin extends OptionHandler {
         private final GameObject object;
 
         /**
-         * Constructs a new {@code ArcheryTargetPulse} {@code Object}.
+         * Constructs a new {@code ArcheryCompetitionPulse} {@code Object}.
          *
          * @param player the player.
          * @param object the object.

@@ -2,6 +2,7 @@ package plugin.skill.farming.wrapper;
 
 import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
+import core.game.world.map.Location;
 import plugin.skill.Skills;
 import plugin.skill.farming.FarmingConstant;
 import plugin.skill.farming.FarmingNode;
@@ -218,6 +219,14 @@ public final class PatchInteractor {
 					} else {
 						player.getPacketDispatch().sendMessage("You plant the " + item.getName().toLowerCase() + " in the tree patch.");
 					}
+
+					// Seers Achievement Diary task
+					if (node == Hops.JUTE.getFarmingNode()
+							&& player.getLocation().withinDistance(new Location(2669,3522,0))
+							&& !player.getAchievementDiaryManager().getDiary(DiaryType.SEERS_VILLAGE).isComplete(0,7)) {
+						player.getAchievementDiaryManager().getDiary(DiaryType.SEERS_VILLAGE).updateTask(player,0,7,true);
+					}
+
 					wrapper.addConfigValue(node.getBase());
 					wrapper.getCycle().getGrowthHandler().setGrowthUpdate();
 					return true;
@@ -260,9 +269,6 @@ public final class PatchInteractor {
 					}
 					player.getSkills().addExperience(Skills.FARMING, xp, true);
 					wrapper.getCycle().clear(player);
-					if (wrapper.getPatch() == FarmingPatch.BELLADONNA && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 4)) {
-						player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 2, 4, true);
-					}
 					return true;
 				}
 			});

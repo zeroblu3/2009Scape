@@ -44,8 +44,8 @@ class PipeShortcut : AgilityShortcut {
     }
 
     override fun run(player: Player, obj: GameObject, option: String, failed: Boolean) {
-        if (obj.id == 29370 && !player.achievementDiaryManager.getDiary(DiaryType.VARROCK).isComplete(2, 5))
-            player.achievementDiaryManager.getDiary(DiaryType.VARROCK).updateTask(player, 2, 5, true)
+        if (obj.id == 29370)
+            player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 2, 1)
 
         GameWorld.Pulser.submit(object : Pulse(1, player) {
             override fun pulse(): Boolean {

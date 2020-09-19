@@ -89,9 +89,7 @@ public final class SkeletalWyvernNPC extends AbstractNPC {
 		super.finalizeDeath(killer);
 		if (killer instanceof Player) {
 			final Player player = killer.asPlayer();
-			if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2, 8)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 2, 8, true);
-			}
+			player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 2, 8);
 		}
 	}
 

@@ -106,7 +106,7 @@ public class RatBurgissDialogue extends DialoguePlugin {
 				stage++;
 				break;
 			case 442:
-				diary.setRewarded(0);
+				diary.setLevelRewarded(0);
 				for (Item i : diary.getType().getRewards(0)) {
 					player.getInventory().add(i, player);
 				}
@@ -539,12 +539,12 @@ public class RatBurgissDialogue extends DialoguePlugin {
 		if (diary == null) {
 			diary = player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK);
 		}
-		if (diary.isComplete(0) && !diary.hasReward(0)) {
+		if (diary.isComplete(0) && !diary.isLevelRewarded(0)) {
 			player("I've done all the easy tasks in my Varrock", "Achievement Diary.");
 			stage = 440;
 			return;
 		}
-		if (diary.hasReward(0) && diary.isComplete(0) && !player.hasItem(diary.getType().getRewards(0)[0])) {
+		if (diary.isLevelRewarded(0) && diary.isComplete(0) && !player.hasItem(diary.getType().getRewards(0)[0])) {
 			player("I've seemed to have lost my armour...");
 			stage = 450;
 			return;

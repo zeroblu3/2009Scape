@@ -497,7 +497,7 @@
     },
     {
       "id": "56",
-      "title": "Candle Shop (type)",
+      "title": "Candle Shop",
       "general_store": "0",
       "stock": "{36,10}-{38,10}",
       "npcs": "562",
@@ -1532,7 +1532,7 @@
     },
     {
       "id": "171",
-      "title": "Oziach",
+      "title": "Oziach's Armour",
       "general_store": "0",
       "stock": "{1127,2}-{1135,2}",
       "npcs": "747",
@@ -1775,7 +1775,7 @@
     },
     {
       "id": "198",
-      "title": "Candle Shop (type)",
+      "title": "Candle Shop",
       "general_store": "0",
       "stock": "{36,10}-{38,10}",
       "npcs": "",

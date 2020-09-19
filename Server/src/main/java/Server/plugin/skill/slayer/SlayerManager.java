@@ -251,13 +251,7 @@ public final class SlayerManager implements SavingModule {
 				player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 2, 3, true);
 			}
 		} else if (master == Master.VANNAKA) {
-			if (!player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(1, 5)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 1, 5, true);
-			}
-		} else if (master == Master.CHAELDAR) {
-			if (!player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(1, 7)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 1, 7, true);
-			}
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 14);
 		}
 		setMaster(master);
 		setTask(task);

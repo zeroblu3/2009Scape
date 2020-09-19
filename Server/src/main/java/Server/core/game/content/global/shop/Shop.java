@@ -249,6 +249,16 @@ public class Shop {
      */
     public void open(final Player player) {
         ShopViewer.extend(player, this).open();
+
+        // Browse the Lumbridge General Store
+        if (getTitle().equalsIgnoreCase("Lumbridge General Store")) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 0, 18);
+        }
+
+        // Browse through Oziach's Armour Shop
+        if (getTitle().equalsIgnoreCase("Oziach's Armour")) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 20);
+        }
     }
 
     public void give(Player player, final int slot, int amount, int tabIndex) {
@@ -323,14 +333,17 @@ public class Shop {
             }
 
             // Achievement Diary Handlers
-            if (add.getId() == 7462 && getTitle().equals("Culinaromancer's Chest") && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(2, 3)) {
-                player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 2, 3, true);
-            }
             if (add.getId() == ItemNames.BLACK_CHAINBODY && getTitle().equalsIgnoreCase("Wayne's Chains") && !player.getAttribute("diary:falador:black-chain-bought", false)) {
                 player.setAttribute("/save:diary:falador:black-chain-bought", true);
             }
-            if (add.getId() == 12622 && getTitle().equalsIgnoreCase("Sarah's Farming Shop") && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0, 0)) {
-                player.getAchievementDiaryManager().updateTask(player, DiaryType.FALADOR, 0, 0, true);
+            if (add.getId() == 12622 && getTitle().equalsIgnoreCase("Sarah's Farming Shop")) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 0, 0);
+            }
+            if (add.getId() == ItemNames.CANDLE_36 && getTitle().equalsIgnoreCase("Candle Shop")) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 0, 9);
+            }
+            if (getTitle().equalsIgnoreCase("Ranging Guild Ticket Exchange")) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 1, 8);
             }
 
             player.getInventory().add(add);

@@ -64,8 +64,10 @@ public final class MerlinCrystalPlugin extends OptionHandler {
 		PluginManager.definePlugin(new MerlinCrystalItemHandler());
 		ObjectDefinition.forId(63).getConfigurations().put("option:hide-in", this);
 		ObjectDefinition.forId(40026).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(72).getConfigurations().put("option:open", this);
 		ObjectDefinition.forId(71).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(72).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(71).getConfigurations().put("option:knock-at", this);
+		ObjectDefinition.forId(72).getConfigurations().put("option:knock-at", this);
 		ItemDefinition.forId(530).getConfigurations().put("option:drop", this);
 		ObjectDefinition.forId(62).getConfigurations().put("option:smash", this);
 		return this;
@@ -111,8 +113,18 @@ public final class MerlinCrystalPlugin extends OptionHandler {
 			return true;
 		case 71:
 		case 72:
-			if (quest.getStage(player) <= 40) {
-				player.getDialogueInterpreter().sendDialogue("The door is barred tightly shut.");
+			if (quest.getStage(player) == 10) {
+				player.getDialogueInterpreter().sendDialogue("The door is securely locked.");
+			}
+			else if (quest.getStage(player) < 50) {
+				switch(option) {
+					case "open":
+						player.getDialogueInterpreter().sendDialogue("The door is securely locked. You will have to find", "another way in.");
+						break;
+					case "knock-at":
+						player.getDialogueInterpreter().open("renegade-knight");
+						break;
+				}
 			} else {
 				DoorActionHandler.handleAutowalkDoor(player, node.asObject());
 			}

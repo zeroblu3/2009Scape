@@ -106,7 +106,7 @@ public abstract class Consumable implements Plugin<Object> {
 	 * Method called when this consumable is consumed.
 	 * @note override if needed, generally for extra effects.
 	 * @param player the player consuming this consumable.
-	 * @param the healing amount used to override, (generally to alter amt)
+	 * @param heal the healing amount used to override, (generally to alter amt)
 	 * @param messages the messages to show.
 	 */
 	public void consume(final Item item, final Player player, int heal, String... messages) {

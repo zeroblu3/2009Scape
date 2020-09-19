@@ -81,6 +81,10 @@ public final class Location extends Node {
 		return new Location(x, y, z);
 	}
 
+	public static Location create(int x, int y) {
+		return new Location(x, y, 0);
+	}
+
 	/**
 	 * Creates a new instance of the given location.
 	 * @param location The given location.
@@ -274,6 +278,16 @@ public final class Location extends Node {
 		return (this.getX() <= xmax && this.getX() >= xmin
 				&& this.getY() <= ymax && this.getY() >= ymin
 				&& this.getZ() <= zmax && this.getZ() >= zmin);
+	}
+
+	public boolean isInside(Location[] as, Location[] bs) {
+		final int len = as.length;
+		for (int ii = 0; ii < len; ii++) {
+			if (this.isInside(as[ii], bs[ii])) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

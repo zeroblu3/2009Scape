@@ -149,7 +149,7 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 				stage++;
 				break;
 			case 442:
-				diary.setRewarded(2);
+				diary.setLevelRewarded(2);
 				for (Item i : diary.getType().getRewards(2)) {
 					player.getInventory().add(i, player);
 				}
@@ -629,12 +629,12 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 		if (diary == null) {
 			diary = player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK);
 		}
-		if (diary.isComplete(2) && !diary.hasReward(2)) {
+		if (diary.isComplete(2) && !diary.isLevelRewarded(2)) {
 			player("I've done all the hard tasks in my Varrock", "Achievement Diary.");
 			stage = 440;
 			return;
 		}
-		if (diary.hasReward(2) && diary.isComplete(2) && !player.hasItem(diary.getType().getRewards(2)[0])) {
+		if (diary.isLevelRewarded(2) && diary.isComplete(2) && !player.hasItem(diary.getType().getRewards(2)[0])) {
 			player("I've seemed to have lost my armour...");
 			stage = 450;
 			return;

@@ -37,9 +37,8 @@ public final class SummonFamiliarPlugin extends OptionHandler {
 		if (player.getFamiliarManager().hasFamiliar()
 				&& player.getFamiliarManager().getFamiliar() instanceof IbisNPC
 				&& (player.getLocation().isInside(new Location(3011,3229,0), new Location(3017,3222,0))
-				|| player.getLocation().isInside(new Location(3015,3221,0), new Location(3011,3220,0)))
-				&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2, 9)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 2, 9, true);
+				|| player.getLocation().isInside(new Location(3015,3221,0), new Location(3011,3220,0)))) {
+			player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 2, 9);
 		}
 		return true;
 	}

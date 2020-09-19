@@ -59,9 +59,6 @@
 //		@Override
 //		public boolean cook(final Food food, final Player player, final GameObject object) {
 //			if (super.cook(food, player, object)) {
-//				if (object.getId() == 114 && player.getViewport().getRegion().getId() == 12850 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(0, 7)) {
-//					player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 0, 7, true);
-//				}
 //				return true;
 //			}
 //			return false;

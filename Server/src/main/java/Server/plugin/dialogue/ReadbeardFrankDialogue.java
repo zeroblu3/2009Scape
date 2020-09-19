@@ -10,7 +10,7 @@ import core.plugin.InitializablePlugin;
 import core.game.node.item.Item;
 
 /**
- * Represents the dialogue to handle rebeard frank.
+ * Represents the dialogue to handle Rebeard Frank.
  *
  * @author afaroutdude
  */
@@ -60,8 +60,8 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
         npc("Arr, Matey!");
         stage = 0;
         AchievementDiary diary = player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR);
-        replacementReward = diary.hasReward(level)
-                && diary.isComplete(level)
+        replacementReward = diary.isLevelRewarded(level)
+                && diary.isComplete(level, true)
                 && !player.hasItem(diary.getType().getRewards(level)[0]);
         return true;
     }
@@ -324,7 +324,7 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
                 stage = 105;
                 break;
             case 105:
-                if (!diary.hasReward(level)) {
+                if (!diary.isLevelRewarded(level)) {
                     options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.");
                     stage = 106;
                 } else {
@@ -435,10 +435,10 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
                 break;
 
             case 200:
-                if (diary.hasReward(level)) {
+                if (diary.isLevelRewarded(level)) {
                     npc("But you've already gotten yours!");
                     stage = 105;
-                } else if (diary.isComplete(level)) {
+                } else if (diary.isComplete(level, true)) {
                     npc("So, you've finished. Well done! I believe congratulations", "are in order.");
                     stage = 201;
                 } else {
@@ -456,13 +456,13 @@ public class ReadbeardFrankDialogue extends DialoguePlugin {
                 break;
             case 203:
                 npc("This is the first stage of the Falador shield: a buckler. It", "grants you access to a Prayer restore ability and an", "emote.");
-                if (!diary.hasReward(level)) {
+                if (!diary.isLevelRewarded(level)) {
                     for (Item i : diary.getType().getRewards(level)) {
                         if (!player.getInventory().add(i, player)) {
                             GroundItemManager.create(i, player);
                         };
                     }
-                    diary.setRewarded(level);
+                    diary.setLevelRewarded(level);
                 }
                 stage = 204;
                 break;

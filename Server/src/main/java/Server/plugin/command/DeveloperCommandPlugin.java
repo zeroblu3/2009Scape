@@ -660,7 +660,8 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                 } else {
                     player.getAchievementDiaryManager().getDiary(type).updateTask(player, level, index, true);
                 }
-
+                player.getAchievementDiaryManager().openTab();
+                break;
             }
         return false;
     }

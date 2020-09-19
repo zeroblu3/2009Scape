@@ -175,4 +175,18 @@ public final class Prayer {
 		return active;
 	}
 
+	/**
+	 * Check if a specific prayer is active.
+	 * @param p the active prayer type
+	 * @return true if active
+	 */
+	public boolean isActive(PrayerType p) {
+		for (PrayerType a : active) {
+			if (a == p) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

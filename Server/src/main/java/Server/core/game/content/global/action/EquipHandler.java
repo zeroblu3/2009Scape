@@ -74,9 +74,8 @@ public class EquipHandler extends OptionHandler {
 
 			if (item.getId() == ItemNames.BLACK_CHAINBODY
 					&& player.getAttribute("diary:falador:black-chain-bought", false)
-					&& player.getLocation().isInside(new Location(2969,3314,0), new Location(2975,3310,0))
-					&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0,2)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 0, 2, true);
+					&& player.getLocation().isInside(new Location(2969,3314,0), new Location(2975,3310,0))) {
+				player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 0, 2);
 			}
 
 

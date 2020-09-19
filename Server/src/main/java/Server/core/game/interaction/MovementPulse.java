@@ -4,6 +4,7 @@ import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.system.task.Pulse;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
@@ -13,6 +14,7 @@ import core.game.world.map.path.Pathfinder;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.PlayerContext;
 import core.net.packet.out.ClearMinimapFlag;
+import core.tools.Vector3d;
 
 import java.util.Deque;
 
@@ -89,6 +91,71 @@ public abstract class MovementPulse extends Pulse {
 	 */
 	public MovementPulse(Entity mover, Node destination, boolean forceRun) {
 		this(mover, destination, null, forceRun);
+
+		// seers diary statue walk coords, from north west clockwise
+		// TODO this kinda sucks, but it does work
+		// 2739, 3492
+		// 2742, 3492
+		// 2742, 3489
+		// 2739, 3489
+		if (mover instanceof Player) {
+			if (!forceRun
+				&& mover.getLocation().isInside(Location.create(2739,3492), Location.create(2742,3489))
+				&& destination.getLocation().isInside(Location.create(2739,3492), Location.create(2742,3489))) { // can only do seers task walking, also should cut down on processing done in all these pulses
+				double origin_x = 2740.5;
+				double origin_y = 3490.5;
+				Vector3d origin = new Vector3d(origin_x, origin_y, 0);
+				if (mover.asPlayer().getAttribute("diary:seers:statue-walk-start") != null) {
+					Vector3d start = mover.asPlayer().getAttribute("diary:seers:statue-walk-start");
+					Vector3d a = mover.asPlayer().getAttribute("diary:seers:statue-walk-a");
+					Vector3d b = new Vector3d(destination.getLocation()).sub(origin);
+					Vector3d c = new Vector3d(mover.getLocation()).sub(origin);
+					Vector3d n = new Vector3d(0, 0, 1);
+
+					double angle_a_b = Vector3d.signedAngle(a, b, n) * 360. / 2 / 3.1415926535;
+
+					if (!mover.asPlayer().getWalkingQueue().isMoving()) {
+						//System.out.println("removing, not moving");
+						mover.asPlayer().removeAttribute("diary:seers:statue-walk-start");
+					}
+					if (angle_a_b >= 0) {
+						//System.out.println("removing, not going clockwise");
+						mover.asPlayer().removeAttribute("diary:seers:statue-walk-start");
+					}
+					if (c.epsilonEquals(start, .001)) {
+						mover.asPlayer().getAchievementDiaryManager().finishTask(mover.asPlayer(), DiaryType.SEERS_VILLAGE, 0, 1);
+						//System.out.println("removing, finished task");
+						mover.asPlayer().removeAttribute("diary:seers:statue-walk-start");
+					}
+
+					mover.asPlayer().setAttribute("diary:seers:statue-walk-a", b);
+				} else {
+					//System.out.println("started");
+					Vector3d start = new Vector3d(mover.getLocation()).sub(origin);
+					Vector3d dest = new Vector3d(destination.getLocation()).sub(origin);
+					mover.asPlayer().setAttribute("diary:seers:statue-walk-start", start);
+					mover.asPlayer().setAttribute("diary:seers:statue-walk-a", dest);
+				}
+			} else {
+				//System.out.println("removing, running or outside");
+				mover.asPlayer().removeAttribute("diary:seers:statue-walk-start");
+			}
+		}
+
+		// Enter the courtyard of the spooky mansion in Draynor Village
+		if (mover.getLocation().isInside(Location.create(3100,3333,0), Location.create(3114,3346,0))) {
+			mover.asPlayer().getAchievementDiaryManager().finishTask(mover.asPlayer(), DiaryType.LUMBRIDGE, 0, 8);
+		}
+
+		// Visit the Draynor Village market
+		if (mover.getLocation().isInside(Location.create(3086,3255,0), Location.create(3074,3245,0))) {
+			mover.asPlayer().getAchievementDiaryManager().finishTask(mover.asPlayer(), DiaryType.LUMBRIDGE, 0, 9);
+		}
+
+		// Visit Fred the Farmer's chicken and sheep farm
+		if (mover.getLocation().isInside(Location.create(3188,3275,0), Location.create(3192,3270,0))) {
+			mover.asPlayer().getAchievementDiaryManager().finishTask(mover.asPlayer(), DiaryType.LUMBRIDGE, 0, 19);
+		}
 	}
 
 	/**
@@ -159,9 +226,8 @@ public abstract class MovementPulse extends Pulse {
 
 	@Override
 	public boolean update() {
-//
 		mover.face(null);
-		if (mover == null || destination == null || mover.getViewport().getRegion() == null || this == null) {
+		if (mover == null || destination == null || mover.getViewport().getRegion() == null) {
 			return false;
 		}
 

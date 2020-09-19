@@ -673,10 +673,9 @@ public class Container {
     }
 
     /**
-     * Checks if the containers contains ONE item from a list of items.
-     *
+     * Checks if the containers contains AT LEAST ONE item from a list of items.
      * @param itemIds
-     * @return
+     * @return true if at least one item from list of IDs is in the container
      */
     public boolean containsOneItem(int[] itemIds) {
         for (Item item : items) {
@@ -739,6 +738,12 @@ public class Container {
      */
     public boolean hasSpaceFor(Item item) {
         return item.getAmount() <= getMaximumAdd(item);
+    }
+
+    public boolean hasSpaceFor(Item... items) {
+        Container c = new Container(28, ContainerType.DEFAULT);
+        c.add(items);
+        return this.hasSpaceFor(c);
     }
 
     /**

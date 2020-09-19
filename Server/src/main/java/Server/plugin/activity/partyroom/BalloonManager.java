@@ -257,9 +257,7 @@ public final class BalloonManager extends OptionHandler {
 								GroundItemManager.create(ground);
 								PartyRoomPlugin.getPartyChest().shift();
 								PartyRoomPlugin.update();
-								if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0, 12)) {
-									player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 0, 12, true);
-								}
+								player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 0, 12);
 							}
 						}
 						return true;

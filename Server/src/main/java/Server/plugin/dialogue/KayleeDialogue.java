@@ -137,9 +137,7 @@ public final class KayleeDialogue extends DialoguePlugin {
 			break;
 		case 101:
 			end();
-			if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0, 1)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 0, 1, true);
-			}
+			player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 0, 1);
 			break;
 		case 120:
 			if (player.getInventory().remove(COINS)) {

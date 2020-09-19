@@ -249,15 +249,18 @@ public class FairyRingPlugin extends OptionHandler {
         sendTeleport(player, tile);
 
 		// Achievement Diary Handlers
-		if (fairyRing != null && fairyRing == FairyRing.DIS
-				&& !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(1, 1)) {
-			player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 1, 1, true);
+
+		if (fairyRing == FairyRing.AIQ) {
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 2, 4);
 		}
 
-		if (fairyRing != null && fairyRing == FairyRing.AIQ
-				&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,4)) {
-			player.getAchievementDiaryManager().updateTask(player, DiaryType.FALADOR, 2, 4, true);
-		}
+        if (fairyRing == FairyRing.ALS) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 4);
+        }
+
+        if (fairyRing == FairyRing.DKR) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 19);
+        }
     }
 
     /**

@@ -4,10 +4,7 @@ import core.game.container.impl.EquipmentContainer;
 import plugin.skill.Skills;
 import plugin.skill.farming.FarmingConstant;
 import plugin.skill.farming.FarmingPatch;
-import plugin.skill.farming.patch.PatchProtection;
-import plugin.skill.farming.patch.PickingNode;
-import plugin.skill.farming.patch.TreeNode;
-import plugin.skill.farming.patch.Trees;
+import plugin.skill.farming.patch.*;
 import plugin.skill.farming.wrapper.PatchWrapper;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
@@ -202,6 +199,12 @@ public final class SpadePulse extends ToolAction {
 			xp = xp * 1.1;
 		}
 		player.getSkills().addExperience(Skills.FARMING, xp, true);
+
+		// Pick poison ivy from your bush Farming patch in Varrock<br><br>(west of Champions' Guild
+		if (wrapper.getNode() == Bushes.POISON_IVY.getFarmingNode() && player.getLocation().withinDistance(Location.create(3183,3358,0))) {
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 2, 0);
+		}
+
 		wrapper.getCycle().setHarvestAmount(wrapper.getCycle().getHarvestAmount() - 1);
 		if (wrapper.getCycle().getHarvestAmount() < 1) {
 			wrapper.getCycle().clear(player);

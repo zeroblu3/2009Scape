@@ -35,7 +35,6 @@ public final class GliderPulse extends Pulse {
 	/**
 	 * Constructs a new {@code GliderPulse.java} {@Code Object}
 	 * @param delay
-	 * @param checks
 	 */
 	public GliderPulse(int delay, Player player, Gliders glider) {
 		super(delay, player);
@@ -68,8 +67,8 @@ public final class GliderPulse extends Pulse {
 			player.getInterfaceManager().close();
 			PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 0));
 			player.getConfigManager().set(0, glider.getConfig());
-			if (!crash && glider == Gliders.GANDIUS && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 6)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 6, true);
+			if (!crash && glider == Gliders.GANDIUS) {
+				player.getAchievementDiaryManager().finishTask(player,DiaryType.KARAMJA, 1, 6);
 			}
 			return true;
 		}

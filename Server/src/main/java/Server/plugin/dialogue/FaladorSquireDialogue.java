@@ -63,8 +63,8 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
         interpreter.sendOptions("What do you want to do?", "Chat", "Talk about the Falador Achievement Diary");
         stage = -1;
 		AchievementDiary diary = player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR);
-		replacementReward = diary.hasReward(level)
-				&& diary.isComplete(level)
+		replacementReward = diary.isLevelRewarded(level)
+				&& diary.isComplete(level, true)
 				&& !player.hasItem(diary.getType().getRewards(level)[0]);
         return true;
     }
@@ -109,7 +109,7 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 					}
 					break;
 				case 105:
-					if (!diary.hasReward(level)) {
+					if (!diary.isLevelRewarded(level)) {
 						options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.");
 						stage = 106;
 					} else {
@@ -228,10 +228,10 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
 					break;
 
 				case 200:
-					if (diary.hasReward(level)) {
+					if (diary.isLevelRewarded(level)) {
             			npc("But you've already gotten yours!");
             			stage = 105;
-            		} else if (diary.isComplete(level)) {
+            		} else if (diary.isComplete(level, true)) {
                         npc("So, you've finished. Well done! I believe congratulations", "are in order.");
                         stage = 201;
                     } else {
@@ -249,13 +249,13 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
                     break;
                 case 203:
                     npc("This is the final stage of the Falador shield: a tower", "shield. It grants you all the benefits fo the buckler", "and kiteshield did, full Prayer restore, and access to", "some interesting new seeds that my friend Wyson has");
-                    if (!diary.hasReward(level)) {
+                    if (!diary.isLevelRewarded(level)) {
                         for (Item i : diary.getType().getRewards(level)) {
                             if (!player.getInventory().add(i, player)) {
                                 GroundItemManager.create(i, player);
                             }
                         }
-                        diary.setRewarded(level);
+                        diary.setLevelRewarded(level);
                     }
                     stage = 204;
                     break;

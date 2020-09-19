@@ -509,6 +509,10 @@ public final class NPCDefinition extends Definition<NPC> {
 		if (id == 7707) {
 			setName("Drezel");
 		}
+		if (id == 8590) {
+			setName("Geoffrey");
+			options[0] = "Talk-to";
+		}
 		if (id == 1) {
 
 		}

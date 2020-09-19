@@ -42,9 +42,7 @@ public class HairdresserCheesePlugin extends UseWithHandler {
             public boolean pulse() {
                 if (player.getInventory().remove(new Item(ItemNames.CHEESE_1985))) {
                     player.sendMessage("You throw the cheese to Ridgeley, for which he appears grateful.");
-                    if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0,6)) {
-                        player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 0, 6, true);
-                    }
+                    player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR,0, 6);
                 }
                 return true;
             }

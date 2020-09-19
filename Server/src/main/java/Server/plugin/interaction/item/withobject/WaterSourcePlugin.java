@@ -73,7 +73,8 @@ public final class WaterSourcePlugin extends UseWithHandler {
 		WATERING_CAN1(new Item(5333), new Item(5340), "You fill the watering can."),
 		WATER_SKIN0(new Item(1831), new Item(1823), "You fill the waterskin."),
 		WATER_SKIN1(new Item(1829),new Item(1823),"You fill the waterskin."),
-		WATER_SKIN2(new Item(1827), new Item(1823), "You fill the waterskin.");
+		WATER_SKIN2(new Item(1827), new Item(1823), "You fill the waterskin."),
+		FISHBOWL(new Item(ItemNames.EMPTY_FISHBOWL_6667), new Item(ItemNames.FISHBOWL));
 
 		/**
 		 * Represents the required item.
@@ -132,7 +133,7 @@ public final class WaterSourcePlugin extends UseWithHandler {
 					}
 				});
 			} else {
-				player.getPulseManager().run(new Pulse(2, player) {
+				player.getPulseManager().run(new Pulse(1, player) {
 					@Override
 					public boolean pulse() {
 						if (player.getInventory().remove(getRequired())) {

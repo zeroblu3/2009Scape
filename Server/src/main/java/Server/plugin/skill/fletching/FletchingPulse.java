@@ -1,5 +1,7 @@
 package plugin.skill.fletching;
 
+import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.world.map.Location;
 import plugin.skill.SkillPulse;
 import plugin.skill.Skills;
 import core.game.node.entity.player.Player;
@@ -68,6 +70,14 @@ public final class FletchingPulse extends SkillPulse<Item> {
 			player.getSkills().addExperience(Skills.FLETCHING, fletch.experience, true);
 			String message = getMessage();
 			player.getPacketDispatch().sendMessage(message);
+
+			if (fletch.id == Fletching.FletchingItems.MAGIC_SHORTBOW.id
+					&& player.getLocation().isInside(
+					new Location[]{new Location(2721, 3493, 0), new Location(2724, 3489, 0)},
+					new Location[]{new Location(2730, 3490, 0), new Location(2727, 3487, 0)})
+					&& !player.getAchievementDiaryManager().hasCompletedTask(DiaryType.SEERS_VILLAGE, 2, 2)) {
+				player.setAttribute("/save:diary:seers:fletch-magic-short-bow", true);
+			}
 		} else {
 			return true;
 		}

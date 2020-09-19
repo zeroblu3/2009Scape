@@ -79,11 +79,11 @@ public final class ExperienceLampInterface extends ComponentPlugin {
 			int skillLevel = player.getSkills().getStaticLevel(skillType.skill);
 			int modifier = 10;
 			double experience = skillLevel * modifier;
-			if (type != null && type != Lamps.GENIE_LAMP) {
+			if (type != Lamps.GENIE_LAMP) {
 				player.getDialogueInterpreter().open(70099, new Object[] { "The lamp gives you " + (int) type.getExp() + " " + Skills.SKILL_NAME[skillType.skill] + " experience." });
 				experience =  type.getExp() / player.getSkills().experienceMutiplier;
 				int skill = skillType.skill;
-				if (skill == Skills.ATTACK || skill == Skills.DEFENCE || skill == Skills.HITPOINTS || skill == Skills.STRENGTH || skill == Skills.STRENGTH || skill == Skills.MAGIC || skill == Skills.RANGE) {
+				if (skill == Skills.ATTACK || skill == Skills.DEFENCE || skill == Skills.HITPOINTS || skill == Skills.STRENGTH || skill == Skills.MAGIC || skill == Skills.RANGE) {
 					experience /= 2;	
 				}
 			} else {
@@ -118,11 +118,12 @@ public final class ExperienceLampInterface extends ComponentPlugin {
 		MINING(41, Skills.MINING),
 		SMITHING(42, Skills.SMITHING),
 		HUNTER(49, Skills.HUNTER),
-		SUMMONING(52, Skills.SUMMONING),
 		COOKING(45, Skills.COOKING),
 		FIREMAKING(44, Skills.FIREMAKING),
 		WOODCUTTING(46, Skills.WOODCUTTING),
-		FLETCHING(40, Skills.FLETCHING);
+		FLETCHING(40, Skills.FLETCHING),
+		CONSTRUCTION(51, Skills.CONSTRUCTION),
+		SUMMONING(52, Skills.SUMMONING);
 
 		/**
 		 * Constructs a new {@code ExperienceLampInterface} {@code Object}.

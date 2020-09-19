@@ -45,7 +45,7 @@ public final class GrindItemPlugin extends UseWithHandler {
 			event.getPlayer().animate(ANIMATION);
 			event.getPlayer().lock(3);
 			event.getPlayer().getInventory().add(new Item(grind.getProduct().getId(), item.getAmount()));
-			event.getPlayer().getPacketDispatch().sendMessage(grind.getMessage());
+			event.getPlayer().getPacketDispatch().sendMessage("You grind down the " + grind.name().toLowerCase().replace("_", " ") + ".");
 		}
 		return true;
 	}

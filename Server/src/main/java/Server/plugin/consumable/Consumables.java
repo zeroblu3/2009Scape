@@ -232,6 +232,7 @@ public enum Consumables {
 	CHEFS_DELIGHT_M1(new Drink(5907, new ConsumableProperties(2, 5769))),
 
 	CIDER(new Drink(5763, new ConsumableProperties(2, 1919))),
+	CIDER_7752(new Drink(7752, new ConsumableProperties(2, 1919))),
 	CIDER_4(new Drink(5849, new ConsumableProperties(2, 5847))),
 	CIDER_3(new Drink(5847, new ConsumableProperties(2, 5845))),
 	CIDER_2(new Drink(5845, new ConsumableProperties(2, 5843))),
@@ -334,7 +335,7 @@ public enum Consumables {
 	HALF_FULL_WINE_JUG(new Drink(1989, new ConsumableProperties(7, 1935))),
 
 	/** Tea */
-	CUP_OF_TEA(new Drink(712, new ConsumableProperties(3, 1980), "Aaah, nothing like a nice cuppa tea!")),
+	//CUP_OF_TEA(new Drink(712, new ConsumableProperties(3, 1980), "Aaah, nothing like a nice cuppa tea!")), // if you uncomment this, this handler overrides the CupofTeaPlugin
 	CUP_OF_TEA_NETTLE(new Drink(4242, new ConsumableProperties(3, 1980), "Aaah, nothing like a nice cuppa tea!")),
 	CUP_OF_TEA_MILKY_NETTLE(new Drink(4243, new ConsumableProperties(3, 1980), "Aaah, nothing like a nice cuppa tea!")),
 	NETTLE_TEA(new Drink(4239, new ConsumableProperties(3, 1923), "Aaah, nothing like a nice cuppa tea!")),

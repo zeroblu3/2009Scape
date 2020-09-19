@@ -54,7 +54,7 @@ public final class GameWorld {
      */
     public static final List<Pulse> TASKS = new ArrayList<>();
 
-    public static final ScheduledThreadPoolExecutor executer = (ScheduledThreadPoolExecutor)Executors.newScheduledThreadPool(100);
+    public static final ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor)Executors.newScheduledThreadPool(100);
 
     public static final ThreadPoolExecutor ThreadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
 
@@ -259,17 +259,6 @@ public final class GameWorld {
 
     public static DatabaseManager getDatabaseManager() {
         return dbm;
-    }
-
-    private static Location generateLocation() {
-        Location random_location = new Location(3075 + RandomFunction.random(-15, 15), 3954 + RandomFunction.random(-15, 15), 0);
-        if (!RegionManager.isTeleportPermitted(random_location)) {
-            return generateLocation();
-        }
-        if (RegionManager.getObject(random_location) != null) {
-            return generateLocation();
-        }
-        return random_location;
     }
 }
 

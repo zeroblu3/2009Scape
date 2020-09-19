@@ -82,8 +82,13 @@ public class EnchantTiaraPulse extends SkillPulse<Item> {
 		if (player.getInventory().remove(TIARA) && player.getInventory().remove(tiara.getTalisman().getTalisman())) {
 			player.getInventory().add(tiara.getTiara());
 			player.getSkills().addExperience(Skills.RUNECRAFTING, tiara.getExperience(), true);
-			if (tiara.getTiara().getId() == ItemNames.AIR_TIARA_5527 && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0,11)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player,0,11, true);
+
+			if (tiara == Tiara.AIR) {
+				player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 0, 11);
+			}
+			// Craft an earth tiara on the Earth Altar
+			if (tiara == Tiara.EARTH) {
+				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 11);
 			}
 		}
 		amount--;

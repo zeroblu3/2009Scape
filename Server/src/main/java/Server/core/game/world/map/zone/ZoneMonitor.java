@@ -266,7 +266,6 @@ public final class ZoneMonitor {
 
 	/**
 	 * Handles a location update.
-	 * @param entity The entity.
 	 * @param last The last location of the entity.
 	 * @return {@code false} If the entity could not enter/leave a region.
 	 */

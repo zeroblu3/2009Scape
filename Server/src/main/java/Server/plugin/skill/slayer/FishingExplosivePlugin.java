@@ -202,7 +202,7 @@ public final class FishingExplosivePlugin extends OptionHandler {
 		@Override
 		public boolean isAttackable(final Entity entity, CombatStyle style) {
 			final Player pl = getAttribute("player", null);
-			return pl == null ? false : pl == entity && super.isAttackable(entity, style);
+			return pl != null && pl == entity && super.isAttackable(entity, style);
 		}
 
 		@Override
@@ -210,9 +210,7 @@ public final class FishingExplosivePlugin extends OptionHandler {
 			super.finalizeDeath(killer);
 			if (killer instanceof Player) {
 				final Player player = killer.asPlayer();
-				if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2, 7)) {
-					player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player, 2, 7, true);
-				}
+				player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 2, 7);
 			}
 		}
 

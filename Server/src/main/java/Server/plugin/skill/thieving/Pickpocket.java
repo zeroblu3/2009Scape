@@ -277,7 +277,11 @@ public enum Pickpocket {
 		this.experience = experience;
 		this.stunDamage = damage;
 		this.loot = loot;
-		this.messages = new String[] { "You attempt to pick the " + "@name" + "'s pocket...", "You pick the " + "@name" + "'s pocket.", "You fail to pick the " + "@name" + "'s pocket.", "What do you think you're doing?" };
+		this.messages = new String[] {
+				"You attempt to pick the " + "@name" + "'s pocket...",
+				"You pick the " + "@name" + "'s pocket.",
+				"You fail to pick the " + "@name" + "'s pocket.",
+				"What do you think you're doing?" };
 	}
 
 	public int[] getNpc() {
@@ -315,7 +319,7 @@ public enum Pickpocket {
 	public List<Item> getRandomLoot(Player player) {
 		// 5/250 chance for easy clue scroll
 		if ((this == MALE_HAM_MEMBER || this == FEMALE_HAM_MEMBER) && RandomFunction.random(250) <= 5 && !player.getTreasureTrailManager().hasClue()) {
-			return new ArrayList<Item>(Arrays.asList(new Item[]{ClueScrollPlugin.getClue(ClueLevel.EASY)}));
+			return new ArrayList<Item>(Arrays.asList(ClueScrollPlugin.getClue(ClueLevel.EASY)));
 		}
 		List<Item> loot = RandomFunction.rollChanceTable(true,getLoot());
 

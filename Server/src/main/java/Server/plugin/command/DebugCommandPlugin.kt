@@ -14,6 +14,8 @@ import core.game.node.item.Item
 import core.game.system.SystemLogger.log
 import core.game.system.command.CommandPlugin
 import core.game.system.command.CommandSet
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.build.DynamicRegion
@@ -25,6 +27,7 @@ import core.tools.npc.TestStats
 import plugin.ai.resource.ResourceAIPManager
 import plugin.ge.GrandExchangeDatabase
 import plugin.skill.Skills
+import plugin.tutorial.TutorialSession
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
@@ -210,6 +213,99 @@ class DebugCommandPlugin : CommandPlugin() {
                     i++
                 }
                 return true
+            }
+            "iface" -> {
+                if (args!!.size < 2) {
+                    player!!.sendMessage("Usage: ::iface id")
+                }
+                id = toInteger(args[1]!!)
+                player!!.interfaceManager.openComponent(id)
+                return true
+            }
+            "ifacerange" -> {
+                if (args!!.size < 3) {
+                    player!!.sendMessage("Usage: ::ifacerange start end")
+                }
+                val start = toInteger(args[1]!!)
+                val end = toInteger(args[2]!!)
+                var id2 = start
+                GameWorld.Pulser.submit(object : Pulse(6, player) {
+                    override fun pulse(): Boolean {
+                        return if (id2 > end) {
+                            true
+                        } else {
+                            player!!.interfaceManager.openComponent(id2++)
+                            player.sendMessage(id2.toString())
+                            false
+                        }
+                    }
+                })
+
+                return true
+            }
+            "gconfig" -> {
+                if (args!!.size < 2) {
+                    player!!.sendMessage("usage: ::gconfig id")
+                    return false
+                }
+                val id2 = toInteger(args[1]!!)
+                player!!.sendMessage(player.configManager.get(id2).toString())
+                return true
+            }
+            "sconfig" -> {
+                if (args!!.size < 3) {
+                    player!!.sendMessage("usage: ::sconfig id value")
+                    return false
+                }
+                val id2 = toInteger(args[1]!!)
+                val value = toInteger(args[2]!!)
+                player!!.configManager.set(id2, value)
+                player.sendMessage(player.configManager.get(id2).toString())
+                return true
+            }
+            "sconfigrange" -> {
+                if (args!!.size < 3) {
+                    player!!.sendMessage("usage: ::sconfigrange lo hi")
+                    return false
+                }
+                val idlo = toInteger(args[1]!!)
+                val idhi = toInteger(args[2]!!)
+                for (idsend in idlo until idhi) {
+                    player!!.configManager.set(idsend, Integer.MAX_VALUE)
+                }
+                return true
+            }
+            "sconfigrange0" -> {
+                if (args!!.size < 3) {
+                    player!!.sendMessage("usage: ::sconfigrange lo hi")
+                    return false
+                }
+                val idlo = toInteger(args[1]!!)
+                val idhi = toInteger(args[2]!!)
+                for (idsend in idlo until idhi) {
+                    player!!.configManager.set(idsend, 0)
+                }
+                return true
+            }
+            "sconfighide" -> {
+                if (args!!.size < 4) {
+                    player!!.sendMessage("usage: ::sconfighide id child value")
+                    return false
+                }
+                val id2 = toInteger(args[1]!!)
+                val child = toInteger(args[2]!!)
+                val value = toInteger(args[3]!!) > 0
+                player!!.packetDispatch.sendInterfaceConfig(id2, child, value)
+                return true
+            }
+            "sconfigtext" -> {
+                if (args!!.size < 4) {
+                    player!!.sendMessage("usage: ::sconfigtext id child string")
+                }
+                val id3 = toInteger(args[1]!!)
+                val child = toInteger(args[2]!!)
+                val str = args[3]!!
+                player!!.packetDispatch.sendString(str,id3,child)
             }
             "item" -> {
                 if (args!!.size < 2) {

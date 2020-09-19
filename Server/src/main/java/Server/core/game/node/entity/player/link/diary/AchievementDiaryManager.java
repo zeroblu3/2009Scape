@@ -94,6 +94,10 @@ public class AchievementDiaryManager implements SavingModule {
 		getDiary(type).updateTask(player, level, index, complete);
 	}
 
+	public void finishTask(Player player, DiaryType type, int level, int index) {
+		getDiary(type).finishTask(player, level, index);
+	}
+
 	/**
 	 * Checks if a task has been completed.
 	 * @param type the diary type.
@@ -111,7 +115,7 @@ public class AchievementDiaryManager implements SavingModule {
 	 * @param level the level.
 	 */
 	public void setStarted(DiaryType type, int level) {
-		getDiary(type).setStarted(level);
+		getDiary(type).setLevelStarted(level);
 	}
 
 	/**

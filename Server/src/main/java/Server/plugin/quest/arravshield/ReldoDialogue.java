@@ -107,7 +107,7 @@ public class ReldoDialogue extends DialoguePlugin {
 				stage++;
 				break;
 			case 442:
-				diary.setRewarded(1);
+				diary.setLevelRewarded(1);
 				for (Item i : diary.getType().getRewards(1)) {
 					player.getInventory().add(i, player);
 				}
@@ -501,12 +501,12 @@ public class ReldoDialogue extends DialoguePlugin {
 		if (diary == null) {
 			diary = player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK);
 		}
-		if (diary.isComplete(1) && !diary.hasReward(1)) {
+		if (diary.isComplete(1) && !diary.isLevelRewarded(1)) {
 			player("I've done all the medium tasks in my Varrock", "Achievement Diary.");
 			stage = 440;
 			return;
 		}
-		if (diary.hasReward(1) && diary.isComplete(1) && !player.hasItem(diary.getType().getRewards(1)[0])) {
+		if (diary.isLevelRewarded(1) && diary.isComplete(1) && !player.hasItem(diary.getType().getRewards(1)[0])) {
 			player("I've seemed to have lost my armour...");
 			stage = 450;
 			return;

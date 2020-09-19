@@ -1,6 +1,7 @@
 package plugin.skill.gather.woodcutting;
 
 import core.cache.def.impl.ItemDefinition;
+import core.game.container.impl.EquipmentContainer;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.BirdNest;
 import core.game.content.global.SkillcapePerks;
@@ -27,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Woodcutting skill pulse
+ *
  * @author ceik
  */
 public class WoodcuttingSkillPulse extends Pulse {
@@ -45,7 +47,7 @@ public class WoodcuttingSkillPulse extends Pulse {
     }
 
     public void message(int type) {
-        if(type == 0) {
+        if (type == 0) {
             player.getPacketDispatch().sendMessage("You swing your axe at the tree...");
             if (TutorialSession.getExtension(player).getStage() == 6) {
                 player.lock(7);
@@ -75,25 +77,25 @@ public class WoodcuttingSkillPulse extends Pulse {
     @Override
     public void start() {
         resource = WoodcuttingNode.forId(node.getId());
-        if(resource == null){
+        if (resource == null) {
             return;
         }
-        if(checkRequirements()) {
+        if (checkRequirements()) {
             super.start();
             message(0);
         }
     }
 
-    public boolean checkRequirements(){
-        if(player.getSkills().getLevel(Skills.WOODCUTTING) < resource.getLevel()){
+    public boolean checkRequirements() {
+        if (player.getSkills().getLevel(Skills.WOODCUTTING) < resource.getLevel()) {
             player.getPacketDispatch().sendMessage("You need a woodcutting level of " + resource.getLevel() + " to chop this tree.");
             return false;
         }
-        if(SkillingTool.getHatchet(player) == null){
+        if (SkillingTool.getHatchet(player) == null) {
             player.getPacketDispatch().sendMessage("You do not have a hatchet to use.");
             return false;
         }
-        if(player.getInventory().freeSlots() < 1){
+        if (player.getInventory().freeSlots() < 1) {
             player.getDialogueInterpreter().sendDialogue("Your inventory is too full to hold any more " + ItemDefinition.forId(resource.getReward()).getName().toLowerCase() + ".");
             return false;
         }
@@ -126,7 +128,7 @@ public class WoodcuttingSkillPulse extends Pulse {
         }
 
         // 20% chance to auto burn logs when using "inferno adze" item
-        if (SkillingTool.getHatchet(player).getId() == 13661 && RandomFunction.random(100) < 20){
+        if (SkillingTool.getHatchet(player).getId() == 13661 && RandomFunction.random(100) < 20) {
             player.sendMessage("Your chop some logs. The heat of the inferno adze incinerates them.");
             Projectile.create(player, null, 1776, 35, 30, 20, 25).transform(player, new Location(player.getLocation().getX() + 2, player.getLocation().getY()), true, 25, 25).send();
             player.getSkills().addExperience(Skills.WOODCUTTING, resource.getExperience());
@@ -138,14 +140,13 @@ public class WoodcuttingSkillPulse extends Pulse {
         //actual reward calculations
         int reward = resource.getReward();
         int rewardAmount = 0;
-        if (reward > 0){
+        if (reward > 0) {
             reward = calculateReward(reward); // calculate rewards
             rewardAmount = calculateRewardAmount(reward); // calculate amount
-            applyAchievementTask(reward); // apply achievements
-            SkillingPets.checkPetDrop(player,SkillingPets.BEAVER); // roll for pet
+            SkillingPets.checkPetDrop(player, SkillingPets.BEAVER); // roll for pet
 
             //add experience
-            double experience = calculateExperience(resource.reward,rewardAmount);
+            double experience = calculateExperience(resource.reward, rewardAmount);
 
             player.getSkills().addExperience(Skills.WOODCUTTING, experience, true);
 
@@ -157,7 +158,7 @@ public class WoodcuttingSkillPulse extends Pulse {
                 player.getStatisticsManager().getLOGS_OBTAINED().incrementAmount();
             }
             //give the reward
-            player.getInventory().add(new Item(reward,rewardAmount));
+            player.getInventory().add(new Item(reward, rewardAmount));
 
             //calculate bonus bird nest for mining
             int chance = 282;
@@ -167,6 +168,8 @@ public class WoodcuttingSkillPulse extends Pulse {
             if (RandomFunction.random(chance) == chance / 2) {
                 BirdNest.drop(player);
             }
+
+            applyAchievementTask(reward); // apply achievements
         }
         // Tutorial stuff, maybe?
         if (tutorialStage == 7) {
@@ -183,15 +186,6 @@ public class WoodcuttingSkillPulse extends Pulse {
                     PatchWrapper tree = player.getFarmingManager().getPatchWrapper(node.getWrapper().getId());
                     tree.addConfigValue(tree.getNode().getStumpBase());
                     tree.getCycle().setGrowthTime(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(resource.getRespawnDuration() + 10));
-
-                    // Achievement diary handling
-                    if (node.getId() == 8389
-                            && node.getLocation().equals(3003,3372,0)
-                            && Trees.forNode(tree.getNode()) != null
-                            && (Trees.forNode(tree.getNode()) == Trees.YEW || Trees.forNode(tree.getNode()) == Trees.MAGIC) && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,3)) {
-                        player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player,2,3,true);
-                    }
-
                     return true;
                 }
                 if (resource.getEmptyId() > -1) {
@@ -206,12 +200,19 @@ public class WoodcuttingSkillPulse extends Pulse {
         return false;
     }
 
-    private int calculateRewardAmount(int reward){
+    private int calculateRewardAmount(int reward) {
         int amount = 1;
 
         // 3239: Hollow tree (bark) 10% chance of obtaining
         if (reward == 3239 && RandomFunction.random(100) >= 10) {
             amount = 0;
+        }
+
+        // Seers village medium reward - extra normal log while in seer's village
+        if (reward == 1511
+                && player.getAchievementDiaryManager().getDiary(DiaryType.SEERS_VILLAGE).isComplete(1)
+                && player.getViewport().getRegion().getId() == 10806) {
+            amount = 2;
         }
 
         return amount;
@@ -230,6 +231,14 @@ public class WoodcuttingSkillPulse extends Pulse {
             }
         }
 
+        // Seers village medium reward - extra 10% xp from maples while wearing headband
+        if (reward == 1517
+                && player.getAchievementDiaryManager().getDiary(DiaryType.SEERS_VILLAGE).isComplete(1)
+                && player.getEquipment().get(EquipmentContainer.SLOT_HAT) != null
+                && player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == 14631) {
+            experience *= 1.10;
+        }
+
         return experience * amount;
     }
 
@@ -246,16 +255,46 @@ public class WoodcuttingSkillPulse extends Pulse {
         } else if (reward == 6332 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 5)) {
             player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 5, true);
         }
-        if (node.getId() == 24168 && !player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(0, 6)) {
-            player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 0, 6, true);
+
+        // Chop down a dying tree in the Lumber Yard
+        if (node.getId() == 24168 && player.getViewport().getRegion().getId() == 13110) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 6);
         }
-        if (reward == 1519 && player.getViewport().getRegion().getId() == 12338 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(1, 5)) {
-            player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).updateTask(player, 1, 5, true);
+
+        if (resource == WoodcuttingNode.YEW && player.getViewport().getRegion().getId() == 10806) {
+            if (!player.getAchievementDiaryManager().hasCompletedTask(DiaryType.SEERS_VILLAGE, 2, 1)) {
+                player.setAttribute("/save:diary:seers:cut-yew", player.getAttribute("diary:seers:cut-yew", 0) + 1);
+            }
+            System.out.println(player.getAttribute("diary:seers:cut-yew", 0));
+            if (player.getAttribute("diary:seers:cut-yew", 0) >= 5) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 1);
+            }
+        }
+
+        if (resource.isFarming()) {
+            PatchWrapper tree = player.getFarmingManager().getPatchWrapper(node.getWrapper().getId());
+            if (node.getId() == 8389
+                    && node.getLocation().equals(3003, 3372, 0)
+                    && Trees.forNode(tree.getNode()) != null
+                    && (Trees.forNode(tree.getNode()) == Trees.YEW || Trees.forNode(tree.getNode()) == Trees.MAGIC)) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 2, 3);
+            }
+        }
+
+        // Cut down a dead tree in Lumbridge Swamp
+        if (resource.name().toLowerCase().startsWith("dead") && player.getViewport().getRegion().getId() == 12593) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 1, 8);
+        }
+
+        // Cut a willow tree, east of Lumbridge Castle
+        if (resource.name().toLowerCase().startsWith("willow") && player.getViewport().getRegion().getId() == 12850) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 2, 6);
         }
     }
 
     /**
      * Checks if the player gets rewarded.
+     *
      * @return {@code True} if so.
      */
     private boolean checkReward() {

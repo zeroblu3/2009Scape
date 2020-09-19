@@ -46,8 +46,8 @@ public final class ChemistDialogue extends DialoguePlugin {
         interpreter.sendOptions("Do you want to talk about lamps?", "Yes.", "No.", "No, I'm more interested in impling jars.", "Falador Achievement Diary");
         stage = 0;
         AchievementDiary diary = player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR);
-        replacementReward = diary.hasReward(level)
-                && diary.isComplete(level)
+        replacementReward = diary.isLevelRewarded(level)
+                && diary.isComplete(level, true)
                 && !player.hasItem(diary.getType().getRewards(level)[0]);
         return true;
     }
@@ -238,7 +238,7 @@ public final class ChemistDialogue extends DialoguePlugin {
                 break;
             // https://www.youtube.com/watch?v=ZW9k1922Ggk
             case 105:
-                if (!diary.hasReward(1)) {
+                if (!diary.isLevelRewarded(1)) {
                     options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.");
                     stage = 106;
                 } else {
@@ -349,10 +349,10 @@ public final class ChemistDialogue extends DialoguePlugin {
                 break;
 
             case 200:
-                if (diary.hasReward(level)) {
+                if (diary.isLevelRewarded(level)) {
                     npc("But you've already gotten yours!");
                     stage = 105;
-                } else if (diary.isComplete(level)) {
+                } else if (diary.isComplete(level, true)) {
                     npc("So, you've finished. Well done! I believe congratulations", "are in order.");
                     stage = 201;
                 } else {
@@ -370,13 +370,13 @@ public final class ChemistDialogue extends DialoguePlugin {
                 break;
             case 203:
                 npc("This is the second stage of the Falador shield: a kite", "shield. It grants you all the benefits fo the buckler, but", "with increased Prayer restore, and Farming experience", "when using the patches near Falador.");
-                if (!diary.hasReward(level)) {
+                if (!diary.isLevelRewarded(level)) {
                     for (Item i : diary.getType().getRewards(level)) {
                         if (!player.getInventory().add(i, player)) {
                             GroundItemManager.create(i, player);
                         }
                     }
-                    diary.setRewarded(level);
+                    diary.setLevelRewarded(level);
                 }
                 stage = 204;
                 break;

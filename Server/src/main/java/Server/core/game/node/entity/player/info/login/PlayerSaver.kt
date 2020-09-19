@@ -23,6 +23,9 @@ import javax.script.ScriptEngineManager
  * @author Ceikry
  */
 class PlayerSaver (val player: Player){
+    val manager = ScriptEngineManager()
+    val scriptEngine = manager.getEngineByName("JavaScript")
+
     fun save() {
         val start = System.currentTimeMillis()
         val saveFile = JSONObject()
@@ -54,8 +57,6 @@ class PlayerSaver (val player: Player){
         saveStatManager(saveFile)
         saveBrawlingGloves(saveFile)
 
-        val manager = ScriptEngineManager()
-        val scriptEngine = manager.getEngineByName("JavaScript")
         scriptEngine.put("jsonString", saveFile.toJSONString())
         scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
         val prettyPrintedJson = scriptEngine["result"] as String
@@ -118,12 +119,12 @@ class PlayerSaver (val player: Player){
         player.achievementDiaryManager.diarys.map {
             val diary = JSONObject()
             val startedLevels = JSONArray()
-            it.started.map {
+            it.levelStarted.map {
                 startedLevels.add(it)
             }
             diary.put("startedLevels",startedLevels)
             val completedLevels = JSONArray()
-            it.completed.map {
+            it.taskCompleted.map {
                 val level = JSONArray()
                 it.map {
                     level.add(it)
@@ -132,7 +133,7 @@ class PlayerSaver (val player: Player){
             }
             diary.put("completedLevels",completedLevels)
             val rewardedLevels = JSONArray()
-            it.rewarded.map {
+            it.levelRewarded.map {
                 rewardedLevels.add(it)
             }
             diary.put("rewardedLevels",rewardedLevels)
@@ -376,12 +377,13 @@ class PlayerSaver (val player: Player){
                 cycle.put("protection",it.cycle.isProtected)
                 wrapper.put("cycle",cycle)
                 if(it.node != null){
-                    wrapper.put("nodePosition",it.patch.getNodePosition(it.node).toString())
+                    wrapper.put("nodeId",it.patch.getNodePosition(it.node).toString())
                 }
                 wrappers.add(wrapper)
             }
             farming.put("wrappers",wrappers)
         }
+
         root.put("farming",farming)
     }
 

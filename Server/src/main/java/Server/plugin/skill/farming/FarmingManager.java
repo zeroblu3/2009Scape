@@ -84,6 +84,9 @@ public final class FarmingManager implements SavingModule {
 			wrapper.getCycle().setGrowthTime(Long.parseLong(c.get("growthTime").toString()));
 			wrapper.getCycle().setHarvestAmount(Integer.parseInt(c.get("harvestAmount").toString()));
 			wrapper.getCycle().setProtection(Boolean.parseBoolean(c.get("protection").toString()));
+			if (b.get("nodeId") != null) {
+				wrapper.setNode(wrapper.getPatch().getNodes()[Integer.parseInt(b.get("nodeId").toString())]);
+			}
 			patches.add(wrapper);
 		}
 	}

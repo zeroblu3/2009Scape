@@ -75,7 +75,7 @@ public class Drink extends Consumable {
 	public void consume(final Item item, final Player player) {
 		final int initial = player.getSkills().getLifepoints();
 		remove(player, item);
-		message(player, item, initial);
+		message(player, item, initial, messages);
 	}
 
 	/**
