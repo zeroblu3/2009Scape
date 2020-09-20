@@ -1,5 +1,13 @@
 package ms.system.communication;
 
+import ms.ServerConstants;
+import ms.net.packet.WorldPacketRepository;
+import ms.system.util.ByteBufferUtils;
+import ms.system.util.StringUtils;
+import ms.world.GameServer;
+import ms.world.PlayerSession;
+import ms.world.WorldDatabase;
+
 import java.nio.ByteBuffer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import ms.ServerConstants;
-import ms.net.packet.WorldPacketRepository;
-import ms.system.util.ByteBufferUtils;
-import ms.system.util.StringUtils;
-import ms.world.GameServer;
-import ms.world.PlayerSession;
-import ms.world.WorldDatabase;
 
 /**
  * Holds communication information.
@@ -48,7 +48,7 @@ public final class CommunicationInfo {
 	/**
 	 * The current clan this player is in.
 	 */
-	private String currentClan = "keldagrim";
+	private String currentClan = "2009scape";
 
 	/**
 	 * The rank required for joining.
@@ -68,7 +68,7 @@ public final class CommunicationInfo {
 	/**
 	 * The rank required for loot-share.
 	 */
-	private ClanRank lootRequirement = ClanRank.KELDAGRIM_MOD;
+	private ClanRank lootRequirement = ClanRank.ADMINISTRATOR;
 
 	/**
 	 * The public chat setting.
@@ -135,7 +135,7 @@ public final class CommunicationInfo {
 
 	/**
 	 * Saves the communication info.
-	 * @param buffer The buffer.
+	 * @param statement The buffer.
 	 * @throws SQLException The exception if thrown.
 	 */
 	public void save(PreparedStatement statement) throws SQLException {
@@ -164,19 +164,19 @@ public final class CommunicationInfo {
 	 */
 	public void parse(ResultSet set) throws SQLException {
 		String contacts = set.getString("contacts");
-		String[] tokens = null;
-		if (contacts != null && contacts != "") {
+		String[] tokens;
+		if (contacts != null && !contacts.isEmpty()) {
 			String[] datas = contacts.split("~");
 			for (String d : datas) {
 				tokens = d.replace("{", "").replace("}", "").split(",");
-				if (tokens.length == 0) {
+				if (tokens.length < 2) {
 					continue;
 				}
-				this.contacts.put(tokens[0], ClanRank.values()[Integer.valueOf(tokens[1])]);
+				this.contacts.put(tokens[0], ClanRank.values()[Integer.parseInt(tokens[1])]);
 			}
 		}
 		String bl = set.getString("blocked");
-		if (bl != null && bl != "") {
+		if (bl != null && !bl.isEmpty()) {
 			tokens = bl.split(",");
 			for (String name : tokens) {
 				blocked.add(name);
@@ -185,7 +185,7 @@ public final class CommunicationInfo {
 		clanName = set.getString("clanName");
 		currentClan = set.getString("currentClan");
 		String clanReqs = set.getString("clanReqs");
-		if (clanReqs != "") {
+		if (!clanReqs.isEmpty()) {
 			tokens = clanReqs.split(",");
 			ClanRank rank = null;
 			int ordinal = 0;
@@ -196,43 +196,42 @@ public final class CommunicationInfo {
 				}
 				rank = ClanRank.values()[ordinal];
 				switch (i) {
-				case 0:
-					joinRequirement = rank;
-					break;
-				case 1:
-					messageRequirement = rank;
-					break;
-				case 2:
-					if (ordinal < 3 || ordinal > 8) {
+					case 0:
+						joinRequirement = rank;
 						break;
-					}
-					kickRequirement = rank;
-					break;
-				case 3:
-					lootRequirement = rank;
-					break;
+					case 1:
+						messageRequirement = rank;
+						break;
+					case 2:
+						if (ordinal < 3 || ordinal > 8) {
+							break;
+						}
+						kickRequirement = rank;
+						break;
+					case 3:
+						lootRequirement = rank;
+						break;
 				}
 			}
 		}
 		String chatSettings = set.getString("chatSettings");
-		if (chatSettings != "") {
+		if (!chatSettings.isEmpty()) {
 			tokens = chatSettings.split(",");
 			for (int i = 0; i < tokens.length; i++) {
 				switch (i) {
-				case 0:
-					publicChatSetting = Integer.parseInt(tokens[0]);
-					break;
-				case 1:
-					privateChatSetting = Integer.parseInt(tokens[1]);
-					break;
-				case 2:
-					tradeSetting = Integer.parseInt(tokens[2]);
-					break;
+					case 0:
+						publicChatSetting = Integer.parseInt(tokens[0]);
+						break;
+					case 1:
+						privateChatSetting = Integer.parseInt(tokens[1]);
+						break;
+					case 2:
+						tradeSetting = Integer.parseInt(tokens[2]);
+						break;
 				}
 			}
 		}
 	}
-
 
 	/**
 	 * Saves the communication info.
@@ -479,7 +478,7 @@ public final class CommunicationInfo {
 	public ClanRank getRank(String contact) {
 		for (String name : ServerConstants.ADMINISTRATORS) {
 			if (contact.equals(name)) {
-				return ClanRank.KELDAGRIM_MOD;
+				return ClanRank.ADMINISTRATOR;
 			}
 		}
 		return contacts.get(contact);

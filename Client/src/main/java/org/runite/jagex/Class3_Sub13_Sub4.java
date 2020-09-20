@@ -20,7 +20,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
    int anInt3067 = 0;
 
 
-   static final boolean method185(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   static boolean method185(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       if(var1 < var2 && var1 < var3 && var1 < var4) {
          return false;
       } else if(var1 > var2 && var1 > var3 && var1 > var4) {
@@ -37,116 +37,114 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
       }
    }
 
-   final void method186(boolean var1, int var2, int[] var3) {
+   final void method186(int var2, int[] var3) {
       try {
          int var5 = this.anInt3056 * Class163_Sub3.anIntArray2999[var2];
-         if(var1) {
-            int var4;
-            int var6;
-            int var8;
-            short var9;
-            int var10;
-            int var11;
-            int var12;
-            int var13;
-            int var14;
-            int var15;
-            int var17;
-            int var16;
-            int var18;
-            if(this.anInt3058 == 1) {
-               var9 = this.aShortArray3066[0];
+         int var4;
+         int var6;
+         int var8;
+         short var9;
+         int var10;
+         int var11;
+         int var12;
+         int var13;
+         int var14;
+         int var15;
+         int var17;
+         int var16;
+         int var18;
+         if(this.anInt3058 == 1) {
+            var9 = this.aShortArray3066[0];
+            var8 = this.aShortArray3063[0] << 12;
+            var11 = var5 * var8 >> 12;
+            var12 = this.anInt3060 * var8 >> 12;
+            var13 = var8 * this.anInt3056 >> 12;
+            var15 = var11 >> 12;
+            var17 = this.aByteArray3059[255 & var15] & 255;
+            var11 &= 4095;
+            var14 = Class1.anIntArray52[var11];
+            var16 = var15 - -1;
+            if(var16 >= var13) {
+               var16 = 0;
+            }
+
+            var18 = 255 & this.aByteArray3059[255 & var16];
+            if(this.aBoolean3065) {
+               for(var10 = 0; Class113.anInt1559 > var10; ++var10) {
+                  var4 = this.anInt3060 * Class102.anIntArray2125[var10];
+                  var6 = this.method192(var8 * var4 >> 12, var18, var17, var12, 121, var11, var14);
+                  var6 = var9 * var6 >> 12;
+                  var3[var10] = 2048 - -(var6 >> 1);
+               }
+            } else {
+               for(var10 = 0; var10 < Class113.anInt1559; ++var10) {
+                  var4 = this.anInt3060 * Class102.anIntArray2125[var10];
+                  var6 = this.method192(var8 * var4 >> 12, var18, var17, var12, 124, var11, var14);
+                  var3[var10] = var9 * var6 >> 12;
+               }
+            }
+         } else {
+            var9 = this.aShortArray3066[0];
+            if(var9 > 8 || -8 > var9) {
                var8 = this.aShortArray3063[0] << 12;
-               var11 = var5 * var8 >> 12;
-               var12 = this.anInt3060 * var8 >> 12;
                var13 = var8 * this.anInt3056 >> 12;
+               var12 = this.anInt3060 * var8 >> 12;
+               var11 = var5 * var8 >> 12;
                var15 = var11 >> 12;
-               var17 = this.aByteArray3059[255 & var15] & 255;
+               var16 = 1 + var15;
+               var17 = this.aByteArray3059[var15 & 255] & 255;
                var11 &= 4095;
                var14 = Class1.anIntArray52[var11];
-               var16 = var15 - -1;
-               if(var16 >= var13) {
+               if(var13 <= var16) {
                   var16 = 0;
                }
 
                var18 = 255 & this.aByteArray3059[255 & var16];
-               if(this.aBoolean3065) {
-                  for(var10 = 0; Class113.anInt1559 > var10; ++var10) {
-                     var4 = this.anInt3060 * Class102.anIntArray2125[var10];
-                     var6 = this.method192(var8 * var4 >> 12, var18, var17, var12, 121, var11, var14);
-                     var6 = var9 * var6 >> 12;
-                     var3[var10] = 2048 - -(var6 >> 1);
-                  }
-               } else {
-                  for(var10 = 0; var10 < Class113.anInt1559; ++var10) {
-                     var4 = this.anInt3060 * Class102.anIntArray2125[var10];
-                     var6 = this.method192(var8 * var4 >> 12, var18, var17, var12, 124, var11, var14);
-                     var3[var10] = var9 * var6 >> 12;
-                  }
+
+               for(var10 = 0; Class113.anInt1559 > var10; ++var10) {
+                  var4 = Class102.anIntArray2125[var10] * this.anInt3060;
+                  var6 = this.method192(var4 * var8 >> 12, var18, var17, var12, 122, var11, var14);
+                  var3[var10] = var6 * var9 >> 12;
                }
-            } else {
-               var9 = this.aShortArray3066[0];
-               if(var9 > 8 || -8 > var9) {
-                  var8 = this.aShortArray3063[0] << 12;
-                  var13 = var8 * this.anInt3056 >> 12;
-                  var12 = this.anInt3060 * var8 >> 12;
-                  var11 = var5 * var8 >> 12;
+            }
+
+            for(int var7 = 1; this.anInt3058 > var7; ++var7) {
+               var9 = this.aShortArray3066[var7];
+               if(8 < var9 || var9 < -8) {
+                  var8 = this.aShortArray3063[var7] << 12;
+                  var11 = var8 * var5 >> 12;
                   var15 = var11 >> 12;
-                  var16 = 1 + var15;
-                  var17 = this.aByteArray3059[var15 & 255] & 255;
+                  var17 = this.aByteArray3059[255 & var15] & 255;
+                  var12 = this.anInt3060 * var8 >> 12;
+                  var16 = var15 + 1;
                   var11 &= 4095;
                   var14 = Class1.anIntArray52[var11];
+                  var13 = this.anInt3056 * var8 >> 12;
                   if(var13 <= var16) {
                      var16 = 0;
                   }
 
-                  var18 = 255 & this.aByteArray3059[255 & var16];
-
-                  for(var10 = 0; Class113.anInt1559 > var10; ++var10) {
-                     var4 = Class102.anIntArray2125[var10] * this.anInt3060;
-                     var6 = this.method192(var4 * var8 >> 12, var18, var17, var12, 122, var11, var14);
-                     var3[var10] = var6 * var9 >> 12;
-                  }
-               }
-
-               for(int var7 = 1; this.anInt3058 > var7; ++var7) {
-                  var9 = this.aShortArray3066[var7];
-                  if(8 < var9 || var9 < -8) {
-                     var8 = this.aShortArray3063[var7] << 12;
-                     var11 = var8 * var5 >> 12;
-                     var15 = var11 >> 12;
-                     var17 = this.aByteArray3059[255 & var15] & 255;
-                     var12 = this.anInt3060 * var8 >> 12;
-                     var16 = var15 + 1;
-                     var11 &= 4095;
-                     var14 = Class1.anIntArray52[var11];
-                     var13 = this.anInt3056 * var8 >> 12;
-                     if(var13 <= var16) {
-                        var16 = 0;
+                  var18 = 255 & this.aByteArray3059[var16 & 255];
+                  if(this.aBoolean3065 && this.anInt3058 + -1 == var7) {
+                     for(var10 = 0; var10 < Class113.anInt1559; ++var10) {
+                        var4 = Class102.anIntArray2125[var10] * this.anInt3060;
+                        var6 = this.method192(var8 * var4 >> 12, var18, var17, var12, 120, var11, var14);
+                        var6 = (var9 * var6 >> 12) + var3[var10];
+                        var3[var10] = (var6 >> 1) + 2048;
                      }
-
-                     var18 = 255 & this.aByteArray3059[var16 & 255];
-                     if(this.aBoolean3065 && this.anInt3058 + -1 == var7) {
-                        for(var10 = 0; var10 < Class113.anInt1559; ++var10) {
-                           var4 = Class102.anIntArray2125[var10] * this.anInt3060;
-                           var6 = this.method192(var8 * var4 >> 12, var18, var17, var12, 120, var11, var14);
-                           var6 = (var9 * var6 >> 12) + var3[var10];
-                           var3[var10] = (var6 >> 1) + 2048;
-                        }
-                     } else {
-                        for(var10 = 0; Class113.anInt1559 > var10; ++var10) {
-                           var4 = Class102.anIntArray2125[var10] * this.anInt3060;
-                           var6 = this.method192(var4 * var8 >> 12, var18, var17, var12, 126, var11, var14);
-                           var3[var10] += var6 * var9 >> 12;
-                        }
+                  } else {
+                     for(var10 = 0; Class113.anInt1559 > var10; ++var10) {
+                        var4 = Class102.anIntArray2125[var10] * this.anInt3060;
+                        var6 = this.method192(var4 * var8 >> 12, var18, var17, var12, 126, var11, var14);
+                        var3[var10] += var6 * var9 >> 12;
                      }
                   }
                }
             }
-
          }
+
       } catch (RuntimeException var19) {
-         throw Class44.method1067(var19, "bi.C(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var19, "bi.C(" + true + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
       }
    }
 
@@ -159,14 +157,14 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
          aClass94_3055 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "bi.S(" + var0 + ')');
+         throw Class44.clientError(var2, "bi.S(" + var0 + ')');
       }
    }
 
    final void method158(int var1) {
       try {
          this.aByteArray3059 = Class49.method1123(16711935, this.anInt3067);
-         this.method191(true);
+         this.method191();
 
          for(int var2 = -1 + this.anInt3058; var2 >= 1; --var2) {
             short var3 = this.aShortArray3066[var2];
@@ -182,11 +180,11 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "bi.P(" + var1 + ')');
+         throw Class44.clientError(var4, "bi.P(" + var1 + ')');
       }
    }
 
-   static final void method188(int var0, int var1) {
+   static void method188(int var0, int var1) {
       try {
          if(var1 != 0) {
             method188(38, 29);
@@ -194,13 +192,13 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
          Class154.aClass93_1955.method1522(-125, var0);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "bi.U(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "bi.U(" + var0 + ',' + var1 + ')');
       }
    }
 
-   static final void method189(byte var0) {
+   static void method189() {
       try {
-         int var2 = -18 / ((28 - var0) / 32);
+         int var2;
 
          int var1;
          for(var1 = -1; Class159.localPlayerCount > var1; ++var1) {
@@ -232,7 +230,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "bi.B(" + var0 + ')');
+         throw Class44.clientError(var5, "bi.B(" + (byte) -62 + ')');
       }
    }
 
@@ -243,9 +241,9 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
          }
 
          if(var1 == 0) {
-            this.aBoolean3065 = var2.getByte((byte)-101) == 1;
+            this.aBoolean3065 = var2.getByteB() == 1;
          } else if(var1 == 1) {
-            this.anInt3058 = var2.getByte((byte)-96);
+            this.anInt3058 = var2.getByteB();
          } else if(var1 == 2) {
             this.anInt3062 = var2.getShort((byte)30);
             if(0 > this.anInt3062) {
@@ -256,23 +254,22 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
                }
             }
          } else if(var1 == 3) {
-            this.anInt3060 = this.anInt3056 = var2.getByte((byte)-38);
+            this.anInt3060 = this.anInt3056 = var2.getByteB();
          } else if(var1 == 4) {
-            this.anInt3067 = var2.getByte((byte)-94);
+            this.anInt3067 = var2.getByteB();
          } else if(var1 == 5) {
-            this.anInt3060 = var2.getByte((byte)-124);
+            this.anInt3060 = var2.getByteB();
          } else if(var1 == 6) {
-            this.anInt3056 = var2.getByte((byte)-66);
+            this.anInt3056 = var2.getByteB();
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "bi.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "bi.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
-   static final int method190(int var0, int var1, byte var2, int var3) {
+   static int method190(int var0, int var1, byte var2, int var3) {
       try {
-         int var4 = -42 % ((-14 - var2) / 60);
          int var5 = Class51.anIntArray834[Class140_Sub1_Sub2.method1940(var1, var3)];
          if(var0 > 0) {
             int var6 = Class51.anInterface2_838.method19(111, var0 & '\uffff');
@@ -321,11 +318,11 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
          return var5;
       } catch (RuntimeException var11) {
-         throw Class44.method1067(var11, "bi.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var11, "bi.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
-   private final void method191(boolean var1) {
+   private void method191() {
       try {
          int var2;
          if(this.anInt3062 <= 0) {
@@ -346,16 +343,12 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
             }
          }
 
-         if(!var1) {
-            this.method192(54, 5, -23, 103, -114, -67, -27);
-         }
-
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "bi.F(" + var1 + ')');
+         throw Class44.clientError(var3, "bi.F(" + true + ')');
       }
    }
 
-   private final int method192(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   private int method192(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       try {
          if(var5 < 117) {
             this.method158(89);
@@ -407,11 +400,11 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
          int var17 = var8 + ((-var8 + var9) * var15 >> 12);
          return var16 - -(var7 * (var17 + -var16) >> 12);
       } catch (RuntimeException var18) {
-         throw Class44.method1067(var18, "bi.R(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var18, "bi.R(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 
-   static final void method193(byte var0, Component var1) {
+   static void method193(byte var0, Component var1) {
       try {
          if(var0 < 49) {
             worldListOffset = 85;
@@ -422,14 +415,13 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
             try {
                var2.invoke(var1, new Object[]{Boolean.FALSE});
             } catch (Throwable var4) {
-               ;
             }
          }
 
          var1.addKeyListener(Class3_Sub13_Sub3.aClass148_3049);
          var1.addFocusListener(Class3_Sub13_Sub3.aClass148_3049);
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "bi.Q(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var5, "bi.Q(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 
@@ -439,15 +431,14 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
    final int[] method154(int var1, byte var2) {
       try {
-         int var4 = 111 % ((30 - var2) / 36);
-         int[] var3 = this.aClass114_2382.method1709(-16409, var1);
+         int[] var3 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
-            this.method186(true, var1, var3);
+            this.method186(var1, var3);
          }
 
          return var3;
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "bi.D(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var5, "bi.D(" + var1 + ',' + var2 + ')');
       }
    }
 

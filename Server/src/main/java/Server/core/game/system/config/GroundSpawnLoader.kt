@@ -21,9 +21,8 @@ class GroundSpawnLoader {
 
     fun load() {
         var count = 0
-        reader = FileReader("data/configs/ground_spawns.json")
-        var obj = parser.parse(reader) as JSONObject
-        var configs = obj["ground_spawns"] as JSONArray
+        reader = FileReader(ServerConstants.CONFIG_PATH + "ground_spawns.json")
+        var configs = parser.parse(reader) as JSONArray
         for(config in configs){
             val e = config as JSONObject
             val datas = e["loc_data"].toString().split("-")

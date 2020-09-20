@@ -1,12 +1,16 @@
 package plugin.interaction.item;
 
+import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.content.global.Lamps;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
+import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
+import plugin.interaction.inter.ExperienceInterface;
+import plugin.skill.Skills;
 
 /**
  * Represents the plugin used for an experience lamp.
@@ -27,9 +31,25 @@ public final class LampPlugin extends OptionHandler {
 	@Override
 	public boolean handle(Player player, Node node, String option) {
 		player.setAttribute("lamp", node);
-		player.getInterfaceManager().open(new Component(134));
+		player.setAttribute("caller",this);
+		player.getInterfaceManager().open(new Component(134).setCloseEvent((player1, c) -> {
+			player.getInterfaceManager().openDefaultTabs();
+			player.removeAttribute("lamp");
+			player.unlock();
+			return true;
+		}));
 		player.getInterfaceManager().hideTabs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13);
 		return true;
+	}
+	@Override
+	public void handleSelectionCallback(int skill, Player player){
+		Lamps lamp = Lamps.forItem(player.getAttribute("lamp",new Item(2528)));
+		if(player.getSkills().getStaticLevel(skill) < lamp.getLevelRequirement()){
+			player.sendMessage("Your need at least" + lamp.getLevelRequirement()  + " " + Skills.SKILL_NAME[skill]  + " to do this.");
+			return;
+		}
+		player.getSkills().addExperience(skill,lamp.getExp());
+		player.getInventory().remove((Item) player.getAttribute("lamp"));
 	}
 
 	@Override

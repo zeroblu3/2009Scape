@@ -12,7 +12,7 @@ final class Class50 {
 	int anInt831;
 
 
-	static final void method1131(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+	static void method1131(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
 		try {
 			if(var6 >= 0 && 0 <= var4 && var6 < 103 && 103 > var4) {
 				int var9;
@@ -35,18 +35,14 @@ final class Class50 {
 						var9 = (int)(var12.aLong428 >>> 32) & Integer.MAX_VALUE;
 						if(var3 == 4 || var3 == 5) {
 							var12.aClass140_429 = new Class140_Sub3(var9, 4, var2, var0, var6, var4, var7, false, var12.aClass140_429);
-						} else {
-							if(var3 == 6) {
-								var12.aClass140_429 = new Class140_Sub3(var9, 4, var2 - -4, var0, var6, var4, var7, false, var12.aClass140_429);
-							} else {
-								if(7 == var3) {
-									var12.aClass140_429 = new Class140_Sub3(var9, 4, (var2 - -2 & 3) - -4, var0, var6, var4, var7, false, var12.aClass140_429);
-								} else if(var3 == 8) {
-									var12.aClass140_429 = new Class140_Sub3(var9, 4, 4 + var2, var0, var6, var4, var7, false, var12.aClass140_429);
-									var12.aClass140_423 = new Class140_Sub3(var9, 4, (2 + var2 & 3) + 4, var0, var6, var4, var7, false, var12.aClass140_423);
-								}
-							}
-						}
+						} else if (var3 == 6) {
+                            var12.aClass140_429 = new Class140_Sub3(var9, 4, var2 - -4, var0, var6, var4, var7, false, var12.aClass140_429);
+                        } else if (7 == var3) {
+                            var12.aClass140_429 = new Class140_Sub3(var9, 4, (var2 - -2 & 3) - -4, var0, var6, var4, var7, false, var12.aClass140_429);
+                        } else if (var3 == 8) {
+                            var12.aClass140_429 = new Class140_Sub3(var9, 4, 4 + var2, var0, var6, var4, var7, false, var12.aClass140_429);
+                            var12.aClass140_423 = new Class140_Sub3(var9, 4, (2 + var2 & 3) + 4, var0, var6, var4, var7, false, var12.aClass140_423);
+                        }
 					}
 				}
 
@@ -74,11 +70,11 @@ final class Class50 {
 			}
 
 		} catch (RuntimeException var10) {
-			throw Class44.method1067(var10, "hd.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+			throw Class44.clientError(var10, "hd.B(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
 		}
 	}
 
-	static final void method1132(int var0) {
+	static void method1132(int var0) {
 		try {
 			Class128.aClass93_1683.method1523((byte)-111);
 			if(var0 != 103) {
@@ -86,7 +82,7 @@ final class Class50 {
 			}
 
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "hd.A(" + var0 + ')');
+			throw Class44.clientError(var2, "hd.A(" + var0 + ')');
 		}
 	}
 
@@ -95,7 +91,7 @@ final class Class50 {
 			aLongArray826 = null;
 			aClass3_Sub28_Sub16_824 = null;
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "hd.C(" + var0 + ')');
+			throw Class44.clientError(var2, "hd.C(" + var0 + ')');
 		}
 	}
 
@@ -108,7 +104,7 @@ final class Class50 {
 			this.anInt821 = var1.anInt821;
 			this.anInt830 = var1.anInt830;
 		} catch (RuntimeException var3) {
-			throw Class44.method1067(var3, "hd.<init>(" + (var1 != null?"{...}":"null") + ')');
+			throw Class44.clientError(var3, "hd.<init>(" + "null" + ')');
 		}
 	}
 

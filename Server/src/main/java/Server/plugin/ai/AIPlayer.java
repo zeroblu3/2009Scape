@@ -1,5 +1,6 @@
 package plugin.ai;
 
+import core.ServerConstants;
 import core.game.container.impl.EquipmentContainer;
 import core.game.interaction.DestinationFlag;
 import core.game.interaction.MovementPulse;
@@ -10,7 +11,6 @@ import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
-import core.game.node.entity.player.link.appearance.BodyPart;
 import core.game.node.entity.player.link.appearance.Gender;
 import core.game.node.item.Item;
 import core.game.system.SystemLogger;
@@ -18,8 +18,8 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.map.path.Pathfinder;
+import core.game.world.map.zone.impl.WildernessZone;
 import core.game.world.repository.Repository;
-import core.game.world.update.flag.context.ChatMessage;
 import core.net.packet.context.MessageContext;
 import core.net.packet.in.InteractionPacket;
 import core.plugin.Plugin;
@@ -27,7 +27,7 @@ import core.tools.RandomFunction;
 import core.tools.StringUtils;
 import plugin.dialogue.DialoguePlugin;
 import plugin.skill.Skills;
-import plugin.tutorial.CharacterDesign;
+import plugin.quest.tutorials.tutorialisland.CharacterDesign;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -190,7 +190,7 @@ public class AIPlayer extends Player {
         Random rand = new Random();
         int n = 0;
         try {
-            for (Scanner sc = new Scanner(new File("./data/botdata/" + fileName)); sc.hasNext(); ) {
+            for (Scanner sc = new Scanner(new File(ServerConstants.BOT_DATA_PATH + fileName)); sc.hasNext(); ) {
                 ++n;
                 String line = sc.nextLine();
                 if (rand.nextInt(n) == 0) { //Chance of overwriting line is lower and lower
@@ -296,6 +296,9 @@ public class AIPlayer extends Player {
     @Override
     public void tick() {
         super.tick();
+        if(getSkullManager().isWilderness()) {
+            getSkullManager().setLevel(WildernessZone.getWilderness(this));
+        }
         if(getSkills().getLifepoints() <= 0){
             //deregister(this.uid);
 

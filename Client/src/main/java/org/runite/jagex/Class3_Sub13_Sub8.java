@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import java.util.Objects;
+
 final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
 	private boolean aBoolean3100 = true;
@@ -17,15 +19,15 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			}
 
 			if(var1 == 0) {
-				this.aBoolean3100 = var2.getByte((byte) -117) == 1;
+				this.aBoolean3100 = var2.getByteB() == 1;
 			} else if(var1 == 1) {
-				this.aBoolean3104 = var2.getByte((byte)-93) == 1;
+				this.aBoolean3104 = var2.getByteB() == 1;
 			} else if(var1 == 2) {
-				this.aBoolean2375 = var2.getByte((byte) -45) == 1;
+				this.aBoolean2375 = var2.getByteB() == 1;
 			}
 
 		} catch (RuntimeException var5) {
-			throw Class44.method1067(var5, "ej.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+			throw Class44.clientError(var5, "ej.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
 		}
 	}
 
@@ -38,7 +40,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			int[][] var3 = this.aClass97_2376.method1594((byte)54, var2);
 			if(this.aClass97_2376.aBoolean1379) {
 				int[][] var4 = this.method162(!this.aBoolean3104?var2:-var2 + Class3_Sub20.anInt2487, 0, (byte)-105);
-				int[] var5 = var4[0];
+				int[] var5 = Objects.requireNonNull(var4)[0];
 				int[] var7 = var4[2];
 				int[] var6 = var4[1];
 				int[] var9 = var3[1];
@@ -62,28 +64,28 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
 			return var3;
 		} catch (RuntimeException var12) {
-			throw Class44.method1067(var12, "ej.T(" + var1 + ',' + var2 + ')');
+			throw Class44.clientError(var12, "ej.T(" + var1 + ',' + var2 + ')');
 		}
 	}
 
-	static final void method203(int var0) {
+	static void method203(int var0) {
 		try {
 			//int var1 = 15 / ((-11 - var0) / 63);
 			if(Class3_Sub28_Sub13.anInt3660 == 2) {
 				if(Class3_Sub13_Sub39.anInt3460 == NPCDefinition.anInt1297 && Class38_Sub1.anInt2612 == Class168.anInt2099) {
 					Class3_Sub28_Sub13.anInt3660 = 0;
 					if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
-						Class3_Sub30_Sub1.method806(2597, Class3_Sub13_Sub34.anInt3415 + -2);
+						Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 + -2);
 					} else {
-						Class3_Sub30_Sub1.method806(2597, Class3_Sub13_Sub34.anInt3415 + -1);
+						Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 + -1);
 					}
 				}
 			} else if(NPCDefinition.anInt1297 == Class163_Sub1.anInt2993 && Class38_Sub1.anInt2614 == Class38_Sub1.anInt2612) {
 				Class3_Sub28_Sub13.anInt3660 = 0;
 				if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
-					Class3_Sub30_Sub1.method806(2597, Class3_Sub13_Sub34.anInt3415 - 2);
+					Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 - 2);
 				} else {
-					Class3_Sub30_Sub1.method806(2597, Class3_Sub13_Sub34.anInt3415 - 1);
+					Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 - 1);
 				}
 			} else {
 				Class168.anInt2099 = Class38_Sub1.anInt2614;
@@ -92,11 +94,11 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			}
 
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "ej.B(" + var0 + ')');
+			throw Class44.clientError(var2, "ej.B(" + var0 + ')');
 		}
 	}
 
-	static final void method204(int var0) {
+	static void method204(int var0) {
 		try {
 			//Client Resize.
 			Class3_Sub13_Sub1.outgoingBuffer.putOpcode(243);
@@ -106,15 +108,14 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 				anInt3103 = -41;
 			}
 
-			++GameShell.anInt2;
 			Class3_Sub13_Sub1.outgoingBuffer.putShort(Class140_Sub7.anInt2934);
 			Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-31, Class3_Sub28_Sub14.anInt3671);
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "ej.C(" + var0 + ')');
+			throw Class44.clientError(var2, "ej.C(" + var0 + ')');
 		}
 	}
 
-	static final void method205(CacheIndex var0, int var1, CacheIndex var2, Interface4 var3) {
+	static void method205(CacheIndex var0, CacheIndex var2, Interface4 var3) {
 		try {
 			Class154.aClass153_1967 = var0;
 			Class58.anInterface4_915 = var3;
@@ -127,7 +128,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 				RenderAnimationDefinition.anInt377 = Class154.aClass153_1967.getFileAmount(1, (byte)83);
 			}
 		} catch (RuntimeException var5) {
-			throw Class44.method1067(var5, "ej.E(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ')');
+			throw Class44.clientError(var5, "ej.E(" + (var0 != null?"{...}":"null") + ',' + 115 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ')');
 		}
 	}
 
@@ -142,14 +143,13 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			}
 
 		} catch (RuntimeException var2) {
-			throw Class44.method1067(var2, "ej.O(" + var0 + ')');
+			throw Class44.clientError(var2, "ej.O(" + ')');
 		}
 	}
 
 	final int[] method154(int var1, byte var2) {
 		try {
-			int var3 = -34 / ((var2 - 30) / 36);
-			int[] var4 = this.aClass114_2382.method1709(-16409, var1);
+			int[] var4 = this.aClass114_2382.method1709(var1);
 			if(this.aClass114_2382.aBoolean1580) {
 				int[] var5 = this.method152(0, !this.aBoolean3104?var1:Class3_Sub20.anInt2487 + -var1, 32755);
 				if(this.aBoolean3100) {
@@ -163,11 +163,11 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
 			return var4;
 		} catch (RuntimeException var7) {
-			throw Class44.method1067(var7, "ej.D(" + var1 + ',' + var2 + ')');
+			throw Class44.clientError(var7, "ej.D(" + var1 + ',' + var2 + ')');
 		}
 	}
 
-	static final RSString method207(int var0, boolean var1, int var2, long var3) {
+	static RSString method207(int var0, boolean var1, int var2, long var3) {
 		try {
 			if(var0 >= 2 && var0 <= 36) {
 				if(var2 <= 71) {
@@ -217,7 +217,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 				throw new IllegalArgumentException("Invalid radix:" + var0);
 			}
 		} catch (RuntimeException var12) {
-			throw Class44.method1067(var12, "ej.F(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
+			throw Class44.clientError(var12, "ej.F(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
 		}
 	}
 

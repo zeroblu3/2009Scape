@@ -136,15 +136,6 @@ public final class FamiliarManager implements SavingModule {
 			}
 			familiar.setAttribute("hp",Integer.parseInt( currentFamiliar.get("lifepoints").toString()));
 		}
-
-		if(familiarData.containsKey("insuredPets")){
-			JSONArray insuredPets = (JSONArray) familiarData.get("insuredPets");
-			for(int i = 0; i < insuredPets.size(); i++){
-				int petId = Integer.parseInt( insuredPets.get(i).toString());
-				Pets pet = Pets.forId(petId);
-				insuredPets.add(pet);
-			}
-		}
 	}
 
 	@Override
@@ -591,19 +582,6 @@ public final class FamiliarManager implements SavingModule {
 		this.summoningCombatLevel = summoningCombatLevel;
 	}
 
-	/**
-	 * @return the insuredPets
-	 */
-	public List<Pets> getInsuredPets() {
-		return insuredPets;
-	}
-
-	/**
-	 * @param insuredPets the insuredPets to set
-	 */
-	public void setInsuredPets(List<Pets> insuredPets) {
-		this.insuredPets = insuredPets;
-	}
 
 	public Map<Integer, PetDetails> getPetDetails() {
 		return petDetails;

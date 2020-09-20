@@ -1,5 +1,6 @@
 package plugin.ge;
 
+import core.ServerConstants;
 import core.cache.def.impl.ItemDefinition;
 import core.game.node.item.Item;
 import core.game.system.SystemLogger;
@@ -52,15 +53,12 @@ public final class GrandExchangeDatabase {
 	 */
 	private static boolean initialized;
 
-	static String path = "data" + File.separator + "eco" + File.separator;
-
-
 	/**
 	 * Initializes the database
 	 */
 	public static void init() {
 		try {
-			File db = new File(path + "gedb.xml");
+			File db = new File(ServerConstants.GRAND_EXCHANGE_DATA_PATH + "gedb.xml");
 			if(!db.exists()){
 				initNewDB();
 				return;
@@ -108,10 +106,12 @@ public final class GrandExchangeDatabase {
 	public static void initNewDB(){
 		SystemLogger.log("Initializing new Grand Exchange DB! This may take a moment...");
 		ItemDefinition.getDefinitions().values().forEach(def -> {
-			GrandExchangeEntry e = new GrandExchangeEntry(def.getId());
-			e.setValue(def.getValue());
-			e.setLogLength(0);
-			DATABASE.put(def.getId(),e);
+			if(def.getId() != 2572){
+				GrandExchangeEntry e = new GrandExchangeEntry(def.getId());
+				e.setValue(def.getValue());
+				e.setLogLength(0);
+				DATABASE.put(def.getId(), e);
+			}
 		});
 		initialized = true;
 	}
@@ -128,10 +128,9 @@ public final class GrandExchangeDatabase {
 
 	/**
 	 * Dumps the grand exchange database.
-	 * @param directory The directory to save to.
 	 */
-	public static void save(String directory) {
-		File f = new File(path + "gedb.xml");
+	public static void save() {
+		File f = new File(ServerConstants.GRAND_EXCHANGE_DATA_PATH + "gedb.xml");
 		if(f.exists()){
 			f.delete();
 		}

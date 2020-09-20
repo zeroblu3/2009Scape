@@ -5,9 +5,9 @@ import java.util.List;
 
 import core.game.container.impl.EquipmentContainer;
 import plugin.consumable.Consumable;
-import plugin.consumable.ConsumableProperties;
 import plugin.consumable.Consumables;
 import plugin.consumable.Food;
+import plugin.consumable.effects.HealingEffect;
 import plugin.skill.Skills;
 import core.game.interaction.Option;
 import core.game.node.entity.Entity;
@@ -263,10 +263,10 @@ public class WildernessBot extends AIPlayer {
 			//this.animate(new Animation(829));
 			Item food = this.getInventory().getItem(foodItem);
 		
-			Consumable consumable = Consumables.getFoodByItemID(food.getId());
+			Consumable consumable = Consumables.getConsumableById(food.getId());
 		
 			if (consumable == null) {
-				consumable = new Food(food.getId(), new ConsumableProperties(1));
+				consumable = new Food(new int[] {food.getId()}, new HealingEffect(1));
 			}
 		
 			consumable .consume(food, this);

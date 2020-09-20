@@ -6,9 +6,8 @@ import plugin.dialogue.FacialExpression;
 import core.game.content.global.BirdNest;
 import core.game.content.global.SkillcapePerks;
 import core.game.content.global.SkillingPets;
-import plugin.skill.farming.patch.Trees;
-import plugin.tutorial.TutorialSession;
-import plugin.tutorial.TutorialStage;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
+import plugin.quest.tutorials.tutorialisland.TutorialStage;
 import plugin.skill.Skills;
 import plugin.skill.gather.SkillingTool;
 import plugin.skill.farming.wrapper.PatchWrapper;
@@ -255,12 +254,10 @@ public class WoodcuttingSkillPulse extends Pulse {
         } else if (reward == 6332 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 5)) {
             player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 5, true);
         }
-
         // Chop down a dying tree in the Lumber Yard
         if (node.getId() == 24168 && player.getViewport().getRegion().getId() == 13110) {
             player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 6);
         }
-
         if (resource == WoodcuttingNode.YEW && player.getViewport().getRegion().getId() == 10806) {
             if (!player.getAchievementDiaryManager().hasCompletedTask(DiaryType.SEERS_VILLAGE, 2, 1)) {
                 player.setAttribute("/save:diary:seers:cut-yew", player.getAttribute("diary:seers:cut-yew", 0) + 1);

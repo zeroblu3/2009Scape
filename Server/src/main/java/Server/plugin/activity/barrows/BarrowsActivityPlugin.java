@@ -303,8 +303,9 @@ public final class BarrowsActivityPlugin extends ActivityPlugin {
 					player.getPacketDispatch().sendMessage("The chest is empty.");
 					return true;
 				}
+				player.setAttribute("/save:barrow:looted",true);
 				RewardChest.reward(player);
-				PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.SHAKE, 3, 2, 2, 2, 2));
+				//PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.SHAKE, 3, 2, 2, 2, 2));
 				return true;
 			}
 		}

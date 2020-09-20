@@ -2,7 +2,8 @@ package org.runite.jagex;
 
 final class Class86 {
 
-   int anInt1175;
+    static Class130 aClass130_3679 = new Class130(16);
+    int anInt1175;
    int anInt1177;
    int anInt1178;
    int anInt1181;
@@ -19,36 +20,32 @@ final class Class86 {
    static Class130 aClass130_1194;
    static int anInt1195;
 
-   static final void method1427(boolean var0, int var1) {
+   static void method1427(int var1) {
       try {
          if(-1 == var1 && !Class83.aBoolean1158) {
-            GameObject.method1870(false);
-         } else if(var1 != -1 && (Class129.anInt1691 != var1 || !Class79.method1391(-1)) && Class9.anInt120 != 0 && !Class83.aBoolean1158) {
-            Class151.method2099(true, var1, 0, Class75_Sub2.aClass153_2645, false, Class9.anInt120, 2);
+            GameObject.method1870();
+         } else if(var1 != -1 && (Class129.anInt1691 != var1 || Class79.method1391(-1)) && Class9.anInt120 != 0 && !Class83.aBoolean1158) {
+            Class151.method2099(var1, Class75_Sub2.aClass153_2645, Class9.anInt120);
          }
          Class129.anInt1691 = var1;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "li.B(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "li.B(" + true + ',' + var1 + ')');
       }
    }
 
-   static final void method1428(int var0, int var1, int var2) {
+   static void method1428(int var0, int var2) {
       try {
-         if(var1 < 21) {
-            method1430(34, -13);
-         }
-
-         Class163_Sub1.anIntArray2985[var0] = var2;
-         Class3_Sub7 var3 = (Class3_Sub7)Class3_Sub28_Sub15.aClass130_3679.method1780((long)var0, 0);
+         ItemDefinition.ram[var0] = var2;
+         Class3_Sub7 var3 = (Class3_Sub7) aClass130_3679.method1780((long)var0);
          if(var3 == null) {
             var3 = new Class3_Sub7(Class5.method830((byte)-55) - -500L);
-            Class3_Sub28_Sub15.aClass130_3679.method1779(1, var3, (long)var0);
+            aClass130_3679.method1779(var3, (long)var0);
          } else {
             var3.aLong2295 = 500L + Class5.method830((byte)-55);
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "li.D(" + var0 + ',' + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "li.D(" + var0 + ',' + var2 + ')');
       }
    }
 
@@ -60,32 +57,29 @@ final class Class86 {
          aClass41_1186 = null;
          aClass130_1194 = null;
          if(var0 != 53) {
-            aClass3_Sub24_Sub4_1193 = (Class3_Sub24_Sub4)null;
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "li.C(" + var0 + ')');
+         throw Class44.clientError(var2, "li.C(" + var0 + ')');
       }
    }
 
-   static final Class3_Sub28_Sub17_Sub1 method1430(int var0, int var1) {
+   static Class3_Sub28_Sub17_Sub1 method1430(int var0, int var1) {
       try {
          if(var0 == -28922) {
-            Class3_Sub28_Sub17_Sub1 var2 = (Class3_Sub28_Sub17_Sub1)Class80.aClass93_1135.get((long)var1, (byte)121);
+            Class3_Sub28_Sub17_Sub1 var2 = (Class3_Sub28_Sub17_Sub1)Class80.aClass93_1135.get((long)var1);
             if(var2 == null) {
-               byte[] var3 = CacheIndex.aClass153_1948.getFile(var1, (byte)-122, 0);
+               byte[] var3 = CacheIndex.aClass153_1948.getFile(var1, 0);
                var2 = new Class3_Sub28_Sub17_Sub1(var3);
                var2.method697(Class3_Sub13_Sub22.aClass109Array3270, (int[])null);
                Class80.aClass93_1135.put((byte)-96, var2, (long)var1);
-               return var2;
-            } else {
-               return var2;
             }
+            return var2;
          } else {
             return (Class3_Sub28_Sub17_Sub1)null;
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "li.A(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var4, "li.A(" + var0 + ',' + var1 + ')');
       }
    }
 
@@ -101,13 +95,13 @@ final class Class86 {
          this.anInt1184 = 0;
          this.anInt1185 = -50;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "li.<init>()");
+         throw Class44.clientError(var2, "li.<init>()");
       }
    }
 
    Class86(RSByteBuffer var1) {
       try {
-         int var2 = var1.getByte((byte)-92);
+         int var2 = var1.getByteB();
          if((var2 & 1) == 0) {
             this.anInt1177 = Class92.defaultScreenColorRgb;
          } else {
@@ -117,19 +111,19 @@ final class Class86 {
          if((2 & var2) == 0) {
             this.aFloat1187 = 1.1523438F;
          } else {
-            this.aFloat1187 = (float)var1.getShort(1) / 256.0F;
+            this.aFloat1187 = (float)var1.getShort() / 256.0F;
          }
 
          if((var2 & 4) == 0) {
             this.aFloat1190 = 0.69921875F;
          } else {
-            this.aFloat1190 = (float)var1.getShort(1) / 256.0F;
+            this.aFloat1190 = (float)var1.getShort() / 256.0F;
          }
 
          if((var2 & 8) == 0) {
             this.aFloat1189 = 1.2F;
          } else {
-            this.aFloat1189 = (float)var1.getShort(1) / 256.0F;
+            this.aFloat1189 = (float)var1.getShort() / 256.0F;
          }
 
          if((16 & var2) == 0) {
@@ -151,11 +145,11 @@ final class Class86 {
          if((64 & var2) == 0) {
             this.anInt1184 = 0;
          } else {
-            this.anInt1184 = var1.getShort(1);
+            this.anInt1184 = var1.getShort();
          }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "li.<init>(" + (var1 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var3, "li.<init>(" + (var1 != null?"{...}":"null") + ')');
       }
    }
 

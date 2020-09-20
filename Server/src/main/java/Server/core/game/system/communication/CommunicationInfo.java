@@ -2,6 +2,7 @@ package core.game.system.communication;
 
 import core.cache.misc.buffer.ByteBufferUtils;
 import core.game.node.entity.player.Player;
+import core.game.system.SystemLogger;
 import core.game.system.monitor.PlayerMonitor;
 import core.game.system.mysql.SQLTable;
 import core.game.system.task.Pulse;
@@ -72,7 +73,7 @@ public final class CommunicationInfo {
 	/**
 	 * The rank required for loot-share.
 	 */
-	private ClanRank lootRequirement = ClanRank.KELDAGRIM_MOD;
+	private ClanRank lootRequirement = ClanRank.ADMINISTRATOR;
 
 	/**
 	 * If lootshare is enabled.
@@ -128,13 +129,16 @@ public final class CommunicationInfo {
 		String[] tokens = null;
 		if (table.getColumn("contacts").getValue() != null ) {
 			String contacts = (String) table.getColumn("contacts").getValue();
-			if (contacts != "") {
+			if (!contacts.isEmpty()) {
 				String[] datas = contacts.split("~");
 				Contact contact = null;
 				for (String d : datas) {
 					tokens = d.replace("{", "").replace("}", "").split(",");
 					if (tokens.length == 0) {
 						continue;
+					}
+					for(int i = 0; i < tokens.length; i++) {
+						SystemLogger.log(tokens[i].toString());
 					}
 					contact = new Contact(tokens[0]);
 					contact.setRank(ClanRank.values()[Integer.valueOf(tokens[1])]);
@@ -144,7 +148,7 @@ public final class CommunicationInfo {
 		}
 		if (table.getColumn("blocked").getValue() != null ) {
 			String blocked = (String) table.getColumn("blocked").getValue();
-			if (blocked != "") {
+			if (!blocked.isEmpty()) {
 				tokens = blocked.split(",");
 				for (String name : tokens) {
 					this.blocked.add(name);

@@ -13,7 +13,6 @@ import core.plugin.PluginManifest;
 import java.util.ArrayList;
 import java.util.List;
 
-@InitializablePlugin
 @PluginManifest(name="Blackjack")
 public class BlackJackCommands extends CommandPlugin {
 

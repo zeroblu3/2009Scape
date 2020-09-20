@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import java.util.Objects;
+
 final class Class3_Sub13_Sub15 extends Class3_Sub13 {
 
    private int anInt3174;
@@ -15,7 +17,6 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
    static boolean aBoolean3184 = true;
    static int[] anIntArray3185 = new int[25];
    private int anInt3186;
-   static int anInt3187;
    private int anInt3188;
    private int anInt3189;
 
@@ -26,10 +27,8 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
             this.anInt3175 = var2.getShort((byte)18);
          } else if(var1 == 1) {
             this.anInt3178 = (var2.getByte() << 12) / 100;
-         } else {
-            if(var1 == 2) {
-               this.anInt3176 = (var2.getByte() << 12) / 100;
-            }
+         } else if (var1 == 2) {
+             this.anInt3176 = (var2.getByte() << 12) / 100;
          }
 
          if(!var3) {
@@ -37,13 +36,12 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var5) {
-         throw Class44.method1067(var5, "hk.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var5, "hk.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
-   private final void method239(int var1, int var2, int var3, int var4) {
+   private void method239(int var1, int var2, int var4) {
       try {
-         int var6 = 32 / ((15 - var3) / 45);
          int var5 = var1 <= 2048?var1 * (4096 + var2) >> 12:-(var1 * var2 >> 12) + var1 + var2;
          if(var5 > 0) {
             var4 *= 6;
@@ -63,37 +61,29 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
                this.anInt3182 = var7;
                this.anInt3174 = var5;
                this.anInt3186 = var13;
-            } else {
-               if(var9 == 2) {
-                  this.anInt3186 = var7;
-                  this.anInt3174 = var5;
-                  this.anInt3182 = var12;
-               } else {
-                  if(var9 == 3) {
-                     this.anInt3174 = var13;
-                     this.anInt3182 = var5;
-                     this.anInt3186 = var7;
-                  } else {
-                     if(var9 == 4) {
-                        this.anInt3182 = var5;
-                        this.anInt3186 = var12;
-                        this.anInt3174 = var7;
-                     } else {
-                        if(var9 == 5) {
-                           this.anInt3174 = var7;
-                           this.anInt3186 = var5;
-                           this.anInt3182 = var13;
-                        }
-                     }
-                  }
-               }
+            } else if (var9 == 2) {
+                this.anInt3186 = var7;
+                this.anInt3174 = var5;
+                this.anInt3182 = var12;
+            } else if (var9 == 3) {
+                this.anInt3174 = var13;
+                this.anInt3182 = var5;
+                this.anInt3186 = var7;
+            } else if (var9 == 4) {
+                this.anInt3182 = var5;
+                this.anInt3186 = var12;
+                this.anInt3174 = var7;
+            } else if (var9 == 5) {
+                this.anInt3174 = var7;
+                this.anInt3186 = var5;
+                this.anInt3182 = var13;
             }
          } else {
             this.anInt3186 = this.anInt3174 = this.anInt3182 = var1;
          }
 
       } catch (RuntimeException var15) {
-         throw Class44.method1067(var15, "hk.C(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var15, "hk.C(" + var1 + ',' + var2 + ',' + 107 + ',' + var4 + ')');
       }
    }
 
@@ -101,7 +91,7 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
       super(1, false);
    }
 
-   private final void method240(byte var1, int var2, int var3, int var4) {
+   private void method240(byte var1, int var2, int var3, int var4) {
       try {
          int var5 = var2 > var3?var2:var3;
          if(var1 >= -54) {
@@ -118,12 +108,10 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
             int var10 = (-var4 + var5 << 12) / var7;
             if(var2 == var5) {
                this.anInt3180 = var3 == var6 ?var10 + 20480:4096 + -var9;
+            } else if (var3 == var5) {
+                this.anInt3180 = var4 == var6 ? var8 + 4096 : -var10 + 12288;
             } else {
-               if(var3 == var5) {
-                  this.anInt3180 = var4 == var6 ?var8 + 4096:-var10 + 12288;
-               } else {
-                  this.anInt3180 = var6 != var2?-var8 + 20480:12288 + var9;
-               }
+                this.anInt3180 = var6 != var2 ? -var8 + 20480 : 12288 + var9;
             }
 
             this.anInt3180 /= 6;
@@ -139,7 +127,7 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
          }
 
       } catch (RuntimeException var11) {
-         throw Class44.method1067(var11, "hk.E(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var11, "hk.E(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -152,7 +140,7 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
          int[][] var3 = this.aClass97_2376.method1594((byte)-118, var2);
          if(this.aClass97_2376.aBoolean1379) {
             int[][] var4 = this.method162(var2, 0, (byte)-72);
-            int[] var5 = var4[0];
+            int[] var5 = Objects.requireNonNull(var4)[0];
             int[] var6 = var4[1];
             int[] var7 = var4[2];
             int[] var9 = var3[1];
@@ -180,14 +168,13 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
                }
 
                for(this.anInt3180 += this.anInt3175; this.anInt3180 < 0; this.anInt3180 += 4096) {
-                  ;
                }
 
                while(this.anInt3180 > 4096) {
                   this.anInt3180 -= 4096;
                }
 
-               this.method239(this.anInt3188, this.anInt3189, 107, this.anInt3180);
+               this.method239(this.anInt3188, this.anInt3189, this.anInt3180);
                var8[var11] = this.anInt3186;
                var9[var11] = this.anInt3174;
                var10[var11] = this.anInt3182;
@@ -196,7 +183,7 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
 
          return var3;
       } catch (RuntimeException var12) {
-         throw Class44.method1067(var12, "hk.T(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var12, "hk.T(" + var1 + ',' + var2 + ')');
       }
    }
 
@@ -205,13 +192,12 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
          anIntArray3181 = null;
          aClass61_3177 = null;
          if(var0 <= 38) {
-            anIntArray3181 = (int[])null;
          }
 
          anIntArray3185 = null;
          COMMAND_HIGHRES_GRAPHICS_FULLSCREEN = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "hk.B(" + var0 + ')');
+         throw Class44.clientError(var2, "hk.B(" + var0 + ')');
       }
    }
 

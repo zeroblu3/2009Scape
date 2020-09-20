@@ -4,7 +4,6 @@ import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
 import core.game.content.global.action.DoorActionHandler;
-import plugin.skill.Skills;
 import core.game.interaction.MovementPulse;
 import core.game.interaction.Option;
 import core.game.node.Node;
@@ -14,7 +13,6 @@ import core.game.node.entity.impl.ForceMovement;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
-import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
 import core.game.system.task.Pulse;
@@ -30,10 +28,10 @@ import core.game.world.update.flag.context.Graphics;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.MinimapStateContext;
 import core.net.packet.out.MinimapState;
-import core.plugin.Plugin;
-import core.tools.RandomFunction;
 import core.plugin.InitializablePlugin;
+import core.plugin.Plugin;
 import core.tools.StringUtils;
+import plugin.skill.Skills;
 
 /**
  * Handles the god wars map zone.
@@ -125,13 +123,6 @@ public final class GodwarsMapzone extends MapZone implements Plugin<Object> {
 	public boolean death(Entity e, Entity killer) {
 		if (killer instanceof Player && e instanceof NPC) {
 			int npcId = ((NPC) e).getId();
-			int count = killer.asPlayer().getBank().getAmount(14674) + killer.asPlayer().getInventory().getAmount(14674);
-			int rand = RandomFunction.random(1, 60 + (count * 10));
-			if(rand == 15 && count < 3){
-				Item item = new Item(14674);
-				GroundItemManager.create(item, e.getLocation(), ((Player) killer));
-				killer.asPlayer().sendMessage("<col=990000>A crystalline key falls to the ground as you slay your opponent.</col>");	
-			}
 			increaseKillcount((Player) killer, GodWarsFaction.forId(npcId), 1);
 		}
 		return false;

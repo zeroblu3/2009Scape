@@ -52,11 +52,6 @@ public final class SQLManager {
 	 * Initializes the sql manager.
 	 */
 	public static void init() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 		initialized = true;
 		WorldListSQLHandler.clearWorldList();
 	}
@@ -67,7 +62,7 @@ public final class SQLManager {
 	 */
 	public static Connection getConnection() {
 		try {
-			return DriverManager.getConnection("jdbc:mysql://" + DATABASE_URL,  USERNAME, PASSWORD);
+			return DriverManager.getConnection("jdbc:mysql://" + DATABASE_URL + "?useTimezone=true&serverTimezone=UTC",  USERNAME, PASSWORD);
 		} catch (SQLException e) {
 			System.out.println("Error: Mysql error message=" + e.getMessage() + ".");
 		}

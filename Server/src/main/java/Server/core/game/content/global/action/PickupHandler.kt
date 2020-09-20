@@ -27,8 +27,8 @@ object PickupHandler {
      * @param item the item.
      * @return `True` if taken.
      */
-	@JvmStatic
-	fun take(player: Player, item: GroundItem): Boolean {
+    @JvmStatic
+    fun take(player: Player, item: GroundItem): Boolean {
         if (item.location == null) {
             player.packetDispatch.sendMessage("Invalid ground item!")
             return true
@@ -79,8 +79,8 @@ object PickupHandler {
      * @param type the type (1= ground, 2=telegrab)
      * @return `True` if so.
      */
-	@JvmStatic
-	fun canTake(player: Player, item: GroundItem, type: Int): Boolean {
+    @JvmStatic
+    fun canTake(player: Player, item: GroundItem, type: Int): Boolean {
         if (item.dropper != null && !item.droppedBy(player) && player.ironmanManager.checkRestriction()) {
             return false
         }

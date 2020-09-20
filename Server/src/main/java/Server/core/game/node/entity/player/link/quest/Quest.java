@@ -27,6 +27,11 @@ public abstract class Quest implements Plugin<Object> {
 	public static final String BLUE = "<col=08088A>";
 
 	/**
+	 * Represents the black string.
+	 */
+	public static final String BLACK = "<col=000000>";
+
+	/**
 	 * The constant representing the journal component.
 	 */
 	public static final int JOURNAL_COMPONENT = 275;
@@ -136,12 +141,7 @@ public abstract class Quest implements Plugin<Object> {
 	 * @param line The line.
 	 */
 	public void line(Player player, String message, int line) {
-		String send = BLUE + "" + message
-				.replace("<n>", "<br><br>")
-				.replace("<blue>", BLUE)
-				.replace("<red>", RED)
-				.replace("!!",RED)
-				.replace("??",BLUE);
+		String send = BLUE + "" + message.replace("<n>", "<br><br>").replace("<blue>", BLUE).replace("<red>", RED);
 		if (send.contains("<br><br>") || send.contains("<n>")) {
 			String[] lines = send.split(send.contains("<br><br>") ? "<br><br>" : "<n>");
 			for (int i = 0; i < lines.length; i++) {
@@ -149,6 +149,7 @@ public abstract class Quest implements Plugin<Object> {
 				line++;
 			}
 		} else {
+			send = send.replace("!!",RED).replace("??",BLUE).replace("---",BLACK + "<str>").replace("/--", BLUE);
 			line(player, send, line, false);
 		}
 	}
@@ -161,16 +162,13 @@ public abstract class Quest implements Plugin<Object> {
 	 * @param crossed True if the message should be crossed out.
 	 */
 	public void line(Player player, String message, int line, final boolean crossed) {
-		String send = BLUE + "" + message
-				.replace("<n>", "<br><br>")
-				.replace("<blue>", BLUE)
-				.replace("<red>", RED);
+		String send = message;
 		if(!crossed){
+			send = BLUE + "" + message.replace("<n>", "<br><br>").replace("<blue>", BLUE).replace("<red>", RED);
 			send = send.replace("!!",RED).replace("??",BLUE);
 		} else {
-			send = send.replace("??","").replace("!!","");
+			send = BLUE + "" + message.replace("??","").replace("!!","");
 		}
-
 		player.getPacketDispatch().sendString(crossed ? "<str>" + send + "</str>" : send, JOURNAL_COMPONENT, line);
 	}
 

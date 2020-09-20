@@ -27,7 +27,6 @@ import core.tools.npc.TestStats
 import plugin.ai.resource.ResourceAIPManager
 import plugin.ge.GrandExchangeDatabase
 import plugin.skill.Skills
-import plugin.tutorial.TutorialSession
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
@@ -410,7 +409,7 @@ class DebugCommandPlugin : CommandPlugin() {
                     i++
                 }
                 if (!foundItem) {
-                    player!!.sendMessage("@red@Unable to find item: $itemName")
+                    player!!.sendMessage("<col=ff0000>Unable to find item: $itemName</col>")
                 }
                 return true
             }

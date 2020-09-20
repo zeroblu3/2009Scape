@@ -13,7 +13,7 @@ abstract class Model extends GameObject {
 
    abstract void method1874();
 
-   private final void method1875(Class3_Sub17 var1, AnimationHeader var2, AnimationHeader var3, int var4, int var5, boolean[] var6, boolean var7, boolean var8, int var9, int[] var10) {
+   private void method1875(Class3_Sub17 var1, AnimationHeader var2, AnimationHeader var3, int var4, int var5, boolean[] var6, boolean var7, boolean var8, int var9, int[] var10) {
       int var11;
       if(var3 == null || var4 == 0) {
          for(var11 = 0; var11 < var2.anInt1383; ++var11) {
@@ -207,7 +207,7 @@ abstract class Model extends GameObject {
       }
    }
 
-   private static final int method1878(int[][] var0, int var1, int var2) {
+   private static int method1878(int[][] var0, int var1, int var2) {
       int var3 = var1 >> 7;
       int var4 = var2 >> 7;
       if(var3 >= 0 && var4 >= 0 && var3 < var0.length && var4 < var0[0].length) {
@@ -285,44 +285,39 @@ abstract class Model extends GameObject {
       if(var2 != -1) {
          if(debugArray530 == null || var8 == -1) {
             this.method1880(var1, var2, var3, var4, var5, var6, var14);
-         } else {
-            if(this.method1873()) {
-               AnimationHeader var15 = var1.animations[var2];
-               Class3_Sub17 var16 = var15.skins;
-               AnimationHeader var17 = null;
-               if(var3 != null) {
-                  var17 = var3.animations[var4];
-                  if(var17.skins != var16) {
-                     var17 = null;
-                  }
+         } else if (this.method1873()) {
+            AnimationHeader var15 = var1.animations[var2];
+            Class3_Sub17 var16 = var15.skins;
+            AnimationHeader var17 = null;
+            if (var3 != null) {
+               var17 = var3.animations[var4];
+               if (var17.skins != var16) {
+                  var17 = null;
                }
-
-               AnimationHeader var18 = var7.animations[var8];
-               AnimationHeader var19 = null;
-               if(var9 != null) {
-                  var19 = var9.animations[var10];
-                  if(var19.skins != var16) {
-                     var19 = null;
-                  }
-               }
-
-               this.method1875(var16, var15, var17, var5, var6, debugArray530, false, var14, '\uffff', (int[])null);
-               this.method1891(0, new int[0], 0, 0, 0, var14);
-               this.method1875(var16, var18, var19, var11, var12, debugArray530, true, var14, '\uffff', (int[])null);
-               this.method1879();
             }
+
+            AnimationHeader var18 = var7.animations[var8];
+            AnimationHeader var19 = null;
+            if (var9 != null) {
+               var19 = var9.animations[var10];
+               if (var19.skins != var16) {
+                  var19 = null;
+               }
+            }
+
+            this.method1875(var16, var15, var17, var5, var6, debugArray530, false, var14, '\uffff', (int[]) null);
+            this.method1891(0, new int[0], 0, 0, 0, var14);
+            this.method1875(var16, var18, var19, var11, var12, debugArray530, true, var14, '\uffff', (int[]) null);
+            this.method1879();
          }
       }
    }
 
-   abstract void method1893(int var1, int var2, int var3, int var4, int var5, int var6, int var7, long var8);
+   abstract void method1893(int var2, int var3, int var4, int var5, int var6, int var7);
 
    abstract Model method1894(boolean var1, boolean var2, boolean var3);
 
    final void method1895(int[][] var1, int var2, int var3, int var4, int var5, int var6) {
-      boolean var7 = false;
-      boolean var8 = false;
-      boolean var9 = false;
       int var10 = -var5 / 2;
       int var11 = -var6 / 2;
       int var12 = method1878(var1, var2 + var10, var4 + var11);

@@ -54,6 +54,7 @@ public final class PlayerSQLManager {
 			new SQLColumn("clanReqs", String.class),
 			new SQLColumn("timePlayed", Long.class),
 			new SQLColumn("lastLogin", Long.class),
+			new SQLColumn("online", Integer.class),
 			new SQLColumn("lastGameIp", String.class));
 
 	/**
@@ -79,6 +80,7 @@ public final class PlayerSQLManager {
 			return false;
 		}
 		details.getCommunication().parse(table);
+		details.credits = (int) table.getColumn("credits").getValue();
 		details.setBanTime((long) table.getColumn("banTime").getValue());
 		details.setMuteTime((long) table.getColumn("muteTime").getValue());
 		details.setIcon(Icon.forId((int) table.getColumn("icon").getValue()));
@@ -103,6 +105,7 @@ public final class PlayerSQLManager {
 		if (!WorldCommunicator.isEnabled()) {
 			details.getCommunication().save(table);
 		}
+		table.getColumn("credits").updateValue(player.getDetails().credits);
 		table.getColumn("bank").updateValue(player.getBank().format());
 		table.getColumn("lastLogin").updateValue(player.getDetails().getLastLogin());
 		table.getColumn("ge").updateValue(player.getGrandExchange().format());

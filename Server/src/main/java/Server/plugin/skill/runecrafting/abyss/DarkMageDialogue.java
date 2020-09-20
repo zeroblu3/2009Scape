@@ -1,6 +1,7 @@
 package plugin.skill.runecrafting.abyss;
 
 import plugin.dialogue.DialoguePlugin;
+import plugin.skill.runecrafting.PouchManager;
 import plugin.skill.runecrafting.RunePouch;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -63,7 +64,7 @@ public final class DarkMageDialogue extends DialoguePlugin {
 			stage++;
 			break;
 		case 1:
-			options("Why not?", "What are you doing here?", "Ok, Sorry");
+			options("Why not?", "What are you doing here?", "Can you repair my pouches?","Ok, Sorry");
 			stage++;
 			break;
 		case 2:
@@ -77,6 +78,10 @@ public final class DarkMageDialogue extends DialoguePlugin {
 				stage = 20;
 				break;
 			case 3:
+				player("Can you repair my pouches, please?");
+				stage = 50;
+				break;
+			case 4:
 				player("Ok, sorry.");
 				stage = 30;
 				break;
@@ -121,6 +126,15 @@ public final class DarkMageDialogue extends DialoguePlugin {
 		case 30:
 			end();
 			break;
+		case 50:
+			npc("Fine, fine! Give them here.");
+			stage++;
+			break;
+		case 51:
+			repair();
+			npc("There, I've repaired them all.","Now get out of my sight!");
+			stage = 30;
+			break;
 		}
 		return true;
 	}
@@ -129,39 +143,31 @@ public final class DarkMageDialogue extends DialoguePlugin {
 	 * Repairs pouches.
 	 */
 	private boolean repair() {
-		List<Item> pouches = getPouchRepairs();
-		if (pouches.size() == 0) {
-			return false;
-		}
-		RunePouch rune = null;
-		for (Item pouch : pouches) {
-			rune = RunePouch.forItem(pouch);
-			rune.repair(player, pouch);
-		}
+		player.pouchManager.getPouches().forEach((id, pouch) -> {
+			pouch.setCurrentCap(pouch.getCapacity());
+			pouch.setCharges(10);
+			Item essence = null;
+			if(!pouch.getContainer().isEmpty()){
+				int ess = pouch.getContainer().get(0).getId();
+				int amount = pouch.getContainer().getAmount(ess);
+				essence = new Item(ess,amount);
+			}
+			pouch.remakeContainer();
+			if(essence != null){
+				pouch.getContainer().add(essence);
+			}
+			if(id != 5509) {
+				if (player.getInventory().contains(id + 1, 1)) {
+					player.getInventory().remove(new Item(id + 1, 1));
+					player.getInventory().add(new Item(id, 1));
+				}
+				if (player.getBank().contains(id + 1, 1)) {
+					player.getBank().remove(new Item(id + 1, 1));
+					player.getBank().add(new Item(id, 1));
+				}
+			}
+		});
 		return true;
-	}
-
-	/**
-	 * Gets the pouches to repair.
-	 * @return the pouches.
-	 */
-	public List<Item> getPouchRepairs() {
-		List<Item> items = new ArrayList<>();
-		for (RunePouch pouch : RunePouch.values()) {
-			if (pouch == RunePouch.SMALL) {
-				continue;
-			}
-			Item item = null;
-			if (player.getInventory().containsItem(pouch.getPouch())) {
-				item = player.getInventory().getItem(pouch.getPouch());
-			} else if (player.getInventory().containsItem(pouch.getDecayedPouch())) {
-				item = player.getInventory().getItem(pouch.getDecayedPouch());
-			}
-			if (item != null && pouch.hasDecay(player, item)) {
-				items.add(item);
-			}
-		}
-		return items;
 	}
 
 	@Override

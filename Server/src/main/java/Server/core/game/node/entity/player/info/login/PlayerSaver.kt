@@ -4,6 +4,7 @@ import core.ServerConstants
 import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
+import core.game.system.SystemLogger
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import plugin.interaction.item.brawling_gloves.BrawlingGloves
@@ -13,6 +14,7 @@ import plugin.skill.summoning.pet.Pet
 import java.io.FileWriter
 import java.io.IOException
 import java.lang.Math.ceil
+import java.util.*
 import javax.script.ScriptEngineManager
 
 
@@ -23,11 +25,7 @@ import javax.script.ScriptEngineManager
  * @author Ceikry
  */
 class PlayerSaver (val player: Player){
-    val manager = ScriptEngineManager()
-    val scriptEngine = manager.getEngineByName("JavaScript")
-
     fun save() {
-        val start = System.currentTimeMillis()
         val saveFile = JSONObject()
         saveCoreData(saveFile)
         saveSkills(saveFile)
@@ -56,7 +54,11 @@ class PlayerSaver (val player: Player){
         saveEmoteData(saveFile)
         saveStatManager(saveFile)
         saveBrawlingGloves(saveFile)
+        saveAttributes(saveFile)
+        savePouches(saveFile)
 
+        val manager = ScriptEngineManager()
+        val scriptEngine = manager.getEngineByName("JavaScript")
         scriptEngine.put("jsonString", saveFile.toJSONString())
         scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
         val prettyPrintedJson = scriptEngine["result"] as String
@@ -71,6 +73,40 @@ class PlayerSaver (val player: Player){
         }
 
         player.gameAttributes.dump(player.name + ".xml")
+    }
+
+    fun savePouches(root: JSONObject){
+        player.pouchManager.save(root)
+    }
+
+    fun saveAttributes(root: JSONObject){
+        if(player.gameAttributes.savedAttributes.isNotEmpty()){
+            val attrs = JSONArray()
+            for(key in player.gameAttributes.savedAttributes){
+                val value = player.gameAttributes.attributes[key]
+                value ?: continue
+                val attr = JSONObject()
+                val type = when(value){
+                    is Int -> "int"
+                    is Boolean -> "bool"
+                    is Long -> "long"
+                    is Short -> "short"
+                    is String -> "str"
+                    is Byte -> "byte"
+                    else -> "null".also { SystemLogger.log("Invalid attribute type for key: $key") }
+                }
+                attr.put("type",type)
+                attr.put("key",key)
+                if(value is Byte){
+                    val asString = Base64.getEncoder().encodeToString(byteArrayOf(value))
+                    attr.put("value",asString)
+                } else {
+                    attr.put("value", if (value is Boolean) value else value.toString())
+                }
+                attrs.add(attr)
+            }
+            root.put("attributes",attrs)
+        }
     }
 
     fun saveBrawlingGloves(root: JSONObject){
@@ -291,13 +327,7 @@ class PlayerSaver (val player: Player){
             }
             familiar.put("lifepoints",player.familiarManager.familiar.skills.lifepoints)
             familiarManager.put("familiar",familiar)
-        }
-        if(player.familiarManager.insuredPets.size > 0){
-            val insuredPets = JSONArray()
-            player.familiarManager.insuredPets.map {
-                insuredPets.add(it.babyItemId.toString())
-            }
-            familiarManager.put("insuredPets",insuredPets)
+
         }
         root.put("familiarManager",familiarManager)
     }
@@ -383,7 +413,6 @@ class PlayerSaver (val player: Player){
             }
             farming.put("wrappers",wrappers)
         }
-
         root.put("farming",farming)
     }
 
@@ -530,8 +559,8 @@ class PlayerSaver (val player: Player){
             desertTreasureNode.add(item)
         }
         questData.put("desertTreasureNode",desertTreasureNode)
-        questData.put("witchsExperimentStage",player.savedData.questData.witchsExerimentStage.toString())
-        questData.put("witchsExperimentKilled",player.savedData.questData.isWitchsExerimentKilled)
+        questData.put("witchsExperimentStage",player.savedData.questData.witchsExperimentStage.toString())
+        questData.put("witchsExperimentKilled",player.savedData.questData.isWitchsExperimentKilled)
         root.put("questData",questData)
     }
 
@@ -738,6 +767,15 @@ class PlayerSaver (val player: Player){
 
         val bank = saveContainer(player.bank)
         coreData.put("bank",bank)
+
+        val bankTabs = JSONArray()
+        for(i in player.bank.tabStartSlot.indices){
+            val tab = JSONObject()
+            tab.put("index",i.toString())
+            tab.put("startSlot",player.bank.tabStartSlot[i].toString())
+            bankTabs.add(tab)
+        }
+        coreData.put("bankTabs",bankTabs)
 
         val equipment = saveContainer(player.equipment)
         coreData.put("equipment",equipment)

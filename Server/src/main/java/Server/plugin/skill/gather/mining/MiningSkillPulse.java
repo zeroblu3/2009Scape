@@ -5,8 +5,8 @@ import core.game.container.impl.EquipmentContainer;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.SkillcapePerks;
 import core.game.content.global.SkillingPets;
-import plugin.tutorial.TutorialSession;
-import plugin.tutorial.TutorialStage;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
+import plugin.quest.tutorials.tutorialisland.TutorialStage;
 import plugin.skill.Skills;
 import plugin.skill.gather.SkillingResource;
 import plugin.skill.gather.SkillingTool;
@@ -169,7 +169,7 @@ public class MiningSkillPulse extends Pulse {
             if(!isMiningEssence){
                 int chance = 282;
                 boolean altered = false;
-                if (player.getEquipment().getNew(EquipmentContainer.SLOT_RING).getId() == 2572) {
+                if (new Item(player.getEquipment().getId(12)).getName().toLowerCase().contains("ring of wealth")) {
                     chance /= 1.5;
                     altered = true;
                 }

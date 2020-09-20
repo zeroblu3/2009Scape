@@ -1,5 +1,6 @@
 package core.game.node.entity.player.info.login;
 
+import core.Server;
 import core.ServerConstants;
 import core.game.node.entity.combat.CombatSpell;
 import core.game.node.entity.player.Player;
@@ -24,7 +25,6 @@ public final class PlayerParser {
 	 * @param player The player.
 	 */
 	public static void parse(Player player) {
-		player.getGameAttributes().parse(player.getName() + ".xml"); //TODO: Re-merge the attributes back into the player save now that it's non-binary.
 		File JSON = new File(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".json");
 		File BIN = new File(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".save"); //for backwards compatibility.
 
@@ -196,8 +196,8 @@ public final class PlayerParser {
 		InputStream is = null;
 		OutputStream os = null;
 		try {
-			is = new FileInputStream("data/players/template/template.json");
-			os = new FileOutputStream("data/players/" + player.getName() + ".json");
+			is = new FileInputStream(ServerConstants.PLAYER_SAVE_PATH + "template/template.json");
+			os = new FileOutputStream(ServerConstants.PLAYER_SAVE_PATH + player.getName() + ".json");
 			byte[] buffer = new byte[1024];
 			int length;
 			while ((length = is.read(buffer)) > 0) {

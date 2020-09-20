@@ -19,7 +19,6 @@ abstract class Class140_Sub4 extends GameObject {
    int[] anIntArray2767 = new int[10];
    int[] anIntArray2768 = new int[4];
    boolean aBoolean2769 = false;
-   static int anInt2770;
    int anInt2771 = -1;
    int anInt2772 = -1;
    int anInt2773 = 0;
@@ -90,34 +89,30 @@ abstract class Class140_Sub4 extends GameObject {
    int anInt2838 = 0;
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array2839;
    int anInt2840;
-   static Class54[] aClass54Array2841 = new Class54[50];
    int anInt2842 = -1;
 
 
-   final RenderAnimationDefinition method1965(boolean var1) {
+   final RenderAnimationDefinition method1965() {
       try {
-         int var2 = this.getRenderAnimationId(-1);
-         return var1?(RenderAnimationDefinition)null:(var2 == -1 ?PacketParser.aClass16_84:Class3_Sub10.getRenderAnimationDefinition(false, var2));
+         int var2 = this.getRenderAnimationId();
+         return (var2 == -1 ?PacketParser.aClass16_84:Class3_Sub10.getRenderAnimationDefinition(var2));
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fe.D(" + var1 + ')');
+         throw Class44.clientError(var3, "fe.D(" + false + ')');
       }
    }
 
-   boolean hasDefinitions(byte var1) {
+   boolean hasDefinitions() {
       try {
-         if(var1 != 17) {
-            this.method1975(-109);
-         }
 
-         return false;
+          return false;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fe.L(" + var1 + ')');
+         throw Class44.clientError(var3, "fe.L(" + (byte) 17 + ')');
       }
    }
 
-   final void method1967(int var1, int var2, int var3, int var4, boolean var5) {
+   final void method1967(int var2, int var3, int var4, boolean var5) {
       try {
-         if(this.anInt2771 != -1 && Client.getAnimationDefinition(this.anInt2771, (byte) -20).anInt1850 == 1) {
+         if(this.anInt2771 != -1 && Client.getAnimationDefinition(this.anInt2771).anInt1850 == 1) {
             this.anInt2771 = -1;
          }
 
@@ -149,16 +144,13 @@ abstract class Class140_Sub4 extends GameObject {
          this.anInt2811 = 0;
          this.anInt2829 = 64 * var2 + this.anIntArray2755[0] * 128;
          this.anInt2819 = var2 * 64 + 128 * this.anIntArray2767[0];
-         if(var1 != -2) {
-            aClass54Array2841 = (Class54[])null;
-         }
 
          if(HDToolKit.highDetail && Class102.player == this) {
-            Class3_Sub13_Sub14.method236((byte)64);
+            Class3_Sub13_Sub14.method236();
          }
 
       } catch (RuntimeException var9) {
-         throw Class44.method1067(var9, "fe.J(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
+         throw Class44.clientError(var9, "fe.J(" + -2 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ')');
       }
    }
 
@@ -171,7 +163,7 @@ abstract class Class140_Sub4 extends GameObject {
             ++var5;
          }
 
-         if(this.anInt2771 != -1 && 1 == Client.getAnimationDefinition(this.anInt2771, (byte)-20).anInt1850) {
+         if(this.anInt2771 != -1 && 1 == Client.getAnimationDefinition(this.anInt2771).anInt1850) {
             this.anInt2771 = -1;
          }
 
@@ -219,10 +211,9 @@ abstract class Class140_Sub4 extends GameObject {
          }
 
          this.anIntArray2767[0] = var4;
-         var6 = -106 / ((var2 - -10) / 40);
          this.anIntArray2755[0] = var5;
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "fe.E(" + var1 + ',' + var2 + ',' + var3 + ')');
+         throw Class44.clientError(var7, "fe.E(" + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
@@ -235,7 +226,7 @@ abstract class Class140_Sub4 extends GameObject {
          Class3_Sub28_Sub9.anInt3623 = 0;
          Class3_Sub13_Sub16.anInt3198 = 0;
          Class3_Sub13_Sub9.anInt3111 = 0;
-         RenderAnimationDefinition var4 = this.method1965(false);
+         RenderAnimationDefinition var4 = this.method1965();
          int var5 = var4.anInt395;
          int var6 = var4.anInt381;
          if(var5 != 0 && var6 != 0) {
@@ -287,25 +278,23 @@ abstract class Class140_Sub4 extends GameObject {
          }
 
       } catch (RuntimeException var33) {
-         throw Class44.method1067(var33, "fe.M(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
+         throw Class44.clientError(var33, "fe.M(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
       }
    }
 
-   final void method1970(int var1, int var2, int var3, int var4) {
+   final void method1970(int var1, int var3, int var4) {
       try {
-         if(var2 == -8) {
-            for(int var5 = 0; var5 < 4; ++var5) {
-               if(var3 >= this.anIntArray2768[var5]) {
-                  this.anIntArray2836[var5] = var4;
-                  this.anIntArray2815[var5] = var1;
-                  this.anIntArray2768[var5] = 70 + var3;
-                  return;
-               }
+         for(int var5 = 0; var5 < 4; ++var5) {
+            if(var3 >= this.anIntArray2768[var5]) {
+               this.anIntArray2836[var5] = var4;
+               this.anIntArray2815[var5] = var1;
+               this.anIntArray2768[var5] = 70 + var3;
+               return;
             }
-
          }
+
       } catch (RuntimeException var6) {
-         throw Class44.method1067(var6, "fe.G(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw Class44.clientError(var6, "fe.G(" + var1 + ',' + -8 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -315,7 +304,7 @@ abstract class Class140_Sub4 extends GameObject {
             this.setSize(1, -96);
          }
 
-         RenderAnimationDefinition var3 = this.method1965(false);
+         RenderAnimationDefinition var3 = this.method1965();
          if(0 != var3.anInt400 || 0 != var3.anInt371) {
             int var4 = 0;
             int var5 = 0;
@@ -528,11 +517,11 @@ abstract class Class140_Sub4 extends GameObject {
          }
 
       } catch (RuntimeException var10) {
-         throw Class44.method1067(var10, "fe.A(" + (var1 != null?"{...}":"null") + ',' + var2 + ')');
+         throw Class44.clientError(var10, "fe.A(" + (var1 != null?"{...}":"null") + ',' + var2 + ')');
       }
    }
 
-   abstract int getRenderAnimationId(int var1);
+   abstract int getRenderAnimationId();
 
    final void method1973(int var1) {
       try {
@@ -541,7 +530,7 @@ abstract class Class140_Sub4 extends GameObject {
             this.anInt2811 = 0;
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fe.I(" + var1 + ')');
+         throw Class44.clientError(var3, "fe.I(" + var1 + ')');
       }
    }
 
@@ -551,13 +540,13 @@ abstract class Class140_Sub4 extends GameObject {
             aClass3_Sub28_Sub16Array2839 = (Class3_Sub28_Sub16[])null;
          }
 
-         aClass54Array2841 = null;
+         ItemDefinition.methodStack = null;
          aClass94_2765 = null;
          aClass93_2792 = null;
          aClass3_Sub28_Sub16Array2839 = null;
          anIntArray2794 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "fe.K(" + var0 + ')');
+         throw Class44.clientError(var2, "fe.K(" + var0 + ')');
       }
    }
 
@@ -565,7 +554,7 @@ abstract class Class140_Sub4 extends GameObject {
       try {
          return var1 != 27855?107:(this.anInt2820 != -32768?-this.anInt2820:200);
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fe.F(" + var1 + ')');
+         throw Class44.clientError(var3, "fe.F(" + var1 + ')');
       }
    }
 
@@ -577,15 +566,15 @@ abstract class Class140_Sub4 extends GameObject {
          }
 
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "fe.C(" + var1 + ',' + var2 + ')');
+         throw Class44.clientError(var4, "fe.C(" + var1 + ',' + var2 + ')');
       }
    }
 
-   int getSize(byte var1) {
+   int getSize() {
       try {
-         return var1 != 114?-24:this.size;
+         return this.size;
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "fe.H(" + var1 + ')');
+         throw Class44.clientError(var3, "fe.H(" + (byte) 114 + ')');
       }
    }
 

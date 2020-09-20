@@ -70,8 +70,8 @@ public class StandardCookingPulse extends Pulse {
         this.level = 1;
         this.experience = 0;
         if (properties != null) {
-            //handle cook's assistant range
-            if (object.getId() == 36973 && !player.getQuestRepository().isComplete("Cook's Assistant")) {
+            // Handle Cook's Assistant range
+            if (object.getId() == 114 && !player.getQuestRepository().isComplete("Cook's Assistant")) {
                 player.getPacketDispatch().sendMessage("You need to have completed the Cook's Assistant quest in order to use that range.");
                 return false;
             }
@@ -141,6 +141,10 @@ public class StandardCookingPulse extends Pulse {
         player.lock(getDelay());
         animate();
 
+        //lumbridge diary
+        if (object.getId() == 114 && player.getViewport().getRegion().getId() == 12850 && !player.getAchievementDiaryManager().getDiary(DiaryType.LUMBRIDGE).isComplete(0, 7)) {
+            player.getAchievementDiaryManager().updateTask(player, DiaryType.LUMBRIDGE, 0, 7, true);
+        }
         //handle special cooking results (spits, cake, etc) that don't justify separate plugin
         switch (initial) {
             case 9986:

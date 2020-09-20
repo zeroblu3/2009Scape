@@ -45,12 +45,11 @@ import core.tools.ItemNames;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
 import plugin.ai.resource.ResourceAIPManager;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
 import plugin.skill.Skills;
 import plugin.skill.construction.HouseLocation;
 import plugin.skill.herblore.PotionDecantingPlugin;
 import plugin.skill.smithing.smelting.Bar;
-import plugin.skill.summoning.pet.Pets;
-import plugin.tutorial.TutorialSession;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -413,18 +412,6 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                 Location itemLoc = HolidayItem.getHolidayItemLocation(holidayItemId);
                 player.sendMessage("The location of the holiday item is - " + (itemLoc != null ? itemLoc : "null") + ".");
                 return true;
-            case "krakme":
-                player.getFamiliarManager().summon(new Item(14651), true);
-                break;
-            case "addpets":
-                player.getFamiliarManager().getInsuredPets().add(Pets.BABY_MOLE);
-                player.getFamiliarManager().getInsuredPets().add(Pets.KREE_JR);
-                player.getFamiliarManager().getInsuredPets().add(Pets.KQ_FORM_1);
-                player.getFamiliarManager().getInsuredPets().add(Pets.TZREK_JAD);
-                return true;
-            case "clearpets":
-                player.getFamiliarManager().getInsuredPets().clear();
-                return true;
             case "holidayitemamount":
                 if (args.length < 1) {
                     player.sendMessage("Syntax error - please do ::holidayitemamount itemId");
@@ -536,6 +523,9 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
                     player.getFamiliarManager().getFamiliar().updateSpecialPoints(-200);
                 }
                 return true;
+            case "sethp":
+                player.getSkills().setLifepoints(Integer.parseInt(args[1]));
+                break;
             case "slayerpoints":
                 player.getSlayer().setSlayerPoints(10000);
                 return true;

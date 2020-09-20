@@ -5,7 +5,7 @@ import core.game.world.GameWorld;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import plugin.ame.ExperienceMonitor;
-import plugin.tutorial.TutorialSession;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.ImpactHandler;
 import core.game.node.entity.npc.NPC;
@@ -170,7 +170,7 @@ public final class Skills {
 			return;
 		}
 		for (int i = 0; i < restoration.length; i++) {
-			if (restoration[i] != null) {	
+			if (restoration[i] != null) {
 				if (restoration[i] == restoration[FISHING]) {
 					if (SkillcapePerks.hasSkillcapePerk(entity.asPlayer(), SkillcapePerks.FISHING)) {
 						continue;
@@ -461,6 +461,20 @@ public final class Skills {
 		return 99;
 	}
 
+	public int levelFromXP(double exp) {
+
+		int points = 0;
+		int output = 0;
+		for (byte lvl = 1; lvl < 100; lvl++) {
+			points += Math.floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
+			output = (int) Math.floor(points / 4);
+			if ((output - 1) >= exp) {
+				return lvl;
+			}
+		}
+		return 99;
+	}
+
 	/**
 	 * Gets the experience for a certain level.
 	 * @param level The level.
@@ -673,6 +687,11 @@ public final class Skills {
 		}
 		lifepointsUpdate = true;
 		return left;
+	}
+
+	public void healNoRestrictions(int amount){
+		lifepoints += amount;
+		lifepointsUpdate = true;
 	}
 
 	/**

@@ -4,8 +4,8 @@ import core.game.container.impl.EquipmentContainer;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.tools.ItemNames;
-import plugin.tutorial.TutorialSession;
-import plugin.tutorial.TutorialStage;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
+import plugin.quest.tutorials.tutorialisland.TutorialStage;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
@@ -18,6 +18,7 @@ import core.game.world.update.flag.context.Graphics;
  * Represents an emote.
  *
  * @author Vexia
+
  */
 public enum Emotes {
     YES(2, Animation.create(855)),

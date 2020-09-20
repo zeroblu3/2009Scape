@@ -10,12 +10,9 @@ final class Class10 {
    static int anInt154 = 0;
 
 
-   static final Class3_Sub28_Sub16_Sub2[] method851(boolean var0) {
+   static Class3_Sub28_Sub16_Sub2[] method851() {
       try {
          Class3_Sub28_Sub16_Sub2[] var1 = new Class3_Sub28_Sub16_Sub2[Class95.anInt1338];
-         if(!var0) {
-            method852((byte)127, -18);
-         }
 
          for(int var2 = 0; Class95.anInt1338 > var2; ++var2) {
             int var3 = Class3_Sub13_Sub6.anIntArray3076[var2] * Class140_Sub7.anIntArray2931[var2];
@@ -23,7 +20,7 @@ final class Class10 {
             int[] var5 = new int[var3];
 
             for(int var6 = 0; var3 > var6; ++var6) {
-               var5[var6] = Class3_Sub13_Sub38.spritePalette[Class3_Sub28_Sub15.method633(255, var4[var6])];
+               var5[var6] = Class3_Sub13_Sub38.spritePalette[Class69.bitwiseAnd(255, var4[var6])];
             }
 
             var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
@@ -32,13 +29,13 @@ final class Class10 {
          Class39.method1035((byte)113);
          return var1;
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "bd.B(" + var0 + ')');
+         throw Class44.clientError(var7, "bd.B(" + true + ')');
       }
    }
 
-   static final void method852(byte var0, int var1) {
+   static void method852(byte var0, int var1) {
       try {
-         Class3_Sub25 var2 = (Class3_Sub25)Class3_Sub2.aClass130_2220.method1780((long)var1, 0);
+         Class3_Sub25 var2 = (Class3_Sub25)Class3_Sub2.aClass130_2220.method1780((long)var1);
          if(var2 != null) {
             if(var0 != 114) {
                aClass153_152 = (CacheIndex)null;
@@ -51,7 +48,7 @@ final class Class10 {
 
          }
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "bd.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var4, "bd.C(" + var0 + ',' + var1 + ')');
       }
    }
 
@@ -59,12 +56,11 @@ final class Class10 {
       try {
          aClass94_148 = null;
          if(var0 != 0) {
-            aClass94_148 = (RSString)null;
          }
 
          aClass153_152 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "bd.A(" + var0 + ')');
+         throw Class44.clientError(var2, "bd.A(" + var0 + ')');
       }
    }
 

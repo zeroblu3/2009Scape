@@ -18,14 +18,14 @@ abstract class Class158 {
    static int anInt2015;
 
 
-   abstract void method2179(int var1, int var2, Graphics var3, int var4);
+   abstract void method2179(Graphics var3);
 
-   static final void method2180(CacheIndex var0, CacheIndex var1, int var2) {
+   static void method2180(CacheIndex var0, CacheIndex var1) {
       try {
          Class3_Sub28_Sub7_Sub1.aClass153_4048 = var0;
          Class3_Sub13_Sub18.aClass153_3214 = var1;
       } catch (RuntimeException var4) {
-         throw Class44.method1067(var4, "vk.D(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
+         throw Class44.clientError(var4, "vk.D(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + 11504 + ')');
       }
    }
 
@@ -39,64 +39,59 @@ abstract class Class158 {
 
          aClass94_2006 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "vk.H(" + var0 + ')');
+         throw Class44.clientError(var2, "vk.H(" + ')');
       }
    }
 
-   final void method2182(int var1) {
+   final void method2182() {
       try {
          Class74.method1319(this.anIntArray2007, this.anInt2012, this.anInt2011);
-         if(var1 != 0) {
-            anInt2015 = -118;
-         }
 
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "vk.G(" + var1 + ')');
+         throw Class44.clientError(var3, "vk.G(" + 0 + ')');
       }
    }
 
-   static final void method2183(int var0, boolean var1, int var2, int var3, int var4, RSInterface[] var5) {
+   static void method2183(int var0, boolean var1, int var2, int var4, RSInterface[] var5) {
       try {
          int var6 = 0;
-         if(var3 == 235) {
-            for(; var5.length > var6; ++var6) {
-               RSInterface var7 = var5[var6];
-               if(null != var7 && var7.parentId == var0) {
-                  Class3_Sub28_Sub11.method603(var4, 13987, var2, var7, var1);
-                  Class62.method1224(var7, 23730, var4, var2);
-                  if(var7.anInt247 > var7.anInt240 - var7.anInt168) {
-                     var7.anInt247 = var7.anInt240 - var7.anInt168;
-                  }
+         for(; var5.length > var6; ++var6) {
+            RSInterface var7 = var5[var6];
+            if(null != var7 && var7.parentId == var0) {
+               Class3_Sub28_Sub11.method603(var4, 13987, var2, var7, var1);
+               ReferenceTable.method1224(var7, var4, var2);
+               if(var7.anInt247 > var7.anInt240 - var7.anInt168) {
+                  var7.anInt247 = var7.anInt240 - var7.anInt168;
+               }
 
-                  if(var7.anInt208 > -var7.anInt193 + var7.anInt252) {
-                     var7.anInt208 = var7.anInt252 - var7.anInt193;
-                  }
+               if(var7.anInt208 > -var7.anInt193 + var7.anInt252) {
+                  var7.anInt208 = var7.anInt252 - var7.anInt193;
+               }
 
-                  if(var7.anInt208 < 0) {
-                     var7.anInt208 = 0;
-                  }
+               if(var7.anInt208 < 0) {
+                  var7.anInt208 = 0;
+               }
 
-                  if(var7.anInt247 < 0) {
-                     var7.anInt247 = 0;
-                  }
+               if(var7.anInt247 < 0) {
+                  var7.anInt247 = 0;
+               }
 
-                  if(var7.type == 0) {
-                     Class151_Sub1.method2104(var7, var1, var3 + -343);
-                  }
+               if(var7.type == 0) {
+                  Class151_Sub1.method2104(var7, var1, 235 + -343);
                }
             }
-
          }
+
       } catch (RuntimeException var8) {
-         throw Class44.method1067(var8, "vk.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var8, "vk.A(" + var0 + ',' + var1 + ',' + var2 + ',' + 235 + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ')');
       }
    }
 
-   abstract void drawGraphics(int var1, int var2, int var3, int var4, Graphics var5, int var6);
+   abstract void drawGraphics(int var1, int var2, int var4, Graphics var5, int var6);
 
-   abstract void method2185(int var1, boolean var2, int var3, Component var4);
+   abstract void method2185(int var1, int var3, Component var4);
 
-   static final void method2186(Class25 var0) {
+   static void method2186(Class25 var0) {
       for(int var1 = var0.anInt483; var1 <= var0.anInt495; ++var1) {
          for(int var2 = var0.anInt478; var2 <= var0.anInt481; ++var2) {
             Class3_Sub2 var3 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0.anInt493][var1][var2];

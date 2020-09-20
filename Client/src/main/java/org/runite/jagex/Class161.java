@@ -12,7 +12,7 @@ final class Class161 {
    static Class33 aClass33_2034;
    static RSString aClass94_2035 = null;
 
-   static final void method2200(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   static void method2200(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       try {
          int var8 = 0;
          int var9 = var6;
@@ -124,11 +124,11 @@ final class Class161 {
          }
 
       } catch (RuntimeException var47) {
-         throw Class44.method1067(var47, "wb.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
+         throw Class44.clientError(var47, "wb.A(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
       }
    }
 
-   static final int method2201(WorldListEntry var0, int var1, int var2, WorldListEntry var3, boolean var4) {
+   static int method2201(WorldListEntry var0, int var1, int var2, WorldListEntry var3, boolean var4) {
       try {
          if(var1 == 1) {
             int var5 = var0.anInt722;
@@ -145,10 +145,10 @@ final class Class161 {
 
             return -var6 + var5;
          } else {
-            return 2 == var1?var0.method1078(102).name.method1546((byte)-67, var3.method1078(-119).name):(var1 == 3 ?(var0.activity.method1528((byte)-42, Class62.aClass94_946)?(var3.activity.method1528((byte)-42, Class62.aClass94_946)?0:(var4?-1:1)):(var3.activity.method1528((byte)-42, Class62.aClass94_946)?(var4?1:-1):var0.activity.method1546((byte)-100, var3.activity))):(var2 <= 67?36:(var1 == 4?(!var0.method1074(-114)?(!var3.method1074(-123)?0:-1):(var3.method1074(-108)?0:1)):(var1 == 5?(var0.method1075(64)?(!var3.method1075(64)?1:0):(var3.method1075(64)?-1:0)):(var1 != 6 ?(7 == var1?(var0.method1070(8)?(var3.method1070(8)?0:1):(var3.method1070(8)?-1:0)):-var3.worldId + var0.worldId):(var0.method1072(false)?(!var3.method1072(false)?1:0):(var3.method1072(false)?-1:0)))))));
+            return 2 == var1?var0.method1078(102).name.method1546((byte)-67, var3.method1078(-119).name):(var1 == 3 ?(var0.activity.method1528(ReferenceTable.aClass94_946)?(var3.activity.method1528(ReferenceTable.aClass94_946)?0:(var4?-1:1)):(var3.activity.method1528(ReferenceTable.aClass94_946)?(var4?1:-1):var0.activity.method1546((byte)-100, var3.activity))):(var2 <= 67?36:(var1 == 4?(!var0.method1074(-114)?(!var3.method1074(-123)?0:-1):(var3.method1074(-108)?0:1)):(var1 == 5?(var0.method1075()?(!var3.method1075()?1:0):(var3.method1075()?-1:0)):(var1 != 6 ?(7 == var1?(var0.method1070(8)?(var3.method1070(8)?0:1):(var3.method1070(8)?-1:0)):-var3.worldId + var0.worldId):(var0.method1072()?(!var3.method1072()?1:0):(var3.method1072()?-1:0)))))));
          }
       } catch (RuntimeException var7) {
-         throw Class44.method1067(var7, "wb.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ')');
+         throw Class44.clientError(var7, "wb.C(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ')');
       }
    }
 
@@ -162,7 +162,7 @@ final class Class161 {
          aClass94_2029 = null;
          aClass94_2035 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "wb.B(" + var0 + ')');
+         throw Class44.clientError(var2, "wb.B(" + var0 + ')');
       }
    }
 

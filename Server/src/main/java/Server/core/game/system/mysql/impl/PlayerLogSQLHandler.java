@@ -29,7 +29,7 @@ public class PlayerLogSQLHandler extends SQLEntryHandler<PlayerMonitor> {
 	 * @param entry the player monitor entry.
 	 */
 	public PlayerLogSQLHandler(PlayerMonitor entry, String playerName) {
-		super(entry, (SQLManager.LOCAL ? "global" : ServerConstants.DATABASE_NAMES[1]) + ".player_logs", "username", playerName);
+		super(entry, (SQLManager.LOCAL ? "global" : ServerConstants.DATABASE_NAME) + ".player_logs", "username", playerName);
 	}
 
 	@Override

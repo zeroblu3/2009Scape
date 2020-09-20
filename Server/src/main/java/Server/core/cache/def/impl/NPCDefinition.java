@@ -65,7 +65,7 @@ public final class NPCDefinition extends Definition<NPC> {
 	/**
 	 * The drop tables.
 	 */
-	private NPCDropTables dropTables;
+	private NPCDropTables dropTables = new NPCDropTables(this);
 
 	/**
 	 * Unidentified variables.

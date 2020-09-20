@@ -3,7 +3,6 @@ package org.runite.jagex;
 final class Class154 {
 
    static Class93 aClass93_1955 = new Class93(64);
-   static int anInt1956;
    static int anInt1957;
    static int[] anIntArray1960 = new int[14];
    static Class93 aClass93_1964 = new Class93(5);
@@ -23,11 +22,11 @@ final class Class154 {
          aClass93_1965 = null;
          aClass93_1964 = null;
       } catch (RuntimeException var2) {
-         throw Class44.method1067(var2, "vf.A(" + var0 + ')');
+         throw Class44.clientError(var2, "vf.A(" + var0 + ')');
       }
    }
 
-   static final void method2146(int var0, int var1, int var2, int var3, GameObject var4, GameObject var5, int var6, int var7, long var8) {
+   static void method2146(int var0, int var1, int var2, int var3, GameObject var4, GameObject var5, int var6, int var7, long var8) {
       if(var4 != null || var5 != null) {
          Class70 var10 = new Class70();
          var10.aLong1048 = var8;
@@ -49,24 +48,21 @@ final class Class154 {
       }
    }
 
-   static final Class70 method2147(int var0, int var1, int var2) {
+   static Class70 method2147(int var0, int var1, int var2) {
       Class3_Sub2 var3 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2];
       return var3 == null?null:var3.aClass70_2234;
    }
 
-   static final RSString method2148(int var0, byte var1) {
+   static RSString method2148(int var0) {
       try {
          if(999999999 <= var0) {
-            if(var1 != -78) {
-               method2145((byte)-8);
-            }
 
-            return Class128.aClass94_1687;
+             return Class128.aClass94_1687;
          } else {
             return Class72.method1298((byte)9, var0);
          }
       } catch (RuntimeException var3) {
-         throw Class44.method1067(var3, "vf.C(" + var0 + ',' + var1 + ')');
+         throw Class44.clientError(var3, "vf.C(" + var0 + ',' + (byte) -78 + ')');
       }
    }
 
