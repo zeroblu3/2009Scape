@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.plugin.InitializablePlugin;
 import core.game.node.entity.player.Player;
+import plugin.quest.free.therestlessghost.RestlessGhost;
 
 
 /**

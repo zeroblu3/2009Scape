@@ -9,6 +9,7 @@ import core.game.content.global.SkillingPets;
 import plugin.quest.tutorials.tutorialisland.TutorialSession;
 import plugin.quest.tutorials.tutorialisland.TutorialStage;
 import plugin.skill.Skills;
+import plugin.skill.farming.patch.Trees;
 import plugin.skill.gather.SkillingTool;
 import plugin.skill.farming.wrapper.PatchWrapper;
 import core.game.node.entity.impl.Animator;

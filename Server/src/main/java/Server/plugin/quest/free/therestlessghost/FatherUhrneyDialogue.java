@@ -5,6 +5,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.plugin.InitializablePlugin;
 import core.game.node.item.Item;
+import plugin.dialogue.DialoguePlugin;
 
 /**
  * Represents the father urgney dialogue plugin.

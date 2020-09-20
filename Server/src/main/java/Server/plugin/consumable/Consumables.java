@@ -5,14 +5,10 @@ import core.game.world.update.flag.context.Animation;
 import plugin.consumable.effects.*;
 import plugin.skill.Skills;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Represents a repository of active consumables in the framework.
- * @author 'Vexia
- * @date 22/12/2013
  */
 public enum Consumables {
 
@@ -346,31 +342,10 @@ public enum Consumables {
 
 	private final Consumable consumable;
 
-	/**
-	 * Represents the list of all consumables.
-	 */
-	private static final List<Consumable> CONSUMABLES = new ArrayList<>();
-
-	/**
-	 * Constructs a new {@code Consumables} {@code Object}.
-	 * @param consumable the consumable.
-	 */
 	Consumables(Consumable consumable) {
 		this.consumable = consumable;
 	}
 
-	/**
-	 * Constructs a new {@code Consumables} {@code Object}.
-	 * @param drink the drink.
-	 */
-	Consumables(Drink drink) {
-		this.consumable = drink;
-	}
-
-	/**
-	 * Gets the consumable.
-	 * @return the consumable.
-	 */
 	public Consumable getConsumable() {
 		return consumable;
 	}
@@ -379,68 +354,10 @@ public enum Consumables {
 		return consumables.get(itemId);
 	}
 
-	/**
-	 * Method used to get the {@link Consumable} by the item associated with it.
-	 * @param item the raw item.
-	 * @return the consumable.
-	 */
-	public static Consumable getConsumableByItem(final Item item) {
-		for (Consumable consumable : CONSUMABLES) {
-			if (consumable.isDrink()) {
-				Consumable d = getDrinkByItemID(item.getId());
-				if (d != null) {
-					return d;
-				}
-			}
-			if (consumable.getItem().getId() == item.getId()) {
-				return consumable;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Method used to get the {@link Food} by the item ID associated with it.
-	 * @note this is a more direct search.
-	 * @param itemID the item ID.
-	 * @return the food.
-	 */
-	public static Food getFoodByItemID(final int itemID) {
-		return foodMap.get(itemID);
-	}
-
-
-	/**
-	 * Method used to get the {@link Drink} by the item ID.
-	 * @param itemID the item ID.
-	 * @return the drink.
-	 */
-	public static Drink getDrinkByItemID(final int itemID) {
-		for (Drink drink : DRINKS) {
-			if (itemID == drink.getItem().getId()) {
-				return drink;
-			}
-			if (drink.getDrinks() == null) {
-				continue;
-			}
-			for (Item i : drink.getDrinks()) {
-				if (i.getId() == itemID) {
-					return drink;
-				}
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Method used to add a consumable to its search engine.
-	 * @param consumable the consumable.
-	 */
 	public static void add(final Consumable consumable) {
 		for (int id : consumable.getIds()) {
 			consumables.putIfAbsent(id, consumable);
 		}
-		CONSUMABLES.add(consumable);
 	}
 
 	/*

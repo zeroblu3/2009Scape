@@ -5,13 +5,9 @@ import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
-import core.game.world.GameWorld;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.dialogue.DialoguePlugin;
-import plugin.quest.merlincrystal.KingArthurDialogue;
 
 /**
  * Represents the plugin used to "poison" King Arthur.
