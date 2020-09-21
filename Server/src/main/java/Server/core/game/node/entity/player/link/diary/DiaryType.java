@@ -82,10 +82,9 @@ public enum DiaryType {
              */
     ),
     // https://runescape.wiki/w/Varrock_achievements?oldid=891055
-    // TODO the varrock tasks are missing a lot of tasks!!! this will screw up save files i think, need to figure out how to migrate when fixing
     VARROCK("Varrock", 15,
             new String[]{"Easy", "Medium", "Hard"},
-            new String[][]{ // TODO check that implementation is correct on all of these
+            new String[][]{ // TODO verify implementation ingame
                     {
                             "Have Thessalia show you what outfits you can wear",
                             "Have Aubury teleport you to the essence mine",
@@ -120,7 +119,7 @@ public enum DiaryType {
                             "Enter the A Soul's Bane rift",
                             "Teleport to the Digsite using a Digsite pendant", // TODO need Digsite and museum
                             "Craft an earth tiara on the Earth Altar",
-                            "Pickpocket a guard in the Varrock Palace courtyard", // TODO added
+                            "Pickpocket a guard in the Varrock Palace courtyard",
                             "Use the teleport to Varrock spell",
                             "Get a Slayer task from Vannaka",
                             "Buy twenty mahogany planks from the Sawmill Operator in one<br><br>transaction",
@@ -152,7 +151,32 @@ public enum DiaryType {
                     {new Item(11758), new Item(11755)}
             },
             "",
+            // Varrock Armour 1-3
+            // 1k xp 30 or higher, 5k xp 40 or higher, 10k 50 or higher
+            // Rat Burgiss, Reldo (has an NPC config...), Vannaka
             new int[]{5833, 2660, 1597}
+            /**
+             * Secondary rewards
+             * Easy
+             * - chance of smelting two bars at once up to and including steel in edgeville furnace
+             * - chance of mining two ores at once when mining ores up to and including coal
+             * - better prices when buying and selling in Varrock Area // todo
+             * - 16 battlestaffs may be bought from Zaff's staffs store daily (8 + 8)
+             * - Option to change Varrock tele location to the GE by talking to Rat Burgiss // todo
+             * Medium
+             * - chance of smelting two bars at once up to and including Mithril in edgeville furnace
+             * - chance of mining two ores at once when mining ores up to and including mithril
+             * - chance of smithing at a slightly faster rate // todo
+             * - 32 battlestaffs may be bought from Zaff's staffs store daily (8 + 24)
+             * - Option to change Varrock tele location to the GE by talking to Reldo // todo
+             * Hard
+             * - chance of smelting two bars at once up to and including Adamantite in edgeville furnace
+             * - chance of mining two ores at once when mining ores up to and including adamantite
+             * - access to cook's guild 1st floor bank area
+             * - use varrock armour to get into cook's guild rather than chef's hat
+             * - 64 battlestaffs may be bought from Zaff's staffs store daily (8 + 56)
+             * - Option to change Varrock tele location to the GE by talking to Vannaka // todo
+             */
     ),
     // https://runescape.wiki/w/Lumbridge_achievements?oldid=866361
     LUMBRIDGE("Lumbridge", 2,
@@ -275,7 +299,7 @@ public enum DiaryType {
                             "Place a scarecrow to protect your sweetcorn as it grows in<br><br>the patch north of Port Sarim",
                             "Salute Sir Tiffy Cashien while wearing full initiate armour",
                             "Smith blurite crossbow limbs on Thurgo's anvil",
-                            "Travel from Port Sarim to Musa Point for free (with a little<br><br>help from Charos)", // TODO can't actually obtain Charos ring yet...
+                            "Travel from Port Sarim to Musa Point for free (with a little<br><br>help from Charos)", // TODO can't actually obtain Charos ring yet
                             "Visit the Port Sarim rat pits"
                     },
                     {

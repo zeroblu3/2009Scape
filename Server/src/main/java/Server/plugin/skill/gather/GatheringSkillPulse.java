@@ -252,12 +252,7 @@ public final class GatheringSkillPulse extends SkillPulse<GameObject> {
 		} else if (reward == 6332 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 5)) {
 			player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 5, true);
 		}
-		if (reward == 440 && player.getLocation().withinDistance(new Location(3285, 3363, 0)) && !player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(0, 2)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 0, 2, true);
-		}
-		if (node.getId() == 24168 && !player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(0, 6)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 0, 6, true);
-		}
+
 		if (reward == 444 && !player.getAchievementDiaryManager().hasCompletedTask(DiaryType.KARAMJA, 0, 2)) {
 			if (player.getLocation().getRegionId() == 10801 || player.getLocation().getRegionId() == 10802) {
 				player.getAchievementDiaryManager().updateTask(player, DiaryType.KARAMJA, 0, 2, true);
@@ -338,20 +333,7 @@ public final class GatheringSkillPulse extends SkillPulse<GameObject> {
 	 */
 	private int calculateRewardAmount(int reward) {
 		int amount = 1;
-		
-		if (isMining && !isMiningEssence) {
-			// Not sure what this bonus is for
-			if (isMining && !isMiningEssence && player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).getLevel() != -1 && player.getAchievementDiaryManager().checkMiningReward(reward) && RandomFunction.random(100) <= 10) {
-				amount += 1;
-				player.sendMessage("Through the power of the varrock armour you receive an extra ore.");
-			}
-			// If the player has a skill cape, 10% chance of finding an extra item
-			else if (isMining && !isMiningEssence && SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.MINING) && RandomFunction.getRandom(100) <= 10) {
-				amount += 1;
-				player.sendNotificationMessage("Your " + player.getEquipment().get(EquipmentContainer.SLOT_CAPE).getName() + " allows you to obtain two ores from this rock!");
-			}
-		}
-		
+
 		// 3239: Hollow tree (bark) 10% chance of obtaining
 		if (reward == 3239 && RandomFunction.random(100) >= 10) {
 			amount = 0;

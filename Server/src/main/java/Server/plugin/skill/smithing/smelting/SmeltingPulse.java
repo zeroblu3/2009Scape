@@ -1,5 +1,7 @@
 package plugin.skill.smithing.smelting;
 
+import core.game.container.impl.EquipmentContainer;
+import core.game.content.ItemNames;
 import core.game.content.global.SkillcapePerks;
 import core.game.world.map.Location;
 import plugin.skill.SkillPulse;
@@ -124,20 +126,28 @@ public class SmeltingPulse extends SkillPulse<Item> {
             }
         }
         if (success(player)) {
-            int amt = player.getInventory().freeSlots() != 0
+            // Varrock Armour secondary reward
+            int amt = (player.getInventory().freeSlots() != 0 && !superHeat
+                    && player.getLocation().withinDistance(Location.create(3107, 3500, 0)) // edgeville furnace
+                    && player.getInventory().containsItems(bar.getOres())
                     && player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).getLevel() != -1
                     && player.getAchievementDiaryManager().checkSmithReward(bar)
-                    && RandomFunction.random(100) <= 10 ? 2 : 1;
+                    && RandomFunction.random(100) <= 10) ? 2 : 1;
             if (amt != 1) {
-                player.sendMessage("Through the powers of your Varrock armour you receive double the reward.");
+                if (!player.getInventory().remove(bar.getOres())) {
+                    amt = 1;
+                } else {
+                    player.sendMessage("The magic of the Varrock armour enables you to smelt 2 bars at the same time.");
+                }
             }
             player.getInventory().add(new Item(bar.getProduct().getId(), amt));
-            double xp = bar.getExperience();
-            if (player.getEquipment().get(9) != null && player.getEquipment().get(9).getId() == 776 && bar.getProduct().getId() == 2357) {
-                xp = 56.2;
-            }
-            if (SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.SMITHING) && bar.getProduct().getId() == 2357) {
-                xp = 56.2;
+            double xp = bar.getExperience() * amt;
+            // Goldsmith gauntlets and/or smithing cape
+            if (((player.getEquipment().get(EquipmentContainer.SLOT_HANDS) != null
+                    && player.getEquipment().get(EquipmentContainer.SLOT_HANDS).getId() == ItemNames.GOLDSMITH_GAUNTLETS_776)
+                    || SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.SMITHING))
+                    && bar.getProduct().getId() == 2357) {
+                xp = 56.2 * amt;
             }
             player.getSkills().addExperience(Skills.SMITHING, xp, true);
             if (!superHeat) {
@@ -148,10 +158,10 @@ public class SmeltingPulse extends SkillPulse<Item> {
             if (bar == Bar.STEEL && player.getLocation().withinDistance(Location.create(3226, 3254, 0))) {
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 1, 5);
             }
-			// Smelt a silver bar in the Lumbridge furnace
-			if (bar == Bar.SILVER && player.getLocation().withinDistance(Location.create(3226, 3254, 0))) {
-				player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 2, 7);
-			}
+            // Smelt a silver bar in the Lumbridge furnace
+            if (bar == Bar.SILVER && player.getLocation().withinDistance(Location.create(3226, 3254, 0))) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 2, 7);
+            }
 
         } else {
             player.getPacketDispatch().sendMessage("The ore is too impure and you fail to refine it.");

@@ -40,10 +40,10 @@ public class SmithingPulse extends SkillPulse<Item> {
      * @param player the player.
      * @param item   the item.
      */
-    public SmithingPulse(Player player, Item item, Bars bar, int ammount) {
+    public SmithingPulse(Player player, Item item, Bars bar, int amount) {
         super(player, item);
         this.bar = bar;
-        this.amount = ammount;
+        this.amount = amount;
     }
 
     @Override
@@ -94,6 +94,7 @@ public class SmithingPulse extends SkillPulse<Item> {
         if (TutorialSession.getExtension(player).getStage() == 42) {
             TutorialStage.load(player, 43, false);
         }
+
         if (bar == Bars.BLURITE_CROSSBOW_LIMBS
                 && player.getLocation().withinDistance(new Location(3000, 3145, 0), 10)) { // near Thurgo's anvil
             player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 1, 9);

@@ -2,6 +2,7 @@ package plugin.skill.gather.mining;
 
 import core.cache.def.impl.ItemDefinition;
 import core.game.container.impl.EquipmentContainer;
+import core.game.content.ItemNames;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.SkillcapePerks;
 import core.game.content.global.SkillingPets;
@@ -201,9 +202,39 @@ public class MiningSkillPulse extends Pulse {
         int amount = 1;
 
         //checks for varrock armor from varrock diary and rolls chance at extra ore
-        if(!isMiningEssence && player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).getLevel() != -1 && player.getAchievementDiaryManager().checkMiningReward(reward) && RandomFunction.random(100) <= 10){
-            amount += 1;
-            player.sendMessage("Through the power of the varrock armour you receive an extra ore.");
+        if(!isMiningEssence && player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).getLevel() != -1) {
+            switch (reward) {
+                case ItemNames.CLAY_434:
+                case ItemNames.COPPER_ORE:
+                case ItemNames.TIN_ORE:
+                case ItemNames.LIMESTONE_3211:
+                case ItemNames.BLURITE_ORE_668:
+                case ItemNames.IRON_ORE:
+                case ItemNames.ELEMENTAL_ORE_2892:
+                case ItemNames.SILVER_ORE_442:
+                case ItemNames.COAL:
+                    if (player.getAchievementDiaryManager().getArmour() >= 0 && RandomFunction.random(100) <= 10) {
+                        amount += 1;
+                        player.sendMessage("The Varrock armour allows you to mine an additional ore.");
+                    }
+                    break;
+                case ItemNames.GOLD_ORE:
+                case ItemNames.GRANITE_500G_6979:
+                case ItemNames.GRANITE_2KG_6981:
+                case ItemNames.GRANITE_5KG_6983:
+                case ItemNames.MITHRIL_ORE:
+                    if (player.getAchievementDiaryManager().getArmour() >= 1 && RandomFunction.random(100) <= 10) {
+                        amount += 1;
+                        player.sendMessage("The Varrock armour allows you to mine an additional ore.");
+                    }
+                    break;
+                case ItemNames.ADAMANTITE_ORE:
+                    if (player.getAchievementDiaryManager().getArmour() >= 2 && RandomFunction.random(100) <= 10) {
+                        amount += 1;
+                        player.sendMessage("The Varrock armour allows you to mine an additional ore.");
+                    }
+                    break;
+            }
         }
 
         // If the player has a skill cape, 10% chance of finding an extra item

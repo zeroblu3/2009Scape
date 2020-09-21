@@ -688,6 +688,15 @@ public class Container {
         return false;
     }
 
+    public boolean containsOneItem(Item... items) {
+        for (Item item : items) {
+            if (containsItem(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Checks if the container contains all items.
      *
