@@ -1,6 +1,8 @@
 # 2009Scape - The most complete Runescape Emulation server. 
 Join our Discord server: https://discord.gg/43YPGND
 
+If you hate Discord, join our IRC server (it has a Discord bridge): irc.freenode.net #2009scape
+
 Grab the launcher from [Releases](https://github.com/2009scape/2009scape/releases) and hop into the live game!
 
 For information about what data we store, read over [this](https://github.com/2009scape/2009Scape/wiki/Information-We-Store).
