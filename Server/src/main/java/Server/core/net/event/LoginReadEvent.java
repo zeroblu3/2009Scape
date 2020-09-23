@@ -12,6 +12,7 @@ import core.game.node.entity.player.info.login.LoginType;
 import core.game.node.entity.player.info.login.Response;
 import core.game.node.entity.player.info.portal.PlayerSQLManager;
 import core.game.system.task.TaskExecutor;
+import core.game.world.repository.Repository;
 import core.net.Constants;
 import core.net.IoReadEvent;
 import core.net.IoSession;
@@ -138,6 +139,7 @@ public final class LoginReadEvent extends IoReadEvent {
 	 * @param opcode the opcode.
 	 */
 	private static void login(final PlayerDetails details, IoSession session, ByteBuffer buffer, int opcode) {
+		Repository.LOGGED_IN_PLAYERS.add(details.getUsername());
 		final LoginParser parser = new LoginParser(details, LoginType.fromType(opcode));
 		details.setSession(session);
 		details.getInfo().translate(new UIDInfo(details.getIpAddress(), ByteBufferUtils.getString(buffer), ByteBufferUtils.getString(buffer),ByteBufferUtils.getString(buffer)));

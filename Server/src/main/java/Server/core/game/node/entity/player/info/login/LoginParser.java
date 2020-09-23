@@ -190,6 +190,10 @@ public final class LoginParser implements Runnable {
 	 * @return {@code True} if the request is valid.
 	 */
 	private boolean validateRequest() {
+		//This is supposed to prevent the double-logging issue. Will it work? Who knows.
+		if(Repository.LOGGED_IN_PLAYERS.contains(details.getUsername())){
+			return flag(Response.ALREADY_ONLINE);
+		}
 		if (WorldCommunicator.getState() == ManagementServerState.CONNECTING) {
 			return flag(Response.LOGIN_SERVER_OFFLINE);
 		}
