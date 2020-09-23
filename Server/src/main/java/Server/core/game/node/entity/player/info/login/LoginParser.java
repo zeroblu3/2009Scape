@@ -70,11 +70,14 @@ public final class LoginParser implements Runnable {
 		try {
 			if (validateRequest()) {
 				handleLogin();
+			} else {
+				Repository.LOGGED_IN_PLAYERS.remove(details.getUsername());
 			}
 		} catch (Throwable t) {
 			t.printStackTrace();
 			try {
 				flag(Response.ERROR_LOADING_PROFILE);
+				Repository.LOGGED_IN_PLAYERS.remove(details.getUsername());
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
