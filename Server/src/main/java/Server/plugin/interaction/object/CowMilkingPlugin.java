@@ -79,8 +79,8 @@ public final class CowMilkingPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(8689).getConfigurations().put("option:milk", this);
-		ObjectDefinition.forId(12111).getConfigurations().put("option:milk", this);
+		ObjectDefinition.forId(8689).getHandlers().put("option:milk", this);
+		ObjectDefinition.forId(12111).getHandlers().put("option:milk", this);
 		ObjectDefinition.setOptionHandler("steal-cowbell", this);
 		PluginManager.definePlugin(new BucketHandler());
 		return this;

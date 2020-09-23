@@ -36,7 +36,7 @@ public class Definition<T extends Node> {
 	/**
 	 * The configurations.
 	 */
-	protected final Map<String, Object> configurations = new HashMap<String, Object>();
+	protected final Map<String, Object> handlers = new HashMap<String, Object>();
 
 	/**
 	 * Constructs a new {@code Definition} {@code Object}.
@@ -81,7 +81,7 @@ public class Definition<T extends Node> {
 	 */
 	@SuppressWarnings("unchecked")
 	public <V> V getConfiguration(String key) {
-		return (V) configurations.get(key);
+		return (V) handlers.get(key);
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class Definition<T extends Node> {
 	 */
 	@SuppressWarnings("unchecked")
 	public <V> V getConfiguration(String key, V fail) {
-		V object = (V) configurations.get(key);
+		V object = (V) handlers.get(key);
 		if (object == null) {
 			return fail;
 		}
@@ -139,7 +139,7 @@ public class Definition<T extends Node> {
 	public String getExamine() {
 		if (examine == null) {
 			try {
-				examine = configurations.get("examine").toString();
+				examine = handlers.get("examine").toString();
 			} catch (Exception e){}
 			if(examine == null) {
 				if (name.length() > 0) {
@@ -180,8 +180,8 @@ public class Definition<T extends Node> {
 	 * Gets the configurations.
 	 * @return The configurations.
 	 */
-	public Map<String, Object> getConfigurations() {
-		return configurations;
+	public Map<String, Object> getHandlers() {
+		return handlers;
 	}
 
 }

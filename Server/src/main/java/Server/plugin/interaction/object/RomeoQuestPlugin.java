@@ -35,9 +35,9 @@ public class RomeoQuestPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(23625).getConfigurations().put("option:pick-from", this);
-		ObjectDefinition.forId(23626).getConfigurations().put("option:pick-from", this);
-		ObjectDefinition.forId(23627).getConfigurations().put("option:pick-from", this);
+		ObjectDefinition.forId(23625).getHandlers().put("option:pick-from", this);
+		ObjectDefinition.forId(23626).getHandlers().put("option:pick-from", this);
+		ObjectDefinition.forId(23627).getHandlers().put("option:pick-from", this);
 		return this;
 	}
 

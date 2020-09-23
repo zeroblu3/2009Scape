@@ -36,16 +36,16 @@ public class DwarfCannonPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {  
-		ObjectDefinition.forId(3).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(5).getConfigurations().put("option:inspect", this);
-		ObjectDefinition.forId(2).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(13).getConfigurations().put("option:climb-over", this);
-		ObjectDefinition.forId(15601).getConfigurations().put("option:inspect", this);
+		ObjectDefinition.forId(3).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(5).getHandlers().put("option:inspect", this);
+		ObjectDefinition.forId(2).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(13).getHandlers().put("option:climb-over", this);
+		ObjectDefinition.forId(15601).getHandlers().put("option:inspect", this);
 		for (int i = 15; i < 21; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:inspect", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:inspect", this);
 		}
-		ObjectDefinition.forId(15596).getConfigurations().put("option:take", this);
-		ObjectDefinition.forId(1).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(15596).getHandlers().put("option:take", this);
+		ObjectDefinition.forId(1).getHandlers().put("option:search", this);
 		UseWithHandler.addHandler(5, UseWithHandler.OBJECT_TYPE, new UseWithHandler(1) {
 
 			@Override

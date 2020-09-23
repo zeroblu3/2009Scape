@@ -264,7 +264,7 @@ public final class GiantMoleNPC extends AbstractNPC {
 		DigSpadeHandler.register(Location.create(2989, 3378, 0), action);
 		DigSpadeHandler.register(Location.create(2984, 3387, 0), action);
 		DigSpadeHandler.register(Location.create(2987, 3387, 0), action);
-		ObjectDefinition.forId(12230).getConfigurations().put("option:climb", new OptionHandler() {
+		ObjectDefinition.forId(12230).getHandlers().put("option:climb", new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
 				return this;

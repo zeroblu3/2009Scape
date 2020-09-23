@@ -20,7 +20,7 @@ class ObjectConfigParser {
             val ids = e["ids"].toString().split(",").map { it.toInt() }
             for (id in ids) {
                 val def = ObjectDefinition.forId(id)
-                val configs = def.configurations
+                val configs = def.handlers
                 e.map {
                     if (it.value.toString().isNotEmpty() && it.value.toString() != "null") {
                         when (it.key.toString()) {

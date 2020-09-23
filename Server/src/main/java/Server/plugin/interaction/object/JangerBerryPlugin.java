@@ -39,8 +39,8 @@ public class JangerBerryPlugin extends OptionHandler {
 			}
 
 		});
-		ObjectDefinition.forId(2325).getConfigurations().put("option:swing-on", this);
-		ObjectDefinition.forId(2324).getConfigurations().put("option:swing-on", this);
+		ObjectDefinition.forId(2325).getHandlers().put("option:swing-on", this);
+		ObjectDefinition.forId(2324).getHandlers().put("option:swing-on", this);
 		return this;
 	}
 

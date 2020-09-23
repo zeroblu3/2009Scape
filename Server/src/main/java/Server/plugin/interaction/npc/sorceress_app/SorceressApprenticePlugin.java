@@ -48,8 +48,8 @@ public class SorceressApprenticePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(5532).getConfigurations().put("option:teleport", this);
-		ObjectDefinition.forId(21781).getConfigurations().put("option:climb-up", this);
+		NPCDefinition.forId(5532).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(21781).getHandlers().put("option:climb-up", this);
 		new SorceressStairs().newInstance(arg);
 		PluginManager.definePlugin(new SorceressApprenticeDialogue());
 		return this;
@@ -64,7 +64,7 @@ public class SorceressApprenticePlugin extends OptionHandler {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(35645).getConfigurations().put("option:climb-down", this);
+			ObjectDefinition.forId(35645).getHandlers().put("option:climb-down", this);
 			return this;
 		}
 

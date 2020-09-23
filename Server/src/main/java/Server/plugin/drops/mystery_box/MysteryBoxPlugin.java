@@ -3,20 +3,15 @@ package plugin.drops.mystery_box;
 import core.cache.def.impl.ItemDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
-import core.game.node.entity.npc.drop.DropFrequency;
 import core.game.node.entity.player.Player;
-import core.game.node.item.ChanceItem;
 import core.game.node.item.Item;
 import core.game.node.item.WeightedChanceItem;
-import core.game.world.repository.Repository;
 import core.plugin.Plugin;
 import core.plugin.PluginManifest;
 import core.tools.ItemNames;
 import core.tools.RandomFunction;
 import core.plugin.InitializablePlugin;
 import core.tools.StringUtils;
-
-import java.util.List;
 
 /**
  * Handles the mystery box item.
@@ -50,7 +45,7 @@ public final class MysteryBoxPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(6199).getConfigurations().put("option:open", this);
+		ItemDefinition.forId(6199).getHandlers().put("option:open", this);
 		return this;
 	}
 

@@ -25,12 +25,12 @@ public final class WildernessPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		new KBDPlugin().newInstance(arg);
-		ObjectDefinition.forId(37749).getConfigurations().put("option:go-through", this);
-		ObjectDefinition.forId(37928).getConfigurations().put("option:go-through", this);
-		ObjectDefinition.forId(37929).getConfigurations().put("option:go-through", this);
-		ObjectDefinition.forId(38811).getConfigurations().put("option:go-through", this);
-		ObjectDefinition.forId(39191).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(39188).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(37749).getHandlers().put("option:go-through", this);
+		ObjectDefinition.forId(37928).getHandlers().put("option:go-through", this);
+		ObjectDefinition.forId(37929).getHandlers().put("option:go-through", this);
+		ObjectDefinition.forId(38811).getHandlers().put("option:go-through", this);
+		ObjectDefinition.forId(39191).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(39188).getHandlers().put("option:open", this);
 		return this;
 	}
 
@@ -72,10 +72,10 @@ public final class WildernessPlugin extends OptionHandler {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(1765).getConfigurations().put("option:climb-down", this);// ladder
-			ObjectDefinition.forId(1766).getConfigurations().put("option:climb-up", this);// ladder
-			ObjectDefinition.forId(1816).getConfigurations().put("option:pull", this);// kbd
-			ObjectDefinition.forId(1817).getConfigurations().put("option:pull", this);// kbd
+			ObjectDefinition.forId(1765).getHandlers().put("option:climb-down", this);// ladder
+			ObjectDefinition.forId(1766).getHandlers().put("option:climb-up", this);// ladder
+			ObjectDefinition.forId(1816).getHandlers().put("option:pull", this);// kbd
+			ObjectDefinition.forId(1817).getHandlers().put("option:pull", this);// kbd
 			return this;
 		}
 

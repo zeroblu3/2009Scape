@@ -34,7 +34,7 @@ public class MountedGloryPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(13523).getConfigurations().put("option:rub", this);
+		ObjectDefinition.forId(13523).getHandlers().put("option:rub", this);
 		return this;
 	}
 

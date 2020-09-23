@@ -95,7 +95,7 @@ public final class PotteryPlugin extends UseWithHandler {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (int id : OVENS) {
-				ObjectDefinition.forId(id).getConfigurations().put("option:fire", this);
+				ObjectDefinition.forId(id).getHandlers().put("option:fire", this);
 			}
 			new FireUseHandler().newInstance(arg);
 			return this;

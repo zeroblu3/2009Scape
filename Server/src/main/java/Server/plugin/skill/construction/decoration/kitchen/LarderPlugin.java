@@ -21,9 +21,9 @@ public final class LarderPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		PluginManager.definePlugin(new LarderDialogue());
-		ObjectDefinition.forId(13565).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(13566).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(13567).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(13565).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(13566).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(13567).getHandlers().put("option:search", this);
 		return this;
 	}
 

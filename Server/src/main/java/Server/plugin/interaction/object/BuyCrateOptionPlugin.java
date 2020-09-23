@@ -24,7 +24,7 @@ public final class BuyCrateOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(6839).getConfigurations().put("option:buy", this);
+		ObjectDefinition.forId(6839).getHandlers().put("option:buy", this);
 		return this;
 	}
 

@@ -20,7 +20,7 @@ class SkillingBotAssembler {
     fun equipSet(bot: AIPlayer,set: List<Int>): AIPlayer{
         for(i in set){
             val item = Item(i)
-            val configs = item.definition.configurations
+            val configs = item.definition.handlers
             val slot = configs["equipment_slot"] ?: continue
             bot.equipment.add(item, slot as Int,
                     false,false)

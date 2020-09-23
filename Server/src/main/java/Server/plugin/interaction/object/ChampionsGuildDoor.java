@@ -40,7 +40,7 @@ public final class ChampionsGuildDoor extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(1805).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(1805).getHandlers().put("option:open", this);
 		return this;
 	}
 

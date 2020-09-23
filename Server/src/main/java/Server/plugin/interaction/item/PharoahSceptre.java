@@ -27,10 +27,10 @@ public final class PharoahSceptre extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         new SceptreDialog().init();
-        ItemDefinition.forId(9044).getConfigurations().put("option:teleport",this);
-        ItemDefinition.forId(9046).getConfigurations().put("option:teleport",this);
-        ItemDefinition.forId(9048).getConfigurations().put("option:teleport",this);
-        ItemDefinition.forId(9050).getConfigurations().put("option:teleport",this);
+        ItemDefinition.forId(9044).getHandlers().put("option:teleport",this);
+        ItemDefinition.forId(9046).getHandlers().put("option:teleport",this);
+        ItemDefinition.forId(9048).getHandlers().put("option:teleport",this);
+        ItemDefinition.forId(9050).getHandlers().put("option:teleport",this);
         return this;
     }
     @Override

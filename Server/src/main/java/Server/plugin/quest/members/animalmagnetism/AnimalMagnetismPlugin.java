@@ -43,15 +43,15 @@ public final class AnimalMagnetismPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(688).getConfigurations().put("option:polish", this);
-		ItemDefinition.forId(4251).getConfigurations().put("option:empty", this);
-		ItemDefinition.forId(4251).getConfigurations().put("option:drop", this);
-		ItemDefinition.forId(4252).getConfigurations().put("option:drop", this);
-		NPCDefinition.forId(5198).getConfigurations().put("option:trade", this);
-		ObjectDefinition.forId(5167).getConfigurations().put("option:push", this);
-		AnimalMagnetism.RESEARCH_NOTES.getDefinition().getConfigurations().put("option:translate", this);
-		ItemDefinition.forId(AnimalMagnetism.CRONE_AMULET.getId()).getConfigurations().put("option:wear", this);
-		ItemDefinition.forId(AnimalMagnetism.CRONE_AMULET.getId()).getConfigurations().put("option:equip", this);
+		ItemDefinition.forId(688).getHandlers().put("option:polish", this);
+		ItemDefinition.forId(4251).getHandlers().put("option:empty", this);
+		ItemDefinition.forId(4251).getHandlers().put("option:drop", this);
+		ItemDefinition.forId(4252).getHandlers().put("option:drop", this);
+		NPCDefinition.forId(5198).getHandlers().put("option:trade", this);
+		ObjectDefinition.forId(5167).getHandlers().put("option:push", this);
+		AnimalMagnetism.RESEARCH_NOTES.getDefinition().getHandlers().put("option:translate", this);
+		ItemDefinition.forId(AnimalMagnetism.CRONE_AMULET.getId()).getHandlers().put("option:wear", this);
+		ItemDefinition.forId(AnimalMagnetism.CRONE_AMULET.getId()).getHandlers().put("option:equip", this);
 		return this;
 	}
 
@@ -220,7 +220,7 @@ public final class AnimalMagnetismPlugin extends OptionHandler {
 			PluginManager.definePlugin(new OptionHandler() {
 				@Override
 				public Plugin<Object> newInstance(Object arg) throws Throwable {
-					NPCDefinition.forId(5208).getConfigurations().put("option:chop", this);
+					NPCDefinition.forId(5208).getHandlers().put("option:chop", this);
 					return this;
 				}
 

@@ -29,7 +29,7 @@ public final class CasketPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(405).getConfigurations().put("option:open", this);
+		ItemDefinition.forId(405).getHandlers().put("option:open", this);
 		return this;
 	}
 

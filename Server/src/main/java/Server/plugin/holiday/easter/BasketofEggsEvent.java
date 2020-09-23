@@ -424,8 +424,8 @@ public class BasketofEggsEvent extends HolidayEvent {
 	public class EasterItemPlugin implements Plugin<Object> {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			RUBBER_CHICKEN.getDefinition().getConfigurations().put("equipment", this);
-			BASKET_OF_EGGS.getDefinition().getConfigurations().put("equipment", this);
+			RUBBER_CHICKEN.getDefinition().getHandlers().put("equipment", this);
+			BASKET_OF_EGGS.getDefinition().getHandlers().put("equipment", this);
 			return this;
 		}
 
@@ -459,8 +459,8 @@ public class BasketofEggsEvent extends HolidayEvent {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			RUBBER_CHICKEN.getDefinition().getConfigurations().put("option:operate", this);
-			RUBBER_CHICKEN.getDefinition().getConfigurations().put("option:dance", this);
+			RUBBER_CHICKEN.getDefinition().getHandlers().put("option:operate", this);
+			RUBBER_CHICKEN.getDefinition().getHandlers().put("option:dance", this);
 			WHACK_OPTION.setHandler(this);
 			return this;
 		}

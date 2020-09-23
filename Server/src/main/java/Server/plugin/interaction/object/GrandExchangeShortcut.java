@@ -39,8 +39,8 @@ public final class GrandExchangeShortcut extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(9311).getConfigurations().put("option:climb-into", this);
-		ObjectDefinition.forId(9312).getConfigurations().put("option:climb-into", this);
+		ObjectDefinition.forId(9311).getHandlers().put("option:climb-into", this);
+		ObjectDefinition.forId(9312).getHandlers().put("option:climb-into", this);
 		return null;
 	}
 

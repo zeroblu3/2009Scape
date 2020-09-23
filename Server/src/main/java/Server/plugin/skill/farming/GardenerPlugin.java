@@ -26,11 +26,11 @@ public final class GardenerPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (Gardener gardener : Gardener.values()) {
-			NPCDefinition.forId(gardener.getNpc()).getConfigurations().put("option:pay", this);
-			NPCDefinition.forId(gardener.getNpc()).getConfigurations().put("option:pay (north)", this);
-			NPCDefinition.forId(gardener.getNpc()).getConfigurations().put("option:pay (south)", this);
-			NPCDefinition.forId(gardener.getNpc()).getConfigurations().put("option:pay (north-west)", this);
-			NPCDefinition.forId(gardener.getNpc()).getConfigurations().put("option:pay (south-east)", this);
+			NPCDefinition.forId(gardener.getNpc()).getHandlers().put("option:pay", this);
+			NPCDefinition.forId(gardener.getNpc()).getHandlers().put("option:pay (north)", this);
+			NPCDefinition.forId(gardener.getNpc()).getHandlers().put("option:pay (south)", this);
+			NPCDefinition.forId(gardener.getNpc()).getHandlers().put("option:pay (north-west)", this);
+			NPCDefinition.forId(gardener.getNpc()).getHandlers().put("option:pay (south-east)", this);
 		}
 		new GardenerDialogue().init();
 		return this;

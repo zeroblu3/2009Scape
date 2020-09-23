@@ -22,7 +22,7 @@ public final class VoidSealPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int i = 0; i < 8; i++) {
-			ItemDefinition.forId(11666 + i).getConfigurations().put("option:rub", this);
+			ItemDefinition.forId(11666 + i).getHandlers().put("option:rub", this);
 		}
 		return this;
 	}

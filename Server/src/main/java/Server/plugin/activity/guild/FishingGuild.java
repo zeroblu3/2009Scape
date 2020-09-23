@@ -23,7 +23,7 @@ public final class FishingGuild extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2025).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(2025).getHandlers().put("option:open", this);
 		new MasterFisherDialogue().init();
 		return this;
 	}

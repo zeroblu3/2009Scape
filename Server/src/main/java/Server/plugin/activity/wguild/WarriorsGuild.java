@@ -31,9 +31,9 @@ public final class WarriorsGuild extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(15653).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1530).getConfigurations().put("option:open", this);
-		NPCDefinition.forId(4287).getConfigurations().put("option:claim-shield", this);
+		ObjectDefinition.forId(15653).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1530).getHandlers().put("option:open", this);
+		NPCDefinition.forId(4287).getHandlers().put("option:claim-shield", this);
 		NPCDefinition.setOptionHandler("claim-tokens", this);
 		PluginManager.definePlugin(new ClaimTokenDialogue());
 		return this;

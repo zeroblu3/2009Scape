@@ -23,10 +23,10 @@ public final class TeleportCrystalPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(6099).getConfigurations().put("option:activate", this);
-		ItemDefinition.forId(6100).getConfigurations().put("option:activate", this);
-		ItemDefinition.forId(6101).getConfigurations().put("option:activate", this);
-		ItemDefinition.forId(6102).getConfigurations().put("option:activate", this);
+		ItemDefinition.forId(6099).getHandlers().put("option:activate", this);
+		ItemDefinition.forId(6100).getHandlers().put("option:activate", this);
+		ItemDefinition.forId(6101).getHandlers().put("option:activate", this);
+		ItemDefinition.forId(6102).getHandlers().put("option:activate", this);
 		new TeleportCrystalDialogue().init();
 		return this;
 	}

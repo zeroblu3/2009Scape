@@ -73,10 +73,10 @@ public class ClockmakersBenchPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(13709).getConfigurations().put("option:craft", this);
-		ObjectDefinition.forId(13710).getConfigurations().put("option:craft", this);
-		ObjectDefinition.forId(13711).getConfigurations().put("option:craft", this);
-		ObjectDefinition.forId(13712).getConfigurations().put("option:craft", this);
+		ObjectDefinition.forId(13709).getHandlers().put("option:craft", this);
+		ObjectDefinition.forId(13710).getHandlers().put("option:craft", this);
+		ObjectDefinition.forId(13711).getHandlers().put("option:craft", this);
+		ObjectDefinition.forId(13712).getHandlers().put("option:craft", this);
 		PluginManager.definePlugin(new ClockmakerBenchDialogue());
 		return this;
 	}

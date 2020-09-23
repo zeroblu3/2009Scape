@@ -24,15 +24,15 @@ public final class FamiliarItemOptionPlugin extends OptionHandler {
 			if (def == null) {
 				continue;
 			}
-			def.getConfigurations().put("option:drop", this);
-			def.getConfigurations().put("option:release", this);
+			def.getHandlers().put("option:drop", this);
+			def.getHandlers().put("option:release", this);
 			if (p.getGrownItemId() > -1) {
-				ItemDefinition.forId(p.getGrownItemId()).getConfigurations().put("option:drop", this);
-				ItemDefinition.forId(p.getGrownItemId()).getConfigurations().put("option:release", this);
+				ItemDefinition.forId(p.getGrownItemId()).getHandlers().put("option:drop", this);
+				ItemDefinition.forId(p.getGrownItemId()).getHandlers().put("option:release", this);
 			}
 			if (p.getOvergrownItemId() > -1) {
-				ItemDefinition.forId(p.getOvergrownItemId()).getConfigurations().put("option:drop", this);
-				ItemDefinition.forId(p.getOvergrownItemId()).getConfigurations().put("option:release", this);
+				ItemDefinition.forId(p.getOvergrownItemId()).getHandlers().put("option:drop", this);
+				ItemDefinition.forId(p.getOvergrownItemId()).getHandlers().put("option:release", this);
 			}
 		}
 		return this;

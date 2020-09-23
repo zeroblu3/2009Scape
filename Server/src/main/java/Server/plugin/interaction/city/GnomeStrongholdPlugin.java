@@ -26,11 +26,11 @@ public final class GnomeStrongholdPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(190).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1967).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1968).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(9316).getConfigurations().put("option:climb",this);
-		ObjectDefinition.forId(9317).getConfigurations().put("option:climb",this);
+		ObjectDefinition.forId(190).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1967).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1968).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(9316).getHandlers().put("option:climb",this);
+		ObjectDefinition.forId(9317).getHandlers().put("option:climb",this);
 		return this;
 	}
 

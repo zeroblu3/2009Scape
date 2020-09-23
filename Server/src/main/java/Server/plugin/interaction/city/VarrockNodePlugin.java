@@ -38,19 +38,19 @@ public final class VarrockNodePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(24357).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(5581).getConfigurations().put("option:take-axe", this);
-		ObjectDefinition.forId(36974).getConfigurations().put("option:take-axe", this);
-		ObjectDefinition.forId(24428).getConfigurations().put("option:walk-down", this);
-		ObjectDefinition.forId(1749).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(23636).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(28094).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(24389).getConfigurations().put("option:knock-at", this);
-		ObjectDefinition.forId(9662).getConfigurations().put("option:take", this);
-		ObjectDefinition.forId(17974).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(29534).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(17985).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(24366).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(24357).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(5581).getHandlers().put("option:take-axe", this);
+		ObjectDefinition.forId(36974).getHandlers().put("option:take-axe", this);
+		ObjectDefinition.forId(24428).getHandlers().put("option:walk-down", this);
+		ObjectDefinition.forId(1749).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(23636).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(28094).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(24389).getHandlers().put("option:knock-at", this);
+		ObjectDefinition.forId(9662).getHandlers().put("option:take", this);
+		ObjectDefinition.forId(17974).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(29534).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(17985).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(24366).getHandlers().put("option:climb-up", this);
 		ObjectBuilder.add(new GameObject(17974, new Location(3204, 9911), 10, 0));
 		new KnockatDoorDialogue().init();
 		return this;

@@ -19,12 +19,12 @@ public class BookreadOption extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ItemDefinition.forId(292).getConfigurations().put("option:read", this);
-        ItemDefinition.forId(757).getConfigurations().put("option:read", this);
-        ItemDefinition.forId(1856).getConfigurations().put("option:read", this);
-        ItemDefinition.forId(9003).getConfigurations().put("option:read", this);
-        ItemDefinition.forId(9004).getConfigurations().put("option:read", this);
-        ItemDefinition.forId(11710).getConfigurations().put("option:read", this);
+        ItemDefinition.forId(292).getHandlers().put("option:read", this);
+        ItemDefinition.forId(757).getHandlers().put("option:read", this);
+        ItemDefinition.forId(1856).getHandlers().put("option:read", this);
+        ItemDefinition.forId(9003).getHandlers().put("option:read", this);
+        ItemDefinition.forId(9004).getHandlers().put("option:read", this);
+        ItemDefinition.forId(11710).getHandlers().put("option:read", this);
         return this;
     }
 

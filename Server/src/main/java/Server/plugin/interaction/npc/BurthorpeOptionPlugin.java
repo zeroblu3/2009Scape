@@ -34,30 +34,30 @@ public final class BurthorpeOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(1063).getConfigurations().put("option:talk-to", this);// soldier
-		NPCDefinition.forId(1061).getConfigurations().put("option:talk-to", this);// sergant
-		NPCDefinition.forId(1066).getConfigurations().put("option:talk-to", this);// seated
+		NPCDefinition.forId(1063).getHandlers().put("option:talk-to", this);// soldier
+		NPCDefinition.forId(1061).getHandlers().put("option:talk-to", this);// sergant
+		NPCDefinition.forId(1066).getHandlers().put("option:talk-to", this);// seated
 		// soldier
-		NPCDefinition.forId(1067).getConfigurations().put("option:talk-to", this);// seated
+		NPCDefinition.forId(1067).getHandlers().put("option:talk-to", this);// seated
 		// soldier
-		NPCDefinition.forId(1068).getConfigurations().put("option:talk-to", this);// seated
+		NPCDefinition.forId(1068).getHandlers().put("option:talk-to", this);// seated
 		// soldier
-		NPCDefinition.forId(1064).getConfigurations().put("option:talk-to", this);// other
+		NPCDefinition.forId(1064).getHandlers().put("option:talk-to", this);// other
 		// soldiers
-		NPCDefinition.forId(1062).getConfigurations().put("option:talk-to", this);// other
+		NPCDefinition.forId(1062).getHandlers().put("option:talk-to", this);// other
 		// sergant
-		ObjectDefinition.forId(7257).getConfigurations().put("option:enter", this);// thieving
+		ObjectDefinition.forId(7257).getHandlers().put("option:enter", this);// thieving
 		// guide
 		// trapdoor.
-		ObjectDefinition.forId(7258).getConfigurations().put("option:enter", this);// thieving
+		ObjectDefinition.forId(7258).getHandlers().put("option:enter", this);// thieving
 		// guide
 		// passegeway.
-		NPCDefinition.forId(1073).getConfigurations().put("option:talk-to", this);
-		NPCDefinition.forId(1074).getConfigurations().put("option:talk-to", this);
-		NPCDefinition.forId(1076).getConfigurations().put("option:talk-to", this);
-		NPCDefinition.forId(1077).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(4624).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(4627).getConfigurations().put("option:climb-down", this);
+		NPCDefinition.forId(1073).getHandlers().put("option:talk-to", this);
+		NPCDefinition.forId(1074).getHandlers().put("option:talk-to", this);
+		NPCDefinition.forId(1076).getHandlers().put("option:talk-to", this);
+		NPCDefinition.forId(1077).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(4624).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(4627).getHandlers().put("option:climb-down", this);
 		return this;
 	}
 

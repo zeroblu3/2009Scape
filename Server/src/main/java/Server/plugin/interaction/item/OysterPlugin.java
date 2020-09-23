@@ -24,7 +24,7 @@ public final class OysterPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(407).getConfigurations().put("option:open", this);
+		ItemDefinition.forId(407).getHandlers().put("option:open", this);
 		return this;
 	}
 

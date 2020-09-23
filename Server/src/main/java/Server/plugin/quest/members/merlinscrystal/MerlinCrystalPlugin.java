@@ -62,12 +62,12 @@ public final class MerlinCrystalPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		PluginManager.definePlugin(new MerlinCrystalDialogue());
 		PluginManager.definePlugin(new MerlinCrystalItemHandler());
-		ObjectDefinition.forId(63).getConfigurations().put("option:hide-in", this);
-		ObjectDefinition.forId(40026).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(72).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(71).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(530).getConfigurations().put("option:drop", this);
-		ObjectDefinition.forId(62).getConfigurations().put("option:smash", this);
+		ObjectDefinition.forId(63).getHandlers().put("option:hide-in", this);
+		ObjectDefinition.forId(40026).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(72).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(71).getHandlers().put("option:open", this);
+		ItemDefinition.forId(530).getHandlers().put("option:drop", this);
+		ObjectDefinition.forId(62).getHandlers().put("option:smash", this);
 		return this;
 	}
 

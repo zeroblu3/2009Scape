@@ -221,12 +221,12 @@ public final class WaterBirthDungeonZone extends MapZone implements Plugin<Objec
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(8958).getConfigurations().put("option:open", this);
-			ObjectDefinition.forId(8959).getConfigurations().put("option:open", this);
-			ObjectDefinition.forId(8960).getConfigurations().put("option:open", this);
-			NPCDefinition.forId(2440).getConfigurations().put("option:destroy", this);
-			NPCDefinition.forId(2443).getConfigurations().put("option:destroy", this);
-			NPCDefinition.forId(2446).getConfigurations().put("option:destroy", this);
+			ObjectDefinition.forId(8958).getHandlers().put("option:open", this);
+			ObjectDefinition.forId(8959).getHandlers().put("option:open", this);
+			ObjectDefinition.forId(8960).getHandlers().put("option:open", this);
+			NPCDefinition.forId(2440).getHandlers().put("option:destroy", this);
+			NPCDefinition.forId(2443).getHandlers().put("option:destroy", this);
+			NPCDefinition.forId(2446).getHandlers().put("option:destroy", this);
 			for (Location l : DOOR_SUPPORTS) {
 				ObjectBuilder.remove(RegionManager.getObject(l));
 			}

@@ -30,20 +30,20 @@ public final class BrimhavenDungeonPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(5084).getConfigurations().put("option:leave", this);
-		ObjectDefinition.forId(5088).getConfigurations().put("option:walk-across", this);
-		ObjectDefinition.forId(5090).getConfigurations().put("option:walk-across", this);
-		ObjectDefinition.forId(5094).getConfigurations().put("option:walk-up", this);
-		ObjectDefinition.forId(5096).getConfigurations().put("option:walk-down", this);
-		ObjectDefinition.forId(5097).getConfigurations().put("option:walk-up", this);
-		ObjectDefinition.forId(5098).getConfigurations().put("option:walk-down", this);
-		ObjectDefinition.forId(5103).getConfigurations().put("option:chop-down", this);
-		ObjectDefinition.forId(5104).getConfigurations().put("option:chop-down", this);
-		ObjectDefinition.forId(5105).getConfigurations().put("option:chop-down", this);
-		ObjectDefinition.forId(5106).getConfigurations().put("option:chop-down", this);
-		ObjectDefinition.forId(5107).getConfigurations().put("option:chop-down", this);
-		ObjectDefinition.forId(5110).getConfigurations().put("option:jump-from", this);
-		ObjectDefinition.forId(5111).getConfigurations().put("option:jump-from", this);
+		ObjectDefinition.forId(5084).getHandlers().put("option:leave", this);
+		ObjectDefinition.forId(5088).getHandlers().put("option:walk-across", this);
+		ObjectDefinition.forId(5090).getHandlers().put("option:walk-across", this);
+		ObjectDefinition.forId(5094).getHandlers().put("option:walk-up", this);
+		ObjectDefinition.forId(5096).getHandlers().put("option:walk-down", this);
+		ObjectDefinition.forId(5097).getHandlers().put("option:walk-up", this);
+		ObjectDefinition.forId(5098).getHandlers().put("option:walk-down", this);
+		ObjectDefinition.forId(5103).getHandlers().put("option:chop-down", this);
+		ObjectDefinition.forId(5104).getHandlers().put("option:chop-down", this);
+		ObjectDefinition.forId(5105).getHandlers().put("option:chop-down", this);
+		ObjectDefinition.forId(5106).getHandlers().put("option:chop-down", this);
+		ObjectDefinition.forId(5107).getHandlers().put("option:chop-down", this);
+		ObjectDefinition.forId(5110).getHandlers().put("option:jump-from", this);
+		ObjectDefinition.forId(5111).getHandlers().put("option:jump-from", this);
 		return this;
 	}
 

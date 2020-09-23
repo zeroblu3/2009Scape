@@ -16,7 +16,7 @@ public class HouseTeleTabOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(8013).getConfigurations().put("option:break", this);
+		ItemDefinition.forId(8013).getHandlers().put("option:break", this);
 		return this;
 	}
 

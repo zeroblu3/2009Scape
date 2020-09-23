@@ -20,7 +20,7 @@ public final class BogrogPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(4472).getConfigurations().put("option:swap", this);
+		NPCDefinition.forId(4472).getHandlers().put("option:swap", this);
 		PluginManager.definePlugin(new BogrogDialogue());
 		return this;
 	}

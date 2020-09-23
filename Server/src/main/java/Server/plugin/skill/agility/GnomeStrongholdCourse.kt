@@ -126,16 +126,16 @@ class GnomeStrongholdCourse
             npc!!.init()
             npc.walkRadius = 3
         }
-        ObjectDefinition.forId(2295).configurations["option:walk-across"] = this
-        ObjectDefinition.forId(2285).configurations["option:climb-over"] = this
-        ObjectDefinition.forId(35970).configurations["option:climb"] = this
-        ObjectDefinition.forId(2312).configurations["option:walk-on"] = this
-        ObjectDefinition.forId(4059).configurations["option:walk-on"] = this
-        ObjectDefinition.forId(2314).configurations["option:climb-down"] = this
-        ObjectDefinition.forId(2315).configurations["option:climb-down"] = this
-        ObjectDefinition.forId(2286).configurations["option:climb-over"] = this
-        ObjectDefinition.forId(4058).configurations["option:squeeze-through"] = this
-        ObjectDefinition.forId(154).configurations["option:squeeze-through"] = this
+        ObjectDefinition.forId(2295).handlers["option:walk-across"] = this
+        ObjectDefinition.forId(2285).handlers["option:climb-over"] = this
+        ObjectDefinition.forId(35970).handlers["option:climb"] = this
+        ObjectDefinition.forId(2312).handlers["option:walk-on"] = this
+        ObjectDefinition.forId(4059).handlers["option:walk-on"] = this
+        ObjectDefinition.forId(2314).handlers["option:climb-down"] = this
+        ObjectDefinition.forId(2315).handlers["option:climb-down"] = this
+        ObjectDefinition.forId(2286).handlers["option:climb-over"] = this
+        ObjectDefinition.forId(4058).handlers["option:squeeze-through"] = this
+        ObjectDefinition.forId(154).handlers["option:squeeze-through"] = this
     }
 
     override fun createInstance(player: Player): AgilityCourse {

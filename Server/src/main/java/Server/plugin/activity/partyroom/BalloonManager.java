@@ -49,7 +49,7 @@ public final class BalloonManager extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (PartyBalloon balloon : PartyBalloon.values()) {
-			ObjectDefinition.forId(balloon.getBalloonId()).getConfigurations().put("option:burst", this);
+			ObjectDefinition.forId(balloon.getBalloonId()).getHandlers().put("option:burst", this);
 		}
 		return this;
 	}

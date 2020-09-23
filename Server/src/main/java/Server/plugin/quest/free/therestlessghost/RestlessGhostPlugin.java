@@ -61,7 +61,7 @@ public final class RestlessGhostPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int coffin : COFFIN_IDS) {
 			for (String option : OPTIONS) {
-				ObjectDefinition.forId(coffin).getConfigurations().put("option:" + option, this);
+				ObjectDefinition.forId(coffin).getHandlers().put("option:" + option, this);
 			}
 		}
 		new RestlessGhostNPC().newInstance(arg);

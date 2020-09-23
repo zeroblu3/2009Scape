@@ -14,11 +14,11 @@ import core.plugin.Plugin;
 @InitializablePlugin
 public class Student extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        NPCDefinition.forId(7153).getConfigurations().put("option:talk-to",this);
-        NPCDefinition.forId(7154).getConfigurations().put("option:talk-to",this);
-        NPCDefinition.forId(7155).getConfigurations().put("option:talk-to",this);
-        NPCDefinition.forId(7156).getConfigurations().put("option:talk-to",this);
-        NPCDefinition.forId(7157).getConfigurations().put("option:talk-to",this);
+        NPCDefinition.forId(7153).getHandlers().put("option:talk-to",this);
+        NPCDefinition.forId(7154).getHandlers().put("option:talk-to",this);
+        NPCDefinition.forId(7155).getHandlers().put("option:talk-to",this);
+        NPCDefinition.forId(7156).getHandlers().put("option:talk-to",this);
+        NPCDefinition.forId(7157).getHandlers().put("option:talk-to",this);
         return this;
     }
     public final boolean handle(Player player, Node node, String options){

@@ -20,7 +20,7 @@ import core.plugin.Plugin;
 @InitializablePlugin
 public class BrokenCartBypass extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(2216).getConfigurations().put("option:look-at",this);
+        ObjectDefinition.forId(2216).getHandlers().put("option:look-at",this);
         return this;
     }
 

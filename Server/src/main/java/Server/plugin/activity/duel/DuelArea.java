@@ -570,7 +570,7 @@ public class DuelArea extends MapZone {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(3203).getConfigurations().put("option:forfeit", this);
+			ObjectDefinition.forId(3203).getHandlers().put("option:forfeit", this);
 			return this;
 		}
 

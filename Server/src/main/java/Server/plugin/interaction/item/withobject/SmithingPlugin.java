@@ -49,7 +49,7 @@ public final class SmithingPlugin extends UseWithHandler {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(42027).getConfigurations().put("option:smith", this);
+				ObjectDefinition.forId(42027).getHandlers().put("option:smith", this);
 				return this;
 			}
 

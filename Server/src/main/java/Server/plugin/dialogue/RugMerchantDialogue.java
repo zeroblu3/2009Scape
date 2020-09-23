@@ -212,7 +212,7 @@ public final class RugMerchantDialogue extends DialoguePlugin {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (int id : IDS) {
-				NPCDefinition.forId(id).getConfigurations().put("option:travel", this);
+				NPCDefinition.forId(id).getHandlers().put("option:travel", this);
 			}
 			return this;
 		}

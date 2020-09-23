@@ -2,6 +2,7 @@ package core.game.node.entity.player.info.login;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
+import core.game.system.SystemLogger;
 import core.game.system.SystemManager;
 import core.game.system.monitor.PlayerMonitor;
 import core.game.system.task.Pulse;
@@ -195,6 +196,7 @@ public final class LoginParser implements Runnable {
 	private boolean validateRequest() {
 		//This is supposed to prevent the double-logging issue. Will it work? Who knows.
 		if(Repository.LOGGED_IN_PLAYERS.contains(details.getUsername())){
+			SystemLogger.log("Already online in list");
 			return flag(Response.ALREADY_ONLINE);
 		}
 		if (WorldCommunicator.getState() == ManagementServerState.CONNECTING) {
@@ -207,6 +209,7 @@ public final class LoginParser implements Runnable {
 			return flag(Response.UPDATING);
 		}
 		if ((gamePlayer = Repository.getPlayer(details.getUsername())) != null && gamePlayer.getSession().isActive()) {
+			SystemLogger.log("Already online (other)");
 			return flag(Response.ALREADY_ONLINE);
 		}
 		if (details.isBanned()) {

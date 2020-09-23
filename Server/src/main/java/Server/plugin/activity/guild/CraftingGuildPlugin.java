@@ -32,8 +32,8 @@ public final class CraftingGuildPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2647).getConfigurations().put("option:open", this);
-		NPCDefinition.forId(804).getConfigurations().put("option:trade", this);
+		ObjectDefinition.forId(2647).getHandlers().put("option:open", this);
+		NPCDefinition.forId(804).getHandlers().put("option:trade", this);
 		new MasterCrafterDialogue().init();
 		new TannerDialogue().init();
 		return this;

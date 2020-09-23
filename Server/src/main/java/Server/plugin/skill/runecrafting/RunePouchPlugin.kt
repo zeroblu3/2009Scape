@@ -3,15 +3,10 @@ package plugin.skill.runecrafting
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
-import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.game.node.item.ItemPlugin
-import core.game.world.map.Location
 import core.plugin.Plugin
-import core.plugin.PluginManager.definePlugin
 import core.tools.ItemNames
-import plugin.dialogue.DestroyItemPlugin
 import plugin.stringtools.colorize
 
 /**
@@ -22,10 +17,10 @@ class RunePouchPlugin : OptionHandler() {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any>? {
         for (i in 5509..5515) {
-            ItemDefinition.forId(i).configurations["option:fill"] = this
-            ItemDefinition.forId(i).configurations["option:empty"] = this
-            ItemDefinition.forId(i).configurations["option:check"] = this
-            ItemDefinition.forId(i).configurations["option:drop"] = this
+            ItemDefinition.forId(i).handlers["option:fill"] = this
+            ItemDefinition.forId(i).handlers["option:empty"] = this
+            ItemDefinition.forId(i).handlers["option:check"] = this
+            ItemDefinition.forId(i).handlers["option:drop"] = this
         }
         return this
     }

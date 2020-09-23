@@ -16,7 +16,7 @@ public final class BraceletOfClayPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(11074).getConfigurations().put("option:operate", this);
+		ItemDefinition.forId(11074).getHandlers().put("option:operate", this);
 		return this;
 	}
 

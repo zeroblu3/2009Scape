@@ -18,8 +18,8 @@ public final class WitchsPotionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2024).getConfigurations().put("option:drink from", this);
-		ObjectDefinition.forId(2024).getConfigurations().put("option:Drink From", this);
+		ObjectDefinition.forId(2024).getHandlers().put("option:drink from", this);
+		ObjectDefinition.forId(2024).getHandlers().put("option:Drink From", this);
 		return this;
 	}
 

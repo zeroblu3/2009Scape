@@ -25,8 +25,8 @@ public class IncubatorPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		PluginManager.definePlugin(new IncubatorEggHandler());
-		ObjectDefinition.forId(28359).getConfigurations().put("option:take-egg", this);
-		ObjectDefinition.forId(28359).getConfigurations().put("option:inspect", this);
+		ObjectDefinition.forId(28359).getHandlers().put("option:take-egg", this);
+		ObjectDefinition.forId(28359).getHandlers().put("option:inspect", this);
 		return this;
 	}
 

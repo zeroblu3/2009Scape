@@ -19,7 +19,7 @@ public final class ChampionsArenaPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(10556).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(10556).getHandlers().put("option:open", this);
 		return this;
 	}
 

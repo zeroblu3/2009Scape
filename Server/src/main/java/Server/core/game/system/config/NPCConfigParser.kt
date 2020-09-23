@@ -201,7 +201,7 @@ class NPCConfigParser {
         for(config in configlist){
             val e = config as JSONObject
             val def = NPCDefinition.forId(e["id"].toString().toInt())
-            val configs = def.configurations
+            val configs = def.handlers
             e.map {
                 if(it.value.toString().isNotEmpty() && it.value.toString() != "null") {
                     when (it.key.toString()) {

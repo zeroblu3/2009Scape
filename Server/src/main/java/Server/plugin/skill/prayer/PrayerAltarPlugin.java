@@ -26,7 +26,7 @@ public class PrayerAltarPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		ObjectDefinition.setOptionHandler("pray-at", this);
 		ObjectDefinition.setOptionHandler("pray", this);
-		ObjectDefinition.forId(61).getConfigurations().put("option:check", this);
+		ObjectDefinition.forId(61).getHandlers().put("option:check", this);
 		return this;
 	}
 

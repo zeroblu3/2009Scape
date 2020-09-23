@@ -35,7 +35,7 @@ public final class WildernessLeverPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (LeverSets set : LeverSets.values()) {
 			for (int id : set.getIds()) {
-				ObjectDefinition.forId(id).getConfigurations().put("option:pull", this);
+				ObjectDefinition.forId(id).getHandlers().put("option:pull", this);
 			}
 		}
 		PluginManager.definePlugin(new LeverDialogue());

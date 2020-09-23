@@ -21,8 +21,8 @@ public class Rokuh extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         new RokuhDialogue().init();
-        NPCDefinition.forId(NPC_ID).getConfigurations().put("option:trade",this);
-        NPCDefinition.forId(NPC_ID).getConfigurations().put("option:talk-to",this);
+        NPCDefinition.forId(NPC_ID).getHandlers().put("option:trade",this);
+        NPCDefinition.forId(NPC_ID).getHandlers().put("option:talk-to",this);
         return this;
     }
 

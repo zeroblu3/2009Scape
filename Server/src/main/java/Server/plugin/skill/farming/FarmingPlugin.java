@@ -51,9 +51,9 @@ public final class FarmingPlugin extends OptionHandler {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ItemDefinition.forId(6032).getConfigurations().put("option:empty", this);
-				ItemDefinition.forId(6034).getConfigurations().put("option:empty", this);
-				ItemDefinition.forId(6036).getConfigurations().put("option:empty", this);
+				ItemDefinition.forId(6032).getHandlers().put("option:empty", this);
+				ItemDefinition.forId(6034).getHandlers().put("option:empty", this);
+				ItemDefinition.forId(6036).getHandlers().put("option:empty", this);
 				return this;
 			}
 
@@ -130,13 +130,13 @@ public final class FarmingPlugin extends OptionHandler {
 		for (int ids : patch.getWrapperIds()) {
 			int[] children = handler.getValidChildren(ids);
 			for (int id : children) {
-				ObjectDefinition.forId(id).getConfigurations().put("option:pick", handler);
-				ObjectDefinition.forId(id).getConfigurations().put("option:pick-from", handler);
-				ObjectDefinition.forId(id).getConfigurations().put("option:pick-spine", handler);
-				ObjectDefinition.forId(id).getConfigurations().put("option:pick-fruit", handler);
+				ObjectDefinition.forId(id).getHandlers().put("option:pick", handler);
+				ObjectDefinition.forId(id).getHandlers().put("option:pick-from", handler);
+				ObjectDefinition.forId(id).getHandlers().put("option:pick-spine", handler);
+				ObjectDefinition.forId(id).getHandlers().put("option:pick-fruit", handler);
 				if (patch == FarmingPatch.FRUIT_TREE) {
 					for (String s : fruits) {
-						ObjectDefinition.forId(id).getConfigurations().put("option:pick-" + s, handler);
+						ObjectDefinition.forId(id).getHandlers().put("option:pick-" + s, handler);
 					}
 				}
 			}
@@ -352,7 +352,7 @@ public final class FarmingPlugin extends OptionHandler {
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
 				for (int i : IDS) {
 					for (String option : OPTIONS) {
-						ObjectDefinition.forId(i).getConfigurations().put("option:" + option, this);
+						ObjectDefinition.forId(i).getHandlers().put("option:" + option, this);
 					}
 				}
 				return this;

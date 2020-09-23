@@ -67,10 +67,10 @@ public class ThievingGuidePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(7236).getConfigurations().put("option:crack", this);// wall
+		ObjectDefinition.forId(7236).getHandlers().put("option:crack", this);// wall
 		// safe.
-		ObjectDefinition.forId(7227).getConfigurations().put("option:disarm", this);// trap
-		ObjectDefinition.forId(7256).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(7227).getHandlers().put("option:disarm", this);// trap
+		ObjectDefinition.forId(7256).getHandlers().put("option:open", this);
 		return this;
 	}
 

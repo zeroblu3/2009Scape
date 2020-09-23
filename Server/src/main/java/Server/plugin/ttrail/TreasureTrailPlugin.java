@@ -35,12 +35,12 @@ public final class TreasureTrailPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int id : IDS) {
-			ItemDefinition.forId(id).getConfigurations().put("option:read", this);
+			ItemDefinition.forId(id).getHandlers().put("option:read", this);
 		}
 		for (ClueLevel level : ClueLevel.values()) {
-			ItemDefinition.forId(level.getCasket().getId()).getConfigurations().put("option:open", this);
+			ItemDefinition.forId(level.getCasket().getId()).getHandlers().put("option:open", this);
 		}
-		ItemDefinition.forId(CoordinateClueScroll.SEXTANT.getId()).getConfigurations().put("option:look through", this);
+		ItemDefinition.forId(CoordinateClueScroll.SEXTANT.getId()).getHandlers().put("option:look through", this);
 		PluginManager.definePlugin(new MapCluePlugin());
 		PluginManager.definePlugin(new ClueItemPlugin());
 		PluginManager.definePlugin(new EmoteCluePlugin());
@@ -91,7 +91,7 @@ public final class TreasureTrailPlugin extends OptionHandler {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(19171).getConfigurations().put("option:squeeze-through", this);
+			ObjectDefinition.forId(19171).getHandlers().put("option:squeeze-through", this);
 			return this;
 		}
 

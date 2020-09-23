@@ -32,7 +32,7 @@ public final class BuglanternPlugin implements Plugin<Object> {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		new LightLanternPlugin().newInstance(arg);
-		ItemDefinition.forId(LIT_LANTERN.getId()).getConfigurations().put("option:extinguish", new OptionHandler() {
+		ItemDefinition.forId(LIT_LANTERN.getId()).getHandlers().put("option:extinguish", new OptionHandler() {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
