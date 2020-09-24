@@ -39,6 +39,12 @@ final class Class3_Sub13_Sub3 extends Class3_Sub13 {
          if (var4.toString().contains("Jagex")) {
         	 var4 = RSString.createRSString(var4.toString().replace("Jagex", GameLaunch.SETTINGS.getName()));
          }
+         if (var4.toString().contains("Cearch")) {
+            var4 = RSString.createRSString(var4.toString().replace("Cearch", "search"));
+         }
+         if (var4.toString().contains(">o")) {
+            var4 = RSString.createRSString(var4.toString().replace(">o", "no"));
+         }
          return var4;
       } catch (RuntimeException var6) {
          throw Class44.clientError(var6, "an.B(" + (var0 != null?"{...}":"null") + ',' + -4114 + ',' + var2 + ',' + var3 + ')');
