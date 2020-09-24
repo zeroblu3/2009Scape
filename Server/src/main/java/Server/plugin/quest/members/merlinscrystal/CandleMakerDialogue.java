@@ -50,7 +50,7 @@ public final class CandleMakerDialogue extends DialoguePlugin {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				NPCDefinition.forId(getIds()[0]).getConfigurations().put("option:trade", this);
+				NPCDefinition.forId(getIds()[0]).getHandlers().put("option:trade", this);
 				return this;
 			}
 

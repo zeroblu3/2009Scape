@@ -16,7 +16,7 @@ public final class GnomeCopterPlugin implements Plugin<Object> {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(12842).getConfigurations().put("equipment", this);
+		ItemDefinition.forId(12842).getHandlers().put("equipment", this);
 		return this;
 	}
 

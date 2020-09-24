@@ -52,8 +52,8 @@ public class SkullSceptreOption extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(9013).getConfigurations().put("option:invoke", this);
-		ItemDefinition.forId(9013).getConfigurations().put("option:divine", this);
+		ItemDefinition.forId(9013).getHandlers().put("option:invoke", this);
+		ItemDefinition.forId(9013).getHandlers().put("option:divine", this);
 		return this;
 	}
 }

@@ -57,11 +57,11 @@ public final class OrbViewingInterface extends ComponentPlugin {
 		PluginManager.definePlugin(new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(9391).getConfigurations().put("option:look-into", this);
-				ObjectDefinition.forId(28194).getConfigurations().put("option:look-into", this);
-				ObjectDefinition.forId(28209).getConfigurations().put("option:view", this);
-				ObjectDefinition.forId(28210).getConfigurations().put("option:view", this);
-				ObjectDefinition.forId(28211).getConfigurations().put("option:view", this);
+				ObjectDefinition.forId(9391).getHandlers().put("option:look-into", this);
+				ObjectDefinition.forId(28194).getHandlers().put("option:look-into", this);
+				ObjectDefinition.forId(28209).getHandlers().put("option:view", this);
+				ObjectDefinition.forId(28210).getHandlers().put("option:view", this);
+				ObjectDefinition.forId(28211).getHandlers().put("option:view", this);
 				return this;
 			}
 

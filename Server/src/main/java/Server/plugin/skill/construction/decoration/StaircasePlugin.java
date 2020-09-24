@@ -30,25 +30,25 @@ public final class StaircasePlugin extends OptionHandler {
 		PluginManager.definePlugin(new BuildDialogue());
 		PluginManager.definePlugin(new ClimbPohLadder());
 		for (int i = 13497; i < 13507; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:climb", this);
-			ObjectDefinition.forId(i).getConfigurations().put("option:climb-up", this);
-			ObjectDefinition.forId(i).getConfigurations().put("option:climb-down", this);
-			ObjectDefinition.forId(i).getConfigurations().put("option:remove-room", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:climb", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:climb-up", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:climb-down", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:remove-room", this);
 		}
-		ObjectDefinition.forId(13409).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(13409).getConfigurations().put("option:remove-room", this);
+		ObjectDefinition.forId(13409).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(13409).getHandlers().put("option:remove-room", this);
 		for (int id = 13328; id < 13331; id++) {
-			ObjectDefinition.forId(id).getConfigurations().put("option:climb", this);
-			ObjectDefinition.forId(id).getConfigurations().put("option:remove-room", this);
+			ObjectDefinition.forId(id).getHandlers().put("option:climb", this);
+			ObjectDefinition.forId(id).getHandlers().put("option:remove-room", this);
 		}
 		for (int id = 13675; id <= 13680; id++) {
 			if (id < 13678) {
-				ObjectDefinition.forId(id).getConfigurations().put("option:open", this);
+				ObjectDefinition.forId(id).getHandlers().put("option:open", this);
 			} else {
-				ObjectDefinition.forId(id).getConfigurations().put("option:go-down", this);
-				ObjectDefinition.forId(id).getConfigurations().put("option:close", this);
+				ObjectDefinition.forId(id).getHandlers().put("option:go-down", this);
+				ObjectDefinition.forId(id).getHandlers().put("option:close", this);
 			}
-			ObjectDefinition.forId(id).getConfigurations().put("option:remove-room", this);
+			ObjectDefinition.forId(id).getHandlers().put("option:remove-room", this);
 		}
 		return this;
 	}

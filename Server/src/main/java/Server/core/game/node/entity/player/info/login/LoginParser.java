@@ -2,6 +2,7 @@ package core.game.node.entity.player.info.login;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
+import core.game.system.SystemLogger;
 import core.game.system.SystemManager;
 import core.game.system.monitor.PlayerMonitor;
 import core.game.system.task.Pulse;
@@ -70,11 +71,14 @@ public final class LoginParser implements Runnable {
 		try {
 			if (validateRequest()) {
 				handleLogin();
+			} else {
+				Repository.LOGGED_IN_PLAYERS.remove(details.getUsername());
 			}
 		} catch (Throwable t) {
 			t.printStackTrace();
 			try {
 				flag(Response.ERROR_LOADING_PROFILE);
+				Repository.LOGGED_IN_PLAYERS.remove(details.getUsername());
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -190,6 +194,11 @@ public final class LoginParser implements Runnable {
 	 * @return {@code True} if the request is valid.
 	 */
 	private boolean validateRequest() {
+		//This is supposed to prevent the double-logging issue. Will it work? Who knows.
+		if(Repository.LOGGED_IN_PLAYERS.contains(details.getUsername())){
+			SystemLogger.log("Already online in list");
+			return flag(Response.ALREADY_ONLINE);
+		}
 		if (WorldCommunicator.getState() == ManagementServerState.CONNECTING) {
 			return flag(Response.LOGIN_SERVER_OFFLINE);
 		}
@@ -200,6 +209,7 @@ public final class LoginParser implements Runnable {
 			return flag(Response.UPDATING);
 		}
 		if ((gamePlayer = Repository.getPlayer(details.getUsername())) != null && gamePlayer.getSession().isActive()) {
+			SystemLogger.log("Already online (other)");
 			return flag(Response.ALREADY_ONLINE);
 		}
 		if (details.isBanned()) {

@@ -17,10 +17,10 @@ public final class FireOptionPotteryPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2643).getConfigurations().put("option:fire", this);
-		ObjectDefinition.forId(4308).getConfigurations().put("option:fire", this);
-		ObjectDefinition.forId(11601).getConfigurations().put("option:fire", this);
-		ObjectDefinition.forId(34802).getConfigurations().put("option:fire", this);
+		ObjectDefinition.forId(2643).getHandlers().put("option:fire", this);
+		ObjectDefinition.forId(4308).getHandlers().put("option:fire", this);
+		ObjectDefinition.forId(11601).getHandlers().put("option:fire", this);
+		ObjectDefinition.forId(34802).getHandlers().put("option:fire", this);
 		return this;
 	}
 

@@ -38,7 +38,7 @@ public class RuneCraftingGuildObjects extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(38279).getConfigurations().put("option:enter", this);
+        ObjectDefinition.forId(38279).getHandlers().put("option:enter", this);
         return this;
     }
 }

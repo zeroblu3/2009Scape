@@ -32,7 +32,7 @@ public final class CanafisWereWolfPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int i = 6026; i < 6046; i++) {
-			NPCDefinition.forId(i).getConfigurations().put("option:attack", this);
+			NPCDefinition.forId(i).getHandlers().put("option:attack", this);
 		}
 		return this;
 	}

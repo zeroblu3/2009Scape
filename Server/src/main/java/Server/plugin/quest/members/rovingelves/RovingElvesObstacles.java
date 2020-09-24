@@ -21,14 +21,14 @@ public final class RovingElvesObstacles extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(3999).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(3939).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(3998).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(3938).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(3937).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(3924).getConfigurations().put("option:jump", this);
-		ObjectDefinition.forId(3925).getConfigurations().put("option:jump", this);
-		ObjectDefinition.forId(8742).getConfigurations().put("option:pass", this);
+		ObjectDefinition.forId(3999).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(3939).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(3998).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(3938).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(3937).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(3924).getHandlers().put("option:jump", this);
+		ObjectDefinition.forId(3925).getHandlers().put("option:jump", this);
+		ObjectDefinition.forId(8742).getHandlers().put("option:pass", this);
 		return this;
 	}
 

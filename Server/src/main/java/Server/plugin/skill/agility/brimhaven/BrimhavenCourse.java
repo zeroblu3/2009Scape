@@ -334,19 +334,19 @@ public final class BrimhavenCourse extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(3566).getConfigurations().put("option:swing-on", this);
-		ObjectDefinition.forId(3578).getConfigurations().put("option:jump-on", this);
-		ObjectDefinition.forId(3565).getConfigurations().put("option:climb-over", this);
-		ObjectDefinition.forId(3553).getConfigurations().put("option:walk-on", this);
-		ObjectDefinition.forId(3557).getConfigurations().put("option:walk-on", this);
-		ObjectDefinition.forId(3570).getConfigurations().put("option:walk-on", this);
-		ObjectDefinition.forId(3571).getConfigurations().put("option:walk-on", this);
-		ObjectDefinition.forId(3572).getConfigurations().put("option:walk-on", this);
-		ObjectDefinition.forId(3559).getConfigurations().put("option:walk-across", this);
-		ObjectDefinition.forId(3561).getConfigurations().put("option:walk-across", this);
-		ObjectDefinition.forId(3564).getConfigurations().put("option:swing-across", this);
-		ObjectDefinition.forId(3551).getConfigurations().put("option:walk-on", this);
-		ObjectDefinition.forId(3583).getConfigurations().put("option:climb-across", this);
+		ObjectDefinition.forId(3566).getHandlers().put("option:swing-on", this);
+		ObjectDefinition.forId(3578).getHandlers().put("option:jump-on", this);
+		ObjectDefinition.forId(3565).getHandlers().put("option:climb-over", this);
+		ObjectDefinition.forId(3553).getHandlers().put("option:walk-on", this);
+		ObjectDefinition.forId(3557).getHandlers().put("option:walk-on", this);
+		ObjectDefinition.forId(3570).getHandlers().put("option:walk-on", this);
+		ObjectDefinition.forId(3571).getHandlers().put("option:walk-on", this);
+		ObjectDefinition.forId(3572).getHandlers().put("option:walk-on", this);
+		ObjectDefinition.forId(3559).getHandlers().put("option:walk-across", this);
+		ObjectDefinition.forId(3561).getHandlers().put("option:walk-across", this);
+		ObjectDefinition.forId(3564).getHandlers().put("option:swing-across", this);
+		ObjectDefinition.forId(3551).getHandlers().put("option:walk-on", this);
+		ObjectDefinition.forId(3583).getHandlers().put("option:climb-across", this);
 		return this;
 	}
 

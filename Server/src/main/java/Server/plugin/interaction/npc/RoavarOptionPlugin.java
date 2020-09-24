@@ -13,7 +13,7 @@ public class RoavarOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(1042).getConfigurations().put("option:trade", this);
+		NPCDefinition.forId(1042).getHandlers().put("option:trade", this);
 		return this;
 	}
 

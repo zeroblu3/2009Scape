@@ -63,7 +63,7 @@ public final class PyreSitePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(25286).getConfigurations().put("option:construct", this);
+		ObjectDefinition.forId(25286).getHandlers().put("option:construct", this);
 		PluginManager.definePlugin(new FerociousBarbarianNPC());
 		return this;
 	}

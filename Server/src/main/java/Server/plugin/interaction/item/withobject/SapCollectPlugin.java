@@ -78,7 +78,7 @@ public final class SapCollectPlugin extends UseWithHandler {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ItemDefinition.forId(4687).getConfigurations().put("option:empty", this);
+			ItemDefinition.forId(4687).getHandlers().put("option:empty", this);
 			return this;
 		}
 

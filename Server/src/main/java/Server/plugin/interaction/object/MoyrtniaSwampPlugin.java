@@ -17,7 +17,7 @@ public final class MoyrtniaSwampPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(3506).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(3506).getHandlers().put("option:open", this);
 		return this;
 	}
 

@@ -44,10 +44,10 @@ public final class KalphiteEntranceHandler extends OptionHandler {
 		};
 		UseWithHandler.addHandler(3827, UseWithHandler.OBJECT_TYPE, handler);
 		UseWithHandler.addHandler(23609, UseWithHandler.OBJECT_TYPE, handler);
-		ObjectDefinition.forId(3828).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(3829).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(23610).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(3832).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(3828).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(3829).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(23610).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(3832).getHandlers().put("option:climb-up", this);
 		return this;
 	}
 

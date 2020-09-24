@@ -22,8 +22,8 @@ public final class SilverSicklePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(2963).getConfigurations().put("option:operate", this);
-		ItemDefinition.forId(2963).getConfigurations().put("option:cast bloom", this);
+		ItemDefinition.forId(2963).getHandlers().put("option:operate", this);
+		ItemDefinition.forId(2963).getHandlers().put("option:cast bloom", this);
 		return this;
 	}
 

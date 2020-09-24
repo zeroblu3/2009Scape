@@ -19,7 +19,7 @@ public class CowFieldSign extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable{
         new SignDialogue().init();
-        ObjectDefinition.forId(31297).getConfigurations().put("option:read",this);
+        ObjectDefinition.forId(31297).getHandlers().put("option:read",this);
         return this;
     }
     @Override

@@ -1,6 +1,5 @@
 package plugin.interaction.item;
 
-import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.content.global.Lamps;
 import core.game.interaction.OptionHandler;
@@ -9,7 +8,6 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import plugin.interaction.inter.ExperienceInterface;
 import plugin.skill.Skills;
 
 /**
@@ -23,7 +21,7 @@ public final class LampPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (Lamps lamp : Lamps.values()) {
-			lamp.getItem().getDefinition().getConfigurations().put("option:rub", this);
+			lamp.getItem().getDefinition().getHandlers().put("option:rub", this);
 		}
 		return this;
 	}

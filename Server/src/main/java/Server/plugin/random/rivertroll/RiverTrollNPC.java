@@ -36,9 +36,9 @@ public final class RiverTrollNPC extends AntiMacroNPC {
 	public void init() {
 		// Remove.
 		NPCDefinition def = NPCDefinition.forId(getId());
-		def.getConfigurations().put("attack_animation", new Animation(284));
-		def.getConfigurations().put("defence_animation", new Animation(285));
-		def.getConfigurations().put("death_animation", new Animation(287));
+		def.getHandlers().put("attack_animation", new Animation(284));
+		def.getHandlers().put("defence_animation", new Animation(285));
+		def.getHandlers().put("death_animation", new Animation(287));
 		super.init();
 		setRespawn(false);
 		getProperties().getCombatPulse().attack(player);

@@ -17,12 +17,12 @@ public final class RunePackPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(14730).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(14732).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(14734).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(14736).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(14738).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(14740).getConfigurations().put("option:open", this);
+		ItemDefinition.forId(14730).getHandlers().put("option:open", this);
+		ItemDefinition.forId(14732).getHandlers().put("option:open", this);
+		ItemDefinition.forId(14734).getHandlers().put("option:open", this);
+		ItemDefinition.forId(14736).getHandlers().put("option:open", this);
+		ItemDefinition.forId(14738).getHandlers().put("option:open", this);
+		ItemDefinition.forId(14740).getHandlers().put("option:open", this);
 		return this;
 	}
 

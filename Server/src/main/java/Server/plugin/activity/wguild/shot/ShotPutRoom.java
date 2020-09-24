@@ -73,10 +73,10 @@ public final class ShotPutRoom extends DialoguePlugin {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(15664).getConfigurations().put("option:throw", this);
-				ObjectDefinition.forId(15665).getConfigurations().put("option:throw", this);
-				ItemDefinition.forId(8858).getConfigurations().put("option:take", this);
-				ItemDefinition.forId(8859).getConfigurations().put("option:take", this);
+				ObjectDefinition.forId(15664).getHandlers().put("option:throw", this);
+				ObjectDefinition.forId(15665).getHandlers().put("option:throw", this);
+				ItemDefinition.forId(8858).getHandlers().put("option:take", this);
+				ItemDefinition.forId(8859).getHandlers().put("option:take", this);
 				return this;
 			}
 

@@ -30,9 +30,9 @@ public final class FireplacePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(13609).getConfigurations().put("option:light", this);
-		ObjectDefinition.forId(13611).getConfigurations().put("option:light", this);
-		ObjectDefinition.forId(13613).getConfigurations().put("option:light", this);
+		ObjectDefinition.forId(13609).getHandlers().put("option:light", this);
+		ObjectDefinition.forId(13611).getHandlers().put("option:light", this);
+		ObjectDefinition.forId(13613).getHandlers().put("option:light", this);
 		return this;
 	}
 

@@ -15,7 +15,7 @@ public class SlayerDangerSignPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(5127).getConfigurations().put("option:read", this);
+		ObjectDefinition.forId(5127).getHandlers().put("option:read", this);
 		return this;
 	}
 

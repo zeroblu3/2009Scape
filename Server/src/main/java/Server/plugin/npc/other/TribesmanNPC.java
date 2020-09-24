@@ -25,7 +25,7 @@ public final class TribesmanNPC extends AbstractNPC {
 	 */
 	public TribesmanNPC(int id, Location location) {
 		super(id, location, true);
-		getDefinition().getConfigurations().put(NPCConfigParser.POISONOUS, true);
+		getDefinition().getHandlers().put(NPCConfigParser.POISONOUS, true);
 	}
 
 	/**

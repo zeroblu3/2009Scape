@@ -24,25 +24,25 @@ public class TutorialIslandPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(3015).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3016).getConfigurations().put("option:open", this);
-		NPCDefinition.forId(2796).getConfigurations().put("option:skip-tutorial", this);
-		ObjectDefinition.forId(3014).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3017).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3018).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3019).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3020).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3021).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3022).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3023).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3024).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3025).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3026).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(3029).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(3030).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(3031).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(1740).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(3028).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(3015).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3016).getHandlers().put("option:open", this);
+		NPCDefinition.forId(2796).getHandlers().put("option:skip-tutorial", this);
+		ObjectDefinition.forId(3014).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3017).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3018).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3019).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3020).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3021).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3022).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3023).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3024).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3025).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3026).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(3029).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(3030).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(3031).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(1740).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(3028).getHandlers().put("option:climb-up", this);
 //		PluginManager.definePlugin(new BrotherBraceDialogue(), new CombatInstructorDialogue(), new TutorialBook(), new FinancialAdvisorDialogue(), new MasterChefDialogue(), new MiningInstructorDialogue(), new QuestGuideDialogue(), new RSGuideDialogue(), new SurvivalExpertDialogue(), new TutorialCompletionDialogue());
 		return this;
 	}

@@ -22,12 +22,12 @@ public final class DwarfMultiCannonPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(6).getConfigurations().put("option:set-up", this);
-		ObjectDefinition.forId(6).getConfigurations().put("option:fire", this);
-		ObjectDefinition.forId(6).getConfigurations().put("option:pick-up", this);
-		ObjectDefinition.forId(7).getConfigurations().put("option:pick-up", this);
-		ObjectDefinition.forId(8).getConfigurations().put("option:pick-up", this);
-		ObjectDefinition.forId(9).getConfigurations().put("option:pick-up", this);
+		ItemDefinition.forId(6).getHandlers().put("option:set-up", this);
+		ObjectDefinition.forId(6).getHandlers().put("option:fire", this);
+		ObjectDefinition.forId(6).getHandlers().put("option:pick-up", this);
+		ObjectDefinition.forId(7).getHandlers().put("option:pick-up", this);
+		ObjectDefinition.forId(8).getHandlers().put("option:pick-up", this);
+		ObjectDefinition.forId(9).getHandlers().put("option:pick-up", this);
 		UseWithHandler.addHandler(6, UseWithHandler.OBJECT_TYPE, new UseWithHandler(2) {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {

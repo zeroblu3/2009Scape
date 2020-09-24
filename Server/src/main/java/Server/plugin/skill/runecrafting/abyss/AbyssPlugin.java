@@ -29,15 +29,15 @@ public final class AbyssPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (AbbysalObstacle obstacle : AbbysalObstacle.values()) {
 			for (int i : obstacle.getObjects()) {
-				ObjectDefinition.forId(i).getConfigurations().put("option:" + obstacle.getOption(), this);
+				ObjectDefinition.forId(i).getHandlers().put("option:" + obstacle.getOption(), this);
 			}
 		}
 		PluginManager.definePlugin(new AbyssalNPC());
 		PluginManager.definePlugin(new DarkMageDialogue());
 		ObjectDefinition.setOptionHandler("exit-through", this);
 		PluginManager.definePlugin(new ZamorakMageDialogue());
-		NPCDefinition.forId(2259).getConfigurations().put("option:teleport", this);
-		NPCDefinition.forId(2262).getConfigurations().put("option:repair-pouches", this);
+		NPCDefinition.forId(2259).getHandlers().put("option:teleport", this);
+		NPCDefinition.forId(2262).getHandlers().put("option:repair-pouches", this);
 		return null;
 	}
 

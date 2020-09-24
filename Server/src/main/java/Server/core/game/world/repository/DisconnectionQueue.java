@@ -2,6 +2,7 @@ package core.game.world.repository;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.PlayerParser;
+import core.game.system.SystemLogger;
 import core.game.system.mysql.SQLEntryHandler;
 import core.game.system.mysql.impl.HighscoreSQLHandler;
 import core.game.system.mysql.impl.PlayerLogSQLHandler;
@@ -66,6 +67,8 @@ public final class DisconnectionQueue {
 		Repository.getPlayerNames().remove(player.getName());
 		Repository.getLobbyPlayers().remove(player);
 		Repository.getPlayers().remove(player);
+		Repository.LOGGED_IN_PLAYERS.remove(player.getDetails().getUsername());
+		SystemLogger.log("Player cleared.");
 		try {
 			player.getCommunication().getClan().leave(player, false);
 		} catch (Exception e){}

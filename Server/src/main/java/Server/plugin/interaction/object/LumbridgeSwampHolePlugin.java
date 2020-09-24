@@ -29,10 +29,10 @@ public final class LumbridgeSwampHolePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(10375).getConfigurations().put("option:take", this);
-		ObjectDefinition.forId(5947).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(5946).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(15566).getConfigurations().put("option:read", this);
+		ObjectDefinition.forId(10375).getHandlers().put("option:take", this);
+		ObjectDefinition.forId(5947).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(5946).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(15566).getHandlers().put("option:read", this);
 		return this;
 	}
 

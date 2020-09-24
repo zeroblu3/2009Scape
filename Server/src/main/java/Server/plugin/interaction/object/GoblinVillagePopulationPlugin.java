@@ -16,7 +16,7 @@ public class GoblinVillagePopulationPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(31301).getConfigurations().put("option:read", this);
+		ObjectDefinition.forId(31301).getHandlers().put("option:read", this);
 		return this;
 	}
 

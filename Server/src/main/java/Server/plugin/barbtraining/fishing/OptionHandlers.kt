@@ -42,8 +42,8 @@ class OptionHandlers : OptionHandler(){
     }
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ObjectDefinition.forId(25268).configurations.put("option:search",this)
-        NPCDefinition.forId(1176).configurations.put("option:fish",this)
+        ObjectDefinition.forId(25268).handlers.put("option:search",this)
+        NPCDefinition.forId(1176).handlers.put("option:fish",this)
         return this
     }
 

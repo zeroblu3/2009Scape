@@ -18,7 +18,7 @@ public class HomePlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        NPCDefinition.forId(552).getConfigurations().put("talk-to", this);
+        NPCDefinition.forId(552).getHandlers().put("talk-to", this);
         return this;
     }
 

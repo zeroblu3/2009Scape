@@ -29,7 +29,7 @@ public final class WallShortcut extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(6620).getConfigurations().put("option:climb-through", this);
+        ObjectDefinition.forId(6620).getHandlers().put("option:climb-through", this);
         return null;
     }
 

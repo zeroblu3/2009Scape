@@ -40,11 +40,11 @@ public class TollGateOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(35551).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(35551).getConfigurations().put("option:pay-toll(10gp)", this);
-		ObjectDefinition.forId(35549).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(35549).getConfigurations().put("option:pay-toll(10gp)", this);
-		ObjectDefinition.forId(2882).getConfigurations().put("option:pay-toll(10gp)", this);
+		ObjectDefinition.forId(35551).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(35551).getHandlers().put("option:pay-toll(10gp)", this);
+		ObjectDefinition.forId(35549).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(35549).getHandlers().put("option:pay-toll(10gp)", this);
+		ObjectDefinition.forId(2882).getHandlers().put("option:pay-toll(10gp)", this);
 		return this;
 	}
 

@@ -61,17 +61,17 @@ public final class DraynorManorPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(156).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(155).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(160).getConfigurations().put("option:pull", this);
-		ObjectDefinition.forId(131).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(133).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(134).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(135).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(152).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(153).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(11498).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(37703).getConfigurations().put("option:squeeze-through", this);
+		ObjectDefinition.forId(156).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(155).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(160).getHandlers().put("option:pull", this);
+		ObjectDefinition.forId(131).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(133).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(134).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(135).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(152).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(153).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(11498).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(37703).getHandlers().put("option:squeeze-through", this);
 		return this;
 	}
 

@@ -39,75 +39,75 @@ public final class DragonSlayerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(25115).getConfigurations().put("option:open", this);// magic
+		ObjectDefinition.forId(25115).getHandlers().put("option:open", this);// magic
 		// door.
-		NPCDefinition.forId(747).getConfigurations().put("option:trade", this);// oziach.
-		ObjectDefinition.forId(2595).getConfigurations().put("option:open", this);// maze
+		NPCDefinition.forId(747).getHandlers().put("option:trade", this);// oziach.
+		ObjectDefinition.forId(2595).getHandlers().put("option:open", this);// maze
 		// main
 		// door.
 		// maze first floor.
-		ObjectDefinition.forId(32968).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2602).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2596).getConfigurations().put("option:open", this);// red
+		ObjectDefinition.forId(32968).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2602).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2596).getHandlers().put("option:open", this);// red
 		// door.
-		ObjectDefinition.forId(1752).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(25038).getConfigurations().put("option:climb-up", this);// trapdoor
+		ObjectDefinition.forId(1752).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(25038).getHandlers().put("option:climb-up", this);// trapdoor
 		// ladder
-		ObjectDefinition.forId(25214).getConfigurations().put("option:open", this);// trapdoor
-		ObjectDefinition.forId(1746).getConfigurations().put("option:climb-down", this);// ladder
-		ObjectDefinition.forId(2605).getConfigurations().put("option:climb-down", this);// ladder
+		ObjectDefinition.forId(25214).getHandlers().put("option:open", this);// trapdoor
+		ObjectDefinition.forId(1746).getHandlers().put("option:climb-down", this);// ladder
+		ObjectDefinition.forId(2605).getHandlers().put("option:climb-down", this);// ladder
 
 		// maze second floor.
-		ObjectDefinition.forId(2597).getConfigurations().put("option:open", this);// orange
+		ObjectDefinition.forId(2597).getHandlers().put("option:open", this);// orange
 		// door.
-		ObjectDefinition.forId(1747).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(25045).getConfigurations().put("option:climb-down", this);
+		ObjectDefinition.forId(1747).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(25045).getHandlers().put("option:climb-down", this);
 		// maze third floor
-		ObjectDefinition.forId(2598).getConfigurations().put("option:open", this);// yellow
+		ObjectDefinition.forId(2598).getHandlers().put("option:open", this);// yellow
 		// door.
 		// basement floor
-		ObjectDefinition.forId(2599).getConfigurations().put("option:open", this);// blue
+		ObjectDefinition.forId(2599).getHandlers().put("option:open", this);// blue
 		// door.
-		ObjectDefinition.forId(2600).getConfigurations().put("option:open", this);// purple
+		ObjectDefinition.forId(2600).getHandlers().put("option:open", this);// purple
 		// door.
-		ObjectDefinition.forId(2601).getConfigurations().put("option:open", this);// green
+		ObjectDefinition.forId(2601).getHandlers().put("option:open", this);// green
 		// door.
-		ObjectDefinition.forId(2603).getConfigurations().put("option:open", this);// closed
+		ObjectDefinition.forId(2603).getHandlers().put("option:open", this);// closed
 		// chest.
-		ObjectDefinition.forId(2604).getConfigurations().put("option:search", this);// search
+		ObjectDefinition.forId(2604).getHandlers().put("option:search", this);// search
 		// chest.
-		ObjectDefinition.forId(2604).getConfigurations().put("option:close", this);// search
+		ObjectDefinition.forId(2604).getHandlers().put("option:close", this);// search
 		// chest.
-		ObjectDefinition.forId(1755).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(1755).getHandlers().put("option:climb-up", this);
 		// map parts
-		ItemDefinition.forId(DragonSlayer.MAZE_PIECE.getId()).getConfigurations().put("option:study", this);
-		ItemDefinition.forId(DragonSlayer.MAGIC_PIECE.getId()).getConfigurations().put("option:study", this);
-		ItemDefinition.forId(DragonSlayer.WORMBRAIN_PIECE.getId()).getConfigurations().put("option:study", this);
-		ItemDefinition.forId(DragonSlayer.CRANDOR_MAP.getId()).getConfigurations().put("option:study", this);
+		ItemDefinition.forId(DragonSlayer.MAZE_PIECE.getId()).getHandlers().put("option:study", this);
+		ItemDefinition.forId(DragonSlayer.MAGIC_PIECE.getId()).getHandlers().put("option:study", this);
+		ItemDefinition.forId(DragonSlayer.WORMBRAIN_PIECE.getId()).getHandlers().put("option:study", this);
+		ItemDefinition.forId(DragonSlayer.CRANDOR_MAP.getId()).getHandlers().put("option:study", this);
 		// dwarv mine
-		ObjectDefinition.forId(2587).getConfigurations().put("option:open", this);
-		NPCDefinition.forId(745).getConfigurations().put("option:talk-to", this);
+		ObjectDefinition.forId(2587).getHandlers().put("option:open", this);
+		NPCDefinition.forId(745).getHandlers().put("option:talk-to", this);
 		// lady lumby
-		ObjectDefinition.forId(25036).getConfigurations().put("option:repair", this);
-		ObjectDefinition.forId(2589).getConfigurations().put("option:repair", this);
+		ObjectDefinition.forId(25036).getHandlers().put("option:repair", this);
+		ObjectDefinition.forId(2589).getHandlers().put("option:repair", this);
 
 		// crandor
-		ObjectDefinition.forId(25154).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(2606).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(25213).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(25161).getConfigurations().put("option:climb-over", this);
-		NPCDefinition.forId(742).getConfigurations().put("option:attack", this);
-		NPCDefinition.forId(745).getConfigurations().put("option:attack", this);
+		ObjectDefinition.forId(25154).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(2606).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(25213).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(25161).getHandlers().put("option:climb-over", this);
+		NPCDefinition.forId(742).getHandlers().put("option:attack", this);
+		NPCDefinition.forId(745).getHandlers().put("option:attack", this);
 		// reward items
-		ItemDefinition.forId(1127).getConfigurations().put("option:wear", this);
-		ItemDefinition.forId(1135).getConfigurations().put("option:wear", this);
-		ItemDefinition.forId(2653).getConfigurations().put("option:wear", this);
-		ItemDefinition.forId(2669).getConfigurations().put("option:wear", this);
-		ItemDefinition.forId(2661).getConfigurations().put("option:wear", this);
+		ItemDefinition.forId(1127).getHandlers().put("option:wear", this);
+		ItemDefinition.forId(1135).getHandlers().put("option:wear", this);
+		ItemDefinition.forId(2653).getHandlers().put("option:wear", this);
+		ItemDefinition.forId(2669).getHandlers().put("option:wear", this);
+		ItemDefinition.forId(2661).getHandlers().put("option:wear", this);
 		// guild
-		ObjectDefinition.forId(24357).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(10558).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(10560).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(24357).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(10558).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(10560).getHandlers().put("option:climb-up", this);
 		return this;
 	}
 

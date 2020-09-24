@@ -22,9 +22,9 @@ public class ClockPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(13169).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(13170).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(13171).getConfigurations().put("option:read", this);
+		ObjectDefinition.forId(13169).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(13170).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(13171).getHandlers().put("option:read", this);
 		return this;
 	}
 

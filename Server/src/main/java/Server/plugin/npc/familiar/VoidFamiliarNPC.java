@@ -254,7 +254,7 @@ public final class VoidFamiliarNPC implements Plugin<Object> {
 				@Override
 				public Plugin<Object> newInstance(Object arg) throws Throwable {
 					for (int i : getIds()) {
-						NPCDefinition.forId(i).getConfigurations().put("option:strike", this);
+						NPCDefinition.forId(i).getHandlers().put("option:strike", this);
 					}
 					return this;
 				}

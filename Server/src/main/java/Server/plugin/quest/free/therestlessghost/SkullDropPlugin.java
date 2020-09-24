@@ -15,7 +15,7 @@ public class SkullDropPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(964).getConfigurations().put("option:drop", this);
+		ItemDefinition.forId(964).getHandlers().put("option:drop", this);
 		return this;
 	}
 

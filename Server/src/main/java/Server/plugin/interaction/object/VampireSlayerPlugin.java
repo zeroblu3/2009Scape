@@ -42,10 +42,10 @@ public final class VampireSlayerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(33502).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2614).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(32835).getConfigurations().put("option:walk-down", this);
-		ObjectDefinition.forId(32836).getConfigurations().put("option:walk-up", this);
+		ObjectDefinition.forId(33502).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2614).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(32835).getHandlers().put("option:walk-down", this);
+		ObjectDefinition.forId(32836).getHandlers().put("option:walk-up", this);
 		return this;
 	}
 

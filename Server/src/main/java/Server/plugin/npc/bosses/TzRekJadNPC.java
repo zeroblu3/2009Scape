@@ -45,7 +45,7 @@ public class TzRekJadNPC extends OptionHandler {
 	
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(TZHAAR_MEJ_ID).getConfigurations().put("option:exchange fire cape", this);
+		NPCDefinition.forId(TZHAAR_MEJ_ID).getHandlers().put("option:exchange fire cape", this);
 		PluginManager.definePlugins(new TzhaarMejJalDialogue(), new TzRekJadDialogue());
 		return this;
 	}

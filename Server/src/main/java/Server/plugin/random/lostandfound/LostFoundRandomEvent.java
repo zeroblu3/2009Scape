@@ -139,7 +139,7 @@ public final class LostFoundRandomEvent extends AntiMacroEvent {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
 				for (int id = 8998; id < 9006; id++) {
-					ObjectDefinition.forId(id).getConfigurations().put("option:operate", this);
+					ObjectDefinition.forId(id).getHandlers().put("option:operate", this);
 				}
 				return this;
 			}

@@ -240,12 +240,12 @@ public final class PuroPuroPlugin extends MapZone implements Plugin<Object> {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			NPCDefinition.forId(6070).getConfigurations().put("option:trade", this);
-			ObjectDefinition.forId(24991).getConfigurations().put("option:enter", this);
-			ItemDefinition.forId(11273).getConfigurations().put("option:toggle-view", this);
-			ItemDefinition.forId(11258).getConfigurations().put("option:butterfly-jar", this);
-			ItemDefinition.forId(11258).getConfigurations().put("option:impling-jar", this);
-			ItemDefinition.forId(11258).getConfigurations().put("option:check", this);
+			NPCDefinition.forId(6070).getHandlers().put("option:trade", this);
+			ObjectDefinition.forId(24991).getHandlers().put("option:enter", this);
+			ItemDefinition.forId(11273).getHandlers().put("option:toggle-view", this);
+			ItemDefinition.forId(11258).getHandlers().put("option:butterfly-jar", this);
+			ItemDefinition.forId(11258).getHandlers().put("option:impling-jar", this);
+			ItemDefinition.forId(11258).getHandlers().put("option:check", this);
 			return this;
 		}
 

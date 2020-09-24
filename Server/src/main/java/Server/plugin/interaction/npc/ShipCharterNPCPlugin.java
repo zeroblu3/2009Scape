@@ -24,7 +24,7 @@ public final class ShipCharterNPCPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int id : IDS) {
-			NPCDefinition.forId(id).getConfigurations().put("option:charter", this);
+			NPCDefinition.forId(id).getHandlers().put("option:charter", this);
 		}
 		return this;
 	}

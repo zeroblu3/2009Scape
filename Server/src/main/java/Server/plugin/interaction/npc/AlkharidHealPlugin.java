@@ -18,11 +18,11 @@ public final class AlkharidHealPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(962).getConfigurations().put("option:heal", this);
-		NPCDefinition.forId(961).getConfigurations().put("option:heal", this);
-		NPCDefinition.forId(960).getConfigurations().put("option:heal", this);
-		NPCDefinition.forId(959).getConfigurations().put("option:heal", this);
-		NPCDefinition.forId(958).getConfigurations().put("option:heal", this);
+		NPCDefinition.forId(962).getHandlers().put("option:heal", this);
+		NPCDefinition.forId(961).getHandlers().put("option:heal", this);
+		NPCDefinition.forId(960).getHandlers().put("option:heal", this);
+		NPCDefinition.forId(959).getHandlers().put("option:heal", this);
+		NPCDefinition.forId(958).getHandlers().put("option:heal", this);
 		return this;
 	}
 

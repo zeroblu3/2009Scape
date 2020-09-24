@@ -19,8 +19,8 @@ public class LightHousePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(4577).getConfigurations().put("option:walk-through", this);
-		ObjectDefinition.forId(4383).getConfigurations().put("option:climb", this);
+		ObjectDefinition.forId(4577).getHandlers().put("option:walk-through", this);
+		ObjectDefinition.forId(4383).getHandlers().put("option:climb", this);
 		return this;
 	}
 

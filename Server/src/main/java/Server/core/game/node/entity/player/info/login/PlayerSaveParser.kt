@@ -85,7 +85,8 @@ class PlayerSaveParser(val player: Player) {
                 val attr = a as JSONObject
                 val key = attr["key"].toString()
                 val type = attr["type"].toString()
-                val value: Any? = when(type){
+                player.gameAttributes.savedAttributes.add(key)
+                player.gameAttributes.attributes.put(key,when(type){
                     "int" -> attr["value"].toString().toInt()
                     "str" -> attr["value"].toString()
                     "short" -> attr["value"].toString().toShort()
@@ -93,9 +94,7 @@ class PlayerSaveParser(val player: Player) {
                     "bool" -> attr["value"] as Boolean
                     "byte" -> Base64.getDecoder().decode(attr["value"].toString())[0]
                     else -> null.also{SystemLogger.log("Invalid data type for key: $key")}
-                }
-                player.gameAttributes.savedAttributes.add(key)
-                player.gameAttributes.attributes.put(key,value)
+                })
             }
         } else {
             player.gameAttributes.parse(player.name + ".xml")

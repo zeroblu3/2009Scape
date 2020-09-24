@@ -92,29 +92,29 @@ public class ReadSignPostPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2366).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2367).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2368).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2369).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2370).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2371).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(4132).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(4133).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(4134).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(4135).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(5164).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(10090).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(13873).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(15522).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(18493).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(24263).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(25397).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(30039).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(30040).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(31296).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(31298).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(31299).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(31300).getConfigurations().put("option:read", this);
+		ObjectDefinition.forId(2366).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2367).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2368).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2369).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2370).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2371).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(4132).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(4133).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(4134).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(4135).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(5164).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(10090).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(13873).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(15522).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(18493).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(24263).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(25397).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(30039).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(30040).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(31296).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(31298).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(31299).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(31300).getHandlers().put("option:read", this);
 //		ObjectDefinition.forId(31301).getConfigurations().put("option:read", this);//goblin village
 		return this;
 	}

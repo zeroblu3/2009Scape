@@ -8,7 +8,6 @@ import plugin.activity.ActivityManager;
 import plugin.activity.ActivityPlugin;
 import plugin.activity.CutscenePlugin;
 import plugin.dialogue.DialoguePlugin;
-import core.game.content.global.action.ClimbActionHandler;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
@@ -36,9 +35,9 @@ public final class DraynorNodePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(922).getConfigurations().put("option:make-dyes", this);
-		ObjectDefinition.forId(7092).getConfigurations().put("option:observe", this);
-		ObjectDefinition.forId(6434).getConfigurations().put("option:open", this);
+		NPCDefinition.forId(922).getHandlers().put("option:make-dyes", this);
+		ObjectDefinition.forId(7092).getHandlers().put("option:observe", this);
+		ObjectDefinition.forId(6434).getHandlers().put("option:open", this);
 		ActivityManager.register(new TelescopeCutscene());
 		return this;
 	}

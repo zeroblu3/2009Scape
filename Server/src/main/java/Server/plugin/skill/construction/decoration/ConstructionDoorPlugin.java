@@ -42,18 +42,18 @@ public final class ConstructionDoorPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (HousingStyle style : HousingStyle.values()) {
-			ObjectDefinition.forId(style.getDoorId()).getConfigurations().put("option:open", this);
-			ObjectDefinition.forId(style.getSecondDoorId()).getConfigurations().put("option:open", this);
+			ObjectDefinition.forId(style.getDoorId()).getHandlers().put("option:open", this);
+			ObjectDefinition.forId(style.getSecondDoorId()).getHandlers().put("option:open", this);
 		}
 		for (Decoration deco : BuildHotspot.DUNGEON_DOOR_LEFT.getDecorations()) {
-			ObjectDefinition.forId(deco.getObjectId()).getConfigurations().put("option:open", this);
-			ObjectDefinition.forId(deco.getObjectId()).getConfigurations().put("option:pick-lock", this);
-			ObjectDefinition.forId(deco.getObjectId()).getConfigurations().put("option:force", this);
+			ObjectDefinition.forId(deco.getObjectId()).getHandlers().put("option:open", this);
+			ObjectDefinition.forId(deco.getObjectId()).getHandlers().put("option:pick-lock", this);
+			ObjectDefinition.forId(deco.getObjectId()).getHandlers().put("option:force", this);
 		}
 		for (Decoration deco : BuildHotspot.DUNGEON_DOOR_RIGHT.getDecorations()) {
-			ObjectDefinition.forId(deco.getObjectId()).getConfigurations().put("option:open", this);
-			ObjectDefinition.forId(deco.getObjectId()).getConfigurations().put("option:pick-lock", this);
-			ObjectDefinition.forId(deco.getObjectId()).getConfigurations().put("option:force", this);
+			ObjectDefinition.forId(deco.getObjectId()).getHandlers().put("option:open", this);
+			ObjectDefinition.forId(deco.getObjectId()).getHandlers().put("option:pick-lock", this);
+			ObjectDefinition.forId(deco.getObjectId()).getHandlers().put("option:force", this);
 		}
 		return this;
 	}

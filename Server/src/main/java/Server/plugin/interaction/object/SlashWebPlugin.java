@@ -48,10 +48,10 @@ public final class SlashWebPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int objectId : IDS) {
-			ObjectDefinition.forId(objectId).getConfigurations().put("option:slash", this);
+			ObjectDefinition.forId(objectId).getHandlers().put("option:slash", this);
 		}
-		ObjectDefinition.forId(27266).getConfigurations().put("option:pass", this);
-		ObjectDefinition.forId(29354).getConfigurations().put("option:pass", this);
+		ObjectDefinition.forId(27266).getHandlers().put("option:pass", this);
+		ObjectDefinition.forId(29354).getHandlers().put("option:pass", this);
 		return this;
 	}
 

@@ -20,8 +20,8 @@ public class BarrowsBoatPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(6970).getConfigurations().put("option:board", this);
-		ObjectDefinition.forId(6969).getConfigurations().put("option:board", this);
+		ObjectDefinition.forId(6970).getHandlers().put("option:board", this);
+		ObjectDefinition.forId(6969).getHandlers().put("option:board", this);
 		return this;
 	}
 

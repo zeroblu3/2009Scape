@@ -14,8 +14,8 @@ public class RasoloNPC extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         new RosaloDialouge().init();
-        NPCDefinition.forId(1972).getConfigurations().put("option:talk-to",this);
-        NPCDefinition.forId(1972).getConfigurations().put("option:trade",this);
+        NPCDefinition.forId(1972).getHandlers().put("option:talk-to",this);
+        NPCDefinition.forId(1972).getHandlers().put("option:trade",this);
         return null;
     }
 

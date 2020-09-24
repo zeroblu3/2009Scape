@@ -17,12 +17,12 @@ public final class GnomeSpiritTreePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(1317).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(1317).getConfigurations().put("option:teleport", this);
-		ObjectDefinition.forId(1293).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(1293).getConfigurations().put("option:teleport", this);
-		ObjectDefinition.forId(1294).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(1294).getConfigurations().put("option:teleport", this);
+		ObjectDefinition.forId(1317).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(1317).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(1293).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(1293).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(1294).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(1294).getHandlers().put("option:teleport", this);
 		return this;
 	}
 

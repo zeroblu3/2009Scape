@@ -27,12 +27,12 @@ public final class WizardGuildPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(1600).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1601).getConfigurations().put("option:open", this);
-		NPCDefinition.forId(462).getConfigurations().put("option:teleport", this);
-		ObjectDefinition.forId(2154).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2155).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1722).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(1600).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1601).getHandlers().put("option:open", this);
+		NPCDefinition.forId(462).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(2154).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2155).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1722).getHandlers().put("option:climb-up", this);
 		new WizardDistentorDialogue().init();
 		new ZavisticRarveDialogue().init();
 		new ProfessorImblewynDialogue().init();

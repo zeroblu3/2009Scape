@@ -26,8 +26,8 @@ public final class HeroGuildPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2624).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2625).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(2624).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2625).getHandlers().put("option:open", this);
 		PluginManager.definePlugin(new JewelleryRechargePlugin());
 		return this;
 	}

@@ -22,7 +22,7 @@ public class ZahurOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(3037).getConfigurations().put("option:combine", this);
+		NPCDefinition.forId(3037).getHandlers().put("option:combine", this);
 		PluginManager.definePlugin(new ZahurDialoguePlugin());
 		return this;
 	}

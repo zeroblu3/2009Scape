@@ -65,7 +65,7 @@ public final class GraniteMaulPlugin extends UseWithHandler {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ItemDefinition.forId(14792).getConfigurations().put("option:revert", this);
+			ItemDefinition.forId(14792).getHandlers().put("option:revert", this);
 			return null;
 		}
 

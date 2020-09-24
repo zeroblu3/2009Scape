@@ -158,15 +158,15 @@ class BarbarianOutpostCourse
     }
 
     override fun configure() {
-        ObjectDefinition.forId(2115).configurations["option:open"] = this
-        ObjectDefinition.forId(2116).configurations["option:open"] = this
-        ObjectDefinition.forId(2282).configurations["option:swing-on"] = this
-        ObjectDefinition.forId(2294).configurations["option:walk-across"] = this
-        ObjectDefinition.forId(20211).configurations["option:climb-over"] = this
-        ObjectDefinition.forId(2302).configurations["option:walk-across"] = this
-        ObjectDefinition.forId(1948).configurations["option:climb-over"] = this
-        ItemDefinition.forId(455).configurations["option:read"] = this
-        NPCDefinition.forId(385).configurations["option:pick-up"] = this
+        ObjectDefinition.forId(2115).handlers["option:open"] = this
+        ObjectDefinition.forId(2116).handlers["option:open"] = this
+        ObjectDefinition.forId(2282).handlers["option:swing-on"] = this
+        ObjectDefinition.forId(2294).handlers["option:walk-across"] = this
+        ObjectDefinition.forId(20211).handlers["option:climb-over"] = this
+        ObjectDefinition.forId(2302).handlers["option:walk-across"] = this
+        ObjectDefinition.forId(1948).handlers["option:climb-over"] = this
+        ItemDefinition.forId(455).handlers["option:read"] = this
+        NPCDefinition.forId(385).handlers["option:pick-up"] = this
         PluginManager.definePlugin(BarbarianGuardDialogue())
     }
 

@@ -17,11 +17,11 @@ public final class DairyChurnOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(10093).getConfigurations().put("option:churn", this);
-		ObjectDefinition.forId(10094).getConfigurations().put("option:churn", this);
-		ObjectDefinition.forId(25720).getConfigurations().put("option:churn", this);
-		ObjectDefinition.forId(34800).getConfigurations().put("option:churn", this);
-		ObjectDefinition.forId(35931).getConfigurations().put("option:churn", this);
+		ObjectDefinition.forId(10093).getHandlers().put("option:churn", this);
+		ObjectDefinition.forId(10094).getHandlers().put("option:churn", this);
+		ObjectDefinition.forId(25720).getHandlers().put("option:churn", this);
+		ObjectDefinition.forId(34800).getHandlers().put("option:churn", this);
+		ObjectDefinition.forId(35931).getHandlers().put("option:churn", this);
 		return this;
 	}
 

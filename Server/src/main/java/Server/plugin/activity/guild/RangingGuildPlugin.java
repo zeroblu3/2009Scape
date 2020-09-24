@@ -40,10 +40,10 @@ public final class RangingGuildPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2514).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2511).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(2512).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(2513).getConfigurations().put("option:fire-at", this);
+		ObjectDefinition.forId(2514).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2511).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(2512).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(2513).getHandlers().put("option:fire-at", this);
 		new RangingGuildDoorman().init();
 		new GuardDialogue().init();
 		new LeatherWorkerDialogue().init();

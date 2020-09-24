@@ -194,7 +194,7 @@ class CombatBotAssembler {
         for (i in set.indices) {
             val item = Item(set[i])
             var canEquip = true
-            (item.definition.configurations.getOrDefault("requirements",null) as HashMap<Int,Int>?)?.let { map ->
+            (item.definition.handlers.getOrDefault("requirements",null) as HashMap<Int,Int>?)?.let { map ->
                 levelcap?.let {levelcap ->
                     map.map {
                         if (bot.skills.getLevel(it.key) < it.value || it.value > levelcap)
@@ -220,7 +220,7 @@ class CombatBotAssembler {
                 }
             }
         }
-        bot.equipment.add(highestItems.random(), highest!!.definition!!.configurations["equipment_slot"] as Int, false, false)
+        bot.equipment.add(highestItems.random(), highest!!.definition!!.handlers["equipment_slot"] as Int, false, false)
     }
 
     /**
@@ -230,7 +230,7 @@ class CombatBotAssembler {
     fun Item.lvlAvg(): Int {
         var total = 1
         var count = 1
-        (definition.configurations.getOrDefault("requirements",null) as HashMap<Int,Int>?)?.let { map ->
+        (definition.handlers.getOrDefault("requirements",null) as HashMap<Int,Int>?)?.let { map ->
             map.map {
                 total += it.value
                 count++

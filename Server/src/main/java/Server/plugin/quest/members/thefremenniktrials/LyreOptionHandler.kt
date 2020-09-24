@@ -48,7 +48,7 @@ class LyreOptionHandler : OptionHandler(){
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for(id in ids){
-            ItemDefinition.forId(id).configurations.put("option:play",this)
+            ItemDefinition.forId(id).handlers.put("option:play",this)
         }
         return this
     }

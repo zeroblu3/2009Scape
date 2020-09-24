@@ -140,8 +140,8 @@ public final class CyclopesRoom extends MapZone implements Plugin<Object> {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(15641).getConfigurations().put("option:open", this);
-				ObjectDefinition.forId(15644).getConfigurations().put("option:open", this);
+				ObjectDefinition.forId(15641).getHandlers().put("option:open", this);
+				ObjectDefinition.forId(15644).getHandlers().put("option:open", this);
 				return this;
 			}
 

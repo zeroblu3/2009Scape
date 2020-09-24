@@ -28,7 +28,7 @@ public class NewComerMapPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(550).getConfigurations().put("option:read", this);
+		ItemDefinition.forId(550).getHandlers().put("option:read", this);
 		return this;
 	}
 

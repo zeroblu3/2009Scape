@@ -165,7 +165,7 @@ public final class MartinThwaitDialogue extends DialoguePlugin {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				NPCDefinition.forId(2270).getConfigurations().put("option:trade", this);
+				NPCDefinition.forId(2270).getHandlers().put("option:trade", this);
 				return this;
 			}
 

@@ -18,7 +18,7 @@ public final class PCIslandOptionPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int id : new int[] { 3786, 3788, 3789, 5956 }) {
-			NPCDefinition.forId(id).getConfigurations().put("option:exchange", this);
+			NPCDefinition.forId(id).getHandlers().put("option:exchange", this);
 		}
 		PluginManager.definePlugin(new PCRewardInterface());
 		return this;

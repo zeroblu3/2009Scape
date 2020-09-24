@@ -59,7 +59,7 @@ public final class StrongHoldSecurityPlugin extends MapZone implements Plugin<Ob
 		PluginManager.definePlugin(new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(16154).getConfigurations().put("option:climb-down", this);
+				ObjectDefinition.forId(16154).getHandlers().put("option:climb-down", this);
 				return this;
 			}
 

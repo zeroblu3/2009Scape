@@ -21,7 +21,7 @@ public class HuntForSurokPlugin extends OptionHandler {
 		PluginManager.definePlugin(new MishkalunDornDialogue());
 		PluginManager.definePlugin(new SilasDahcsnuDialogue());
 		PluginManager.definePlugin(new SurokMagisDialogue());
-		ObjectDefinition.forId(28780).getConfigurations().put("option:use", this);
+		ObjectDefinition.forId(28780).getHandlers().put("option:use", this);
 		return this;
 	}
 

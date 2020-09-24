@@ -24,9 +24,9 @@ public final class MiningGuildPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2113).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(30941).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(2112).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(2113).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(30941).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(2112).getHandlers().put("option:open", this);
 		return this;
 	}
 

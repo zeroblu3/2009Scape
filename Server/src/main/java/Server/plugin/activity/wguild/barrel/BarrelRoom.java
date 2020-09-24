@@ -89,7 +89,7 @@ public final class BarrelRoom extends MapZone implements Plugin<Object> {
 		PluginManager.definePlugin(new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(15668).getConfigurations().put("option:pick-up", this);
+				ObjectDefinition.forId(15668).getHandlers().put("option:pick-up", this);
 				return this;
 			}
 

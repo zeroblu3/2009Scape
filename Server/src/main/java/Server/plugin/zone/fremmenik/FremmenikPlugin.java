@@ -14,7 +14,7 @@ public class FremmenikPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(5508).getConfigurations().put("option:ferry-neitiznot", this);
+		NPCDefinition.forId(5508).getHandlers().put("option:ferry-neitiznot", this);
 		return this;
 	}
 

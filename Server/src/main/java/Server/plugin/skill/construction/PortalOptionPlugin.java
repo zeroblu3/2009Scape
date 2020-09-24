@@ -23,10 +23,10 @@ public final class PortalOptionPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (HouseLocation hl : HouseLocation.values()) {
-			ObjectDefinition.forId(hl.getPortalId()).getConfigurations().put("option:enter", this);
+			ObjectDefinition.forId(hl.getPortalId()).getHandlers().put("option:enter", this);
 		}
-		ObjectDefinition.forId(13405).getConfigurations().put("option:lock", this);
-		ObjectDefinition.forId(13405).getConfigurations().put("option:enter", this);
+		ObjectDefinition.forId(13405).getHandlers().put("option:lock", this);
+		ObjectDefinition.forId(13405).getHandlers().put("option:enter", this);
 		PluginManager.definePlugin(new PortalDialogue());
 		return this;
 	}

@@ -80,7 +80,7 @@ public final class DesertWyrmNPC extends Forager {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
 				for (int i : getIds()) {
-					NPCDefinition.forId(i).getConfigurations().put("option:burrow", this);
+					NPCDefinition.forId(i).getHandlers().put("option:burrow", this);
 				}
 				return this;
 			}
