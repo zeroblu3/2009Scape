@@ -44,6 +44,9 @@ public final class GameInterface extends ComponentPlugin {
 				return true;
 			case 746:
 				switch (button){
+					case 12:
+						player.getPacketDispatch().sendString("When you have finished playing " + GameWorld.getName() + ", always use the button below to logout safely. ", 182, 0);
+						break;
 					case 110:
 						configureWorldMap(player);
 						break;
