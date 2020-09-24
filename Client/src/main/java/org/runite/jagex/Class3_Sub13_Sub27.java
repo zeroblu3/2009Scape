@@ -1,11 +1,12 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.HashTable;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub27 extends Class3_Sub13 {
 
    static long isaacServerKey = 0L;
-   static RSString aClass94_3339 = RSString.createRSString("null");
    static int anInt3340;
    static RSString[] aClass94Array3341 = new RSString[100];
    static int anInt3342;
@@ -103,23 +104,10 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
       }
    }
 
-   public static void method296(byte var0) {
-      try {
-         aClass94Array3341 = null;
-         if(var0 >= -56) {
-            anInt3340 = 30;
-         }
-
-         aClass94_3339 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "pi.F(" + var0 + ')');
-      }
-   }
-
    final int[][] method166(int var1, int var2) {
       try {
          if(var1 != -1) {
-            this.method157(-8, (RSByteBuffer)null, false);
+            this.method157(-8, (DataBuffer)null, false);
          }
 
          int[][] var3 = this.aClass97_2376.method1594((byte)-125, var2);
@@ -272,16 +260,16 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
 
                   for(int var4 = var3; var4 < Class8.anInt104; ++var4) {
                      Class70.aClass94Array1046[var4] = Class70.aClass94Array1046[var4 - -1];
-                     Class55.anIntArray882[var4] = Class55.anIntArray882[var4 + 1];
-                     Node.aClass94Array2566[var4] = Node.aClass94Array2566[1 + var4];
+                     Unsorted.anIntArray882[var4] = Unsorted.anIntArray882[var4 + 1];
+                     Unsorted.aClass94Array2566[var4] = Unsorted.aClass94Array2566[1 + var4];
                      Class50.aLongArray826[var4] = Class50.aLongArray826[1 + var4];
                      Class57.anIntArray904[var4] = Class57.anIntArray904[var4 - -1];
-                     aBooleanArray73[var4] = aBooleanArray73[1 + var4];
+                     Unsorted.aBooleanArray73[var4] = Unsorted.aBooleanArray73[1 + var4];
                   }
 
                   Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(57);
-                  Class3_Sub13_Sub1.outgoingBuffer.putLong(var0, -2037491440);
+                  Class3_Sub13_Sub1.outgoingBuffer.writeLong(var0);
                   break;
                }
             }
@@ -323,7 +311,7 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
             }
          }
 
-         Class130 var52 = new Class130(128);
+         HashTable var52 = new HashTable(128);
 
          int var21;
          int var20;
@@ -355,19 +343,19 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
                   long var31 = (long)var24 << 32 | (long)var20;
                   int var33 = var53.length / 2;
                   long var25 = (long)var20 | (long)var21 << 32;
-                  Class3_Sub11 var34 = (Class3_Sub11)var52.method1780(var25);
+                  Class3_Sub11 var34 = (Class3_Sub11)var52.get(var25);
                   if(null == var34) {
                      var34 = new Class3_Sub11(-1 + (var21 >> 16), (float)('\uffff' & var21), false, null != var13, var20);
-                     var52.method1779(var34, var25);
+                     var52.put(var25, var34);
                   }
 
                   ++var34.anInt2344;
                   var34.anInt2342 += var33;
                   if(var25 != var27) {
-                     var34 = (Class3_Sub11)var52.method1780(var27);
+                     var34 = (Class3_Sub11)var52.get(var27);
                      if(var34 == null) {
                         var34 = new Class3_Sub11((var22 >> 16) - 1, (float)('\uffff' & var22), false, null != var13, var20);
-                        var52.method1779(var34, var27);
+                        var52.put(var27, var34);
                      }
 
                      ++var34.anInt2344;
@@ -376,10 +364,10 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
 
                   long var29 = (long)var23 << 32 | (long)var20;
                   if(var25 != var29 && var27 != var29) {
-                     var34 = (Class3_Sub11)var52.method1780(var29);
+                     var34 = (Class3_Sub11)var52.get(var29);
                      if(var34 == null) {
                         var34 = new Class3_Sub11((var23 >> 16) + -1, (float)('\uffff' & var23), false, null != var13, var20);
-                        var52.method1779(var34, var29);
+                        var52.put(var29, var34);
                      }
 
                      var34.anInt2342 += var33;
@@ -387,10 +375,10 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
                   }
 
                   if(var25 != var31 && var31 != var27 && var31 != var29) {
-                     var34 = (Class3_Sub11)var52.method1780(var31);
+                     var34 = (Class3_Sub11)var52.get(var31);
                      if(null == var34) {
                         var34 = new Class3_Sub11((var24 >> 16) - 1, (float)(var24 & '\uffff'), false, null != var13, var20);
-                        var52.method1779(var34, var31);
+                        var52.put(var31, var34);
                      }
 
                      ++var34.anInt2344;
@@ -405,7 +393,7 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
          }
 
          Class3_Sub11 var54;
-         for(var54 = (Class3_Sub11)var52.method1776(92); var54 != null; var54 = (Class3_Sub11)var52.method1778(-102)) {
+         for(var54 = (Class3_Sub11)var52.first(); var54 != null; var54 = (Class3_Sub11)var52.next()) {
             var54.method145();
          }
 
@@ -519,42 +507,42 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
                   int var47 = -1 + (var62 >> 16);
                   int var46 = (var64 >> 16) - 1;
                   int var48 = (var63 >> 16) - 1;
-                  Class3_Sub11 var50 = (Class3_Sub11)var52.method1780(var67);
+                  Class3_Sub11 var50 = (Class3_Sub11)var52.get(var67);
                   Class25.method955(var13, var64 <= var64, Class3_Sub13_Sub4.method190(var46, var38, (byte)-92, var42), var50, var58, var56, var20, var17, var64 <= var63, var8, var69 >= var64, 2, var4, var22, Class3_Sub13_Sub4.method190(var46, var41, (byte)-80, var45), Class3_Sub13_Sub4.method190(var46, var40, (byte)-103, var44), var62 >= var64, var12, var10, var61, Class3_Sub13_Sub4.method190(var46, var39, (byte)-118, var43), var60);
                   int var49 = (var69 >> 16) - 1;
                   if(var32 != var67) {
-                     var50 = (Class3_Sub11)var52.method1780(var32);
+                     var50 = (Class3_Sub11)var52.get(var32);
                      Class25.method955(var13, var62 <= var64, Class3_Sub13_Sub4.method190(var47, var38, (byte)88, var42), var50, var58, var56, var20, var17, var63 >= var62, var8, var62 <= var69, 2, var4, var22, Class3_Sub13_Sub4.method190(var47, var41, (byte)-82, var45), Class3_Sub13_Sub4.method190(var47, var40, (byte)-113, var44), var62 <= var62, var12, var10, var61, Class3_Sub13_Sub4.method190(var47, var39, (byte)113, var43), var60);
                   }
 
                   if(var70 != var67 && var32 != var70) {
-                     var50 = (Class3_Sub11)var52.method1780(var70);
+                     var50 = (Class3_Sub11)var52.get(var70);
                      Class25.method955(var13, var63 <= var64, Class3_Sub13_Sub4.method190(var48, var38, (byte)59, var42), var50, var58, var56, var20, var17, var63 <= var63, var8, var63 <= var69, 4096 ^ 4098, var4, var22, Class3_Sub13_Sub4.method190(var48, var41, (byte)54, var45), Class3_Sub13_Sub4.method190(var48, var40, (byte)-87, var44), var63 <= var62, var12, var10, var61, Class3_Sub13_Sub4.method190(var48, var39, (byte)-77, var43), var60);
                   }
 
                   if(var67 != var36 && var32 != var36 && var36 != var70) {
-                     var50 = (Class3_Sub11)var52.method1780(var36);
+                     var50 = (Class3_Sub11)var52.get(var36);
                      Class25.method955(var13, var64 >= var69, Class3_Sub13_Sub4.method190(var49, var38, (byte)-118, var42), var50, var58, var56, var20, var17, var69 <= var63, var8, var69 <= var69, 4096 ^ 4098, var4, var22, Class3_Sub13_Sub4.method190(var49, var41, (byte)-96, var45), Class3_Sub13_Sub4.method190(var49, var40, (byte)115, var44), var69 <= var62, var12, var10, var61, Class3_Sub13_Sub4.method190(var49, var39, (byte)58, var43), var60);
                   }
                }
             }
          }
 
-         for(var54 = (Class3_Sub11)var52.method1776(54); var54 != null; var54 = (Class3_Sub11)var52.method1778(-62)) {
+         for(var54 = (Class3_Sub11)var52.first(); var54 != null; var54 = (Class3_Sub11)var52.next()) {
             if(var54.anInt2343 == 0) {
-               var54.method86(-1024);
+               var54.unlink();
             } else {
                var54.method148();
             }
          }
 
-         var17 = var52.method1781(83);
+         var17 = var52.size();
          Class3_Sub11[] var59 = new Class3_Sub11[var17];
-         var52.method1782(var59, 4096 ^ 4182);
+         var52.values(var59);
          long[] var55 = new long[var17];
 
          for(var20 = 0; var17 > var20; ++var20) {
-            var55[var20] = var59[var20].aLong71;
+            var55[var20] = var59[var20].linkableKey;
          }
 
          PacketParser.method824(var55, var59, -86);
@@ -584,29 +572,29 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
          int var5 = Class45.anIntArray729[var1];
          if(0 == var2) {
             Class3_Sub13_Sub1.outgoingBuffer.putOpcode(215);
-            Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-25, var3 - -var3 + 3);
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte(var3 - -var3 + 3);
          }
 
          if(var2 == 1) {
             Class3_Sub13_Sub1.outgoingBuffer.putOpcode(39);
-            Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-111, 3 + var3 - (-var3 - 14));
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte(3 + var3 - (-var3 - 14));
          }
 
          if(var2 == 2) {
             Class3_Sub13_Sub1.outgoingBuffer.putOpcode(77);
-            Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-70, var3 + var3 - -3);
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte(var3 + var3 - -3);
          }
 
-         Class3_Sub13_Sub1.outgoingBuffer.putByteA(ObjectDefinition.aBooleanArray1490[82]?1:0);
-         Class3_Sub13_Sub1.outgoingBuffer.putShort(Class131.anInt1716 + var4);
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte128(ObjectDefinition.aBooleanArray1490[82]?1:0);
+         Class3_Sub13_Sub1.outgoingBuffer.writeShort(Class131.anInt1716 + var4);
          Class3_Sub13_Sub1.outgoingBuffer.putShortA(Class82.anInt1152 + var5);
          Class45.anInt733 = Class45.anIntArray729[0];
          Class65.anInt987 = Class3_Sub13_Sub38.anIntArray3456[0];
 
          for(int var6 = 1; var3 > var6; ++var6) {
             --var1;
-            Class3_Sub13_Sub1.outgoingBuffer.putByteA(-var4 + Class3_Sub13_Sub38.anIntArray3456[var1]);
-            Class3_Sub13_Sub1.outgoingBuffer.putByteS(Class45.anIntArray729[var1] + -var5);
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte128(-var4 + Class3_Sub13_Sub38.anIntArray3456[var1]);
+            Class3_Sub13_Sub1.outgoingBuffer.write128Byte(Class45.anIntArray729[var1] + -var5);
          }
 
       } catch (RuntimeException var7) {
@@ -614,16 +602,16 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3343 = var2.getByteB();
+            this.anInt3343 = var2.readUnsignedByte();
          } else if(var1 == 1) {
-            this.aBoolean2375 = var2.getByteB() == 1;
+            this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          if(!var3) {
-            aClass94_3339 = (RSString)null;
+            TextCore.aClass94_3339 = (RSString)null;
          }
 
       } catch (RuntimeException var5) {

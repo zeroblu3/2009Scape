@@ -1,17 +1,17 @@
 package org.runite.jagex;
 
+import org.rs09.client.Node;
+
 import javax.media.opengl.GL;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 
 final class Class3_Sub28_Sub18 extends Node {
 
-   static int anInt3757;
    private int anInt3759;
    private final int anInt3760;
    static int anInt3764;
    static int anInt3765 = 100;
-   static int anInt3766 = 0;
    private int anInt3767 = 0;
    static int[] anIntArray3768 = new int[100];
    static boolean aBoolean3769 = false;
@@ -58,17 +58,9 @@ final class Class3_Sub28_Sub18 extends Node {
 
    static void method710() {
       try {
-         Class44.aClass93_725.method1523((byte)-104);
+         Class44.aReferenceCache_725.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "sd.C(" + (byte) 126 + ')');
-      }
-   }
-
-   public static void method711(int var0) {
-      try {
-         anIntArray3768 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "sd.B(" + var0 + ')');
       }
    }
 

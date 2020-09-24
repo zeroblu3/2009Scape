@@ -31,7 +31,7 @@ final class Class84 {
 
    static void method1418(int var0, CacheIndex var1) {
       try {
-         Class163_Sub2_Sub1.aClass109_Sub1Array4027 = Class3_Sub28_Sub13.method619((byte)65, NPC.anInt4001, var1);
+         Class163_Sub2_Sub1.aClass109_Sub1Array4027 = Unsorted.method619((byte)65, NPC.anInt4001, var1);
          Class52.anIntArray861 = new int[256];
 
          int var2;
@@ -59,7 +59,7 @@ final class Class84 {
          }
 
           Class161.anIntArray2026 = new int['\u8000'];
-         OutputStream_Sub1.anIntArray49 = new int['\u8000'];
+         Unsorted.anIntArray49 = new int['\u8000'];
          Class3_Sub13_Sub10.method215((byte)-89, (LDIndexedSprite)null);
          Class3_Sub30_Sub1.anIntArray3805 = new int['\u8000'];
          Class127.anIntArray1681 = new int['\u8000'];
@@ -79,15 +79,15 @@ final class Class84 {
          if(HDToolKit.highDetail) {
             Class22.method934(var1, var2, var3, var4, var5);
             Class22.method934(1 + var1, 1 + var2, var3 + -2, 16, 0);
-            Class22.method927(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);
+            Class22.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);
          } else {
             Class74.method1323(var1, var2, var3, var4, var5);
             Class74.method1323(1 + var1, 1 + var2, var3 + -2, 16, 0);
-            Class74.method1311(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
+            Class74.drawRect(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
          }
 
          Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, var1 - -3, var2 + 14, var5, -1);
-         int var7 = Class130.anInt1709;
+         int var7 = Unsorted.anInt1709;
          int var6 = Class126.anInt1676;
 
           for(int var8 = 0; var8 < Class3_Sub13_Sub34.anInt3415; ++var8) {
@@ -97,10 +97,10 @@ final class Class84 {
                var10 = 16776960;
             }
 
-            Class168.aClass3_Sub28_Sub17_2096.method681(RSByteBuffer.method802(var8), var1 - -3, var9, var10, 0);
+            Class168.aClass3_Sub28_Sub17_2096.method681(Unsorted.method802(var8), var1 - -3, var9, var10, 0);
          }
 
-         Class69.method1282(AbstractIndexedSprite.anInt1462, (byte)107, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537, Class3_Sub28_Sub3.anInt3552);
+         Unsorted.method1282(AbstractIndexedSprite.anInt1462, (byte)107, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537, Class3_Sub28_Sub3.anInt3552);
       } catch (RuntimeException var11) {
          throw Class44.clientError(var11, "lf.A(" + -117 + ')');
       }
@@ -125,24 +125,9 @@ final class Class84 {
    static int method1421() {
       try {
 
-          return ((Class3_Sub13_Sub15.aBoolean3184?1:0) << 19) + (((Class38.aBoolean661?1:0) << 16) + ((!Class128.aBoolean1685?0:1) << 15) + ((!Class106.aBoolean1441?0:1) << 13) + ((Class140_Sub6.aBoolean2910?1:0) << 10) + ((Class3_Sub13_Sub22.aBoolean3275?1:0) << 9) + ((RSInterface.aBoolean236?1:0) << 7) + ((!Class25.aBoolean488?0:1) << 6) + ((KeyboardListener.aBoolean1905?1:0) << 5) + (((!Class3_Sub28_Sub13.aBoolean3665?0:1) << 3) + (Class3_Sub28_Sub10.anInt3625 & 7) - (-((!Class3_Sub28_Sub7.aBoolean3604?0:1) << 4) + -((WorldListEntry.aBoolean2623?1:0) << 8)) - (-(Class80.anInt1137 << 11 & 6144) + -((CS2Script.anInt2453 == 0 ?0:1) << 20) - (((Class9.anInt120 != 0 ?1:0) << 21) + ((Class14.anInt340 == 0 ?0:1) << 22)))) - -(Class127_Sub1.method1757() << 23));
+          return ((Class3_Sub13_Sub15.aBoolean3184?1:0) << 19) + (((Class38.aBoolean661?1:0) << 16) + ((!Class128.aBoolean1685?0:1) << 15) + ((!Class106.aBoolean1441?0:1) << 13) + ((Class140_Sub6.aBoolean2910?1:0) << 10) + ((Class3_Sub13_Sub22.aBoolean3275?1:0) << 9) + ((RSInterface.aBoolean236?1:0) << 7) + ((!Class25.aBoolean488?0:1) << 6) + ((KeyboardListener.aBoolean1905?1:0) << 5) + (((!Unsorted.aBoolean3665?0:1) << 3) + (Unsorted.anInt3625 & 7) - (-((!Unsorted.aBoolean3604?0:1) << 4) + -((WorldListEntry.aBoolean2623?1:0) << 8)) - (-(Unsorted.anInt1137 << 11 & 6144) + -((CS2Script.anInt2453 == 0 ?0:1) << 20) - (((Unsorted.anInt120 != 0 ?1:0) << 21) + ((Sprites.anInt340 == 0 ?0:1) << 22)))) - -(Class127_Sub1.method1757() << 23));
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "lf.F(" + -2 + ')');
-      }
-   }
-
-   public static void method1422(byte var0) {
-      try {
-         anIntArrayArray1160 = (int[][])null;
-         anIntArray1161 = null;
-         aClass61_1162 = null;
-         anIntArray1163 = null;
-         if(var0 != 24) {
-            method1420(-74, 65, 51, 91, (byte)-26);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "lf.B(" + var0 + ')');
       }
    }
 

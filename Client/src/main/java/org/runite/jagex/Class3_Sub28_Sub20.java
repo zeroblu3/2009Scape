@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.Node;
+
 import javax.media.opengl.GL;
 import javax.media.opengl.glu.GLU;
 import java.nio.ByteBuffer;
@@ -52,9 +54,9 @@ final class Class3_Sub28_Sub20 extends Node {
                   for(var11 = var17; var11 >= 0; --var11) {
                      --var14;
                      int var12 = this.anIntArray3793[var14];
-                     var7[var11] += Class69.bitwiseAnd(var12, 16726965) >> 16;
-                     var8[var11] += Class69.bitwiseAnd('\uff72', var12) >> 8;
-                     var9[var11] += Class69.bitwiseAnd(var12, 255);
+                     var7[var11] += Unsorted.bitwiseAnd(var12, 16726965) >> 16;
+                     var8[var11] += Unsorted.bitwiseAnd('\uff72', var12) >> 8;
+                     var9[var11] += Unsorted.bitwiseAnd(var12, 255);
                   }
 
                   if(var14 == 0) {
@@ -106,9 +108,9 @@ final class Class3_Sub28_Sub20 extends Node {
                      int var23 = this.anIntArray3793[var13];
                      --var14;
                      int var24 = this.anIntArray3793[var14];
-                     var7[var11] += (Class69.bitwiseAnd(var24, 16729186) >> 16) + -Class69.bitwiseAnd(var23 >> 16, 255);
-                     var8[var11] += (Class69.bitwiseAnd('\uff8b', var24) >> 8) + -Class69.bitwiseAnd(255, var23 >> 8);
-                     var9[var11] += -Class69.bitwiseAnd(var23, 255) + Class69.bitwiseAnd(255, var24);
+                     var7[var11] += (Unsorted.bitwiseAnd(var24, 16729186) >> 16) + -Unsorted.bitwiseAnd(var23 >> 16, 255);
+                     var8[var11] += (Unsorted.bitwiseAnd('\uff8b', var24) >> 8) + -Unsorted.bitwiseAnd(255, var23 >> 8);
+                     var9[var11] += -Unsorted.bitwiseAnd(var23, 255) + Unsorted.bitwiseAnd(255, var24);
                   }
 
                   if(0 == var13) {
@@ -223,18 +225,6 @@ final class Class3_Sub28_Sub20 extends Node {
       }
    }
 
-   public static void method721(int var0) {
-      try {
-         aClass153_3786 = null;
-         aClass118_3794 = null;
-         if(var0 != 20413) {
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "uh.C(" + var0 + ')');
-      }
-   }
-
    final boolean method722(Interface2 var2, CacheIndex var3) {
       try {
          return this.aClass82_3790.method1408(var2, var3);
@@ -282,7 +272,7 @@ final class Class3_Sub28_Sub20 extends Node {
 
    static void method724() {
       try {
-         Class163_Sub2_Sub1.aClass93_4015.method1523((byte)-102);
+         Class163_Sub2_Sub1.aReferenceCache_4015.clearSoftReferences();
 
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "uh.B(" + -109 + ')');
@@ -319,7 +309,7 @@ final class Class3_Sub28_Sub20 extends Node {
 
             if(WorldListCountry.localPlane != 3) {
                for(var4 = 0; var4 < 2; ++var4) {
-                  Class41.anIntArray686[var4] = -1000000;
+                  Unsorted.anIntArray686[var4] = -1000000;
                   Class129_Sub1.anIntArray2696[var4] = 1000000;
                   Class159.anIntArray2021[var4] = 0;
                   AnimationDefinition.anIntArray1871[var4] = 1000000;
@@ -327,7 +317,7 @@ final class Class3_Sub28_Sub20 extends Node {
                }
 
                if(1 == Class133.anInt1753) {
-                  if((4 & Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][Class102.player.anInt2819 >> 7][Class102.player.anInt2829 >> 7]) != 0) {
+                  if((4 & Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][Class102.player.anInt2819 >> 7][Class102.player.anInt2829 >> 7]) != 0) {
                      Class140_Sub7.method2031((byte)-85, false, Class102.player.anInt2819 >> 7, Class102.player.anInt2829 >> 7, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, 0);
                   }
 
@@ -363,7 +353,7 @@ final class Class3_Sub28_Sub20 extends Node {
                               ++var4;
                            }
 
-                           if((Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5] & 4) != 0) {
+                           if((Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5] & 4) != 0) {
                               Class140_Sub7.method2031((byte)-29, false, var4, var5, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, 1);
                               break;
                            }
@@ -379,7 +369,7 @@ final class Class3_Sub28_Sub20 extends Node {
                               }
 
                               var11 -= 65536;
-                              if((4 & Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5]) != 0) {
+                              if((4 & Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5]) != 0) {
                                  Class140_Sub7.method2031((byte)-120, false, var4, var5, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, 1);
                                  break;
                               }
@@ -396,7 +386,7 @@ final class Class3_Sub28_Sub20 extends Node {
                               --var5;
                            }
 
-                           if((4 & Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5]) != 0) {
+                           if((4 & Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5]) != 0) {
                               Class140_Sub7.method2031((byte)-13, false, var4, var5, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, 1);
                               break;
                            }
@@ -410,7 +400,7 @@ final class Class3_Sub28_Sub20 extends Node {
                               }
 
                               var11 -= 65536;
-                              if((4 & Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5]) != 0) {
+                              if((4 & Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var4][var5]) != 0) {
                                  Class140_Sub7.method2031((byte)-37, false, var4, var5, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, 1);
                                  break;
                               }
@@ -420,7 +410,7 @@ final class Class3_Sub28_Sub20 extends Node {
                   }
                } else {
                   var4 = Class121.method1736(WorldListCountry.localPlane, 1, NPC.anInt3995, Class77.anInt1111);
-                  if(800 > var4 + -Class7.anInt2162 && (4 & Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][NPC.anInt3995 >> 7][Class77.anInt1111 >> 7]) != 0) {
+                  if(800 > var4 + -Class7.anInt2162 && (4 & Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][NPC.anInt3995 >> 7][Class77.anInt1111 >> 7]) != 0) {
                      Class140_Sub7.method2031((byte)-107, false, NPC.anInt3995 >> 7, Class77.anInt1111 >> 7, Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, 1);
                   }
                }
@@ -432,18 +422,18 @@ final class Class3_Sub28_Sub20 extends Node {
       }
    }
 
-   Class3_Sub28_Sub20(RSByteBuffer var1) {
+   Class3_Sub28_Sub20(DataBuffer var1) {
       try {
          this.aClass82_3790 = new Class82(var1);
-         this.aBoolean3789 = var1.getByteB() == 1;
-         this.aBoolean3800 = 1 == var1.getByteB();
-         this.aBoolean3787 = var1.getByteB() == 1;
-         this.aBoolean3781 = var1.getByteB() == 1;
-         int var2 = 3 & var1.getByteB();
-         this.anInt3783 = var1.getByte();
-         this.anInt3799 = var1.getByte();
-         int var3 = var1.getByteB();
-         var1.getByteB();
+         this.aBoolean3789 = var1.readUnsignedByte() == 1;
+         this.aBoolean3800 = 1 == var1.readUnsignedByte();
+         this.aBoolean3787 = var1.readUnsignedByte() == 1;
+         this.aBoolean3781 = var1.readUnsignedByte() == 1;
+         int var2 = 3 & var1.readUnsignedByte();
+         this.anInt3783 = var1.readSignedByte();
+         this.anInt3799 = var1.readSignedByte();
+         int var3 = var1.readUnsignedByte();
+         var1.readUnsignedByte();
          if(var2 == 1) {
             this.anInt3784 = 2;
          } else if(var2 == 2) {

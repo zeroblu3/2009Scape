@@ -1,12 +1,13 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.HashTable;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub17 extends Class3_Sub13 {
 
    static boolean aBoolean3207 = false;
-   static Class130 aClass130_3208 = new Class130(8);
-   static RSString aClass94_3209 = RSString.createRSString("showingVideoAd");
+   static HashTable<Class3_Sub31> aHashTable_3208 = new HashTable<>(8);
    static CacheIndex aClass153_3210;
    static int[] anIntArray3212;
    static int anInt3213 = 1;
@@ -21,13 +22,13 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
          Class3_Sub28_Sub20.method724();
          Class3_Sub28_Sub18.method710();
          Class108.method1654(var0 ^ -15455);
-         Canvas_Sub1.method55();
+         Unsorted.method55();
          Class163_Sub2_Sub1.method2222();
          Class3_Sub30_Sub1.method813();
          Class133.method1803();
          Class38.method1025((byte)-93);
          Class40.method1044(-3782);
-         Class136.aClass93_1772.method1523((byte)-99);
+         Class136.aReferenceCache_1772.clearSoftReferences();
          Class158_Sub1.method2192();
          Class159.method2196();
          Class50.method1132(103);
@@ -40,8 +41,8 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
          Class3_Sub28_Sub6.h();
          Class107.method1650();
          MouseListeningClass.method2089();
-         Class3_Sub13_Sub11.aClass93_3130.method1523((byte)-103);
-         Class80.aClass93_1135.method1523((byte)-122);
+         Class3_Sub13_Sub11.aReferenceCache_3130.clearSoftReferences();
+         Unsorted.aReferenceCache_1135.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "je.O(" + var0 + ')');
       }
@@ -99,10 +100,10 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.aBoolean2375 = var2.getByteB() == 1;
+            this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          if(!var3) {
@@ -111,20 +112,6 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
 
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "je.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
-      }
-   }
-
-   public static void method249(int var0) {
-      try {
-         anIntArray3212 = null;
-         aClass130_3208 = null;
-         aClass153_3210 = null;
-         aClass94_3209 = null;
-         if(var0 >= -100) {
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "je.R(" + var0 + ')');
       }
    }
 
@@ -159,13 +146,13 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
    static void method252() {
       try {
          Class3_Sub9 var1;
-         for(var1 = (Class3_Sub9) aClass61_78.method1222(); null != var1; var1 = (Class3_Sub9) aClass61_78.method1221()) {
+         for(var1 = (Class3_Sub9) Unsorted.aClass61_78.method1222(); null != var1; var1 = (Class3_Sub9) Unsorted.aClass61_78.method1221()) {
             if(var1.aBoolean2329) {
                var1.method134();
             }
          }
 
-         for(var1 = (Class3_Sub9)IOHandler.aClass61_1242.method1222(); null != var1; var1 = (Class3_Sub9)IOHandler.aClass61_1242.method1221()) {
+         for(var1 = (Class3_Sub9) Unsorted.aClass61_1242.method1222(); null != var1; var1 = (Class3_Sub9) Unsorted.aClass61_1242.method1221()) {
             if(var1.aBoolean2329) {
                var1.method134();
             }

@@ -9,7 +9,6 @@ final class Class131 {
    RSString[] aClass94Array1721;
    
    static CacheIndex aClass153_1723;
-   static RSString aClass94_1724 = RSString.createRSString(" )2>");
    int[] anIntArray1725;
    short[] aShortArray1727;
    static int[] anIntArray1729 = new int[]{12543016, 15504954, 15914854, 16773818};
@@ -18,7 +17,7 @@ final class Class131 {
    static void addLocalPlayers() {
       try {
          while(true) {
-            if(GraphicDefinition.incomingBuffer.method815(Class130.incomingPacketLength) >= 11) {
+            if(GraphicDefinition.incomingBuffer.method815(Unsorted.incomingPacketLength) >= 11) {
                int index = GraphicDefinition.incomingBuffer.getBits(11);
                if(index != 2047) {
                   boolean var2 = false;
@@ -35,7 +34,7 @@ final class Class131 {
                   var3.anInt2838 = Class44.anInt719;
                   int var4 = GraphicDefinition.incomingBuffer.getBits(1);
                   if(var4 == 1) {
-                     Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = index;
+                     Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = index;
                   }
 
                   int var5 = GraphicDefinition.incomingBuffer.getBits(5);
@@ -121,43 +120,31 @@ final class Class131 {
       }
    }
 
-   public static void method1792(int var0) {
-      try {
-         anIntArray1729 = null;
-         if(var0 == 0) {
-            aClass153_1723 = null;
-            aClass94_1724 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "se.F(" + var0 + ')');
-      }
-   }
-
    static void method1793(RSString var0, RSString var1, int var2) {
       try {
-         Class3_Sub28_Sub14.password = var1;
+         WorldMapZoomFont.password = var1;
          Class7.anInt2161 = var2;
-         Class3_Sub28_Sub14.username = var0;
-         if(Class3_Sub28_Sub14.username.method1528(Class3_Sub28_Sub14.aClass94_3672) || Class3_Sub28_Sub14.password.method1528(Class3_Sub28_Sub14.aClass94_3672)) {
+         WorldMapZoomFont.username = var0;
+         if(WorldMapZoomFont.username.equalsString(TextCore.aClass94_3672) || WorldMapZoomFont.password.equalsString(TextCore.aClass94_3672)) {
             Class158.anInt2005 = 3;
          } else if (CS2Script.anInt2451 == -1) {
             Class3_Sub2.anInt2246 = 0;
             Class117.anInt1616 = 0;
             Class158.anInt2005 = -3;
             Class3_Sub13_Sub31.anInt3375 = 1;
-            RSByteBuffer var4 = new RSByteBuffer(128);
-            var4.putByte((byte) -97, 10);
-            var4.putShort((int) (Math.random() * 99999.0D));
-            var4.putShort(530);
-            var4.putLong(Class3_Sub28_Sub14.username.toLong(-117), -2037491440);
-            var4.putInt(-123, (int) (Math.random() * 9.9999999E7D));
-            var4.putString(Class3_Sub28_Sub14.password);
-            var4.putInt(-128, (int) (Math.random() * 9.9999999E7D));
-            var4.encryptRSA(Class3_Sub13_Sub14.aBigInteger3162, Class3_Sub13_Sub37.aBigInteger3441);
+            DataBuffer var4 = new DataBuffer(128);
+            var4.writeByte(10);
+            var4.writeShort((int) (Math.random() * 99999.0D));
+            var4.writeShort(530);
+            var4.writeLong(WorldMapZoomFont.username.toLong());
+            var4.writeInt((int) (Math.random() * 9.9999999E7D));
+            var4.writeString(WorldMapZoomFont.password);
+            var4.writeInt((int) (Math.random() * 9.9999999E7D));
+            var4.rsaEncrypt(Class3_Sub13_Sub14.aBigInteger3162, Class3_Sub13_Sub37.aBigInteger3441);
             Class3_Sub13_Sub1.outgoingBuffer.index = 0;
-            Class3_Sub13_Sub1.outgoingBuffer.putByte((byte) -29, 210);
-            Class3_Sub13_Sub1.outgoingBuffer.putByte((byte) -121, var4.index);
-            Class3_Sub13_Sub1.outgoingBuffer.putBytes(var4.buffer, var4.index, 125);
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte(210);
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte(var4.index);
+            Class3_Sub13_Sub1.outgoingBuffer.putBytes(var4.buffer, var4.index);
          } else {
             Class24.method951();
          }

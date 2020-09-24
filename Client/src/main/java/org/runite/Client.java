@@ -1,6 +1,7 @@
 package org.runite;
 
 import org.runite.jagex.GameShell;
+import org.runite.jagex.RSString;
 
 /**
  * Handles the launching of our Game Client.
@@ -31,8 +32,12 @@ public class Client {
 
 	 */
 	public static void main(String[]args) {
+		System.out.println(RSString.parse("HELLO WORLD").properlyCapitalize().toString());
+		System.out.println(RSString.parse("hello world").properlyCapitalize().toString());
+		System.out.println(RSString.parse("h.e.l.l.o.w.o.r!l!d?eee").properlyCapitalize().toString());
+
 		try {
-			PUBLIC_IP_ADDRESS = "localhost";
+			PUBLIC_IP_ADDRESS = "127.0.0.1";
 		} catch (Exception e){
 			System.out.println("Can't find config file " + CONF_FILE + " defaulting to IP 127.0.0.1");
 			PUBLIC_IP_ADDRESS = "play.2009scape.org";

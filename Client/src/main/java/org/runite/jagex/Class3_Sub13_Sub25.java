@@ -1,4 +1,6 @@
 package org.runite.jagex;
+import org.rs09.client.util.ArrayUtils;
+
 import java.util.Objects;
 import java.util.Random;
 
@@ -8,7 +10,6 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
    private int anInt3300 = 1024;
    private int anInt3301 = 819;
    private int anInt3303 = 1024;
-   static CacheIndex aClass153_3304;
    static int loginStage = 0;
    private int anInt3308 = 2048;
    private int anInt3309 = 0;
@@ -23,7 +24,7 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
    final void method158(int var1) {
       try {
          if(var1 != 16251) {
-            this.method157(-7, (RSByteBuffer)null, true);
+            this.method157(-7, (DataBuffer)null, true);
          }
 
       } catch (RuntimeException var3) {
@@ -210,16 +211,6 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
       }
    }
 
-   public static void method290(int var0) {
-      try {
-         if(var0 == -9) {
-            aClass153_3304 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ol.F(" + var0 + ')');
-      }
-   }
-
    public Class3_Sub13_Sub25() {
       super(0, true);
    }
@@ -257,35 +248,35 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
                   if(this.anInt3309 == 0) {
                      for(var20 = 0; var20 < var13; ++var20) {
                         var21 = var20 * var8 / var13;
-                        var18[Class69.bitwiseAnd(RenderAnimationDefinition.anInt396, var20 + var3)] = var18[Class69.bitwiseAnd(-1 + var4 + var3 + -var20, RenderAnimationDefinition.anInt396)] = var21 * var19 >> 12;
+                        var18[Unsorted.bitwiseAnd(RenderAnimationDefinition.anInt396, var20 + var3)] = var18[Unsorted.bitwiseAnd(-1 + var4 + var3 + -var20, RenderAnimationDefinition.anInt396)] = var21 * var19 >> 12;
                      }
                   } else {
                      for(var20 = 0; var20 < var13; ++var20) {
                         var21 = var20 * var8 / var13;
-                        var18[Class69.bitwiseAnd(RenderAnimationDefinition.anInt396, var3 - -var20)] = var18[Class69.bitwiseAnd(RenderAnimationDefinition.anInt396, var4 + var3 + -var20 - 1)] = var21 >= var19 ?var19:var21;
+                        var18[Unsorted.bitwiseAnd(RenderAnimationDefinition.anInt396, var3 - -var20)] = var18[Unsorted.bitwiseAnd(RenderAnimationDefinition.anInt396, var4 + var3 + -var20 - 1)] = var21 >= var19 ?var19:var21;
                      }
                   }
 
                   if(Class113.anInt1559 >= var16 + var15) {
-                     Class76.method1359(var18, var15, var16, var19);
+                     ArrayUtils.fill(var18, var15, var16, var19);
                   } else {
                      var20 = -var15 + Class113.anInt1559;
-                     Class76.method1359(var18, var15, var20, var19);
-                     Class76.method1359(var18, 0, -var20 + var16, var19);
+                     ArrayUtils.fill(var18, var15, var20, var19);
+                     ArrayUtils.fill(var18, 0, -var20 + var16, var19);
                   }
                } else {
                   var19 = var6 + -var17 - 1;
                   if(var14 <= var19) {
                      for(var20 = 0; var13 > var20; ++var20) {
-                        var18[Class69.bitwiseAnd(RenderAnimationDefinition.anInt396, var3 + var20)] = var18[Class69.bitwiseAnd(-1 + -var20 + var3 - -var4, RenderAnimationDefinition.anInt396)] = var8 * var20 / var13;
+                        var18[Unsorted.bitwiseAnd(RenderAnimationDefinition.anInt396, var3 + var20)] = var18[Unsorted.bitwiseAnd(-1 + -var20 + var3 - -var4, RenderAnimationDefinition.anInt396)] = var8 * var20 / var13;
                      }
 
                      if(Class113.anInt1559 < var15 - -var16) {
                         var20 = -var15 + Class113.anInt1559;
-                        Class76.method1359(var18, var15, var20, var8);
-                        Class76.method1359(var18, 0, var16 - var20, var8);
+                        ArrayUtils.fill(var18, var15, var20, var8);
+                        ArrayUtils.fill(var18, 0, var16 - var20, var8);
                      } else {
-                        Class76.method1359(var18, var15, var16, var8);
+                        ArrayUtils.fill(var18, var15, var16, var8);
                      }
                   } else {
                      var20 = var19 * var8 / var14;
@@ -293,36 +284,36 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
                      if(this.anInt3309 == 0) {
                         for(var21 = 0; var13 > var21; ++var21) {
                            var22 = var8 * var21 / var13;
-                           var18[Class69.bitwiseAnd(RenderAnimationDefinition.anInt396, var3 - -var21)] = var18[Class69.bitwiseAnd(RenderAnimationDefinition.anInt396, -1 + var3 - (-var4 + var21))] = var22 * var20 >> 12;
+                           var18[Unsorted.bitwiseAnd(RenderAnimationDefinition.anInt396, var3 - -var21)] = var18[Unsorted.bitwiseAnd(RenderAnimationDefinition.anInt396, -1 + var3 - (-var4 + var21))] = var22 * var20 >> 12;
                         }
                      } else {
                         for(var21 = 0; var21 < var13; ++var21) {
                            var22 = var21 * var8 / var13;
-                           var18[Class69.bitwiseAnd(var3 - -var21, RenderAnimationDefinition.anInt396)] = var18[Class69.bitwiseAnd(-1 + -var21 + var4 + var3, RenderAnimationDefinition.anInt396)] = var22 >= var20 ?var20:var22;
+                           var18[Unsorted.bitwiseAnd(var3 - -var21, RenderAnimationDefinition.anInt396)] = var18[Unsorted.bitwiseAnd(-1 + -var21 + var4 + var3, RenderAnimationDefinition.anInt396)] = var22 >= var20 ?var20:var22;
                         }
                      }
 
                      if(var16 + var15 > Class113.anInt1559) {
                         var21 = Class113.anInt1559 + -var15;
-                        Class76.method1359(var18, var15, var21, var20);
-                        Class76.method1359(var18, 0, -var21 + var16, var20);
+                        ArrayUtils.fill(var18, var15, var21, var20);
+                        ArrayUtils.fill(var18, 0, -var21 + var16, var20);
                      } else {
-                        Class76.method1359(var18, var15, var16, var20);
+                        ArrayUtils.fill(var18, var15, var16, var20);
                      }
                   }
                }
             }
          } else if(var3 - -var4 <= Class113.anInt1559) {
             for(var11 = 0; var11 < var6; ++var11) {
-               Class76.method1359(var7[var1 - -var11], var3, var4, var8);
+               ArrayUtils.fill(var7[var1 - -var11], var3, var4, var8);
             }
          } else {
             var11 = Class113.anInt1559 - var3;
 
             for(var12 = 0; var6 > var12; ++var12) {
                int[] var24 = var7[var12 + var1];
-               Class76.method1359(var24, var3, var11, var8);
-               Class76.method1359(var24, 0, -var11 + var4, var8);
+               ArrayUtils.fill(var24, var3, var11, var8);
+               ArrayUtils.fill(var24, 0, -var11 + var4, var8);
             }
          }
 
@@ -331,30 +322,30 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
             this.anInt3301 = 4;
          }
 
          if(var1 == 0) {
-            this.anInt3312 = var2.getByteB();
+            this.anInt3312 = var2.readUnsignedByte();
          } else if (var1 == 1) {
-             this.anInt3300 = var2.getShort();
+             this.anInt3300 = var2.readUnsignedShort();
          } else if (2 == var1) {
-             this.anInt3308 = var2.getShort();
+             this.anInt3308 = var2.readUnsignedShort();
          } else if (var1 == 3) {
-             this.anInt3310 = var2.getShort();
+             this.anInt3310 = var2.readUnsignedShort();
          } else if (var1 == 4) {
-             this.anInt3301 = var2.getShort();
+             this.anInt3301 = var2.readUnsignedShort();
          } else if (var1 == 5) {
-             this.anInt3303 = var2.getShort();
+             this.anInt3303 = var2.readUnsignedShort();
          } else if (var1 == 6) {
-             this.anInt3309 = var2.getByteB();
+             this.anInt3309 = var2.readUnsignedByte();
          } else if (var1 == 7) {
-             this.anInt3299 = var2.getShort();
+             this.anInt3299 = var2.readUnsignedShort();
          } else if (var1 == 8) {
-             this.anInt3316 = var2.getShort();
+             this.anInt3316 = var2.readUnsignedShort();
          }
 
       } catch (RuntimeException var5) {

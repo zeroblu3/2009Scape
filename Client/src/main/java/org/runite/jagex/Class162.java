@@ -10,7 +10,7 @@ final class Class162 {
 
    static void method2203(Player var0) {
       try {
-         Class3_Sub9 var2 = (Class3_Sub9)Class3_Sub28_Sub7_Sub1.aClass130_4046.method1780(var0.displayName.toLong(8 + -126));
+         Class3_Sub9 var2 = (Class3_Sub9) Unsorted.aHashTable_4046.get(var0.displayName.toLong());
 
          if(null != var2) {
             if(var2.aClass3_Sub24_Sub1_2312 != null) {
@@ -18,7 +18,7 @@ final class Class162 {
                var2.aClass3_Sub24_Sub1_2312 = null;
             }
 
-            var2.method86(8 ^ -1016);
+            var2.unlink();
          }
 
       } catch (RuntimeException var3) {
@@ -26,12 +26,12 @@ final class Class162 {
       }
    }
 
-   static void method2204(RSByteBuffer var0) {
+   static void method2204(DataBuffer var0) {
       try {
-         if(null != Class69.aClass30_1039) {
+         if(null != Unsorted.aClass30_1039) {
             try {
-               Class69.aClass30_1039.method984(-117, 0L);
-               Class69.aClass30_1039.method983(var0.buffer, var0.index, -903171152, 24);
+               Unsorted.aClass30_1039.method984(-117, 0L);
+               Unsorted.aClass30_1039.method983(var0.buffer, var0.index, -903171152, 24);
             } catch (Exception var3) {
             }
          }
@@ -39,19 +39,6 @@ final class Class162 {
           var0.index += 24;
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "wc.E(" + "null" + ',' + 120 + ')');
-      }
-   }
-
-   public static void method2205(int var0) {
-      try {
-         anIntArrayArray2039 = (int[][])null;
-         aByteArray2040 = null;
-         if(var0 != -17413) {
-            anInt2036 = 77;
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "wc.C(" + var0 + ')');
       }
    }
 
@@ -68,17 +55,17 @@ final class Class162 {
       try {
           //36873, 24065, 22418
 
-         ObjectDefinition var2 = (ObjectDefinition)Canvas_Sub1.aClass93_21.get((long)objectId);
+         ObjectDefinition var2 = (ObjectDefinition) Unsorted.aReferenceCache_21.get((long)objectId);
          if(var2 == null) {
             byte[] var3 = Class85.aClass153_1171.getFile(Class3_Sub13_Sub36.method340(objectId), objectId & 255);
             var2 = new ObjectDefinition();
             var2.objectId = objectId;
             if(null != var3) {
-               var2.method1692(6219, new RSByteBuffer(var3));
+               var2.method1692(6219, new DataBuffer(var3));
             }
 
             var2.method1689(4 + -2120);
-            if(!Class14.aBoolean337 && var2.aBoolean1491) {
+            if(!Sprites.aBoolean337 && var2.aBoolean1491) {
                var2.options = null;
             }
 
@@ -87,7 +74,7 @@ final class Class162 {
                var2.ProjectileClipped = false;
             }
 
-            Canvas_Sub1.aClass93_21.put((byte)-114, var2, (long)objectId);
+            Unsorted.aReferenceCache_21.put(var2, (long)objectId);
          }
          return var2;
       } catch (RuntimeException var4) {

@@ -1,17 +1,18 @@
 package org.runite.jagex;
+import org.rs09.client.rendering.Toolkit;
+import org.rs09.client.data.NodeCache;
+
 import java.io.DataInputStream;
 import java.net.URL;
 import java.util.Random;
-import java.util.zip.Inflater;
 
 final class Class49 {
 
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_812;
-   private Inflater anInflater813;
    static boolean[][] aBooleanArrayArray814;
    static int anInt815 = 0;
    static int anInt817;
-   static Class47 aClass47_818 = new Class47(64);
+   static NodeCache aClass47_818 = new NodeCache(64);
    static int anInt819 = 0;
 
 
@@ -21,7 +22,7 @@ final class Class49 {
          byte[][] var3;
          if(HDToolKit.highDetail && var0) {
             var2 = 1;
-            var3 = Class3_Sub28_Sub14.aByteArrayArray3669;
+            var3 = WorldMapZoomFont.aByteArrayArray3669;
          } else {
             var3 = Class164_Sub2.aByteArrayArray3027;
             var2 = 4;
@@ -44,7 +45,7 @@ final class Class49 {
 
                         for(int var14 = 0; var14 < Class3_Sub24_Sub3.anIntArray3494.length; ++var14) {
                            if(var13 == Class3_Sub24_Sub3.anIntArray3494[var14] && null != var3[var14]) {
-                              Canvas_Sub2.method60(var10, 8 * var5, var4, Class86.aClass91Array1182, var6 * 8, (byte)-100, var3[var14], var9, (var12 & 7) * 8, 8 * (var11 & 7), var0);
+                              Unsorted.method60(var10, 8 * var5, var4, Class86.aClass91Array1182, var6 * 8, (byte)-100, var3[var14], var9, (var12 & 7) * 8, 8 * (var11 & 7), var0);
                               var7 = true;
                               break;
                            }
@@ -84,7 +85,7 @@ final class Class49 {
 
    static byte[] method1123(int var0, int var1) {
       try {
-         Class3_Sub28_Sub8 var2 = (Class3_Sub28_Sub8)Class25.aClass47_480.getNodeByID((long)var1);
+         Class3_Sub28_Sub8 var2 = (Class3_Sub28_Sub8)Class25.aClass47_480.get((long)var1);
          if(null == var2) {
             Random var4 = new Random((long)var1);
             byte[] var3 = new byte[512];
@@ -103,7 +104,7 @@ final class Class49 {
             }
 
             var2 = new Class3_Sub28_Sub8(var3);
-            Class25.aClass47_480.method1097(var2, (long)var1, (byte)52);
+            Class25.aClass47_480.put((long)var1, var2);
          }
 
          return var0 != 16711935?(byte[])null:var2.aByteArray3612;
@@ -121,7 +122,7 @@ final class Class49 {
             }
          }
 
-         return Class3_Sub28_Sub12.method612(var1, (byte)124);
+         return Class3_Sub28_Sub12.method612(var1);
       } catch (RuntimeException var6) {
          throw Class44.clientError(var6, "ha.H(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var3 + ',' + false + ')');
       }
@@ -129,7 +130,7 @@ final class Class49 {
 
    static void method1125(String var0, Throwable var1, byte var2) {
       if(var2 <= 100) {
-         aClass47_818 = (Class47)null;
+         aClass47_818 = (NodeCache)null;
       }
 
       try {
@@ -151,14 +152,14 @@ final class Class49 {
          var3 = Class3_Sub28_Sub6.a("@", "%40", var3);
          var3 = Class3_Sub28_Sub6.a("&", "%26", var3);
          var3 = Class3_Sub28_Sub6.a("#", "%23", var3);
-         if(Class3_Sub13_Sub10.aClass87_3125.anApplet1219 == null) {
+         if(Class3_Sub13_Sub10.aClass87_3125.applet == null) {
             return;
          }
 
-         Class64 var4 = Class3_Sub13_Sub10.aClass87_3125.method1439(false, new URL(Class3_Sub13_Sub10.aClass87_3125.anApplet1219.getCodeBase(), "clienterror.ws?c=" + Class3_Sub13_Sub23_Sub1.anInt4033 + "&u=" + Class3_Sub13_Sub16.aLong3202 + "&v1=" + Signlink.javaVendor + "&v2=" + Signlink.javaVersion + "&e=" + var3));
+         Class64 var4 = Class3_Sub13_Sub10.aClass87_3125.method1439(false, new URL(Class3_Sub13_Sub10.aClass87_3125.applet.getCodeBase(), "clienterror.ws?c=" + Class3_Sub13_Sub23_Sub1.anInt4033 + "&u=" + Class3_Sub13_Sub16.aLong3202 + "&v1=" + Signlink.javaVendor + "&v2=" + Signlink.javaVersion + "&e=" + var3));
 
          while(var4.anInt978 == 0) {
-            Class3_Sub13_Sub34.method331(1L, 64);
+            TimeUtils.sleep(1L);
          }
 
          if(var4.anInt978 == 1) {
@@ -183,12 +184,12 @@ final class Class49 {
    static void method1127(int var0) {
       try {
          if(!Class38_Sub1.aBoolean2615) {
-            if(Class3_Sub28_Sub13.anInt3660 != 0) {
+            if(Unsorted.anInt3660 != 0) {
                NPCDefinition.anInt1297 = Class3_Sub13_Sub39.anInt3460;
                Class38_Sub1.anInt2612 = Class168.anInt2099;
-            } else if(Class3_Sub28_Sub11.anInt3644 == 0) {
+            } else if(Unsorted.anInt3644 == 0) {
                NPCDefinition.anInt1297 = Class126.anInt1676;
-               Class38_Sub1.anInt2612 = Class130.anInt1709;
+               Class38_Sub1.anInt2612 = Unsorted.anInt1709;
             } else {
                NPCDefinition.anInt1297 = Class163_Sub1.anInt2993;
                Class38_Sub1.anInt2612 = Class38_Sub1.anInt2614;
@@ -196,7 +197,7 @@ final class Class49 {
 
             Class3_Sub13_Sub34.anInt3415 = 1;
             Class140_Sub7.aClass94Array2935[0] = TextCore.HasCancel;
-            Class163_Sub2_Sub1.aClass94Array4016[0] = Class3_Sub28_Sub14.aClass94_3672;
+            Class163_Sub2_Sub1.aClass94Array4016[0] = TextCore.aClass94_3672;
             Class3_Sub13_Sub7.aShortArray3095[0] = 1005;
             Class114.anIntArray1578[0] = Class3_Sub28_Sub5.anInt3590;
          }
@@ -208,20 +209,20 @@ final class Class49 {
          if(var0 == 0) {
             int var1;
             for(var1 = 0; var1 < Class3_Sub28_Sub3.anInt3557; ++var1) {
-               if(Class3_Sub28_Sub14.aBooleanArray3674[var1]) {
+               if(WorldMapZoomFont.aBooleanArray3674[var1]) {
                   Class163_Sub1_Sub1.aBooleanArray4008[var1] = true;
                }
 
-               Class130.aBooleanArray1712[var1] = Class3_Sub28_Sub14.aBooleanArray3674[var1];
-               Class3_Sub28_Sub14.aBooleanArray3674[var1] = false;
+               Unsorted.aBooleanArray1712[var1] = WorldMapZoomFont.aBooleanArray3674[var1];
+               WorldMapZoomFont.aBooleanArray3674[var1] = false;
             }
 
             Class3_Sub28_Sub16.aClass11_3708 = null;
             Class53.anInt865 = -1;
-            Node.anInt2567 = -1;
+            Unsorted.anInt2567 = -1;
             Class99.aClass11_1402 = null;
             if(HDToolKit.highDetail) {
-               OutputStream_Sub1.aBoolean47 = true;
+               Unsorted.aBoolean47 = true;
             }
 
             Class3_Sub23.anInt2535 = Class44.anInt719;
@@ -231,21 +232,21 @@ final class Class49 {
             }
 
             if(HDToolKit.highDetail) {
-               Class22.method925();
+               Class22.resetClipping();
             } else {
-               Class74.method1331();
+               Class74.resetClipping();
             }
 
             Class168.method2278(var0 + 122);
             if(Class38_Sub1.aBoolean2615) {
-               if(CacheIndex.aBoolean1951) {
+               if(Unsorted.aBoolean1951) {
                   ISAACCipher.method1230((byte)116);
                } else {
                   Class84.method1419();
                }
             } else if(null == Class3_Sub28_Sub16.aClass11_3708) {
                if(Class53.anInt865 != -1) {
-                  Class24.method950((RSInterface)null, -86, Node.anInt2567, Class53.anInt865);
+                  Class24.method950((RSInterface)null, -86, Unsorted.anInt2567, Class53.anInt865);
                }
             } else {
                Class24.method950(Class3_Sub28_Sub16.aClass11_3708, -120, ClientErrorException.anInt2115, Class3_Sub13_Sub23_Sub1.anInt4041);
@@ -267,18 +268,12 @@ final class Class49 {
 
             if(Client.anInt3689 == 3) {
                for(int var2 = 0; Class3_Sub28_Sub3.anInt3557 > var2; ++var2) {
-                  if(!Class130.aBooleanArray1712[var2]) {
+                  if(!Unsorted.aBooleanArray1712[var2]) {
                      if(Class163_Sub1_Sub1.aBooleanArray4008[var2]) {
-                        if(HDToolKit.highDetail) {
-                           Class22.method930(Class155.anIntArray1969[var2], Player.anIntArray3954[var2], Class3_Sub28_Sub18.anIntArray3768[var2], Class140_Sub4.anIntArray2794[var2], 16711680, 128);
-                        } else {
-                           Class74.method1312(Class155.anIntArray1969[var2], Player.anIntArray3954[var2], Class3_Sub28_Sub18.anIntArray3768[var2], Class140_Sub4.anIntArray2794[var2], 16711680, 128);
-                        }
+                           Toolkit.getActiveToolkit().fillRect(Class155.anIntArray1969[var2], Player.anIntArray3954[var2], Class3_Sub28_Sub18.anIntArray3768[var2], Class140_Sub4.anIntArray2794[var2], 16711680, 128);
                      }
-                  } else if(HDToolKit.highDetail) {
-                     Class22.method930(Class155.anIntArray1969[var2], Player.anIntArray3954[var2], Class3_Sub28_Sub18.anIntArray3768[var2], Class140_Sub4.anIntArray2794[var2], 16711935, 128);
                   } else {
-                     Class74.method1312(Class155.anIntArray1969[var2], Player.anIntArray3954[var2], Class3_Sub28_Sub18.anIntArray3768[var2], Class140_Sub4.anIntArray2794[var2], 16711935, 128);
+                     Toolkit.getActiveToolkit().fillRect(Class155.anIntArray1969[var2], Player.anIntArray3954[var2], Class3_Sub28_Sub18.anIntArray3768[var2], Class140_Sub4.anIntArray2794[var2], 16711935, 128);
                   }
                }
             }
@@ -288,32 +283,6 @@ final class Class49 {
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "ha.G(" + var0 + ')');
-      }
-   }
-
-   final void method1128(byte[] out, RSByteBuffer buffer) {
-      try {
-
-         if(buffer.buffer[buffer.index] == 31 && buffer.buffer[buffer.index + 1] == -117) {
-            if(this.anInflater813 == null) {
-               this.anInflater813 = new Inflater(true);
-            }
-
-            try {
-               this.anInflater813.setInput(buffer.buffer, buffer.index + 10, -8 - (10 + buffer.index) + buffer.buffer.length);
-               this.anInflater813.inflate(out);
-            } catch (Exception var5) {
-               this.anInflater813.reset();
-               throw new RuntimeException("Invalid GZIP compressed data!");
-            }
-
-            this.anInflater813.reset();
-         } else {
-            throw new RuntimeException("Invalid GZIP header!");
-         }
-      } catch (RuntimeException var6) {
-//    	  var6.printStackTrace();
-         throw Class44.clientError(var6, "ha.D(" + (out != null?"{...}":"null") + ',' + (buffer != null?"{...}":"null") + ',' + false + ')');
       }
    }
 
@@ -370,20 +339,6 @@ final class Class49 {
 
       } catch (RuntimeException var15) {
          throw Class44.clientError(var15, "ha.A(" + var0 + ',' + var1 + ',' + var2 + ',' + 0 + ',' + var4 + ')');
-      }
-   }
-
-   public static void method1130(int var0) {
-      try {
-         aClass3_Sub28_Sub16_812 = null;
-         if(var0 < 54) {
-            anInt819 = -109;
-         }
-
-         aClass47_818 = null;
-         aBooleanArrayArray814 = (boolean[][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ha.F(" + var0 + ')');
       }
    }
 

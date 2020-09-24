@@ -2,13 +2,10 @@ package org.runite.jagex;
 
 final class Class40 {
 
-   static RSString aClass94_672 = RSString.createRSString("null");
-   static RSString aClass94_673 = RSString.createRSString(")0");
-   static int[] anIntArray675 = new int[]{16, 32, 64, 128};
-   static RSString aClass94_676 = null;
-   static int anInt677 = 0;
-   static int anInt678;
-   static CacheIndex aClass153_679;
+   static RSString aClass94_672 = RSString.parse("null");
+    static int[] anIntArray675 = new int[]{16, 32, 64, 128};
+    static int anInt677 = 0;
+    static CacheIndex aClass153_679;
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_680;
 
 
@@ -24,35 +21,19 @@ final class Class40 {
       try {
     	 // System.out.println("Class 40 " + var0 + ", " + var2 + ", " + name.toString());
          Class3_Sub13_Sub1.outgoingBuffer.index = 0;
-         Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-33, 186);
-         Class3_Sub13_Sub1.outgoingBuffer.putString(name);
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte(186);
+         Class3_Sub13_Sub1.outgoingBuffer.writeString(name);
         // Class3_Sub13_Sub1.outgoingBuffer.putLong(var0, var2 + -2037463204);
-         Canvas_Sub1.registryStage = 1;
+         Unsorted.registryStage = 1;
          Class132.anInt1734 = 0;
          GraphicDefinition.anInt548 = 0;
-         Class130.anInt1711 = -3;
+         Unsorted.anInt1711 = -3;
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "gd.D(" + var0 + ',' + -28236 + ')');
       }
    }
 
-   public static void method1042(boolean var0) {
-      try {
-         aClass153_679 = null;
-         aClass94_676 = null;
-         if(!var0) {
-         }
-
-         aClass94_672 = null;
-         anIntArray675 = null;
-         aClass94_673 = null;
-         aClass3_Sub28_Sub16_680 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "gd.A(" + var0 + ')');
-      }
-   }
-
-   static Class3_Sub28_Sub16_Sub2 method1043(int var0, CacheIndex var1, int archiveId) {
+    static Class3_Sub28_Sub16_Sub2 method1043(int var0, CacheIndex var1, int archiveId) {
       try {
          // System.out.println("Class 40 " + archiveId);
          return Class75_Sub4.method1351(var1, var0, archiveId, -30901)?Class117.method1722(-53):null;
@@ -67,7 +48,7 @@ final class Class40 {
             aClass94_672 = (RSString)null;
          }
 
-         CS2Script.aClass93_2450.method1523((byte)-109);
+         CS2Script.aReferenceCache_2450.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "gd.E(" + var0 + ')');
       }
@@ -76,7 +57,7 @@ final class Class40 {
    static void method1045() {
       try {
 
-         Class128.aClass93_1683.method1524();
+         Class128.aReferenceCache_1683.clear();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "gd.B(" + -19761 + ')');
       }
@@ -91,7 +72,7 @@ final class Class40 {
          int var2;
          for(var2 = 0; Class164_Sub2.aByteArrayArray3027.length > var2; ++var2) {
             if(Client.anIntArray2200[var2] != -1 && null == Class164_Sub2.aByteArrayArray3027[var2]) {
-               Class164_Sub2.aByteArrayArray3027[var2] = Class3_Sub13_Sub6.aClass153_3077.getFile(Client.anIntArray2200[var2], 0);
+               Class164_Sub2.aByteArrayArray3027[var2] = CacheIndex.landscapesIndex.getFile(Client.anIntArray2200[var2], 0);
                if(Class164_Sub2.aByteArrayArray3027[var2] == null) {
                   ++Class3_Sub13_Sub24.anInt3293;
                   var1 = false;
@@ -99,7 +80,7 @@ final class Class40 {
             }
 
             if(-1 != Class101.anIntArray1426[var2] && null == Class3_Sub22.aByteArrayArray2521[var2]) {
-               Class3_Sub22.aByteArrayArray2521[var2] = Class3_Sub13_Sub6.aClass153_3077.getFile(Class101.anIntArray1426[var2], Class3_Sub9.regionXteaKeys[var2], 0);
+               Class3_Sub22.aByteArrayArray2521[var2] = CacheIndex.landscapesIndex.getFile(Class101.anIntArray1426[var2], 0, Class3_Sub9.regionXteaKeys[var2]);
                if(null == Class3_Sub22.aByteArrayArray2521[var2]) {
                   var1 = false;
                   ++Class3_Sub13_Sub24.anInt3293;
@@ -107,16 +88,16 @@ final class Class40 {
             }
 
             if(HDToolKit.highDetail) {
-               if(Class3_Sub13_Sub15.anIntArray3181[var2] != -1 && Class3_Sub28_Sub14.aByteArrayArray3669[var2] == null) {
-                  Class3_Sub28_Sub14.aByteArrayArray3669[var2] = Class3_Sub13_Sub6.aClass153_3077.getFile(Class3_Sub13_Sub15.anIntArray3181[var2], 0);
-                  if(null == Class3_Sub28_Sub14.aByteArrayArray3669[var2]) {
+               if(Class3_Sub13_Sub15.anIntArray3181[var2] != -1 && WorldMapZoomFont.aByteArrayArray3669[var2] == null) {
+                  WorldMapZoomFont.aByteArrayArray3669[var2] = CacheIndex.landscapesIndex.getFile(Class3_Sub13_Sub15.anIntArray3181[var2], 0);
+                  if(null == WorldMapZoomFont.aByteArrayArray3669[var2]) {
                      var1 = false;
                      ++Class3_Sub13_Sub24.anInt3293;
                   }
                }
 
                if(Class3_Sub28_Sub5.anIntArray3587[var2] != -1 && null == Class3_Sub13_Sub4.aByteArrayArray3057[var2]) {
-                  Class3_Sub13_Sub4.aByteArrayArray3057[var2] = Class3_Sub13_Sub6.aClass153_3077.getFile(Class3_Sub28_Sub5.anIntArray3587[var2], 0);
+                  Class3_Sub13_Sub4.aByteArrayArray3057[var2] = CacheIndex.landscapesIndex.getFile(Class3_Sub28_Sub5.anIntArray3587[var2], 0);
                   if(null == Class3_Sub13_Sub4.aByteArrayArray3057[var2]) {
                      ++Class3_Sub13_Sub24.anInt3293;
                      var1 = false;
@@ -124,8 +105,8 @@ final class Class40 {
                }
             }
 
-            if(null != Class3_Sub13_Sub24.npcSpawnCacheIndices && null == Class3_Sub13_Sub26.aByteArrayArray3335[var2] && Class3_Sub13_Sub24.npcSpawnCacheIndices[var2] != -1) {
-               Class3_Sub13_Sub26.aByteArrayArray3335[var2] = Class3_Sub13_Sub6.aClass153_3077.getFile(Class3_Sub13_Sub24.npcSpawnCacheIndices[var2], Class3_Sub9.regionXteaKeys[var2], 0);
+            if(null != NPC.npcSpawnCacheIndices && null == Class3_Sub13_Sub26.aByteArrayArray3335[var2] && NPC.npcSpawnCacheIndices[var2] != -1) {
+               Class3_Sub13_Sub26.aByteArrayArray3335[var2] = CacheIndex.landscapesIndex.getFile(NPC.npcSpawnCacheIndices[var2], 0, Class3_Sub9.regionXteaKeys[var2]);
                if(Class3_Sub13_Sub26.aByteArrayArray3335[var2] == null) {
                   ++Class3_Sub13_Sub24.anInt3293;
                   var1 = false;
@@ -134,9 +115,9 @@ final class Class40 {
          }
 
          if(Class3_Sub13_Sub35.aClass131_3421 == null) {
-            if(null != Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264 && Class133.aClass153_1751.method2135(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}, (byte)-77), -104)) {
-               if(Class133.aClass153_1751.method2127(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}, (byte) -95))) {
-                  Class3_Sub13_Sub35.aClass131_3421 = Class81.method1403(-41, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}, (byte)-92), Class133.aClass153_1751);
+            if(null != Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264 && CacheIndex.worldmapIndex.method2135(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}))) {
+               if(CacheIndex.worldmapIndex.method2127(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}))) {
+                  Class3_Sub13_Sub35.aClass131_3421 = Class81.method1403(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}), CacheIndex.worldmapIndex);
                } else {
                   var1 = false;
                   ++Class3_Sub13_Sub24.anInt3293;
@@ -157,7 +138,7 @@ final class Class40 {
                if(null != var3) {
                   var5 = -Class82.anInt1152 + (Class3_Sub24_Sub3.anIntArray3494[var2] & 255) * 64;
                   var4 = -Class131.anInt1716 + (Class3_Sub24_Sub3.anIntArray3494[var2] >> 8) * 64;
-                  if(Class3_Sub29.isDynamicSceneGraph) {
+                  if(LinkableRSString.isDynamicSceneGraph) {
                      var5 = 10;
                      var4 = 10;
                   }
@@ -170,7 +151,7 @@ final class Class40 {
                   if(null != var3) {
                      var4 = -Class131.anInt1716 + 64 * (Class3_Sub24_Sub3.anIntArray3494[var2] >> 8);
                      var5 = -Class82.anInt1152 + 64 * (Class3_Sub24_Sub3.anIntArray3494[var2] & 255);
-                     if(Class3_Sub29.isDynamicSceneGraph) {
+                     if(LinkableRSString.isDynamicSceneGraph) {
                         var5 = 10;
                         var4 = 10;
                      }
@@ -182,7 +163,7 @@ final class Class40 {
 
              if(var1) {
                if(Class163_Sub2_Sub1.anInt4019 != 0) {
-                  Class3_Sub13.method164((byte)-24, true, RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingPleaseWait2, Class140_Sub2.aClass94_2707}, (byte)-127));
+                  Class3_Sub13.method164((byte)-24, true, RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingPleaseWait2, TextCore.aClass94_2707}));
                }
 
                Class58.method1194();
@@ -191,7 +172,7 @@ final class Class40 {
                int var12;
                if(HDToolKit.highDetail && Class128.aBoolean1685) {
                   for(var12 = 0; var12 < Class164_Sub2.aByteArrayArray3027.length; ++var12) {
-                     if(null != Class3_Sub13_Sub4.aByteArrayArray3057[var12] || Class3_Sub28_Sub14.aByteArrayArray3669[var12] != null) {
+                     if(null != Class3_Sub13_Sub4.aByteArrayArray3057[var12] || WorldMapZoomFont.aByteArrayArray3669[var12] != null) {
                         var11 = true;
                         break;
                      }
@@ -207,7 +188,7 @@ final class Class40 {
                for(var12 = 0; var12 < 4; ++var12) {
                   for(var4 = 0; var4 < 104; ++var4) {
                      for(var5 = 0; var5 < 104; ++var5) {
-                        Class9.aByteArrayArrayArray113[var12][var4][var5] = 0;
+                        Unsorted.aByteArrayArrayArray113[var12][var4][var5] = 0;
                      }
                   }
                }
@@ -235,8 +216,8 @@ final class Class40 {
                System.gc();
                Class163_Sub1.method2210(true);
                Class117.method1720(false, 105);
-               if(!Class3_Sub29.isDynamicSceneGraph) {
-                  Class47.method1091(false, -93);
+               if(!LinkableRSString.isDynamicSceneGraph) {
+                  Unsorted.method1091(false, -93);
                   Class163_Sub1.method2210(true);
                   if(HDToolKit.highDetail) {
                      var12 = Class102.player.anIntArray2767[0] >> 3;
@@ -250,7 +231,7 @@ final class Class40 {
                   }
                }
 
-               if(Class3_Sub29.isDynamicSceneGraph) {
+               if(LinkableRSString.isDynamicSceneGraph) {
                   Class49.method1121(false, (byte)98);
                   Class163_Sub1.method2210(true);
                   if(HDToolKit.highDetail) {
@@ -288,13 +269,13 @@ final class Class40 {
                if(HDToolKit.highDetail && var11) {
                   Class167.method2264(true);
                   Class117.method1720(true, 105);
-                  if(!Class3_Sub29.isDynamicSceneGraph) {
-                     Class47.method1091(true, -121);
+                  if(!LinkableRSString.isDynamicSceneGraph) {
+                     Unsorted.method1091(true, -121);
                      Class163_Sub1.method2210(true);
                      Class3_Sub13_Sub6.method198(true);
                   }
 
-                  if(Class3_Sub29.isDynamicSceneGraph) {
+                  if(LinkableRSString.isDynamicSceneGraph) {
                      Class49.method1121(true, (byte)56);
                      Class163_Sub1.method2210(true);
                      Class163_Sub2_Sub1.method2223(true, (byte)-105);
@@ -322,27 +303,27 @@ final class Class40 {
                   }
                }
 
-               RSByteBuffer.method792();
+               Unsorted.method792();
                Class58.method1194();
                Class3_Sub13_Sub31.method318();
                Class3_Sub13_Sub30.method313((byte)100);
                Class3_Sub13_Sub34.aBoolean3416 = false;
-               if(GameShell.frame != null && null != Class3_Sub15.aClass89_2429 && 25 == Class143.loadingStage) {
+               if(GameShell.frame != null && null != Class3_Sub15.activeConnection && 25 == Class143.loadingStage) {
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(20);
-                  Class3_Sub13_Sub1.outgoingBuffer.putInt(-126, 1057001181);
+                  Class3_Sub13_Sub1.outgoingBuffer.writeInt(1057001181);
                }
 
-               if(!Class3_Sub29.isDynamicSceneGraph) {
+               if(!LinkableRSString.isDynamicSceneGraph) {
                   int var7 = (Class3_Sub7.anInt2294 + 6) / 8;
                   int var6 = (Class3_Sub7.anInt2294 - 6) / 8;
-                  var4 = (Class3_Sub28_Sub7.anInt3606 - 6) / 8;
-                  var5 = (Class3_Sub28_Sub7.anInt3606 - -6) / 8;
+                  var4 = (Unsorted.anInt3606 - 6) / 8;
+                  var5 = (Unsorted.anInt3606 - -6) / 8;
 
                   for(int var8 = var4 - 1; var5 - -1 >= var8; ++var8) {
                      for(int var9 = -1 + var6; var7 - -1 >= var9; ++var9) {
                         if(var4 > var8 || var8 > var5 || var6 > var9 || var9 > var7) {
-                           Class3_Sub13_Sub6.aClass153_3077.method2124(-124, RenderAnimationDefinition.method903(new RSString[]{Class3_Sub30_Sub1.aClass94_3807, Class72.method1298((byte)9, var8), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var9)}, (byte)-76));
-                           Class3_Sub13_Sub6.aClass153_3077.method2124(-123, RenderAnimationDefinition.method903(new RSString[]{Class161.aClass94_2029, Class72.method1298((byte)9, var8), Class3_Sub13_Sub14.aClass94_3161, Class72.method1298((byte)9, var9)}, (byte)-121));
+                           CacheIndex.landscapesIndex.method2124(-124, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3807, Class72.method1298((byte)9, var8), TextCore.aClass94_3161, Class72.method1298((byte)9, var9)}));
+                           CacheIndex.landscapesIndex.method2124(-123, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2029, Class72.method1298((byte)9, var8), TextCore.aClass94_3161, Class72.method1298((byte)9, var9)}));
                         }
                      }
                   }
@@ -352,7 +333,7 @@ final class Class40 {
                   Class117.method1719(10);
                } else {
                   Class117.method1719(30);
-                  if(null != Class3_Sub15.aClass89_2429) {
+                  if(null != Class3_Sub15.activeConnection) {
                      Class3_Sub13_Sub1.outgoingBuffer.putOpcode(110);
                   }
                }

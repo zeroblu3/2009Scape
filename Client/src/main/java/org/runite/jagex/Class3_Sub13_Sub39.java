@@ -5,7 +5,6 @@ final class Class3_Sub13_Sub39 extends Class3_Sub13 {
    private int[] anIntArray3457;
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array3458;
    static int anInt3460 = 0;
-   static byte[][] aByteArrayArray3461 = new byte[1000][];
    private int anInt3462 = 0;
    static int anInt3463;
    static int anInt3464 = 0;
@@ -208,15 +207,15 @@ final class Class3_Sub13_Sub39 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(0 == var1) {
-            this.anInt3462 = var2.getByteB();
-            this.anIntArrayArray3469 = new int[var2.getByteB()][2];
+            this.anInt3462 = var2.readUnsignedByte();
+            this.anIntArrayArray3469 = new int[var2.readUnsignedByte()][2];
 
             for(int var4 = 0; var4 < this.anIntArrayArray3469.length; ++var4) {
-               this.anIntArrayArray3469[var4][0] = var2.getShort();
-               this.anIntArrayArray3469[var4][1] = var2.getShort();
+               this.anIntArrayArray3469[var4][0] = var2.readUnsignedShort();
+               this.anIntArrayArray3469[var4][1] = var2.readUnsignedShort();
             }
          }
 
@@ -243,20 +242,6 @@ final class Class3_Sub13_Sub39 extends Class3_Sub13 {
          }
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "wi.F(" + (byte) -106 + ',' + var2 + ')');
-      }
-   }
-
-   public static void method357(boolean var0) {
-      try {
-         aByteArrayArray3461 = (byte[][])null;
-         aClass3_Sub28_Sub16Array3458 = null;
-         if(var0) {
-            method353(-71, 100);
-         }
-
-         aBooleanArrayArray3468 = (boolean[][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "wi.O(" + ')');
       }
    }
 

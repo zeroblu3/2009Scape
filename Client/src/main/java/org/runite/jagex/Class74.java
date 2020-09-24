@@ -1,59 +1,62 @@
 package org.runite.jagex;
 
-final class Class74 {
+import org.rs09.client.rendering.Toolkit;
+import org.rs09.client.rendering.java.JavaToolkit;
 
-   static int anInt1092;
-   static int anInt1093 = 0;
-   static int anInt1094;
-   static int anInt1095 = 0;
-   static int anInt1096 = 0;
+// TODO LDToolkit
+public final class Class74 {
+
    static int[] anIntArray1097;
    static int[] anIntArray1098;
-   static int anInt1099 = 0;
-   static int[] anIntArray1100;
 
+   static JavaToolkit toolkit = Toolkit.JAVA_TOOLKIT;
+
+   @Deprecated
+   private static int[] getBuffer() {
+      return Toolkit.JAVA_TOOLKIT.getBuffer();
+   }
 
    static void method1310() {
       anIntArray1097 = null;
       anIntArray1098 = null;
    }
 
-   static void method1311(int var0, int var1, int var2, int var3, int var4) {
-      method1317(var0, var1, var2, var4);
-      method1317(var0, var1 + var3 - 1, var2, var4);
-      method1318(var0, var1, var3, var4);
-      method1318(var0 + var2 - 1, var1, var3, var4);
+   public static void drawRect(int x, int y, int w, int h, int rgb) {
+      toolkit.drawHorizontalLine(x, y, w, rgb);
+      toolkit.drawHorizontalLine(x, y + h - 1, w, rgb);
+      drawVerticalLine(x, y, h, rgb);
+      drawVerticalLine(x + w - 1, y, h, rgb);
    }
 
-   static void method1312(int var0, int var1, int var2, int var3, int var4, int var5) {
-      if(var0 < anInt1093) {
-         var2 -= anInt1093 - var0;
-         var0 = anInt1093;
+   public static void fillRectangle(int x, int y, int width, int height, int rgb, int opacity) {
+      if(x < Toolkit.JAVA_TOOLKIT.clipLeft) {
+         width -= Toolkit.JAVA_TOOLKIT.clipLeft - x;
+         x = Toolkit.JAVA_TOOLKIT.clipLeft;
       }
 
-      if(var1 < anInt1095) {
-         var3 -= anInt1095 - var1;
-         var1 = anInt1095;
+      if(y < Toolkit.JAVA_TOOLKIT.clipTop) {
+         height -= Toolkit.JAVA_TOOLKIT.clipTop - y;
+         y = Toolkit.JAVA_TOOLKIT.clipTop;
       }
 
-      if(var0 + var2 > anInt1096) {
-         var2 = anInt1096 - var0;
+      if(x + width > Toolkit.JAVA_TOOLKIT.clipRight) {
+         width = Toolkit.JAVA_TOOLKIT.clipRight - x;
       }
 
-      if(var1 + var3 > anInt1099) {
-         var3 = anInt1099 - var1;
+      if(y + height > Toolkit.JAVA_TOOLKIT.clipBottom) {
+         height = Toolkit.JAVA_TOOLKIT.clipBottom - y;
       }
 
-      var4 = ((var4 & 16711935) * var5 >> 8 & 16711935) + ((var4 & '\uff00') * var5 >> 8 & '\uff00');
-      int var6 = 256 - var5;
-      int var7 = anInt1092 - var2;
-      int var8 = var0 + var1 * anInt1092;
+      rgb = ((rgb & 0xff00ff) * opacity >> 8 & 0xff00ff) + ((rgb & 0xff00) * opacity >> 8 & 0xff00);
+      int invertedOpacity = 256 - opacity;
+      int var7 = Toolkit.JAVA_TOOLKIT.width - width;
+      int var8 = x + y * Toolkit.JAVA_TOOLKIT.width;
 
-      for(int var9 = 0; var9 < var3; ++var9) {
-         for(int var10 = -var2; var10 < 0; ++var10) {
-            int var11 = anIntArray1100[var8];
-            var11 = ((var11 & 16711935) * var6 >> 8 & 16711935) + ((var11 & '\uff00') * var6 >> 8 & '\uff00');
-            anIntArray1100[var8++] = var4 + var11;
+      for(int lx = 0; lx < height; ++lx) {
+         for(int ly = -width; ly < 0; ++ly) {
+            int old = getBuffer()[var8];
+            old = ((old & 0xff00ff) * invertedOpacity >> 8 & 0xff00ff) + ((old & 0xff00) * invertedOpacity >> 8 & 0xff00);
+            getBuffer()[var8++] = rgb + old;
          }
 
          var8 += var7;
@@ -62,13 +65,13 @@ final class Class74 {
    }
 
    private static void method1313(int var0, int var1) {
-      if(var0 >= anInt1093 && var1 >= anInt1095 && var0 < anInt1096 && var1 < anInt1099) {
-         anIntArray1100[var0 + var1 * anInt1092] = 16776960;
+      if(var0 >= Toolkit.JAVA_TOOLKIT.clipLeft && var1 >= Toolkit.JAVA_TOOLKIT.clipTop && var0 < Toolkit.JAVA_TOOLKIT.clipRight && var1 < Toolkit.JAVA_TOOLKIT.clipBottom) {
+         getBuffer()[var0 + var1 * Toolkit.JAVA_TOOLKIT.width] = 16776960;
       }
    }
 
    static void method1314(int[] var0, int[] var1) {
-      if(var0.length == anInt1099 - anInt1095 && var1.length == anInt1099 - anInt1095) {
+      if(var0.length == Toolkit.JAVA_TOOLKIT.clipBottom - Toolkit.JAVA_TOOLKIT.clipTop && var1.length == Toolkit.JAVA_TOOLKIT.clipBottom - Toolkit.JAVA_TOOLKIT.clipTop) {
          anIntArray1097 = var0;
          anIntArray1098 = var1;
       } else {
@@ -86,103 +89,103 @@ final class Class74 {
 
    }
 
-   static void method1316(int[] var0) {
-      anInt1093 = var0[0];
-      anInt1095 = var0[1];
-      anInt1096 = var0[2];
-      anInt1099 = var0[3];
+   public static void setClipping(int[] var0) {
+      Toolkit.JAVA_TOOLKIT.clipLeft = var0[0];
+      Toolkit.JAVA_TOOLKIT.clipTop = var0[1];
+      Toolkit.JAVA_TOOLKIT.clipRight = var0[2];
+      Toolkit.JAVA_TOOLKIT.clipBottom = var0[3];
       method1310();
    }
 
-   static void method1317(int var0, int var1, int var2, int var3) {
-      if(var1 >= anInt1095 && var1 < anInt1099) {
-         if(var0 < anInt1093) {
-            var2 -= anInt1093 - var0;
-            var0 = anInt1093;
+   public static void drawHorizontalLine(int x, int y, int width, int rgb) {
+      if(y >= Toolkit.JAVA_TOOLKIT.clipTop && y < Toolkit.JAVA_TOOLKIT.clipBottom) {
+         if(x < Toolkit.JAVA_TOOLKIT.clipLeft) {
+            width -= Toolkit.JAVA_TOOLKIT.clipLeft - x;
+            x = Toolkit.JAVA_TOOLKIT.clipLeft;
          }
 
-         if(var0 + var2 > anInt1096) {
-            var2 = anInt1096 - var0;
+         if(x + width > Toolkit.JAVA_TOOLKIT.clipRight) {
+            width = Toolkit.JAVA_TOOLKIT.clipRight - x;
          }
 
-         int var4 = var0 + var1 * anInt1092;
+         int var4 = x + y * Toolkit.JAVA_TOOLKIT.width;
 
-         for(int var5 = 0; var5 < var2; ++var5) {
-            anIntArray1100[var4 + var5] = var3;
-         }
-
-      }
-   }
-
-   static void method1318(int var0, int var1, int var2, int var3) {
-      if(var0 >= anInt1093 && var0 < anInt1096) {
-         if(var1 < anInt1095) {
-            var2 -= anInt1095 - var1;
-            var1 = anInt1095;
-         }
-
-         if(var1 + var2 > anInt1099) {
-            var2 = anInt1099 - var1;
-         }
-
-         int var4 = var0 + var1 * anInt1092;
-
-         for(int var5 = 0; var5 < var2; ++var5) {
-            anIntArray1100[var4 + var5 * anInt1092] = var3;
+         for(int var5 = 0; var5 < width; ++var5) {
+            getBuffer()[var4 + var5] = rgb;
          }
 
       }
    }
 
-   static void method1319(int[] var0, int var1, int var2) {
-      anIntArray1100 = var0;
-      anInt1092 = var1;
-      anInt1094 = var2;
-      method1324(0, 0, var1, var2);
+   public static void drawVerticalLine(int x, int y, int h, int rgb) {
+      if(x >= Toolkit.JAVA_TOOLKIT.clipLeft && x < Toolkit.JAVA_TOOLKIT.clipRight) {
+         if(y < Toolkit.JAVA_TOOLKIT.clipTop) {
+            h -= Toolkit.JAVA_TOOLKIT.clipTop - y;
+            y = Toolkit.JAVA_TOOLKIT.clipTop;
+         }
+
+         if(y + h > Toolkit.JAVA_TOOLKIT.clipBottom) {
+            h = Toolkit.JAVA_TOOLKIT.clipBottom - y;
+         }
+
+         int var4 = x + y * Toolkit.JAVA_TOOLKIT.width;
+
+         for(int var5 = 0; var5 < h; ++var5) {
+            getBuffer()[var4 + var5 * Toolkit.JAVA_TOOLKIT.width] = rgb;
+         }
+
+      }
+   }
+
+   static void setBuffer(int[] buffer, int width, int height) {
+      Toolkit.JAVA_TOOLKIT.setBuffer(buffer);
+      Toolkit.JAVA_TOOLKIT.width = width;
+      Toolkit.JAVA_TOOLKIT.height = height;
+      setClipping(0, 0, width, height);
    }
 
    static void method1320() {
       int var0 = 0;
 
       int var1;
-      for(var1 = anInt1092 * anInt1094 - 7; var0 < var1; anIntArray1100[var0++] = 0) {
-         anIntArray1100[var0++] = 0;
-         anIntArray1100[var0++] = 0;
-         anIntArray1100[var0++] = 0;
-         anIntArray1100[var0++] = 0;
-         anIntArray1100[var0++] = 0;
-         anIntArray1100[var0++] = 0;
-         anIntArray1100[var0++] = 0;
+      for(var1 = Toolkit.JAVA_TOOLKIT.width * Toolkit.JAVA_TOOLKIT.height - 7; var0 < var1; getBuffer()[var0++] = 0) {
+         getBuffer()[var0++] = 0;
+         getBuffer()[var0++] = 0;
+         getBuffer()[var0++] = 0;
+         getBuffer()[var0++] = 0;
+         getBuffer()[var0++] = 0;
+         getBuffer()[var0++] = 0;
+         getBuffer()[var0++] = 0;
       }
 
-      for(var1 += 7; var0 < var1; anIntArray1100[var0++] = 0) {
+      for(var1 += 7; var0 < var1; getBuffer()[var0++] = 0) {
       }
 
    }
 
    private static void method1321(int var0, int var1, int var2, int var3, int var4) {
-      if(var1 >= anInt1095 && var1 < anInt1099) {
-         if(var0 < anInt1093) {
-            var2 -= anInt1093 - var0;
-            var0 = anInt1093;
+      if(var1 >= Toolkit.JAVA_TOOLKIT.clipTop && var1 < Toolkit.JAVA_TOOLKIT.clipBottom) {
+         if(var0 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+            var2 -= Toolkit.JAVA_TOOLKIT.clipLeft - var0;
+            var0 = Toolkit.JAVA_TOOLKIT.clipLeft;
          }
 
-         if(var0 + var2 > anInt1096) {
-            var2 = anInt1096 - var0;
+         if(var0 + var2 > Toolkit.JAVA_TOOLKIT.clipRight) {
+            var2 = Toolkit.JAVA_TOOLKIT.clipRight - var0;
          }
 
          int var5 = 256 - var4;
          int var6 = (var3 >> 16 & 255) * var4;
          int var7 = (var3 >> 8 & 255) * var4;
          int var8 = (var3 & 255) * var4;
-         int var12 = var0 + var1 * anInt1092;
+         int var12 = var0 + var1 * Toolkit.JAVA_TOOLKIT.width;
 
          for(int var13 = 0; var13 < var2; ++var13) {
-            int var9 = (anIntArray1100[var12] >> 16 & 255) * var5;
-            int var10 = (anIntArray1100[var12] >> 8 & 255) * var5;
-            int var11 = (anIntArray1100[var12] & 255) * var5;
+            int var9 = (getBuffer()[var12] >> 16 & 255) * var5;
+            int var10 = (getBuffer()[var12] >> 8 & 255) * var5;
+            int var11 = (getBuffer()[var12] & 255) * var5;
             int var14 = (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8) + (var8 + var11 >> 8);
-            anIntArray1100[var12++] = var14;
+            getBuffer()[var12++] = var14;
          }
 
       }
@@ -229,30 +232,30 @@ final class Class74 {
    }
 
    static void method1323(int var0, int var1, int var2, int var3, int var4) {
-      if(var0 < anInt1093) {
-         var2 -= anInt1093 - var0;
-         var0 = anInt1093;
+      if(var0 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+         var2 -= Toolkit.JAVA_TOOLKIT.clipLeft - var0;
+         var0 = Toolkit.JAVA_TOOLKIT.clipLeft;
       }
 
-      if(var1 < anInt1095) {
-         var3 -= anInt1095 - var1;
-         var1 = anInt1095;
+      if(var1 < Toolkit.JAVA_TOOLKIT.clipTop) {
+         var3 -= Toolkit.JAVA_TOOLKIT.clipTop - var1;
+         var1 = Toolkit.JAVA_TOOLKIT.clipTop;
       }
 
-      if(var0 + var2 > anInt1096) {
-         var2 = anInt1096 - var0;
+      if(var0 + var2 > Toolkit.JAVA_TOOLKIT.clipRight) {
+         var2 = Toolkit.JAVA_TOOLKIT.clipRight - var0;
       }
 
-      if(var1 + var3 > anInt1099) {
-         var3 = anInt1099 - var1;
+      if(var1 + var3 > Toolkit.JAVA_TOOLKIT.clipBottom) {
+         var3 = Toolkit.JAVA_TOOLKIT.clipBottom - var1;
       }
 
-      int var5 = anInt1092 - var2;
-      int var6 = var0 + var1 * anInt1092;
+      int var5 = Toolkit.JAVA_TOOLKIT.width - var2;
+      int var6 = var0 + var1 * Toolkit.JAVA_TOOLKIT.width;
 
       for(int var7 = -var3; var7 < 0; ++var7) {
          for(int var8 = -var2; var8 < 0; ++var8) {
-            anIntArray1100[var6++] = var4;
+            getBuffer()[var6++] = var4;
          }
 
          var6 += var5;
@@ -260,81 +263,81 @@ final class Class74 {
 
    }
 
-   static void method1324(int var0, int var1, int var2, int var3) {
-      if(var0 < 0) {
-         var0 = 0;
+   public static void setClipping(int left, int top, int right, int bottom) {
+      if(left < 0) {
+         left = 0;
       }
 
-      if(var1 < 0) {
-         var1 = 0;
+      if(top < 0) {
+         top = 0;
       }
 
-      if(var2 > anInt1092) {
-         var2 = anInt1092;
+      if(right > Toolkit.JAVA_TOOLKIT.width) {
+         right = Toolkit.JAVA_TOOLKIT.width;
       }
 
-      if(var3 > anInt1094) {
-         var3 = anInt1094;
+      if(bottom > Toolkit.JAVA_TOOLKIT.height) {
+         bottom = Toolkit.JAVA_TOOLKIT.height;
       }
 
-      anInt1093 = var0;
-      anInt1095 = var1;
-      anInt1096 = var2;
-      anInt1099 = var3;
+      Toolkit.JAVA_TOOLKIT.clipLeft = left;
+      Toolkit.JAVA_TOOLKIT.clipTop = top;
+      Toolkit.JAVA_TOOLKIT.clipRight = right;
+      Toolkit.JAVA_TOOLKIT.clipBottom = bottom;
       method1310();
    }
 
    static void method1325(int[] var0) {
-      var0[0] = anInt1093;
-      var0[1] = anInt1095;
-      var0[2] = anInt1096;
-      var0[3] = anInt1099;
+      var0[0] = Toolkit.JAVA_TOOLKIT.clipLeft;
+      var0[1] = Toolkit.JAVA_TOOLKIT.clipTop;
+      var0[2] = Toolkit.JAVA_TOOLKIT.clipRight;
+      var0[3] = Toolkit.JAVA_TOOLKIT.clipBottom;
    }
 
    static void method1326(int var0, int var1, int var2, int var3) {
-      if(anInt1093 < var0) {
-         anInt1093 = var0;
+      if(Toolkit.JAVA_TOOLKIT.clipLeft < var0) {
+         Toolkit.JAVA_TOOLKIT.clipLeft = var0;
       }
 
-      if(anInt1095 < var1) {
-         anInt1095 = var1;
+      if(Toolkit.JAVA_TOOLKIT.clipTop < var1) {
+         Toolkit.JAVA_TOOLKIT.clipTop = var1;
       }
 
-      if(anInt1096 > var2) {
-         anInt1096 = var2;
+      if(Toolkit.JAVA_TOOLKIT.clipRight > var2) {
+         Toolkit.JAVA_TOOLKIT.clipRight = var2;
       }
 
-      if(anInt1099 > var3) {
-         anInt1099 = var3;
+      if(Toolkit.JAVA_TOOLKIT.clipBottom > var3) {
+         Toolkit.JAVA_TOOLKIT.clipBottom = var3;
       }
 
       method1310();
    }
 
    private static void method1327(int var0, int var1, int var2, int var3, int var4) {
-      if(var0 >= anInt1093 && var0 < anInt1096) {
-         if(var1 < anInt1095) {
-            var2 -= anInt1095 - var1;
-            var1 = anInt1095;
+      if(var0 >= Toolkit.JAVA_TOOLKIT.clipLeft && var0 < Toolkit.JAVA_TOOLKIT.clipRight) {
+         if(var1 < Toolkit.JAVA_TOOLKIT.clipTop) {
+            var2 -= Toolkit.JAVA_TOOLKIT.clipTop - var1;
+            var1 = Toolkit.JAVA_TOOLKIT.clipTop;
          }
 
-         if(var1 + var2 > anInt1099) {
-            var2 = anInt1099 - var1;
+         if(var1 + var2 > Toolkit.JAVA_TOOLKIT.clipBottom) {
+            var2 = Toolkit.JAVA_TOOLKIT.clipBottom - var1;
          }
 
          int var5 = 256 - var4;
          int var6 = (var3 >> 16 & 255) * var4;
          int var7 = (var3 >> 8 & 255) * var4;
          int var8 = (var3 & 255) * var4;
-         int var12 = var0 + var1 * anInt1092;
+         int var12 = var0 + var1 * Toolkit.JAVA_TOOLKIT.width;
 
          for(int var13 = 0; var13 < var2; ++var13) {
-            int var9 = (anIntArray1100[var12] >> 16 & 255) * var5;
-            int var10 = (anIntArray1100[var12] >> 8 & 255) * var5;
-            int var11 = (anIntArray1100[var12] & 255) * var5;
+            int var9 = (getBuffer()[var12] >> 16 & 255) * var5;
+            int var10 = (getBuffer()[var12] >> 8 & 255) * var5;
+            int var11 = (getBuffer()[var12] & 255) * var5;
             int var14 = (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8) + (var8 + var11 >> 8);
-            anIntArray1100[var12] = var14;
-            var12 += anInt1092;
+            getBuffer()[var12] = var14;
+            var12 += Toolkit.JAVA_TOOLKIT.width;
          }
 
       }
@@ -345,16 +348,16 @@ final class Class74 {
       var3 -= var1;
       if(var3 == 0) {
          if(var2 >= 0) {
-            method1317(var0, var1, var2 + 1, var4);
+            drawHorizontalLine(var0, var1, var2 + 1, var4);
          } else {
-            method1317(var0 + var2, var1, -var2 + 1, var4);
+            drawHorizontalLine(var0 + var2, var1, -var2 + 1, var4);
          }
 
       } else if(var2 == 0) {
          if(var3 >= 0) {
-            method1318(var0, var1, var3 + 1, var4);
+            drawVerticalLine(var0, var1, var3 + 1, var4);
          } else {
-            method1318(var0, var1 + var3, -var3 + 1, var4);
+            drawVerticalLine(var0, var1 + var3, -var3 + 1, var4);
          }
 
       } else {
@@ -373,19 +376,19 @@ final class Class74 {
             var3 <<= 16;
             var5 = (int)Math.floor((double)var3 / (double)var2 + 0.5D);
             var2 += var0;
-            if(var0 < anInt1093) {
-               var1 += var5 * (anInt1093 - var0);
-               var0 = anInt1093;
+            if(var0 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+               var1 += var5 * (Toolkit.JAVA_TOOLKIT.clipLeft - var0);
+               var0 = Toolkit.JAVA_TOOLKIT.clipLeft;
             }
 
-            if(var2 >= anInt1096) {
-               var2 = anInt1096 - 1;
+            if(var2 >= Toolkit.JAVA_TOOLKIT.clipRight) {
+               var2 = Toolkit.JAVA_TOOLKIT.clipRight - 1;
             }
 
             while(var0 <= var2) {
                var6 = var1 >> 16;
-               if(var6 >= anInt1095 && var6 < anInt1099) {
-                  anIntArray1100[var0 + var6 * anInt1092] = var4;
+               if(var6 >= Toolkit.JAVA_TOOLKIT.clipTop && var6 < Toolkit.JAVA_TOOLKIT.clipBottom) {
+                  getBuffer()[var0 + var6 * Toolkit.JAVA_TOOLKIT.width] = var4;
                }
 
                var1 += var5;
@@ -397,19 +400,19 @@ final class Class74 {
             var2 <<= 16;
             var5 = (int)Math.floor((double)var2 / (double)var3 + 0.5D);
             var3 += var1;
-            if(var1 < anInt1095) {
-               var0 += var5 * (anInt1095 - var1);
-               var1 = anInt1095;
+            if(var1 < Toolkit.JAVA_TOOLKIT.clipTop) {
+               var0 += var5 * (Toolkit.JAVA_TOOLKIT.clipTop - var1);
+               var1 = Toolkit.JAVA_TOOLKIT.clipTop;
             }
 
-            if(var3 >= anInt1099) {
-               var3 = anInt1099 - 1;
+            if(var3 >= Toolkit.JAVA_TOOLKIT.clipBottom) {
+               var3 = Toolkit.JAVA_TOOLKIT.clipBottom - 1;
             }
 
             while(var1 <= var3) {
                var6 = var0 >> 16;
-               if(var6 >= anInt1093 && var6 < anInt1096) {
-                  anIntArray1100[var6 + var1 * anInt1092] = var4;
+               if(var6 >= Toolkit.JAVA_TOOLKIT.clipLeft && var6 < Toolkit.JAVA_TOOLKIT.clipRight) {
+                  getBuffer()[var6 + var1 * Toolkit.JAVA_TOOLKIT.width] = var4;
                }
 
                var0 += var5;
@@ -429,13 +432,13 @@ final class Class74 {
          }
 
          int var4 = var1 - var2;
-         if(var4 < anInt1095) {
-            var4 = anInt1095;
+         if(var4 < Toolkit.JAVA_TOOLKIT.clipTop) {
+            var4 = Toolkit.JAVA_TOOLKIT.clipTop;
          }
 
          int var5 = var1 + var2 + 1;
-         if(var5 > anInt1099) {
-            var5 = anInt1099;
+         if(var5 > Toolkit.JAVA_TOOLKIT.clipBottom) {
+            var5 = Toolkit.JAVA_TOOLKIT.clipBottom;
          }
 
          int var6 = var4;
@@ -459,19 +462,19 @@ final class Class74 {
             }
 
             var12 = var0 - var8 + 1;
-            if(var12 < anInt1093) {
-               var12 = anInt1093;
+            if(var12 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+               var12 = Toolkit.JAVA_TOOLKIT.clipLeft;
             }
 
             var13 = var0 + var8;
-            if(var13 > anInt1096) {
-               var13 = anInt1096;
+            if(var13 > Toolkit.JAVA_TOOLKIT.clipRight) {
+               var13 = Toolkit.JAVA_TOOLKIT.clipRight;
             }
 
-            var14 = var12 + var6 * anInt1092;
+            var14 = var12 + var6 * Toolkit.JAVA_TOOLKIT.width;
 
             for(var15 = var12; var15 < var13; ++var15) {
-               anIntArray1100[var14++] = 16776960;
+               getBuffer()[var14++] = 16776960;
             }
 
             ++var6;
@@ -491,19 +494,19 @@ final class Class74 {
             }
 
             var12 = var0 - var8;
-            if(var12 < anInt1093) {
-               var12 = anInt1093;
+            if(var12 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+               var12 = Toolkit.JAVA_TOOLKIT.clipLeft;
             }
 
             var13 = var0 + var8;
-            if(var13 > anInt1096 - 1) {
-               var13 = anInt1096 - 1;
+            if(var13 > Toolkit.JAVA_TOOLKIT.clipRight - 1) {
+               var13 = Toolkit.JAVA_TOOLKIT.clipRight - 1;
             }
 
-            var14 = var12 + var6 * anInt1092;
+            var14 = var12 + var6 * Toolkit.JAVA_TOOLKIT.width;
 
             for(var15 = var12; var15 <= var13; ++var15) {
-               anIntArray1100[var14++] = 16776960;
+               getBuffer()[var14++] = 16776960;
             }
 
             ++var6;
@@ -527,13 +530,13 @@ final class Class74 {
             int var7 = (16776960 >> 8 & 255) * var4;
             int var8 = 0;
             int var12 = var1 - var2;
-            if(var12 < anInt1095) {
-               var12 = anInt1095;
+            if(var12 < Toolkit.JAVA_TOOLKIT.clipTop) {
+               var12 = Toolkit.JAVA_TOOLKIT.clipTop;
             }
 
             int var13 = var1 + var2 + 1;
-            if(var13 > anInt1099) {
-               var13 = anInt1099;
+            if(var13 > Toolkit.JAVA_TOOLKIT.clipBottom) {
+               var13 = Toolkit.JAVA_TOOLKIT.clipBottom;
             }
 
             int var14 = var12;
@@ -561,23 +564,23 @@ final class Class74 {
                }
 
                var20 = var0 - var16 + 1;
-               if(var20 < anInt1093) {
-                  var20 = anInt1093;
+               if(var20 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+                  var20 = Toolkit.JAVA_TOOLKIT.clipLeft;
                }
 
                var21 = var0 + var16;
-               if(var21 > anInt1096) {
-                  var21 = anInt1096;
+               if(var21 > Toolkit.JAVA_TOOLKIT.clipRight) {
+                  var21 = Toolkit.JAVA_TOOLKIT.clipRight;
                }
 
-               var22 = var20 + var14 * anInt1092;
+               var22 = var20 + var14 * Toolkit.JAVA_TOOLKIT.width;
 
                for(var23 = var20; var23 < var21; ++var23) {
-                  var9 = (anIntArray1100[var22] >> 16 & 255) * var5;
-                  var10 = (anIntArray1100[var22] >> 8 & 255) * var5;
-                  var11 = (anIntArray1100[var22] & 255) * var5;
+                  var9 = (getBuffer()[var22] >> 16 & 255) * var5;
+                  var10 = (getBuffer()[var22] >> 8 & 255) * var5;
+                  var11 = (getBuffer()[var22] & 255) * var5;
                   var24 = (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8) + (var8 + var11 >> 8);
-                  anIntArray1100[var22++] = var24;
+                  getBuffer()[var22++] = var24;
                }
 
                ++var14;
@@ -597,23 +600,23 @@ final class Class74 {
                }
 
                var20 = var0 - var16;
-               if(var20 < anInt1093) {
-                  var20 = anInt1093;
+               if(var20 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+                  var20 = Toolkit.JAVA_TOOLKIT.clipLeft;
                }
 
                var21 = var0 + var16;
-               if(var21 > anInt1096 - 1) {
-                  var21 = anInt1096 - 1;
+               if(var21 > Toolkit.JAVA_TOOLKIT.clipRight - 1) {
+                  var21 = Toolkit.JAVA_TOOLKIT.clipRight - 1;
                }
 
-               var22 = var20 + var14 * anInt1092;
+               var22 = var20 + var14 * Toolkit.JAVA_TOOLKIT.width;
 
                for(var23 = var20; var23 <= var21; ++var23) {
-                  var9 = (anIntArray1100[var22] >> 16 & 255) * var5;
-                  var10 = (anIntArray1100[var22] >> 8 & 255) * var5;
-                  var11 = (anIntArray1100[var22] & 255) * var5;
+                  var9 = (getBuffer()[var22] >> 16 & 255) * var5;
+                  var10 = (getBuffer()[var22] >> 8 & 255) * var5;
+                  var11 = (getBuffer()[var22] & 255) * var5;
                   var24 = (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8) + (var8 + var11 >> 8);
-                  anIntArray1100[var22++] = var24;
+                  getBuffer()[var22++] = var24;
                }
 
                ++var14;
@@ -624,33 +627,27 @@ final class Class74 {
       }
    }
 
-   static void method1331() {
-      anInt1093 = 0;
-      anInt1095 = 0;
-      anInt1096 = anInt1092;
-      anInt1099 = anInt1094;
+   public static void resetClipping() {
+      Toolkit.JAVA_TOOLKIT.clipLeft = 0;
+      Toolkit.JAVA_TOOLKIT.clipTop = 0;
+      Toolkit.JAVA_TOOLKIT.clipRight = Toolkit.JAVA_TOOLKIT.width;
+      Toolkit.JAVA_TOOLKIT.clipBottom = Toolkit.JAVA_TOOLKIT.height;
       method1310();
    }
 
    static void method1332(int var0, int var1, int[] var3, int[] var4) {
-      int var5 = var0 + var1 * anInt1092;
+      int var5 = var0 + var1 * Toolkit.JAVA_TOOLKIT.width;
 
       for(var1 = 0; var1 < var3.length; ++var1) {
          int var6 = var5 + var3[var1];
 
          for(var0 = -var4[var1]; var0 < 0; ++var0) {
-            anIntArray1100[var6++] = 0;
+            getBuffer()[var6++] = 0;
          }
 
-         var5 += anInt1092;
+         var5 += Toolkit.JAVA_TOOLKIT.width;
       }
 
-   }
-
-   public static void method1333() {
-      anIntArray1100 = null;
-      anIntArray1097 = null;
-      anIntArray1098 = null;
    }
 
 }

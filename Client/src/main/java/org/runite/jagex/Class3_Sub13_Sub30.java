@@ -63,23 +63,23 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
 
                   RSString levelEquals = Class158.anInt2014 != 1?TextCore.HasLevel:TextCore.HasRating;
                   if(playerUsername.COMBAT_LEVEL < playerUsername.combatLevel) {
-                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-73, Class102.player.COMBAT_LEVEL) : ColorCore.ContextColor , Class72.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), Class40.aClass94_673, Class72.method1298((byte)9, playerUsername.combatLevel + -playerUsername.COMBAT_LEVEL), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-127);
+                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-73, Class102.player.COMBAT_LEVEL) : ColorCore.ContextColor , TextCore.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), TextCore.aClass94_673, Class72.method1298((byte)9, playerUsername.combatLevel + -playerUsername.COMBAT_LEVEL), TextCore.RIGHT_PARENTHESES});
                   } else {
                 	 //here
-                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-128, Class102.player.COMBAT_LEVEL) : getProperColor(playerUsername.COMBAT_LEVEL, Class102.player.COMBAT_LEVEL), Class72.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-70);
+                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-128, Class102.player.COMBAT_LEVEL) : getProperColor(playerUsername.COMBAT_LEVEL, Class102.player.COMBAT_LEVEL), TextCore.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), TextCore.RIGHT_PARENTHESES});
                   }
                } else {
-                  var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), Class72.LEFT_PARENTHESES, TextCore.HasSkill, Class72.method1298((byte)9, playerUsername.anInt3974), Class3_Sub9.RIGHT_PARENTHESES}, (byte)-119);
+                  var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), TextCore.LEFT_PARENTHESES, TextCore.HasSkill, Class72.method1298((byte)9, playerUsername.anInt3974), TextCore.RIGHT_PARENTHESES});
                }
 
                int var12;
                if(Class164_Sub1.anInt3012 == 1) {
-                  Class3_Sub24_Sub4.method1177(Class99.anInt1403, (long)var0, (byte)-80, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, Class56.aClass94_892, var5}, (byte)-125), var4, (short)1, TextCore.HasUse, var2);
+                  Class3_Sub24_Sub4.method1177(Class99.anInt1403, (long)var0, (byte)-80, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, TextCore.aClass94_892, var5}), var4, (short)1, TextCore.HasUse, var2);
                } else if(!GameObject.aBoolean1837) {
                   for(var12 = 7; var12 >= 0; --var12) {
                      if(null != Class91.aClass94Array1299[var12]) {
                         short var14 = 0;
-                        if(Class158.anInt2014 == 0 && Class91.aClass94Array1299[var12].equals(-123, TextCore.HasAttack)) {
+                        if(Class158.anInt2014 == 0 && Class91.aClass94Array1299[var12].equalsStringIgnoreCase(TextCore.HasAttack)) {
                          //If other player level greater than my level, then right click to attack.
                            if(playerUsername.COMBAT_LEVEL > Class102.player.COMBAT_LEVEL && !Properties.get().isInstantAttack()) {
                               var14 = 2000;//Var for right click higher level players
@@ -97,11 +97,11 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
 
                         short var15 = Class7.aShortArray2167[var12];
                         var15 += var14;
-                        Class3_Sub24_Sub4.method1177(Class3_Sub13_Sub26.anIntArray3328[var12], (long)var0, (byte)-73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ContextColor , var5}, (byte)-78), var4, var15, Class91.aClass94Array1299[var12], var2);
+                        Class3_Sub24_Sub4.method1177(Class3_Sub13_Sub26.anIntArray3328[var12], (long)var0, (byte)-73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ContextColor , var5}), var4, var15, Class91.aClass94Array1299[var12], var2);
                      }
                   }
                } else if((8 & Class164.anInt2051) != 0) {
-                  Class3_Sub24_Sub4.method1177(Class144.anInt1887, (long)var0, (byte)-58, RenderAnimationDefinition.method903(new RSString[]{Class40.aClass94_676, Class56.aClass94_892, var5}, (byte)-116), var4, (short)15, Class3_Sub28_Sub9.aClass94_3621, var2);
+                  Class3_Sub24_Sub4.method1177(Unsorted.anInt1887, (long)var0, (byte)-58, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_676, TextCore.aClass94_892, var5}), var4, (short)15, Class3_Sub28_Sub9.aClass94_3621, var2);
                }
 
                if(var1 <= 0) {
@@ -110,7 +110,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
 
                for(var12 = 0; var12 < Class3_Sub13_Sub34.anInt3415; ++var12) {
                   if(Class3_Sub13_Sub7.aShortArray3095[var12] == 60) {
-                     Class163_Sub2_Sub1.aClass94Array4016[var12] = RenderAnimationDefinition.method903(new RSString[]{ColorCore.ContextColor , var5}, (byte)-75);
+                     Class163_Sub2_Sub1.aClass94Array4016[var12] = RenderAnimationDefinition.method903(new RSString[]{ColorCore.ContextColor , var5});
                      break;
                   }
                }
@@ -142,7 +142,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
          Class3_Sub13_Sub29.method304();
          Class40.method1045();
          Class3_Sub13_Sub3.method183();
-         Class3_Sub29.method727();
+         LinkableRSString.method727();
          Class3_Sub21.method397((byte)-41);
          if(Class3_Sub13_Sub13.anInt3148 != 0) {
             for(int var1 = 0; var1 < Class3_Sub6.aByteArrayArray2287.length; ++var1) {
@@ -154,24 +154,24 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
 
          Class108.method1659();
          Class3_Sub10.method142();
-         Class80.aClass93_1135.method1524();
+         Unsorted.aReferenceCache_1135.clear();
          if(!HDToolKit.highDetail) {
             ((Class102)Class51.anInterface2_838).method1618();
          }
 
-         Class56.aClass47_885.method1101();
-         Class75_Sub3.aClass153_2660.method2137((byte)56);
-         Class3_Sub28_Sub19.aClass153_3772.method2137((byte)56);
-         Class140_Sub3.aClass153_2727.method2137((byte)56);
-         Class146.aClass153_1902.method2137((byte)56);
-         Class3_Sub13_Sub6.aClass153_3077.method2137((byte)56);
-         Class75_Sub2.aClass153_2645.method2137((byte)56);
-         Class159.aClass153_2019.method2137((byte)56);
-         Class140_Sub6.spritesCacheIndex.method2137((byte)56);
-         Class3_Sub13_Sub25.aClass153_3304.method2137((byte)56);
-         Node.aClass153_2573.method2137((byte)56);
-         Class3_Sub1.interfaceScriptsIndex.method2137((byte)56);
-         Class3_Sub13_Sub11.aClass93_3130.method1524();
+         Class56.aClass47_885.clear();
+         CacheIndex.skeletonsIndex.method2137();
+         CacheIndex.skinsIndex.method2137();
+         CacheIndex.interfacesIndex.method2137();
+         CacheIndex.soundFXIndex.method2137();
+         CacheIndex.landscapesIndex.method2137();
+         CacheIndex.musicIndex.method2137();
+         CacheIndex.modelsIndex.method2137();
+         CacheIndex.spritesIndex.method2137();
+         CacheIndex.huffmanEncodingIndex.method2137();
+         CacheIndex.music2Index.method2137();
+         CacheIndex.interfaceScriptsIndex.method2137();
+         Class3_Sub13_Sub11.aReferenceCache_3130.clear();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "rj.E(" + var0 + ')');
       }
@@ -195,17 +195,6 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
       super(0, true);
    }
 
-   public static void method315(int var0) {
-      try {
-         aClass61_3364 = null;
-         anIntArray3367 = null;
-         if(var0 != -15028) {
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "rj.B(" + var0 + ')');
-      }
-   }
-
    final int[] method154(int var1, byte var2) {
       try {
          int[] var3 = this.aClass114_2382.method1709(var1);
@@ -226,10 +215,10 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
    static void parseObjectMapping(Class91[] var0, int var1, byte[] var2, int var3, int var4, int var5, int var6, boolean var7, int var8, int var9) {
       try {
          int var12 = -1;
-         RSByteBuffer var11 = new RSByteBuffer(var2);
+         DataBuffer var11 = new DataBuffer(var2);
 
          while(true) {
-            int var13 = var11.method773((byte)-127);
+            int var13 = var11.method773();
             if(var13 == 0) {
                return;
             }
@@ -247,7 +236,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                int var16 = 63 & var14;
                int var17 = var14 >> 6 & 63;
                int var18 = var14 >> 12;
-               int var19 = var11.getByteB();
+               int var19 = var11.readUnsignedByte();
                int var20 = var19 >> 2;
                int var21 = 3 & var19;
                if(var18 == var3 && var8 <= var17 && var17 < 8 + var8 && var9 <= var16 && 8 + var9 > var16) {
@@ -258,7 +247,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                      Class91 var25 = null;
                      if(!var7) {
                         int var26 = var1;
-                        if(2 == (Class9.aByteArrayArrayArray113[1][var23][var24] & 2)) {
+                        if(2 == (Unsorted.aByteArrayArrayArray113[1][var23][var24] & 2)) {
                            var26 = var1 - 1;
                         }
 

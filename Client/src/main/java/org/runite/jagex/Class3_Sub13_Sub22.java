@@ -1,10 +1,11 @@
 package org.runite.jagex;
 
-final class Class3_Sub13_Sub22 extends Class3_Sub13 {
+import org.rs09.client.util.ArrayUtils;
 
-   static RSString aClass94_3268 = RSString.createRSString(")1");
+public final class Class3_Sub13_Sub22 extends Class3_Sub13 {
+
    static Player[] players = new Player[2048];
-   static AbstractIndexedSprite[] aClass109Array3270;
+   public static AbstractIndexedSprite[] aClass109Array3270;
    static long[] aLongArray3271 = new long[500];
    static boolean[] aBooleanArray3272;
    static Class61[][][] aClass61ArrayArrayArray3273 = new Class61[4][104][104];
@@ -23,14 +24,14 @@ final class Class3_Sub13_Sub22 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
             this.method154(121, (byte)52);
          }
 
          if(var1 == 0) {
-            this.anInt3276 = (var2.getByteB() << 12) / 255;
+            this.anInt3276 = (var2.readUnsignedByte() << 12) / 255;
          }
 
       } catch (RuntimeException var5) {
@@ -67,7 +68,7 @@ final class Class3_Sub13_Sub22 extends Class3_Sub13 {
                            var12.anInt1891 = 1;
                            var12.anInt1897 = 0;
                            var12.anInt1900 = var8;
-                           IOHandler.method1470(var2.anInt2829, var10, 183921384, var2.anInt2819, false, 0);
+                           Unsorted.method1470(var2.anInt2829, var10, 183921384, var2.anInt2819, false, 0);
                         } else if(var11 == 2) {
                            var12.anInt1894 = 0;
                         }
@@ -81,7 +82,7 @@ final class Class3_Sub13_Sub22 extends Class3_Sub13 {
                         var12.animationId = var6;
                         var12.anInt1894 = 0;
                         var12.anInt1893 = 0;
-                        IOHandler.method1470(var2.anInt2829, var10, 183921384, var2.anInt2819, false, 0);
+                        Unsorted.method1470(var2.anInt2829, var10, 183921384, var2.anInt2819, false, 0);
                      }
                   }
                }
@@ -101,29 +102,12 @@ final class Class3_Sub13_Sub22 extends Class3_Sub13 {
       try {
          int[] var4 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
-            Class76.method1359(var4, 0, Class113.anInt1559, this.anInt3276);
+            ArrayUtils.fill(var4, 0, Class113.anInt1559, this.anInt3276);
          }
 
          return var4;
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "mi.D(" + var1 + ',' + var2 + ')');
-      }
-   }
-
-   public static void method274(int var0) {
-      try {
-         players = null;
-         if(var0 != -2) {
-            aClass94_3268 = (RSString)null;
-         }
-
-         aClass94_3268 = null;
-         aBooleanArray3272 = null;
-         aClass109Array3270 = null;
-         aLongArray3271 = null;
-         aClass61ArrayArrayArray3273 = (Class61[][][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "mi.C(" + var0 + ')');
       }
    }
 

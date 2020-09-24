@@ -1,17 +1,18 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.ReferenceCache;
+
 import java.util.Objects;
 
 final class Class82 {
 
    private final int[] anIntArray1144;
    private final Class3_Sub13 aClass3_Sub13_1145;
-   static Class93 aClass93_1146 = new Class93(64);
+   static ReferenceCache aReferenceCache_1146 = new ReferenceCache(64);
    private final Class3_Sub13[] aClass3_Sub13Array1147;
    private final Class3_Sub13 aClass3_Sub13_1148;
    private final int[] anIntArray1149;
    static int anInt1150 = -1;
-   static RSString aClass94_1151 = RSString.createRSString("settings=");
    static int anInt1152;
 
 
@@ -129,7 +130,7 @@ final class Class82 {
             } else if(var7 < Class159.localPlayerCount) {
                var8 = Class3_Sub13_Sub22.players[Class56.localPlayerIndexes[var7]];
             } else {
-               var8 = Class3_Sub13_Sub24.npcs[Class15.localNPCIndexes[-Class159.localPlayerCount + var7]];
+               var8 = NPC.npcs[Class15.localNPCIndexes[-Class159.localPlayerCount + var7]];
             }
 
             if(null != var8 && ((Class140_Sub4)var8).hasDefinitions()) {
@@ -231,15 +232,15 @@ final class Class82 {
                }
 
                if(Class44.anInt719 < ((Class140_Sub4) var8).anInt2781) {
-                  Class3_Sub28_Sub16 var23 = Class66.aClass3_Sub28_Sub16Array996[0];
-                  Class3_Sub28_Sub16 var25 = Class66.aClass3_Sub28_Sub16Array996[1];
+                  Class3_Sub28_Sub16 var23 = Unsorted.aClass3_Sub28_Sub16Array996[0];
+                  Class3_Sub28_Sub16 var25 = Unsorted.aClass3_Sub28_Sub16Array996[1];
                   if(var8 instanceof NPC) {
                      NPC var28 = (NPC)var8;
-                     Class3_Sub28_Sub16[] var31 = (Class3_Sub28_Sub16[])((Class3_Sub28_Sub16[])Class3_Sub13_Sub11.aClass93_3130.get((long)var28.definition.anInt1279));
+                     Class3_Sub28_Sub16[] var31 = (Class3_Sub28_Sub16[])((Class3_Sub28_Sub16[])Class3_Sub13_Sub11.aReferenceCache_3130.get((long)var28.definition.anInt1279));
                      if(var31 == null) {
-                        var31 = Class140_Sub6.getSprites(var28.definition.anInt1279, Class140_Sub6.spritesCacheIndex);
+                        var31 = Class140_Sub6.getSprites(var28.definition.anInt1279, CacheIndex.spritesIndex);
                         if(null != var31) {
-                           Class3_Sub13_Sub11.aClass93_3130.put((byte)-98, var31, (long)var28.definition.anInt1279);
+                           Class3_Sub13_Sub11.aReferenceCache_3130.put(var31, (long)var28.definition.anInt1279);
                         }
                      }
 
@@ -273,9 +274,9 @@ final class Class82 {
 
                      var25.method643(var12, var29);
                      if(HDToolKit.highDetail) {
-                        Class22.method935(var2, var0, var1 + var2, var0 - -var4);
+                        Class22.setClipping(var2, var0, var1 + var2, var0 - -var4);
                      } else {
-                        Class74.method1324(var2, var0, var1 + var2, var4 + var0);
+                        Class74.setClipping(var2, var0, var1 + var2, var4 + var0);
                      }
                   }
                }
@@ -344,7 +345,7 @@ final class Class82 {
             Class32.anInt590 = Class3_Sub13_Sub26.anIntArray3319[var7];
             Class3_Sub1.anInt2208 = Class3_Sub13_Sub26.anIntArray3337[var7] = var19;
             RSString var33 = Class3_Sub13_Sub26.aClass94Array3317[var7];
-            if(Class41.anInt688 == 0) {
+            if(Unsorted.anInt688 == 0) {
                var32 = 16776960;
                if(Class3_Sub13_Sub26.anIntArray3331[var7] < 6) {
                   var32 = Class3_Sub1.anIntArray2213[Class3_Sub13_Sub26.anIntArray3331[var7]];
@@ -431,9 +432,9 @@ final class Class82 {
 
                   Class168.aClass3_Sub28_Sub17_2096.method681(var33, var2 - (-Class32.anInt590 + -50) + -var15, var0 + Class3_Sub1.anInt2208, var32, 0);
                   if(HDToolKit.highDetail) {
-                     Class22.method935(var2, var0, var1 + var2, var4 + var0);
+                     Class22.setClipping(var2, var0, var1 + var2, var4 + var0);
                   } else {
-                     Class74.method1324(var2, var0, var2 - -var1, var0 + var4);
+                     Class74.setClipping(var2, var0, var2 - -var1, var0 + var4);
                   }
                }
 
@@ -454,9 +455,9 @@ final class Class82 {
 
                   Class168.aClass3_Sub28_Sub17_2096.method699(var33, Class32.anInt590 + var2, var16 + var0 + Class3_Sub1.anInt2208, var32, 0);
                   if(HDToolKit.highDetail) {
-                     Class22.method935(var2, var0, var2 - -var1, var0 + var4);
+                     Class22.setClipping(var2, var0, var2 - -var1, var0 + var4);
                   } else {
-                     Class74.method1324(var2, var0, var2 + var1, var0 + var4);
+                     Class74.setClipping(var2, var0, var2 + var1, var0 + var4);
                   }
                }
             } else {
@@ -471,7 +472,7 @@ final class Class82 {
 
    static int method1406() {
       try {
-         return Class3_Sub28_Sub7_Sub1.anInt4045;
+         return Unsorted.anInt4045;
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "lc.E(" + (byte) -43 + ')');
       }
@@ -616,12 +617,12 @@ final class Class82 {
 
    public static void method1409(boolean var0) {
       try {
-         aClass93_1146 = null;
+         aReferenceCache_1146 = null;
          if(var0) {
-            aClass94_1151 = (RSString)null;
+            TextCore.aClass94_1151 = (RSString)null;
          }
 
-         aClass94_1151 = null;
+         TextCore.aClass94_1151 = null;
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "lc.A(" + var0 + ')');
       }
@@ -641,9 +642,9 @@ final class Class82 {
       }
    }
 
-   Class82(RSByteBuffer var1) {
+   Class82(DataBuffer var1) {
       try {
-         int var2 = var1.getByteB();
+         int var2 = var1.readUnsignedByte();
          this.aClass3_Sub13Array1147 = new Class3_Sub13[var2];
          int[][] var5 = new int[var2][];
          int var4 = 0;
@@ -654,7 +655,7 @@ final class Class82 {
          int var8;
          int var9;
          for(var6 = 0; var2 > var6; ++var6) {
-            var7 = InputStream_Sub1.method63(var1);
+            var7 = Unsorted.method63(var1);
             if(0 <= var7.method159(4)) {
                ++var3;
             }
@@ -667,7 +668,7 @@ final class Class82 {
             var5[var6] = new int[var8];
 
             for(var9 = 0; var9 < var8; ++var9) {
-               var5[var6][var9] = var1.getByteB();
+               var5[var6][var9] = var1.readUnsignedByte();
             }
 
             this.aClass3_Sub13Array1147[var6] = var7;
@@ -699,8 +700,8 @@ final class Class82 {
             var5[var6] = null;
          }
 
-         this.aClass3_Sub13_1145 = this.aClass3_Sub13Array1147[var1.getByteB()];
-          this.aClass3_Sub13_1148 = this.aClass3_Sub13Array1147[var1.getByteB()];
+         this.aClass3_Sub13_1145 = this.aClass3_Sub13Array1147[var1.readUnsignedByte()];
+          this.aClass3_Sub13_1148 = this.aClass3_Sub13Array1147[var1.readUnsignedByte()];
       } catch (RuntimeException var11) {
          throw Class44.clientError(var11, "lc.<init>(" + (var1 != null?"{...}":"null") + ')');
       }

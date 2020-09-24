@@ -7,9 +7,7 @@ final class Class75_Sub2 extends Class75 {
    static Class3_Sub2[][][] aClass3_Sub2ArrayArrayArray2638;
    static int[] anIntArray2639;
    static int[] anIntArray2642 = new int[]{1, 1, 1, 1, 4, 1, 1, 5, 6, 1, 5, 0, 7, 0, 4, 1, 7, 2, 1, 1, 6, 1, 1, 3, 6, 1, 7, 0, 0, 6, 7, 0, 1, 7, 6, 1, 1, 1, 5, 4, 3, 2, 1, 1, 0, 4, 1, 5};
-   static int anInt2643;
    private int anInt2644;
-   static CacheIndex aClass153_2645;
    private final int anInt2646;
    private final int anInt2647;
    static Class33 aClass33_2648;
@@ -41,29 +39,12 @@ final class Class75_Sub2 extends Class75 {
 
    final void method1337(int var1, boolean var2, int var3) {
       try {
-         if(!var2) {
+         if (!var2) {
             this.method1337(-7, false, 66);
          }
 
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "kc.E(" + var1 + ',' + ',' + var3 + ')');
-      }
-   }
-
-   public static void method1345(int var0) {
-      try {
-         if(var0 >= -38) {
-            method1344(93, (CacheIndex)null, -70);
-         }
-
-         anIntArray2642 = null;
-         aClass3_Sub2ArrayArrayArray2638 = (Class3_Sub2[][][])null;
-         aClass33_2648 = null;
-         aClass33_2637 = null;
-         aClass153_2645 = null;
-         anIntArray2639 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "kc.B(" + var0 + ')');
       }
    }
 

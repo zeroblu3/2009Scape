@@ -12,7 +12,7 @@ import javax.media.opengl.GLDrawable;
 import javax.media.opengl.GLDrawableFactory;
 import javax.media.opengl.glu.GLU;
 
-final class HDToolKit {
+public final class HDToolKit {
 
    private static String aString1785;
    private static String aString1786;
@@ -32,21 +32,21 @@ final class HDToolKit {
    private static GLContext aGLContext1800;
    static boolean aBoolean1802;
    private static int anInt1803 = -1;
-   static GL gl;
+   public static GL gl;
    private static boolean aBoolean1805 = true;
-   static boolean highDetail = false;
+   public static boolean highDetail = false;
    private static float[] aFloatArray1808 = new float[16];
    static boolean aBoolean1809;
    static int anInt1810;
-   static int anInt1811;
+   public static int height;
    private static int anInt1812;
    static boolean aBoolean1813;
    private static GLDrawable aGLDrawable1815;
    private static boolean aBoolean1816 = true;
    static boolean aBoolean1817;
    static boolean aBoolean1818;
-   private static RSString aClass94_1819 = RSString.createRSString("radeon");
-   static int anInt1820;
+   private static RSString aClass94_1819 = RSString.parse("radeon");
+   static int width;
    static boolean aBoolean1821;
 
 
@@ -58,7 +58,7 @@ final class HDToolKit {
    }
 
    static void method1821(int var0, int var1, int var2, int var3) {
-      method1844(0, 0, anInt1820, anInt1811, var0, var1, 0.0F, 0.0F, var2, var3);
+      method1844(0, 0, width, height, var0, var1, 0.0F, 0.0F, var2, var3);
    }
 
    static void method1822() {
@@ -227,7 +227,7 @@ final class HDToolKit {
       gl.glDisable(2929);
       gl.glDisable(3008);
       gl.glRasterPos2i(0, 0);
-      gl.glCopyPixels(0, 0, anInt1820, anInt1811, 6144);
+      gl.glCopyPixels(0, 0, width, height, 6144);
       gl.glPopAttrib();
       gl.glDrawBuffer(var0[0]);
       gl.glReadBuffer(var0[1]);
@@ -252,7 +252,7 @@ final class HDToolKit {
 
    }
 
-   static void method1835() {
+   public static void method1835() {
       Class3_Sub28_Sub4.method551(0, 0);
       method1836();
       bindTexture2D(-1);
@@ -266,8 +266,8 @@ final class HDToolKit {
       if(!aBoolean1799) {
          gl.glMatrixMode(5889);
          gl.glLoadIdentity();
-         gl.glOrtho(0.0D, (double)anInt1820, 0.0D, (double)anInt1811, -1.0D, 1.0D);
-         gl.glViewport(0, 0, anInt1820, anInt1811);
+         gl.glOrtho(0.0D, (double) width, 0.0D, (double) height, -1.0D, 1.0D);
+         gl.glViewport(0, 0, width, height);
          gl.glMatrixMode(5888);
          gl.glLoadIdentity();
          aBoolean1799 = true;
@@ -286,16 +286,6 @@ final class HDToolKit {
       }
    }
 
-   public static void method1838() {
-      aClass94_1819 = null;
-      aString1786 = null;
-      aString1785 = null;
-      gl = null;
-      aGLDrawable1815 = null;
-      aGLContext1800 = null;
-      aFloatArray1808 = null;
-   }
-
    static float method1839() {
       return aFloat1794;
    }
@@ -305,11 +295,11 @@ final class HDToolKit {
       aString1785 = gl.glGetString(7936);
       aString1786 = gl.glGetString(7937);
       String var1 = aString1785.toLowerCase();
-      if(var1.indexOf("microsoft") != -1) {
+      if(var1.contains("microsoft")) {
          var0 |= 1;
       }
 
-      if(var1.indexOf("brian paul") != -1 || var1.indexOf("mesa") != -1) {
+      if(var1.contains("brian paul") || var1.contains("mesa")) {
          var0 |= 1;
       }
 
@@ -357,15 +347,15 @@ final class HDToolKit {
          aBoolean1821 = gl.isExtensionAvailable("GL_ARB_texture_cube_map");
          aBoolean1818 = gl.isExtensionAvailable("GL_ARB_vertex_program");
          aBoolean1802 = gl.isExtensionAvailable("GL_EXT_texture3D");
-         RSString var13 = method1820(aString1786).method1534();
+         RSString var13 = method1820(aString1786).toLowercase();
          if(var13.indexOf(aClass94_1819, 57) != -1) {
             int var6 = 0;
             RSString[] var7 = var13.method1565().method1567(32, (byte)-98);
 
             for(int var8 = 0; var8 < var7.length; ++var8) {
                RSString var9 = var7[var8];
-               if(var9.length(-125) >= 4 && var9.method1557(4, 0, 0).method1543(106)) {
-                  var6 = var9.method1557(4, 0, 0).method1552((byte)-113);
+               if(var9.length() >= 4 && var9.substring(0, 4, 0).isInteger()) {
+                  var6 = var9.substring(0, 4, 0).parseInt();
                   break;
                }
             }
@@ -461,7 +451,7 @@ final class HDToolKit {
       gl.glLoadIdentity();
       float aFloat1801 = 0.09765625F;
       method1848((float)var10 * aFloat1801, (float)var11 * aFloat1801, (float)(-var13) * aFloat1801, (float)(-var12) * aFloat1801);
-      gl.glViewport(var0, anInt1811 - var1 - var3, var2, var3);
+      gl.glViewport(var0, height - var1 - var3, var2, var3);
       gl.glMatrixMode(5888);
       gl.glLoadIdentity();
       gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
@@ -604,14 +594,14 @@ final class HDToolKit {
                   return;
                }
 
-               Class3_Sub13_Sub34.method331(1000L, 64);
+               TimeUtils.sleep(1000L);
             }
 
             gl = aGLContext1800.getGL();
             new GLU();
             highDetail = true;
-            anInt1820 = var0.getSize().width;
-            anInt1811 = var0.getSize().height;
+            width = var0.getSize().width;
+            height = var0.getSize().height;
             var5 = method1840();
             if(var5 == 0) {
                method1857();
@@ -629,7 +619,7 @@ final class HDToolKit {
                         return;
                      }
 
-                     Class3_Sub13_Sub34.method331(100L, 64);
+                     TimeUtils.sleep(100L);
                   }
                }
 
@@ -645,23 +635,23 @@ final class HDToolKit {
    }
 
    static void method1854(int var0, int var1) {
-      anInt1820 = var0;
-      anInt1811 = var1;
+      width = var0;
+      height = var1;
       aBoolean1799 = false;
    }
 
    static void method1855(int var0, int var1, int var2, int var3, int var4, int var5) {
       int var6 = -var0;
-      int var7 = anInt1820 - var0;
+      int var7 = width - var0;
       int var8 = -var1;
-      int var9 = anInt1811 - var1;
+      int var9 = height - var1;
       gl.glMatrixMode(5889);
       gl.glLoadIdentity();
       float var10 = (float)var2 / 512.0F;
       float var11 = var10 * (256.0F / (float)var4);
       float var12 = var10 * (256.0F / (float)var5);
       gl.glOrtho((double)((float)var6 * var11), (double)((float)var7 * var11), (double)((float)(-var9) * var12), (double)((float)(-var8) * var12), (double)(50 - var3), (double)(3584 - var3));
-      gl.glViewport(0, 0, anInt1820, anInt1811);
+      gl.glViewport(0, 0, width, height);
       gl.glMatrixMode(5888);
       gl.glLoadIdentity();
       gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);

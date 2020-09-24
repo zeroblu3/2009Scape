@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.util.ArrayUtils;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub8 extends Class3_Sub13 {
@@ -12,18 +14,18 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 	static float aFloat3105;
 
 
-	final void method157(int var1, RSByteBuffer var2, boolean var3) {
+	final void method157(int var1, DataBuffer var2, boolean var3) {
 		try {
 			if(!var3) {
 				method207(18, false, -19, 102L);
 			}
 
 			if(var1 == 0) {
-				this.aBoolean3100 = var2.getByteB() == 1;
+				this.aBoolean3100 = var2.readUnsignedByte() == 1;
 			} else if(var1 == 1) {
-				this.aBoolean3104 = var2.getByteB() == 1;
+				this.aBoolean3104 = var2.readUnsignedByte() == 1;
 			} else if(var1 == 2) {
-				this.aBoolean2375 = var2.getByteB() == 1;
+				this.aBoolean2375 = var2.readUnsignedByte() == 1;
 			}
 
 		} catch (RuntimeException var5) {
@@ -71,9 +73,9 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 	static void method203(int var0) {
 		try {
 			//int var1 = 15 / ((-11 - var0) / 63);
-			if(Class3_Sub28_Sub13.anInt3660 == 2) {
+			if(Unsorted.anInt3660 == 2) {
 				if(Class3_Sub13_Sub39.anInt3460 == NPCDefinition.anInt1297 && Class38_Sub1.anInt2612 == Class168.anInt2099) {
-					Class3_Sub28_Sub13.anInt3660 = 0;
+					Unsorted.anInt3660 = 0;
 					if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
 						Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 + -2);
 					} else {
@@ -81,7 +83,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 					}
 				}
 			} else if(NPCDefinition.anInt1297 == Class163_Sub1.anInt2993 && Class38_Sub1.anInt2614 == Class38_Sub1.anInt2612) {
-				Class3_Sub28_Sub13.anInt3660 = 0;
+				Unsorted.anInt3660 = 0;
 				if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
 					Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 - 2);
 				} else {
@@ -89,7 +91,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 				}
 			} else {
 				Class168.anInt2099 = Class38_Sub1.anInt2614;
-				Class3_Sub28_Sub13.anInt3660 = 2;
+				Unsorted.anInt3660 = 2;
 				Class3_Sub13_Sub39.anInt3460 = Class163_Sub1.anInt2993;
 			}
 
@@ -102,14 +104,14 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 		try {
 			//Client Resize.
 			Class3_Sub13_Sub1.outgoingBuffer.putOpcode(243);
-			Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-66, Class83.method1411(0));
-			Class3_Sub13_Sub1.outgoingBuffer.putShort(Class23.anInt454);
+			Class3_Sub13_Sub1.outgoingBuffer.writeByte(Class83.method1411(0));
+			Class3_Sub13_Sub1.outgoingBuffer.writeShort(Class23.anInt454);
 			if(var0 != -3) {
 				anInt3103 = -41;
 			}
 
-			Class3_Sub13_Sub1.outgoingBuffer.putShort(Class140_Sub7.anInt2934);
-			Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-31, Class3_Sub28_Sub14.anInt3671);
+			Class3_Sub13_Sub1.outgoingBuffer.writeShort(Class140_Sub7.anInt2934);
+			Class3_Sub13_Sub1.outgoingBuffer.writeByte(WorldMapZoomFont.anInt3671);
 		} catch (RuntimeException var2) {
 			throw Class44.clientError(var2, "ej.C(" + var0 + ')');
 		}
@@ -121,11 +123,11 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			Class58.anInterface4_915 = var3;
 			Class3_Sub24_Sub3.aClass153_3490 = var2;
 			if(Class3_Sub24_Sub3.aClass153_3490 != null) {
-				Class83.anInt1156 = Class3_Sub24_Sub3.aClass153_3490.getFileAmount(1, (byte)100);
+				Class83.anInt1156 = Class3_Sub24_Sub3.aClass153_3490.getFileAmount(1);
 			}
 
 			if(Class154.aClass153_1967 != null) {
-				RenderAnimationDefinition.anInt377 = Class154.aClass153_1967.getFileAmount(1, (byte)83);
+				RenderAnimationDefinition.anInt377 = Class154.aClass153_1967.getFileAmount(1);
 			}
 		} catch (RuntimeException var5) {
 			throw Class44.clientError(var5, "ej.E(" + (var0 != null?"{...}":"null") + ',' + 115 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ')');
@@ -134,17 +136,6 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
 	public Class3_Sub13_Sub8() {
 		super(1, false);
-	}
-
-	public static void method206(boolean var0) {
-		try {
-			if(!var0) {
-				method204(-76);
-			}
-
-		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "ej.O(" + ')');
-		}
 	}
 
 	final int[] method154(int var1, byte var2) {
@@ -157,7 +148,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 						var4[var6] = var5[-var6 + RenderAnimationDefinition.anInt396];
 					}
 				} else {
-					Class76.method1358(var5, 0, var4, 0, Class113.anInt1559);
+					ArrayUtils.arraycopy(var5, 0, var4, 0, Class113.anInt1559);
 				}
 			}
 
@@ -210,7 +201,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 				}
 
 				RSString var13 = new RSString();
-				var13.byteArray = var9;
+				var13.buffer = var9;
 				var13.length = var8;
 				return var13;
 			} else {

@@ -1,37 +1,14 @@
 package org.runite.jagex;
 
-final class Class3_Sub6 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub6 extends Linkable {
 
 
    static byte[][] aByteArrayArray2287;
    static int[] anIntArray2288 = new int[32];
    byte[] aByteArray2289;
    static int anInt2291;
-
-   public static void method118(int var0) {
-      try {
-         anIntArray2288 = null;
-         aByteArrayArray2287 = (byte[][])null;
-         if(var0 != 2) {
-            method119((float[])null);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ea.A(" + var0 + ')');
-      }
-   }
-
-   static void method119(float[] var0) {
-      try {
-         if(var0 == null) {
-         } else {
-            float[] var2 = new float[var0.length];
-            Class76.method1360(var0, 91, var2, 0, var0.length);
-         }
-      } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "ea.B(" + "{...}" + ',' + 91 + ')');
-      }
-   }
 
    Class3_Sub6(byte[] var1) {
       try {

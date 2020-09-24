@@ -1,6 +1,8 @@
 package org.runite.jagex;
 
-final class Class3_Sub14 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub14 extends Linkable {
 
    private static float[] aFloatArray2387;
    private static float[] aFloatArray2388;
@@ -99,17 +101,17 @@ final class Class3_Sub14 extends Class3 {
    }
 
    private void method360(byte[] var1) {
-      RSByteBuffer var2 = new RSByteBuffer(var1);
-      this.anInt2408 = var2.getInt();
-      this.anInt2390 = var2.getInt();
-      this.anInt2397 = var2.getInt();
-      this.anInt2401 = var2.getInt();
+      DataBuffer var2 = new DataBuffer(var1);
+      this.anInt2408 = var2.readInt();
+      this.anInt2390 = var2.readInt();
+      this.anInt2397 = var2.readInt();
+      this.anInt2401 = var2.readInt();
       if(this.anInt2401 < 0) {
          this.anInt2401 = ~this.anInt2401;
          this.aBoolean2395 = true;
       }
 
-      int var3 = var2.getInt();
+      int var3 = var2.readInt();
       this.aByteArrayArray2410 = new byte[var3][];
 
       for(int var4 = 0; var4 < var3; ++var4) {
@@ -117,34 +119,15 @@ final class Class3_Sub14 extends Class3 {
 
          int var6;
          do {
-            var6 = var2.getByteB();
+            var6 = var2.readUnsignedByte();
             var5 += var6;
          } while(var6 >= 255);
 
          byte[] var7 = new byte[var5];
-         var2.method764(var5, var7);
+         var2.readBytes(var7, var5);
          this.aByteArrayArray2410[var4] = var7;
       }
 
-   }
-
-   public static void method361() {
-      aByteArray2417 = null;
-      aClass71Array2406 = null;
-      aClass59Array2407 = null;
-      aClass152Array2392 = null;
-      aClass150Array2398 = null;
-      aBooleanArray2393 = null;
-      anIntArray2420 = null;
-      aFloatArray2403 = null;
-      aFloatArray2400 = null;
-      aFloatArray2413 = null;
-      aFloatArray2416 = null;
-      aFloatArray2399 = null;
-      aFloatArray2387 = null;
-      aFloatArray2388 = null;
-      anIntArray2391 = null;
-      anIntArray2409 = null;
    }
 
    private static boolean method362(CacheIndex var0) {

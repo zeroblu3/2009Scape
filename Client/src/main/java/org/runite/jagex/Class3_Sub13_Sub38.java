@@ -16,20 +16,6 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
    static short[] aShortArray3455;
    static int[] anIntArray3456 = new int[4096];
 
-   public static void method351(int var0) {
-      try {
-         aShortArray3455 = null;
-         spritePalette = null;
-         if(var0 == -1) {
-            aShortArray3453 = null;
-            aLongArray3448 = null;
-            anIntArray3456 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "vc.B(" + var0 + ')');
-      }
-   }
-
    final void method158(int var1) {
       try {
          Class8.method844((byte)-9);
@@ -42,18 +28,18 @@ final class Class3_Sub13_Sub38 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3454 = var2.getByteB();
+            this.anInt3454 = var2.readUnsignedByte();
          } else if(var1 == 1) {
-            this.anInt3447 = var2.getShort();
+            this.anInt3447 = var2.readUnsignedShort();
          } else if(var1 == 2) {
-            this.anInt3451 = var2.getByteB();
+            this.anInt3451 = var2.readUnsignedByte();
          } else if (3 == var1) {
-             this.anInt3444 = var2.getShort();
+             this.anInt3444 = var2.readUnsignedShort();
          } else if (var1 == 4) {
-             this.anInt3450 = var2.getShort();
+             this.anInt3450 = var2.readUnsignedShort();
          }
 
       } catch (RuntimeException var5) {

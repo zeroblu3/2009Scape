@@ -1,7 +1,9 @@
 package org.runite.jagex;
 
 
-final class AnimationDefinition {
+import org.rs09.client.data.HashTable;
+
+public final class AnimationDefinition {
 
 	int anInt1845 = 2;
 	boolean aBoolean1846 = false;
@@ -10,7 +12,7 @@ final class AnimationDefinition {
 	int anInt1849 = -1;
 	int anInt1850 = -1;
 	int[] frames;
-	static CacheIndex aClass153_1852;
+	public static CacheIndex aClass153_1852;
 	int anInt1854 = -1;
 	boolean[] aBooleanArray1855;
 	static AbstractIndexedSprite aClass109_1856;
@@ -30,13 +32,13 @@ final class AnimationDefinition {
 	boolean aBoolean1872 = false;
 
 
-	static Class3_Sub11 method2052(Class130 var0, Class168 var2) {
+	static Class3_Sub11 method2052(HashTable var0, Class168 var2) {
 		try {
 			long var3 = (long)((var2.anInt2095 - -1 << 16) + var2.anInt2090) + (((long)var2.anInt2100 << 56) - -((long)var2.anInt2094 << 32));
-			Class3_Sub11 var5 = (Class3_Sub11)var0.method1780(var3);
+			Class3_Sub11 var5 = (Class3_Sub11)var0.get(var3);
 			if(null == var5) {
 				var5 = new Class3_Sub11(var2.anInt2095, (float)var2.anInt2090, true, false, var2.anInt2094);
-				var0.method1779(var5, var3);
+				var0.put(var3, var5);
 			}
 
 			return var5;
@@ -45,11 +47,11 @@ final class AnimationDefinition {
 		}
 	}
 
-	final void method2053(RSByteBuffer var1) {
+	final void method2053(DataBuffer var1) {
 		try {
 			//	System.out.print("Animation " + animId + " - parsed [");
 			while(true) {
-				int var3 = var1.getByteB();
+				int var3 = var1.readUnsignedByte();
 				if(var3 == 0) {
 					//System.out.println("].");
 					return;
@@ -259,20 +261,6 @@ final class AnimationDefinition {
 		}
 	}
 
-	public static void method2057(byte var0) {
-		try {
-			aClass25Array1868 = null;
-			aClass109_1856 = null;
-			aClass153_1860 = null;
-			aClass153_1852 = null;
-			if(var0 != -108) {
-			}
-			anIntArray1871 = null;
-		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "tk.F(" + var0 + ')');
-		}
-	}
-
 	final void method2058() {
 		try {
 			if(this.anInt1866 == -1) {
@@ -327,75 +315,75 @@ final class AnimationDefinition {
 		}
 	}
 
-	private void method2060(int var1, RSByteBuffer var3) {
+	private void method2060(int var1, DataBuffer var3) {
 		try {
 			int var4;
 			int var5;
 			if(var1 == 1) {
-				var4 = var3.getShort();
+				var4 = var3.readUnsignedShort();
 				this.duration = new int[var4];
 
 				for(var5 = 0; var4 > var5; ++var5) {
-					this.duration[var5] = var3.getShort();
+					this.duration[var5] = var3.readUnsignedShort();
 				}
 
 				this.frames = new int[var4];
 
 				for(var5 = 0; var4 > var5; ++var5) {
-					this.frames[var5] = var3.getShort();
+					this.frames[var5] = var3.readUnsignedShort();
 				}
 
 				for(var5 = 0; var4 > var5; ++var5) {
-					this.frames[var5] += var3.getShort() << 16;
+					this.frames[var5] += var3.readUnsignedShort() << 16;
 				}
 			} else if(var1 == 2) {
-				this.anInt1865 = var3.getShort();
+				this.anInt1865 = var3.readUnsignedShort();
 			} else if(var1 == 3) {
 				this.aBooleanArray1855 = new boolean[256];
-				var4 = var3.getByteB();
+				var4 = var3.readUnsignedByte();
 
 				for(var5 = 0; var5 < var4; ++var5) {
-					this.aBooleanArray1855[var3.getByteB()] = true;
+					this.aBooleanArray1855[var3.readUnsignedByte()] = true;
 				}
 			} else if (var1 == 4) {
 				this.aBoolean1859 = true;
 			} else if (var1 == 5) {
-				this.anInt1857 = var3.getByteB();
+				this.anInt1857 = var3.readUnsignedByte();
 			} else if (6 == var1) {
-				this.anInt1854 = var3.getShort();
+				this.anInt1854 = var3.readUnsignedShort();
 			} else if (var1 == 7) {
-				this.anInt1849 = var3.getShort();
+				this.anInt1849 = var3.readUnsignedShort();
 			} else if (8 == var1) {
-				this.anInt1861 = var3.getByteB();
+				this.anInt1861 = var3.readUnsignedByte();
 			} else if (9 == var1) {
-				this.anInt1866 = var3.getByteB();
+				this.anInt1866 = var3.readUnsignedByte();
 			} else if (10 == var1) {
-				this.anInt1850 = var3.getByteB();
+				this.anInt1850 = var3.readUnsignedByte();
 			} else if (var1 == 11) {
-				this.anInt1845 = var3.getByteB();
+				this.anInt1845 = var3.readUnsignedByte();
 			} else if (12 == var1) {
-				var4 = var3.getByteB();
+				var4 = var3.readUnsignedByte();
 				this.anIntArray1870 = new int[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.anIntArray1870[var5] = var3.getShort();
+					this.anIntArray1870[var5] = var3.readUnsignedShort();
 				}
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.anIntArray1870[var5] += var3.getShort() << 16;
+					this.anIntArray1870[var5] += var3.readUnsignedShort() << 16;
 				}
 			} else if (13 == var1) {
-				var4 = var3.getShort();
+				var4 = var3.readUnsignedShort();
 				this.anIntArrayArray1867 = new int[var4][];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					int var6 = var3.getByteB();
+					int var6 = var3.readUnsignedByte();
 					if (var6 > 0) {
 						this.anIntArrayArray1867[var5] = new int[var6];
-						this.anIntArrayArray1867[var5][0] = var3.getTriByte((byte) 102);
+						this.anIntArrayArray1867[var5][0] = var3.readMedium();
 
 						for (int var7 = 1; var7 < var6; ++var7) {
-							this.anIntArrayArray1867[var5][var7] = var3.getShort();
+							this.anIntArrayArray1867[var5][var7] = var3.readUnsignedShort();
 						}
 					}
 				}
@@ -422,11 +410,11 @@ final class AnimationDefinition {
 			Class3_Sub13.method153(112);
 			Class24.anInt469 = -1;
 			Class7.anInt2166 = -1;
-			RSString.incomingOpcode = -1;
+			Unsorted.incomingOpcode = -1;
 			Class159.anInt2023 = 0;
 			Class38_Sub1.anInt2617 = 0;
 			Class3_Sub13_Sub1.outgoingBuffer.index = 0;
-			Class3_Sub29.anInt2582 = -1;
+			LinkableRSString.anInt2582 = -1;
 			Class3_Sub28_Sub16.anInt3699 = 0;
 			GraphicDefinition.incomingBuffer.index = 0;
 
@@ -440,7 +428,7 @@ final class AnimationDefinition {
 			Class23.method940(119, 0);
 
 			for(var1 = 0; var1 < 100; ++var1) {
-				Class3_Sub29.aClass94Array2580[var1] = null;
+				LinkableRSString.aClass94Array2580[var1] = null;
 			}
 
 			Class164_Sub1.anInt3012 = 0;
@@ -450,14 +438,14 @@ final class AnimationDefinition {
 			Class58.anInt909 = -1;
 			Class159.localPlayerCount = 0;
 			Class161.anInt2028 = 0;
-			InputStream_Sub1.anInt42 = (int)(110.0D * Math.random()) + -55;
+			Unsorted.anInt42 = (int)(110.0D * Math.random()) + -55;
 			GameObject.aBoolean1837 = false;
 			Class164_Sub2.anInt3020 = -20 + (int)(30.0D * Math.random());
 			Class113.anInt1552 = 0;
 			Class65.anInt987 = 0;
 			Class3_Sub13_Sub8.anInt3102 = -60 + (int)(Math.random() * 120.0D);
 			Class3_Sub13_Sub9.anInt3114 = 0;
-			Class3_Sub29.anInt2589 = (int)(80.0D * Math.random()) - 40;
+			LinkableRSString.anInt2589 = (int)(80.0D * Math.random()) - 40;
 			Class163.localNPCCount = 0;
 
 			for(var1 = 0; 2048 > var1; ++var1) {
@@ -466,7 +454,7 @@ final class AnimationDefinition {
 			}
 
 			for(var1 = 0; var1 < '\u8000'; ++var1) {
-				Class3_Sub13_Sub24.npcs[var1] = null;
+				NPC.npcs[var1] = null;
 			}
 
 			Class102.player = Class3_Sub13_Sub22.players[2047] = new Player();
@@ -492,10 +480,10 @@ final class AnimationDefinition {
 			Class157.anInt1996 = 0;
 			Class3_Sub13_Sub34.anInt3414 = 0;
 			Class146.anInt1904 = 0;
-			Canvas_Sub2.anInt30 = 0;
+			Unsorted.anInt30 = 0;
 			GraphicDefinition.anInt529 = 0;
 			MouseListeningClass.anInt1923 = 0;
-			Class3_Sub28_Sub10.anInt3631 = 0;
+			Unsorted.anInt3631 = 0;
 			Class163_Sub2_Sub1.anInt4021 = 0;
 
 			for(var1 = 0; var1 < NPCDefinition.anIntArray1277.length; ++var1) {
@@ -506,12 +494,12 @@ final class AnimationDefinition {
 				Class60.method1208((byte)-128, Class3_Sub28_Sub12.anInt3655);
 			}
 
-			for(Class3_Sub31 var7 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1776(82); var7 != null; var7 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1778(-104)) {
+			for(Class3_Sub31 var7 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.first(); var7 != null; var7 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.next()) {
 				Class3_Sub13_Sub18.method254(true, var7);
 			}
 
 			Class3_Sub28_Sub12.anInt3655 = -1;
-			Class3_Sub13_Sub17.aClass130_3208 = new Class130(8);
+			Class3_Sub13_Sub17.aHashTable_3208 = new HashTable(8);
 			Class3_Sub7.method122(-113);
 			Class3_Sub13_Sub7.aClass11_3087 = null;
 			Class38_Sub1.aBoolean2615 = false;
@@ -528,10 +516,10 @@ final class AnimationDefinition {
 			Class3_Sub13_Sub4.aBoolean3064 = true;
 
 			for(var1 = 0; var1 < 100; ++var1) {
-				Class3_Sub28_Sub14.aBooleanArray3674[var1] = true;
+				WorldMapZoomFont.aBooleanArray3674[var1] = true;
 			}
 
-			Node.clanSize = 0;
+			Unsorted.clanSize = 0;
 			PacketParser.aClass3_Sub19Array3694 = null;
 			RSInterface.aClass94_251 = null;
 
@@ -549,13 +537,13 @@ final class AnimationDefinition {
 				Class3_Sub13_Sub14.method236();
 			}
 
-			Class3_Sub28_Sub10_Sub2.aBoolean4068 = true;
+			Unsorted.aBoolean4068 = true;
 			Class113.interfacePacketCounter = 0;
 			Class3_Sub13_Sub28.aClass94_3353 = TextCore.HasWalkHere;
-			Class73.aBoolean1084 = false;
+			Unsorted.aBoolean1084 = false;
 			Class3_Sub13_Sub38.aShortArray3455 = Class3_Sub13_Sub9.aShortArray3110 = Class136.aShortArray1779 = Class3_Sub13_Sub38.aShortArray3453 = new short[256];
 			Class3_Sub13.method165();
-			CacheIndex.aBoolean1951 = false;
+			Unsorted.aBoolean1951 = false;
 			Class3_Sub13_Sub8.method204(-3);
 		} catch (RuntimeException var6) {
 			throw Class44.clientError(var6, "tk.A(" + true + ')');

@@ -4,7 +4,6 @@ import core.game.system.SystemLogger
 import core.game.system.SystemShutdownHook
 import core.game.system.config.ServerConfigParser
 import core.game.system.mysql.SQLManager
-import core.game.world.GameSettings.Companion.parse
 import core.game.world.GameWorld
 import core.gui.ConsoleFrame
 import core.net.NioReactor
@@ -13,7 +12,6 @@ import core.tools.TimeStamp
 import core.tools.backup.AutoBackup
 import plugin.ge.BotGrandExchange
 import plugin.ge.GEAutoStock
-import java.io.File
 import java.net.BindException
 import java.util.*
 
@@ -48,7 +46,7 @@ object Server {
             ServerConfigParser(args[0])
         } else {
             println("No config file supplied! Attempting to use default...")
-            ServerConfigParser("Server/worldprops/default.json")
+            ServerConfigParser("./worldprops/default.json")
         }
         if (GameWorld.getSettings()!!.isGui) {
             try {

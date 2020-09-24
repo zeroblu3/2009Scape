@@ -1,10 +1,11 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.ReferenceCache;
+
 final class Class143 {
 
-   static Class93 aClass93_1874 = new Class93(50);
+   static ReferenceCache aReferenceCache_1874 = new ReferenceCache(50);
    static int loadingStage = 0;
-   static RSString aClass94_1880 = RSString.createRSString(")1");
 
 
    static void method2062(int var0, int var1, int var3, int var4, int var5, int var6, int var7) {
@@ -37,15 +38,6 @@ final class Class143 {
 
       } catch (RuntimeException var18) {
          throw Class44.clientError(var18, "tl.B(" + var0 + ',' + var1 + ',' + -89 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
-      }
-   }
-
-   public static void method2063(int var0) {
-      try {
-         aClass93_1874 = null;
-         aClass94_1880 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "tl.A(" + var0 + ')');
       }
    }
 

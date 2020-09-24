@@ -6,31 +6,14 @@ import java.awt.*;
 final class Class58 {
 
    static int anInt909 = -1;
-   static RSString COMMAND_TOGGLE_FPSON = RSString.createRSString("::fpson");
    static int[][][] anIntArrayArrayArray911 = new int[2][][];
    static int[] anIntArray912 = new int[14];
    static boolean aBoolean913 = false;
    static int[][][] anIntArrayArrayArray914;
    static Interface4 anInterface4_915 = null;
    static int anInt916;
-   static Class66 aClass66_917;
+   static Js5Worker aJs5Worker_917;
 
-
-   public static void method1193(int var0) {
-      try {
-         anInterface4_915 = null;
-         anIntArrayArrayArray911 = (int[][][])null;
-         anIntArrayArrayArray914 = (int[][][])null;
-         aClass66_917 = null;
-         anIntArray912 = null;
-         if(var0 != -26723) {
-         }
-
-         COMMAND_TOGGLE_FPSON = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "id.C(" + var0 + ')');
-      }
-   }
 
    static void method1194() {
       try {
@@ -59,7 +42,7 @@ final class Class58 {
             try {
                Class155 var9 = (Class155)Class.forName(Configurations.PACKAGE_JAGEX + ".Class155_Sub2").newInstance();
                var9.anInt1989 = var0;
-               var9.anIntArray1975 = new int[(!RSString.aBoolean2150?1:2) * 256];
+               var9.anIntArray1975 = new int[(!Unsorted.aBoolean2150?1:2) * 256];
                var9.method2164(var2);
                var9.anInt1990 = (var0 & -1024) - -1024;
                if(var9.anInt1990 > 16384) {
@@ -70,7 +53,7 @@ final class Class58 {
                if(Class3_Sub24_Sub4.anInt3507 > 0 && null == Class38_Sub1.aClass15_2613) {
                   Class38_Sub1.aClass15_2613 = new Class15();
                   Class38_Sub1.aClass15_2613.aClass87_350 = var1;
-                  var1.method1451(0, Class3_Sub24_Sub4.anInt3507, Class38_Sub1.aClass15_2613);
+                  var1.method1451(Class3_Sub24_Sub4.anInt3507, Class38_Sub1.aClass15_2613);
                }
 
                if(Class38_Sub1.aClass15_2613 != null) {
@@ -86,7 +69,7 @@ final class Class58 {
 
                try {
                   Class155_Sub1 var5 = new Class155_Sub1(var1, var3);
-                  var5.anIntArray1975 = new int[256 * (RSString.aBoolean2150?2:1)];
+                  var5.anIntArray1975 = new int[256 * (Unsorted.aBoolean2150?2:1)];
                   var5.anInt1989 = var0;
                   var5.method2164(var2);
                   var5.anInt1990 = 16384;
@@ -94,7 +77,7 @@ final class Class58 {
                   if(Class3_Sub24_Sub4.anInt3507 > 0 && null == Class38_Sub1.aClass15_2613) {
                      Class38_Sub1.aClass15_2613 = new Class15();
                      Class38_Sub1.aClass15_2613.aClass87_350 = var1;
-                     var1.method1451(0, Class3_Sub24_Sub4.anInt3507, Class38_Sub1.aClass15_2613);
+                     var1.method1451(Class3_Sub24_Sub4.anInt3507, Class38_Sub1.aClass15_2613);
                   }
 
                   if(Class38_Sub1.aClass15_2613 != null) {

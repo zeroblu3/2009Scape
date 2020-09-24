@@ -88,26 +88,14 @@ final class Class3_Sub13_Sub32 extends Class3_Sub13 {
       }
    }
 
-   public static void method321(int var0) {
-      try {
-         anIntArray3383 = null;
-         if(var0 != -21136) {
-            method319(-38, -96, -102);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "sa.B(" + var0 + ')');
-      }
-   }
-
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
             anInt3389 = 99;
          }
 
          if(var1 == 0) {
-            this.anInt3385 = var2.getShort();
+            this.anInt3385 = var2.readUnsignedShort();
          }
 
       } catch (RuntimeException var5) {

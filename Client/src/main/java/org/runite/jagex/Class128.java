@@ -1,13 +1,15 @@
 package org.runite.jagex;
+import org.rs09.client.Node;
+import org.rs09.client.data.ReferenceCache;
+
 import java.util.Arrays;
 
 
 final class Class128 {
 
    static int anInt1682 = 1;
-   static Class93 aClass93_1683 = new Class93(64);
+   static ReferenceCache aReferenceCache_1683 = new ReferenceCache(64);
    static boolean aBoolean1685 = true;
-   static RSString aClass94_1687 = RSString.createRSString("(Z");
 
 
    static void method1760(int var0, int var2) {
@@ -21,11 +23,11 @@ final class Class128 {
             ObjectDefinition.method1688(WorldListCountry.localPlane, var2, var0);
          } else {
             int var4 = -99999999;
-            Class3_Sub28_Sub14 var5 = null;
+            WorldMapZoomFont var5 = null;
 
-            Class3_Sub28_Sub14 var6;
-            for (var6 = (Class3_Sub28_Sub14) var3.method1222(); null != var6; var6 = (Class3_Sub28_Sub14) var3.method1221()) {
-               ItemDefinition var7 = Class38.getItemDefinition(var6.aClass140_Sub7_3676.anInt2936, (byte) 104);
+            WorldMapZoomFont var6;
+            for (var6 = (WorldMapZoomFont) var3.method1222(); null != var6; var6 = (WorldMapZoomFont) var3.method1221()) {
+               ItemDefinition var7 = Class38.getItemDefinition(var6.aClass140_Sub7_3676.anInt2936);
                int var8 = var7.value;
                if (var7.stackingType == 1) {
                   var8 *= 1 + var6.aClass140_Sub7_3676.anInt2930;
@@ -44,7 +46,7 @@ final class Class128 {
                Class140_Sub7 var12 = null;
                Class140_Sub7 var14 = null;
 
-               for (var6 = (Class3_Sub28_Sub14) var3.method1222(); var6 != null; var6 = (Class3_Sub28_Sub14) var3.method1221()) {
+               for (var6 = (WorldMapZoomFont) var3.method1222(); var6 != null; var6 = (WorldMapZoomFont) var3.method1221()) {
                   Class140_Sub7 var9 = var6.aClass140_Sub7_3676;
                   if (var5.aClass140_Sub7_3676.anInt2936 != var9.anInt2936) {
                      if (null == var12) {
@@ -66,40 +68,17 @@ final class Class128 {
       }
    }
 
-   public static void method1761(byte var0) {
-      try {
-         aClass94_1687 = null;
-         if(var0 < -46) {
-            aClass93_1683 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "rm.C(" + var0 + ')');
-      }
-   }
-
-   static void method1762(long var0, byte var2) {
-      try {
-         try {
-            Thread.sleep(var0);
-         } catch (InterruptedException var4) {
-         }
-
-      } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "rm.B(" + var0 + ',' + var2 + ')');
-      }
-   }
-
    static Model method1763(int var1, int var2, int var3, int var4, Model var5, int var6) {
       try {
-         Model var9 = (Model)Class61.aClass93_939.get((long)var3);
+         Model var9 = (Model)Class61.aReferenceCache_939.get((long)var3);
          if(var9 == null) {
-            Model_Sub1 var10 = Model_Sub1.method2015(Class159.aClass153_2019, var3);
+            Model_Sub1 var10 = Model_Sub1.method2015(CacheIndex.modelsIndex, var3);
             if(var10 == null) {
                return null;
             }
 
             var9 = var10.method2008(64, 768, -50, -10, -50);
-            Class61.aClass93_939.put((byte)-95, var9, (long)var3);
+            Class61.aReferenceCache_939.put(var9, (long)var3);
          }
 
          int var17 = var5.method1884();
@@ -141,7 +120,7 @@ final class Class128 {
 
    static void method1764() {
       for(int var3 = 0; var3 < Class3_Sub17.anInt2456; ++var3) {
-         for(int var4 = 0; var4 < IOHandler.anInt1234; ++var4) {
+         for(int var4 = 0; var4 < Unsorted.anInt1234; ++var4) {
             for(int var5 = 0; var5 < Class3_Sub13_Sub15.anInt3179; ++var5) {
                Class3_Sub2 var6 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var3][var4][var5];
                if(var6 != null) {
@@ -183,8 +162,8 @@ final class Class128 {
 
          for(int var2 = 0; 8 > var2; ++var2) {
             Node var3 = aClass3_Sub28Array1684[var2] = new Node();
-            var3.aClass3_Sub28_2570 = var3;
-            var3.aClass3_Sub28_2578 = var3;
+            var3.previousNode = var3;
+            var3.nextNode = var3;
          }
 
       } catch (RuntimeException var4) {

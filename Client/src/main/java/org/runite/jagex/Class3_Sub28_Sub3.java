@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.Node;
+
 final class Class3_Sub28_Sub3 extends Node {
 
    int anInt3549 = 0;
@@ -70,7 +72,7 @@ final class Class3_Sub28_Sub3 extends Node {
    static void method539() {
       try {
 
-         Class136.aClass93_1772.method1522(-126, 5);
+         Class136.aReferenceCache_1772.sweep(5);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "bn.O(" + 0 + ',' + 5 + ')');
       }
@@ -92,17 +94,17 @@ final class Class3_Sub28_Sub3 extends Node {
 
    static void method541(boolean var1, RSString var2) {
       try {
-         var2 = var2.method1534();
+         var2 = var2.toLowercase();
          int var4 = 0;
          short[] var3 = new short[16];
          int var6 = !var1?0:'\u8000';
          int var7 = (!var1?Class83.anInt1156:RenderAnimationDefinition.anInt377) + var6;
 
          for(int var8 = var6; var8 < var7; ++var8) {
-            Class3_Sub28_Sub4 var9 = Class3_Sub29.method733(var8);
-            if(var9.aBoolean3568 && var9.method554().method1534().indexOf(var2, 112) != -1) {
+            Class3_Sub28_Sub4 var9 = LinkableRSString.method733(var8);
+            if(var9.aBoolean3568 && var9.method554().toLowercase().indexOf(var2, 112) != -1) {
                if(var4 >= 50) {
-                  ReferenceTable.anInt952 = -1;
+                  Unsorted.anInt952 = -1;
                   Class99.aShortArray1398 = null;
                   return;
                }
@@ -120,12 +122,12 @@ final class Class3_Sub28_Sub3 extends Node {
          }
 
          Class99.aShortArray1398 = var3;
-         ReferenceTable.anInt952 = var4;
+         Unsorted.anInt952 = var4;
          Class140_Sub4.anInt2756 = 0;
-         RSString[] var13 = new RSString[ReferenceTable.anInt952];
+         RSString[] var13 = new RSString[Unsorted.anInt952];
 
-         for(int var14 = 0; ReferenceTable.anInt952 > var14; ++var14) {
-            var13[var14] = Class3_Sub29.method733(var3[var14]).method554();
+         for(int var14 = 0; Unsorted.anInt952 > var14; ++var14) {
+            var13[var14] = LinkableRSString.method733(var3[var14]).method554();
          }
 
          Class3_Sub13_Sub29.method307(var13, Class99.aShortArray1398, 100);
@@ -134,19 +136,7 @@ final class Class3_Sub28_Sub3 extends Node {
       }
    }
 
-   public static void method542(byte var0) {
-      try {
-         if(var0 != -46) {
-            anInt3552 = 7;
-         }
-
-         aClass11_3551 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bn.D(" + var0 + ')');
-      }
-   }
-
-   static int method543(int var0, int var1, byte var2) {
+	static int method543(int var0, int var1, byte var2) {
       try {
          if(var2 > -71) {
             return -52;

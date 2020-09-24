@@ -6,7 +6,6 @@ import javax.media.opengl.GL;
 abstract class Class146 {
 
    static int anInt1901 = 2;
-   static CacheIndex aClass153_1902;
    static int[][][] anIntArrayArrayArray1903;
    static int anInt1904;
 
@@ -29,21 +28,9 @@ abstract class Class146 {
          var0 = 252645135 & (var0 >>> 4) + var0;
          var0 += var0 >>> 8;
          var0 += var0 >>> 16;
-         int var2 = -9 / ((-125 - -80) / 42);
          return 255 & var0;
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "uc.E(" + var0 + ',' + -125 + ')');
-      }
-   }
-
-   public static void method2081(int var0) {
-      try {
-         anIntArrayArrayArray1903 = (int[][][])null;
-         if(var0 == 0) {
-            aClass153_1902 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "uc.A(" + var0 + ')');
       }
    }
 
@@ -63,8 +50,8 @@ abstract class Class146 {
       for(int var12 = Class3_Sub13_Sub35.anInt3419; var12 < Class3_Sub17.anInt2456; ++var12) {
          Class3_Sub2[][] var13 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var12];
 
-         for(var14 = Class163_Sub1_Sub1.anInt4006; var14 < Class2.anInt67; ++var14) {
-            for(var15 = Class3_Sub28_Sub7.anInt3603; var15 < Class126.anInt1665; ++var15) {
+         for(var14 = Class163_Sub1_Sub1.anInt4006; var14 < Unsorted.anInt67; ++var14) {
+            for(var15 = Unsorted.anInt3603; var15 < Class126.anInt1665; ++var15) {
                Class3_Sub2 var16 = var13[var14][var15];
                if(var16 != null) {
                   if(Class23.aBooleanArrayArray457[var14 - Class97.anInt1375 + Class3_Sub13_Sub39.anInt3466][var15 - Class3_Sub13_Sub27.anInt3340 + Class3_Sub13_Sub39.anInt3466] && (var3 == null || var12 < var4 || var3[var12][var14][var15] != var5)) {
@@ -112,7 +99,7 @@ abstract class Class146 {
          }
       }
 
-      boolean var22 = Class44.anIntArrayArrayArray723 == Class3_Sub28_Sub7.anIntArrayArrayArray3605;
+      boolean var22 = Class44.anIntArrayArrayArray723 == Unsorted.anIntArrayArrayArray3605;
       if(HDToolKit.highDetail) {
          GL var24 = HDToolKit.gl;
          var24.glPushMatrix();
@@ -122,14 +109,14 @@ abstract class Class146 {
             Class3_Sub28_Sub4.method551(-1, 3);
             Class3_Sub13_Sub17.aBoolean3207 = true;
             Class165.method2254();
-            IOHandler.anInt1244 = -1;
+            Unsorted.anInt1244 = -1;
             Class3_Sub13_Sub5.anInt3072 = -1;
 
             for(var14 = 0; var14 < Class3_Sub23.aClass3_Sub11ArrayArray2542[0].length; ++var14) {
                Class3_Sub11 var28 = Class3_Sub23.aClass3_Sub11ArrayArray2542[0][var14];
                float var26 = 251.5F - (var28.aBoolean2364?1.0F:0.5F);
-               if(var28.anInt2355 != IOHandler.anInt1244) {
-                  IOHandler.anInt1244 = var28.anInt2355;
+               if(var28.anInt2355 != Unsorted.anInt1244) {
+                  Unsorted.anInt1244 = var28.anInt2355;
                   Class3_Sub28_Sub2.method535((byte)56, var28.anInt2355);
                   Class92.method1512(Class72.method1297());
                }
@@ -150,7 +137,7 @@ abstract class Class146 {
                   var25.method149(Class75_Sub2.aClass3_Sub2ArrayArrayArray2638, var33, false);
                }
 
-               if(var14 == 0 && Class80.anInt1137 > 0) {
+               if(var14 == 0 && Unsorted.anInt1137 > 0) {
                   HDToolKit.method1832(101.5F);
                   Class141.method2038(Class97.anInt1375, Class3_Sub13_Sub27.anInt3340, Class3_Sub13_Sub39.anInt3466, Class23.aBooleanArrayArray457);
                }
@@ -175,12 +162,12 @@ abstract class Class146 {
          for(var15 = -Class3_Sub13_Sub39.anInt3466; var15 <= 0; ++var15) {
             var32 = Class97.anInt1375 + var15;
             var29 = Class97.anInt1375 - var15;
-            if(var32 >= Class163_Sub1_Sub1.anInt4006 || var29 < Class2.anInt67) {
+            if(var32 >= Class163_Sub1_Sub1.anInt4006 || var29 < Unsorted.anInt67) {
                for(var34 = -Class3_Sub13_Sub39.anInt3466; var34 <= 0; ++var34) {
                   var19 = Class3_Sub13_Sub27.anInt3340 + var34;
                   var20 = Class3_Sub13_Sub27.anInt3340 - var34;
                   if(var32 >= Class163_Sub1_Sub1.anInt4006) {
-                     if(var19 >= Class3_Sub28_Sub7.anInt3603) {
+                     if(var19 >= Unsorted.anInt3603) {
                         var21 = var27[var32][var19];
                         if(var21 != null && var21.aBoolean2222) {
                            Class145.method2073(var21, true);
@@ -195,8 +182,8 @@ abstract class Class146 {
                      }
                   }
 
-                  if(var29 < Class2.anInt67) {
-                     if(var19 >= Class3_Sub28_Sub7.anInt3603) {
+                  if(var29 < Unsorted.anInt67) {
+                     if(var19 >= Unsorted.anInt3603) {
                         var21 = var27[var29][var19];
                         if(var21 != null && var21.aBoolean2222) {
                            Class145.method2073(var21, true);
@@ -229,12 +216,12 @@ abstract class Class146 {
          for(var15 = -Class3_Sub13_Sub39.anInt3466; var15 <= 0; ++var15) {
             var32 = Class97.anInt1375 + var15;
             var29 = Class97.anInt1375 - var15;
-            if(var32 >= Class163_Sub1_Sub1.anInt4006 || var29 < Class2.anInt67) {
+            if(var32 >= Class163_Sub1_Sub1.anInt4006 || var29 < Unsorted.anInt67) {
                for(var34 = -Class3_Sub13_Sub39.anInt3466; var34 <= 0; ++var34) {
                   var19 = Class3_Sub13_Sub27.anInt3340 + var34;
                   var20 = Class3_Sub13_Sub27.anInt3340 - var34;
                   if(var32 >= Class163_Sub1_Sub1.anInt4006) {
-                     if(var19 >= Class3_Sub28_Sub7.anInt3603) {
+                     if(var19 >= Unsorted.anInt3603) {
                         var21 = var27[var32][var19];
                         if(var21 != null && var21.aBoolean2222) {
                            Class145.method2073(var21, false);
@@ -249,8 +236,8 @@ abstract class Class146 {
                      }
                   }
 
-                  if(var29 < Class2.anInt67) {
-                     if(var19 >= Class3_Sub28_Sub7.anInt3603) {
+                  if(var29 < Unsorted.anInt67) {
+                     if(var19 >= Unsorted.anInt3603) {
                         var21 = var27[var29][var19];
                         if(var21 != null && var21.aBoolean2222) {
                            Class145.method2073(var21, false);

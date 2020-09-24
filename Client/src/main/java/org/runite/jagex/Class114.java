@@ -1,11 +1,13 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.ReferenceCache;
+
 import java.util.Objects;
 
 final class Class114 {
 
    private final int anInt1568;
-   static Class93 aClass93_1569 = new Class93(200);
+   static ReferenceCache aReferenceCache_1569 = new ReferenceCache(200);
    private int anInt1570 = 0;
    private Class3_Sub26[] aClass3_Sub26Array1571;
    static Class30 aClass30_1572;
@@ -18,21 +20,6 @@ final class Class114 {
    boolean aBoolean1580 = false;
 
 
-   public static void method1704(int var0) {
-      try {
-         aClass93_1569 = null;
-         if(var0 != 65536) {
-            method1705(-109, -68);
-         }
-
-         anIntArray1578 = null;
-         ignores = null;
-         aClass30_1572 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "pf.G(" + var0 + ')');
-      }
-   }
-
    static float[] method1705(int var0, int var1) {
       try {
          float var2 = Class92.method1514() + Class92.getLightingModelAmbient();
@@ -41,10 +28,10 @@ final class Class114 {
          MouseListeningClass.aFloatArray1919[3] = 1.0F;
          float var4 = (float)(var3 >> 16 & 255) / 255.0F;
          float var5 = (float)(('\uff1e' & var3) >> 8) / 255.0F;
-         MouseListeningClass.aFloatArray1919[1] = var2 * (float) Class69.bitwiseAnd(var0 >> 8, 255) / 255.0F * var5 * var7;
-         MouseListeningClass.aFloatArray1919[var1] = var2 * var7 * var4 * ((float)(Class69.bitwiseAnd(16754958, var0) >> 16) / 255.0F);
+         MouseListeningClass.aFloatArray1919[1] = var2 * (float) Unsorted.bitwiseAnd(var0 >> 8, 255) / 255.0F * var5 * var7;
+         MouseListeningClass.aFloatArray1919[var1] = var2 * var7 * var4 * ((float)(Unsorted.bitwiseAnd(16754958, var0) >> 16) / 255.0F);
          float var6 = (float)(var3 & 255) / 255.0F;
-         MouseListeningClass.aFloatArray1919[2] = (float) Class69.bitwiseAnd(255, var0) / 255.0F * var6 * var7 * var2;
+         MouseListeningClass.aFloatArray1919[2] = (float) Unsorted.bitwiseAnd(255, var0) / 255.0F * var6 * var7 * var2;
          return MouseListeningClass.aFloatArray1919;
       } catch (RuntimeException var8) {
          throw Class44.clientError(var8, "pf.F(" + var0 + ',' + var1 + ')');
@@ -70,12 +57,12 @@ final class Class114 {
       try {
          int var7 = (!var2?0:65536) + var1 + (var0 << 17) + (var4 << 19);
          long var8 = (long)var7 * 3849834839L + 3147483667L * (long)var3;
-         Class3_Sub28_Sub16 var10 = (Class3_Sub28_Sub16)Class67.aClass93_1013.get(var8);
+         Class3_Sub28_Sub16 var10 = (Class3_Sub28_Sub16)Class67.aReferenceCache_1013.get(var8);
          if(var10 == null) {
             Class51.aBoolean837 = false;
-            var10 = RSString.method1570(var4, (byte)13, false, var1, var2, var0, var3, false);
+            var10 = Unsorted.method1570(var4, (byte)13, false, var1, var2, var0, var3, false);
             if(var10 != null && !Class51.aBoolean837) {
-               Class67.aClass93_1013.put((byte)-79, var10, var8);
+               Class67.aReferenceCache_1013.put(var10, var8);
             }
 
          }
@@ -117,7 +104,7 @@ final class Class114 {
                   Class3_Sub26 var4 = (Class3_Sub26) this.aClass61_1577.method1212();
                   var3 = new Class3_Sub26(var2, Objects.requireNonNull(var4).anInt2555);
                   this.aClass3_Sub26Array1571[var4.anInt2553] = null;
-                  var4.method86(-1024);
+                  var4.unlink();
                }
 
                this.aClass3_Sub26Array1571[var2] = var3;
@@ -153,9 +140,9 @@ final class Class114 {
 
    static void method1711(int var0, int var1) {
       try {
-         Class3_Sub28_Sub4.aClass93_3572.method1522(-127, var0);
-         Class143.aClass93_1874.method1522(var1 + -383, var0);
-         Class67.aClass93_1013.method1522(var1 ^ -132, var0);
+         Class3_Sub28_Sub4.aReferenceCache_3572.sweep(var0);
+         Class143.aReferenceCache_1874.sweep(var0);
+         Class67.aReferenceCache_1013.sweep(var0);
          if(var1 != 255) {
             method1711(20, 87);
          }

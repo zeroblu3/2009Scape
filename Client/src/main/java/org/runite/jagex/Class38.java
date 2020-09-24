@@ -10,28 +10,24 @@ class Class38 {
    static Class146 aClass146_668;
 
 
-   static ItemDefinition getItemDefinition(int itemId, byte var1) {
+   static ItemDefinition getItemDefinition(int itemId) {
       try {
-         ItemDefinition var2 = (ItemDefinition)Class3_Sub28_Sub4.aClass93_3572.get((long)itemId);
+         ItemDefinition var2 = (ItemDefinition)Class3_Sub28_Sub4.aReferenceCache_3572.get((long)itemId);
          if(var2 == null) {
             byte[] var3 = Class97.aClass153_1370.getFile(Class140_Sub2.method1951(itemId), 255 & itemId);
-            if(var1 <= 68) {
-               method1027(-113, (byte)110);
-            }
-
             var2 = new ItemDefinition();
             var2.itemId = itemId;
             if(var3 != null) {
-               var2.parseDefinitions(new RSByteBuffer(var3));
+               var2.parseDefinitions(new DataBuffer(var3));
             }
 
             var2.method1112();
             if(var2.anInt791 != -1) {
-               var2.method1118(getItemDefinition(var2.anInt789, (byte)70), getItemDefinition(var2.anInt791, (byte)73));
+               var2.method1118(getItemDefinition(var2.anInt789), getItemDefinition(var2.anInt791));
             }
 
             if(var2.anInt762 != -1) {
-               var2.method1109(getItemDefinition(var2.anInt795, (byte)111), getItemDefinition(var2.anInt762, (byte)86));
+               var2.method1109(getItemDefinition(var2.anInt795), getItemDefinition(var2.anInt762));
             }
 
             if(!Class139.aBoolean1827 && var2.membersItem) {
@@ -39,52 +35,33 @@ class Class38 {
                var2.teamId = 0;
                var2.inventoryOptions = ClientErrorException.aClass94Array2119;
                var2.aBoolean807 = false;
-               var2.groundOptions = RSByteBuffer.aClass94Array2596;
+               var2.groundOptions = Unsorted.aClass94Array2596;
             }
 
-            Class3_Sub28_Sub4.aClass93_3572.put((byte)-107, var2, (long)itemId);
+            Class3_Sub28_Sub4.aReferenceCache_3572.put(var2, (long)itemId);
          }
          return var2;
       } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "fk.F(" + itemId + ',' + var1 + ')');
+         throw Class44.clientError(var4, "fk.F(" + itemId + ')');
       }
    }
 
-   public static void method1024(int var0) {
+	static void method1025(byte var0) {
       try {
-         if(var0 != 21474) {
-            method1029(-65);
-         }
-
-         anIntArray664 = null;
-         anIntArrayArray663 = (int[][])null;
-         aClass146_668 = null;
-         aClass87_665 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "fk.E(" + var0 + ')');
-      }
-   }
-
-   static void method1025(byte var0) {
-      try {
-         Class3_Sub31.aClass93_2604.method1523((byte)-121);
+         Class3_Sub31.aReferenceCache_2604.clearSoftReferences();
          if(var0 > -51) {
             method1025((byte)86);
          }
 
-         Class27.aClass93_511.method1523((byte)-120);
+         Class27.aReferenceCache_511.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "fk.I(" + var0 + ')');
       }
    }
 
-   static int crc32(byte[] data, int length) {
-      return Class99.crc32(0, length, data);
-   }
-
    static void method1027(int var0, byte var1) {
       try {
-         Class44.aClass93_725.method1522(-128, var0);
+         Class44.aReferenceCache_725.sweep(var0);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "fk.J(" + var0 + ',' + var1 + ')');
       }
@@ -102,7 +79,7 @@ class Class38 {
 
             Player var3 = Class3_Sub13_Sub22.players[var2];
             if(var3 != null) {
-               OutputStream_Sub1.method68(var3.getSize(), var3);
+               Unsorted.method68(var3.getSize(), var3);
             }
          }
 
@@ -114,7 +91,7 @@ class Class38 {
    static void method1029(int var0) {
       try {
          Class3_Sub13_Sub1.outgoingBuffer.putOpcode(177);
-         Class3_Sub13_Sub1.outgoingBuffer.putShort(Class113.interfacePacketCounter);
+         Class3_Sub13_Sub1.outgoingBuffer.writeShort(Class113.interfacePacketCounter);
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "fk.D(" + var0 + ')');
       }

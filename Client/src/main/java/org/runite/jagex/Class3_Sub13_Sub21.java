@@ -1,4 +1,6 @@
 package org.runite.jagex;
+import org.rs09.client.net.Connection;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Objects;
@@ -19,22 +21,22 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
    private int anInt3266 = 8192;
 
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3265 = var2.getShort();
+            this.anInt3265 = var2.readUnsignedShort();
          } else if(var1 == 1) {
-            this.anInt3253 = var2.getShort();
+            this.anInt3253 = var2.readUnsignedShort();
          } else if(var1 == 2) {
-            this.anInt3258 = var2.getShort();
+            this.anInt3258 = var2.readUnsignedShort();
          } else if(var1 == 3) {
-            this.anInt3262 = var2.getShort();
+            this.anInt3262 = var2.readUnsignedShort();
          } else if (var1 == 4) {
-            this.anInt3257 = var2.getShort();
+            this.anInt3257 = var2.readUnsignedShort();
          } else if (var1 == 5) {
-            this.anInt3254 = var2.getShort();
+            this.anInt3254 = var2.readUnsignedShort();
          } else if (var1 == 6) {
-            this.anInt3266 = var2.getShort();
+            this.anInt3266 = var2.readUnsignedShort();
          }
 
          if(!var3) {
@@ -48,21 +50,21 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
 
    static void method267(byte var0) {
 	  try {
-         if(Canvas_Sub1.registryStage != 0) {
+         if(Unsorted.registryStage != 0) {
             try {
                if(++Class132.anInt1734 > 2000) {
-                  if(null != Class3_Sub15.aClass89_2429) {
-                     Class3_Sub15.aClass89_2429.close(14821);
-                     Class3_Sub15.aClass89_2429 = null;
+                  if(null != Class3_Sub15.activeConnection) {
+                     Class3_Sub15.activeConnection.close();
+                     Class3_Sub15.activeConnection = null;
                   }
 
                   if(GraphicDefinition.anInt548 >= 1) {
-                     Class130.anInt1711 = -5;
-                     Canvas_Sub1.registryStage = 0;
+                     Unsorted.anInt1711 = -5;
+                     Unsorted.registryStage = 0;
                      return;
                   }
 
-                  Canvas_Sub1.registryStage = 1;
+                  Unsorted.registryStage = 1;
                   Class132.anInt1734 = 0;
                   ++GraphicDefinition.anInt548;
                   if(Class140_Sub6.accRegistryPort == Class162.anInt2036) {
@@ -72,30 +74,30 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
                   }
                }
 
-               if(Canvas_Sub1.registryStage == 1) {
+               if(Unsorted.registryStage == 1) {
             	   //Ip & Port
                   Class3_Sub9.aClass64_2318 = Class38.aClass87_665.method1441((byte)8, Class38_Sub1.accRegistryIp, Class140_Sub6.accRegistryPort);
-                  Canvas_Sub1.registryStage = 2;
+                  Unsorted.registryStage = 2;
                }
 
                int response;
-               if(Canvas_Sub1.registryStage == 2) {
+               if(Unsorted.registryStage == 2) {
                   if(Objects.requireNonNull(Class3_Sub9.aClass64_2318).anInt978 == 2) {
                      throw new IOException();
                   }
                   if(1 != Class3_Sub9.aClass64_2318.anInt978) {
                      return;
                   }
-                  Class3_Sub15.aClass89_2429 = new IOHandler((Socket)Class3_Sub9.aClass64_2318.anObject974, Class38.aClass87_665);
+                  Class3_Sub15.activeConnection = new Connection((Socket)Class3_Sub9.aClass64_2318.anObject974, Class38.aClass87_665);
                   Class3_Sub9.aClass64_2318 = null;
-                  Class3_Sub15.aClass89_2429.sendBytes(Class3_Sub13_Sub1.outgoingBuffer.buffer, Class3_Sub13_Sub1.outgoingBuffer.index);
+                  Class3_Sub15.activeConnection.sendBytes(Class3_Sub13_Sub1.outgoingBuffer.buffer, Class3_Sub13_Sub1.outgoingBuffer.index);
                    if(WorldListEntry.aClass155_2627 != null) {
                      WorldListEntry.aClass155_2627.method2159(63);
                   }
                   if(null != Class3_Sub21.aClass155_2491) {
                      Class3_Sub21.aClass155_2491.method2159(66);
                   }
-                  response = Class3_Sub15.aClass89_2429.readByte(0);
+                  response = Class3_Sub15.activeConnection.readByte();
                   System.out.println("Response = " + response);
                   if(WorldListEntry.aClass155_2627 != null) {
                      WorldListEntry.aClass155_2627.method2159(64);
@@ -104,50 +106,50 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
                      Class3_Sub21.aClass155_2491.method2159(111);
                   }
                   if(response != 21) {
-                     Class130.anInt1711 = response;
-                     Canvas_Sub1.registryStage = 0;
-                     Class3_Sub15.aClass89_2429.close(14821);
-                     Class3_Sub15.aClass89_2429 = null;
+                     Unsorted.anInt1711 = response;
+                     Unsorted.registryStage = 0;
+                     Class3_Sub15.activeConnection.close();
+                     Class3_Sub15.activeConnection = null;
                      return;
                   }
-                  Canvas_Sub1.registryStage = 3;
+                  Unsorted.registryStage = 3;
                }
 
                if(var0 <= 26) {
                   method269(-75, 44);
                }
 
-               if(3 == Canvas_Sub1.registryStage) {
-                  if(Class3_Sub15.aClass89_2429.availableBytes(-18358) < 1) {
+               if(3 == Unsorted.registryStage) {
+                  if(Class3_Sub15.activeConnection.availableBytes() < 1) {
                      return;
                   }
 
-                  Class3_Sub13_Sub33.aClass94Array3391 = new RSString[Class3_Sub15.aClass89_2429.readByte(0)];
-                  Canvas_Sub1.registryStage = 4;
+                  Class3_Sub13_Sub33.aClass94Array3391 = new RSString[Class3_Sub15.activeConnection.readByte()];
+                  Unsorted.registryStage = 4;
                }
 
-               if(Canvas_Sub1.registryStage == 4) {
-                  if(8 * Class3_Sub13_Sub33.aClass94Array3391.length > Class3_Sub15.aClass89_2429.availableBytes(-18358)) {
+               if(Unsorted.registryStage == 4) {
+                  if(8 * Class3_Sub13_Sub33.aClass94Array3391.length > Class3_Sub15.activeConnection.availableBytes()) {
                      return;
                   }
 
                   GraphicDefinition.incomingBuffer.index = 0;
-                  Class3_Sub15.aClass89_2429.readBytes(0, 8 * Class3_Sub13_Sub33.aClass94Array3391.length, GraphicDefinition.incomingBuffer.buffer);
+                  Class3_Sub15.activeConnection.readBytes(GraphicDefinition.incomingBuffer.buffer, 0, 8 * Class3_Sub13_Sub33.aClass94Array3391.length);
 
                   for(response = 0; response < Class3_Sub13_Sub33.aClass94Array3391.length; ++response) {
-                     Class3_Sub13_Sub33.aClass94Array3391[response] = Class41.method1052(GraphicDefinition.incomingBuffer.getLong(-125));
+                     Class3_Sub13_Sub33.aClass94Array3391[response] = Unsorted.method1052(GraphicDefinition.incomingBuffer.readLong());
                   }
 
-                  Class130.anInt1711 = 21;
-                  Canvas_Sub1.registryStage = 0;
-                  Class3_Sub15.aClass89_2429.close(14821);
-                  Class3_Sub15.aClass89_2429 = null;
+                  Unsorted.anInt1711 = 21;
+                  Unsorted.registryStage = 0;
+                  Class3_Sub15.activeConnection.close();
+                  Class3_Sub15.activeConnection = null;
                   return;
                }
             } catch (IOException var2) {
-               if(Class3_Sub15.aClass89_2429 != null) {
-                  Class3_Sub15.aClass89_2429.close(14821);
-                  Class3_Sub15.aClass89_2429 = null;
+               if(Class3_Sub15.activeConnection != null) {
+                  Class3_Sub15.activeConnection.close();
+                  Class3_Sub15.activeConnection = null;
                }
 
                if(GraphicDefinition.anInt548 < 1) {
@@ -159,28 +161,16 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
                   }
 
                   Class132.anInt1734 = 0;
-                  Canvas_Sub1.registryStage = 1;
+                  Unsorted.registryStage = 1;
                } else {
-                  Class130.anInt1711 = -4;
-                  Canvas_Sub1.registryStage = 0;
+                  Unsorted.anInt1711 = -4;
+                  Unsorted.registryStage = 0;
                }
             }
 
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "mh.Q(" + var0 + ')');
-      }
-   }
-
-   public static void method268(byte var0) {
-      try {
-         if(var0 != -91) {
-            method268((byte)7);
-         }
-
-         aClass3_Sub28_Sub3_3264 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "mh.R(" + var0 + ')');
       }
    }
 
@@ -194,7 +184,7 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
             anInt3263 = 109;
          }
 
-         Class61.aClass93_939.method1522(-128, var1);
+         Class61.aReferenceCache_939.sweep(var1);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "mh.O(" + var0 + ',' + var1 + ')');
       }
@@ -295,20 +285,20 @@ final class Class3_Sub13_Sub21 extends Class3_Sub13 {
                }
 
                int var5 = 0;
-               RSByteBuffer var16 = new RSByteBuffer(Class3_Sub13_Sub26.aByteArrayArray3335[var2]);
+               DataBuffer var16 = new DataBuffer(Class3_Sub13_Sub26.aByteArrayArray3335[var2]);
 
                while(Class3_Sub13_Sub26.aByteArrayArray3335[var2].length > var16.index && 511 > var5) {
                   int var6 = var5++ << 6 | var3;
-                  int var7 = var16.getShort();
+                  int var7 = var16.readUnsignedShort();
                   int var8 = var7 >> 14;
                   int var9 = 63 & var7 >> 7;
                   int var11 = var9 + 64 * (Class3_Sub24_Sub3.anIntArray3494[var2] >> 8) - Class131.anInt1716;
                   int var10 = var7 & 63;
                   int var12 = var10 + -Class82.anInt1152 + 64 * (255 & Class3_Sub24_Sub3.anIntArray3494[var2]);
-                  NPCDefinition var13 = Node.method522(var16.getShort());
-                  if(Class3_Sub13_Sub24.npcs[var6] == null && (var13.aByte1267 & 1) > 0 && Class140_Sub3.anInt2745 == var8 && var11 >= 0 && 104 > var13.size + var11 && var12 >= 0 && 104 > var12 - -var13.size) {
-                     Class3_Sub13_Sub24.npcs[var6] = new NPC();
-                     NPC npc = Class3_Sub13_Sub24.npcs[var6];
+                  NPCDefinition var13 = Unsorted.method522(var16.readUnsignedShort());
+                  if(NPC.npcs[var6] == null && (var13.aByte1267 & 1) > 0 && Class140_Sub3.anInt2745 == var8 && var11 >= 0 && 104 > var13.size + var11 && var12 >= 0 && 104 > var12 - -var13.size) {
+                     NPC.npcs[var6] = new NPC();
+                     NPC npc = NPC.npcs[var6];
                      Class15.localNPCIndexes[Class163.localNPCCount++] = var6;
                      npc.anInt2838 = Class44.anInt719;
                      npc.setDefinitions(var13);

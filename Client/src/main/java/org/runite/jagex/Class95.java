@@ -1,33 +1,14 @@
 package org.runite.jagex;
 
-final class Class95 {
+public final class Class95 {
 
-   static RSString aClass94_1333 = RSString.createRSString("um");
    static int anInt1336 = 0;
-   static RSString COMMAND_BREAK_CONNECTION = RSString.createRSString("::breakcon");
    static int anInt1338;
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_1339;
    static volatile int anInt1340 = -1;
-   static RSString aClass94_1341 = RSString.createRSString("logo");
-   static RSString aClass94_1342 = RSString.createRSString("details");
    static int anInt1343;
    static int anInt1344;
 
-
-   public static void method1582(int var0) {
-      try {
-         aClass3_Sub28_Sub16_1339 = null;
-         aClass94_1342 = null;
-         aClass94_1333 = null;
-         aClass94_1341 = null;
-         if(var0 != 3) {
-            anInt1340 = -18;
-         }
-         COMMAND_BREAK_CONNECTION = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "nb.D(" + var0 + ')');
-      }
-   }
 
    static void method1583(int var0, int var1, int var2, int var4, int var5, int var6, int var7, int var8, int var9) {
       try {
@@ -87,7 +68,7 @@ final class Class95 {
       }
    }
 
-   static int method1585(byte var0, int var1) {
+   public static int method1585(byte var0, int var1) {
       try {
          --var1;
          var1 |= var1 >>> 1;
@@ -106,8 +87,8 @@ final class Class95 {
          RSString var2 = new RSString();
 
          var2.length = 1;
-         var2.byteArray = new byte[1];
-         var2.byteArray[0] = (byte) 160;
+         var2.buffer = new byte[1];
+         var2.buffer[0] = (byte) 160;
          return var2;
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "nb.A(" + 23161 + ',' + 160 + ')');

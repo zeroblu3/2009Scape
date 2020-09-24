@@ -5,19 +5,11 @@ final class Class115 {
    static Class86[][] aClass86ArrayArray1581 = new Class86[13][13];
 
 
-   public static void method1712(int var0) {
-      try {
-         aClass86ArrayArray1581 = (Class86[][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ph.B(" + var0 + ')');
-      }
-   }
-
    static void method1713() {
       try {
 
           while(true) {
-            Class3_Sub5 var1 = (Class3_Sub5)Class3_Sub18.aClass61_2468.method1220();
+            Class3_Sub5 var1 = (Class3_Sub5) Unsorted.aClass61_2468.method1220();
             if(var1 == null) {
                return;
             }
@@ -33,7 +25,7 @@ final class Class115 {
                }
             } else {
                var3 = var1.anInt2273 - 1;
-               var2 = Class3_Sub13_Sub24.npcs[var3];
+               var2 = NPC.npcs[var3];
             }
 
             if(var2 != null) {
@@ -73,14 +65,14 @@ final class Class115 {
                      var12 = var23.aClass140_479;
                   }
                } else if (var13 == 3) {
-                  Class12 var24 = RSByteBuffer.method784(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
+                  Class12 var24 = Unsorted.method784(WorldListCountry.localPlane, var1.anInt2271, var1.anInt2282);
                   if (null != var24) {
                      var12 = var24.object;
                   }
                }
 
                if(null != var12) {
-                  NodeList.method881(WorldListCountry.localPlane, var1.anInt2282, -96, 0, var1.anInt2271, var1.anInt2283 - -1, -1, var13, 0, var1.anInt2266 - -1);
+                  Unsorted.method881(WorldListCountry.localPlane, var1.anInt2282, -96, 0, var1.anInt2271, var1.anInt2283 - -1, -1, var13, 0, var1.anInt2266 - -1);
                   ((Class140_Sub4)var2).anInt2778 = var1.anInt2283 + Class44.anInt719;
                   ((Class140_Sub4)var2).anInt2833 = 64 * var5 + var1.anInt2282 * 128;
                   ((Class140_Sub4)var2).anInt2782 = var4 * 64 + 128 * var1.anInt2271;
@@ -118,9 +110,9 @@ final class Class115 {
 
    static void method1714() {
       try {
-         KeyboardListener.aClass93_1911.method1523((byte)-112);
+         KeyboardListener.aReferenceCache_1911.clearSoftReferences();
 
-          Class80.aClass93_1131.method1523((byte)-100);
+          Unsorted.aReferenceCache_1131.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "ph.C(" + (byte) -6 + ')');
       }

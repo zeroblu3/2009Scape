@@ -14,20 +14,9 @@ final class WorldListEntry extends Class44 {
 
    static void method1076() {
       try {
-         Class154.aClass93_1964.method1524();
+         Class154.aReferenceCache_1964.clear();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "ba.C(" + 88 + ')');
-      }
-   }
-
-   public static void method1077(int var0) {
-      try {
-         aClass155_2627 = null;
-         if(var0 != 0) {
-            anInt2626 = 89;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ba.A(" + var0 + ')');
       }
    }
 
@@ -44,9 +33,9 @@ final class WorldListEntry extends Class44 {
          if(0 > var0) {
             return 0;
          } else {
-            Class3_Sub25 var2 = (Class3_Sub25)Class3_Sub2.aClass130_2220.method1780((long)var0);
+            Class3_Sub25 var2 = (Class3_Sub25)Class3_Sub2.aHashTable_2220.get((long)var0);
             if(var2 == null) {
-               return Objects.requireNonNull(Class144.method2069(var0, -126)).anInt3647;
+               return Objects.requireNonNull(Unsorted.method2069(var0)).size;
             } else {
                int var3 = 0;
 
@@ -56,7 +45,7 @@ final class WorldListEntry extends Class44 {
                   }
                }
 
-               var3 += Objects.requireNonNull(Class144.method2069(var0, -100)).anInt3647 + -var2.anIntArray2547.length;
+               var3 += Objects.requireNonNull(Unsorted.method2069(var0)).size + -var2.anIntArray2547.length;
                return var3;
             }
          }

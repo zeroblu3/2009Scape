@@ -1,14 +1,16 @@
 package org.runite.jagex;
 
-final class Class126 {
+import org.rs09.client.data.Queue;
+
+public final class Class126 {
 
    int anInt1663;
    int anInt1664;
    static int anInt1665;
-   static NodeList aClass13_1666 = new NodeList();
+   static Queue aClass13_1666 = new Queue();
    int anInt1667;
    static int anInt1668 = -1;
-   static Class3_Sub28_Sub17 aClass3_Sub28_Sub17_1669;
+   public static Class3_Sub28_Sub17 aClass3_Sub28_Sub17_1669;
    int anInt1670;
    static Client aClient1671;
    static int anInt1672 = 0;
@@ -17,20 +19,6 @@ final class Class126 {
    int anInt1675;
    static int anInt1676 = 0;
 
-
-   public static void method1751(byte var0) {
-      try {
-         aClass13_1666 = null;
-         aClient1671 = null;
-         ItemDefinition.intArguments = null;
-         aClass3_Sub28_Sub17_1669 = null;
-         if(var0 != -58) {
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "rh.A(" + var0 + ')');
-      }
-   }
 
    Class126(int var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
       try {

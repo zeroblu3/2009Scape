@@ -1,30 +1,16 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.ReferenceCache;
+
 final class Class154 {
 
-   static Class93 aClass93_1955 = new Class93(64);
+   static ReferenceCache aReferenceCache_1955 = new ReferenceCache(64);
    static int anInt1957;
    static int[] anIntArray1960 = new int[14];
-   static Class93 aClass93_1964 = new Class93(5);
-   static Class93 aClass93_1965 = new Class93(50);
+   static ReferenceCache aReferenceCache_1964 = new ReferenceCache(5);
+   static ReferenceCache aReferenceCache_1965 = new ReferenceCache(50);
    static int anInt1966 = -1;
    static CacheIndex aClass153_1967;
-
-   public static void method2145(byte var0) {
-      try {
-         aClass93_1955 = null;
-         if(var0 >= -41) {
-            method2147(-28, 103, -37);
-         }
-
-         anIntArray1960 = null;
-         aClass153_1967 = null;
-         aClass93_1965 = null;
-         aClass93_1964 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "vf.A(" + var0 + ')');
-      }
-   }
 
    static void method2146(int var0, int var1, int var2, int var3, GameObject var4, GameObject var5, int var6, int var7, long var8) {
       if(var4 != null || var5 != null) {
@@ -57,7 +43,7 @@ final class Class154 {
       try {
          if(999999999 <= var0) {
 
-             return Class128.aClass94_1687;
+             return TextCore.aClass94_1687;
          } else {
             return Class72.method1298((byte)9, var0);
          }

@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.Node;
+
 final class Class3_Sub28_Sub8 extends Node {
 
    static int anInt3609;
@@ -15,28 +17,16 @@ final class Class3_Sub28_Sub8 extends Node {
       }
    }
 
-   public static void method573(int var0) {
-      try {
-         if(var0 != -11346) {
-            anInt3611 = -69;
-         }
-
-         aClass113Array3610 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "hc.A(" + var0 + ')');
-      }
-   }
-
    static void method574(NPC var0) {
       try {
-         for(Class3_Sub9 var2 = (Class3_Sub9)IOHandler.aClass61_1242.method1222(); var2 != null; var2 = (Class3_Sub9)IOHandler.aClass61_1242.method1221()) {
+         for(Class3_Sub9 var2 = (Class3_Sub9) Unsorted.aClass61_1242.method1222(); var2 != null; var2 = (Class3_Sub9) Unsorted.aClass61_1242.method1221()) {
             if(var0 == var2.aClass140_Sub4_Sub2_2324) {
                if(var2.aClass3_Sub24_Sub1_2312 != null) {
                   Class3_Sub26.aClass3_Sub24_Sub2_2563.method461(var2.aClass3_Sub24_Sub1_2312);
                   var2.aClass3_Sub24_Sub1_2312 = null;
                }
 
-               var2.method86(-1024);
+               var2.unlink();
                return;
             }
          }
@@ -60,11 +50,11 @@ final class Class3_Sub28_Sub8 extends Node {
 
    static int method576(RSString var0) {
       try {
-         if(Class119.aClass131_1624 == null || var0.length(-65) == 0) {
+         if(Class119.aClass131_1624 == null || var0.length() == 0) {
             return -1;
          } else {
             for (int var2 = 0; var2 < Class119.aClass131_1624.anInt1720; ++var2) {
-               if (Class119.aClass131_1624.aClass94Array1721[var2].method1560(Class3_Sub13_Sub16.aClass94_3192, Class3_Sub28_Sub10_Sub2.aClass94_4066).method1528(var0)) {
+               if (Class119.aClass131_1624.aClass94Array1721[var2].method1560(TextCore.aClass94_3192, TextCore.aClass94_4066).equalsString(var0)) {
                   return var2;
                }
             }
