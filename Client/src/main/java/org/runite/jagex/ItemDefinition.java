@@ -2549,7 +2549,7 @@ final class ItemDefinition {
 																			if (HDToolKit.highDetail) {
 																				Class3_Sub13_Sub14.method236();
 																				if (!Class106.aBoolean1441)
-																					Class84.method1417(104);
+																					Class84.method1417();
 																			}
 																			Unsorted.method746((byte) -29);
 																			Class119.method1730(Class38.aClass87_665);
@@ -2559,7 +2559,7 @@ final class ItemDefinition {
 																		if (opcode == 6002) {
 																			Class25.method957(1 == intsStack[--iStackCounter]);
 																			Class3_Sub10.method139(66);
-																			Class84.method1417(101);
+																			Class84.method1417();
 																			Unsorted.method792();
 																			Class119.method1730(Class38.aClass87_665);
 																			Class140_Sub2.aBoolean2705 = false;
@@ -2574,7 +2574,7 @@ final class ItemDefinition {
 																		}
 																		if (opcode == 6005) {
 																			KeyboardListener.aBoolean1905 = intsStack[--iStackCounter] == 1;
-																			Class84.method1417(112);
+																			Class84.method1417();
 																			Class119.method1730(Class38.aClass87_665);
 																			Class140_Sub2.aBoolean2705 = false;
 																			continue;
@@ -2635,7 +2635,7 @@ final class ItemDefinition {
 																				if (Unsorted.anInt3625 == 4)
 																					Class51.method1137(0.6F);
 																			}
-																			Class84.method1417(108);
+																			Class84.method1417();
 																			Class119.method1730(Class38.aClass87_665);
 																			Class140_Sub2.aBoolean2705 = false;
 																			continue;
@@ -2643,7 +2643,7 @@ final class ItemDefinition {
 																		if (opcode == 6014) {
 																			Class128.aBoolean1685 = intsStack[--iStackCounter] == 1;
 																			if (HDToolKit.highDetail)
-																				Class84.method1417(109);
+																				Class84.method1417();
 																			Class119.method1730(Class38.aClass87_665);
 																			Class140_Sub2.aBoolean2705 = false;
 																			continue;

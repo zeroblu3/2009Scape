@@ -13,12 +13,8 @@ final class Class84 {
    static int anInt1165 = -1;
 
 
-   static void method1417(int var0) {
+   static void method1417() {
       try {
-         if(var0 < 98) {
-            method1418(55, (CacheIndex)null);
-         }
-
          if(Class143.loadingStage == 10 && HDToolKit.highDetail) {
             Class117.method1719(28);
          }
@@ -28,7 +24,7 @@ final class Class84 {
          }
 
       } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "lf.D(" + var0 + ')');
+         throw Class44.clientError(var2, "lf.D(" + ')');
       }
    }
 
