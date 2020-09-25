@@ -90,15 +90,15 @@ final class Class84 {
             OpenGlToolkit.OPENGL_TOOLKIT.fillRect(var1, var2, var3, var4, var5, 45);
             OpenGlToolkit.OPENGL_TOOLKIT.fillRect(1 + var1, 1 + var2, var3 + -2, 16, 0, 255);
             OpenGlToolkit.OPENGL_TOOLKIT.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 11119017, 120);
-            //            Class22.method934(var1, var2, var3, var4, var5); Old "toolkit"
-            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values method934(" + var1 + ", " + var2 + ", " + var3 + ", " + var4 + ", " + var5 + ")");
-            //            Class22.method934(1 + var1, 1 + var2, var3 + -2, 16, 0);
-            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values method934(" + (1 + var1) +"," + (1 + var2) + ", " + (var3 + -2) + ", " + "16, " + "0)");
+            //            Class22.drawLongRect(var1, var2, var3, var4, var5); Old "toolkit"
+            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values drawLongRect(" + var1 + ", " + var2 + ", " + var3 + ", " + var4 + ", " + var5 + ")");
+            //            Class22.drawLongRect(1 + var1, 1 + var2, var3 + -2, 16, 0);
+            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values drawLongRect(" + (1 + var1) +"," + (1 + var2) + ", " + (var3 + -2) + ", " + "16, " + "0)");
             //            Class22.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);//Outer Rectangle choose option Box (contains options)
             //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values drawRect(" + (1 + var1) + ", " + (var2 + 18) + ", " + (var3 + -2) + ", " + (-19 + var4) + ", " + "0)");
          } else {
-            Class74.method1323(var1, var2, var3, var4, var5);
-            Class74.method1323(1 + var1, 1 + var2, var3 + -2, 16, 0);
+            Class74.drawLongRect(var1, var2, var3, var4, var5);
+            Class74.drawLongRect(1 + var1, 1 + var2, var3 + -2, 16, 0);
             Class74.drawRect(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
          }
           */

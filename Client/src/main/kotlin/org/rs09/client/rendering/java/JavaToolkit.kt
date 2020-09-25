@@ -67,15 +67,15 @@ class JavaToolkit : Toolkit() {
         var x = x
         var width = w
 
-        if (y < clipTop || y >= clipBottom)
+        if (y < this.clipTop || y >= this.clipBottom)
             return
 
-        if (x < clipLeft) {
-            width -= clipLeft - x
-            x = clipLeft
+        if (x < this.clipLeft) {
+            width -= this.clipLeft - x
+            x = this.clipLeft
         }
-        if (x + width > clipRight) {
-            width = clipRight - x
+        if (x + width > this.clipRight) {
+            width = this.clipRight - x
         }
 
         val var4 = x + y * this.width
@@ -88,15 +88,15 @@ class JavaToolkit : Toolkit() {
         var y = y
         var height = h
 
-        if (x < clipLeft || x >= clipRight)
+        if (x < this.clipLeft || x >= this.clipRight)
             return
 
-        if (y < clipTop) {
-            height -= clipTop - y
-            y = clipTop
+        if (y < this.clipTop) {
+            height -= this.clipTop - y
+            y = this.clipTop
         }
-        if (y + height > clipBottom) {
-            height = clipBottom - y
+        if (y + height > this.clipBottom) {
+            height = this.clipBottom - y
         }
 
         val var4 = x + y * this.width
@@ -110,8 +110,38 @@ class JavaToolkit : Toolkit() {
         drawHorizontalLine(x, y + h - 1, w, rgb)
         drawVerticalLine(x, y, h, rgb)
         drawVerticalLine(x + w - 1, y, h, rgb)
-
     }
+
+    override fun drawLongRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
+        var x = x
+        var y = y
+        var width = w
+        var height = h
+        if (x < this.clipLeft) {
+            width -= this.clipLeft - x
+            x = this.clipLeft
+        }
+        if (y < this.clipTop) {
+            height -= this.clipTop - y
+            y = this.clipTop
+        }
+        if (x + w > this.clipRight) {
+            width = this.clipRight - x
+        }
+        if (y + h > this.clipBottom) {
+            height = this.clipBottom - y
+        }
+        val var5 = this.width - w
+        var var6 = x + y * this.width
+
+        for (var7 in -height until 0) {
+            for (var8 in -width..-1) {
+                buffer[var6++] = rgb
+            }
+            var6 += var5;
+        }
+    }
+
 
     fun resetBuffer() {
         buffer = IntArray(0)

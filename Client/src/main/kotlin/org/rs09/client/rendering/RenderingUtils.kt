@@ -43,9 +43,10 @@ object RenderingUtils {
     }
 
     @JvmStatic
-    fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int) {
-        if (hd) Class22.drawRect(x, y, w, h, rgb)
-        else Class74.drawRect(x, y, w, h, rgb)
+    fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
+        Toolkit.getActiveToolkit().drawRect(x, y, w, h, rgb, alpha)
+//        if (hd) Class22.drawRect(x, y, w, h, rgb)
+//        else Class74.drawRect(x, y, w, h, rgb)
     }
 
     fun drawText(str: String, x: Int, y: Int, rgb: Int, parse: Boolean = false) {

@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.rendering.Toolkit;
+
 public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
 
    static int anInt3422;
@@ -147,7 +149,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
             Class82.method1405(var5, var4, var3, Unsorted.anInt1705, var1, Unsorted.anInt1705, -7397);
             Class163_Sub2_Sub1.method2221(var4, var3, var1, Unsorted.anInt1705, Unsorted.anInt1705, var5);
          } else {
-            Class74.method1323(var3, var5, var4, var1, 0);
+            Toolkit.JAVA_TOOLKIT.drawLongRect(var3, var5, var4, var1, 0,255);
             Class3_Sub22.method398(NPC.anInt3995, Class7.anInt2162, Class77.anInt1111, Class139.anInt1823, Class3_Sub13_Sub25.anInt3315, Class158.aByteArrayArrayArray2008, Unsorted.anIntArray686, Class129_Sub1.anIntArray2696, Class159.anIntArray2021, Player.anIntArray3959, AnimationDefinition.anIntArray1871, WorldListCountry.localPlane - -1, var19, Class102.player.anInt2819 >> 7, Class102.player.anInt2829 >> 7);
             Class58.method1194();
             Unsorted.method1775();
@@ -167,12 +169,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
          }
 
          if(Class3_Sub13_Sub4.aBoolean3064) {
-            if(HDToolKit.highDetail) {
-               Class22.method934(var3, var5, var4, var1, 0);
-            } else {
-               Class74.method1323(var3, var5, var4, var1, 0);
-            }
-
+            Toolkit.getActiveToolkit().drawLongRect(var3, var5, var4, var1, 0, 255);
             Class3_Sub13.method164((byte)-52, false, TextCore.LoadingPleaseWait2);
          }
 

@@ -2346,19 +2346,12 @@ public class Unsorted {
                 byte var5 = 20;
                 var6 = var0 - -(var4 / 2);
                 var7 = var3 / 2 + (var2 - 18) + -var5;
-                if (HDToolKit.highDetail) {
-                    Class22.method934(var0, var2, var4, var3, 0);
-                    Class22.drawRect(var6 - 152, var7, 304, 34, 9179409);
-                    Class22.drawRect(var6 + -151, var7 + 1, 302, 32, 0);
-                    Class22.method934(-150 + var6, var7 + 2, 3 * Class140_Sub3.anInt2737, 30, 9179409);
-                    Class22.method934(-150 + var6 + Class140_Sub3.anInt2737 * 3, var7 - -2, 300 + -(3 * Class140_Sub3.anInt2737), 30, 0);
-                } else {
-                    Class74.method1323(var0, var2, var4, var3, 0);
-                    Class74.drawRect(var6 + -152, var7, 304, 34, 9179409);
-                    Class74.drawRect(var6 + -151, 1 + var7, 302, 32, 0);
-                    Class74.method1323(var6 + -150, var7 + 2, Class140_Sub3.anInt2737 * 3, 30, 9179409);
-                    Class74.method1323(3 * Class140_Sub3.anInt2737 + -150 + var6, var7 - -2, -(Class140_Sub3.anInt2737 * 3) + 300, 30, 0);
-                }
+                //World map pre loading brown screen
+                Toolkit.getActiveToolkit().drawLongRect(var0, var2, var4, var3, 0, 255);
+                Toolkit.getActiveToolkit().drawRect(var6 - 152, var7, 304, 34, 9179409, 255);
+                Toolkit.getActiveToolkit().drawRect(var6 + -151, var7 + 1, 302, 32, 0, 255);
+                Toolkit.getActiveToolkit().drawLongRect(-150 + var6, var7 + 2, 3 * Class140_Sub3.anInt2737, 30, 9179409, 255);
+                Toolkit.getActiveToolkit().drawLongRect(-150 + var6 + Class140_Sub3.anInt2737 * 3, var7 - -2, 300 + -(3 * Class140_Sub3.anInt2737), 30, 0, 255);
 
                 Class168.aClass3_Sub28_Sub17_2096.method699(TextCore.LoadingGeneral, var6, var5 + var7, 16777215, -1);
             }
@@ -4619,16 +4612,13 @@ public class Unsorted {
                                                 Class74.method1315(var13, var14, var11.width, var11.height, var20, -(var15 & 255) + 256);
                                             }
                                         } else if (var11.aBoolean226) {
-                                            if (HDToolKit.highDetail) {
-                                                Class22.method934(var13, var14, var11.width, var11.height, var20);
-                                            } else {
-                                                Class74.method1323(var13, var14, var11.width, var11.height, var20);
-                                            }
-                                        } else if (HDToolKit.highDetail) {
-                                            Class22.drawRect(var13, var14, var11.width, var11.height, var20);
-                                        } else {
-                                            Class74.drawRect(var13, var14, var11.width, var11.height, var20);
+                                            Toolkit.getActiveToolkit().drawLongRect(var13, var14, var11.width, var11.height, var20, 255);
+
                                         }
+                                        //This can be used to get a better understanding of where interfaces are drawn out. By moving the alpha
+                                        //up you can start to see where/how certain interfaces are broken apart/rendered
+                                        Toolkit.getActiveToolkit().drawRect(var13, var14, var11.width, var11.height, var20, 0);
+
                                     } else {
                                         Class3_Sub28_Sub17 var34;
                                         if (var11.type == 4) {
@@ -4977,13 +4967,8 @@ public class Unsorted {
                                                         var25 = -var20 + var4;
                                                     }
 
-                                                    if (HDToolKit.highDetail) {
-                                                        Class22.method934(var25, var26, var20, var21, 16777120);
-                                                        Class22.drawRect(var25, var26, var20, var21, 0);
-                                                    } else {
-                                                        Class74.method1323(var25, var26, var20, var21, 16777120);
-                                                        Class74.drawRect(var25, var26, var20, var21, 0);
-                                                    }
+                                                    Toolkit.getActiveToolkit().drawLongRect(var25, var26, var20, var21, 16777120, 255);
+                                                    Toolkit.getActiveToolkit().drawRect(var25, var26, var20, var21, 0, 255);
 
                                                     var43 = var11.text;
                                                     var47 = 2 + (var26 - -var35.anInt3727);

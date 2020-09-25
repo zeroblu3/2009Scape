@@ -1,6 +1,7 @@
 package org.runite.jagex;
 
 import org.rs09.client.Linkable;
+import org.rs09.client.rendering.Toolkit;
 import org.runite.GameLaunch;
 
 import java.util.Objects;
@@ -225,12 +226,8 @@ final class Class3_Sub8 extends Linkable {
                var10 = 2 + 4 * Class45.anInt733 - Class102.player.anInt2829 / 32;
                Class38_Sub1.method1030(var4, Class45.aClass3_Sub28_Sub16_736, var10, var9, var2, var3);
             }
+            Toolkit.getActiveToolkit().drawLongRect(-1 + (var3 - -(var4.width / 2)), -1 + var2 - -(var4.height / 2), 3, 3, 16777215, 255);
 
-            if(HDToolKit.highDetail) {
-               Class22.method934(-1 + (var3 - -(var4.width / 2)), -1 + var2 - -(var4.height / 2), 3, 3, 16777215);
-            } else {
-               Class74.method1323(-1 + var4.width / 2 + var3, -1 + var4.height / 2 + var2, 3, 3, 16777215);
-            }
          } else if(HDToolKit.highDetail) {
             Class3_Sub28_Sub16 var5 = var4.method866(false);
             if(null != var5) {

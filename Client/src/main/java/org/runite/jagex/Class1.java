@@ -1,8 +1,7 @@
 package org.runite.jagex;
 
-import org.rs09.client.rendering.Toolkit;
-import org.runite.Configurations;
 import org.rs09.client.data.HashTable;
+import org.rs09.client.rendering.Toolkit;
 
 final class Class1 {
 
@@ -604,10 +603,10 @@ final class Class1 {
         try {
             if (HDToolKit.highDetail) {
                 Class22.setClipping(var0, var4, var2 + var0, var1 + var4);
-                Class22.method934(var0, var4, var2, var1, 0);
+                Toolkit.OPENGL_TOOLKIT.drawLongRect(var0, var4, var2, var1, 0, 255); //Specific openGL call because set Clipping is not migrated
             } else {
                 Class74.setClipping(var0, var4, var2 + var0, var4 + var1);
-                Class74.method1323(var0, var4, var2, var1, 0);
+                Toolkit.JAVA_TOOLKIT.drawLongRect(var0, var4, var2, var1, 0, 255); //Specific JTK call because set Clipping is not migrated
             }
 
             if (Class140_Sub3.anInt2737 >= 100) {
@@ -638,16 +637,7 @@ final class Class1 {
                 if (Class158.anInt2014 == 1) {
                     var9 = 16777215;
                 }
-
-                Toolkit.getActiveToolkit().fillRect(var15, var6, var7, var8, var9, 128);
-                Toolkit.getActiveToolkit().drawRect(var15, var6, var7, var8, var9, 255);//Replaced, unsure what original use was
-//                if (HDToolKit.highDetail) {
-//                    Toolkit.OPENGL_TOOLKIT.drawRect(var15, var6, var7, var8, var9, 255);
-//                    //Class22.drawRect(var15, var6, var7, var8, var9);
-//                } else {
-//                    Class74.drawRect(var15, var6, var7, var8, var9);
-//                }
-
+                Toolkit.getActiveToolkit().drawRect(var15, var6, var7, var8, var9, 255);
                 if (Class3_Sub28_Sub16.anInt3704 > 0) {
                     int var10;
                     if (Class3_Sub28_Sub8.anInt3611 > 10) {

@@ -51,7 +51,7 @@ class OpenGlToolkit: Toolkit() {
         var7.glEnd()
     }
 
-    override fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha:Int) {
+    override fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
         HDToolKit.method1835()
         val var5 = x.toFloat() + 0.3f
         val var6 = var5 + (w.toFloat() - 1)
@@ -60,6 +60,23 @@ class OpenGlToolkit: Toolkit() {
         val var9 = HDToolKit.gl
 
         var9.glBegin(GLBeginMode.LINE_LOOP)
+        var9.glColor4ub((rgb shr 16).toByte(), (rgb shr 8).toByte(), rgb.toByte(), if (alpha > 255) -1 else alpha.toByte())
+        var9.glVertex2f(var5, var7)
+        var9.glVertex2f(var5, var8)
+        var9.glVertex2f(var6, var8)
+        var9.glVertex2f(var6, var7)
+        var9.glEnd()
+    }
+
+    override fun drawLongRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
+        HDToolKit.method1835()
+        val var5 = x.toFloat()
+        val var6 = var5 + w.toFloat()
+        val var7 = (HDToolKit.height - y).toFloat()
+        val var8 = var7 - h.toFloat()
+        val var9 = HDToolKit.gl
+
+        var9.glBegin(GLBeginMode.TRIANGLE_FAN)
         var9.glColor4ub((rgb shr 16).toByte(), (rgb shr 8).toByte(), rgb.toByte(), if (alpha > 255) -1 else alpha.toByte())
         var9.glVertex2f(var5, var7)
         var9.glVertex2f(var5, var8)

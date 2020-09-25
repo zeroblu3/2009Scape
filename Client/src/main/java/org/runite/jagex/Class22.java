@@ -18,33 +18,6 @@ public final class Class22 {
       aClass3_Sub28_Sub16_Sub1_447 = null;
    }
 
-   public static void drawHorizontalLine(int x, int y, int width, int rgb) {
-      HDToolKit.method1835();
-      float startX = (float)x + 0.3F;
-      float endX = startX + (float)width;
-      float yPos = (float)HDToolKit.height - ((float)y + 0.3F);
-
-      GL gl = HDToolKit.gl;
-      gl.glBegin(GLBeginMode.LINES);
-      gl.glColor3ub((byte)(rgb >> 16), (byte)(rgb >> 8), (byte)rgb);
-      gl.glVertex2f(startX, yPos);
-      gl.glVertex2f(endX, yPos);
-      gl.glEnd();
-   }
-
-   public static void drawVerticalLine(int x, int y, int w, int rgb) {
-      HDToolKit.method1835();
-      float var4 = (float)x + 0.3F;
-      float var5 = (float)HDToolKit.height - ((float)y + 0.3F);
-      float var6 = var5 - (float)w;
-      javax.media.opengl.GL var7 = HDToolKit.gl;
-      var7.glBegin(1);
-      var7.glColor3ub((byte)(rgb >> 16), (byte)(rgb >> 8), (byte)rgb);
-      var7.glVertex2f(var4, var5);
-      var7.glVertex2f(var4, var6);
-      var7.glEnd();
-   }
-
    public static void resetClipping() {
       anInt449 = 0;
       anInt448 = 0;
@@ -210,22 +183,6 @@ public final class Class22 {
       var9.glColor3ub((byte)(var4 >> 16), (byte)(var4 >> 8), (byte)var4);
       var9.glVertex2f(var5, var7);
       var9.glVertex2f(var6, var8);
-      var9.glEnd();
-   }
-
-   static void method934(int var0, int var1, int var2, int var3, int var4) {
-      HDToolKit.method1835();
-      float var5 = (float)var0;
-      float var6 = var5 + (float)var2;
-      float var7 = (float)(HDToolKit.height - var1);
-      float var8 = var7 - (float)var3;
-      javax.media.opengl.GL var9 = HDToolKit.gl;
-      var9.glBegin(6);
-      var9.glColor3ub((byte)(var4 >> 16), (byte)(var4 >> 8), (byte)var4);
-      var9.glVertex2f(var5, var7);
-      var9.glVertex2f(var5, var8);
-      var9.glVertex2f(var6, var8);
-      var9.glVertex2f(var6, var7);
       var9.glEnd();
    }
 

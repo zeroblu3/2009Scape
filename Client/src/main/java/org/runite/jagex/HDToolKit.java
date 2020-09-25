@@ -46,7 +46,7 @@ public final class HDToolKit {
    static boolean aBoolean1817;
    static boolean aBoolean1818;
    private static RSString aClass94_1819 = RSString.parse("radeon");
-   static int width;
+   public static int width;
    static boolean aBoolean1821;
 
 

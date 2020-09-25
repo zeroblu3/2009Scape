@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.rendering.Toolkit;
 import org.rs09.client.util.ArrayUtils;
 
 final class Class65 {
@@ -119,8 +120,8 @@ final class Class65 {
                      var10 = (-var9 + var3) / 2;
                      if(var5) {
                         Class22.resetClipping();
-                        Class22.method934(var4, var2, var0, var10, 0);
-                        Class22.method934(var4, var2 + (var3 - var10), var0, var10, 0);
+                        Toolkit.OPENGL_TOOLKIT.drawLongRect(var4, var2, var0, var10, 0, 255); //NOTE we are not checking if the user is in SD or HD here.
+                        Toolkit.OPENGL_TOOLKIT.drawLongRect(var4, var2 + (var3 - var10), var0, var10, 0, 255);//Class22 will ALWAYS be HD
                      }
 
                      var3 -= var10 * 2;
@@ -136,8 +137,8 @@ final class Class65 {
                   var10 = (var0 - var9) / 2;
                   if(var5) {
                      Class22.resetClipping();
-                     Class22.method934(var4, var2, var10, var3, 0);
-                     Class22.method934(var0 + (var4 - var10), var2, var10, var3, 0);
+                     Toolkit.OPENGL_TOOLKIT.drawLongRect(var4, var2, var10, var3, 0, 255); //NOTE we are not checking if the user is in SD or HD here.
+                     Toolkit.OPENGL_TOOLKIT.drawLongRect(var0 + (var4 - var10), var2, var10, var3, 0, 255);//Class22 will ALWAYS be HD
                   }
 
                   var4 += var10;
