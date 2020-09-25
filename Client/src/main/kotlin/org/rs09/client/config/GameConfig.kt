@@ -2,7 +2,6 @@ package org.rs09.client.config
 
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
-import org.runite.jagex.TextCore
 import java.io.FileReader
 
 class GameConfig {
@@ -50,6 +49,9 @@ class GameConfig {
         var RCM_BORDER_OPACITY = 255
 
         @JvmField
+        var RCM_STYLE_RS3 = false
+
+        @JvmField
         var RCM_TITLE = "<col=0>Choose Option</col>"
 
         @JvmField
@@ -93,6 +95,11 @@ class GameConfig {
                         val border = rcm["border"] as JSONObject
                         if(border.containsKey("color")) RCM_BORDER_COLOR = border["color"].toString().replace("#","").toInt(16) //convert hex -> deci
                         if(border.containsKey("opacity")) RCM_BORDER_OPACITY = border["opacity"].toString().toInt()
+                    }
+
+                    if(rcm.containsKey("styles")){
+                        val style = rcm["styles"] as JSONObject
+                        if(style.containsKey("rs3style")) RCM_STYLE_RS3 = style["rs3style"] as Boolean
                     }
                 }
             }

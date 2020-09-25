@@ -1,21 +1,25 @@
 {
-  "ip_address": "play.2009scape.org",
+  "ip_address": "127.0.0.1",
 
   "customization": {
     "login_theme": "newbie melody",
 
     "right_click_menu": {
       "background": {
-        "color": "#31b08c",
-        "opacity": "100"
+        "color": "#0A1D26",
+        "opacity": "255"
       },
       "title_bar": {
-        "color": "0",
-        "opacity": "255"
+        "color": "#17150E",
+        "opacity": "220",
+        "font_color": "#C6B895"
       },
       "border": {
-        "color": "0",
+        "color": "#FFFFFF",
         "opacity": "255"
+      },
+      "styles": {
+        "rs3style": false
       }
     }
   },
