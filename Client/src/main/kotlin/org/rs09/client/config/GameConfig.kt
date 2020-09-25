@@ -2,6 +2,7 @@ package org.rs09.client.config
 
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
+import org.runite.jagex.TextCore
 import java.io.FileReader
 
 class GameConfig {
@@ -49,6 +50,9 @@ class GameConfig {
         var RCM_BORDER_OPACITY = 255
 
         @JvmField
+        var RCM_TITLE = "<col=0>Choose Option</col>"
+
+        @JvmField
         var IP_ADDRESS = "localhost"
 
         @JvmStatic
@@ -79,6 +83,7 @@ class GameConfig {
                     //title bar
                     if(rcm.containsKey("title_bar")){
                         val tb = rcm["title_bar"] as JSONObject
+                        if(tb.containsKey("font_color")) RCM_TITLE = RCM_TITLE.replace("0", tb["font_color"].toString().replace("#",""))
                         if(tb.containsKey("color")) RCM_TITLE_COLOR = tb["color"].toString().replace("#","").toInt(16) //convert hex -> deci
                         if(tb.containsKey("opacity")) RCM_TITLE_OPACITY = tb["opacity"].toString().toInt()
                     }

@@ -102,7 +102,7 @@ final class Class84 {
             Class74.drawRect(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
          }
           */
-         Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, x - -3, y + 14, contextMenuColor, -1);
+         Class168.aClass3_Sub28_Sub17_2096.method681(RSString.parse(GameConfig.RCM_TITLE), x - -3, y + 14, contextMenuColor, -1);
          int var7 = Unsorted.anInt1709;
          int var6 = Class126.anInt1676;
 

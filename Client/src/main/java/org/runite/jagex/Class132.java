@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
+
 final class Class132 {
 
    static int anInt1734 = 0;
@@ -60,7 +62,7 @@ final class Class132 {
 
    static void method1801() {
       try {
-         int var1 = Class168.aClass3_Sub28_Sub17_2096.method682(TextCore.HasChooseOptions);
+         int var1 = Class168.aClass3_Sub28_Sub17_2096.method682(RSString.parse(GameConfig.RCM_TITLE));
          int var2;
          int var3;
          for(var2 = 0; Class3_Sub13_Sub34.anInt3415 > var2; ++var2) {

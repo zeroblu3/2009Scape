@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.rendering.Toolkit;
 import org.runite.Configurations;
 
@@ -239,7 +240,7 @@ final class ISAACCipher {
                 Class108.aClass3_Sub28_Sub16_1457.method641(-Class108.aClass3_Sub28_Sub16_1457.anInt3707 + (var1 - -var3), var2);
             }
 
-            Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, var1 - -3, 14 + var2, Class3_Sub13_Sub28.anInt3351, -1);
+            Class168.aClass3_Sub28_Sub17_2096.method681(RSString.parse(GameConfig.RCM_TITLE), var1 - -3, 14 + var2, Class3_Sub13_Sub28.anInt3351, -1);
             Toolkit.getActiveToolkit().fillRect(var1, 20 + var2, var3, var4 - 20, Class3_Sub28_Sub6.anInt3600, -Unsorted.anInt963 + 256);
 
             var6 = Unsorted.anInt1709;
