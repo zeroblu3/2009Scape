@@ -41,22 +41,6 @@ public final class Class22 {
       var5.glPixelZoom(1.0F, 1.0F);
    }
 
-   public static void drawRect(int x, int y, int w, int h, int rgb) {
-      HDToolKit.method1835();
-      float var5 = (float)x + 0.3F;
-      float var6 = var5 + (float)(w - 1);
-      float var7 = (float)HDToolKit.height - ((float)y + 0.3F);
-      float var8 = var7 - (float)(h - 1);
-      javax.media.opengl.GL var9 = HDToolKit.gl;
-      var9.glBegin(2);
-      var9.glColor3ub((byte)(rgb >> 16), (byte)(rgb >> 8), (byte)rgb);
-      var9.glVertex2f(var5, var7);
-      var9.glVertex2f(var5, var8);
-      var9.glVertex2f(var6, var8);
-      var9.glVertex2f(var6, var7);
-      var9.glEnd();
-   }
-
    static void method928(int var0, int var1, int var2, int var3, int var4, int var5) {
       HDToolKit.method1835();
       float var6 = (float)var0 + 0.3F;
