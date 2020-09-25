@@ -1,0 +1,17 @@
+{
+  "ip_address": "localhost",
+
+  "customization": {
+    "login_theme": "newbie melody"
+  },
+
+  "debug": {
+    "item_debug": true,
+    "object_debug": false,
+    "npc_debug": false,
+    "hd_login_region_debug": false,
+    "hd_login_region_debug_verbose": false,
+    "cache_debug": false,
+    "world_map_debug": false
+  }
+}

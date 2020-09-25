@@ -62,8 +62,6 @@ final class NPCDefinition {
    static int anInt1297;
    int anInt1298;
 
-   boolean NPCContextMenuDebug = true;
-
    final NPCDefinition method1471(byte var1) {
       try {
          int var2 = -1;

@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.rendering.Toolkit;
 import org.rs09.client.util.ArrayUtils;
@@ -2937,7 +2938,7 @@ public class Unsorted {
                                 }
                             }
 
-                            if (var0.NPCContextMenuDebug) {
+                            if (GameConfig.NPC_DEBUG_ENABLED) {
                                 Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, RSString.parse("Examine" + "<br>" + " ID: (X" + var0.npcId + "(Y"), var4);
                             } else {
                                 Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, TextCore.HasExamine, var4);

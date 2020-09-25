@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.runite.Configurations;
 import org.runite.GameLaunch;
 
@@ -10,7 +11,6 @@ public class TextCore {
     /**
      * Configs that are set by the client
      */
-    public static RSString loginThemeSong = RSString.parse(Configurations.LOGIN_THEME_SONG);
 
 
     /** @woah

@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.console.DeveloperConsole;
 import org.rs09.client.filestore.resources.configs.enums.EnumDefinitionProvider;
 import org.rs09.client.filestore.resources.configs.structs.StructDefinitionProvider;
@@ -1472,7 +1473,7 @@ public final class Client extends GameShell {
                         Class3_Sub26.aClass3_Sub24_Sub2_2563 = new Class3_Sub24_Sub2();
                         Class3_Sub21.aClass155_2491.method2154(-128, Class3_Sub26.aClass3_Sub24_Sub2_2563);
                         Class27.aClass157_524 = new Class157(22050, Class21.anInt443);
-                        KeyboardListener.loginThemeSongArchiveID = CacheIndex.musicIndex.getArchiveForName(TextCore.loginThemeSong);
+                        KeyboardListener.loginThemeSongArchiveID = CacheIndex.musicIndex.getArchiveForName(RSString.parse(GameConfig.LOGIN_THEME));
                         LoadingStageNumber = 30;
                         Class96.anInt1354 = 50;
                         Class3_Sub17.aClass94_2464 = TextCore.PreparedSoundEngine;

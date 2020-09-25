@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 
 import java.util.Objects;
@@ -322,7 +323,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                                  }
                               }
                            }
-                           if (var10.itemContextMenuDebug) {
+                           if (GameConfig.ITEM_DEBUG_ENABLED) {
                               method1177(Class131.anInt1719, (long) var10.itemId, (byte) -98, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemBackpackColor, var10.name}), var15, (short) 1006, RSString.parse("Examine" + "<br>" + " ID: (X" + var10.itemId + "(Y"), var3.componentHash);
                            } else {
                               method1177(Class131.anInt1719, (long) var10.itemId, (byte) -98, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemBackpackColor, var10.name}), var15, (short) 1006, TextCore.HasExamine, var3.componentHash);

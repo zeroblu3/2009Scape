@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.filestore.ReferenceTable;
 import org.rs09.client.filestore.ResourceProvider;
 import org.rs09.client.filestore.compression.Container;
@@ -45,8 +46,6 @@ public final class CacheIndex {
     /**
      */
 
-    private static boolean DEBUG_FILES = false;
-    private static boolean ERRORED = false;
 
     private boolean discardPacked;
     private final boolean aBoolean1946;
@@ -60,13 +59,13 @@ public final class CacheIndex {
             return null;
         }
 
-        if (data.length > 136 && !ERRORED) {
+        if (data.length > 136 && !GameConfig.CACHE_DEBUG) {
             try {
                 Class144 buffer = new Class144_Sub1();
                 buffer.setBytes(data);
                 return buffer;
             } catch (Throwable var4) {
-                ERRORED = true;
+                GameConfig.CACHE_DEBUG = true;
             }
         }
 
@@ -336,7 +335,7 @@ public final class CacheIndex {
                 && this.referenceTable.archiveLengths[archiveId] != 0)
             return true;
 
-        if (DEBUG_FILES)
+        if (GameConfig.CACHE_DEBUG)
             throw new IllegalArgumentException(Integer.toString(archiveId));
         return false;
     }
@@ -565,7 +564,7 @@ public final class CacheIndex {
                 && file >= 0 && archive < this.referenceTable.archiveLengths.length
                 && this.referenceTable.archiveLengths[archive] > file)
             return true;
-        if (DEBUG_FILES)
+        if (GameConfig.CACHE_DEBUG)
             throw new IllegalArgumentException(archive + "," + file);
         return false;
     }

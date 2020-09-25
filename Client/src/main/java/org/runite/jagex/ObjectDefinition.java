@@ -1,6 +1,7 @@
 package org.runite.jagex;
 
 import org.rs09.client.Linkable;
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.LinkableInt;
 
@@ -72,8 +73,6 @@ final class ObjectDefinition {
    int anInt1540;
    private boolean aBoolean1541;
    boolean aBoolean1542;
-
-   boolean objectContextMenuDebug = true;
 
    final boolean method1684(int var2) {
       try {
@@ -580,7 +579,7 @@ final class ObjectDefinition {
          throw Class44.clientError(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + -80 + ')');
       }
 
-      if (objectContextMenuDebug) {
+      if (GameConfig.OBJECT_DEBUG_ENABLED) {
          if (options[0] == null && options[1] == null && options[2] == null && options[3] == null && options[4] == null) {
             options[0] = RSString.parse("Viewing object");
          }

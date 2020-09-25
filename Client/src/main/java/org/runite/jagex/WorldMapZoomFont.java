@@ -1,6 +1,7 @@
 package org.runite.jagex;
 
 import org.rs09.client.Node;
+import org.rs09.client.config.GameConfig;
 
 final class WorldMapZoomFont extends Node {
 
@@ -12,7 +13,6 @@ final class WorldMapZoomFont extends Node {
    static RSString username = TextCore.aClass94_3672;
    Class140_Sub7 aClass140_Sub7_3676;
 
-   static boolean worldMapInterfaceDebug = false;
 
 
    static void worldMapZoomFontSize() {
@@ -36,7 +36,7 @@ final class WorldMapZoomFont extends Node {
                Unsorted.anInt65 = Unsorted.aClass3_Sub28_Sub3_2600.anInt3562 >> 6 << 6;
                Class108.anInt1460 = (Unsorted.aClass3_Sub28_Sub3_2600.anInt3549 >> 6 << 6) - Unsorted.anInt65 + 64;
                Class23.anInt455 = 64 + (Unsorted.aClass3_Sub28_Sub3_2600.anInt3559 >> 6 << 6) + -Class3_Sub13_Sub21.anInt3256;
-               if (worldMapInterfaceDebug) System.out.println("World Map Debug: Setting initial zoom level to: " + Unsorted.aClass3_Sub28_Sub3_2600.anInt3563);
+               if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: Setting initial zoom level to: " + Unsorted.aClass3_Sub28_Sub3_2600.anInt3563);
                if(Unsorted.aClass3_Sub28_Sub3_2600.anInt3563 == 37) { //Furthest zoom 37% on interface
                   Class44.aFloat727 = 3.0F;
                   NPC.aFloat3979 = 3.0F;
@@ -90,36 +90,36 @@ final class WorldMapZoomFont extends Node {
 
 
             } else if(Class140_Sub3.anInt2737 == 20) {
-               if (worldMapInterfaceDebug) System.out.println("World Map Debug: World Map Stage 20: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
+               if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Stage 20: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
                Class15.method889(new DataBuffer(Class3_Sub13_Sub17.aClass153_3210.method2123(TextCore.worldmapUnderlay, Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561)));//This controls the world map underlay
                Class140_Sub3.anInt2737 = 30;
                Class163_Sub1.method2210(true);
                Class75_Sub4.method1355();
             } else {
                if(Class140_Sub3.anInt2737 == 30) {
-                  if (worldMapInterfaceDebug) System.out.println("World Map Debug: World Map Stage 30: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
+                  if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Stage 30: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
                   Class163_Sub2.method2219(new DataBuffer(Class3_Sub13_Sub17.aClass153_3210.method2123(TextCore.worldmapOverlay, Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561)));//This controls the world map overlay (water)
                   Class140_Sub3.anInt2737 = 40;
                   Class75_Sub4.method1355();
                } else if(Class140_Sub3.anInt2737 == 40) {
-                  if (worldMapInterfaceDebug) System.out.println("World Map Debug: World Map Stage 40: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
+                  if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Stage 40: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
                   Class3_Sub13_Sub34.method328(new DataBuffer(Class3_Sub13_Sub17.aClass153_3210.method2123(TextCore.worldmapOverlay2, Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561)));//unsure
                   Class140_Sub3.anInt2737 = 50;
                   Class75_Sub4.method1355();
                } else if (Class140_Sub3.anInt2737 == 50) {
-                  if (worldMapInterfaceDebug) System.out.println("World Map Debug: World Map Stage 50: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
+                  if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Stage 50: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
                   Class96.method1587(new DataBuffer(Class3_Sub13_Sub17.aClass153_3210.method2123(TextCore.aClass94_422, Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561)));//This controls the world map object drawing (buildings etc)
                   Class140_Sub3.anInt2737 = 60;
                   Class163_Sub1.method2210(true);
                   Class75_Sub4.method1355();
                } else if (Class140_Sub3.anInt2737 == 60) {
-                  if (worldMapInterfaceDebug) System.out.println("World Map Debug: World Map Stage 60: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
+                  if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Stage 60: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
                   if (Class3_Sub13_Sub17.aClass153_3210.method2135(RenderAnimationDefinition.method903(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}))) {
                      if (!Class3_Sub13_Sub17.aClass153_3210.method2127(RenderAnimationDefinition.method903(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}))) {
                         return;
                      }
 
-                     if (worldMapInterfaceDebug) System.out.println("World Map Debug: World Map Class119.aClass131_1624: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString() + ", " + TextCore.HasLabels.properlyCapitalize().toString());
+                     if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Class119.aClass131_1624: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString() + ", " + TextCore.HasLabels.properlyCapitalize().toString());
                      Class119.aClass131_1624 = Class81.method1403(RenderAnimationDefinition.method903(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}), Class3_Sub13_Sub17.aClass153_3210);
                   } else {
                      Class119.aClass131_1624 = new Class131(0);
