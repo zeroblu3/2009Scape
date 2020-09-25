@@ -124,22 +124,6 @@ public final class Class22 {
       }
    }
 
-   public static void fillRectangle(int x, int y, int w, int h, int rgb, int alpha) {
-      HDToolKit.method1835();
-      float var6 = (float)x;
-      float var7 = var6 + (float)w;
-      float var8 = (float)(HDToolKit.height - y);
-      float var9 = var8 - (float)h;
-      javax.media.opengl.GL var10 = HDToolKit.gl;
-      var10.glBegin(6);
-      var10.glColor4ub((byte)(rgb >> 16), (byte)(rgb >> 8), (byte)rgb, alpha > 255?-1:(byte)alpha);
-      var10.glVertex2f(var6, var8);
-      var10.glVertex2f(var6, var9);
-      var10.glVertex2f(var7, var9);
-      var10.glVertex2f(var7, var8);
-      var10.glEnd();
-   }
-
    static void method931(int var0, int var1, int var2, int var3) {
       if(anInt449 < var0) {
          anInt449 = var0;
