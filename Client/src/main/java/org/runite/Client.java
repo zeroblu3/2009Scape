@@ -35,6 +35,7 @@ public class Client {
 	public static void main(String[]args) {
 		try {
 			GameConfig.parse(CONF_FILE);
+			PUBLIC_IP_ADDRESS = GameConfig.IP_ADDRESS;
 		} catch (Exception e){
 			System.out.println("Can't find config file " + CONF_FILE + " defaulting to IP 127.0.0.1");
 			e.printStackTrace();

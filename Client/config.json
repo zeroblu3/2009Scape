@@ -1,14 +1,29 @@
 {
-  "ip_address": "localhost",
+  "ip_address": "play.2009scape.org",
 
   "customization": {
-    "login_theme": "newbie melody"
+    "login_theme": "newbie melody",
+
+    "right_click_menu": {
+      "background": {
+        "color": "#31b08c",
+        "opacity": "100"
+      },
+      "title_bar": {
+        "color": "0",
+        "opacity": "255"
+      },
+      "border": {
+        "color": "0",
+        "opacity": "255"
+      }
+    }
   },
 
   "debug": {
     "item_debug": true,
-    "object_debug": false,
-    "npc_debug": false,
+    "object_debug": true,
+    "npc_debug": true,
     "hd_login_region_debug": false,
     "hd_login_region_debug_verbose": false,
     "cache_debug": false,

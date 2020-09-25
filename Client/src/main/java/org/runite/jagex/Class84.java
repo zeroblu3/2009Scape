@@ -1,5 +1,6 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.rendering.Toolkit;
 
 final class Class84 {
@@ -78,9 +79,9 @@ final class Class84 {
          int width = Class3_Sub28_Sub3.anInt3552;
          int height = Class3_Sub28_Sub1.anInt3537;
          int contextMenuColor = 6116423; //Context Menu RGB || 6116423 Classic || Old var5 || ColorCore.getHexColors()
-         Toolkit.getActiveToolkit().fillRect(x, y, width, height, contextMenuColor, 255);
-         Toolkit.getActiveToolkit().fillRect(1 + x, 1 + y, width + -2, 16, 0, 255);
-         Toolkit.getActiveToolkit().drawRect(1 + x, y + 18, width + -2, -19 + height, 0, 255);
+         Toolkit.getActiveToolkit().fillRect(x, y, width, height, GameConfig.RCM_BG_COLOR, GameConfig.RCM_BG_OPACITY);
+         Toolkit.getActiveToolkit().fillRect(1 + x, 1 + y, width + -2, 16, GameConfig.RCM_TITLE_COLOR, GameConfig.RCM_TITLE_OPACITY);
+         Toolkit.getActiveToolkit().drawRect(1 + x, y + 18, width + -2, -19 + height, GameConfig.RCM_BORDER_COLOR, GameConfig.RCM_BORDER_OPACITY);
 
          /**
           * Old toolkit stuff, updated with new and improved toolkit (thanks Techdaan <3)
@@ -101,7 +102,6 @@ final class Class84 {
             Class74.drawRect(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
          }
           */
-
          Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, x - -3, y + 14, contextMenuColor, -1);
          int var7 = Unsorted.anInt1709;
          int var6 = Class126.anInt1676;
