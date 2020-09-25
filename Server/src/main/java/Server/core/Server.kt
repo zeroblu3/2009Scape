@@ -4,6 +4,7 @@ import core.game.system.SystemLogger
 import core.game.system.SystemShutdownHook
 import core.game.system.config.ServerConfigParser
 import core.game.system.mysql.SQLManager
+import core.game.world.GameSettings.Companion.parse
 import core.game.world.GameWorld
 import core.gui.ConsoleFrame
 import core.net.NioReactor
@@ -12,6 +13,7 @@ import core.tools.TimeStamp
 import core.tools.backup.AutoBackup
 import plugin.ge.BotGrandExchange
 import plugin.ge.GEAutoStock
+import java.io.File
 import java.net.BindException
 import java.util.*
 
@@ -39,14 +41,13 @@ object Server {
      * @param args The arguments cast on runtime.
      * @throws Throwable When an exception occurs.
      */
-    @Throws(Throwable::class)
     @JvmStatic
     fun main(args: Array<String>) {
         if (args.isNotEmpty()) {
             ServerConfigParser(args[0])
         } else {
             println("No config file supplied! Attempting to use default...")
-            ServerConfigParser("./worldprops/default.json")
+            ServerConfigParser("worldprops/default.json")
         }
         if (GameWorld.getSettings()!!.isGui) {
             try {
@@ -68,13 +69,14 @@ object Server {
             println("Port " + (43594 + GameWorld.getSettings()!!.worldId) + " is already in use!")
             throw e
         }
-        val timer = java.util.Timer()
+        /*val timer = java.util.Timer()
         val task = object : TimerTask() {
             override fun run() {
                 autoReconnect()
             }
         }
-        timer.schedule(task, 0, 1000 * 60 * 5)
+        timer.schedule(task, 0, 1000 * 60 * 5)*/
+        WorldCommunicator.connect()
         SystemLogger.log(GameWorld.getName() + " flags " + GameWorld.getSettings().toString())
         SystemLogger.log(GameWorld.getName() + " started in " + t.duration(false, "") + " milliseconds.")
         GEAutoStock.parse(ServerConstants.GRAND_EXCHANGE_DATA_PATH + "itemstostock.xml")
@@ -84,8 +86,8 @@ object Server {
     }
 
     fun autoReconnect() {
-        SystemLogger.log("Attempting autoreconnect of server")
-        WorldCommunicator.connect()
+        /*SystemLogger.log("Attempting autoreconnect of server")
+        WorldCommunicator.connect()*/
     }
     /**
      * Gets the startTime.
