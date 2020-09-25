@@ -113,7 +113,7 @@ public final class GameWorld {
             TaskExecutor.execute(() -> {
                 NodeList<Player> player = Repository.getPlayers();
                 try {
-                    player.stream().filter(Objects::nonNull).filter(p -> !p.isArtificial() && p.isPlaying()).forEach(p -> DisconnectionQueue.save(p,false));
+                    player.stream().filter(Objects::nonNull).filter(p -> !p.isArtificial() && p.isPlaying()).forEach(p -> Repository.getDisconnectionQueue().save(p,false));
                 } catch (Throwable t) {
                     t.printStackTrace();
                 }
