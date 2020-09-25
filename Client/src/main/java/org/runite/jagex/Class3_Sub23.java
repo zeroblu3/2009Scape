@@ -6,7 +6,6 @@ import java.util.Objects;
 
 final class Class3_Sub23 extends Linkable {
 
-   static int anInt2530 = 2301979;
    int anInt2531;
    int anInt2532;
    static int[] anIntArray2533;

@@ -7,7 +7,6 @@ final class Class3_Sub13_Sub31 extends Class3_Sub13 {
    static ReferenceCache aReferenceCache_3369 = new ReferenceCache(64);
    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array3373;
    static int anInt3375 = 0;
-   static int anInt3377 = 7759444;
 
    final int[] method154(int var1, byte var2) {
       try {

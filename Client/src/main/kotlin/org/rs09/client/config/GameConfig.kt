@@ -49,13 +49,16 @@ class GameConfig {
         var RCM_BORDER_OPACITY = 255
 
         @JvmField
-        var RCM_STYLE_RS3 = false
+        var RCM_STYLE_PRESET = "classic"
 
         @JvmField
         var RCM_TITLE = "<col=0>Choose Option</col>"
 
         @JvmField
         var IP_ADDRESS = "localhost"
+
+        @JvmField
+        var RS3_CONTEXT_STYLE = false
 
         @JvmStatic
         fun parse(path: String){
@@ -99,7 +102,8 @@ class GameConfig {
 
                     if(rcm.containsKey("styles")){
                         val style = rcm["styles"] as JSONObject
-                        if(style.containsKey("rs3style")) RCM_STYLE_RS3 = style["rs3style"] as Boolean
+                        if(style.containsKey("presets")) RCM_STYLE_PRESET = style["presets"].toString()
+                        if(style.containsKey("rs3border")) RS3_CONTEXT_STYLE = style["rs3border"] as Boolean
                     }
                 }
             }
@@ -124,14 +128,40 @@ class GameConfig {
              * Then we introduce color schemes that a user could select
              * ie, classic, rs3, alternate, alternate2, custom
              */
-            if (RCM_STYLE_RS3) {
-                RCM_BG_COLOR = 662822
-                RCM_BG_OPACITY = 255
-                RCM_TITLE = "<col=C6B895>Choose Option</col>"
-                RCM_TITLE_COLOR = 1512718
-                RCM_TITLE_OPACITY = 220
-                RCM_BORDER_COLOR = 16777215
-                RCM_BORDER_OPACITY = 255
+            when (RCM_STYLE_PRESET) {
+                "classic" -> {
+                    RS3_CONTEXT_STYLE = false
+                    RCM_BG_COLOR = 6116423
+                    RCM_BG_OPACITY = 255
+                    RCM_TITLE = "<col=5d5447>Choose Option</col>"
+                    RCM_TITLE_COLOR = 0
+                    RCM_TITLE_OPACITY = 255
+                    RCM_BORDER_COLOR = 0
+                    RCM_BORDER_OPACITY = 255
+                }
+                "rs3" -> {
+                    RS3_CONTEXT_STYLE = true
+                    RCM_BG_COLOR = 662822
+                    RCM_BG_OPACITY = 255
+                    RCM_TITLE = "<col=C6B895>Choose Option</col>"
+                    RCM_TITLE_COLOR = 1512718
+                    RCM_TITLE_OPACITY = 220
+                    RCM_BORDER_COLOR = 16777215
+                    RCM_BORDER_OPACITY = 255
+                }
+                "custom" -> {
+                    ;
+                }
+                else -> {
+                    RS3_CONTEXT_STYLE = false
+                    RCM_BG_COLOR = 6116423
+                    RCM_BG_OPACITY = 255
+                    RCM_TITLE = "<col=5d5447>Choose Option</col>"
+                    RCM_TITLE_COLOR = 0
+                    RCM_TITLE_OPACITY = 255
+                    RCM_BORDER_COLOR = 0
+                    RCM_BORDER_OPACITY = 255
+                }
             }
         }
 

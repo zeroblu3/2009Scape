@@ -75,7 +75,7 @@ final class Class84 {
          int height = Class3_Sub28_Sub1.anInt3537;
          int contextMenuColor = 6116423; //Context Menu RGB || 6116423 Classic || Old var5 || ColorCore.getHexColors()
          Toolkit.getActiveToolkit().fillRect(1 + x, y + 18, width + -2, -19 + height, GameConfig.RCM_BG_COLOR, GameConfig.RCM_BG_OPACITY);
-         if (GameConfig.RCM_STYLE_RS3) {
+         if (GameConfig.RS3_CONTEXT_STYLE) {
             Toolkit.getActiveToolkit().fillRect(1 + x, 2 + y, width + -2, 16, GameConfig.RCM_TITLE_COLOR, GameConfig.RCM_TITLE_OPACITY);
             Toolkit.getActiveToolkit().drawRect(1 + x, 1 + y, width + -2, height, GameConfig.RCM_BORDER_COLOR, GameConfig.RCM_BORDER_OPACITY);
          } else {

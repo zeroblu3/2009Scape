@@ -29,7 +29,6 @@ final class Class3_Sub2 extends Linkable {
    int anInt2239;
    Class126 aClass126_2240;
    int anInt2241;
-   static int anInt2243 = 3353893;
    int anInt2244;
    Class72 aClass72_2245;
    static int anInt2246 = 0;

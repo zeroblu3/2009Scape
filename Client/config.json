@@ -6,20 +6,21 @@
 
     "right_click_menu": {
       "background": {
-        "color": "#5d5447",
-        "opacity": "255"
+        "color": "#0fab00",
+        "opacity": "70"
       },
       "title_bar": {
         "color": "#000000",
         "opacity": "255",
-        "font_color": "#5d5447"
+        "font_color": "#FFFFFF"
       },
       "border": {
-        "color": "#000000",
+        "color": "#FFFFFF",
         "opacity": "255"
       },
       "styles": {
-        "rs3style": false
+        "presets": "custom",
+        "rs3border": true
       }
     }
   },
