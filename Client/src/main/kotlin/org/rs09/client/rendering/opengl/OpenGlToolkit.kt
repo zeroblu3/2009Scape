@@ -5,6 +5,7 @@ import org.rs09.client.rendering.opengl.enums.GLBeginMode
 import org.runite.jagex.HDToolKit
 
 class OpenGlToolkit: Toolkit() {
+
     override fun fillRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
         HDToolKit.method1835()
         val var6 = x.toFloat()
@@ -34,5 +35,36 @@ class OpenGlToolkit: Toolkit() {
         gl.glVertex2f(startX, yPos)
         gl.glVertex2f(endX, yPos)
         gl.glEnd()
+    }
+
+    override fun drawVerticalLine(x: Int, y: Int, h: Int, rgb: Int) {
+        HDToolKit.method1835()
+        val var4 = x.toFloat() + .3f
+        val var5 = HDToolKit.height.toFloat() - (y.toFloat() + 0.3f)
+        val var6 = var5 - h.toFloat()
+        val var7 = HDToolKit.gl
+
+        var7.glBegin(GLBeginMode.LINES)
+        var7.glColor3ub((rgb shr 16).toByte(), (rgb shr 8).toByte(), rgb.toByte())
+        var7.glVertex2f(var4, var5)
+        var7.glVertex2f(var4, var6)
+        var7.glEnd()
+    }
+
+    override fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha:Int) {
+        HDToolKit.method1835()
+        val var5 = x.toFloat() + 0.3f
+        val var6 = var5 + (w.toFloat() - 1)
+        val var7 = (HDToolKit.height.toFloat() - (y.toFloat() + 0.3f))
+        val var8 = var7 - (h.toFloat() - 1)
+        val var9 = HDToolKit.gl
+
+        var9.glBegin(GLBeginMode.LINE_LOOP)
+        var9.glColor4ub((rgb shr 16).toByte(), (rgb shr 8).toByte(), rgb.toByte(), if (alpha > 255) -1 else alpha.toByte())
+        var9.glVertex2f(var5, var7)
+        var9.glVertex2f(var5, var8)
+        var9.glVertex2f(var6, var8)
+        var9.glVertex2f(var6, var7)
+        var9.glEnd()
     }
 }

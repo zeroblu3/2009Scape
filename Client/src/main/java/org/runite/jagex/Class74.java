@@ -24,8 +24,8 @@ public final class Class74 {
    public static void drawRect(int x, int y, int w, int h, int rgb) {
       toolkit.drawHorizontalLine(x, y, w, rgb);
       toolkit.drawHorizontalLine(x, y + h - 1, w, rgb);
-      drawVerticalLine(x, y, h, rgb);
-      drawVerticalLine(x + w - 1, y, h, rgb);
+      toolkit.drawVerticalLine(x, y, h, rgb);
+      toolkit.drawVerticalLine(x + w - 1, y, h, rgb);
    }
 
    public static void fillRectangle(int x, int y, int width, int height, int rgb, int opacity) {
@@ -119,7 +119,9 @@ public final class Class74 {
 
    public static void drawVerticalLine(int x, int y, int h, int rgb) {
       if(x >= Toolkit.JAVA_TOOLKIT.clipLeft && x < Toolkit.JAVA_TOOLKIT.clipRight) {
+
          if(y < Toolkit.JAVA_TOOLKIT.clipTop) {
+
             h -= Toolkit.JAVA_TOOLKIT.clipTop - y;
             y = Toolkit.JAVA_TOOLKIT.clipTop;
          }

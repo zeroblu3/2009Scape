@@ -27,4 +27,10 @@ abstract class Toolkit {
 
     abstract fun drawHorizontalLine(x: Int, y: Int, w: Int, rgb: Int)
 
+    abstract fun drawVerticalLine(x: Int, y: Int, h: Int, rgb: Int)
+
+    abstract fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int)
+
+
+
 }

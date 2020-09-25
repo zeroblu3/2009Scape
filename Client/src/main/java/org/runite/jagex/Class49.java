@@ -242,7 +242,7 @@ final class Class49 {
                if(Unsorted.aBoolean1951) {
                   ISAACCipher.method1230((byte)116);
                } else {
-                  Class84.method1419();
+                  Class84.rightClickContextMenuDraw();
                }
             } else if(null == Class3_Sub28_Sub16.aClass11_3708) {
                if(Class53.anInt865 != -1) {

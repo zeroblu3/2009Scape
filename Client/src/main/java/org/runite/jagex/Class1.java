@@ -640,11 +640,13 @@ final class Class1 {
                 }
 
                 Toolkit.getActiveToolkit().fillRect(var15, var6, var7, var8, var9, 128);
-                if (HDToolKit.highDetail) {
-                    Class22.drawRect(var15, var6, var7, var8, var9);
-                } else {
-                    Class74.drawRect(var15, var6, var7, var8, var9);
-                }
+                Toolkit.getActiveToolkit().drawRect(var15, var6, var7, var8, var9, 255);//Replaced, unsure what original use was
+//                if (HDToolKit.highDetail) {
+//                    Toolkit.OPENGL_TOOLKIT.drawRect(var15, var6, var7, var8, var9, 255);
+//                    //Class22.drawRect(var15, var6, var7, var8, var9);
+//                } else {
+//                    Class74.drawRect(var15, var6, var7, var8, var9);
+//                }
 
                 if (Class3_Sub28_Sub16.anInt3704 > 0) {
                     int var10;

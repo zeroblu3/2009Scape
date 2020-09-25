@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.rendering.Toolkit;
+
 final class Class84 {
 
    static int[][] anIntArrayArray1160 = new int[104][104];
@@ -69,38 +71,49 @@ final class Class84 {
       }
    }
 
-   static void method1419() {
+   static void rightClickContextMenuDraw() {
       try {
-         int var2 = Class3_Sub13_Sub33.anInt3395;
-         int var3 = Class3_Sub28_Sub3.anInt3552;
-         int var1 = AbstractIndexedSprite.anInt1462;
-         int var5 = 6116423; //Context Menu RGB
-         int var4 = Class3_Sub28_Sub1.anInt3537;
+         int x = AbstractIndexedSprite.anInt1462;
+         int y = Class3_Sub13_Sub33.anInt3395;
+         int width = Class3_Sub28_Sub3.anInt3552;
+         int height = Class3_Sub28_Sub1.anInt3537;
+         int contextMenuColor = 6116423; //Context Menu RGB || 6116423 Classic || Old var5 || ColorCore.getHexColors()
+         Toolkit.getActiveToolkit().fillRect(x, y, width, height, contextMenuColor, 255);
+         Toolkit.getActiveToolkit().fillRect(1 + x, 1 + y, width + -2, 16, 0, 255);
+         Toolkit.getActiveToolkit().drawRect(1 + x, y + 18, width + -2, -19 + height, 0, 255);
+
+         /**
+          * Old toolkit stuff, updated with new and improved toolkit (thanks Techdaan <3)
+          *
          if(HDToolKit.highDetail) {
-            Class22.method934(var1, var2, var3, var4, var5);
-            //System.out.println("Class84: method1419 debug: Context (choose option) menu: Passing values method934(" + var1 + ", " + var2 + ", " + var3 + ", " + var4 + ", " + var5 + ")");
-            Class22.method934(1 + var1, 1 + var2, var3 + -2, 16, 0);
-            //System.out.println("Class84: method1419 debug: Context (choose option) menu: Passing values method934(" + (1 + var1) +"," + (1 + var2) + ", " + (var3 + -2) + ", " + "16, " + "0)");
-            Class22.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);//Outer Rectangle choose option Box (contains options)
-            //System.out.println("Class84: method1419 debug: Context (choose option) menu: Passing values drawRect(" + (1 + var1) + ", " + (var2 + 18) + ", " + (var3 + -2) + ", " + (-19 + var4) + ", " + "0)");
+            OpenGlToolkit.OPENGL_TOOLKIT.fillRect(var1, var2, var3, var4, var5, 45);
+            OpenGlToolkit.OPENGL_TOOLKIT.fillRect(1 + var1, 1 + var2, var3 + -2, 16, 0, 255);
+            OpenGlToolkit.OPENGL_TOOLKIT.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 11119017, 120);
+            //            Class22.method934(var1, var2, var3, var4, var5); Old "toolkit"
+            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values method934(" + var1 + ", " + var2 + ", " + var3 + ", " + var4 + ", " + var5 + ")");
+            //            Class22.method934(1 + var1, 1 + var2, var3 + -2, 16, 0);
+            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values method934(" + (1 + var1) +"," + (1 + var2) + ", " + (var3 + -2) + ", " + "16, " + "0)");
+            //            Class22.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);//Outer Rectangle choose option Box (contains options)
+            //System.out.println("Class84: rightClickContextMenuDraw debug: Context (choose option) menu: Passing values drawRect(" + (1 + var1) + ", " + (var2 + 18) + ", " + (var3 + -2) + ", " + (-19 + var4) + ", " + "0)");
          } else {
             Class74.method1323(var1, var2, var3, var4, var5);
             Class74.method1323(1 + var1, 1 + var2, var3 + -2, 16, 0);
             Class74.drawRect(1 + var1, var2 + 18, -2 + var3, -19 + var4, 0);
          }
+          */
 
-         Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, var1 - -3, var2 + 14, var5, -1);
+         Class168.aClass3_Sub28_Sub17_2096.method681(TextCore.HasChooseOptions, x - -3, y + 14, contextMenuColor, -1);
          int var7 = Unsorted.anInt1709;
          int var6 = Class126.anInt1676;
 
           for(int var8 = 0; var8 < Class3_Sub13_Sub34.anInt3415; ++var8) {
-            int var9 = (-var8 + -1 + Class3_Sub13_Sub34.anInt3415) * 15 + var2 - -31;
+            int var9 = (-var8 + -1 + Class3_Sub13_Sub34.anInt3415) * 15 + y - -31;
             int var10 = 16777215;
-            if(var6 > var1 && var1 - -var3 > var6 && -13 + var9 < var7 && 3 + var9 > var7) {
+            if(var6 > x && x - -width > var6 && -13 + var9 < var7 && 3 + var9 > var7) {
                var10 = 16776960;
             }
 
-            Class168.aClass3_Sub28_Sub17_2096.method681(Unsorted.method802(var8), var1 - -3, var9, var10, 0);
+            Class168.aClass3_Sub28_Sub17_2096.method681(Unsorted.method802(var8), x - -3, var9, var10, 0);
          }
 
          Unsorted.method1282(AbstractIndexedSprite.anInt1462, (byte)107, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537, Class3_Sub28_Sub3.anInt3552);

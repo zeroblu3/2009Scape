@@ -84,6 +84,35 @@ class JavaToolkit : Toolkit() {
         }
     }
 
+    override fun drawVerticalLine(x: Int, y: Int, h: Int, rgb: Int) {
+        var y = y
+        var height = h
+
+        if (x < clipLeft || x >= clipRight)
+            return
+
+        if (y < clipTop) {
+            height -= clipTop - y
+            y = clipTop
+        }
+        if (y + height > clipBottom) {
+            height = clipBottom - y
+        }
+
+        val var4 = x + y * this.width
+        for (var5 in 0 until height) {
+            buffer[var4 + var5 * width] = rgb
+        }
+    }
+
+    override fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
+        drawHorizontalLine(x, y, w, rgb)
+        drawHorizontalLine(x, y + h - 1, w, rgb)
+        drawVerticalLine(x, y, h, rgb)
+        drawVerticalLine(x + w - 1, y, h, rgb)
+
+    }
+
     fun resetBuffer() {
         buffer = IntArray(0)
     }
