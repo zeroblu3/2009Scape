@@ -6,16 +6,16 @@
 
     "right_click_menu": {
       "background": {
-        "color": "#0A1D26",
+        "color": "#5d5447",
         "opacity": "255"
       },
       "title_bar": {
-        "color": "#17150E",
-        "opacity": "220",
-        "font_color": "#C6B895"
+        "color": "#000000",
+        "opacity": "255",
+        "font_color": "#5d5447"
       },
       "border": {
-        "color": "#FFFFFF",
+        "color": "#000000",
         "opacity": "255"
       },
       "styles": {
@@ -25,9 +25,9 @@
   },
 
   "debug": {
-    "item_debug": true,
-    "object_debug": true,
-    "npc_debug": true,
+    "item_debug": false,
+    "object_debug": false,
+    "npc_debug": false,
     "hd_login_region_debug": false,
     "hd_login_region_debug_verbose": false,
     "cache_debug": false,

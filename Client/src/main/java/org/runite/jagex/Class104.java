@@ -301,8 +301,11 @@ final class Class104 implements Interface5 {
                                   Class3_Sub24_Sub4.method1177(var23, (long)var18, (byte)-43, RenderAnimationDefinition.method903(new RSString[]{ColorCore.GroundItemColor, var40.name}), var12, var35, var34[var21], var27);
                                }
                             }
-
-                            Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long)var18, (byte)-43, RenderAnimationDefinition.method903(new RSString[]{ColorCore.GroundItemColor, var40.name}), var12, (short)1002, TextCore.HasExamine, var27);
+                            if (GameConfig.ITEM_DEBUG_ENABLED) {
+                               Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var18, (byte) -43, RenderAnimationDefinition.method903(new RSString[]{ColorCore.GroundItemColor, var40.name}), var12, (short) 1002, RSString.parse("Examine" + "<br>" + " ID: (X" + var40.itemId + "(Y"), var27);
+                            } else {
+                               Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var18, (byte) -43, RenderAnimationDefinition.method903(new RSString[]{ColorCore.GroundItemColor, var40.name}), var12, (short) 1002, TextCore.HasExamine, var27);
+                            }
                          }
                       }
                    }

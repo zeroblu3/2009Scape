@@ -116,6 +116,25 @@ class GameConfig {
                 if(debug.containsKey("world_map_debug")) WORLD_MAP_DEBUG = debug["world_map_debug"] as Boolean
             }
 
+
+            /**
+             * Style overwrites (Still working on this system. We should allow for maximum creativity
+             * The way that it will be setup is a style type 1st
+             * ie, classicbox, rs3, rounded, rounded2
+             * Then we introduce color schemes that a user could select
+             * ie, classic, rs3, alternate, alternate2, custom
+             */
+            if (RCM_STYLE_RS3) {
+                RCM_BG_COLOR = 662822
+                RCM_BG_OPACITY = 255
+                RCM_TITLE = "<col=C6B895>Choose Option</col>"
+                RCM_TITLE_COLOR = 1512718
+                RCM_TITLE_OPACITY = 220
+                RCM_BORDER_COLOR = 16777215
+                RCM_BORDER_OPACITY = 255
+            }
         }
+
     }
+
 }
