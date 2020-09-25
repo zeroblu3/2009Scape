@@ -2840,7 +2840,7 @@ public class Unsorted {
 
                 if (null != var0) {
                     if (var0.aBoolean1270) {
-                        RSString var5 = var0.aClass94_1273;
+                        RSString var5 = var0.NPCName;
                         if (0 != var0.anInt1260) {
                             RSString var6 = Class158.anInt2014 != 1 ? TextCore.HasLevel : TextCore.HasRating;
                             var5 = RenderAnimationDefinition.method903(new RSString[]{var5, Class72.combatLevelColor(var0.anInt1260, (byte) -122, Class102.player.COMBAT_LEVEL), TextCore.LEFT_PARENTHESES, var6, Class72.method1298((byte) 9, var0.anInt1260), TextCore.RIGHT_PARENTHESES});
@@ -2937,7 +2937,11 @@ public class Unsorted {
                                 }
                             }
 
-                            Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, TextCore.HasExamine, var4);
+                            if (var0.NPCContextMenuDebug) {
+                                Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, RSString.parse("Examine" + "<br>" + " ID: (X" + var0.npcId + "(Y"), var4);
+                            } else {
+                                Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, TextCore.HasExamine, var4);
+                            }
                         }
 
                     }

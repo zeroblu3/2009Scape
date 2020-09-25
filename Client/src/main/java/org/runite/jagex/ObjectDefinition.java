@@ -73,6 +73,7 @@ final class ObjectDefinition {
    private boolean aBoolean1541;
    boolean aBoolean1542;
 
+   boolean objectContextMenuDebug = true;
 
    final boolean method1684(int var2) {
       try {
@@ -577,6 +578,12 @@ final class ObjectDefinition {
          }
       } catch (RuntimeException var9) {
          throw Class44.clientError(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + -80 + ')');
+      }
+
+      if (objectContextMenuDebug) {
+         if (options[0] == null && options[1] == null && options[2] == null && options[3] == null && options[4] == null) {
+            options[0] = RSString.parse("Viewing object");
+         }
       }
    }
 

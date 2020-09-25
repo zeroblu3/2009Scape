@@ -74,12 +74,15 @@ final class Class84 {
          int var2 = Class3_Sub13_Sub33.anInt3395;
          int var3 = Class3_Sub28_Sub3.anInt3552;
          int var1 = AbstractIndexedSprite.anInt1462;
-         int var5 = 6116423;
+         int var5 = 6116423; //Context Menu RGB
          int var4 = Class3_Sub28_Sub1.anInt3537;
          if(HDToolKit.highDetail) {
             Class22.method934(var1, var2, var3, var4, var5);
+            //System.out.println("Class84: method1419 debug: Context (choose option) menu: Passing values method934(" + var1 + ", " + var2 + ", " + var3 + ", " + var4 + ", " + var5 + ")");
             Class22.method934(1 + var1, 1 + var2, var3 + -2, 16, 0);
-            Class22.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);
+            //System.out.println("Class84: method1419 debug: Context (choose option) menu: Passing values method934(" + (1 + var1) +"," + (1 + var2) + ", " + (var3 + -2) + ", " + "16, " + "0)");
+            Class22.drawRect(1 + var1, var2 + 18, var3 + -2, -19 + var4, 0);//Outer Rectangle choose option Box (contains options)
+            //System.out.println("Class84: method1419 debug: Context (choose option) menu: Passing values drawRect(" + (1 + var1) + ", " + (var2 + 18) + ", " + (var3 + -2) + ", " + (-19 + var4) + ", " + "0)");
          } else {
             Class74.method1323(var1, var2, var3, var4, var5);
             Class74.method1323(1 + var1, 1 + var2, var3 + -2, 16, 0);

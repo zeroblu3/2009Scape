@@ -37,7 +37,7 @@ final class NPCDefinition {
    boolean aBoolean1270 = true;
    private short[] aShortArray1271;
    private HashTable aHashTable_1272;
-   RSString aClass94_1273;
+   RSString NPCName;
    int anInt1274;
    byte aByte1275;
    int anInt1276 = -1;
@@ -62,6 +62,7 @@ final class NPCDefinition {
    static int anInt1297;
    int anInt1298;
 
+   boolean NPCContextMenuDebug = true;
 
    final NPCDefinition method1471(byte var1) {
       try {
@@ -623,7 +624,7 @@ final class NPCDefinition {
                }
             }
          } else if(opcode == 2) {
-            this.aClass94_1273 = buffer.readString();
+            this.NPCName = buffer.readString();
          } else if (opcode == 12) {
             this.size = buffer.readUnsignedByte();
          } else if (opcode >= 30 && opcode < 35) {
@@ -811,7 +812,7 @@ final class NPCDefinition {
    }
 
    public NPCDefinition() {
-      this.aClass94_1273 = TextCore.aClass94_2006;
+      this.NPCName = TextCore.aClass94_2006;
       this.anInt1260 = -1;
       this.aBoolean1285 = true;
       this.anInt1253 = -1;

@@ -91,6 +91,8 @@ final class ItemDefinition {
 	int anInt810;
 	private static RSString aClass94_811;
 
+	boolean itemContextMenuDebug = true;
+
 	static boolean method1176(RSString var0) {
 	   try {
 		  if(var0 == null) {

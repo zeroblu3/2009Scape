@@ -166,12 +166,21 @@ final class Class104 implements Interface5 {
                                   var19 = 1001;
                                }
 
-                               Class3_Sub24_Sub4.method1177(var20, var26, (byte)-91, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ObjectNameColor, var16.name}), var12, var19, var29[var18], var27);
+
+                               if (var16.objectContextMenuDebug) {
+                                  Class3_Sub24_Sub4.method1177(var20, var26, (byte) -91, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ObjectNameColor, var16.name}), var12, var19, var29[var18], var27);
+                               } else {
+                                  Class3_Sub24_Sub4.method1177(var20, var26, (byte) -91, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ObjectNameColor, var16.name}), var12, var19, var29[var18], var27);
+                               }
+
                             }
                          }
                       }
-
-                      Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long)var16.objectId, (byte)-26, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ObjectNameColor, var16.name}), var12, (short)1004, TextCore.HasExamine, var27);
+                      if (var16.objectContextMenuDebug) {
+                         Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var16.objectId, (byte) -26, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ObjectNameColor, var16.name}), var12, (short) 1004, RSString.parse("Examine" + "<br>" + " ID: (X" + var16.objectId + "(Y"), var27);
+                      } else {
+                         Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var16.objectId, (byte) -26, RenderAnimationDefinition.method903(new RSString[]{ColorCore.ObjectNameColor, var16.name}), var12, (short) 1004, TextCore.HasExamine, var27);
+                      }
                    }
                 }
 

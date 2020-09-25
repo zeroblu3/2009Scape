@@ -242,6 +242,11 @@ public class TextCore {
 
 
     /**
+     * Fonts
+     */
+    static Font Helvetica = new Font("Helvetica", Font.BOLD, 13);
+
+    /**
      * Unsorted
      */
     static RSString Spacer = RSString.parse(" ");
@@ -260,13 +265,6 @@ public class TextCore {
     public static RSString aClass94_1326 = RSString.parse(")2");
     public static RSString aClass94_4049 = RSString.parse("");
     public static RSString aClass94_1617 = RSString.parse(")1a2)1m");
-
-    /**
-     * Fonts
-     */
-    static Font Helvetica = new Font("Helvetica", Font.BOLD, 13);
-
-
     static RSString aClass94_148 = RSString.parse("(U(Y");
     static RSString aClass94_465 = RSString.parse(" ");
     static RSString aClass94_468 = RSString.parse("(U");
@@ -279,74 +277,54 @@ public class TextCore {
     static RSString aClass94_3209 = RSString.parse("showingVideoAd");
     static RSString aClass94_592 = RSString.parse("<img=0>");
     static RSString timeZone = RSString.parse(" GMT");
-
     static RSString aClass94_3190 = RSString.parse("<img=1>");
     static RSString aClass94_3192 = RSString.parse(" ");
     static RSString aClass94_3196 = RSString.parse("Fps:");
     static RSString aClass94_3039 = RSString.parse("0");
     static RSString aClass94_3055 = RSString.parse("k");
-
     static RSString aClass94_3145 = RSString.parse(")1 ");
-
     static RSString aClass94_3161 = RSString.parse("_");
-
     static RSString aClass94_3268 = RSString.parse(")1");
-
     static RSString aClass94_3339 = RSString.parse("null");
     static RSString aClass94_3357 = RSString.parse("");
     static RSString aClass94_3360 = RSString.parse("mem=");
     static RSString aClass94_3399 = RSString.parse("<br>(X");
     static RSString aClass94_3418 = RSString.parse("(U5");
-
     static RSString aClass94_2498 = RSString.parse("(U (X");
     static RSString aClass94_3574 = RSString.parse("titlebg");
     static RSString aClass94_3577 = RSString.parse(": ");
-
-
-
     static RSString aClass94_3703 = RSString.parse(" )2> ");
     static RSString aClass94_3777 = RSString.parse(" x ");
     static RSString aClass94_3807 = RSString.parse("m");
-
     static RSString aClass94_2608 = RSString.parse(")4l=");
     static RSString aClass94_2168 = RSString.parse("<br>");
     static RSString aClass94_106 = RSString.parse("showVideoAd");
     static RSString aClass94_331 = RSString.parse("(U1");
     static RSString aClass94_339 = RSString.parse("1");
     static RSString aClass94_341 = RSString.parse(")3");
-
     static RSString aClass94_436 = RSString.parse("Cache:");
     static RSString aClass94_442 = RSString.parse("Number of player models in cache:");
     static RSString aClass94_444 = RSString.parse("<img=1>");
     static RSString aClass94_516 = RSString.parse("unzap");
-
-
-
     static RSString aClass94_2610 = RSString.parse(")1o");
     static RSString aClass94_673 = RSString.parse(")0");
     static RSString aClass94_676 = null;
     static RSString aClass94_852 = RSString.parse("(U4");
-
     static RSString aClass94_892 = RSString.parse(" )2> <col=ffffff>");
-
     static RSString aClass94_1051 = RSString.parse("(Udns");
     static RSString LEFT_PARENTHESES = RSString.parse(" (X");
     static RSString aClass94_1076 = RSString.parse("<)4col>");
     static RSString aClass94_1151 = RSString.parse("settings=");
-
     static RSString aClass94_1301 = RSString.parse("(U3");
     static RSString aClass94_1333 = RSString.parse("um");
-
     static RSString aClass94_1341 = RSString.parse("logo");
     static RSString aClass94_1342 = RSString.parse("details");
     static RSString aClass94_2171 = RSString.parse("");
-
     static RSString aClass94_1687 = RSString.parse("(Z");
     static RSString aClass94_1694 = RSString.parse("document)3cookie=(R");
     static RSString aClass94_1724 = RSString.parse(" )2>");
     static RSString aClass94_1745 = RSString.parse("settings");
     static RSString aClass94_1760 = RSString.parse("");
-
     static RSString aClass94_2707 = RSString.parse("<br>(X100(U(Y");
     static RSString aClass94_2735 = RSString.parse(")4");
     static RSString aClass94_2765 = RSString.parse(" ");
@@ -358,19 +336,15 @@ public class TextCore {
     static RSString aClass94_2029 = RSString.parse("l");
     static RSString aClass94_2033 = RSString.parse("Memory after cleanup=");
     static RSString aClass94_2044 = RSString.parse("cookieprefix");
-
     static RSString aClass94_4007 = RSString.parse(":");
     static RSString aClass94_4023 = RSString.parse(")3");
-
     static RSString aClass94_3013 = RSString.parse("0");
     static RSString aClass94_2074 = RSString.parse("; version=1; path=)4; domain=");
     static RSString aClass94_2075 = RSString.parse("rect_debug=");
     static RSString aClass94_2080 = RSString.parse("(U2");
     static RSString aClass94_2116 = RSString.parse("Hidden)2use");
-
     static RSString aClass94_1915 = RSString.parse("Null");
     static RSString aClass94_2584 = RSString.parse("<)4col>");
-
     static RSString aClass94_209 = RSString.parse("event_opbase");
     static RSString aClass94_2304 = RSString.parse("details");
     static RSString aClass94_2306 = RSString.parse("<)4col> x");
