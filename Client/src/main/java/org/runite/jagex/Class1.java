@@ -603,10 +603,10 @@ final class Class1 {
         try {
             if (HDToolKit.highDetail) {
                 Class22.setClipping(var0, var4, var2 + var0, var1 + var4);
-                Toolkit.OPENGL_TOOLKIT.drawLongRect(var0, var4, var2, var1, 0, 255); //Specific openGL call because set Clipping is not migrated
+                Toolkit.OPENGL_TOOLKIT.method934(var0, var4, var2, var1, 0); //Specific openGL call because set Clipping is not migrated
             } else {
                 Class74.setClipping(var0, var4, var2 + var0, var4 + var1);
-                Toolkit.JAVA_TOOLKIT.drawLongRect(var0, var4, var2, var1, 0, 255); //Specific JTK call because set Clipping is not migrated
+                Toolkit.JAVA_TOOLKIT.method934(var0, var4, var2, var1, 0); //Specific JTK call because set Clipping is not migrated
             }
 
             if (Class140_Sub3.anInt2737 >= 100) {

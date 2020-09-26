@@ -112,7 +112,8 @@ class JavaToolkit : Toolkit() {
         drawVerticalLine(x + w - 1, y, h, rgb)
     }
 
-    override fun drawLongRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int) {
+    //Renamed from method1323 to match its openGL counterpart
+    override fun method934(x: Int, y: Int, w: Int, h: Int, rgb: Int) {
         var x = x
         var y = y
         var width = w

@@ -45,8 +45,8 @@ final class Class3_Sub13_Sub12 extends Class3_Sub13 {
                 var6 = 8;
             }
             int var7 = var1 * (-var6 + -32 + var5) / (var2 + -var5);
-            Toolkit.getActiveToolkit().drawLongRect(var3, 16 + var4, 16, -32 + var5, anInt2530, 255);
-            Toolkit.getActiveToolkit().drawLongRect(var3, 16 + var4 + var7, 16, var6, anInt486, 255);
+            Toolkit.getActiveToolkit().method934(var3, 16 + var4, 16, -32 + var5, anInt2530);
+            Toolkit.getActiveToolkit().method934(var3, 16 + var4 + var7, 16, var6, anInt486);
             Toolkit.getActiveToolkit().drawVerticalLine(var3, var7 + (var4 + 16), var6, anInt3377);
             Toolkit.getActiveToolkit().drawVerticalLine(var3 + 1, var7 + 16 + var4, var6, anInt3377);
             Toolkit.getActiveToolkit().drawHorizontalLine(var3, var7 + 16 + var4, 16, anInt3377);

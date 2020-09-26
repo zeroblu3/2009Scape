@@ -32,8 +32,8 @@ final class Class3_Sub23 extends Linkable {
          var3 = Class140_Sub7.anInt2934 / 2 + -18;
          Toolkit.getActiveToolkit().drawRect(Class23.anInt454 / 2 - 152, var3, 304, 34, 9179409, 255);
          Toolkit.getActiveToolkit().drawRect(-151 + Class23.anInt454 / 2, var3 - -1, 302, 32, 0, 255);
-         Toolkit.getActiveToolkit().drawLongRect(Class23.anInt454 / 2 - 150, var3 + 2, Client.LoadingStageNumber * 3, 30, 9179409, 255);
-         Toolkit.getActiveToolkit().drawLongRect(Class23.anInt454 / 2 + -150 - -(3 * Client.LoadingStageNumber), 2 + var3, 300 + -(3 * Client.LoadingStageNumber), 30, 0, 255);
+         Toolkit.getActiveToolkit().method934(Class23.anInt454 / 2 - 150, var3 + 2, Client.LoadingStageNumber * 3, 30, 9179409);
+         Toolkit.getActiveToolkit().method934(Class23.anInt454 / 2 + -150 - -(3 * Client.LoadingStageNumber), 2 + var3, 300 + -(3 * Client.LoadingStageNumber), 30, 0);
 
          var2.method699(Class3_Sub17.aClass94_2464, Class23.anInt454 / 2, 4 + Class140_Sub7.anInt2934 / 2, 16777215, -1);
          if(var0 < 50) {
