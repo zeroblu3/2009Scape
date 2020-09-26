@@ -66,7 +66,7 @@ object DeveloperConsole {
                 val boxWidth = 8 + 8 + (completions.map { CONSOLE_FONT.method682(RSString.of(it)) }.maxOrNull() ?: 0)
 
                 tk.fillRect(startX, HEIGHT - 16 - boxHeight, boxWidth, boxHeight, 0x323232, 255)
-                RenderingUtils.drawRect(startX + 3, HEIGHT - 16 - boxHeight + 6, boxWidth - 6, boxHeight - 9 - 14, 0x646464)
+                RenderingUtils.drawRect(startX + 3, HEIGHT - 16 - boxHeight + 6, boxWidth - 6, boxHeight - 9 - 14, 0x646464, 200)
                 tk.drawHorizontalLine(startX + 8, HEIGHT - 16 - boxHeight + 6, 75, 0x323232)
                 RenderingUtils.drawText(RSString.parse("Completions"), startX + 12, HEIGHT - 17 - boxHeight + 12, 0xffffff)
                 RenderingUtils.drawText(RSString.parse("<col=ee2222>${completions.size}</col>/<col=ee2222>$totalSize</col> sent"), startX + 4, HEIGHT - 20, 0xffffff)

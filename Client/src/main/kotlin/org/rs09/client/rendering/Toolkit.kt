@@ -31,6 +31,8 @@ abstract class Toolkit {
 
     abstract fun drawRect(x: Int, y: Int, w: Int, h: Int, rgb: Int, alpha: Int)
 
+    abstract fun method934(x: Int, y: Int, w: Int, h: Int, rgb: Int)
+
 
 
 }

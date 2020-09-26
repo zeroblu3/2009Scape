@@ -93,7 +93,7 @@ final class Class83 {
                                  var32 = 1;
                               }
 
-                              Class74.method1323(var14, var25, var16, var27, var32);
+                              Toolkit.JAVA_TOOLKIT.method934(var14, var25, var16, var27, var32);
                               continue;
                            }
                         }
@@ -106,7 +106,7 @@ final class Class83 {
                         int var34 = var46[var28] != null?Class84.anIntArray1161[255 & var46[var28][var31]]:0;
                         int var36;
                         if(var33 == 0 && var34 == 0) {
-                           Class74.method1323(var14, var25, var16, var27, var32);
+                           Toolkit.JAVA_TOOLKIT.method934(var14, var25, var16, var27, var32);
                         } else {
                            byte var35;
                            if(0 != var33) {
@@ -119,7 +119,7 @@ final class Class83 {
                               if(var36 != 0 && var16 > 1 && var27 > 1) {
                                  Class168.method2272(Toolkit.JAVA_TOOLKIT.getBuffer(), var33, var14, var35 & 3, var32, var36 >> 2, var27, var16, var25, true);
                               } else {
-                                 Class74.method1323(var14, var25, var16, var27, var33);
+                                 Toolkit.JAVA_TOOLKIT.method934(var14, var25, var16, var27, var33);//Remember! If it's a SPECIFIC JAVA_TOOLKIT CALL THERE IS A REASON
                               }
                            }
 
@@ -131,7 +131,7 @@ final class Class83 {
                               var35 = var43[var28][var31];
                               var36 = 252 & var35;
                               if(var36 == 0 || var16 <= 1 || 1 >= var27) {
-                                 Class74.method1323(var14, var25, var16, var27, var34);
+                                 Toolkit.JAVA_TOOLKIT.method934(var14, var25, var16, var27, var34);//Remember! If it's a SPECIFIC JAVA_TOOLKIT CALL THERE IS A REASON
                               }
 
                               Class168.method2272(Toolkit.JAVA_TOOLKIT.getBuffer(), var34, var14, var35 & 3, 0, var36 >> 2, var27, var16, var25, var33 == 0);
@@ -241,7 +241,8 @@ final class Class83 {
                      var20 = (var7 * var18 + var9 >> 16) + var0;
                      var21 = var0 + ((var18 + 1) * var7 + var9 >> 16);
                      var22 = var21 + -var20;
-                     Class74.method1323(var14, var20, var16, var22, var19);
+                     Toolkit.JAVA_TOOLKIT.method934(var14, var20, var16, var22, var19);
+//                     Class74.method934(var14, var20, var16, var22, var19);
                   }
 
                }

@@ -1,5 +1,6 @@
 package org.runite.jagex;
 import org.rs09.client.Linkable;
+import org.rs09.client.rendering.Toolkit;
 
 import java.awt.Graphics;
 
@@ -165,13 +166,9 @@ abstract class Class3_Sub13 extends Linkable {
             int var5 = var3 + 6;
             int var6 = Class126.aClass3_Sub28_Sub17_1669.method680(var2, 250);
             int var7 = Class126.aClass3_Sub28_Sub17_1669.method684(var2, 250) * 13;
-            if(HDToolKit.highDetail) {
-               Class22.method934(var4 - var3, -var3 + var5, var3 + var6 - -var3, var3 + var3 + var7, 0);
-               Class22.drawRect(-var3 + var4, -var3 + var5, var6 + var3 - -var3, var3 + var7 + var3, 16777215);
-            } else {
-               Class74.method1323(var4 - var3, -var3 + var5, var3 + var6 - -var3, var3 + var3 + var7, 0);
-               Class74.drawRect(var4 + -var3, var5 - var3, var3 + var3 + var6, var3 + var3 + var7, 16777215);
-            }
+            //Used for the top left (please wait...)
+            Toolkit.getActiveToolkit().method934(var4 - var3, -var3 + var5, var3 + var6 - -var3, var3 + var3 + var7, 0);
+            Toolkit.getActiveToolkit().drawRect(-var3 + var4, -var3 + var5, var6 + var3 - -var3, var3 + var7 + var3, 16777215, 255);
 
             Class126.aClass3_Sub28_Sub17_1669.method676(var2, var4, var5, var6, var7, 16777215, -1, 1, 1, 0);
             Class75.method1340(var4 + -var3, var6 + (var3 - -var3), -var3 + var5, var3 + var7 + var3);

@@ -21,49 +21,6 @@ public final class Class74 {
       anIntArray1098 = null;
    }
 
-   public static void drawRect(int x, int y, int w, int h, int rgb) {
-      toolkit.drawHorizontalLine(x, y, w, rgb);
-      toolkit.drawHorizontalLine(x, y + h - 1, w, rgb);
-      toolkit.drawVerticalLine(x, y, h, rgb);
-      toolkit.drawVerticalLine(x + w - 1, y, h, rgb);
-   }
-
-   public static void fillRectangle(int x, int y, int width, int height, int rgb, int opacity) {
-      if(x < Toolkit.JAVA_TOOLKIT.clipLeft) {
-         width -= Toolkit.JAVA_TOOLKIT.clipLeft - x;
-         x = Toolkit.JAVA_TOOLKIT.clipLeft;
-      }
-
-      if(y < Toolkit.JAVA_TOOLKIT.clipTop) {
-         height -= Toolkit.JAVA_TOOLKIT.clipTop - y;
-         y = Toolkit.JAVA_TOOLKIT.clipTop;
-      }
-
-      if(x + width > Toolkit.JAVA_TOOLKIT.clipRight) {
-         width = Toolkit.JAVA_TOOLKIT.clipRight - x;
-      }
-
-      if(y + height > Toolkit.JAVA_TOOLKIT.clipBottom) {
-         height = Toolkit.JAVA_TOOLKIT.clipBottom - y;
-      }
-
-      rgb = ((rgb & 0xff00ff) * opacity >> 8 & 0xff00ff) + ((rgb & 0xff00) * opacity >> 8 & 0xff00);
-      int invertedOpacity = 256 - opacity;
-      int var7 = Toolkit.JAVA_TOOLKIT.width - width;
-      int var8 = x + y * Toolkit.JAVA_TOOLKIT.width;
-
-      for(int lx = 0; lx < height; ++lx) {
-         for(int ly = -width; ly < 0; ++ly) {
-            int old = getBuffer()[var8];
-            old = ((old & 0xff00ff) * invertedOpacity >> 8 & 0xff00ff) + ((old & 0xff00) * invertedOpacity >> 8 & 0xff00);
-            getBuffer()[var8++] = rgb + old;
-         }
-
-         var8 += var7;
-      }
-
-   }
-
    private static void method1313(int var0, int var1) {
       if(var0 >= Toolkit.JAVA_TOOLKIT.clipLeft && var1 >= Toolkit.JAVA_TOOLKIT.clipTop && var0 < Toolkit.JAVA_TOOLKIT.clipRight && var1 < Toolkit.JAVA_TOOLKIT.clipBottom) {
          getBuffer()[var0 + var1 * Toolkit.JAVA_TOOLKIT.width] = 16776960;
@@ -95,48 +52,6 @@ public final class Class74 {
       Toolkit.JAVA_TOOLKIT.clipRight = var0[2];
       Toolkit.JAVA_TOOLKIT.clipBottom = var0[3];
       method1310();
-   }
-
-   public static void drawHorizontalLine(int x, int y, int width, int rgb) {
-      if(y >= Toolkit.JAVA_TOOLKIT.clipTop && y < Toolkit.JAVA_TOOLKIT.clipBottom) {
-         if(x < Toolkit.JAVA_TOOLKIT.clipLeft) {
-            width -= Toolkit.JAVA_TOOLKIT.clipLeft - x;
-            x = Toolkit.JAVA_TOOLKIT.clipLeft;
-         }
-
-         if(x + width > Toolkit.JAVA_TOOLKIT.clipRight) {
-            width = Toolkit.JAVA_TOOLKIT.clipRight - x;
-         }
-
-         int var4 = x + y * Toolkit.JAVA_TOOLKIT.width;
-
-         for(int var5 = 0; var5 < width; ++var5) {
-            getBuffer()[var4 + var5] = rgb;
-         }
-
-      }
-   }
-
-   public static void drawVerticalLine(int x, int y, int h, int rgb) {
-      if(x >= Toolkit.JAVA_TOOLKIT.clipLeft && x < Toolkit.JAVA_TOOLKIT.clipRight) {
-
-         if(y < Toolkit.JAVA_TOOLKIT.clipTop) {
-
-            h -= Toolkit.JAVA_TOOLKIT.clipTop - y;
-            y = Toolkit.JAVA_TOOLKIT.clipTop;
-         }
-
-         if(y + h > Toolkit.JAVA_TOOLKIT.clipBottom) {
-            h = Toolkit.JAVA_TOOLKIT.clipBottom - y;
-         }
-
-         int var4 = x + y * Toolkit.JAVA_TOOLKIT.width;
-
-         for(int var5 = 0; var5 < h; ++var5) {
-            getBuffer()[var4 + var5 * Toolkit.JAVA_TOOLKIT.width] = rgb;
-         }
-
-      }
    }
 
    static void setBuffer(int[] buffer, int width, int height) {
@@ -233,38 +148,6 @@ public final class Class74 {
       }
    }
 
-   static void method1323(int var0, int var1, int var2, int var3, int var4) {
-      if(var0 < Toolkit.JAVA_TOOLKIT.clipLeft) {
-         var2 -= Toolkit.JAVA_TOOLKIT.clipLeft - var0;
-         var0 = Toolkit.JAVA_TOOLKIT.clipLeft;
-      }
-
-      if(var1 < Toolkit.JAVA_TOOLKIT.clipTop) {
-         var3 -= Toolkit.JAVA_TOOLKIT.clipTop - var1;
-         var1 = Toolkit.JAVA_TOOLKIT.clipTop;
-      }
-
-      if(var0 + var2 > Toolkit.JAVA_TOOLKIT.clipRight) {
-         var2 = Toolkit.JAVA_TOOLKIT.clipRight - var0;
-      }
-
-      if(var1 + var3 > Toolkit.JAVA_TOOLKIT.clipBottom) {
-         var3 = Toolkit.JAVA_TOOLKIT.clipBottom - var1;
-      }
-
-      int var5 = Toolkit.JAVA_TOOLKIT.width - var2;
-      int var6 = var0 + var1 * Toolkit.JAVA_TOOLKIT.width;
-
-      for(int var7 = -var3; var7 < 0; ++var7) {
-         for(int var8 = -var2; var8 < 0; ++var8) {
-            getBuffer()[var6++] = var4;
-         }
-
-         var6 += var5;
-      }
-
-   }
-
    public static void setClipping(int left, int top, int right, int bottom) {
       if(left < 0) {
          left = 0;
@@ -350,16 +233,16 @@ public final class Class74 {
       var3 -= var1;
       if(var3 == 0) {
          if(var2 >= 0) {
-            drawHorizontalLine(var0, var1, var2 + 1, var4);
+            Toolkit.JAVA_TOOLKIT.drawHorizontalLine(var0, var1, var2 + 1, var4);
          } else {
-            drawHorizontalLine(var0 + var2, var1, -var2 + 1, var4);
+            Toolkit.JAVA_TOOLKIT.drawHorizontalLine(var0 + var2, var1, -var2 + 1, var4);
          }
 
       } else if(var2 == 0) {
          if(var3 >= 0) {
-            drawVerticalLine(var0, var1, var3 + 1, var4);
+            Toolkit.JAVA_TOOLKIT.drawVerticalLine(var0, var1, var3 + 1, var4);
          } else {
-            drawVerticalLine(var0, var1 + var3, -var3 + 1, var4);
+            Toolkit.JAVA_TOOLKIT.drawVerticalLine(var0, var1 + var3, -var3 + 1, var4);
          }
 
       } else {

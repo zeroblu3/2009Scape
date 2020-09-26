@@ -1,6 +1,7 @@
 package org.runite.jagex;
 
 import org.rs09.client.Node;
+import org.rs09.client.rendering.Toolkit;
 
 import java.util.Objects;
 import java.util.Random;
@@ -153,19 +154,11 @@ public abstract class Class3_Sub28_Sub17 extends Node {
 
                     int var11 = this.anIntArray3736[var8];
                     if (anInt3746 != -1) {
-                        if (HDToolKit.highDetail) {
-                            Class22.drawHorizontalLine(var2, var3 + (int) ((double) this.anInt3727 * 0.7D), var11, anInt3746);
-                        } else {
-                            Class74.drawHorizontalLine(var2, var3 + (int) ((double) this.anInt3727 * 0.7D), var11, anInt3746);
-                        }
+                        Toolkit.getActiveToolkit().drawHorizontalLine(var2, var3 + (int) ((double) this.anInt3727 * 0.7D), var11, anInt3746);
                     }
 
                     if (anInt3747 != -1) {
-                        if (HDToolKit.highDetail) {
-                            Class22.drawHorizontalLine(var2, var3 + this.anInt3727 + 1, var11, anInt3747);
-                        } else {
-                            Class74.drawHorizontalLine(var2, var3 + this.anInt3727 + 1, var11, anInt3747);
-                        }
+                        Toolkit.getActiveToolkit().drawHorizontalLine(var2, var3 + this.anInt3727 + 1, var11, anInt3747);
                     }
 
                     var2 += var11;
@@ -994,19 +987,11 @@ public abstract class Class3_Sub28_Sub17 extends Node {
 
                     int var16 = this.anIntArray3736[var11];
                     if (anInt3746 != -1) {
-                        if (HDToolKit.highDetail) {
-                            Class22.drawHorizontalLine(var2, var3 + (int) ((double) this.anInt3727 * 0.7D), var16, anInt3746);
-                        } else {
-                            Class74.drawHorizontalLine(var2, var3 + (int) ((double) this.anInt3727 * 0.7D), var16, anInt3746);
-                        }
+                        Toolkit.getActiveToolkit().drawHorizontalLine(var2, var3 + (int) ((double) this.anInt3727 * 0.7D), var16, anInt3746);
                     }
 
                     if (anInt3747 != -1) {
-                        if (HDToolKit.highDetail) {
-                            Class22.drawHorizontalLine(var2, var3 + this.anInt3727, var16, anInt3747);
-                        } else {
-                            Class74.drawHorizontalLine(var2, var3 + this.anInt3727, var16, anInt3747);
-                        }
+                        Toolkit.getActiveToolkit().drawHorizontalLine(var2, var3 + this.anInt3727, var16, anInt3747);
                     }
 
                     var2 += var16;
