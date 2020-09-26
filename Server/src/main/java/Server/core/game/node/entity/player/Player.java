@@ -802,7 +802,7 @@ public class Player extends Entity {
 	 * @param string The message.
 	 */
 	public void debug(String string) {
-		if (isDebug()) {
+		if (getAttribute("debug",false)) {
 			packetDispatch.sendMessage(string);
 		}
 	}
