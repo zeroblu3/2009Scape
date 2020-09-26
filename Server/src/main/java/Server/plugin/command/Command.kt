@@ -16,10 +16,6 @@ class Command(val name: String, val privilege: Privilege, val handle: (Player, A
         }
     }
 
-    fun reject(player: Player, message: String){
-            player.sendMessage(colorize("%R$message"))
-    }
-
     enum class Privilege{
         STANDARD,
         MODERATOR,

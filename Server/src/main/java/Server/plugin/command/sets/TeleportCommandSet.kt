@@ -30,7 +30,7 @@ class TeleportCommandSet : CommandSet(Command.Privilege.ADMIN){
             if (destination != null) {
                 player.teleporter.send(destination, TeleportManager.TeleportType.NORMAL)
             } else {
-                player.packetDispatch.sendMessage("Could not locate teleport destination [name=$place]!")
+                reject(player,"Could not locate teleport destination [name=$place]!")
             }
         }
 
@@ -47,7 +47,7 @@ class TeleportCommandSet : CommandSet(Command.Privilege.ADMIN){
                 return@define
             }
             if (args.size < 2) {
-                player.debug("syntax error: x, y, (optional) z")
+                reject(player,"syntax error: x, y, (optional) z")
                 return@define
             }
             player.properties.teleportLocation = Location.create(args[1].toInt(), args[2].toInt(), if (args.size > 3) args[3].toInt() else 0)
@@ -59,17 +59,17 @@ class TeleportCommandSet : CommandSet(Command.Privilege.ADMIN){
          */
         define("teleto"){player,args ->
             if (args.size < 1) {
-                player.debug("syntax error: name")
+                reject(player,"syntax error: name")
                 return@define
             }
             val n = args.slice(1 until args.size).joinToString("_")
             val target = Repository.getPlayer(n)
             if (target == null) {
-                player.debug("syntax error: name")
+                reject(player,"syntax error: name")
                 return@define
             }
             if (target.getAttribute<Any?>("fc_wave") != null) {
-                player.sendMessage("You cannot teleport to a player who is in the Fight Caves.")
+                reject(player,"You cannot teleport to a player who is in the Fight Caves.")
                 return@define
             }
             player.properties.teleportLocation = target.location
@@ -81,17 +81,17 @@ class TeleportCommandSet : CommandSet(Command.Privilege.ADMIN){
          */
         define("teletome"){player,args ->
             if (args.size < 1) {
-                player.debug("syntax error: name")
+                reject(player,"syntax error: name")
                 return@define
             }
             val n = args.slice(1 until args.size).joinToString("_")
             val target = Repository.getPlayer(n)
             if (target == null) {
-                player.debug("syntax error: name")
+                reject(player,"syntax error: name")
                 return@define
             }
             if (target.getAttribute<Any?>("fc_wave") != null) {
-                player.sendMessage("You cannot teleport to a player who is in the Fight Caves.")
+                reject(player,"You cannot teleport to a player who is in the Fight Caves.")
                 return@define
             }
             target.properties.teleportLocation = player.location

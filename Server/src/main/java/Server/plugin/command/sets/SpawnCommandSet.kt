@@ -21,7 +21,7 @@ class SpawnCommandSet : CommandSet(Command.Privilege.ADMIN){
          */
         define("npc"){player,args ->
             if (args.size < 2) {
-                player.debug("syntax error: id (optional) direction")
+                reject(player,"syntax error: id (optional) direction")
                 return@define
             }
             val npc = NPC.create(CommandPlugin.toInteger(args[1]!!), player!!.location)
@@ -41,13 +41,13 @@ class SpawnCommandSet : CommandSet(Command.Privilege.ADMIN){
          */
         define("item"){player,args ->
             if (args.size < 2) {
-                player.sendMessage("You must specify an item ID")
+                reject(player,"You must specify an item ID")
                 return@define
             }
             val id = args[1].toIntOrNull() ?: return@define
             var amount = args.get(2).toIntOrNull() ?: 1
             if (id > Cache.getItemDefinitionsSize()) {
-                player.sendMessage("Item ID '$id' out of range.")
+                reject(player,"Item ID '$id' out of range.")
                 return@define
             }
             val item = Item(id, amount)
@@ -64,7 +64,7 @@ class SpawnCommandSet : CommandSet(Command.Privilege.ADMIN){
          */
         define("object"){player,args ->
             if (args!!.size < 2) {
-                player!!.debug("syntax error: id (optional) type rotation or rotation")
+                reject(player,"syntax error: id (optional) type rotation or rotation")
                 return@define
             }
             val `object` = if (args.size > 3) GameObject(CommandPlugin.toInteger(args[1]!!), player!!.location, CommandPlugin.toInteger(args[2]!!), CommandPlugin.toInteger(args[3]!!)) else if (args.size == 3) GameObject(CommandPlugin.toInteger(args[1]!!), player!!.location, CommandPlugin.toInteger(args[2]!!)) else GameObject(CommandPlugin.toInteger(args[1]!!), player!!.location)

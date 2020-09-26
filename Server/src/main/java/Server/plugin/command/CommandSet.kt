@@ -4,6 +4,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Plugin
 import plugin.command.Command
 import plugin.command.CommandMapping
+import plugin.stringtools.colorize
 import javax.activation.CommandMap
 
 abstract class CommandSet(val defaultPrivilege: Command.Privilege) : Plugin<Any?> {
@@ -17,6 +18,11 @@ abstract class CommandSet(val defaultPrivilege: Command.Privilege) : Plugin<Any?
     }
 
     abstract fun defineCommands()
+
+
+    fun reject(player: Player, message: String){
+        player.sendMessage(colorize("%R$message"))
+    }
 
     fun define(name: String, privilege: Command.Privilege = defaultPrivilege, handle: (Player, Array<String>) -> Unit){
         CommandMapping.register(Command(name,privilege,handle))

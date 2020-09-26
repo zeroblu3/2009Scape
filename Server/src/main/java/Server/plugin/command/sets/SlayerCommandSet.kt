@@ -24,13 +24,13 @@ class SlayerCommandSet : CommandSet(Command.Privilege.ADMIN){
          */
         define("setslayerpoints"){player,args ->
             if(args.size < 2){
-                player.sendMessage("Usage: ::setslayerpoints amount")
+                reject(player,"Usage: ::setslayerpoints amount")
                 return@define
             }
 
             val amount = args[1].toIntOrNull()
             if(amount == null){
-                player.sendMessage("Amount needs to be a valid integer!")
+                reject(player,"Amount needs to be a valid integer!")
                 return@define
             }
 
