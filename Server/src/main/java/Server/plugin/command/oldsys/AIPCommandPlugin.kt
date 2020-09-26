@@ -1,4 +1,4 @@
-package plugin.command
+package plugin.command.oldsys
 
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.Interaction
@@ -21,7 +21,6 @@ import plugin.ai.AIPlayer
 import plugin.ai.general.GeneralBotCreator
 import plugin.ai.general.scriptrepository.LobsterCatcher
 //import plugin.ai.general.scriptrepository.ManThiever
-import plugin.ai.pvmbots.CombatBotAssembler
 import plugin.ai.pvmbots.PvMBotsBuilder
 import plugin.ai.pvp.PVPAIPActions
 import plugin.ai.pvp.PVPAIPBuilderUtils
@@ -39,7 +38,6 @@ import java.util.*
  */
 @InitializablePlugin
 class AIPCommandPlugin : CommandPlugin() {
-    @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any?>? {
         link(CommandSet.ADMINISTRATOR)
         return this

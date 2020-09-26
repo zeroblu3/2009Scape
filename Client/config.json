@@ -1,5 +1,5 @@
 {
-  "ip_address": "127.0.0.1",
+  "ip_address": "localhost",
 
   "customization": {
     "login_theme": "newbie melody",
@@ -19,7 +19,8 @@
         "opacity": "255"
       },
       "styles": {
-        "presets": "custom",
+        "Presets provide default customizations.": "rs3, classic, or custom. custom allows you to define your own values above. Classic is standard 2009.",
+        "presets": "rs3",
         "rs3border": true
       }
     }

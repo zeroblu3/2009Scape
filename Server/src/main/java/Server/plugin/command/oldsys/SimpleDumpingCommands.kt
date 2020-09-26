@@ -1,4 +1,4 @@
-package plugin.command
+package plugin.command.oldsys
 
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition

@@ -4,6 +4,10 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Handles the client's config loading
+ * @author Ceikry
+ */
 class GameConfig {
     companion object {
         @JvmField
@@ -100,6 +104,7 @@ class GameConfig {
                         if(border.containsKey("opacity")) RCM_BORDER_OPACITY = border["opacity"].toString().toInt()
                     }
 
+                    //styles (changes how things are drawn)
                     if(rcm.containsKey("styles")){
                         val style = rcm["styles"] as JSONObject
                         if(style.containsKey("presets")) RCM_STYLE_PRESET = style["presets"].toString()
@@ -127,6 +132,7 @@ class GameConfig {
              * ie, classicbox, rs3, rounded, rounded2
              * Then we introduce color schemes that a user could select
              * ie, classic, rs3, alternate, alternate2, custom
+             * @author Woah
              */
             when (RCM_STYLE_PRESET) {
                 "classic" -> {
@@ -145,26 +151,11 @@ class GameConfig {
                     RCM_BG_OPACITY = 255
                     RCM_TITLE = "<col=C6B895>Choose Option</col>"
                     RCM_TITLE_COLOR = 1512718
-                    RCM_TITLE_OPACITY = 220
+                    RCM_TITLE_OPACITY = 165
                     RCM_BORDER_COLOR = 16777215
-                    RCM_BORDER_OPACITY = 255
-                }
-                "custom" -> {
-                    ;
-                }
-                else -> {
-                    RS3_CONTEXT_STYLE = false
-                    RCM_BG_COLOR = 6116423
-                    RCM_BG_OPACITY = 255
-                    RCM_TITLE = "<col=5d5447>Choose Option</col>"
-                    RCM_TITLE_COLOR = 0
-                    RCM_TITLE_OPACITY = 255
-                    RCM_BORDER_COLOR = 0
                     RCM_BORDER_OPACITY = 255
                 }
             }
         }
-
     }
-
 }

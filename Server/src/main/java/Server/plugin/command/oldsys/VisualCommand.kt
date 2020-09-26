@@ -1,4 +1,4 @@
-package plugin.command
+package plugin.command.oldsys
 
 import core.cache.Cache
 import core.game.node.`object`.GameObject
@@ -32,7 +32,6 @@ import java.awt.datatransfer.StringSelection
  */
 @InitializablePlugin
 class VisualCommand : CommandPlugin() {
-    @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any?>? {
         link(CommandSet.ADMINISTRATOR)
         return this
@@ -171,16 +170,6 @@ class VisualCommand : CommandPlugin() {
             "oib" -> player!!.interfaceManager.openInfoBars()
             "char" -> CharacterDesign.open(player)
             "savenpc" -> return true
-            "object", "obj" -> {
-                if (args!!.size < 2) {
-                    player!!.debug("syntax error: id (optional) type rotation or rotation")
-                    return true
-                }
-                `object` = if (args.size > 3) GameObject(toInteger(args[1]!!), player!!.location, toInteger(args[2]!!), toInteger(args[3]!!)) else if (args.size == 3) GameObject(toInteger(args[1]!!), player!!.location, toInteger(args[2]!!)) else GameObject(toInteger(args[1]!!), player!!.location)
-                ObjectBuilder.add(`object`)
-                log("object = $`object`")
-                return true
-            }
             "objwithanim" -> {
                 val go = GameObject(toInteger(args!![1]!!), player!!.location, 0)
                 ObjectBuilder.add(go)
