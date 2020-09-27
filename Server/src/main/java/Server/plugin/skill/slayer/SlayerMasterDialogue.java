@@ -221,7 +221,7 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 				stage = 700;
 				break;
 			}
-			if (!player.getSlayer().hasStarted()) {
+			if (player.getSlayer().getTotalTasks() == 0) {
 				interpreter.sendOptions("Select an Option", "Who are you?", "Do you have anything for trade?", "Er...nothing...");
 				stage = 1;
 			} else {
