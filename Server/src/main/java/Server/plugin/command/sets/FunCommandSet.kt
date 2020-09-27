@@ -83,27 +83,27 @@ class FunCommandSet : CommandSet(Command.Privilege.ADMIN) {
             player.sendMessage("God mode ${if (player.getAttribute("godMode", false)) "enabled." else "disabled."}")
         }
 
+
+        /**
+         * Go on Mr Bones' Wild Ride
+         */
         define("mrboneswildride"){ player, _ ->
-            player.setAttribute("boneMode", !player.getAttribute("boneMode", false))
-            player.sendMessage("Bone Mode ${if (player.getAttribute("boneMode", false)) "<col=00ff00>ENGAGED</col>." else "<col=ff0000>POWERING DOWN</col>."}")
-            var i = 0
-            if (player.getAttribute("boneMode")) {
-                player.appearance.rideCart(true)
+            val boneMode = !player.getAttribute("boneMode",false)
+            player.setAttribute("boneMode", boneMode)
+            player.sendMessage("Bone Mode ${if (boneMode) "<col=00ff00>ENGAGED</col>." else "<col=ff0000>POWERING DOWN</col>."}")
+            player.appearance.rideCart(boneMode)
+            if (player.appearance.isRidingMinecart) {
+                var i = 0
                 GameWorld.Pulser.submit(object : Pulse(1, player) {
                     override fun pulse(): Boolean {
-                        if(i == 12) {
-                            player.sendChat("I want to get off Mr. Bones Wild Ride.")
-                            i = 0
-                        }
+                        if (i++ % 12 == 0) player.sendChat("I want to get off Mr. Bones Wild Ride.")
                         player.moveStep()
-                        i++
-                        return !player.getAttribute("boneMode", false)
+                        return !player.appearance.isRidingMinecart
                     }
                 })
-            } else {
-                player.appearance.rideCart(false)
             }
-
         }
+
+
     }
 }
