@@ -84,7 +84,7 @@ public final class SlashWebPlugin extends OptionHandler {
 			}
 			// Escape from the spider lair in Varrock Sewers with some red<br><br>spiders eggs
 			if (object.getId() == 29354 && player.getInventory().containsOneItem(ItemNames.RED_SPIDERS_EGGS) && player.getLocation().getY() <= 9897) {
-				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 17);
+				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 4);
 			}
 		} else {
 			player.getPacketDispatch().sendMessage("You fail to cut through it.");

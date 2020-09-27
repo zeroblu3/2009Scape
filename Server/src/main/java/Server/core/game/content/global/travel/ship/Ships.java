@@ -61,7 +61,7 @@ public enum Ships {
 	 * @param ship the ship.
 	 */
 	public static void sail(final Player player, final Ships ship) {
-		player.getPulseManager().run(new ShipTravellPulse(player, ship));
+		player.getPulseManager().run(new ShipTravelPulse(player, ship));
 	}
 
 	/**
@@ -69,7 +69,7 @@ public enum Ships {
 	 * @param player the player.
 	 */
 	public void sail(final Player player) {
-		player.getPulseManager().run(new ShipTravellPulse(player, this));
+		player.getPulseManager().run(new ShipTravelPulse(player, this));
 	}
 
 	/**

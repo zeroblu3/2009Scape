@@ -221,16 +221,15 @@ public class AchievementDiary implements SavingModule {
 			player.sendMessage("Well done! A " + type.getName() + " task has been updated.");
 		} else {
 			taskCompleted[level][index] = true;
+			int tempLevel = this.type == DiaryType.LUMBRIDGE ? level - 1 : level;
+			player.sendMessages("Well done! You have completed "
+					+ (tempLevel == -1 ? "a beginner" : tempLevel == 0 ? "an easy" : tempLevel == 1 ? "a medium" : "a hard")
+					+ " task in the " + type.getName() + " area. Your", "Achievement Diary has been updated.");
 		}
 		if (isComplete(level)) {
 			player.sendMessages("Congratulations! You have completed all of the " + getLevel(level).toLowerCase()
 					+ " tasks in the " + type.getName() + " area.", "Speak to "
 					+ NPCDefinition.forId(type.getNpc(level)).getName() + " to claim your reward.");
-		} else {
-			int tempLevel = this.type == DiaryType.LUMBRIDGE ? level - 1 : level;
-			player.sendMessages("Well done! You have completed "
-					+ (tempLevel == -1 ? "a beginner" : tempLevel == 0 ? "an easy" : tempLevel == 1 ? "a medium" : "a hard")
-					+ " task in the " + type.getName() + " area. Your", "Achievement Diary has been updated.");
 		}
 		drawStatus(player);
 	}

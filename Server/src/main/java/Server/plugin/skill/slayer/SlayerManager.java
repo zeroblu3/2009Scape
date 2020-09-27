@@ -246,16 +246,14 @@ public final class SlayerManager implements SavingModule {
 	 * @param master the master.
 	 */
 	public void assign(Tasks task, final Master master) {
-		if (master == Master.DURADEL) {
-			if (!player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(2, 3)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 2, 3, true);
-			}
-		} else if (master == Master.VANNAKA) {
-			player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 14);
-		}
 		setMaster(master);
 		setTask(task);
 		setAmount(getRandomAmount(master.assignment_range));
+		if (master == Master.DURADEL) {
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 2, 8);
+		} else if (master == Master.VANNAKA) {
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 14);
+		}
 	}
 
 	/**

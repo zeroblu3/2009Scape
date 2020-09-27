@@ -271,6 +271,8 @@ class DebugCommandPlugin : CommandPlugin() {
                 val idhi = toInteger(args[2]!!)
                 for (idsend in idlo until idhi) {
                     player!!.configManager.set(idsend, Integer.MAX_VALUE)
+                    player.sendMessage(idsend.toString())
+                    player.sendMessage(player.configManager.get(idsend).toString())
                 }
                 return true
             }

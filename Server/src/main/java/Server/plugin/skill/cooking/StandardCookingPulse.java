@@ -210,6 +210,9 @@ public class StandardCookingPulse extends Pulse {
     }
 
     public String getMessage(Item food, Item product, boolean burned) {
+        if (food.getId() == ItemNames.RAW_OOMLIE_2337) {
+            return "The meat is far too delicate to cook like this. Perhaps you should wrap something around it to protect it from the heat.";
+        }
         if (CookableItems.intentionalBurn(food.getId())) {
             return "You deliberately burn the perfectly good piece of meat.";
         }
@@ -241,7 +244,7 @@ public class StandardCookingPulse extends Pulse {
         return cook(player, object, burned, initial, product);
     }
 
-    private final Animation getAnimation(final GameObject object) {
+    private Animation getAnimation(final GameObject object) {
         return !object.getName().toLowerCase().equals("fire") ? RANGE_ANIMATION : FIRE_ANIMATION;
     }
 }

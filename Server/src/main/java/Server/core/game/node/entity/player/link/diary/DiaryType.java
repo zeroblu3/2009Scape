@@ -9,11 +9,11 @@ import core.game.node.item.Item;
  * @author afaroutdude
  */
 // TODO reset all players tasks upon commit to master
-// TODO figure out secondary rewards for karamja, varrock, and fremennik
+// TODO figure out secondary rewards for karamja, and fremennik
 public enum DiaryType {
     KARAMJA("Karamja", 11,
             new String[]{"Easy", "Medium", "Hard"},
-            new String[][]{ // TODO check that implementation is complete and correct on all of these
+            new String[][]{
                     {
                             "Pick 5 bananas from the plantation located east of the <br><br>volcano",
                             "Use the rope swing to travel to the small island north-west<br><br>of Karamja, where the moss giants are",
@@ -31,16 +31,16 @@ public enum DiaryType {
                             "Discover hidden wall in the dungeon below the volcano",
                             "Visit the Isle of Crandor via the dungeon below the volcano",
                             "Use Vigroy and Hajedy's cart service",
-                            "Earn 100% favour in the village of Tai Bwo Wannai Cleanup",
-                            "Cook a spider on stick",
-                            "Charter the Lady of the Waves from Cairn Isle to Port Khazard",
+                            "Earn 100% favour in the village of Tai Bwo Wannai Cleanup", // todo need jungle potion and minigame
+                            "Cook a spider on stick", // todo need jungle potion and minigame
+                            "Charter the Lady of the Waves from Cairn Isle to Port Khazard", // todo need Shilo Village quest
                             "Cut a log from a teak tree",
                             "Cut a log from a mahogany tree",
-                            "Catch a karambwan",
-                            "Exchange gems, a gout tuber, trading sticks for a machete",
+                            "Catch a karambwan", // todo need Tai Bwo Wannai Trio
+                            "Exchange gems, a gout tuber, trading sticks for a machete", // todo need jungle potion
                             "Use the gnome glider to travel to Karamja",
-                            "Grow a healthy fruit tree in the patch near Brimhaven",
-                            "Trap a Horned Graahk",
+                            "Grow a healthy fruit tree in the patch near Brimhaven", // todo verify
+                            "Trap a Horned Graahk", // todo need to implement pitfall trapping
                             "Chop the vines to gain deeper access to Brimhaven Dungeon",
                             "Cross the lava using the stepping stones within Brimhaven<br><br>Dungeon",
                             "Climb the stairs within Brimhaven Dungeon",
@@ -52,8 +52,8 @@ public enum DiaryType {
                             "Successfully kill a Ket-Zek in the Fight Caves",
                             "Eat an oomlie wrap",
                             "Craft some nature runes",
-                            "Cook a karambwan thoroughly",
-                            "Kill a deathwing in the dungeon under the Kharazi Jungle",
+                            "Cook a karambwan thoroughly", // todo need Tai Bwo Wannai Trio
+                            "Kill a deathwing in the dungeon under the Kharazi Jungle", // todo need legends quest
                             "Use the crossbow shortcut south of the volcano",
                             "Collect five palm leaves",
                             "Be assigned a Slayer task by Duradel or Lapalok in Shilo<br><br>Village.",
@@ -77,8 +77,8 @@ public enum DiaryType {
              * - 10% extra agility xp in arena
              * - 10% extra xp redeeming tickets
              * Hard
-             * - Gem mine ladder access
-             * - Teleport to underground gem mine
+             * - Gem mine ladder access // todo
+             * - Teleport to underground gem mine // todo
              */
     ),
     // https://runescape.wiki/w/Varrock_achievements?oldid=891055
@@ -299,7 +299,7 @@ public enum DiaryType {
                             "Place a scarecrow to protect your sweetcorn as it grows in<br><br>the patch north of Port Sarim",
                             "Salute Sir Tiffy Cashien while wearing full initiate armour",
                             "Smith blurite crossbow limbs on Thurgo's anvil",
-                            "Travel from Port Sarim to Musa Point for free (with a little<br><br>help from Charos)", // TODO can't actually obtain Charos ring yet
+                            "Travel from Port Sarim to Musa Point for free (with a little<br><br>help from Charos)", // TODO need Creature of Fenkenstrain to actually obtain Charos ring
                             "Visit the Port Sarim rat pits"
                     },
                     {

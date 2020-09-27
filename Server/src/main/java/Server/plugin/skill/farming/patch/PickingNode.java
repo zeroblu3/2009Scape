@@ -85,9 +85,8 @@ public class PickingNode extends FarmingNode {
 		player.getSkills().addExperience(Skills.FARMING, xp, true);
 		if (cycle.getWrapper().getName().contains("tree")) {
 			if (this instanceof FruitTreeNode
-					&& player.getLocation().withinDistance(new Location(2764,3212,0), 10) // check player is near brimhaven fruit tree patch
-					&& !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 7)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 7, true);
+					&& player.getLocation().withinDistance(new Location(2764,3212,0), 10)) { // check player is near brimhaven fruit tree patch
+				player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 12);
 			}
 			player.getPacketDispatch().sendMessage("You pick " + (StringUtils.isPlusN(getProduct().getName().toLowerCase()) ? "an" : "a") + " " + getProduct().getName().toLowerCase() + ".");
 		} else {

@@ -13,6 +13,7 @@ import core.game.node.object.GameObject;
 import core.game.node.object.ObjectBuilder;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
+import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
@@ -28,14 +29,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @InitializablePlugin
-public class WaterOrbGrapple extends OptionHandler {
+public class KaramjaGrapple extends OptionHandler {
     private static final HashMap<Integer, Integer> REQUIREMENTS = new HashMap<>();
     private static final String requirementsString;
 
     static {
-        REQUIREMENTS.putIfAbsent(Skills.AGILITY, 36);
-        REQUIREMENTS.putIfAbsent(Skills.RANGE, 39);
-        REQUIREMENTS.putIfAbsent(Skills.STRENGTH, 22);
+        REQUIREMENTS.putIfAbsent(Skills.AGILITY, 53);
+        REQUIREMENTS.putIfAbsent(Skills.RANGE, 42);
+        REQUIREMENTS.putIfAbsent(Skills.STRENGTH, 21);
 
         requirementsString = "You need at least "
                 + REQUIREMENTS.get(Skills.AGILITY) + " " + Skills.SKILL_NAME[Skills.AGILITY] + ", "
@@ -54,7 +55,10 @@ public class WaterOrbGrapple extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(17062).getConfigurations().put("option:grapple", this);
+        ObjectDefinition.forId(17074).getConfigurations().put("option:grapple", this);
+        // island tree 17074 +1 rope loop, +2 grappled one way, +3 grappled other way
+        // north tree 17056 +1 rope loop, +2 grappled
+        // south tree 17059 +1 rope loop, +2 grappled
         return this;
     }
 
@@ -62,14 +66,24 @@ public class WaterOrbGrapple extends OptionHandler {
     public boolean handle(Player player, Node node, String option) {
         Location destination;
         Location current = player.getLocation();
-        GameObject rock = RegionManager.getObject(Location.create(2841, 3426, 0));
-        GameObject tree = RegionManager.getObject(Location.create(2841, 3434, 0));
-        System.out.println(rock);
-        System.out.println(tree);
+        GameObject startTree, endTree;
+        Direction direction;
+        if (current.getY() > 3134) { // starting at north side
+            startTree = RegionManager.getObject(Location.create(2874, 3144, 0));
+            endTree = RegionManager.getObject(Location.create(2873, 3125, 0));
+            destination = Location.create(2874, 3127, 0);
+            direction = Direction.SOUTH;
+        } else {
+            startTree = RegionManager.getObject(Location.create(2873, 3125, 0));
+            endTree = RegionManager.getObject(Location.create(2874, 3144, 0));
+            destination = Location.create(2874, 3142, 0);
+            direction = Direction.NORTH;
+        }
+        GameObject islandTree = RegionManager.getObject(Location.create(2873, 3134, 0));
+
 
         switch (option) {
             case "grapple":
-                destination = Location.create(2841, 3433, 0);
 
                 for (Map.Entry<Integer, Integer> e : REQUIREMENTS.entrySet()) {
                     if (player.getSkills().getLevel(e.getKey()) < e.getValue()) {
@@ -97,15 +111,15 @@ public class WaterOrbGrapple extends OptionHandler {
                             // splash gfx are 68 and 69, not sure why there are two
                             // not sure what swimming animation is, could be 4464 thru 4468
                             case 1:
-                                player.faceLocation(destination);
+                                player.faceLocation(player.getLocation().transform(direction));
                                 player.animate(new Animation(4230));
                                 break;
                             case 3:
-                                player.getPacketDispatch().sendPositionedGraphic(67, 10, 0, Location.create(2840,3427,0)); //
+                                //player.getPacketDispatch().sendPositionedGraphic(67, 10, 0, player.getLocation().transform(direction, 5)); //
                                 break;
                             case 4:
-                                ObjectBuilder.replace(rock, rock.transform(rock.getId() + 1), 10);
-                                ObjectBuilder.replace(tree, tree.transform(tree.getId() + 1), 10);
+                                //ObjectBuilder.replace(startTree, startTree.transform(startTree.getId() + 1), 10);
+                                //ObjectBuilder.replace(islandTree, islandTree.transform(islandTree.getId() + 1), 10);
                                 break;
                             case 5:
                                 break;
@@ -114,7 +128,7 @@ public class WaterOrbGrapple extends OptionHandler {
                                 break;
                             case 14:
                                 player.unlock();
-                                player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 10);
+                                player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 2, 6);
                                 return true;
                         }
                         return false;
@@ -127,7 +141,11 @@ public class WaterOrbGrapple extends OptionHandler {
 
     @Override
     public Location getDestination(final Node moving, final Node destination) {
-        // Run between rock and stream before firing grapple
-        return Location.create(2841, 3427, 0);
+        // Run between tree and water before firing grapple
+        if (moving.getLocation().getY() > 3134) { // starting at north side
+            return Location.create(2874, 3142, 0);
+        } else {
+            return Location.create(2874, 3127, 0);
+        }
     }
 }

@@ -32,10 +32,6 @@ public class CrandorZone extends MapZone implements Plugin<Object> {
 
     @Override
     public boolean enter(Entity entity) {
-        if (entity.isPlayer()) {
-            Player player = entity.asPlayer();
-            player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 2);
-        }
         return super.enter(entity);
     }
 
@@ -46,7 +42,7 @@ public class CrandorZone extends MapZone implements Plugin<Object> {
 
     @Override
     public void configure() {
-        register(new ZoneBorders(2810, 3223, 2864, 3312));
+        register(new ZoneBorders(2813, 3223, 2864, 3312));
     }
 
 }

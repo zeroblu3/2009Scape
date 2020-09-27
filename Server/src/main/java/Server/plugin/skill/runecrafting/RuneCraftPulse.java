@@ -178,11 +178,9 @@ public final class RuneCraftPulse extends SkillPulse<Item> {
                 player.getSkills().addExperience(Skills.RUNECRAFTING, rune.getExperience() * amount, true);
 
                 // Achievement Diary handling
-                if (altar == Altar.EARTH && !player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(0, 10)) {
-                    player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 0, 10, true);
-                }
-                if (altar == Altar.NATURE && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(2, 2)) {
-                    player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 2, 2, true);
+                // Craft some nature runes
+                if (altar == Altar.NATURE) {
+                    player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 2, 3);
                 }
                 // Craft 196 or more air runes simultaneously
                 if (altar == Altar.AIR && i.getAmount() >= 196) {

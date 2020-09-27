@@ -2,6 +2,7 @@ package plugin.skill.gather.woodcutting;
 
 import core.cache.def.impl.ItemDefinition;
 import core.game.container.impl.EquipmentContainer;
+import core.tools.ItemNames;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.BirdNest;
 import core.game.content.global.SkillcapePerks;
@@ -250,11 +251,15 @@ public class WoodcuttingSkillPulse extends Pulse {
      * Checks if the has completed any achievements from their diary
      */
     private void applyAchievementTask(int reward) {
-        if (reward == 6333 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 4)) {
-            player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 4, true);
-        } else if (reward == 6332 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 5)) {
-            player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 5, true);
+        // Cut a log from a teak tree
+        if (reward == ItemNames.TEAK_LOGS_6333) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 7);
         }
+        // Cut a log from a mahogany tree
+        if (reward == ItemNames.MAHOGANY_LOGS_6332) {
+            player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 8);
+        }
+
         // Chop down a dying tree in the Lumber Yard
         if (node.getId() == 24168 && player.getViewport().getRegion().getId() == 13110) {
             player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 6);

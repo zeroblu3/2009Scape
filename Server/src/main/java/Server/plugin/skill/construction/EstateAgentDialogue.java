@@ -284,14 +284,14 @@ public final class EstateAgentDialogue extends DialoguePlugin {
                 redecorate(HousingStyle.TROPICAL_WOOD);
                 // Give your player-owned house a fancy stone or tropical wood<br><br>finish at the Varrock estate agent's
                 if (player.getLocation().withinDistance(Location.create(3239, 3474, 0))) {
-                    player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 11);
+                    player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 2, 7);
                 }
                 break;
             case 40:
                 redecorate(HousingStyle.FANCY_STONE);
                 // Give your player-owned house a fancy stone or tropical wood<br><br>finish at the Varrock estate agent's
                 if (player.getLocation().withinDistance(Location.create(3239, 3474, 0))) {
-                    player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 11);
+                    player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 2, 7);
                 }
                 break;
 

@@ -145,17 +145,10 @@ public final class SpadePulse extends ToolAction {
 			} else {
 				if (wrapper.getNode().isStump(wrapper.getCycle())) {
 					if (wrapper.getPatch() == FarmingPatch.TREE) {
-						if (Trees.forNode(wrapper.getNode()) == Trees.YEW && !player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).isComplete(2, 3) && player.getLocation().withinDistance(new Location(3228, 3457, 0))) {
-							int roots = player.getAttribute("roots", 0);
-							player.setAttribute("/save:roots", roots += 1);
-							player.getAchievementDiaryManager().getDiary(DiaryType.VARROCK).updateTask(player, 2, 3, roots >= 2);
-							if (roots == 2) {
-								player.removeAttribute("roots");
-							}
-						}
 						double xp = 6;
+
 						// Check for falador shield bonus
-						int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+						int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD) == null ? 0 : player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
 						if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
 								&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
 							xp = xp * 1.1;
@@ -193,7 +186,7 @@ public final class SpadePulse extends ToolAction {
 	    player.getInventory().add(item);
 		double xp = wrapper.getNode().getExperiences()[1];
 		// Check for falador shield bonus
-		int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
+		int shieldId = player.getEquipment().get(EquipmentContainer.SLOT_SHIELD) == null ? 0 : player.getEquipment().get(EquipmentContainer.SLOT_SHIELD).getId();
 		if ((shieldId == DiaryType.FALADOR.getRewards(1)[0].getId() || shieldId==DiaryType.FALADOR.getRewards(2)[0].getId())
 				&& player.getLocation().withinDistance(PatchProtection.FALADOR.getFlowerLocation(), 20)) {
 			xp = xp * 1.1;

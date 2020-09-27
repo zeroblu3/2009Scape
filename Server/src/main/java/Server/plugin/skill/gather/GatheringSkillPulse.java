@@ -2,6 +2,7 @@ package plugin.skill.gather;
 
 import core.cache.def.impl.ItemDefinition;
 import core.game.container.impl.EquipmentContainer;
+import core.game.content.ItemNames;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.BirdNest;
 import core.game.content.global.SkillcapePerks;
@@ -247,22 +248,6 @@ public final class GatheringSkillPulse extends SkillPulse<GameObject> {
 	 * Checks if the has completed any achievements from their diary
 	 */
 	private void applyAchievementTask(int reward) {
-		if (reward == 6333 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 4)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 4, true);
-		} else if (reward == 6332 && !player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 5)) {
-			player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 5, true);
-		}
-
-		if (reward == 444 && !player.getAchievementDiaryManager().hasCompletedTask(DiaryType.KARAMJA, 0, 2)) {
-			if (player.getLocation().getRegionId() == 10801 || player.getLocation().getRegionId() == 10802) {
-				player.getAchievementDiaryManager().updateTask(player, DiaryType.KARAMJA, 0, 2, true);
-			}
-		}
-		if (reward == 1629) {
-			if (!player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(1, 11)) {
-				player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).updateTask(player, 1, 11, true);
-			}
-		}
 	}
 
 	/**

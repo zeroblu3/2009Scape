@@ -199,6 +199,7 @@ public final class FishingPulse extends SkillPulse<NPC> {
                     player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 16);
                 }
         }
+        // Use the Fishing spots north of the banana plantation
         if (node.getId() == 333 && player.getZoneMonitor().isInZone("karamja")
                 && player.getLocation().withinDistance(new Location(2924, 3178, 0), 10)) {
             player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 0, 6);

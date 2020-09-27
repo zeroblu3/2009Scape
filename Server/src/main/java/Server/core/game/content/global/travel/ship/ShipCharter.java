@@ -2,6 +2,7 @@ package core.game.content.global.travel.ship;
 
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
@@ -44,7 +45,7 @@ public final class ShipCharter {
 	 * Method used to open the ship chartering interface.
 	 * @param player the player.
 	 */
-	public final static void open(final Player player) {
+	public static void open(final Player player) {
 		final Destination current = Destination.getFromBase(player.getLocation());
 		if (current != null) {
 			int[] hiddenComponents = getHiddenComponents(player, current);
@@ -60,7 +61,7 @@ public final class ShipCharter {
 	 * @param player the player.
 	 * @param button the button.
 	 */
-	public final static void handle(final Player player, final int button) {
+	public static void handle(final Player player, final int button) {
 		final Destination destination = Destination.forButton(button);
 		if (destination == null) {
 			return;
@@ -76,10 +77,10 @@ public final class ShipCharter {
 	 * @param destination the destination.
 	 * @return the cost.
 	 */
-	public final static int getCost(final Player player, Destination destination) {
+	public static int getCost(final Player player, Destination destination) {
 		int cost = destination.getCost(player, destination);
 		if (player.getEquipment().containsItem(RING_OF_CHAROS)) {// TODO: cabin fever quest
-			cost -= Math.round((cost / 2));
+			cost -= Math.round((cost / 2.));
 		}
 		return cost;
 	}
@@ -89,7 +90,7 @@ public final class ShipCharter {
 	 * @param player the player.
 	 * @return the hidden childs.
 	 */
-	public final static int[] getHiddenComponents(final Player player, Destination base) {
+	public static int[] getHiddenComponents(final Player player, Destination base) {
 		final Destination[] restrictions = new Destination[] { /**
 																* 
 																* Destination.MOS_LE_HARMLESS,
@@ -111,7 +112,7 @@ public final class ShipCharter {
 			childs.add(Destination.KARAMJA.getXChild());
 			childs.add(Destination.KARAMJA.getNameChild());
 		}
-		int arrayChilds[] = new int[childs.size()];
+		int[] arrayChilds = new int[childs.size()];
 		for (int i = 0; i < arrayChilds.length; i++) {
 			arrayChilds[i] = childs.get(i);
 		}
@@ -129,7 +130,6 @@ public final class ShipCharter {
 	/**
 	 * Represents the destination to travel to.
 	 * @author 'Vexia
-	 * @date 28/11/2013
 	 */
 	public enum Destination {
 		CATHERBY(Location.create(2792, 3417, 1), 25, new int[] { 480, -1, 480, 625, 1600, 3250, 1000, 1600, 3200, 3400 }, Location.create(2797, 3414, 0), 3, 14),
@@ -171,9 +171,9 @@ public final class ShipCharter {
 		private final int button;
 
 		/**
-		 * Represents the costs from destinationt o destination.
+		 * Represents the costs from destination to destination.
 		 */
-		private final int costs[];
+		private final int[] costs;
 
 		/**
 		 * Represents the base location(how we find where we're at)
@@ -183,7 +183,7 @@ public final class ShipCharter {
 		/**
 		 * Represents the childs on the screen.
 		 */
-		private final int childs[];
+		private final int[] childs;
 
 		/**
 		 * Gets the location.
@@ -299,6 +299,7 @@ public final class ShipCharter {
 		 */
 		public void sail(final Player player) {
 			player.lock(7);
+			Location start = player.getLocation();
 			GameWorld.Pulser.submit(new Pulse(1) {
 				int count = 0;
 
@@ -321,6 +322,10 @@ public final class ShipCharter {
 						player.getInterfaceManager().restoreTabs();
 						PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 0));
 						player.getPacketDispatch().sendMessage("You pay the fare and sail to " + StringUtils.formatDisplayName(name()) + ".");
+						// Charter a ship from the shipyard in the far east of Karamja
+						if (start.withinDistance(Location.create(3001,3032,0))) {
+							player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 17);
+						}
 						return true;
 					}
 					return false;
