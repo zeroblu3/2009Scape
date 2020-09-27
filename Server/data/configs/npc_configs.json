@@ -6801,6 +6801,23 @@
       "safespot": null
     },
     {
+      "id": "560",
+      "name": "Jiminua",
+      "examine": "Goods for sale and trade.",
+      "lifepoints": "10",
+      "attack_level": "1",
+      "strength_level": "1",
+      "defence_level": "1",
+      "range_level": "1",
+      "melee_animation": "0",
+      "defence_animation": "0",
+      "death_animation": "0",
+      "magic_animation": "0",
+      "range_animation": "0",
+      "safespot": null,
+      "movement_radius": "6"
+    },
+    {
       "id": "561",
       "name": "Shopkeeper",
       "examine": "Could stand to lose a few pounds.",
@@ -24008,6 +24025,106 @@
       "combat_style": "2",
       "aggressive": "true",
       "safespot": null
+    },
+    {
+      "id": "2505",
+      "name": "Sharimika",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2506",
+      "name": "Sharimika",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2508",
+      "name": "Mamma Bufetta",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2509",
+      "name": "Mamma Bufetta",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2511",
+      "name": "Layleen",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2512",
+      "name": "Layleen",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2514",
+      "name": "Karaday",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2515",
+      "name": "Karaday",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2517",
+      "name": "Safta Doc",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2518",
+      "name": "Safta Doc",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2520",
+      "name": "Gabooty",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2521",
+      "name": "Gabooty",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2523",
+      "name": "Fanellaman",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2524",
+      "name": "Fanellaman",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2526",
+      "name": "Jagbakoba",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2527",
+      "name": "Jagbakoba",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2529",
+      "name": "Murcaily",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2530",
+      "name": "Murcaily",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2532",
+      "name": "Rionasta",
+      "examine": "A native of Tai Bwo Wannai."
+    },
+    {
+      "id": "2533",
+      "name": "Rionasta",
+      "examine": "A native of Tai Bwo Wannai."
     },
     {
       "id": "2539",

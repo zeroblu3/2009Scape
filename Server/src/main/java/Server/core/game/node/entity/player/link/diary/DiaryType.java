@@ -31,13 +31,13 @@ public enum DiaryType {
                             "Discover hidden wall in the dungeon below the volcano",
                             "Visit the Isle of Crandor via the dungeon below the volcano",
                             "Use Vigroy and Hajedy's cart service",
-                            "Earn 100% favour in the village of Tai Bwo Wannai Cleanup", // todo need jungle potion and minigame
-                            "Cook a spider on stick", // todo need jungle potion and minigame
-                            "Charter the Lady of the Waves from Cairn Isle to Port Khazard", // todo need Shilo Village quest
+                            "Earn 100% favour in the village of Tai Bwo Wannai Cleanup", // todo tai bwo wannai cleanup
+                            "Cook a spider on stick", // todo tai bwo wannai cleanup
+                            "Charter the Lady of the Waves from Cairn Isle to Port Khazard", // todo verify
                             "Cut a log from a teak tree",
                             "Cut a log from a mahogany tree",
                             "Catch a karambwan", // todo need Tai Bwo Wannai Trio
-                            "Exchange gems, a gout tuber, trading sticks for a machete", // todo need jungle potion
+                            "Exchange gems, a gout tuber, trading sticks for a machete", // todo
                             "Use the gnome glider to travel to Karamja",
                             "Grow a healthy fruit tree in the patch near Brimhaven", // todo verify
                             "Trap a Horned Graahk", // todo need to implement pitfall trapping

@@ -5,6 +5,14 @@ package core.game.world.map;
  * @author Emperor
  */
 public enum Direction {
+	/**
+	 * 0   1   2
+	 *   \ | /
+	 * 3 - . - 4
+	 *   / | \
+	 * 5   6   7
+	 */
+
 
 	/**
 	 * The north-west direction.

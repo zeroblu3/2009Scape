@@ -80,6 +80,7 @@ public final class JunglePotion extends Quest {
 		player.getPacketDispatch().sendItemZoomOnInterface(Herbs.VOLENCIA_MOSS.getProduct().getId(), 235, 277, 3 + 2);
 		player.getSkills().addExperience(Skills.HERBLORE, 775);
 		player.getQuestRepository().syncronizeTab(player);
+		player.getConfigManager().set(534, )
 	}
 	
 	/**

@@ -105,9 +105,9 @@ public class KaramjaGrapple extends OptionHandler {
                     @Override
                     public boolean pulse() {
                         switch (counter++) {
-                            // TODO this animation sequence is wrong. sendPositionedGraphic doesn't work correctly, and rest of water crossing not well implemented
-                            // See 4:24 in https://www.youtube.com/watch?v=O90y-N_vwTc
-                            // rope gfx is 67
+                            // TODO animations not implemented.
+                            // See ~11min in https://www.youtube.com/watch?v=qpB53rzYqrA
+                            // don't know how to get ropes to show up.  The tree objects have grapples and stuff but don't look like the video and aren't the right directions
                             // splash gfx are 68 and 69, not sure why there are two
                             // not sure what swimming animation is, could be 4464 thru 4468
                             case 1:

@@ -781,7 +781,6 @@ public class TeleportManager {
 		 * @param endAnim the end animation.
 		 * @param startGfx the start graphics.
 		 * @param endGfx the end graphiics.
-		 * @param type the end type.
 		 */
 		public TeleportSettings(int startAnim, int endAnim, int startGfx, int endGfx) {
 			this.startAnim = startAnim;
