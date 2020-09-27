@@ -47,7 +47,7 @@ class PenguinSpawner {
         val penguinList = ArrayList<Penguin>()
         while(counter < amount){
             val peng = list.random()
-            penguinList.add(peng).also { NPC(peng.id,peng.loc).also {PenguinManager.npcs.add(it);it.isNeverWalks = false; it.isWalks = true}.init() }
+            penguinList.add(peng).also { NPC(peng.id,peng.loc).also {PenguinManager.npcs.add(it);it.isNeverWalks = true; it.isWalks = false}.init() }
             list.remove(peng)
             counter++
         }
