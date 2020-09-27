@@ -80,5 +80,19 @@ class FunCommandSet : CommandSet(Command.Privilege.ADMIN) {
             player.setAttribute("godMode", !player.getAttribute("godMode",false))
             player.sendMessage("God mode ${if(player.getAttribute("godMode",false)) "enabled." else "disabled."}")
         }
+
+        define("mrboneswildride"){ player, args ->
+            if (args.size < 2) {
+                reject(player, "Syntax error: ::mrboneswildride <boolean>")
+                return@define
+            }
+            val minecart = args[1].toBoolean()
+            if (minecart) {
+                player.appearance.rideCart(true)
+            } else {
+                player.appearance.rideCart(false)
+            }
+
+        }
     }
 }

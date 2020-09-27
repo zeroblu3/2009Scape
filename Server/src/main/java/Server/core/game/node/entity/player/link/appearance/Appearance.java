@@ -138,7 +138,6 @@ public final class Appearance implements SavingModule {
 
 	/**
 	 * Sets the rendering animations.
-	 * @param player The player.
 	 */
 	public void setAnimations() {
 		if (npcId == -1) {
@@ -199,7 +198,7 @@ public final class Appearance implements SavingModule {
 
 	/**
 	 * Sets the animations.
-	 * @param animation the animation.
+	 * @param anim the animation.
 	 */
 	public void setAnimations(Animation anim) {
 		renderAnimationId = anim.getId();
@@ -348,7 +347,7 @@ public final class Appearance implements SavingModule {
 		if (!ride) {
 			setAnimations();
 		} else {
-			player.getAppearance().setAnimations(Animation.create(2148));
+			player.getAppearance().setAnimations(Animation.create(211));
 		}
 		player.getAppearance().setRidingMinecart(ride);
 		player.getAppearance().sync();
