@@ -4,8 +4,7 @@ import core.game.node.entity.player.Player
 import plugin.stringtools.colorize
 
 /**
- * Base class used for Commands, automatically adds itself to a mapping and declares an abstract
- * function handle for handling the command.
+ * Base class for Commands in the new system. Can pass a lambda as part of the constructor or after the constructor.
  * @author Ceikry
  */
 class Command(val name: String, val privilege: Privilege, val handle: (Player, Array<String>) -> Unit) {
