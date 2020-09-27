@@ -1,6 +1,8 @@
 package plugin.command.sets
 
 import core.game.node.entity.npc.NPC
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.plugin.InitializablePlugin
@@ -38,15 +40,15 @@ class FunCommandSet : CommandSet(Command.Privilege.ADMIN) {
         /**
          * Transform a player's appearance into that of an NPC.
          */
-        define("pnpc"){player,args ->
+        define("pnpc"){ player, args ->
             if(args.size < 2){
-                reject(player,"Usage: ::pnpc <npcid>")
+                reject(player, "Usage: ::pnpc <npcid>")
                 return@define
             }
 
             val pnpc_id = args[1].toIntOrNull()
             if(pnpc_id == null){
-                reject(player,"<npcid> must be a valid integer.")
+                reject(player, "<npcid> must be a valid integer.")
                 return@define
             }
 
@@ -58,16 +60,16 @@ class FunCommandSet : CommandSet(Command.Privilege.ADMIN) {
         /**
          * Toggle invisibility
          */
-        define("invis"){player,_ ->
+        define("invis"){ player, _ ->
             player.isInvisible = !player.isInvisible
-            player.sendMessage("You are now ${if(player.isInvisible) "invisible" else "visible"} to others.")
+            player.sendMessage("You are now ${if (player.isInvisible) "invisible" else "visible"} to others.")
         }
 
 
         /**
          * Toggle 1-hit kills
          */
-        define("1hit"){player,_ ->
+        define("1hit"){ player, _ ->
             player.setAttribute("1hko", !player.getAttribute("1hko", false))
             player.sendMessage("1-hit KO mode " + if (player.getAttribute("1hko", false)) "on." else "off.")
         }
@@ -76,19 +78,28 @@ class FunCommandSet : CommandSet(Command.Privilege.ADMIN) {
         /**
          * Toggle god mode
          */
-        define("god"){player,_ ->
-            player.setAttribute("godMode", !player.getAttribute("godMode",false))
-            player.sendMessage("God mode ${if(player.getAttribute("godMode",false)) "enabled." else "disabled."}")
+        define("god"){ player, _ ->
+            player.setAttribute("godMode", !player.getAttribute("godMode", false))
+            player.sendMessage("God mode ${if (player.getAttribute("godMode", false)) "enabled." else "disabled."}")
         }
 
-        define("mrboneswildride"){ player, args ->
-            if (args.size < 2) {
-                reject(player, "Syntax error: ::mrboneswildride <boolean>")
-                return@define
-            }
-            val minecart = args[1].toBoolean()
-            if (minecart) {
+        define("mrboneswildride"){ player, _ ->
+            player.setAttribute("boneMode", !player.getAttribute("boneMode", false))
+            player.sendMessage("Bone Mode ${if (player.getAttribute("boneMode", false)) "<col=00ff00>ENGAGED</col>." else "<col=ff0000>POWERING DOWN</col>."}")
+            var i = 0
+            if (player.getAttribute("boneMode")) {
                 player.appearance.rideCart(true)
+                GameWorld.Pulser.submit(object : Pulse(1, player) {
+                    override fun pulse(): Boolean {
+                        if(i == 12) {
+                            player.sendChat("I want to get off Mr. Bones Wild Ride.")
+                            i = 0
+                        }
+                        player.moveStep()
+                        i++
+                        return !player.getAttribute("boneMode", false)
+                    }
+                })
             } else {
                 player.appearance.rideCart(false)
             }
