@@ -23,7 +23,7 @@ public class TorchLightPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int i = 13202; i < 13214; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:light", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:light", this);
 		}
 		return this;
 	}

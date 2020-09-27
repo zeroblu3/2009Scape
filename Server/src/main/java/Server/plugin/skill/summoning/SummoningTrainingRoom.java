@@ -64,13 +64,13 @@ public final class SummoningTrainingRoom extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(28675).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(28676).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(28653).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(28572).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(28676).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(28714).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(28586).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(28675).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(28676).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(28653).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(28572).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(28676).getHandlers().put("option:close", this);
+		ObjectDefinition.forId(28714).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(28586).getHandlers().put("option:search", this);
 		ActivityManager.register(new FluffyCutscene());
 		return this;
 	}

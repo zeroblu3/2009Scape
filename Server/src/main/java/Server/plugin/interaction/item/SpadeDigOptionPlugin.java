@@ -18,7 +18,7 @@ public class SpadeDigOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(952).getConfigurations().put("option:dig", this);
+		ItemDefinition.forId(952).getHandlers().put("option:dig", this);
 		return null;
 	}
 

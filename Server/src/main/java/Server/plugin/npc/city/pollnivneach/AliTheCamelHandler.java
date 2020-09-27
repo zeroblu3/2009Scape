@@ -22,7 +22,7 @@ import core.tools.RandomFunction;
 public class AliTheCamelHandler extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         new AliTheCamelDialogue().init();
-        NPCDefinition.forId(1873).getConfigurations().put("option:pet",this);
+        NPCDefinition.forId(1873).getHandlers().put("option:pet",this);
         return this;
     }
 

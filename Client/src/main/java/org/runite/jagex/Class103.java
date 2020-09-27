@@ -12,23 +12,23 @@ final class Class103 {
    private final int[] anIntArray1437 = new int[2];
 
 
-   final void method1620(RSByteBuffer var1, Class34 var2) {
-      int var3 = var1.getByteB();
+   final void method1620(DataBuffer var1, Class34 var2) {
+      int var3 = var1.readUnsignedByte();
       this.anIntArray1434[0] = var3 >> 4;
       this.anIntArray1434[1] = var3 & 15;
       if(var3 == 0) {
          this.anIntArray1437[0] = this.anIntArray1437[1] = 0;
       } else {
-         this.anIntArray1437[0] = var1.getShort();
-         this.anIntArray1437[1] = var1.getShort();
-         int var4 = var1.getByteB();
+         this.anIntArray1437[0] = var1.readUnsignedShort();
+         this.anIntArray1437[1] = var1.readUnsignedShort();
+         int var4 = var1.readUnsignedByte();
 
          int var5;
          int var6;
          for(var5 = 0; var5 < 2; ++var5) {
             for(var6 = 0; var6 < this.anIntArray1434[var5]; ++var6) {
-               this.anIntArrayArrayArray1430[var5][0][var6] = var1.getShort();
-               this.anIntArrayArrayArray1432[var5][0][var6] = var1.getShort();
+               this.anIntArrayArrayArray1430[var5][0][var6] = var1.readUnsignedShort();
+               this.anIntArrayArrayArray1432[var5][0][var6] = var1.readUnsignedShort();
             }
          }
 
@@ -38,8 +38,8 @@ final class Class103 {
                   this.anIntArrayArrayArray1430[var5][1][var6] = this.anIntArrayArrayArray1430[var5][0][var6];
                   this.anIntArrayArrayArray1432[var5][1][var6] = this.anIntArrayArrayArray1432[var5][0][var6];
                } else {
-                  this.anIntArrayArrayArray1430[var5][1][var6] = var1.getShort();
-                  this.anIntArrayArrayArray1432[var5][1][var6] = var1.getShort();
+                  this.anIntArrayArrayArray1430[var5][1][var6] = var1.readUnsignedShort();
+                  this.anIntArrayArrayArray1432[var5][1][var6] = var1.readUnsignedShort();
                }
             }
          }
@@ -100,11 +100,6 @@ final class Class103 {
 
          return this.anIntArray1434[var1] * 2;
       }
-   }
-
-   public static void method1623() {
-      aFloatArrayArray1431 = (float[][])null;
-      anIntArrayArray1435 = (int[][])null;
    }
 
    private float method1624(int var1, int var2, float var3) {

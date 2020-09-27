@@ -8,7 +8,6 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
   
    static boolean[][] aBooleanArrayArray3118 = new boolean[][]{new boolean[0], {true, false, true}, {true, false, false, true}, {false, false, true, true}, {true, true, false}, {false, true, true}, {true, false, false, true}, {false, false, false, true, true}, {false, true, true}, {true, false, true, true, true}, {false, true, true, true, true}, {false, true, true, true, true, false}};
    static Frame aFrame3121;
-   static RSString COMMAND_NOCLIP = RSString.createRSString("::noclip");
    static Signlink aClass87_3125;
    private int anInt3126 = 2048;
    private int anInt3127 = 3072;
@@ -30,18 +29,18 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3128 = var2.getShort();
+            this.anInt3128 = var2.readUnsignedShort();
          } else if (var1 == 1) {
-            this.anInt3127 = var2.getShort();
+            this.anInt3127 = var2.readUnsignedShort();
          } else if (var1 == 2) {
-            this.aBoolean2375 = var2.getByteB() == 1;
+            this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          if(!var3) {
-            this.method157(56, (RSByteBuffer)null, true);
+            this.method157(56, (DataBuffer)null, true);
          }
 
       } catch (RuntimeException var5) {
@@ -54,7 +53,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
          if(var0 != 1024) {
             aClass87_3125 = (Signlink)null;
          }
-         COMMAND_NOCLIP = null;
+         TextCore.COMMAND_NOCLIP = null;
          aFrame3121 = null;
          aBooleanArrayArray3118 = (boolean[][])null;
          aClass87_3125 = null;
@@ -94,7 +93,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
 
                   Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(213);
-                  Class3_Sub13_Sub1.outgoingBuffer.putLong(var0, -2037491440);
+                  Class3_Sub13_Sub1.outgoingBuffer.writeLong(var0);
                   break;
                }
             }
@@ -146,7 +145,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
       for(int var11 = var1; var11 <= var1 + 1; ++var11) {
          if(var11 != Class3_Sub17.anInt2456) {
             for(int var12 = var7; var12 <= var8; ++var12) {
-               if(var12 >= 0 && var12 < IOHandler.anInt1234) {
+               if(var12 >= 0 && var12 < Unsorted.anInt1234) {
                   for(int var13 = var9; var13 <= var10; ++var13) {
                      if(var13 >= 0 && var13 < Class3_Sub13_Sub15.anInt3179 && (!var6 || var12 >= var8 || var13 >= var10 || var13 < var3 && var12 != var2)) {
                         Class3_Sub2 var14 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var11][var12][var13];
@@ -210,7 +209,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
                for (var4 = 1; true; ++var4) {
                   for (var5 = 1; true; ++var5) {
                      var6 = var5 - -(var4 << 7);
-                     OutputStream_Sub1.anIntArray49[var6] = (Class161.anIntArray2026[128 + var6] + Class161.anIntArray2026[-1 + var6] + Class161.anIntArray2026[1 + var6] - -Class161.anIntArray2026[-128 + var6]) / 4;
+                     Unsorted.anIntArray49[var6] = (Class161.anIntArray2026[128 + var6] + Class161.anIntArray2026[-1 + var6] + Class161.anIntArray2026[1 + var6] - -Class161.anIntArray2026[-128 + var6]) / 4;
                   }
                }
             }
@@ -276,11 +275,11 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
       super(1, false);
    }
 
-   static void method216(RSByteBuffer var0) {
+   static void method216(DataBuffer var0) {
       try {
          for(int var2 = 0; var2 < Class57.activeWorldListSize; ++var2) {
             int var3 = var0.getSmart();
-            int var4 = var0.getShort();
+            int var4 = var0.readUnsignedShort();
             if(var4 == 65535) {
                var4 = -1;
             }

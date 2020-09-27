@@ -36,13 +36,13 @@ public final class LumbridgeNodePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(36978).getConfigurations().put("option:play", this);
-		ObjectDefinition.forId(37335).getConfigurations().put("option:raise", this);
-		ObjectDefinition.forId(37095).getConfigurations().put("option:shoot-at", this);
-		ObjectDefinition.forId(36976).getConfigurations().put("option:ring", this);
-		ObjectDefinition.forId(22114).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(29355).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(37655).getConfigurations().put("option:view", this);
+		ObjectDefinition.forId(36978).getHandlers().put("option:play", this);
+		ObjectDefinition.forId(37335).getHandlers().put("option:raise", this);
+		ObjectDefinition.forId(37095).getHandlers().put("option:shoot-at", this);
+		ObjectDefinition.forId(36976).getHandlers().put("option:ring", this);
+		ObjectDefinition.forId(22114).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(29355).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(37655).getHandlers().put("option:view", this);
 		return this;
 	}
 

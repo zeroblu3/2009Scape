@@ -19,8 +19,8 @@ public final class LavaMazePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(1767).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(1768).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(1767).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(1768).getHandlers().put("option:climb-up", this);
 		return this;
 	}
 

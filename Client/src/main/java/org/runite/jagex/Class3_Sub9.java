@@ -1,6 +1,8 @@
 package org.runite.jagex;
 
-final class Class3_Sub9 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub9 extends Linkable {
 
    int anInt2307;
    int anInt2308;
@@ -18,7 +20,6 @@ final class Class3_Sub9 extends Class3 {
    ObjectDefinition aClass111_2320;
    int anInt2321;
    int anInt2322 = 0;
-   static RSString aClass94_2323 = RSString.createRSString("<img=0>");
    NPC aClass140_Sub4_Sub2_2324;
    int anInt2325;
    int anInt2326;
@@ -26,20 +27,18 @@ final class Class3_Sub9 extends Class3 {
    int anInt2328;
    boolean aBoolean2329;
    static int anInt2330 = 0;
-   static RSString aClass94_2331 = RSString.createRSString("");
    int anInt2332;
    int[] anIntArray2333;
    static int anInt2334;
-   static RSString RIGHT_PARENTHESES = RSString.createRSString("(Y");
 
 
    static Class3_Sub28_Sub5 method133(int var0) {
       try {
-         Class3_Sub28_Sub5 var2 = (Class3_Sub28_Sub5)Class159.aClass93_2016.get((long)var0);
+         Class3_Sub28_Sub5 var2 = (Class3_Sub28_Sub5)Class159.aReferenceCache_2016.get((long)var0);
          if(var2 == null) {
-            var2 = Class47.method1089(Class131.aClass153_1723, Class7.aClass153_2160, var0);
+            var2 = Unsorted.method1089(Class131.aClass153_1723, Class7.aClass153_2160, var0);
             if(null != var2) {
-               Class159.aClass93_2016.put((byte)-75, var2, (long)var0);
+               Class159.aReferenceCache_2016.put(var2, (long)var0);
             }
 
          }
@@ -159,30 +158,14 @@ final class Class3_Sub9 extends Class3 {
       }
    }
 
-   public static void method136(int var0) {
-      try {
-         aClass94_2323 = null;
-         RIGHT_PARENTHESES = null;
-         if(var0 != -3) {
-            anInt2317 = 98;
-         }
-
-         aClass94_2331 = null;
-         aClass64_2318 = null;
-         regionXteaKeys = (int[][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "fl.D(" + var0 + ')');
-      }
-   }
-
    static void method137(int var0, byte var1) {
       try {
          if(var1 >= -111) {
-            RIGHT_PARENTHESES = (RSString)null;
+            TextCore.RIGHT_PARENTHESES = (RSString)null;
          }
 
-         Class82.aClass93_1146.method1522(-127, var0);
-         Class159.aClass93_2016.method1522(-126, var0);
+         Class82.aReferenceCache_1146.sweep(var0);
+         Class159.aReferenceCache_2016.sweep(var0);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "fl.E(" + var0 + ',' + var1 + ')');
       }

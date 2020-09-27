@@ -4,9 +4,7 @@ import java.util.Objects;
 
 final class Class108 {
 
-   static RSString COMMAND_QA_OP_TEST = RSString.createRSString("::qa_op_test");
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_1457;
-   static RSString COMMAND_HIGHRES_GRAPHICS_WINDOW = RSString.createRSString("::wm1");
    static int anInt1460;
 
 
@@ -27,7 +25,7 @@ final class Class108 {
    static RSString method1653(int var0) {
       try {
 
-         return RenderAnimationDefinition.method903(new RSString[]{Class72.method1298((byte)9, 255 & var0 >> 24), Class163_Sub2_Sub1.aClass94_4023, Class72.method1298((byte)9, (var0 & 16712751) >> 16), Class163_Sub2_Sub1.aClass94_4023, Class72.method1298((byte)9, 255 & var0 >> 8), Class163_Sub2_Sub1.aClass94_4023, Class72.method1298((byte)9, var0 & 255)}, (byte)-110);
+         return RenderAnimationDefinition.method903(new RSString[]{Class72.method1298((byte)9, 255 & var0 >> 24), TextCore.aClass94_4023, Class72.method1298((byte)9, (var0 & 16712751) >> 16), TextCore.aClass94_4023, Class72.method1298((byte)9, 255 & var0 >> 8), TextCore.aClass94_4023, Class72.method1298((byte)9, var0 & 255)});
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "oi.F(" + var0 + ',' + 0 + ')');
       }
@@ -35,7 +33,7 @@ final class Class108 {
 
    static void method1654(int var0) {
       try {
-         Class140_Sub4.aClass93_2792.method1523((byte)-108);
+         Class140_Sub4.aReferenceCache_2792.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "oi.E(" + var0 + ')');
       }
@@ -55,7 +53,7 @@ final class Class108 {
             int var3 = var2 * 956 / 503;
             Objects.requireNonNull(Class40.aClass3_Sub28_Sub16_680).method639((Class23.anInt454 + -var3) / 2, 0, var3, var2);
             AnimationDefinition.aClass109_1856 = Class3_Sub28_Sub6.a(Class79.anInt1124, var0);
-            Objects.requireNonNull(AnimationDefinition.aClass109_1856).method1667(Class23.anInt454 / 2 + -(AnimationDefinition.aClass109_1856.anInt1461 / 2), 18);
+            Objects.requireNonNull(AnimationDefinition.aClass109_1856).method1667(Class23.anInt454 / 2 + -(AnimationDefinition.aClass109_1856.width / 2), 18);
             Class140_Sub2.aBoolean2713 = true;
             if(var1 > -50) {
                method1654(-27);
@@ -87,28 +85,16 @@ final class Class108 {
 
    static void method1659() {
       try {
-         Class61.aClass93_939.method1524();
+         Class61.aReferenceCache_939.clear();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "oi.G(" + 16712751 + ')');
       }
    }
 
-   public static void method1660(int var0) {
-      try {
-         aClass3_Sub28_Sub16_1457 = null;
-         COMMAND_HIGHRES_GRAPHICS_WINDOW = null;
-         COMMAND_QA_OP_TEST = null;
-         if(var0 != 13123) {
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "oi.A(" + var0 + ')');
-      }
-   }
-
    static void method1661(CacheIndex var1, CacheIndex var2) {
       try {
-         Class14.aBoolean337 = true;
-         Class69.aClass153_1043 = var2;
+         Sprites.aBoolean337 = true;
+         Unsorted.aClass153_1043 = var2;
 
          Class85.aClass153_1171 = var1;
       } catch (RuntimeException var5) {

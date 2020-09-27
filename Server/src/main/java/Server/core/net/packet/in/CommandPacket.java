@@ -26,7 +26,7 @@ public final class CommandPacket implements IncomingPacket {
 				}
 				player.setAttribute("commandLast", GameWorld.getTicks() + 1);
 			}
-			if (CommandSystem.getCommandSystem().parse(player, message)) {
+			if (CommandSystem.Companion.getCommandSystem().parse(player, message)) {
 				player.getMonitor().log(message, PlayerMonitor.COMMAND_LOG);
 			}
 		}

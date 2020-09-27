@@ -7,7 +7,6 @@ import java.util.Objects;
 final class Class36 {
 
    private int[] anIntArray633;
-   static int[] anIntArray634 = new int[256];
    private final byte[] aByteArray635;
    private final int[] anIntArray636;
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_637;
@@ -36,11 +35,11 @@ final class Class36 {
          if(var0 >= -87) {
             return (RSString)null;
          } else {
-            for(int var3 = Objects.requireNonNull(var2).length(-123) + -3; var3 > 0; var3 -= 3) {
-               var2 = RenderAnimationDefinition.method903(new RSString[]{var2.method1557(var3, 0, 0), Class3_Sub13_Sub22.aClass94_3268, var2.method1556(var3)}, (byte)-62);
+            for(int var3 = Objects.requireNonNull(var2).length() + -3; var3 > 0; var3 -= 3) {
+               var2 = RenderAnimationDefinition.method903(new RSString[]{var2.substring(0, var3, 0), TextCore.aClass94_3268, var2.substring(var3)});
             }
 
-            return var2.length(-50) > 9?RenderAnimationDefinition.method903(new RSString[]{ColorCore.MillionStackColor, var2.method1557(-8 + var2.length(-50), 0, 0), TextCore.MillionM, Class72.LEFT_PARENTHESES, var2, Class66.aClass94_995}, (byte)-113):(6 < var2.length(-63)?RenderAnimationDefinition.method903(new RSString[]{ColorCore.ThousandStackColor, var2.method1557(-4 + var2.length(-65), 0, 0), TextCore.ThousandK, Class72.LEFT_PARENTHESES, var2, Class66.aClass94_995}, (byte)-112):RenderAnimationDefinition.method903(new RSString[]{ColorCore.DefaultStackColor, var2, Class3_Sub29.aClass94_2584}, (byte)-82));
+            return var2.length() > 9?RenderAnimationDefinition.method903(new RSString[]{ColorCore.MillionStackColor, var2.substring(0, -8 + var2.length(), 0), TextCore.MillionM, TextCore.LEFT_PARENTHESES, var2, TextCore.aClass94_995}):(6 < var2.length()?RenderAnimationDefinition.method903(new RSString[]{ColorCore.ThousandStackColor, var2.substring(0, -4 + var2.length(), 0), TextCore.ThousandK, TextCore.LEFT_PARENTHESES, var2, TextCore.aClass94_995}):RenderAnimationDefinition.method903(new RSString[]{ColorCore.DefaultStackColor, var2, TextCore.aClass94_2584}));
          }
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "fi.D(" + var0 + ',' + var1 + ')');
@@ -64,7 +63,7 @@ final class Class36 {
                int var10;
                if(var5.anInt2098 < 0) {
                   if(var6 >= 0) {
-                     var7 = Class51.anIntArray834[Class3_Sub29.method729((byte)-74, Class51.anInterface2_838.method15(var6, '\uffff'), 96)];
+                     var7 = Class51.anIntArray834[LinkableRSString.method729((byte)-74, Class51.anInterface2_838.method15(var6, '\uffff'), 96)];
                   } else if(-1 == var5.anInt2103) {
                      var7 = -1;
                   } else {
@@ -77,7 +76,7 @@ final class Class36 {
                      }
 
                      var10 = var9 + (896 & var8) + ('\ufc00' & var8 + var2);
-                     var7 = Class51.anIntArray834[Class3_Sub29.method729((byte)-127, var10, 96)];
+                     var7 = Class51.anIntArray834[LinkableRSString.method729((byte)-127, var10, 96)];
                   }
                } else {
                   var8 = var5.anInt2098;
@@ -89,7 +88,7 @@ final class Class36 {
                   }
 
                   var10 = (896 & var8) + ('\ufc00' & var2 + var8) + var9;
-                  var7 = Class51.anIntArray834[Class3_Sub29.method729((byte)-63, var10, 96)];
+                  var7 = Class51.anIntArray834[LinkableRSString.method729((byte)-63, var10, 96)];
                }
 
                Class84.anIntArray1161[1 + var4] = var7;
@@ -147,20 +146,6 @@ final class Class36 {
          return -var6 + (var8 + 7 >> 3);
       } catch (RuntimeException var15) {
          throw Class44.clientError(var15, "fi.A(" + var1 + ',' + -81 + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ',' + var5 + ',' + var6 + ')');
-      }
-   }
-
-   public static void method1016(byte var0) {
-      try {
-         aByteArrayArrayArray640 = (byte[][][])null;
-         if(var0 <= 85) {
-            anInt638 = 33;
-         }
-
-         anIntArray634 = null;
-         aClass3_Sub28_Sub16_637 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "fi.C(" + var0 + ')');
       }
    }
 
@@ -372,9 +357,7 @@ final class Class36 {
                   if(this.anIntArray633.length <= var10) {
                      int[] var13 = new int[this.anIntArray633.length * 2];
 
-                     for(int var14 = 0; this.anIntArray633.length > var14; ++var14) {
-                        var13[var14] = this.anIntArray633[var14];
-                     }
+                     System.arraycopy(this.anIntArray633, 0, var13, 0, this.anIntArray633.length);
 
                      this.anIntArray633 = var13;
                   }
@@ -394,20 +377,6 @@ final class Class36 {
    }
 
    static {
-      for(int var1 = 0; var1 < 256; ++var1) {
-         int var0 = var1;
-
-         for(int var2 = 0; var2 < 8; ++var2) {
-            if(1 == (1 & var0)) {
-               var0 = var0 >>> 1 ^ -306674912;
-            } else {
-               var0 >>>= 1;
-            }
-         }
-
-         anIntArray634[var1] = var0;
-      }
-
       anInt639 = 0;
       anInt638 = 0;
       anInt641 = 0;

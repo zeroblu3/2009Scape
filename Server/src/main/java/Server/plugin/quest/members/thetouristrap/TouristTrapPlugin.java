@@ -48,75 +48,75 @@ public final class TouristTrapPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(2673).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2674).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2673).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2674).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2688).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2688).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2687).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2687).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2685).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2685).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2686).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2686).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18958).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18958).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18959).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18959).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18888).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18888).getConfigurations().put("option:operate", this);
-        ObjectDefinition.forId(36748).getConfigurations().put("option:talk-to", this);
-        ObjectDefinition.forId(18869).getConfigurations().put("option:bend", this);
-        ObjectDefinition.forId(18870).getConfigurations().put("option:escape", this);
-        ObjectDefinition.forId(2689).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(1528).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(1529).getConfigurations().put("option:close", this);
-        ObjectDefinition.forId(18899).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18899).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18878).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18878).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18879).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18879).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18898).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18898).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18902).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18871).getConfigurations().put("option:climb", this);
-        ObjectDefinition.forId(18923).getConfigurations().put("option:climb-up", this);
-        ObjectDefinition.forId(18924).getConfigurations().put("option:climb-down", this);
-        ObjectDefinition.forId(2676).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2675).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2676).getConfigurations().put("option:watch", this);
-        ObjectDefinition.forId(2675).getConfigurations().put("option:watch", this);
-        ObjectDefinition.forId(2690).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2691).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2698).getConfigurations().put("option:walk through", this);
-        ObjectDefinition.forId(2699).getConfigurations().put("option:walk through", this);
-        ObjectDefinition.forId(2677).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2678).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2684).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2684).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(2680).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2680).getConfigurations().put("option:look-in", this);
-        ObjectDefinition.forId(2681).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2681).getConfigurations().put("option:look in", this);
-        ObjectDefinition.forId(18962).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18962).getConfigurations().put("option:look in", this);
-        ObjectDefinition.forId(18963).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(18963).getConfigurations().put("option:look in", this);
-        ObjectDefinition.forId(18951).getConfigurations().put("option:look at", this);
-        ObjectDefinition.forId(18951).getConfigurations().put("option:use", this);
-        ObjectDefinition.forId(2684).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2684).getConfigurations().put("option:look at", this);
-        NPCDefinition.forId(830).getConfigurations().put("option:watch", this);
-        NPCDefinition.forId(4975).getConfigurations().put("option:talk-to", this);
-        NPCDefinition.forId(4976).getConfigurations().put("option:talk-to", this);
-        NPCDefinition.forId(4977).getConfigurations().put("option:talk-to", this);
-        NPCDefinition.forId(4978).getConfigurations().put("option:talk-to", this);
-        NPCDefinition.forId(5002).getConfigurations().put("option:talk-to", this);
-        TouristTrap.TECHNICAL_PLANS.getDefinition().getConfigurations().put("option:read", this);
-        TouristTrap.ANNA_BARREL.getDefinition().getConfigurations().put("option:look", this);
-        TouristTrap.ANNA_BARREL.getDefinition().getConfigurations().put("option:drop", this);
+        ObjectDefinition.forId(2673).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2674).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2673).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2674).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2688).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2688).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2687).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2687).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2685).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2685).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2686).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2686).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18958).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18958).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18959).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18959).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18888).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18888).getHandlers().put("option:operate", this);
+        ObjectDefinition.forId(36748).getHandlers().put("option:talk-to", this);
+        ObjectDefinition.forId(18869).getHandlers().put("option:bend", this);
+        ObjectDefinition.forId(18870).getHandlers().put("option:escape", this);
+        ObjectDefinition.forId(2689).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(1528).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(1529).getHandlers().put("option:close", this);
+        ObjectDefinition.forId(18899).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18899).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18878).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18878).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18879).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18879).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18898).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18898).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18902).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18871).getHandlers().put("option:climb", this);
+        ObjectDefinition.forId(18923).getHandlers().put("option:climb-up", this);
+        ObjectDefinition.forId(18924).getHandlers().put("option:climb-down", this);
+        ObjectDefinition.forId(2676).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2675).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2676).getHandlers().put("option:watch", this);
+        ObjectDefinition.forId(2675).getHandlers().put("option:watch", this);
+        ObjectDefinition.forId(2690).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2691).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2698).getHandlers().put("option:walk through", this);
+        ObjectDefinition.forId(2699).getHandlers().put("option:walk through", this);
+        ObjectDefinition.forId(2677).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2678).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2684).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2684).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(2680).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2680).getHandlers().put("option:look-in", this);
+        ObjectDefinition.forId(2681).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2681).getHandlers().put("option:look in", this);
+        ObjectDefinition.forId(18962).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18962).getHandlers().put("option:look in", this);
+        ObjectDefinition.forId(18963).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(18963).getHandlers().put("option:look in", this);
+        ObjectDefinition.forId(18951).getHandlers().put("option:look at", this);
+        ObjectDefinition.forId(18951).getHandlers().put("option:use", this);
+        ObjectDefinition.forId(2684).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2684).getHandlers().put("option:look at", this);
+        NPCDefinition.forId(830).getHandlers().put("option:watch", this);
+        NPCDefinition.forId(4975).getHandlers().put("option:talk-to", this);
+        NPCDefinition.forId(4976).getHandlers().put("option:talk-to", this);
+        NPCDefinition.forId(4977).getHandlers().put("option:talk-to", this);
+        NPCDefinition.forId(4978).getHandlers().put("option:talk-to", this);
+        NPCDefinition.forId(5002).getHandlers().put("option:talk-to", this);
+        TouristTrap.TECHNICAL_PLANS.getDefinition().getHandlers().put("option:read", this);
+        TouristTrap.ANNA_BARREL.getDefinition().getHandlers().put("option:look", this);
+        TouristTrap.ANNA_BARREL.getDefinition().getHandlers().put("option:drop", this);
         PluginManager.definePlugin(new BedabinKeyHandler());
         PluginManager.definePlugin(new BedabinAnvilHandler());
         PluginManager.definePlugin(new BarrelDialogue());
@@ -162,7 +162,7 @@ public final class TouristTrapPlugin extends OptionHandler {
                             break;
                         }
                         player.getProperties().setTeleportLocation(player.getLocation().transform(player.getLocation().getX() >= 3284 ? -4 : 4, 0, 0));
-                        player.getPacketDispatch().sendMessages("You walk into the darnkess of the cavern...", "... and emerge in a different part of this huge underground complex.");
+                        player.getPacketDispatch().sendMessages("You walk into the darkness of the cavern...", "... and emerge in a different part of this huge underground complex.");
                         break;
                 }
                 break;
@@ -221,7 +221,7 @@ public final class TouristTrapPlugin extends OptionHandler {
                         }
                         player.setAttribute("ana-delay", GameWorld.getTicks() + 2);
                         player.getProperties().setTeleportLocation(Location.create(3278, 9427, 0));
-                        player.getDialogueInterpreter().sendDialogue("The huge doors open into a dark, dank and smelly tunnel. The", "associated smells of a hundred sweaty miners greets your nostrills.", "And your ears ring with the 'CLANG CLANG CLANG' as metal hits", "rock.");
+                        player.getDialogueInterpreter().sendDialogue("The huge doors open into a dark, dank and smelly tunnel. The", "associated smells of a hundred sweaty miners greets your nostrils.", "And your ears ring with the 'CLANG CLANG CLANG' as metal hits", "rock.");
                         break;
                     case 2674:
                     case 2673:
@@ -262,12 +262,8 @@ public final class TouristTrapPlugin extends OptionHandler {
                                 player.getPacketDispatch().sendMessage("The gate needs a key in order to be opened.");
                                 return true;
                             }
-                            switch (quest.getStage(player)) {
-                                default:
-                                    DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
-                                    player.getPacketDispatch().sendMessage("The guards search you thoroughly as you go through the gates.");
-                                    break;
-                            }
+                            DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
+                            player.getPacketDispatch().sendMessage("The guards search you thoroughly as you go through the gates.");
                             return true;
                         }
                         DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);
@@ -285,10 +281,8 @@ public final class TouristTrapPlugin extends OptionHandler {
                 }
                 break;
             case "close":
-                switch (id) {
-                    case 1529:
-                        ObjectBuilder.replace((GameObject) node, ((GameObject) node).transform(1528));
-                        break;
+                if (id == 1529) {
+                    ObjectBuilder.replace((GameObject) node, ((GameObject) node).transform(1528));
                 }
                 break;
             case "look-in":
@@ -300,15 +294,13 @@ public final class TouristTrapPlugin extends OptionHandler {
                         player.getDialogueInterpreter().sendDialogue("This looks like an empty mining barrel. Slaves use this to load up the", "rocks and stones that they're mining.");
                         break;
                     case 2680:
-                        player.getDialogueInterpreter().sendDialogue("You seach the full barrel... It's full of rocks.");
+                        player.getDialogueInterpreter().sendDialogue("You search the full barrel... It's full of rocks.");
                         break;
                 }
                 break;
             case "use":
-                switch (id) {
-                    case 18951:
-                        player.getDialogueInterpreter().open("winch dialogue");
-                        break;
+                if (id == 18951) {
+                    player.getDialogueInterpreter().open("winch dialogue");
                 }
                 break;
             case "search":
@@ -319,7 +311,7 @@ public final class TouristTrapPlugin extends OptionHandler {
                         break;
                     case 2686:
                     case 2685:
-                        player.getDialogueInterpreter().sendDialogue("It looks as if this is where very difficult prsioners are sent as a", "punishment.");
+                        player.getDialogueInterpreter().sendDialogue("It looks as if this is where very difficult prisoners are sent as a", "punishment.");
                         break;
                     case 2681:
                     case 18962:
@@ -354,14 +346,14 @@ public final class TouristTrapPlugin extends OptionHandler {
                     case 18898:
                     case 18878:
                     case 18879:
-                        player.getDialogueInterpreter().sendDialogue("You searh the footsteps more closely. You can see that there are", "five sets of footprints. One set of footprints seem lighter than the", "others. The four other footsteps were made by heavier people", "with boots.");
+                        player.getDialogueInterpreter().sendDialogue("You search the footsteps more closely. You can see that there are", "five sets of footprints. One set of footprints seem lighter than the", "others. The four other footsteps were made by heavier people", "with boots.");
                         break;
                     case 18902:
-                        if (!hasItem(player, TouristTrap.CELL_DOOR_KEY)) {
+                        if (hasItem(player, TouristTrap.CELL_DOOR_KEY)) {
                             player.getInventory().add(TouristTrap.CELL_DOOR_KEY, player);
                             player.getDialogueInterpreter().sendItemMessage(TouristTrap.CELL_DOOR_KEY, "You find a cell door key.");
                             break;
-                        } else if (!hasItem(player, TouristTrap.WROUGHT_IRON_KEY) && player.getQuestRepository().isComplete(TouristTrap.NAME)) {
+                        } else if (hasItem(player, TouristTrap.WROUGHT_IRON_KEY) && player.getQuestRepository().isComplete(TouristTrap.NAME)) {
                             player.getInventory().add(TouristTrap.WROUGHT_IRON_KEY, player);
                             player.getDialogueInterpreter().sendItemMessage(TouristTrap.WROUGHT_IRON_KEY, "You find the key to the main gate.");
                             break;
@@ -411,7 +403,7 @@ public final class TouristTrapPlugin extends OptionHandler {
                     case 18879:
                     case 18878:
                     case 18877:
-                        player.getDialogueInterpreter().sendDialogue("This looks like some disturbed sand. Footseps seem to be heading off", "towards the South.");
+                        player.getDialogueInterpreter().sendDialogue("This looks like some disturbed sand. Footsteps seem to be heading off", "towards the South.");
                         break;
                 }
                 break;
@@ -458,38 +450,34 @@ public final class TouristTrapPlugin extends OptionHandler {
                 });
                 break;
             case "climb-up":
-                switch (id) {
-                    case 18923:
-                        if (player.getLocation().getX() <= 3278) {
+                if (id == 18923) {
+                    if (player.getLocation().getX() <= 3278) {
+                        return true;
+                    }
+                    player.animate(Animation.create(5039));
+                    GameWorld.Pulser.submit(new Pulse(6, player) {
+                        @Override
+                        public boolean pulse() {
+                            player.getAnimator().reset();
+                            player.getProperties().setTeleportLocation(Location.create(3278, 3037, 0));
                             return true;
                         }
-                        player.animate(Animation.create(5039));
-                        GameWorld.Pulser.submit(new Pulse(6, player) {
-                            @Override
-                            public boolean pulse() {
-                                player.getAnimator().reset();
-                                player.getProperties().setTeleportLocation(Location.create(3278, 3037, 0));
-                                return true;
-                            }
-                        });
-                        break;
+                    });
                 }
                 break;
             case "climb-down":
-                switch (id) {
-                    case 18924:
-                        if (player.getLocation().getX() <= 3273) {
+                if (id == 18924) {
+                    if (player.getLocation().getX() <= 3273) {
+                        return true;
+                    }
+                    AgilityHandler.forceWalk(player, 0, player.getLocation(), Location.create(3270, 3039, 0), Animation.create(5040), 20, 0, null);
+                    GameWorld.Pulser.submit(new Pulse(3, player) {
+                        @Override
+                        public boolean pulse() {
+                            player.getAnimator().reset();
                             return true;
                         }
-                        AgilityHandler.forceWalk(player, 0, player.getLocation(), Location.create(3270, 3039, 0), Animation.create(5040), 20, 0, null);
-                        GameWorld.Pulser.submit(new Pulse(3, player) {
-                            @Override
-                            public boolean pulse() {
-                                player.getAnimator().reset();
-                                return true;
-                            }
-                        });
-                        break;
+                    });
                 }
                 break;
         }
@@ -522,7 +510,7 @@ public final class TouristTrapPlugin extends OptionHandler {
      * @return the item.
      */
     private boolean hasItem(final Player player, final Item item) {
-        return player.getInventory().containsItem(item) || player.getBank().containsItem(item);
+        return !player.getInventory().containsItem(item) && !player.getBank().containsItem(item);
     }
 
     /**
@@ -657,18 +645,16 @@ public final class TouristTrapPlugin extends OptionHandler {
                     }
                     break;
                 case 10:
-                    interpreter.sendDialogues(4999, null, "It is quite clearly a lift. Any fool can see that it's used to", "transport rock to the sruface.");
+                    interpreter.sendDialogues(4999, null, "It is quite clearly a lift. Any fool can see that it's used to", "transport rock to the surface.");
                     stage++;
                     break;
                 case 11:
+                case 21:
                     end();
                     break;
                 case 20:
                     interpreter.sendDialogues(4999, null, "Of course not, you'd be doing me out of a job. Anyway", "you haven't got any barrels that need to go to", "the surface.");
                     stage++;
-                    break;
-                case 21:
-                    end();
                     break;
             }
             return true;
@@ -697,7 +683,7 @@ public final class TouristTrapPlugin extends OptionHandler {
         }
 
         @Override
-        public Plugin<Object> newInstance(Object arg) throws Throwable {
+        public Plugin<Object> newInstance(Object arg) {
             addHandler(2684, OBJECT_TYPE, this);
             addHandler(18958, OBJECT_TYPE, this);
             return this;
@@ -718,7 +704,6 @@ public final class TouristTrapPlugin extends OptionHandler {
                             TouristTrap.addConfig(player, 4096 + (2048 + (1 << 4)));
                             quest.setStage(player, 80);
                             player.getDialogueInterpreter().sendDialogue("You place Ana (In the barrel) carefully on the cart. This  was the last", "barrel to go on the cart, but the cart driver doesn't seem to be", "any rush to get going. And the desert heat will soon get to Ana.");
-                            ;
                             return true;
                         }
                     });
@@ -819,7 +804,7 @@ public final class TouristTrapPlugin extends OptionHandler {
             }
 
             @Override
-            public ActivityPlugin newInstance(Player p) throws Throwable {
+            public ActivityPlugin newInstance(Player p) {
                 return new AnnaCartCutscene(p);
             }
 
@@ -863,9 +848,6 @@ public final class TouristTrapPlugin extends OptionHandler {
          * Constructs a new {@code CartDialogue} {@code Object}.
          */
         public CartDialogue() {
-            /**
-             * empty.
-             */
         }
 
         @Override
@@ -1098,7 +1080,7 @@ public final class TouristTrapPlugin extends OptionHandler {
             public void open() {
                 ObjectBuilder.remove(RegionManager.getObject(base.getLocation().transform(getPath()[0].getLocalX(), getPath()[0].getLocalY(), 0)));
                 ObjectBuilder.remove(RegionManager.getObject(base.getLocation().transform(getPath()[getPath().length - 1].getLocalX(), getPath()[getPath().length - 1].getLocalY(), 0)));
-                player.getAppearance().setAnimations(Animation.create(2148));
+                player.getAppearance().setAnimations(Animation.create(211));
                 player.getAppearance().setRidingMinecart(true);
                 player.getAppearance().sync();
                 player.getWalkingQueue().reset();
@@ -1135,7 +1117,7 @@ public final class TouristTrapPlugin extends OptionHandler {
             }
 
             @Override
-            public ActivityPlugin newInstance(Player p) throws Throwable {
+            public ActivityPlugin newInstance(Player p) {
                 return new MiningCartCutscene(p);
             }
 
@@ -1199,7 +1181,7 @@ public final class TouristTrapPlugin extends OptionHandler {
         }
 
         @Override
-        public ActivityPlugin newInstance(Player p) throws Throwable {
+        public ActivityPlugin newInstance(Player p) {
             return new WinchCutscene(p);
         }
 
@@ -1255,7 +1237,7 @@ public final class TouristTrapPlugin extends OptionHandler {
         }
 
         @Override
-        public Plugin<Object> newInstance(Object arg) throws Throwable {
+        public Plugin<Object> newInstance(Object arg) {
             addHandler(2677, OBJECT_TYPE, this);
             return this;
         }
@@ -1402,7 +1384,7 @@ public final class TouristTrapPlugin extends OptionHandler {
         }
 
         @Override
-        public Plugin<Object> newInstance(Object arg) throws Throwable {
+        public Plugin<Object> newInstance(Object arg) {
             addHandler(2672, OBJECT_TYPE, this);
             PluginManager.definePlugin(new PrototypeDartHandler());
             PluginManager.definePlugin(new BedabinAnvilDialogue());
@@ -1438,7 +1420,7 @@ public final class TouristTrapPlugin extends OptionHandler {
             }
 
             @Override
-            public Plugin<Object> newInstance(Object arg) throws Throwable {
+            public Plugin<Object> newInstance(Object arg) {
                 addHandler(18951, OBJECT_TYPE, this);
                 return this;
             }
@@ -1475,7 +1457,7 @@ public final class TouristTrapPlugin extends OptionHandler {
             }
 
             @Override
-            public Plugin<Object> newInstance(Object arg) throws Throwable {
+            public Plugin<Object> newInstance(Object arg) {
                 addHandler(TouristTrap.PROTOTYPE_DART_TIP.getId(), ITEM_TYPE, this);
                 PluginManager.definePlugin(new ProtoTypeDialogue());
                 return this;
@@ -1544,7 +1526,7 @@ public final class TouristTrapPlugin extends OptionHandler {
                             stage++;
                             break;
                         case 2:
-                            interpreter.sendItemMessage(TouristTrap.PROTOTYPE_DART, "You succesfully attach the feathers to the dart tip.");
+                            interpreter.sendItemMessage(TouristTrap.PROTOTYPE_DART, "You successfully attach the feathers to the dart tip.");
                             stage++;
                             break;
                         case 3:
@@ -1667,10 +1649,7 @@ public final class TouristTrapPlugin extends OptionHandler {
                         player.getPacketDispatch().sendMessage("You need a hammer in order to work metal with.");
                         return false;
                     }
-                    if (!player.getInventory().containsItem(Bar.BRONZE.getProduct())) {
-                        return false;
-                    }
-                    return true;
+                    return player.getInventory().containsItem(Bar.BRONZE.getProduct());
                 }
 
                 @Override

@@ -46,17 +46,17 @@ public final class PortSarimPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(2704).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(9565).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(9565).getConfigurations().put("option:pick-lock", this);
-		ObjectDefinition.forId(9563).getConfigurations().put("option:open", this);
+		NPCDefinition.forId(2704).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(9565).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(9565).getHandlers().put("option:pick-lock", this);
+		ObjectDefinition.forId(9563).getHandlers().put("option:open", this);
 		for (int i : MONKS) {
-			NPCDefinition.forId(i).getConfigurations().put("option:take-boat", this);
+			NPCDefinition.forId(i).getHandlers().put("option:take-boat", this);
 		}
-		ObjectDefinition.forId(2071).getConfigurations().put("option:search", this);
-		NPCDefinition.forId(745).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(33173).getConfigurations().put("option:exit", this);
-		ObjectDefinition.forId(33174).getConfigurations().put("option:enter", this);
+		ObjectDefinition.forId(2071).getHandlers().put("option:search", this);
+		NPCDefinition.forId(745).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(33173).getHandlers().put("option:exit", this);
+		ObjectDefinition.forId(33174).getHandlers().put("option:enter", this);
 		return this;
 	}
 

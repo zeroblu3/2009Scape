@@ -6,7 +6,6 @@ class Class164_Sub1 extends Class164 {
    private int anInt3010;
    static short[] aShortArray3011 = new short[]{(short)6798, (short)8741, (short)25238, (short)4626, (short)4550};
    static int anInt3012 = 0;
-   static RSString aClass94_3013 = RSString.createRSString("0");
    private final int[] anIntArray3014;
    private byte[] aByteArray3015;
    private int anInt3016;
@@ -182,24 +181,10 @@ class Class164_Sub1 extends Class164 {
       }
    }
 
-   public static void method2240(int var0) {
-      try {
-         aShortArray3011 = null;
-         aClass94_3013 = null;
-         if(var0 == 128) {
-            aClass158_3009 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "vd.I(" + var0 + ')');
-      }
-   }
-
    static void method2241(byte var0, boolean var1) {
       try {
-         int var2 = -47 / ((var0 - 5) / 49);
-
          Class3_Sub9 var3;
-         for(var3 = (Class3_Sub9)Class3.aClass61_78.method1222(); var3 != null; var3 = (Class3_Sub9)Class3.aClass61_78.method1221()) {
+         for(var3 = (Class3_Sub9) Unsorted.aClass61_78.method1222(); var3 != null; var3 = (Class3_Sub9) Unsorted.aClass61_78.method1221()) {
             if(null != var3.aClass3_Sub24_Sub1_2312) {
                Class3_Sub26.aClass3_Sub24_Sub2_2563.method461(var3.aClass3_Sub24_Sub1_2312);
                var3.aClass3_Sub24_Sub1_2312 = null;
@@ -210,26 +195,26 @@ class Class164_Sub1 extends Class164 {
                var3.aClass3_Sub24_Sub1_2315 = null;
             }
 
-            var3.method86(-1024);
+            var3.unlink();
          }
 
          if(var1) {
-            for(var3 = (Class3_Sub9)IOHandler.aClass61_1242.method1222(); null != var3; var3 = (Class3_Sub9)IOHandler.aClass61_1242.method1221()) {
+            for(var3 = (Class3_Sub9) Unsorted.aClass61_1242.method1222(); null != var3; var3 = (Class3_Sub9) Unsorted.aClass61_1242.method1221()) {
                if(null != var3.aClass3_Sub24_Sub1_2312) {
                   Class3_Sub26.aClass3_Sub24_Sub2_2563.method461(var3.aClass3_Sub24_Sub1_2312);
                   var3.aClass3_Sub24_Sub1_2312 = null;
                }
 
-               var3.method86(-1024);
+               var3.unlink();
             }
 
-            for(var3 = (Class3_Sub9)Class3_Sub28_Sub7_Sub1.aClass130_4046.method1776(68); null != var3; var3 = (Class3_Sub9)Class3_Sub28_Sub7_Sub1.aClass130_4046.method1778(-66)) {
+            for(var3 = (Class3_Sub9) Unsorted.aHashTable_4046.first(); null != var3; var3 = (Class3_Sub9) Unsorted.aHashTable_4046.next()) {
                if(null != var3.aClass3_Sub24_Sub1_2312) {
                   Class3_Sub26.aClass3_Sub24_Sub2_2563.method461(var3.aClass3_Sub24_Sub1_2312);
                   var3.aClass3_Sub24_Sub1_2312 = null;
                }
 
-               var3.method86(-1024);
+               var3.unlink();
             }
          }
 
@@ -264,7 +249,7 @@ class Class164_Sub1 extends Class164 {
 
    void method2242(int var1, byte var2) {
       try {
-         this.aByteArray3015[this.anInt3016++] = (byte)(127 + (Class69.bitwiseAnd(var2, 255) >> 1));
+         this.aByteArray3015[this.anInt3016++] = (byte)(127 + (Unsorted.bitwiseAnd(var2, 255) >> 1));
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "vd.B(" + var1 + ',' + var2 + ')');
       }

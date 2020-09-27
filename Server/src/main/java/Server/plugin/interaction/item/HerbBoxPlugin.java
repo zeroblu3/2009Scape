@@ -28,9 +28,9 @@ public class HerbBoxPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(14810).getConfigurations().put("option:bank-all", this);
-		ItemDefinition.forId(14810).getConfigurations().put("option:take-one", this);
-		ItemDefinition.forId(14810).getConfigurations().put("option:check", this);
+		ItemDefinition.forId(14810).getHandlers().put("option:bank-all", this);
+		ItemDefinition.forId(14810).getHandlers().put("option:take-one", this);
+		ItemDefinition.forId(14810).getHandlers().put("option:check", this);
 		return null;
 	}
 

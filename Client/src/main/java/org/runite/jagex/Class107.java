@@ -13,7 +13,7 @@ final class Class107 {
          int var4 = (int)(21.0D * Math.random()) - 10;
          aClass153_878 = var0;
          int var5 = (int)(21.0D * Math.random()) - 10;
-         aClass153_878.getFileAmount(34, (byte)103);
+         aClass153_878.getFileAmount(34);
          int var3 = (int)(Math.random() * 21.0D) + -10;
          int var6 = -20 + (int)(41.0D * Math.random());
          Class158.anInt2015 = var6 + var5;
@@ -24,19 +24,10 @@ final class Class107 {
       }
    }
 
-   public static void method1646(boolean var0) {
-      try {
-         ItemDefinition.stringArguments = null;
-         aClass11_1453 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "og.E(" + var0 + ')');
-      }
-   }
-
    static void method1647(int var1, int var2, Class140_Sub4 var3, int var4, int var5, int var6) {
       try {
 
-         Class118.method1724(var6, var2, var3.anInt2829, var5, var1, var3.anInt2819, (byte)-85, var4);
+         Unsorted.method1724(var6, var2, var3.anInt2829, var5, var1, var3.anInt2819, (byte)-85, var4);
       } catch (RuntimeException var8) {
          throw Class44.clientError(var8, "og.A(" + (byte) 122 + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ',' + var6 + ')');
       }
@@ -64,7 +55,7 @@ final class Class107 {
 
    static void method1650() {
       try {
-         Class61.aClass93_939.method1523((byte)-113);
+         Class61.aReferenceCache_939.clearSoftReferences();
 
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "og.G(" + 21 + ')');

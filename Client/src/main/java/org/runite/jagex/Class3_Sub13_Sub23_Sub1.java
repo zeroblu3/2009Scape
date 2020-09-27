@@ -14,7 +14,6 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
    static short aShort4038 = 32767;
    static int anInt4039 = 0;
    static int anInt4041 = -1;
-   static int hitMarkIndex;
 
 
    final int[][] method166(int var1, int var2) {
@@ -28,9 +27,9 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
             for(int var8 = 0; Class113.anInt1559 > var8; ++var8) {
                int var9 = this.anIntArray3284[var7 + var8 % this.anInt3280];
-               var6[var8] = Class69.bitwiseAnd(255, var9) << 4;
-               var5[var8] = Class69.bitwiseAnd(var9 >> 4, 4080);
-               var4[var8] = Class69.bitwiseAnd(16711680, var9) >> 12;
+               var6[var8] = Unsorted.bitwiseAnd(255, var9) << 4;
+               var5[var8] = Unsorted.bitwiseAnd(var9 >> 4, 4080);
+               var4[var8] = Unsorted.bitwiseAnd(16711680, var9) >> 12;
             }
          }
 
@@ -79,7 +78,6 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
    static void method283(String var0) {
       try {
-
          System.out.println("Bad " + var0 + ", Usage: worldid, <live/rc/wip>, <english/german>, <game0/game1>");
          System.exit(1);
       } catch (RuntimeException var3) {
@@ -163,8 +161,8 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
    static Class158 method285(int var0, int var1, Component var3) {
       try {
          try {
-            Class var4 = Class.forName(Configurations.PACKAGE_JAGEX + ".Class158_Sub2");
-            Class158 var8 = (Class158)var4.newInstance();
+            Class<Class158> var4 = (Class<Class158>) Class.forName(Configurations.PACKAGE_JAGEX + ".Class158_Sub2");
+            Class158 var8 = var4.newInstance();
             var8.method2185(var0, var1, var3);
             return var8;
          } catch (Throwable var6) {
@@ -183,19 +181,6 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
          return !Class75_Sub4.method1351(var3, 0, var2, -30901)?null:Class15.method891(~4);
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "kd.F(" + -1 + ',' + 0 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
-      }
-   }
-
-   public static void method287(boolean var0) {
-      try {
-         anIntArray4035 = null;
-         aClass3_Sub28_Sub5Array4031 = null;
-         if(var0) {
-            method282((int[])null, -113, 119, -92, 70);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "kd.E(" + ')');
       }
    }
 

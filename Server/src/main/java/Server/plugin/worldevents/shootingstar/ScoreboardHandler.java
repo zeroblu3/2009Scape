@@ -5,7 +5,6 @@ import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
-import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 
 public class ScoreboardHandler extends OptionHandler {
@@ -25,7 +24,7 @@ public class ScoreboardHandler extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(38669).getConfigurations().put("option:read",this);
+        ObjectDefinition.forId(38669).getHandlers().put("option:read",this);
 
         return this;
     }

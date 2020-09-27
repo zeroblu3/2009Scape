@@ -2,18 +2,15 @@ package org.runite.jagex;
 
 import org.runite.Configurations;
 
+public final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 
-
-final class Class3_Sub13_Sub1 extends Class3_Sub13 {
-
-	static Class3_Sub30_Sub1 outgoingBuffer = new Class3_Sub30_Sub1();
+	public static Class3_Sub30_Sub1 outgoingBuffer = new Class3_Sub30_Sub1();
 	private int anInt3036 = 0;
 	private int anInt3037 = 1;
 	private int anInt3038 = 0;
 	static RSString aClass2323;
 	static String aString2324;
 	static RSString aClass2325;
-	static RSString aClass94_3039 = RSString.createRSString("0");
 	static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array3041 = new Class3_Sub28_Sub5[14];
 
 
@@ -37,20 +34,6 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 
 	public Class3_Sub13_Sub1() {
 		super(0, true);
-	}
-
-	public static void method168(int var0) {
-		try {
-			if(var0 != -1771542303) {
-				aClass3_Sub28_Sub5Array3041 = (Class3_Sub28_Sub5[])null;
-			}
-
-			aClass3_Sub28_Sub5Array3041 = null;
-			aClass94_3039 = null;
-			outgoingBuffer = null;
-		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "ag.F(" + var0 + ')');
-		}
 	}
 
 	final int[] method154(int var1, byte var2) {
@@ -96,16 +79,16 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 	}
 
 	static void method229() {
-		RSByteBuffer buffer = outgoingBuffer;
-		buffer.putString(aClass2323);
+		DataBuffer buffer = outgoingBuffer;
+		buffer.writeString(aClass2323);
 		for (char c : aString2324.toCharArray()) {
 			if (c == '-') {
 				c = ':';
 			}
-			buffer.putByte((byte) -7, c);
+			buffer.writeByte(c);
 		}
-		buffer.putByte((byte) -66, 0);
-		buffer.putString(aClass2325);
+		buffer.writeByte(0);
+		buffer.writeString(aClass2325);
 	}
 
 	static void method169() {
@@ -122,7 +105,7 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 		}
 	}
 
-	static Class method170(String var1) throws ClassNotFoundException {
+	static Class<?> method170(String var1) throws ClassNotFoundException {
 		try {
 
 			return var1.equals("B")?Byte.TYPE:(!var1.equals("I")?(var1.equals("S")?Short.TYPE:(!var1.equals("J")?(var1.equals("Z")?Boolean.TYPE:(var1.equals("F")?Float.TYPE:(var1.equals("D")?Double.TYPE:(var1.equals("C")?Character.TYPE:Class.forName(Configurations.PACKAGE_JAGEX + "." + var1))))):Long.TYPE)):Integer.TYPE);
@@ -149,32 +132,32 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 				method167(-46);
 			}
 
-			if(Canvas_Sub2.loadInterface(var1)) {
-				Class47.method1095(var2, var8, var4, GameObject.aClass11ArrayArray1834[var1], var3, -1, var7, var6, (byte)119, var5);
+			if(Unsorted.loadInterface(var1)) {
+				Unsorted.method1095(var2, var8, var4, GameObject.aClass11ArrayArray1834[var1], var3, -1, var7, var6, (byte)119, var5);
 			} else if (var5 == -1) {
 				for (int var9 = 0; var9 < 100; ++var9) {
-					Class3_Sub28_Sub14.aBooleanArray3674[var9] = true;
+					WorldMapZoomFont.aBooleanArray3674[var9] = true;
 				}
 			} else {
-				Class3_Sub28_Sub14.aBooleanArray3674[var5] = true;
+				WorldMapZoomFont.aBooleanArray3674[var5] = true;
 			}
 		} catch (RuntimeException var10) {
 			throw Class44.clientError(var10, "ag.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ')');
 		}
 	}
 
-	final void method157(int var1, RSByteBuffer var2, boolean var3) {
+	final void method157(int var1, DataBuffer var2, boolean var3) {
 		try {
 			if(!var3) {
 				this.method158(10);
 			}
 
 			if(var1 == 0) {
-				this.anInt3038 = var2.getByteB();
+				this.anInt3038 = var2.readUnsignedByte();
 			} else if (1 == var1) {
-				this.anInt3036 = var2.getByteB();
+				this.anInt3036 = var2.readUnsignedByte();
 			} else if (var1 == 3) {
-				this.anInt3037 = var2.getByteB();
+				this.anInt3037 = var2.readUnsignedByte();
 			}
 
 		} catch (RuntimeException var5) {
@@ -184,7 +167,7 @@ final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 
 
 	static void method445() {
-		aClass2323 = RSString.createRSString(System.getProperty("user.name"));
+		aClass2323 = RSString.parse(System.getProperty("user.name"));
 		aString2324 = Class39.method132893();
 		aClass2325 = Signlink.osName.startsWith("win") ? Class44.method3435() : Class44.method3434();
 	}

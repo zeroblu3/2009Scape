@@ -11,7 +11,7 @@ import core.plugin.Plugin;
 public class DiangoOptionHandler extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        NPCDefinition.forId(970).getConfigurations().put("option:holiday-items",this);
+        NPCDefinition.forId(970).getHandlers().put("option:holiday-items",this);
         return this;
     }
 

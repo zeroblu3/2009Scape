@@ -76,86 +76,86 @@ public final class TrollheimPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(3735).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(32738).getConfigurations().put("option:exit", this);
-		NPCDefinition.forId(1069).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(3742).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(3774).getConfigurations().put("option:leave", this);
-		ObjectDefinition.forId(3723).getConfigurations().put("option:climb", this);// located
+		ObjectDefinition.forId(3735).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(32738).getHandlers().put("option:exit", this);
+		NPCDefinition.forId(1069).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(3742).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(3774).getHandlers().put("option:leave", this);
+		ObjectDefinition.forId(3723).getHandlers().put("option:climb", this);// located
 		// in
 		// circle
 		// area.
-		ObjectDefinition.forId(3722).getConfigurations().put("option:climb", this);// located
+		ObjectDefinition.forId(3722).getHandlers().put("option:climb", this);// located
 		// in
 		// circle
 		// area.
-		ObjectDefinition.forId(3748).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(3790).getConfigurations().put("option:climb", this);// pos=Location.create(2858,
+		ObjectDefinition.forId(3748).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(3790).getHandlers().put("option:climb", this);// pos=Location.create(2858,
 		// 3627,
 		// 0)
-		ObjectDefinition.forId(3791).getConfigurations().put("option:climb", this);// pos=Location.create(2858,
+		ObjectDefinition.forId(3791).getHandlers().put("option:climb", this);// pos=Location.create(2858,
 		// 3627,
 		// 0)
-		ObjectDefinition.forId(3782).getConfigurations().put("option:open", this);// arena
+		ObjectDefinition.forId(3782).getHandlers().put("option:open", this);// arena
 		// entrance
-		ObjectDefinition.forId(3783).getConfigurations().put("option:open", this);// arena
+		ObjectDefinition.forId(3783).getHandlers().put("option:open", this);// arena
 		// entrance
-		ObjectDefinition.forId(3762).getConfigurations().put("option:open", this);// secret
+		ObjectDefinition.forId(3762).getHandlers().put("option:open", this);// secret
 		// door.
-		ObjectDefinition.forId(4499).getConfigurations().put("option:enter", this);// entrance
+		ObjectDefinition.forId(4499).getHandlers().put("option:enter", this);// entrance
 		// near
 		// golden
 		// apple.
-		ObjectDefinition.forId(4500).getConfigurations().put("option:enter", this);// entrance
+		ObjectDefinition.forId(4500).getHandlers().put("option:enter", this);// entrance
 		// near
 		// golden
 		// apple.
-		ObjectDefinition.forId(9303).getConfigurations().put("option:climb", this);// lvl
+		ObjectDefinition.forId(9303).getHandlers().put("option:climb", this);// lvl
 		// 41.
-		ObjectDefinition.forId(3782).getConfigurations().put("option:open", this);// arena
+		ObjectDefinition.forId(3782).getHandlers().put("option:open", this);// arena
 		// entrance.
-		ObjectDefinition.forId(3783).getConfigurations().put("option:open", this);// arena
+		ObjectDefinition.forId(3783).getHandlers().put("option:open", this);// arena
 		// entrance.
-		ObjectDefinition.forId(3785).getConfigurations().put("option:open", this);// arena
+		ObjectDefinition.forId(3785).getHandlers().put("option:open", this);// arena
 		// exit.
-		ObjectDefinition.forId(3786).getConfigurations().put("option:open", this);// arena
+		ObjectDefinition.forId(3786).getHandlers().put("option:open", this);// arena
 		// exit.
-		ObjectDefinition.forId(3757).getConfigurations().put("option:enter", this);// arena
+		ObjectDefinition.forId(3757).getHandlers().put("option:enter", this);// arena
 		// cave
 		// entrance.
-		ObjectDefinition.forId(3758).getConfigurations().put("option:exit", this);// arena
+		ObjectDefinition.forId(3758).getHandlers().put("option:exit", this);// arena
 		// cave
 		// exit.
-		ObjectDefinition.forId(9327).getConfigurations().put("option:climb", this);// lvl
+		ObjectDefinition.forId(9327).getHandlers().put("option:climb", this);// lvl
 		// 64
-		ObjectDefinition.forId(9304).getConfigurations().put("option:climb", this);
+		ObjectDefinition.forId(9304).getHandlers().put("option:climb", this);
 		;// lvl
 			// 43
-		ObjectDefinition.forId(3803).getConfigurations().put("option:climb", this);
-		;// lvl
-			// 43
-			// near
-			// trollheim
-			// top.
-		ObjectDefinition.forId(3804).getConfigurations().put("option:climb", this);
+		ObjectDefinition.forId(3803).getHandlers().put("option:climb", this);
 		;// lvl
 			// 43
 			// near
 			// trollheim
 			// top.
-		ObjectDefinition.forId(9306).getConfigurations().put("option:climb", this);// lvl
+		ObjectDefinition.forId(3804).getHandlers().put("option:climb", this);
+		;// lvl
+			// 43
+			// near
+			// trollheim
+			// top.
+		ObjectDefinition.forId(9306).getHandlers().put("option:climb", this);// lvl
 		// 47
-		ObjectDefinition.forId(9305).getConfigurations().put("option:climb", this);// lvl
+		ObjectDefinition.forId(9305).getHandlers().put("option:climb", this);// lvl
 		// 44
-		ObjectDefinition.forId(3759).getConfigurations().put("option:enter", this);// top
+		ObjectDefinition.forId(3759).getHandlers().put("option:enter", this);// top
 		// cave.
-		ObjectDefinition.forId(3771).getConfigurations().put("option:enter", this);// stronghold
+		ObjectDefinition.forId(3771).getHandlers().put("option:enter", this);// stronghold
 																					// to
 																					// herb
 																					// patch
-		ObjectDefinition.forId(18834).getConfigurations().put("option:climb-up", this);// stronghold
+		ObjectDefinition.forId(18834).getHandlers().put("option:climb-up", this);// stronghold
 																						// ladder
-		ObjectDefinition.forId(18833).getConfigurations().put("option:climb-down", this);// stronghold
+		ObjectDefinition.forId(18833).getHandlers().put("option:climb-down", this);// stronghold
 																							// ladder
 		PluginManager.definePlugin(new SabaDialogue());
 		PluginManager.definePlugin(new WoundedSoldier());

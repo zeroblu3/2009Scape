@@ -13,7 +13,6 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
    private int anInt3180;
    static int[] anIntArray3181;
    private int anInt3182;
-   static RSString COMMAND_HIGHRES_GRAPHICS_FULLSCREEN = RSString.createRSString("::wm3");
    static boolean aBoolean3184 = true;
    static int[] anIntArray3185 = new int[25];
    private int anInt3186;
@@ -21,14 +20,14 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
    private int anInt3189;
 
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3175 = var2.getShort((byte)18);
+            this.anInt3175 = var2.readSignedShort();
          } else if(var1 == 1) {
-            this.anInt3178 = (var2.getByte() << 12) / 100;
+            this.anInt3178 = (var2.readSignedByte() << 12) / 100;
          } else if (var1 == 2) {
-             this.anInt3176 = (var2.getByte() << 12) / 100;
+             this.anInt3176 = (var2.readSignedByte() << 12) / 100;
          }
 
          if(!var3) {
@@ -134,7 +133,7 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
    final int[][] method166(int var1, int var2) {
       try {
          if(var1 != -1) {
-            COMMAND_HIGHRES_GRAPHICS_FULLSCREEN = (RSString)null;
+            TextCore.COMMAND_HIGHRES_GRAPHICS_FULLSCREEN = (RSString)null;
          }
 
          int[][] var3 = this.aClass97_2376.method1594((byte)-118, var2);
@@ -184,20 +183,6 @@ final class Class3_Sub13_Sub15 extends Class3_Sub13 {
          return var3;
       } catch (RuntimeException var12) {
          throw Class44.clientError(var12, "hk.T(" + var1 + ',' + var2 + ')');
-      }
-   }
-
-   public static void method241(byte var0) {
-      try {
-         anIntArray3181 = null;
-         aClass61_3177 = null;
-         if(var0 <= 38) {
-         }
-
-         anIntArray3185 = null;
-         COMMAND_HIGHRES_GRAPHICS_FULLSCREEN = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "hk.B(" + var0 + ')');
       }
    }
 

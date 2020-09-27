@@ -19,13 +19,13 @@ public final class BHOptionHandler extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(28110).getConfigurations().put("option:exit", this);
-		ObjectDefinition.forId(28119).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(28120).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(28121).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(28122).getConfigurations().put("option:exit", this);
-		ObjectDefinition.forId(28115).getConfigurations().put("option:view", this);
-		ObjectDefinition.forId(28116).getConfigurations().put("option:view", this);
+		ObjectDefinition.forId(28110).getHandlers().put("option:exit", this);
+		ObjectDefinition.forId(28119).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(28120).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(28121).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(28122).getHandlers().put("option:exit", this);
+		ObjectDefinition.forId(28115).getHandlers().put("option:view", this);
+		ObjectDefinition.forId(28116).getHandlers().put("option:view", this);
 		return this;
 	}
 

@@ -240,12 +240,12 @@ public class ChristmasEvent extends HolidayEvent {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(28296).getConfigurations().put("option:collect", this);
-			ItemDefinition.forId(BALL_OF_SNOW.getId()).getConfigurations().put("option:build", this);
+			ObjectDefinition.forId(28296).getHandlers().put("option:collect", this);
+			ItemDefinition.forId(BALL_OF_SNOW.getId()).getHandlers().put("option:build", this);
 			for (int i = 28266; i < 28296; i++) {
-				ObjectDefinition.forId(i).getConfigurations().put("option:add-to", this);
+				ObjectDefinition.forId(i).getHandlers().put("option:add-to", this);
 			}
-			ItemDefinition.forId(SNOWGLOBE.getId()).getConfigurations().put("option:shake", this);
+			ItemDefinition.forId(SNOWGLOBE.getId()).getHandlers().put("option:shake", this);
 			return this;
 		}
 
@@ -346,7 +346,7 @@ public class ChristmasEvent extends HolidayEvent {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (int i = 6747; i < 6750; i++) {
-				NPCDefinition.forId(i).getConfigurations().put("option:pelt", this);
+				NPCDefinition.forId(i).getHandlers().put("option:pelt", this);
 			}
 			PELT_OPTION.setHandler(this);
 			return this;
@@ -1087,7 +1087,7 @@ public class ChristmasEvent extends HolidayEvent {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			BALL_OF_SNOW.getDefinition().getConfigurations().put("equipment", this);
+			BALL_OF_SNOW.getDefinition().getHandlers().put("equipment", this);
 			return this;
 		}
 

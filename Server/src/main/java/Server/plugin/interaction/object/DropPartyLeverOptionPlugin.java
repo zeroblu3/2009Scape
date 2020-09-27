@@ -24,7 +24,7 @@ public final class DropPartyLeverOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(26194).getConfigurations().put("option:pull", this);
+		ObjectDefinition.forId(26194).getHandlers().put("option:pull", this);
 		return this;
 	}
 

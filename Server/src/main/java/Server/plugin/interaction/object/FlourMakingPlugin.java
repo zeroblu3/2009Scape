@@ -43,15 +43,15 @@ public final class FlourMakingPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		int controls[] = new int[] { 2718, 2720, 2721, 24072, 24070 };
 		for (int i : controls) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:operate", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:operate", this);
 		}
-		ObjectDefinition.forId(36878).getConfigurations().put("option:empty", this);
-		ObjectDefinition.forId(22420).getConfigurations().put("option:empty", this);
-		ObjectDefinition.forId(5792).getConfigurations().put("option:empty", this);
-		ObjectDefinition.forId(1782).getConfigurations().put("option:empty", this);
-		ObjectDefinition.forId(1781).getConfigurations().put("option:empty", this);
-		ObjectDefinition.forId(22421).getConfigurations().put("option:empty", this);
-		ObjectDefinition.forId(24070).getConfigurations().put("option:empty", this);
+		ObjectDefinition.forId(36878).getHandlers().put("option:empty", this);
+		ObjectDefinition.forId(22420).getHandlers().put("option:empty", this);
+		ObjectDefinition.forId(5792).getHandlers().put("option:empty", this);
+		ObjectDefinition.forId(1782).getHandlers().put("option:empty", this);
+		ObjectDefinition.forId(1781).getHandlers().put("option:empty", this);
+		ObjectDefinition.forId(22421).getHandlers().put("option:empty", this);
+		ObjectDefinition.forId(24070).getHandlers().put("option:empty", this);
 		new GrainHopperPlugin().newInstance(arg);
 		new FillPotHandler().newInstance(arg);
 		return this;

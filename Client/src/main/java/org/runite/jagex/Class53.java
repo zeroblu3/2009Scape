@@ -10,30 +10,15 @@ final class Class53 {
    static int anInt867;
 
 
-   public static void method1169(boolean var0) {
-      try {
-         if(var0) {
-            method1170((byte)25, 28);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "hi.C(" + ')');
-      }
-   }
-
-   static int method1170(byte var0, int var1) {
-      try {
+   static int method1170(int var1) {
          return var1 >>> 8;
-      } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "hi.E(" + var0 + ',' + var1 + ')');
-      }
    }
 
    static void method1171(int var0, int var1, int var2, int var3, int var4, RSInterface var5) {
       try {
          int var7 = var3 * var3 + var4 * var4;
          if(var7 <= 360000) {
-            int var8 = Math.min(var5.anInt168 / 2, var5.anInt193 / 2);
+            int var8 = Math.min(var5.width / 2, var5.height / 2);
 
             if(var8 * var8 >= var7) {
                Class38_Sub1.method1030(var5, Class129_Sub1.aClass3_Sub28_Sub16Array2690[var0], var4, var3, var1, var2);
@@ -50,9 +35,9 @@ final class Class53 {
                int var16 = (int)(Math.sin(var14) * (double)var8);
                int var17 = (int)(Math.cos(var14) * (double)var8);
                if(HDToolKit.highDetail) {
-                  ((Class3_Sub28_Sub16_Sub1)Class3_Sub13_Sub39.aClass3_Sub28_Sub16Array3458[var0]).method648(240, 240, (var5.anInt168 / 2 + var2 + var16) * 16, 16 * (-var17 + var5.anInt193 / 2 + var1), (int)(10430.378D * var14));
+                  ((Class3_Sub28_Sub16_Sub1)Class3_Sub13_Sub39.aClass3_Sub28_Sub16Array3458[var0]).method648(240, 240, (var5.width / 2 + var2 + var16) * 16, 16 * (-var17 + var5.height / 2 + var1), (int)(10430.378D * var14));
                } else {
-                  ((Class3_Sub28_Sub16_Sub2)Class3_Sub13_Sub39.aClass3_Sub28_Sub16Array3458[var0]).method660(-10 + var16 + var5.anInt168 / 2 + var2, -10 + var5.anInt193 / 2 + var1 + -var17, var14);
+                  ((Class3_Sub28_Sub16_Sub2)Class3_Sub13_Sub39.aClass3_Sub28_Sub16Array3458[var0]).method660(-10 + var16 + var5.width / 2 + var2, -10 + var5.height / 2 + var1 + -var17, var14);
                }
             }
 
@@ -111,7 +96,7 @@ final class Class53 {
       }
    }
 
-   static void parseWorldList(RSByteBuffer buffer) {
+   static void parseWorldList(DataBuffer buffer) {
       try {
          int var2 = buffer.getSmart();
          Class119.countries = new WorldListCountry[var2];
@@ -131,15 +116,15 @@ final class Class53 {
          for(var3 = 0; var3 < Class57.activeWorldListSize; ++var3) {
             int worldId = buffer.getSmart();
             WorldListEntry var5 = Class117.worldList[worldId] = new WorldListEntry();
-            var5.countryIndex = buffer.getByteB();
-            var5.settings = buffer.getInt();
+            var5.countryIndex = buffer.readUnsignedByte();
+            var5.settings = buffer.readInt();
             var5.worldId = worldId - -Class3_Sub13_Sub4.worldListOffset;
             var5.activity = buffer.getGJString2(98);
             var5.address = buffer.getGJString2(79);
             GameLaunch.SETTINGS.setWorld(worldId);
             System.out.println(GameLaunch.SETTINGS.getWorld());
          }
-         Class3_Sub28_Sub7.updateStamp = buffer.getInt();
+         Unsorted.updateStamp = buffer.readInt();
          Class30.loadedWorldList = true;
       } catch (RuntimeException var6) {
          throw Class44.clientError(var6, "hi.B(" + (buffer != null?"{...}":"null") + ',' + -88 + ')');
@@ -148,7 +133,7 @@ final class Class53 {
 
    static RSString method1174(RSInterface var0, byte var1) {
       try {
-         return Client.method44(var0).method101() != 0 ?(null != var0.aClass94_245 && var0.aClass94_245.trim(1).length(-45) != 0?var0.aClass94_245:(Class69.aBoolean1040? ClientErrorException.aClass94_2116:null)):null;
+         return Client.method44(var0).method101() != 0 ?(null != var0.aClass94_245 && var0.aClass94_245.trim(1).length() != 0?var0.aClass94_245:(Unsorted.aBoolean1040? TextCore.aClass94_2116:null)):null;
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "hi.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }

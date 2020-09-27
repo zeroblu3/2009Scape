@@ -7,7 +7,6 @@ final class Class140_Sub2 extends GameObject {
    private Class127_Sub1 aClass127_Sub1_2704;
    static boolean aBoolean2705 = true;
    private int anInt2706 = 0;
-   static RSString aClass94_2707 = RSString.createRSString("<br>(X100(U(Y");
    private final int anInt2708;
    static int[] anIntArray2709 = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, '\uffff', 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, Integer.MAX_VALUE, -1};
    int anInt2710;
@@ -91,7 +90,7 @@ final class Class140_Sub2 extends GameObject {
                var8 = 0;
             }
 
-            var9 = var8 * (-OutputStream_Sub1.aShort46 + ObjectDefinition.aShort1535) / 100 + OutputStream_Sub1.aShort46;
+            var9 = var8 * (-Unsorted.aShort46 + ObjectDefinition.aShort1535) / 100 + Unsorted.aShort46;
             var4 = var9 * var4 >> 8;
          }
 
@@ -141,17 +140,6 @@ final class Class140_Sub2 extends GameObject {
          return this.anInt2715;
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "bh.MA()");
-      }
-   }
-
-   public static void method1954(int var0) {
-      try {
-         if(var0 == 0) {
-            anIntArray2709 = null;
-            aClass94_2707 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bh.B(" + var0 + ')');
       }
    }
 

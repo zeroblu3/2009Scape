@@ -59,8 +59,8 @@ public class UnicornStallionNPC extends Familiar {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				NPCDefinition.forId(6822).getConfigurations().put("option:cure", this);
-				NPCDefinition.forId(6823).getConfigurations().put("option:cure", this);
+				NPCDefinition.forId(6822).getHandlers().put("option:cure", this);
+				NPCDefinition.forId(6823).getHandlers().put("option:cure", this);
 				return this;
 			}
 

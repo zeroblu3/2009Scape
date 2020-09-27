@@ -36,9 +36,9 @@ public final class SlayerTowerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(4490).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(4487).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(4492).getConfigurations().put("option:close", this);
+		ObjectDefinition.forId(4490).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(4487).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(4492).getHandlers().put("option:close", this);
 		return this;
 	}
 

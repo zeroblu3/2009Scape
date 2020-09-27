@@ -6,8 +6,7 @@ final class Class100 {
    int anInt1406;
    static int anInt1407;
    int anInt1408;
-   
-   static CacheIndex aClass153_1410;
+
    boolean aBoolean1411 = true;
    int anInt1412 = -1;
    static Class136 aClass136_1413 = new Class136();
@@ -95,10 +94,10 @@ final class Class100 {
       }
    }
 
-   final void method1601(int var1, RSByteBuffer var2) {
+   final void method1601(int var1, DataBuffer var2) {
       try {
          while(true) {
-            int var4 = var2.getByteB();
+            int var4 = var2.readUnsignedByte();
             if(var4 == 0) {
 
                return;
@@ -113,11 +112,11 @@ final class Class100 {
 
    static int method1602(RSString var1) {
       try {
-         if(Class119.aClass131_1624 == null || var1.length(-107) == 0) {
+         if(Class119.aClass131_1624 == null || var1.length() == 0) {
             return -1;
          } else {
             for(int var2 = 0; var2 < Class119.aClass131_1624.anInt1720; ++var2) {
-               if(Class119.aClass131_1624.aClass94Array1721[var2].method1560(Class3_Sub13_Sub16.aClass94_3192, Class3_Sub28_Sub10_Sub2.aClass94_4066).method1562((byte)-32, var1)) {
+               if(Class119.aClass131_1624.aClass94Array1721[var2].method1560(TextCore.aClass94_3192, TextCore.aClass94_4066).method1562((byte)-32, var1)) {
                   return var2;
                }
             }
@@ -150,18 +149,18 @@ final class Class100 {
       }
    }
 
-   private void method1604(int var2, RSByteBuffer var3, int var4) {
+   private void method1604(int var2, DataBuffer var3, int var4) {
       try {
          if(var2 == 1) {
-            int anInt1404 = var3.getTriByte((byte) 93);
+            int anInt1404 = var3.readMedium();
             this.method1600(anInt1404);
          } else if (var2 == 2) {
-            this.anInt1412 = var3.getShort();
+            this.anInt1412 = var3.readUnsignedShort();
             if (this.anInt1412 == 65535) {
                this.anInt1412 = -1;
             }
          } else if (3 == var2) {
-            this.anInt1414 = var3.getShort();
+            this.anInt1414 = var3.readUnsignedShort();
          } else if (var2 == 4) {
             this.aBoolean1411 = false;
          }
@@ -174,19 +173,10 @@ final class Class100 {
    static void method1605(RSString var1, int var2) {
       try {
          Class3_Sub13_Sub1.outgoingBuffer.putOpcode(188);
-         Class3_Sub13_Sub1.outgoingBuffer.putByteA(var2);
-         Class3_Sub13_Sub1.outgoingBuffer.putLong(var1.toLong(-126), -2037491440);
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte128(var2);
+         Class3_Sub13_Sub1.outgoingBuffer.writeLong(var1.toLong());
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "ni.B(" + 255 + ',' + (var1 != null?"{...}":"null") + ',' + var2 + ')');
-      }
-   }
-
-   public static void method1606(byte var0) {
-      try {
-         aClass153_1410 = null;
-         aClass136_1413 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ni.A(" + var0 + ')');
       }
    }
 

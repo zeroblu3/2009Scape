@@ -75,8 +75,8 @@ public final class SmokeDungeon extends MapZone implements Plugin<Object> {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(36002).getConfigurations().put("option:climb-down", this);
-				ObjectDefinition.forId(6439).getConfigurations().put("option:climb-up", this);
+				ObjectDefinition.forId(36002).getHandlers().put("option:climb-down", this);
+				ObjectDefinition.forId(6439).getHandlers().put("option:climb-up", this);
 				return this;
 			}
 

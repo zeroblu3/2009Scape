@@ -21,8 +21,8 @@ public final class ModeratorObject extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(26806).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(26807).getConfigurations().put("option:j-mod options", this);
+		ObjectDefinition.forId(26806).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(26807).getHandlers().put("option:j-mod options", this);
 		return this;
 	}
 

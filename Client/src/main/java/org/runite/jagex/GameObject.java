@@ -3,7 +3,6 @@ package org.runite.jagex;
 abstract class GameObject {
 
    static AbstractIndexedSprite[] aClass109Array1831;
-   static RSString COMMAND_SET_PARTICLES = RSString.createRSString("::setparticles");
    static int[] anIntArray1833 = new int[14];
    static RSInterface[][] aClass11ArrayArray1834;
    static int[] anIntArray1835 = new int[100];
@@ -26,25 +25,6 @@ abstract class GameObject {
 
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "th.KC(" + var0 + ',' + 32258 + ')');
-      }
-   }
-
-   public static void method1860(int var0) {
-      try {
-         aClass109Array1831 = null;
-         aClass11Array1836 = null;
-         aClass11ArrayArray1834 = (RSInterface[][])null;
-         if(var0 != 0) {
-            method1860(-87);
-         }
-
-         aClass3_Sub28_Sub16_Sub2Array1839 = null;
-         anIntArray1835 = null;
-         COMMAND_SET_PARTICLES = null;
-         anIntArray1833 = null;
-         anIntArray1838 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "th.HC(" + var0 + ')');
       }
    }
 
@@ -77,7 +57,7 @@ abstract class GameObject {
             var6 = true;
          }
 
-         Class3_Sub28_Sub10_Sub2.method598(var0, var1, var6, var5, false, var3, var4);
+         Unsorted.method598(var0, var1, var6, var5, false, var3, var4);
       } catch (RuntimeException var7) {
          throw Class44.clientError(var7, "th.EC(" + var0 + ',' + var1 + ',' + -8914 + ',' + var3 + ',' + var4 + ')');
       }
@@ -102,12 +82,12 @@ abstract class GameObject {
    static void method1864(CacheIndex var2, Class3_Sub28_Sub17_Sub1 var3, CacheIndex var4) {
       try {
          Class139.aBoolean1827 = true;
-         Class3_Sub29.aClass153_2581 = var4;
+         LinkableRSString.aClass153_2581 = var4;
          Class97.aClass153_1370 = var2;
          int var5 = Class97.aClass153_1370.method2121() - 1;
-         Class3_Sub13_Sub23.itemDefinitionSize = Class97.aClass153_1370.getFileAmount(var5, (byte)101) + var5 * 256;
+         Class3_Sub13_Sub23.itemDefinitionSize = Class97.aClass153_1370.getFileAmount(var5) + var5 * 256;
          ClientErrorException.aClass94Array2119 = new RSString[]{null, null, null, null, TextCore.HasDrop};
-         RSByteBuffer.aClass94Array2596 = new RSString[]{null, null, TextCore.HasTake, null, null};
+         Unsorted.aClass94Array2596 = new RSString[]{null, null, TextCore.HasTake, null, null};
          Class3_Sub13_Sub37.aClass3_Sub28_Sub17_Sub1_3440 = var3;
       } catch (RuntimeException var7) {
          throw Class44.clientError(var7, "th.FC(" + true + ',' + (byte) -126 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ')');

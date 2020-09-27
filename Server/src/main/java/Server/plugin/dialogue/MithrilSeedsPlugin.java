@@ -46,7 +46,7 @@ public final class MithrilSeedsPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(299).getConfigurations().put("option:plant", this);
+		ItemDefinition.forId(299).getHandlers().put("option:plant", this);
 		return this;
 	}
 

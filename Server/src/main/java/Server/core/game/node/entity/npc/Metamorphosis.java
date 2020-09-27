@@ -42,7 +42,7 @@ public abstract class Metamorphosis extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int id : getIds()) {
-			NPCDefinition.forId(id).getConfigurations().put("option:metamorphosis", this);
+			NPCDefinition.forId(id).getHandlers().put("option:metamorphosis", this);
 		}
 		if (getDialoguePlugin() != null) {
 			PluginManager.definePlugin(getDialoguePlugin());

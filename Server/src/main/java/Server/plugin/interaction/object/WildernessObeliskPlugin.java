@@ -27,12 +27,12 @@ public final class WildernessObeliskPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(14829).getConfigurations().put("option:activate", this);
-		ObjectDefinition.forId(14826).getConfigurations().put("option:activate", this);
-		ObjectDefinition.forId(14827).getConfigurations().put("option:activate", this);
-		ObjectDefinition.forId(14828).getConfigurations().put("option:activate", this);
-		ObjectDefinition.forId(14830).getConfigurations().put("option:activate", this);
-		ObjectDefinition.forId(14831).getConfigurations().put("option:activate", this);
+		ObjectDefinition.forId(14829).getHandlers().put("option:activate", this);
+		ObjectDefinition.forId(14826).getHandlers().put("option:activate", this);
+		ObjectDefinition.forId(14827).getHandlers().put("option:activate", this);
+		ObjectDefinition.forId(14828).getHandlers().put("option:activate", this);
+		ObjectDefinition.forId(14830).getHandlers().put("option:activate", this);
+		ObjectDefinition.forId(14831).getHandlers().put("option:activate", this);
 		return this;
 	}
 

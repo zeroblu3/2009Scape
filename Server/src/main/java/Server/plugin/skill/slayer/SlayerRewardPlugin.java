@@ -289,7 +289,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (Master m : Master.values()) {
-				NPCDefinition.forId(m.getNpc()).getConfigurations().put("option:rewards", this);
+				NPCDefinition.forId(m.getNpc()).getHandlers().put("option:rewards", this);
 			}
 			return this;
 		}
@@ -338,7 +338,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
 
 				@Override
 				public Plugin<Object> newInstance(Object arg) throws Throwable {
-					ItemDefinition.forId(SLAYER_HELM.getId()).getConfigurations().put("option:disassemble", this);
+					ItemDefinition.forId(SLAYER_HELM.getId()).getHandlers().put("option:disassemble", this);
 					return this;
 				}
 

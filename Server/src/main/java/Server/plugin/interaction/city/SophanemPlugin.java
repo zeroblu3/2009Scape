@@ -22,8 +22,8 @@ public class SophanemPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(20277).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(20275).getConfigurations().put("option:climb-down", this);
+		ObjectDefinition.forId(20277).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(20275).getHandlers().put("option:climb-down", this);
 		return this;
 	}
 

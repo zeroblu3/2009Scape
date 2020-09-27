@@ -23,7 +23,7 @@ public final class SeersCageUnlockPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(6836).getConfigurations().put("option:unlock", this);
+		ObjectDefinition.forId(6836).getHandlers().put("option:unlock", this);
 		return this;
 	}
 

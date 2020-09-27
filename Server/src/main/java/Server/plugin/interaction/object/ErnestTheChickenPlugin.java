@@ -41,11 +41,11 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(11450).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(11450).getHandlers().put("option:open", this);
 		for (Lever lever : Lever.values()) {
 			for (int i : lever.getObjectIds()) {
-				ObjectDefinition.forId(i).getConfigurations().put("option:pull", this);
-				ObjectDefinition.forId(i).getConfigurations().put("option:inspect", this);
+				ObjectDefinition.forId(i).getHandlers().put("option:pull", this);
+				ObjectDefinition.forId(i).getHandlers().put("option:inspect", this);
 			}
 		}
 		/** doors */

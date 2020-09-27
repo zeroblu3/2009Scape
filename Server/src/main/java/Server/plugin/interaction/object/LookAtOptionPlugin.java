@@ -13,7 +13,7 @@ public class LookAtOptionPlugin extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         for (int i = 18877; i <= 18900; i++)
         {
-            ObjectDefinition.forId(i).getConfigurations().put("option:look at", this);
+            ObjectDefinition.forId(i).getHandlers().put("option:look at", this);
         }
         return this;
     }

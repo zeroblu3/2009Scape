@@ -5,29 +5,15 @@ import java.util.Objects;
 final class NPC extends Class140_Sub4 {
 
 	static boolean aBoolean3975 = false;
-	NPCDefinition definition;
+    static int[] npcSpawnCacheIndices;
+    static NPC[] npcs = new NPC['\u8000'];
+    NPCDefinition definition;
 	static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array3977;
 	static float aFloat3979;
 	static int[] anIntArray3986 = new int[32];
-	static CacheIndex aClass153_3993;
-	static CacheIndex aClass153_3994;
 	static int anInt3995;
 	static int[] anIntArray3997 = new int[]{19, 55, 38, 155, 255, 110, 137, 205, 76};
 	static int anInt4001;
-
-	public static void method1983(int var0) {
-		try {
-			anIntArray3986 = null;
-			if(var0 == -3) {
-				aClass153_3994 = null;
-				anIntArray3997 = null;
-				aClass3_Sub28_Sub16Array3977 = null;
-				aClass153_3993 = null;
-			}
-		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "km.N(" + var0 + ')');
-		}
-	}
 
 	static int method1984(int var0, int var1, int var2) {
 		try {
@@ -64,7 +50,7 @@ final class NPC extends Class140_Sub4 {
 			} else {
 				if(var1 instanceof Class144) {
 					Class144 var3 = (Class144)var1;
-					return var3.method2064();
+					return var3.getBytes();
 				} else {
 					throw new IllegalArgumentException();
 				}
@@ -196,7 +182,7 @@ final class NPC extends Class140_Sub4 {
 				method1984(-48, 88, 31);
 			}
 
-			return HDToolKit.highDetail || Class3_Sub28_Sub13.aBoolean3665;
+			return HDToolKit.highDetail || Unsorted.aBoolean3665;
 		} catch (RuntimeException var2) {
 			throw Class44.clientError(var2, "km.O(" + var0 + ')');
 		}

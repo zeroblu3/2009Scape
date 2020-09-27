@@ -40,8 +40,8 @@ public class MorphItemPlugin implements Plugin<Object> {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(7927).getConfigurations().put("equipment", this);
-		ItemDefinition.forId(6583).getConfigurations().put("equipment", this);
+		ItemDefinition.forId(7927).getHandlers().put("equipment", this);
+		ItemDefinition.forId(6583).getHandlers().put("equipment", this);
 		PluginManager.definePlugin(new MorphInterfacePlugin());
 		return this;
 	}

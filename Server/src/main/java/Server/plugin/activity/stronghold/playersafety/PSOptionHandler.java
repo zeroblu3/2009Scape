@@ -34,23 +34,23 @@ public class PSOptionHandler extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(JAIL_ENTRANCE_ID_ENTER).getConfigurations().put("option:use", this);
-		ObjectDefinition.forId(JAIL_ENTRANCE_LEAVE).getConfigurations().put("option:leave", this);
-		ObjectDefinition.forId(JAIL_STAIRS_UP).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(JAIL_STAIRS_DOWN).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(29732).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(29624).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(29728).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(29735).getConfigurations().put("option:pull-back", this);
-		ObjectDefinition.forId(29623).getConfigurations().put("option:use", this);
-		ObjectDefinition.forId(29730).getConfigurations().put("option:pull", this);
-		ObjectDefinition.forId(29731).getConfigurations().put("option:pull", this);
-		ObjectDefinition.forId(29577).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(29578).getConfigurations().put("option:search", this);
-		ItemDefinition.forId(TEST_PAPER_ITEM_ID).getConfigurations().put("option:take exam", this);
-		ObjectDefinition.forId(29729).getConfigurations().put("option:climb", this);
+		ObjectDefinition.forId(JAIL_ENTRANCE_ID_ENTER).getHandlers().put("option:use", this);
+		ObjectDefinition.forId(JAIL_ENTRANCE_LEAVE).getHandlers().put("option:leave", this);
+		ObjectDefinition.forId(JAIL_STAIRS_UP).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(JAIL_STAIRS_DOWN).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(29732).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(29624).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(29728).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(29735).getHandlers().put("option:pull-back", this);
+		ObjectDefinition.forId(29623).getHandlers().put("option:use", this);
+		ObjectDefinition.forId(29730).getHandlers().put("option:pull", this);
+		ObjectDefinition.forId(29731).getHandlers().put("option:pull", this);
+		ObjectDefinition.forId(29577).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(29578).getHandlers().put("option:search", this);
+		ItemDefinition.forId(TEST_PAPER_ITEM_ID).getHandlers().put("option:take exam", this);
+		ObjectDefinition.forId(29729).getHandlers().put("option:climb", this);
 		for (JailPlaques plaque : JailPlaques.values()) {
-			ObjectDefinition.forId(plaque.getObjectId()).getConfigurations().put("option:read-plaque on", this);
+			ObjectDefinition.forId(plaque.getObjectId()).getHandlers().put("option:read-plaque on", this);
 		}
 		return this;
 	}

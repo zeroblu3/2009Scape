@@ -3,20 +3,10 @@ package plugin.worldevents.shootingstar
 import core.cache.def.impl.ObjectDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
-import core.game.node.`object`.GameObject
-import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.game.system.command.CommandPlugin
-import core.game.system.command.CommandSet
 import core.game.world.GameWorld
-import core.game.world.map.Location
-import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.plugin.PluginManager.definePlugin
-import core.plugin.PluginManifest
-import core.plugin.PluginType
 import plugin.worldevents.WorldEvents
-import plugin.worldevents.shootingstar.ShootingStarType
 import java.util.concurrent.TimeUnit
 
 /**
@@ -26,10 +16,10 @@ class ShootingStarOptionHandler : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any>? {
         for (star in ShootingStarType.values()) {
-            ObjectDefinition.forId(star.objectId).configurations["option:mine"] = this
-            ObjectDefinition.forId(star.objectId).configurations["option:prospect"] = this
+            ObjectDefinition.forId(star.objectId).handlers["option:mine"] = this
+            ObjectDefinition.forId(star.objectId).handlers["option:prospect"] = this
         }
-        ObjectDefinition.forId(13656).configurations["option:observe"] = this
+        ObjectDefinition.forId(13656).handlers["option:observe"] = this
         return this
     }
 

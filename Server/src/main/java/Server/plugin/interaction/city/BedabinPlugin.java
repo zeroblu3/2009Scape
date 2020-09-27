@@ -23,9 +23,9 @@ public final class BedabinPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2700).getConfigurations().put("option:walk-through", this);
-		ObjectDefinition.forId(2672).getConfigurations().put("option:use", this);
-		NPCDefinition.forId(834).getConfigurations().put("option:talk-to", this);
+		ObjectDefinition.forId(2700).getHandlers().put("option:walk-through", this);
+		ObjectDefinition.forId(2672).getHandlers().put("option:use", this);
+		NPCDefinition.forId(834).getHandlers().put("option:talk-to", this);
 		return this;
 	}
 

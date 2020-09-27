@@ -58,7 +58,7 @@ final class Class50 {
 				}
 
 				if(var5 == 3) {
-					Class12 var13 = RSByteBuffer.method784(var0, var6, var4);
+					Class12 var13 = Unsorted.method784(var0, var6, var4);
 					if(null != var13) {
 						var13.object = new Class140_Sub3(Integer.MAX_VALUE & (int)(var13.aLong328 >>> 32), 22, var2, var0, var6, var4, var7, false, var13.object);
 					}
@@ -76,22 +76,13 @@ final class Class50 {
 
 	static void method1132(int var0) {
 		try {
-			Class128.aClass93_1683.method1523((byte)-111);
+			Class128.aReferenceCache_1683.clearSoftReferences();
 			if(var0 != 103) {
 				method1132(14);
 			}
 
 		} catch (RuntimeException var2) {
 			throw Class44.clientError(var2, "hd.A(" + var0 + ')');
-		}
-	}
-
-	public static void method1133(byte var0) {
-		try {
-			aLongArray826 = null;
-			aClass3_Sub28_Sub16_824 = null;
-		} catch (RuntimeException var2) {
-			throw Class44.clientError(var2, "hd.C(" + var0 + ')');
 		}
 	}
 

@@ -219,7 +219,7 @@ class ItemConfigParser {
         for(config in configlist){
             val e = config as JSONObject
             val def = ItemDefinition.forId(e["id"].toString().toInt())
-            val configs = def.configurations
+            val configs = def.handlers
             val requirements = HashMap<Int, Int>()
             e.map {
                 if (it.value.toString().isNotEmpty() && it.value.toString() != "null") {

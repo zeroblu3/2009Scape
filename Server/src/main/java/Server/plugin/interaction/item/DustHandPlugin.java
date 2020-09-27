@@ -18,7 +18,7 @@ public final class DustHandPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(8865).getConfigurations().put("option:dust-hands", this);
+		ItemDefinition.forId(8865).getHandlers().put("option:dust-hands", this);
 		return this;
 	}
 

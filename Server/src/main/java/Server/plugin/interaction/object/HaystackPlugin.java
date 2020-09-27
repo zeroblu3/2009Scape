@@ -32,18 +32,18 @@ public final class HaystackPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(298).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(299).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(300).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(304).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36892).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36893).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36894).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36895).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36896).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36897).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36898).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(36899).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(298).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(299).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(300).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(304).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36892).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36893).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36894).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36895).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36896).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36897).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36898).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(36899).getHandlers().put("option:search", this);
 		return this;
 	}
 

@@ -12,7 +12,7 @@ public class WantedPoster extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(40992).getConfigurations().put("option:look-at", this);
+		ObjectDefinition.forId(40992).getHandlers().put("option:look-at", this);
 		return this;
 	}
 

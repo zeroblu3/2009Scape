@@ -23,10 +23,10 @@ public final class GodswordDismantlePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(11694).getConfigurations().put("option:dismantle", this);
-		ItemDefinition.forId(11696).getConfigurations().put("option:dismantle", this);
-		ItemDefinition.forId(11698).getConfigurations().put("option:dismantle", this);
-		ItemDefinition.forId(11700).getConfigurations().put("option:dismantle", this);
+		ItemDefinition.forId(11694).getHandlers().put("option:dismantle", this);
+		ItemDefinition.forId(11696).getHandlers().put("option:dismantle", this);
+		ItemDefinition.forId(11698).getHandlers().put("option:dismantle", this);
+		ItemDefinition.forId(11700).getHandlers().put("option:dismantle", this);
 		return this;
 	}
 

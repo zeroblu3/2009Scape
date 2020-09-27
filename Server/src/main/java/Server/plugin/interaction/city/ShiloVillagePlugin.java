@@ -24,15 +24,15 @@ public final class ShiloVillagePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(511).getConfigurations().put("option:pay-fare", this);
-		NPCDefinition.forId(510).getConfigurations().put("option:pay-fare", this);
-		ObjectDefinition.forId(2230).getConfigurations().put("option:board", this);// cart
+		NPCDefinition.forId(511).getHandlers().put("option:pay-fare", this);
+		NPCDefinition.forId(510).getHandlers().put("option:pay-fare", this);
+		ObjectDefinition.forId(2230).getHandlers().put("option:board", this);// cart
 		// travel.
-		ObjectDefinition.forId(2230).getConfigurations().put("option:pay-fare", this);// cart
+		ObjectDefinition.forId(2230).getHandlers().put("option:pay-fare", this);// cart
 		// travel.
-		ObjectDefinition.forId(2265).getConfigurations().put("option:board", this);// cart
+		ObjectDefinition.forId(2265).getHandlers().put("option:board", this);// cart
 		// travel.
-		ObjectDefinition.forId(2265).getConfigurations().put("option:pay-fare", this);// cart
+		ObjectDefinition.forId(2265).getHandlers().put("option:pay-fare", this);// cart
 		// travel.
 		PluginManager.definePlugin(new VillageCartDialogue());
 		return this;

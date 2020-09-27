@@ -24,7 +24,7 @@ public final class StarterPackPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(14775).getConfigurations().put("option:open", this);
+		ItemDefinition.forId(14775).getHandlers().put("option:open", this);
 		return this;
 	}
 

@@ -375,7 +375,7 @@ public class Player extends Entity {
 
 	@Override
 	public void init() {
-		antiMacroHandler.isDisabled = savedData.getGlobalData().getMacroDisabled();
+		antiMacroHandler.isDisabled = getAttribute("randoms:disabled",false);
 		if (!artificial) {
 			getProperties().setSpawnLocation(ServerConstants.HOME_LOCATION);
 			getDetails().getSession().setObject(this);
@@ -802,7 +802,7 @@ public class Player extends Entity {
 	 * @param string The message.
 	 */
 	public void debug(String string) {
-		if (isDebug()) {
+		if (getAttribute("debug",false)) {
 			packetDispatch.sendMessage(string);
 		}
 	}

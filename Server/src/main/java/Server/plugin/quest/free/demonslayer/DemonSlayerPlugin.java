@@ -34,13 +34,13 @@ public final class DemonSlayerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(881).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(882).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(882).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(DRAIN_ID).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(17429).getConfigurations().put("option:take", this);
-		NPCDefinition.forId(DemonSlayerCutscene.DELRITH).getConfigurations().put("option:attack", this);
-		NPCDefinition.forId(DemonSlayerCutscene.WEAKENED_DELRITH).getConfigurations().put("option:banish", this);
+		ObjectDefinition.forId(881).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(882).getHandlers().put("option:close", this);
+		ObjectDefinition.forId(882).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(DRAIN_ID).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(17429).getHandlers().put("option:take", this);
+		NPCDefinition.forId(DemonSlayerCutscene.DELRITH).getHandlers().put("option:attack", this);
+		NPCDefinition.forId(DemonSlayerCutscene.WEAKENED_DELRITH).getHandlers().put("option:banish", this);
 		return this;
 	}
 

@@ -1,9 +1,13 @@
 package org.runite.jagex;
+import org.rs09.client.Linkable;
+import org.rs09.client.data.HashTable;
+import org.rs09.client.LinkableInt;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import javax.media.opengl.GL;
 
-final class Class3_Sub11 extends Class3 {
+final class Class3_Sub11 extends Linkable {
 
    int anInt2342 = 0;
    int anInt2343 = 0;
@@ -16,7 +20,7 @@ final class Class3_Sub11 extends Class3 {
    private int[] anIntArray2350;
    int anInt2351;
    private int[] anIntArray2352;
-   private Class130 aClass130_2353;
+   private HashTable aHashTable_2353;
    private float[] aFloatArray2354;
    int anInt2355;
    private int anInt2356 = 0;
@@ -25,7 +29,7 @@ final class Class3_Sub11 extends Class3 {
    private int anInt2359 = 0;
    private int[][] anIntArrayArray2360;
    private static ByteBuffer aByteBuffer2361;
-   private static RSByteBuffer aClass3_Sub30_2362;
+   private static DataBuffer aClass3_Sub30_2362;
    private Class156 aClass156_2363;
    boolean aBoolean2364;
    private float[] aFloatArray2365;
@@ -35,7 +39,7 @@ final class Class3_Sub11 extends Class3 {
    private float[] aFloatArray2369;
    private boolean[] aBooleanArray2370;
    private int[] anIntArray2371;
-   private static RSByteBuffer aClass3_Sub30_2372;
+   private static DataBuffer aClass3_Sub30_2372;
    private final float aFloat2373;
 
 
@@ -62,7 +66,7 @@ final class Class3_Sub11 extends Class3 {
       this.anIntArray2349 = new int[this.anInt2344];
       this.anIntArray2367 = new int[this.anInt2344];
       this.anIntArrayArray2357 = new int[this.anInt2344][];
-      this.aClass130_2353 = new Class130(Class95.method1585((byte)123, this.anInt2342));
+      this.aHashTable_2353 = new HashTable(Class95.method1585((byte)123, this.anInt2342));
       if(this.aBoolean2364) {
          this.anIntArrayArray2360 = new int[this.anInt2344][];
          this.aBooleanArray2370 = new boolean[this.anInt2344];
@@ -74,13 +78,13 @@ final class Class3_Sub11 extends Class3 {
       long var9 = 0L;
       if((var1 & 127) == 0 || (var3 & 127) == 0) {
          var9 = (long)(var1 + (var3 << 16)) + ((long)var7 << 32);
-         Class3_Sub18 var11 = (Class3_Sub18)this.aClass130_2353.method1780(var9);
+         LinkableInt var11 = (LinkableInt)this.aHashTable_2353.get(var9);
          if(var11 != null) {
-            if(var2 < this.anIntArray2358[var11.anInt2467]) {
-               this.anIntArray2358[var11.anInt2467] = var2;
+            if(var2 < this.anIntArray2358[var11.value]) {
+               this.anIntArray2358[var11.value] = var2;
             }
 
-            return var11.anInt2467;
+            return var11.value;
          }
       }
 
@@ -96,48 +100,41 @@ final class Class3_Sub11 extends Class3 {
       this.aFloatArray2354[this.anInt2343] = var6;
       this.anIntArray2348[this.anInt2343] = var7;
       if(var9 != 0L) {
-         this.aClass130_2353.method1779(new Class3_Sub18(this.anInt2343), var9);
+         this.aHashTable_2353.put(var9, new LinkableInt(this.anInt2343));
       }
 
       return this.anInt2343++;
    }
 
-   public static void method147() {
-      aClass3_Sub30_2372 = null;
-      aClass3_Sub30_2362 = null;
-      aByteBuffer2368 = null;
-      aByteBuffer2361 = null;
-   }
-
    final void method148() {
-      RSByteBuffer var1 = new RSByteBuffer((this.aBoolean2347?40:36) * this.anInt2343);
+      DataBuffer var1 = new DataBuffer((this.aBoolean2347?40:36) * this.anInt2343);
 
       for(int var2 = 0; var2 < this.anInt2343; ++var2) {
          if(HDToolKit.aBoolean1790) {
-            var1.method801((float)this.anIntArray2371[var2]);
-            var1.method801((float)this.anIntArray2358[var2]);
-            var1.method801((float)this.anIntArray2352[var2]);
-            var1.putInt(-123, this.anIntArray2348[var2]);
-            var1.method801(this.aFloatArray2369[var2]);
-            var1.method801(this.aFloatArray2365[var2]);
-            var1.method801(this.aFloatArray2354[var2]);
-            var1.method801((float)this.anIntArray2371[var2] / this.aFloat2373);
-            var1.method801((float)this.anIntArray2352[var2] / this.aFloat2373);
+            var1.writeFloat((float)this.anIntArray2371[var2]);
+            var1.writeFloat((float)this.anIntArray2358[var2]);
+            var1.writeFloat((float)this.anIntArray2352[var2]);
+            var1.writeInt(this.anIntArray2348[var2]);
+            var1.writeFloat(this.aFloatArray2369[var2]);
+            var1.writeFloat(this.aFloatArray2365[var2]);
+            var1.writeFloat(this.aFloatArray2354[var2]);
+            var1.writeFloat((float)this.anIntArray2371[var2] / this.aFloat2373);
+            var1.writeFloat((float)this.anIntArray2352[var2] / this.aFloat2373);
             if(this.aBoolean2347) {
-               var1.method801(this.aFloatArray2346[var2]);
+               var1.writeFloat(this.aFloatArray2346[var2]);
             }
          } else {
-            var1.method762((float)this.anIntArray2371[var2], (byte)94);
-            var1.method762((float)this.anIntArray2358[var2], (byte)121);
-            var1.method762((float)this.anIntArray2352[var2], (byte)101);
-            var1.putInt(-124, this.anIntArray2348[var2]);
-            var1.method762(this.aFloatArray2369[var2], (byte)121);
-            var1.method762(this.aFloatArray2365[var2], (byte)117);
-            var1.method762(this.aFloatArray2354[var2], (byte)77);
-            var1.method762((float)this.anIntArray2371[var2] / this.aFloat2373, (byte)97);
-            var1.method762((float)this.anIntArray2352[var2] / this.aFloat2373, (byte)101);
+            var1.writeFloatLE((float)this.anIntArray2371[var2]);
+            var1.writeFloatLE((float)this.anIntArray2358[var2]);
+            var1.writeFloatLE((float)this.anIntArray2352[var2]);
+            var1.writeInt(this.anIntArray2348[var2]);
+            var1.writeFloatLE(this.aFloatArray2369[var2]);
+            var1.writeFloatLE(this.aFloatArray2365[var2]);
+            var1.writeFloatLE(this.aFloatArray2354[var2]);
+            var1.writeFloatLE((float)this.anIntArray2371[var2] / this.aFloat2373);
+            var1.writeFloatLE((float)this.anIntArray2352[var2] / this.aFloat2373);
             if(this.aBoolean2347) {
-               var1.method762(this.aFloatArray2346[var2], (byte)126);
+               var1.writeFloatLE(this.aFloatArray2346[var2]);
             }
          }
       }
@@ -159,7 +156,7 @@ final class Class3_Sub11 extends Class3 {
       this.aFloatArray2369 = null;
       this.aFloatArray2365 = null;
       this.aFloatArray2354 = null;
-      this.aClass130_2353 = null;
+      this.aHashTable_2353 = null;
       this.aFloatArray2346 = null;
    }
 
@@ -167,18 +164,18 @@ final class Class3_Sub11 extends Class3 {
       if(aClass3_Sub30_2372 != null && aClass3_Sub30_2372.buffer.length >= this.anInt2359 * 4) {
          aClass3_Sub30_2372.index = 0;
       } else {
-         aClass3_Sub30_2372 = new RSByteBuffer(this.anInt2359 * 4);
+         aClass3_Sub30_2372 = new DataBuffer(this.anInt2359 * 4);
       }
 
       if(aClass3_Sub30_2362 != null && aClass3_Sub30_2362.buffer.length >= this.anInt2356 * 4) {
          aClass3_Sub30_2362.index = 0;
       } else {
-         aClass3_Sub30_2362 = new RSByteBuffer(this.anInt2356 * 4);
+         aClass3_Sub30_2362 = new DataBuffer(this.anInt2356 * 4);
       }
 
       int var4;
       Class3_Sub2 var5;
-      RSByteBuffer var6;
+      DataBuffer var6;
       int[] var7;
       int[] var8;
       int var9;
@@ -192,7 +189,7 @@ final class Class3_Sub11 extends Class3 {
                   var8 = this.anIntArrayArray2360[var4];
                   if(var8 != null) {
                      for(var9 = 0; var9 < var8.length; ++var9) {
-                        aClass3_Sub30_2362.putInt(-124, var8[var9]);
+                        aClass3_Sub30_2362.writeInt(var8[var9]);
                      }
                   }
 
@@ -202,9 +199,9 @@ final class Class3_Sub11 extends Class3 {
                }
 
                for(var12 = 1; var12 < var7.length - 1; ++var12) {
-                  var6.putInt(-128, var7[0]);
-                  var6.putInt(-123, var7[var12]);
-                  var6.putInt(-123, var7[var12 + 1]);
+                  var6.writeInt(var7[0]);
+                  var6.writeInt(var7[var12]);
+                  var6.writeInt(var7[var12 + 1]);
                }
             }
          }
@@ -217,7 +214,7 @@ final class Class3_Sub11 extends Class3 {
                   var8 = this.anIntArrayArray2360[var4];
                   if(var8 != null) {
                      for(var9 = 0; var9 < var8.length; ++var9) {
-                        aClass3_Sub30_2362.method757(var8[var9], 79);
+                        aClass3_Sub30_2362.writeIntLE(var8[var9]);
                      }
                   }
 
@@ -227,9 +224,9 @@ final class Class3_Sub11 extends Class3 {
                }
 
                for(var12 = 1; var12 < var7.length - 1; ++var12) {
-                  var6.method757(var7[0], 84);
-                  var6.method757(var7[var12], 103);
-                  var6.method757(var7[var12 + 1], 82);
+                  var6.writeIntLE(var7[0]);
+                  var6.writeIntLE(var7[var12]);
+                  var6.writeIntLE(var7[var12 + 1]);
                }
             }
          }

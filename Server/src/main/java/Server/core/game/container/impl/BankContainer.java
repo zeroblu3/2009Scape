@@ -95,12 +95,9 @@ public final class BankContainer extends Container {
 			player.getBankPinManager().openType(1);
 			return;
 		}
-		player.getInterfaceManager().openComponent(762).setCloseEvent(new CloseEvent() {
-			@Override
-			public boolean close(Player player, Component c) {
-				BankContainer.this.close();
-				return true;
-			}
+		player.getInterfaceManager().openComponent(762).setCloseEvent((player, c) -> {
+			BankContainer.this.close();
+			return true;
 		});
 		player.getInterfaceManager().openSingleTab(new Component(763));
 		super.refresh();
@@ -128,12 +125,9 @@ public final class BankContainer extends Container {
 			player.getBankPinManager().openType(1);
 			return;
 		}
-		player.getInterfaceManager().openComponent(762).setCloseEvent(new CloseEvent() {
-			@Override
-			public boolean close(Player player, Component c) {
-				BankContainer.this.close();
-				return true;
-			}
+		player.getInterfaceManager().openComponent(762).setCloseEvent((player1, c) -> {
+			BankContainer.this.close();
+			return true;
 		});
 		this.player.getBank().refresh(player.getBank().listener);
 		player.getInterfaceManager().openSingleTab(new Component(763));
@@ -155,8 +149,8 @@ public final class BankContainer extends Container {
 	public long save(ByteBuffer buffer) {
 		buffer.putInt(lastAmountX);
 		buffer.put((byte) tabStartSlot.length);
-		for (int i = 0; i < tabStartSlot.length; i++) {
-			buffer.putShort((short) tabStartSlot[i]);
+		for (int j : tabStartSlot) {
+			buffer.putShort((short) j);
 		}
 		return super.save(buffer);
 	}
@@ -179,6 +173,7 @@ public final class BankContainer extends Container {
 		player.getInventory().getListeners().remove(listener);
 		player.getInterfaceManager().closeSingleTab();
 		player.removeAttribute("search");
+		player.getPacketDispatch().sendRunScript(571, "");
 	}
 
 	/**

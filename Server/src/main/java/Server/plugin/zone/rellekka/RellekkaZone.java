@@ -49,7 +49,7 @@ public final class RellekkaZone extends MapZone implements Plugin<Object> {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				NPCDefinition.forId(5507).getConfigurations().put("option:ferry-rellekka", this);
+				NPCDefinition.forId(5507).getHandlers().put("option:ferry-rellekka", this);
 				return this;
 			}
 
@@ -164,9 +164,9 @@ public final class RellekkaZone extends MapZone implements Plugin<Object> {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ObjectDefinition.forId(4616).getConfigurations().put("option:cross", this);
-			ObjectDefinition.forId(4615).getConfigurations().put("option:cross", this);
-			ObjectDefinition.forId(5847).getConfigurations().put("option:climb-over", this);
+			ObjectDefinition.forId(4616).getHandlers().put("option:cross", this);
+			ObjectDefinition.forId(4615).getHandlers().put("option:cross", this);
+			ObjectDefinition.forId(5847).getHandlers().put("option:climb-over", this);
 			return this;
 		}
 

@@ -59,12 +59,12 @@ public final class WizardTowerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(12540).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(12539).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(2147).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(32015).getConfigurations().put("option:climb-up", this);
-		NPCDefinition.forId(300).getConfigurations().put("option:teleport", this);
-		ObjectDefinition.forId(11993).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(12540).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(12539).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(2147).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(32015).getHandlers().put("option:climb-up", this);
+		NPCDefinition.forId(300).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(11993).getHandlers().put("option:open", this);
 		PluginManager.definePlugin(new WizardtowerWizardNPC());
 		PluginManager.definePlugin(new WizardTowerDialogue());
 		PluginManager.definePlugin(new WizardMisgogDialogue());

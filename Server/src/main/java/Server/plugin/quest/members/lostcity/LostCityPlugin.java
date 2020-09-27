@@ -38,13 +38,13 @@ public final class LostCityPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(1305).getConfigurations().put("option:wield", this);
-		ItemDefinition.forId(1215).getConfigurations().put("option:wield", this);
-		ItemDefinition.forId(1231).getConfigurations().put("option:wield", this);
-		ItemDefinition.forId(5680).getConfigurations().put("option:wield", this);
-		ObjectDefinition.forId(2409).getConfigurations().put("option:chop", this);
-		ObjectDefinition.forId(2406).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1292).getConfigurations().put("option:chop down", this);
+		ItemDefinition.forId(1305).getHandlers().put("option:wield", this);
+		ItemDefinition.forId(1215).getHandlers().put("option:wield", this);
+		ItemDefinition.forId(1231).getHandlers().put("option:wield", this);
+		ItemDefinition.forId(5680).getHandlers().put("option:wield", this);
+		ObjectDefinition.forId(2409).getHandlers().put("option:chop", this);
+		ObjectDefinition.forId(2406).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1292).getHandlers().put("option:chop down", this);
 		return this;
 	}
 

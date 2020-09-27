@@ -19,7 +19,7 @@ public final class MuseumGatePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(24536).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(24536).getHandlers().put("option:open", this);
 		return this;
 	}
 

@@ -1,6 +1,8 @@
 package org.runite.jagex;
 
-final class Class3_Sub20 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub20 extends Linkable {
 
    static int[] anIntArray2480 = new int[25];
 
@@ -30,7 +32,7 @@ final class Class3_Sub20 extends Class3 {
 	         Class49.aClass3_Sub28_Sub16_812 = null;
 	         Class58.anInt909 = -1;
 	         Class3_Sub13_Sub30.method313((byte)55);
-	         Class3_Sub28_Sub21.aClass47_3801.method1101();
+	         Class3_Sub28_Sub21.aClass47_3801.clear();
 	         Class100.aClass136_1413 = new Class136();
 	         ((Class102)Class51.anInterface2_838).method1618();
 	         Class68.anInt1032 = 0;
@@ -38,7 +40,7 @@ final class Class3_Sub20 extends Class3 {
 	         Class140_Sub1_Sub1.method1929();
 	         Class141.method2043();
 	         Class65.method1240();
-	         Class66.method1250(17, false);
+	         Unsorted.method1250(17, false);
 	         Class3_Sub13_Sub17.method247((byte)51);
 
 	         for(int var1 = 0; 2048 > var1; ++var1) {
@@ -53,15 +55,15 @@ final class Class3_Sub20 extends Class3 {
 	            Class127_Sub1.method1755();
 	         }
 
-	         Class3_Sub28_Sub9.method581(CacheIndex.aClass153_1948, Class140_Sub6.spritesCacheIndex);
-	         Class14.method887(Class140_Sub6.spritesCacheIndex);
+	         Class3_Sub28_Sub9.method581(CacheIndex.fontsIndex, CacheIndex.spritesIndex);
+	         Sprites.method887(CacheIndex.spritesIndex);
 	         Class3_Sub26.aClass3_Sub28_Sub16_2560 = null;
 	         Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099 = null;
 	         Class50.aClass3_Sub28_Sub16_824 = null;
 	         Class95.aClass3_Sub28_Sub16_1339 = null;
 	         Class108.aClass3_Sub28_Sub16_1457 = null;
 	         if(Class143.loadingStage == 5) {
-	            Class108.method1656(Class140_Sub6.spritesCacheIndex, (byte)-60);
+	            Class108.method1656(CacheIndex.spritesIndex, (byte)-60);
 	         }
 
 	         if(10 == Class143.loadingStage) {
@@ -79,13 +81,13 @@ final class Class3_Sub20 extends Class3 {
 
    static void method390(boolean var0, int var1, int var2, int var3, byte var4, int var5, int var6) {
       try {
-         Class3_Sub28_Sub10.anInt3631 = var3;
+         Unsorted.anInt3631 = var3;
          Class3_Sub13_Sub34.anInt3414 = var2;
-         Canvas_Sub2.anInt30 = var6;
+         Unsorted.anInt30 = var6;
          Class163_Sub2_Sub1.anInt4021 = var1;
          Class146.anInt1904 = var5;
-         if(var0 && Class3_Sub28_Sub10.anInt3631 >= 100) {
-            NPC.anInt3995 = 128 * Canvas_Sub2.anInt30 + 64;
+         if(var0 && Unsorted.anInt3631 >= 100) {
+            NPC.anInt3995 = 128 * Unsorted.anInt30 + 64;
             Class77.anInt1111 = 128 * Class146.anInt1904 + 64;
             Class7.anInt2162 = Class121.method1736(WorldListCountry.localPlane, 1, NPC.anInt3995, Class77.anInt1111) + -Class3_Sub13_Sub34.anInt3414;
          }
@@ -97,19 +99,7 @@ final class Class3_Sub20 extends Class3 {
       }
    }
 
-   public static void method391(int var0) {
-      try {
-         anIntArray2480 = null;
-         if(var0 != 25) {
-            method388((byte)-58);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "lb.B(" + var0 + ')');
-      }
-   }
-
-   Class3_Sub20(int var1, int var2) {
+	Class3_Sub20(int var1, int var2) {
       try {
          this.anInt2483 = var2;
          this.anInt2489 = var1;

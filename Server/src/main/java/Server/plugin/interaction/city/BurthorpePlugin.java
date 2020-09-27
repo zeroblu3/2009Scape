@@ -19,7 +19,7 @@ public final class BurthorpePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(4627).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(4627).getHandlers().put("option:climb-up", this);
 		return this;
 	}
 

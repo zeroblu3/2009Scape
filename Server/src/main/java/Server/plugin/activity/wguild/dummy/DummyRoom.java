@@ -97,9 +97,9 @@ public final class DummyRoom extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(15656).getConfigurations().put("option:view", this);
+		ObjectDefinition.forId(15656).getHandlers().put("option:view", this);
 		for (Dummy dummy : Dummy.values()) {
-			ObjectDefinition.forId(dummy.getObject().getId()).getConfigurations().put("option:hit", this);
+			ObjectDefinition.forId(dummy.getObject().getId()).getHandlers().put("option:hit", this);
 		}
 		GameWorld.Pulser.submit(new Pulse(10) {
 			boolean activeDummy;

@@ -241,14 +241,14 @@ class WildernessCourse
     }
 
     override fun configure() {
-        ObjectDefinition.forId(2309).configurations["option:open"] = this
-        ObjectDefinition.forId(2308).configurations["option:open"] = this
-        ObjectDefinition.forId(2307).configurations["option:open"] = this
-        ObjectDefinition.forId(2288).configurations["option:squeeze-through"] = this
-        ObjectDefinition.forId(2283).configurations["option:swing-on"] = this
-        ObjectDefinition.forId(37704).configurations["option:cross"] = this
-        ObjectDefinition.forId(2297).configurations["option:walk-across"] = this
-        ObjectDefinition.forId(2328).configurations["option:climb"] = this
+        ObjectDefinition.forId(2309).handlers["option:open"] = this
+        ObjectDefinition.forId(2308).handlers["option:open"] = this
+        ObjectDefinition.forId(2307).handlers["option:open"] = this
+        ObjectDefinition.forId(2288).handlers["option:squeeze-through"] = this
+        ObjectDefinition.forId(2283).handlers["option:swing-on"] = this
+        ObjectDefinition.forId(37704).handlers["option:cross"] = this
+        ObjectDefinition.forId(2297).handlers["option:walk-across"] = this
+        ObjectDefinition.forId(2328).handlers["option:climb"] = this
     }
 
     override fun createInstance(player: Player): AgilityCourse {

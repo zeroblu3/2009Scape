@@ -19,10 +19,10 @@ public final class KhardianDesertPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(6481).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(6545).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(6547).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(6551).getConfigurations().put("option:use", this);
+		ObjectDefinition.forId(6481).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(6545).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(6547).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(6551).getHandlers().put("option:use", this);
 		return this;
 	}
 

@@ -26,7 +26,7 @@ public final class TiaraPlugin implements Plugin<Object> {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int i : IDS) {
-			ItemDefinition.forId(i).getConfigurations().put("equipment", this);
+			ItemDefinition.forId(i).getHandlers().put("equipment", this);
 		}
 		return this;
 	}

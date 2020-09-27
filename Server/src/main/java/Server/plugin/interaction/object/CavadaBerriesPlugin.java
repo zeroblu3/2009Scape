@@ -17,8 +17,8 @@ public final class CavadaBerriesPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(756).getConfigurations().put("option:look-at", this);
-		ItemDefinition.forId(756).getConfigurations().put("option:drink", this);
+		ItemDefinition.forId(756).getHandlers().put("option:look-at", this);
+		ItemDefinition.forId(756).getHandlers().put("option:drink", this);
 		return this;
 	}
 

@@ -18,7 +18,7 @@ public final class BirdNestPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (BirdNest nest : BirdNest.values()) {
-			nest.getNest().getDefinition().getConfigurations().put("option:search", this);
+			nest.getNest().getDefinition().getHandlers().put("option:search", this);
 		}
 		return null;
 	}

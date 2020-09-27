@@ -105,12 +105,12 @@ public class PortalChamberPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(13639).getConfigurations().put("option:direct-portal", this);
-		ObjectDefinition.forId(13639).getConfigurations().put("option:scry", this);
-		ObjectDefinition.forId(13640).getConfigurations().put("option:direct-portal", this);
-		ObjectDefinition.forId(13641).getConfigurations().put("option:direct-portal", this);
+		ObjectDefinition.forId(13639).getHandlers().put("option:direct-portal", this);
+		ObjectDefinition.forId(13639).getHandlers().put("option:scry", this);
+		ObjectDefinition.forId(13640).getHandlers().put("option:direct-portal", this);
+		ObjectDefinition.forId(13641).getHandlers().put("option:direct-portal", this);
 		for (int i = 13615; i <= 13635; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:enter", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:enter", this);
 		}
 		PluginManager.definePlugin(new DirectPortalDialogue());
 		return this;

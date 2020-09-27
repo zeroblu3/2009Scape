@@ -39,7 +39,7 @@ public final class RottenPotatoPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (String option : OPTIONS) {
-			ItemDefinition.forId(ROTTEN_POTATO).getConfigurations().put("option:" + option, this);
+			ItemDefinition.forId(ROTTEN_POTATO).getHandlers().put("option:" + option, this);
 		}
 		new RottenPotatoDialogue().init();
 		return this;

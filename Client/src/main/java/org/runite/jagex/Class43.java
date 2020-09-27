@@ -39,13 +39,6 @@ final class Class43 {
       }
    }
 
-   public static void method1059(byte var0) {//TODO: Empty check method
-      try {
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "gi.E(" + var0 + ')');
-      }
-   }
-
    final void method1060(byte var1, int var2, int var3, int var4, int var5) {
       try {
          this.anInt694 = var2;
@@ -76,14 +69,14 @@ final class Class43 {
          }
 
          for(int var4 = 0; var4 < var1; ++var4) {
-            var3[var4] = Class3_Sub13_Sub38.spritePalette[Class69.bitwiseAnd(var2[var4], 255)];
+            var3[var4] = Class3_Sub13_Sub38.spritePalette[Unsorted.bitwiseAnd(var2[var4], 255)];
          }
 
          Object var6;
          if(HDToolKit.highDetail) {
-            var6 = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], RSByteBuffer.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
+            var6 = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
          } else {
-            var6 = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], RSByteBuffer.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
+            var6 = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
          }
 
          Class39.method1035((byte)111);
@@ -119,9 +112,9 @@ final class Class43 {
 
          this.aFloat707 = (float)(this.anInt693 + (var4 * this.anInt702 >> 11)) / 2048.0F;
          float var8 = this.aFloat707 / 255.0F;
-         this.aFloatArray717[0] = (float)(Class69.bitwiseAnd(this.anInt713, 16771365) >> 16) * var8;
-         this.aFloatArray717[2] = var8 * (float) Class69.bitwiseAnd(255, this.anInt713);
-         this.aFloatArray717[1] = (float)(Class69.bitwiseAnd(this.anInt713, '\uffe7') >> 8) * var8;
+         this.aFloatArray717[0] = (float)(Unsorted.bitwiseAnd(this.anInt713, 16771365) >> 16) * var8;
+         this.aFloatArray717[2] = var8 * (float) Unsorted.bitwiseAnd(255, this.anInt713);
+         this.aFloatArray717[1] = (float)(Unsorted.bitwiseAnd(this.anInt713, '\uffe7') >> 8) * var8;
       } catch (RuntimeException var7) {
          throw Class44.clientError(var7, "gi.A(" + var1 + ',' + var2 + ',' + -3696 + ')');
       }
@@ -237,30 +230,30 @@ final class Class43 {
       }
    }
 
-   Class43(RSByteBuffer var1) {
+   Class43(DataBuffer var1) {
       try {
          if(null == Class3_Sub13_Sub9.anIntArray3107) {
             Class45.method1083((byte)-94);
          }
 
-         this.anInt704 = var1.getByteB();
+         this.anInt704 = var1.readUnsignedByte();
          this.aBoolean690 = (this.anInt704 & 16) != 0;
          this.aBoolean711 = (this.anInt704 & 8) != 0;
          this.anInt704 &= 7;
-         this.anInt703 = var1.getShort();
-         this.anInt708 = var1.getShort();
-         this.anInt697 = var1.getShort();
-         this.anInt698 = var1.getByteB();
+         this.anInt703 = var1.readUnsignedShort();
+         this.anInt708 = var1.readUnsignedShort();
+         this.anInt697 = var1.readUnsignedShort();
+         this.anInt698 = var1.readUnsignedByte();
          this.method1061();
          this.aShortArray706 = new short[this.anInt698 * 2 + 1];
 
          int var2;
          for(var2 = 0; var2 < this.aShortArray706.length; ++var2) {
-            this.aShortArray706[var2] = (short)var1.getShort();
+            this.aShortArray706[var2] = (short)var1.readUnsignedShort();
          }
 
-         this.anInt713 = Class51.anIntArray834[var1.getShort()];
-         var2 = var1.getByteB();
+         this.anInt713 = Class51.anIntArray834[var1.readUnsignedShort()];
+         var2 = var1.readUnsignedByte();
          this.anInt714 = 1792 & var2 << 3;
          this.anInt705 = var2 & 31;
          if(31 != this.anInt705) {

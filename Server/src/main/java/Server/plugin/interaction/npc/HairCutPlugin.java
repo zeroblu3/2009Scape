@@ -18,7 +18,7 @@ public final class HairCutPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(598).getConfigurations().put("option:hair-cut", this);
+		NPCDefinition.forId(598).getHandlers().put("option:hair-cut", this);
 		return this;
 	}
 

@@ -1,18 +1,16 @@
 package org.runite.jagex;
 
-final class Class140_Sub7 extends GameObject {
+public final class Class140_Sub7 extends GameObject {
 
-   static RSString aClass94_2928 = RSString.createRSString("null");
    int anInt2930;
    static int[] anIntArray2931;
    private int anInt2932 = -32768;
    static int[] anIntArray2933 = new int[]{2, 0, 0, 2, 0, 0, 0, 4, 4};
-   static int anInt2934;
+   public static int anInt2934;
    static RSString[] aClass94Array2935 = new RSString[500];
    int anInt2936;
-   static int anInt2937;
+   public static int anInt2937;
    static int anInt2938;
-   static CacheIndex aClass153_2939;
 
 
    static boolean method2029(byte var0, CacheIndex var1, int var2) {
@@ -33,29 +31,12 @@ final class Class140_Sub7 extends GameObject {
       }
    }
 
-   public static void method2030(byte var0) {
-      try {
-         ItemDefinition.intsStack = null;
-         if(var0 < 82) {
-            method2031((byte)-61, false, -20, 24, (Class3_Sub2[][][])((Class3_Sub2[][][])null), 124);
-         }
-
-         anIntArray2931 = null;
-         anIntArray2933 = null;
-         aClass94Array2935 = null;
-         aClass94_2928 = null;
-         aClass153_2939 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "uj.C(" + var0 + ')');
-      }
-   }
-
    static boolean method2031(byte var0, boolean var1, int var2, int var3, Class3_Sub2[][][] var4, int var5) {
       try {
          byte var6 = !var1?(byte)(255 & Class79.anInt1127):1;
          if(Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var2][var3] == var6) {
             return false;
-         } else if((Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var2][var3] & 4) == 0) {
+         } else if((Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var2][var3] & 4) == 0) {
             return false;
          } else {
             int var8 = 0;
@@ -78,7 +59,7 @@ final class Class140_Sub7 extends GameObject {
                var8 = 4095 & 1 + var8;
                boolean var14 = false;
                boolean var15 = false;
-               if(0 == (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4)) {
+               if(0 == (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4)) {
                   var14 = true;
                }
 
@@ -86,25 +67,25 @@ final class Class140_Sub7 extends GameObject {
                int var16;
                label257:
                for(var16 = 1 + WorldListCountry.localPlane; 3 >= var16; ++var16) {
-                  if((Class9.aByteArrayArrayArray113[var16][var9][var12] & 8) == 0) {
+                  if((Unsorted.aByteArrayArrayArray113[var16][var9][var12] & 8) == 0) {
                      int var18;
                      int var20;
                      if(var14 && var4[var16][var9][var12] != null) {
                         if(null != var4[var16][var9][var12].aClass70_2234) {
-                           var17 = Class55.method1184(var10, (byte)82);
+                           var17 = Unsorted.method1184(var10, (byte)82);
                            if(var17 == var4[var16][var9][var12].aClass70_2234.anInt1055 || var4[var16][var9][var12].aClass70_2234.anInt1059 == var17) {
                               continue;
                            }
 
                            if(0 != var11) {
-                              var18 = Class55.method1184(var11, (byte)-93);
+                              var18 = Unsorted.method1184(var11, (byte)-93);
                               if(var18 == var4[var16][var9][var12].aClass70_2234.anInt1055 || var4[var16][var9][var12].aClass70_2234.anInt1059 == var18) {
                                  continue;
                               }
                            }
 
                            if(var13 != 0) {
-                              var18 = Class55.method1184(var13, (byte)99);
+                              var18 = Unsorted.method1184(var13, (byte)99);
                               if(var18 == var4[var16][var9][var12].aClass70_2234.anInt1055 || var4[var16][var9][var12].aClass70_2234.anInt1059 == var18) {
                                  continue;
                               }
@@ -147,8 +128,8 @@ final class Class140_Sub7 extends GameObject {
                }
 
                if(var15) {
-                  if(Class44.anIntArrayArrayArray723[WorldListCountry.localPlane - -1][var9][var12] > Class41.anIntArray686[var5]) {
-                     Class41.anIntArray686[var5] = Class44.anIntArrayArrayArray723[WorldListCountry.localPlane + 1][var9][var12];
+                  if(Class44.anIntArrayArrayArray723[WorldListCountry.localPlane - -1][var9][var12] > Unsorted.anIntArray686[var5]) {
+                     Unsorted.anIntArray686[var5] = Class44.anIntArrayArrayArray723[WorldListCountry.localPlane + 1][var9][var12];
                   }
 
                   var16 = var9 << 7;
@@ -178,7 +159,7 @@ final class Class140_Sub7 extends GameObject {
 
                   ++var12;
                   if(104 > var12) {
-                     if(var9 + -1 >= 0 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][-1 + var9][var12] != var6 && (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4) == 0 && (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][-1 + var9][var12 + -1] & 4) == 0) {
+                     if(var9 + -1 >= 0 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][-1 + var9][var12] != var6 && (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4) == 0 && (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][-1 + var9][var12 + -1] & 4) == 0) {
                         Class3_Sub13_Sub38.anIntArray3456[var23] = Class3_Sub13_Sub29.bitwiseOr(1375731712, Class3_Sub13_Sub29.bitwiseOr(1179648, -1 + var9));
                         Class45.anIntArray729[var23] = Class3_Sub13_Sub29.bitwiseOr(var12, 1245184);
                         Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][-1 + var9][var12] = var6;
@@ -192,7 +173,7 @@ final class Class140_Sub7 extends GameObject {
                         Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9][var12] = var6;
                      }
 
-                     if(1 + var9 < 104 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9 + 1][var12] != var6 && 0 == (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4) && (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][1 + var9][var12 - 1] & 4) == 0) {
+                     if(1 + var9 < 104 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9 + 1][var12] != var6 && 0 == (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4) && (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][1 + var9][var12 - 1] & 4) == 0) {
                         Class3_Sub13_Sub38.anIntArray3456[var23] = Class3_Sub13_Sub29.bitwiseOr(-1845493760, Class3_Sub13_Sub29.bitwiseOr(5373952, var9 + 1));
                         Class45.anIntArray729[var23] = Class3_Sub13_Sub29.bitwiseOr(5439488, var12);
                         Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9 - -1][var12] = var6;
@@ -210,7 +191,7 @@ final class Class140_Sub7 extends GameObject {
 
                   --var12;
                   if(var12 >= 0) {
-                     if(0 <= var9 + -1 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][-1 + var9][var12] != var6 && (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4) == 0 && (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var9 + -1][1 + var12] & 4) == 0) {
+                     if(0 <= var9 + -1 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][-1 + var9][var12] != var6 && (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12] & 4) == 0 && (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var9 + -1][1 + var12] & 4) == 0) {
                         Class3_Sub13_Sub38.anIntArray3456[var23] = Class3_Sub13_Sub29.bitwiseOr(Class3_Sub13_Sub29.bitwiseOr(-1 + var9, 13762560), 301989888);
                         Class45.anIntArray729[var23] = Class3_Sub13_Sub29.bitwiseOr(var12, 13828096);
                         Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][-1 + var9][var12] = var6;
@@ -224,7 +205,7 @@ final class Class140_Sub7 extends GameObject {
                         Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9][var12] = var6;
                      }
 
-                     if(var9 - -1 < 104 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9 + 1][var12] != var6 && (4 & Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12]) == 0 && (Class9.aByteArrayArrayArray113[WorldListCountry.localPlane][1 + var9][1 + var12] & 4) == 0) {
+                     if(var9 - -1 < 104 && Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9 + 1][var12] != var6 && (4 & Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][var9][var12]) == 0 && (Unsorted.aByteArrayArrayArray113[WorldListCountry.localPlane][1 + var9][1 + var12] & 4) == 0) {
                         Class3_Sub13_Sub38.anIntArray3456[var23] = Class3_Sub13_Sub29.bitwiseOr(-771751936, Class3_Sub13_Sub29.bitwiseOr(var9 - -1, 9568256));
                         Class45.anIntArray729[var23] = Class3_Sub13_Sub29.bitwiseOr(9633792, var12);
                         Class158.aByteArrayArrayArray2008[WorldListCountry.localPlane][var9 + 1][var12] = var6;
@@ -234,8 +215,8 @@ final class Class140_Sub7 extends GameObject {
                }
             }
 
-            if(-1000000 != Class41.anIntArray686[var5]) {
-               Class41.anIntArray686[var5] += 10;
+            if(-1000000 != Unsorted.anIntArray686[var5]) {
+               Unsorted.anIntArray686[var5] += 10;
                Class129_Sub1.anIntArray2696[var5] -= 50;
                Class159.anIntArray2021[var5] += 50;
                Player.anIntArray3959[var5] += 50;
@@ -260,7 +241,7 @@ final class Class140_Sub7 extends GameObject {
       }
    }
 
-   static RSString method2033(RSByteBuffer var0) {
+   static RSString method2033(DataBuffer var0) {
       try {
          try {
             int var3 = var0.getSmart();
@@ -272,7 +253,7 @@ final class Class140_Sub7 extends GameObject {
             var0.index += Class3_Sub13_Sub9.aClass36_3112.method1017(0, var3, var4, var0.buffer, var0.index);
             return Class3_Sub13_Sub3.method178(var4, var3, 0);
          } catch (Exception var6) {
-            return Class159.aClass94_2018;
+            return TextCore.aClass94_2018;
          }
       } catch (RuntimeException var7) {
          throw Class44.clientError(var7, "uj.D(" + (var0 != null?"{...}":"null") + ',' + 1 + ',' + 32767 + ')');
@@ -281,7 +262,7 @@ final class Class140_Sub7 extends GameObject {
 
    final void animate(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9, int var11, Class127_Sub1 var12) {
       try {
-         Model var13 = Class38.getItemDefinition(this.anInt2936, (byte)84).method1110(124, -1, 0, (AnimationDefinition)null, this.anInt2930, 0);
+         Model var13 = Class38.getItemDefinition(this.anInt2936).method1110(-1, 0, (AnimationDefinition)null, this.anInt2930, 0);
          if(null != var13) {
             var13.animate(var1, var2, var3, var4, var5, var6, var7, var8, var9, var11, var12);
             this.anInt2932 = var13.method1871();

@@ -19,7 +19,7 @@ public class ToyBoxPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(18802).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(18802).getHandlers().put("option:open", this);
 		return this;
 	}
 

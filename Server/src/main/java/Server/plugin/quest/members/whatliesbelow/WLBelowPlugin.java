@@ -36,17 +36,17 @@ public class WLBelowPlugin extends OptionHandler {
 		PluginManager.definePlugin(new AnnaJonesDialogue());
 		PluginManager.definePlugin(new SurokMagisDialogue());
 		PluginManager.definePlugin(new RatBurgissDialogue());
-		ObjectDefinition.forId(23095).getConfigurations().put("option:use", this);
-		ObjectDefinition.forId(23058).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(23057).getConfigurations().put("option:excavate", this);
-		WhatLiesBelow.RATS_PAPER.getDefinition().getConfigurations().put("option:read", this);
-		WhatLiesBelow.EMPTY_FOLDER.getDefinition().getConfigurations().put("option:read", this);
-		WhatLiesBelow.USED_FOLDER.getDefinition().getConfigurations().put("option:read", this);
-		WhatLiesBelow.FULL_FOLDER.getDefinition().getConfigurations().put("option:read", this);
-		WhatLiesBelow.RATS_LETTER.getDefinition().getConfigurations().put("option:read", this);
-		WhatLiesBelow.SUROKS_LETTER.getDefinition().getConfigurations().put("option:read", this);
-		WhatLiesBelow.BEACON_RING.getDefinition().getConfigurations().put("option:summon", this);
-		WhatLiesBelow.BEACON_RING.getDefinition().getConfigurations().put("option:operate", this);
+		ObjectDefinition.forId(23095).getHandlers().put("option:use", this);
+		ObjectDefinition.forId(23058).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(23057).getHandlers().put("option:excavate", this);
+		WhatLiesBelow.RATS_PAPER.getDefinition().getHandlers().put("option:read", this);
+		WhatLiesBelow.EMPTY_FOLDER.getDefinition().getHandlers().put("option:read", this);
+		WhatLiesBelow.USED_FOLDER.getDefinition().getHandlers().put("option:read", this);
+		WhatLiesBelow.FULL_FOLDER.getDefinition().getHandlers().put("option:read", this);
+		WhatLiesBelow.RATS_LETTER.getDefinition().getHandlers().put("option:read", this);
+		WhatLiesBelow.SUROKS_LETTER.getDefinition().getHandlers().put("option:read", this);
+		WhatLiesBelow.BEACON_RING.getDefinition().getHandlers().put("option:summon", this);
+		WhatLiesBelow.BEACON_RING.getDefinition().getHandlers().put("option:operate", this);
 		return this;
 	}
 

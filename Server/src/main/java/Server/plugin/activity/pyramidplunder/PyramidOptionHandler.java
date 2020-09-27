@@ -43,18 +43,18 @@ public final class PyramidOptionHandler extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(16484).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16485).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16487).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16488).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16490).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16491).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16493).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(16494).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(16458).getConfigurations().put("option:leave tomb", this);
-		ObjectDefinition.forId(16459).getConfigurations().put("option:leave tomb", this);
-		NPCDefinition.forId(4476).getConfigurations().put("option:start-minigame", this);
-		NPCDefinition.forId(4476).getConfigurations().put("option:talk-to",this);
+		ObjectDefinition.forId(16484).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16485).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16487).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16488).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16490).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16491).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16493).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(16494).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(16458).getHandlers().put("option:leave tomb", this);
+		ObjectDefinition.forId(16459).getHandlers().put("option:leave tomb", this);
+		NPCDefinition.forId(4476).getHandlers().put("option:start-minigame", this);
+		NPCDefinition.forId(4476).getHandlers().put("option:talk-to",this);
 		return null;
 	}
 

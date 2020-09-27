@@ -18,7 +18,7 @@ import core.plugin.Plugin;
 public class DesertBandit extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         new BanditDialogue().init();
-        NPCDefinition.forId(6388).getConfigurations().put("option:talk-to",this);
+        NPCDefinition.forId(6388).getHandlers().put("option:talk-to",this);
         return this;
     }
     public boolean handle(Player player, Node node, String options){

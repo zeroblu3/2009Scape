@@ -1,11 +1,14 @@
 package org.runite.jagex;
 
-final class Class3_Sub2 extends Class3 {
+import org.rs09.client.Linkable;
+import org.rs09.client.data.HashTable;
+
+final class Class3_Sub2 extends Linkable {
 
    static int anInt2217 = 2;
    static int anInt2218 = -1;
    static short[] aShortArray2219 = new short[]{(short)-4160, (short)-4163, (short)-8256, (short)-8259, (short)22461};
-   static Class130 aClass130_2220 = new Class130(32);
+   static HashTable aHashTable_2220 = new HashTable(32);
    Class25[] aClass25Array2221 = new Class25[5];
    boolean aBoolean2222;
    int anInt2223;
@@ -26,7 +29,6 @@ final class Class3_Sub2 extends Class3 {
    int anInt2239;
    Class126 aClass126_2240;
    int anInt2241;
-   static int anInt2243 = 3353893;
    int anInt2244;
    Class72 aClass72_2245;
    static int anInt2246 = 0;
@@ -41,20 +43,11 @@ final class Class3_Sub2 extends Class3 {
       }
    }
 
-   public static void method102(int var0) {
-      try {
-         aClass130_2220 = null;
-         aShortArray2219 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bj.A(" + var0 + ')');
-      }
-   }
-
    static void method103() {
       try {
-         Client.aClass130_2194.method1773(122);
-         Class81.aClass13_1139.method883();
-         Class126.aClass13_1666.method883();
+         Client.aHashTable_2194.clear();
+         Class81.aClass13_1139.clear();
+         Class126.aClass13_1666.clear();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "bj.B(" + (byte) 24 + ')');
       }

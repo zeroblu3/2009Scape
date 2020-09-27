@@ -12,32 +12,19 @@ final class Class3_Sub13_Sub9 extends Class3_Sub13 {
    static int anInt3114 = 0;
    static int[][] anIntArrayArray3115;
 
-   public static void method209(byte var0) {
-      try {
-         aShortArray3110 = null;
-         aClass36_3112 = null;
-         if(var0 >= 30) {
-            anIntArray3107 = null;
-            anIntArrayArray3115 = (int[][])null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "f.C(" + var0 + ')');
-      }
-   }
-
    public Class3_Sub13_Sub9() {
       super(0, true);
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var3) {
             if(var1 == 0) {
-               this.anInt3108 = var2.getByteB();
+               this.anInt3108 = var2.readUnsignedByte();
             } else if (var1 == 1) {
-                this.anInt3113 = var2.getByteB();
+                this.anInt3113 = var2.readUnsignedByte();
             } else if (var1 == 2) {
-                this.anInt3109 = var2.getShort();
+                this.anInt3109 = var2.readUnsignedShort();
             }
 
          }

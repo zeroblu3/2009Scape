@@ -24,8 +24,8 @@ public final class EnchantedJewelleryPlugin extends OptionHandler {
 		new JewelleryDialogue().init();
 		for (EnchantedJewellery jewellery : EnchantedJewellery.values()) {
 			for (int id : jewellery.getIds()) {
-				ItemDefinition.forId(id).getConfigurations().put("option:rub", this);
-				ItemDefinition.forId(id).getConfigurations().put("option:operate", this);
+				ItemDefinition.forId(id).getHandlers().put("option:rub", this);
+				ItemDefinition.forId(id).getHandlers().put("option:operate", this);
 			}
 		}
 		return this;

@@ -35,9 +35,9 @@ public final class TreeSpiritRandomNPC extends AntiMacroNPC {
 	@Override
 	public void init() {
 		NPCDefinition def = NPCDefinition.forId(getId());
-		def.getConfigurations().put("attack_animation", new Animation(94));
-		def.getConfigurations().put("defence_animation", new Animation(95));
-		def.getConfigurations().put("death_animation", new Animation(96));
+		def.getHandlers().put("attack_animation", new Animation(94));
+		def.getHandlers().put("defence_animation", new Animation(95));
+		def.getHandlers().put("death_animation", new Animation(96));
 		super.init();
 		setRespawn(false);
 		getProperties().getCombatPulse().attack(player);

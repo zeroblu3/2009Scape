@@ -16,8 +16,8 @@ public final class PestControlSquire extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(3781).getConfigurations().put("option:talk-to", this);
-		NPCDefinition.forId(3781).getConfigurations().put("option:leave", this);
+		NPCDefinition.forId(3781).getHandlers().put("option:talk-to", this);
+		NPCDefinition.forId(3781).getHandlers().put("option:leave", this);
 		return this;
 	}
 

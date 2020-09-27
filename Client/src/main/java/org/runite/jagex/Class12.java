@@ -1,17 +1,18 @@
 package org.runite.jagex;
 
-final class Class12 {
+import org.rs09.client.util.ArrayUtils;
+
+public final class Class12 {
 
    static float aFloat319;
    GameObject object;
-   static CacheIndex aClass153_322;
-   static CacheIndex aClass153_323;
+   public static CacheIndex aClass153_322;
+   public static CacheIndex aClass153_323;
    int anInt324;
    int anInt326;
    long aLong328;
    boolean aBoolean329 = false;
    int anInt330;
-   static RSString aClass94_331 = RSString.createRSString("(U1");
 
 
    static void method870(int var0, byte var1, int var2, int var3, int var4, int var5) {
@@ -73,19 +74,9 @@ final class Class12 {
       }
    }
 
-   public static void method871(byte var0) {
-      try {
-         aClass94_331 = null;
-         aClass153_322 = null;
-         aClass153_323 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bm.A(" + var0 + ')');
-      }
-   }
-
    static int method872(int var1, int var2) {
       try {
-         Class3_Sub25 var3 = (Class3_Sub25)Class3_Sub2.aClass130_2220.method1780((long)var1);
+         Class3_Sub25 var3 = (Class3_Sub25)Class3_Sub2.aHashTable_2220.get((long)var1);
          return null == var3?0:(var2 >= 0 && var2 < var3.anIntArray2551.length?var3.anIntArray2551[var2]:0);
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "bm.C(" + -1 + ',' + var1 + ',' + var2 + ')');
@@ -96,7 +87,7 @@ final class Class12 {
       try {
          int var2 = var1.length;
          byte[] var3 = new byte[var2];
-          Class76.method1357(var1, 0, var3, 0, var2);
+          ArrayUtils.arraycopy(var1, 0, var3, 0, var2);
           return var3;
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "bm.D(" + (byte) 62 + ',' + (var1 != null?"{...}":"null") + ')');

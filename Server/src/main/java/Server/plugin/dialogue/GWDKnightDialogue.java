@@ -27,7 +27,7 @@ public final class GWDKnightDialogue extends DialoguePlugin {
 	 * Constructs a new {@code GWDKnightDialogue} {@code Object}.
 	 */
 	public GWDKnightDialogue() {
-		NPCDefinition.forId(6201).getConfigurations().put("option:talk-to", new OptionHandler() {
+		NPCDefinition.forId(6201).getHandlers().put("option:talk-to", new OptionHandler() {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {

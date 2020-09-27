@@ -73,7 +73,7 @@ public final class AlKharidWarriorPlugin extends AbstractNPC {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (int id : ID) {
-				NPCDefinition.forId(id).getConfigurations().put("option:attack", this);
+				NPCDefinition.forId(id).getHandlers().put("option:attack", this);
 			}
 			return this;
 		}

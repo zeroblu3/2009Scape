@@ -25,15 +25,15 @@ public class SlayerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(8783).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(8785).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(23158).getConfigurations().put("option:exit", this);
-		ObjectDefinition.forId(23157).getConfigurations().put("option:exit", this);
-		ObjectDefinition.forId(5008).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(15767).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(15811).getConfigurations().put("option:exit", this);
-		ObjectDefinition.forId(96).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(35121).getConfigurations().put("option:climb-down", this);
+		ObjectDefinition.forId(8783).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(8785).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(23158).getHandlers().put("option:exit", this);
+		ObjectDefinition.forId(23157).getHandlers().put("option:exit", this);
+		ObjectDefinition.forId(5008).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(15767).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(15811).getHandlers().put("option:exit", this);
+		ObjectDefinition.forId(96).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(35121).getHandlers().put("option:climb-down", this);
 		for (Location loc : BRYNE_DIGS) {
 			DigSpadeHandler.register(loc, new DigAction() {
 				@Override

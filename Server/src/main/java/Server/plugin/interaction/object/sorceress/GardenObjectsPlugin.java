@@ -72,9 +72,9 @@ public final class GardenObjectsPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		ObjectDefinition.setOptionHandler("pick-fruit", this);
 		ObjectDefinition.setOptionHandler("drink-from", this);
-		ObjectDefinition.forId(21794).getConfigurations().put("option:search", this);
+		ObjectDefinition.forId(21794).getHandlers().put("option:search", this);
 		for (HerbDefinition h : HerbDefinition.values()) {
-			ObjectDefinition.forId(h.getId()).getConfigurations().put("option:pick", this);
+			ObjectDefinition.forId(h.getId()).getHandlers().put("option:pick", this);
 		}
 		new SqirkJuicePlugin().newInstance(arg);
 		new OsmanDialogue().init();

@@ -21,7 +21,7 @@ public class ThessaliaPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(548).getConfigurations().put("option:change-clothes", this);
+		NPCDefinition.forId(548).getHandlers().put("option:change-clothes", this);
 		return this;
 	}
 

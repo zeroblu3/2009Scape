@@ -14,7 +14,7 @@ public class ReindeerHatPlugin extends OptionHandler {
 
     @Override
     public Plugin newInstance(Object arg) throws Throwable {
-        ReindeerHat.getDefinition().getConfigurations().put("option:operate",this);
+        ReindeerHat.getDefinition().getHandlers().put("option:operate",this);
         return null;
     }
 

@@ -18,8 +18,8 @@ public final class CustomsOfficerPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(380).getConfigurations().put("option:pay-fare", this);
-		NPCDefinition.forId(381).getConfigurations().put("option:pay-fare", this);
+		NPCDefinition.forId(380).getHandlers().put("option:pay-fare", this);
+		NPCDefinition.forId(381).getHandlers().put("option:pay-fare", this);
 		return this;
 	}
 

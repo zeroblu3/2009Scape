@@ -35,8 +35,8 @@ public class ImpBoxPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		PluginManager.definePlugin(new ImpInterfaceHandler(null));
 		for (int id : IDS) {
-			ItemDefinition.forId(id).getConfigurations().put("option:bank", this);
-			ItemDefinition.forId(id).getConfigurations().put("option:talk-to", this);
+			ItemDefinition.forId(id).getHandlers().put("option:bank", this);
+			ItemDefinition.forId(id).getHandlers().put("option:talk-to", this);
 		}
 		PluginManager.definePlugin(new ImpBoxDialogue());
 		return this;

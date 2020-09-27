@@ -4,8 +4,6 @@ import java.util.Objects;
 
 final class Class3_Sub13_Sub24 extends Class3_Sub13 {
 
-   static int[] npcSpawnCacheIndices;
-   static NPC[] npcs = new NPC['\u8000'];
    static int anInt3293 = 0;
    private int anInt3294 = 1;
    static RSString aClass94_3295;
@@ -60,20 +58,6 @@ final class Class3_Sub13_Sub24 extends Class3_Sub13 {
       }
    }
 
-   public static void method288(byte var0) {
-      try {
-         if(var0 < 31) {
-            method289();
-         }
-
-         npcSpawnCacheIndices = null;
-         npcs = null;
-         aClass94_3295 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "nm.C(" + var0 + ')');
-      }
-   }
-
    public Class3_Sub13_Sub24() {
       super(1, false);
    }
@@ -84,8 +68,8 @@ final class Class3_Sub13_Sub24 extends Class3_Sub13 {
           if(Class159.anInt2023 > 0) {
             Class167.method2269((byte)46);
          } else {
-            Class163_Sub2_Sub1.aClass89_4012 = Class3_Sub15.aClass89_2429;
-            Class3_Sub15.aClass89_2429 = null;
+            Class163_Sub2_Sub1.aClass89_4012 = Class3_Sub15.activeConnection;
+            Class3_Sub15.activeConnection = null;
             Class117.method1719(40);
          }
       } catch (RuntimeException var2) {
@@ -174,14 +158,14 @@ final class Class3_Sub13_Sub24 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3294 = var2.getByteB();
+            this.anInt3294 = var2.readUnsignedByte();
          } else if(var1 == 1) {
-            this.anInt3297 = var2.getByteB();
+            this.anInt3297 = var2.readUnsignedByte();
          } else if (2 == var1) {
-            this.aBoolean2375 = var2.getByteB() == 1;
+            this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          if(!var3) {

@@ -8,30 +8,18 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
    static short[] aShortArray3349 = new short[]{(short)-10304, (short)9104, (short)-1, (short)-1, (short)-1};
    private int anInt3350 = 4096;
    static int anInt3351;
-   static CacheIndex aClass153_3352;
    static RSString aClass94_3353;
    private int anInt3354 = 3216;
 
 
-   public static void method300(int var0) {
-      try {
-         aClass94_3353 = null;
-         aShortArray3349 = null;
-         aClass3_Sub11ArrayArray3346 = (Class3_Sub11[][])null;
-         aClass153_3352 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "pk.F(" + var0 + ')');
-      }
-   }
-
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(0 == var1) {
-            this.anInt3350 = var2.getShort();
+            this.anInt3350 = var2.readUnsignedShort();
          } else if(1 == var1) {
-            this.anInt3347 = var2.getShort();
+            this.anInt3347 = var2.readUnsignedShort();
          } else if (var1 == 2) {
-             this.anInt3354 = var2.getShort();
+             this.anInt3354 = var2.readUnsignedShort();
          }
 
          if(!var3) {
@@ -124,7 +112,7 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
             if(var2.anInt2907 == WorldListCountry.localPlane && Class44.anInt719 <= var2.anInt2899) {
                if(Class44.anInt719 >= var2.anInt2925) {
                   if(var2.anInt2919 > 0) {
-                     NPC var3 = Class3_Sub13_Sub24.npcs[-1 + var2.anInt2919];
+                     NPC var3 = NPC.npcs[-1 + var2.anInt2919];
                      if(null != var3 && var3.anInt2819 >= 0 && 13312 > var3.anInt2819 && var3.anInt2829 >= 0 && var3.anInt2829 < 13312) {
                         var2.method2024(var3.anInt2829, Class44.anInt719, Class121.method1736(var2.anInt2907, 1, var3.anInt2819, var3.anInt2829) + -var2.anInt2903, var3.anInt2819);
                      }
@@ -148,7 +136,7 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
                   Class20.method907(WorldListCountry.localPlane, (int)var2.aDouble2920, (int)var2.aDouble2900, (int)var2.aDouble2914, 60, var2, var2.anInt2924, -1L, false);
                }
             } else {
-               var1.method86(-1024);
+               var1.unlink();
             }
          }
 

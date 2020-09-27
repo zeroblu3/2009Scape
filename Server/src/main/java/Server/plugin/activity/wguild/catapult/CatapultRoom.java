@@ -166,8 +166,8 @@ public final class CatapultRoom extends MapZone implements Plugin<Object> {
 		PluginManager.definePlugin(new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ItemDefinition.forId(SHIELD_ID).getConfigurations().put("option:wield", this);
-				ObjectDefinition.forId(15657).getConfigurations().put("option:view", this);
+				ItemDefinition.forId(SHIELD_ID).getHandlers().put("option:wield", this);
+				ObjectDefinition.forId(15657).getHandlers().put("option:view", this);
 				return this;
 			}
 

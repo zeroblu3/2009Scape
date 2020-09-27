@@ -29,6 +29,13 @@ public final class Repository {
 	private static final NodeList<NPC> NPCS = new NodeList<>(ServerConstants.MAX_NPCS);
 
 	/**
+	 * List of player names who have logged in, quick and dirty work-around for the double-logging issue.
+	 * This list needs to have values added to it before any sort of parsing is done for the login process due
+	 * to the time it takes for the parsing to occur, which is the root of this issue to begin with.
+	 */
+	public static final List<String> LOGGED_IN_PLAYERS = new ArrayList<String>(ServerConstants.MAX_PLAYERS);
+
+	/**
 	 * The renderable NPCs.
 	 */
 	private static final List<NPC> RENDERABLE_NPCS = new CopyOnWriteArrayList<>();

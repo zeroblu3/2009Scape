@@ -17,9 +17,9 @@ public class ZombieHeadPlugin extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ItemDefinition def = ItemDefinition.forId(ZOMBIE_HEAD.getId());
-        def.getConfigurations().put("option:talk-at",this);
-        def.getConfigurations().put("option:display",this);
-        def.getConfigurations().put("option:question",this);
+        def.getHandlers().put("option:talk-at",this);
+        def.getHandlers().put("option:display",this);
+        def.getHandlers().put("option:question",this);
         return this;
     }
 

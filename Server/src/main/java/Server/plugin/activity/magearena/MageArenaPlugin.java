@@ -47,17 +47,17 @@ public final class MageArenaPlugin extends OptionHandler {
 		PluginManager.definePlugin(new LundailDialogue());
 		PluginManager.definePlugin(new KolodionDialogue());
 		PluginManager.definePlugin(new ChamberGuardianDialogue());
-		ItemDefinition.forId(2412).getConfigurations().put("option:drop", this);
-		ItemDefinition.forId(2413).getConfigurations().put("option:drop", this);
-		ItemDefinition.forId(2414).getConfigurations().put("option:drop", this);
-		ItemDefinition.forId(2412).getConfigurations().put("option:take", this);
-		ItemDefinition.forId(2413).getConfigurations().put("option:take", this);
-		ItemDefinition.forId(2414).getConfigurations().put("option:take", this);
-		ObjectDefinition.forId(2873).getConfigurations().put("option:pray at", this);
-		ObjectDefinition.forId(2874).getConfigurations().put("option:pray at", this);
-		ObjectDefinition.forId(2875).getConfigurations().put("option:pray at", this);
-		ObjectDefinition.forId(2878).getConfigurations().put("option:step-into", this);
-		ObjectDefinition.forId(2879).getConfigurations().put("option:step-into", this);
+		ItemDefinition.forId(2412).getHandlers().put("option:drop", this);
+		ItemDefinition.forId(2413).getHandlers().put("option:drop", this);
+		ItemDefinition.forId(2414).getHandlers().put("option:drop", this);
+		ItemDefinition.forId(2412).getHandlers().put("option:take", this);
+		ItemDefinition.forId(2413).getHandlers().put("option:take", this);
+		ItemDefinition.forId(2414).getHandlers().put("option:take", this);
+		ObjectDefinition.forId(2873).getHandlers().put("option:pray at", this);
+		ObjectDefinition.forId(2874).getHandlers().put("option:pray at", this);
+		ObjectDefinition.forId(2875).getHandlers().put("option:pray at", this);
+		ObjectDefinition.forId(2878).getHandlers().put("option:step-into", this);
+		ObjectDefinition.forId(2879).getHandlers().put("option:step-into", this);
 		return this;
 	}
 

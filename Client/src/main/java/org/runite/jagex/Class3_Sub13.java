@@ -1,19 +1,20 @@
 package org.runite.jagex;
+import org.rs09.client.Linkable;
+import org.rs09.client.rendering.Toolkit;
+
 import java.awt.Graphics;
 
-abstract class Class3_Sub13 extends Class3 {
+abstract class Class3_Sub13 extends Linkable {
 
    boolean aBoolean2375;
    Class97 aClass97_2376;
    Class3_Sub13[] aClass3_Sub13Array2377;
    static int anInt2378 = 0;
    static Class3_Sub28_Sub17 aClass3_Sub28_Sub17_2379;
-   static RSString COMMAND_SHIFT_DROP_CLICK = RSString.createRSString("::shiftclick");
    int anInt2381;
    Class114 aClass114_2382;
    static int anInt2383 = 0;
    static int anInt2384 = 0;
-   static RSString COMMAND_REPLACE_CANVAS = RSString.createRSString("::replacecanvas");
    static int[] anIntArray2386 = new int[]{1, -1, -1, 1};
 
 
@@ -59,22 +60,7 @@ abstract class Class3_Sub13 extends Class3 {
       }
    }
 
-   public static void method156(int var0) {
-      try {
-         if(var0 != 2) {
-            method153(18);
-         }
-
-         anIntArray2386 = null;
-         COMMAND_REPLACE_CANVAS = null;
-         COMMAND_SHIFT_DROP_CLICK = null;
-         aClass3_Sub28_Sub17_2379 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "j.PA(" + var0 + ')');
-      }
-   }
-
-   void method157(int var1, RSByteBuffer var2, boolean var3) {
+   void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
             this.aClass3_Sub13Array2377 = (Class3_Sub13[])null;
@@ -163,7 +149,7 @@ abstract class Class3_Sub13 extends Class3 {
             return null;
          } else {
 
-            Class3_Sub28_Sub17_Sub1 var2 = new Class3_Sub28_Sub17_Sub1(var0, Class164.anIntArray2048, RSByteBuffer.anIntArray2591, Class140_Sub7.anIntArray2931, Class3_Sub13_Sub6.anIntArray3076, Class163_Sub1.aByteArrayArray2987);
+            Class3_Sub28_Sub17_Sub1 var2 = new Class3_Sub28_Sub17_Sub1(var0, Class164.anIntArray2048, Unsorted.anIntArray2591, Class140_Sub7.anIntArray2931, Class3_Sub13_Sub6.anIntArray3076, Class163_Sub1.aByteArrayArray2987);
             Class39.method1035((byte)126);
             return var2;
          }
@@ -180,13 +166,9 @@ abstract class Class3_Sub13 extends Class3 {
             int var5 = var3 + 6;
             int var6 = Class126.aClass3_Sub28_Sub17_1669.method680(var2, 250);
             int var7 = Class126.aClass3_Sub28_Sub17_1669.method684(var2, 250) * 13;
-            if(HDToolKit.highDetail) {
-               Class22.method934(var4 - var3, -var3 + var5, var3 + var6 - -var3, var3 + var3 + var7, 0);
-               Class22.method927(-var3 + var4, -var3 + var5, var6 + var3 - -var3, var3 + var7 + var3, 16777215);
-            } else {
-               Class74.method1323(var4 - var3, -var3 + var5, var3 + var6 - -var3, var3 + var3 + var7, 0);
-               Class74.method1311(var4 + -var3, var5 - var3, var3 + var3 + var6, var3 + var3 + var7, 16777215);
-            }
+            //Used for the top left (please wait...)
+            Toolkit.getActiveToolkit().method934(var4 - var3, -var3 + var5, var3 + var6 - -var3, var3 + var3 + var7, 0);
+            Toolkit.getActiveToolkit().drawRect(-var3 + var4, -var3 + var5, var6 + var3 - -var3, var3 + var7 + var3, 16777215, 255);
 
             Class126.aClass3_Sub28_Sub17_1669.method676(var2, var4, var5, var6, var7, 16777215, -1, 1, 1, 0);
             Class75.method1340(var4 + -var3, var6 + (var3 - -var3), -var3 + var5, var3 + var7 + var3);
@@ -195,14 +177,14 @@ abstract class Class3_Sub13 extends Class3 {
                   HDToolKit.method1826();
                } else {
                   try {
-                     Graphics var8 = Class3_Sub28_Sub12.aCanvas3648.getGraphics();
+                     Graphics var8 = Class3_Sub28_Sub12.canvas.getGraphics();
                      Class164_Sub1.aClass158_3009.method2179(var8);
                   } catch (Exception var9) {
-                     Class3_Sub28_Sub12.aCanvas3648.repaint();
+                     Class3_Sub28_Sub12.canvas.repaint();
                   }
                }
             } else {
-               Class69.method1282(var4, (byte)-97, var5, var7, var6);
+               Unsorted.method1282(var4, (byte)-97, var5, var7, var6);
             }
 
          }

@@ -99,27 +99,27 @@ public final class WaterfallPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		PluginManager.definePlugin(new WaterfallUseWithHandler());
-		NPCDefinition.forId(305).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(1987).getConfigurations().put("option:board", this);
-		ObjectDefinition.forId(2020).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(2022).getConfigurations().put("option:get in", this);
-		ObjectDefinition.forId(10283).getConfigurations().put("option:swim", this);
-		ObjectDefinition.forId(1996).getConfigurations().put("option:swim to", this);
-		ObjectDefinition.forId(1989).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(1990).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(1991).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(37247).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(32711).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(33046).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(42313).getConfigurations().put("option:open",this);
-		ObjectDefinition.forId(33047).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(33047).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(33066).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(1999).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(42319).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(2002).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(1992).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2014).getConfigurations().put("option:take treasure", this);
+		NPCDefinition.forId(305).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(1987).getHandlers().put("option:board", this);
+		ObjectDefinition.forId(2020).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(2022).getHandlers().put("option:get in", this);
+		ObjectDefinition.forId(10283).getHandlers().put("option:swim", this);
+		ObjectDefinition.forId(1996).getHandlers().put("option:swim to", this);
+		ObjectDefinition.forId(1989).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(1990).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(1991).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(37247).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(32711).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(33046).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(42313).getHandlers().put("option:open",this);
+		ObjectDefinition.forId(33047).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(33047).getHandlers().put("option:close", this);
+		ObjectDefinition.forId(33066).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(1999).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(42319).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(2002).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(1992).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2014).getHandlers().put("option:take treasure", this);
 		return this;
 	}
 

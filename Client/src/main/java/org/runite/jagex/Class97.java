@@ -2,7 +2,7 @@ package org.runite.jagex;
 
 import java.util.Objects;
 
-final class Class97 {
+public final class Class97 {
 
    private int[][][] anIntArrayArrayArray1362;
    static byte[] aByteArray1364 = new byte['\u8080'];
@@ -17,8 +17,7 @@ final class Class97 {
    static int[][] anIntArrayArray1373;
    static RSString aClass94_1374;
    static int anInt1375;
-   static CacheIndex aClass153_1376;
-   static CacheIndex aClass153_1378;
+   public static CacheIndex aClass153_1378;
    boolean aBoolean1379 = false;
    static RSString aClass94_1380;
    static Class3_Sub28_Sub16_Sub2 aClass3_Sub28_Sub16_Sub2_1381;
@@ -76,28 +75,10 @@ final class Class97 {
       }
    }
 
-   public static void method1592(byte var0) {
-      try {
-         aClass153_1376 = null;
-         aClass153_1378 = null;
-         anIntArrayArray1373 = (int[][])null;
-         aClass3_Sub28_Sub16_Sub2_1381 = null;
-         if(var0 > 25) {
-            aClass94_1380 = null;
-            aClass153_1372 = null;
-            aClass153_1370 = null;
-            aByteArray1364 = null;
-            aClass94_1374 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "nd.B(" + var0 + ')');
-      }
-   }
-
    static void method1593(int var0, CacheIndex var1) {
       try {
-         Class154.anInt1966 = var1.getArchiveForName(Class3_Sub28_Sub4.aClass94_3574);
-         Class79.anInt1124 = var1.getArchiveForName(Class95.aClass94_1341);
+         Class154.anInt1966 = var1.getArchiveForName(TextCore.aClass94_3574);
+         Class79.anInt1124 = var1.getArchiveForName(TextCore.aClass94_1341);
          if(var0 <= 108) {
             method1593(14, (CacheIndex)null);
          }
@@ -128,7 +109,7 @@ final class Class97 {
                   Class3_Sub20 var5 = (Class3_Sub20) this.aClass61_1366.method1212();
                   var4 = new Class3_Sub20(var2, Objects.requireNonNull(var5).anInt2483);
                   this.aClass3_Sub20Array1371[var5.anInt2489] = null;
-                  var5.method86(-1024);
+                  var5.unlink();
                }
 
                this.aClass3_Sub20Array1371[var2] = var4;
@@ -164,8 +145,8 @@ final class Class97 {
          }
       }
 
-      aClass94_1374 = RSString.createRSString("zap");
+      aClass94_1374 = RSString.parse("zap");
       anIntArrayArray1373 = new int[104][104];
-      aClass94_1380 = RSString.createRSString(")4p=");
+      aClass94_1380 = RSString.parse(")4p=");
    }
 }

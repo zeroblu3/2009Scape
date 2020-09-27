@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.util.ArrayUtils;
+
 import java.util.Random;
 
 final class Class3_Sub13_Sub7 extends Class3_Sub13 {
@@ -24,23 +26,6 @@ final class Class3_Sub13_Sub7 extends Class3_Sub13 {
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "d.P(" + var1 + ')');
-      }
-   }
-
-   public static void method200(byte var0) {
-      try {
-         aShortArray3095 = null;
-         if(var0 != 122) {
-            method201(62, -109, 127);
-         }
-
-         GameShell.frame = null;
-         aRandom3088 = null;
-         aClass3_Sub28_Sub16_3099 = null;
-         aClass11_3087 = null;
-         aClass153_3098 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "d.E(" + var0 + ')');
       }
    }
 
@@ -74,14 +59,14 @@ final class Class3_Sub13_Sub7 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3085 = var2.getByteB();
+            this.anInt3085 = var2.readUnsignedByte();
          } else if(var1 == 1) {
-            this.anInt3093 = var2.getShort();
+            this.anInt3093 = var2.readUnsignedShort();
          } else if (var1 == 2) {
-            this.anInt3086 = var2.getByteB();
+            this.anInt3086 = var2.readUnsignedByte();
          }
 
          if(!var3) {
@@ -115,7 +100,7 @@ final class Class3_Sub13_Sub7 extends Class3_Sub13 {
                   }
                }
 
-               Class76.method1359(var3, 0, Class113.anInt1559, var6);
+               ArrayUtils.fill(var3, 0, Class113.anInt1559, var6);
             } else {
                for(int var12 = 0; Class113.anInt1559 > var12; ++var12) {
                   int var9 = Class102.anIntArray2125[var12];

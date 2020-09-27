@@ -19,19 +19,19 @@ public final class DummyAttackPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2038).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15624).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15625).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15626).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15627).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15628).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15629).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(15630).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(18238).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(25648).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(28912).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(823).getConfigurations().put("option:attack", this);
-		ObjectDefinition.forId(23921).getConfigurations().put("option:attack", this);
+		ObjectDefinition.forId(2038).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15624).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15625).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15626).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15627).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15628).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15629).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(15630).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(18238).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(25648).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(28912).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(823).getHandlers().put("option:attack", this);
+		ObjectDefinition.forId(23921).getHandlers().put("option:attack", this);
 		return this;
 	}
 

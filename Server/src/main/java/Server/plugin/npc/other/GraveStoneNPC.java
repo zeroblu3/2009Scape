@@ -433,10 +433,10 @@ public class GraveStoneNPC extends AbstractNPC {
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (GraveType g : GraveType.values()) {
 				for (int start = g.getNpcId(); start < g.getNpcId() + 3; start++) {
-					NPCDefinition.forId(start).getConfigurations().put("option:read", this);
-					NPCDefinition.forId(start).getConfigurations().put("option:bless", this);
-					NPCDefinition.forId(start).getConfigurations().put("option:demolish", this);
-					NPCDefinition.forId(start).getConfigurations().put("option:repair", this);
+					NPCDefinition.forId(start).getHandlers().put("option:read", this);
+					NPCDefinition.forId(start).getHandlers().put("option:bless", this);
+					NPCDefinition.forId(start).getHandlers().put("option:demolish", this);
+					NPCDefinition.forId(start).getHandlers().put("option:repair", this);
 				}
 			}
 			return this;

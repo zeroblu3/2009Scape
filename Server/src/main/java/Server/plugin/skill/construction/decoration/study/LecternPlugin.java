@@ -143,7 +143,7 @@ public class LecternPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int i = 13642; i <= 13648; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:study", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:study", this);
 		}
 		PluginManager.definePlugin(new TeleTabInterface());
 		return this;

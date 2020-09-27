@@ -17,10 +17,10 @@ public final class RingUnchargePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(14807).getConfigurations().put("option:uncharge", this);
-		ItemDefinition.forId(14808).getConfigurations().put("option:uncharge", this);
-		ItemDefinition.forId(14809).getConfigurations().put("option:uncharge", this);
-		ItemDefinition.forId(14810).getConfigurations().put("option:uncharge", this);
+		ItemDefinition.forId(14807).getHandlers().put("option:uncharge", this);
+		ItemDefinition.forId(14808).getHandlers().put("option:uncharge", this);
+		ItemDefinition.forId(14809).getHandlers().put("option:uncharge", this);
+		ItemDefinition.forId(14810).getHandlers().put("option:uncharge", this);
 		return this;
 	}
 

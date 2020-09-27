@@ -19,7 +19,7 @@ public final class CamelotNodePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(26017).getConfigurations().put("option:climb-down", this);
+		ObjectDefinition.forId(26017).getHandlers().put("option:climb-down", this);
 		return this;
 	}
 

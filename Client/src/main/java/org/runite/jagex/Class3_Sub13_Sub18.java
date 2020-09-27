@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.config.GameConfig;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub18 extends Class3_Sub13 {
@@ -13,10 +15,10 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
    static void method254(boolean var0, Class3_Sub31 var1) {
       try {
-         int var4 = (int)var1.aLong71;
+         int var4 = (int)var1.linkableKey;
 
          int var3 = var1.anInt2602;
-         var1.method86(-1024);
+         var1.unlink();
          if(var0) {
             Class60.method1208((byte)79, var3);
          }
@@ -24,14 +26,14 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
          Class164_Sub2.method2249(var3);
          RSInterface var5 = Class7.getRSInterface(var4);
          if(null != var5) {
-            Class20.method909(107, var5);
+            Class20.method909(var5);
          }
 
          int var6 = Class3_Sub13_Sub34.anInt3415;
 
          int var7;
          for(var7 = 0; var6 > var7; ++var7) {
-            if(Class2.method73(Class3_Sub13_Sub7.aShortArray3095[var7])) {
+            if(Unsorted.method73(Class3_Sub13_Sub7.aShortArray3095[var7])) {
                Class3_Sub25.method509(var7);
             }
          }
@@ -41,16 +43,16 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
             Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
          } else {
             Class75.method1340(AbstractIndexedSprite.anInt1462, Class3_Sub28_Sub3.anInt3552, Class3_Sub13_Sub33.anInt3395, Class3_Sub28_Sub1.anInt3537);
-            var7 = Class168.aClass3_Sub28_Sub17_2096.method682(TextCore.HasChooseOptions);
+            var7 = Class168.aClass3_Sub28_Sub17_2096.method682(RSString.parse(GameConfig.RCM_TITLE));
 
             for(int var8 = 0; Class3_Sub13_Sub34.anInt3415 > var8; ++var8) {
-               int var9 = Class168.aClass3_Sub28_Sub17_2096.method682(RSByteBuffer.method802(var8));
+               int var9 = Class168.aClass3_Sub28_Sub17_2096.method682(Unsorted.method802(var8));
                if(var7 < var9) {
                   var7 = var9;
                }
             }
 
-            Class3_Sub28_Sub1.anInt3537 = Class3_Sub13_Sub34.anInt3415 * 15 + (CacheIndex.aBoolean1951?26:22);
+            Class3_Sub28_Sub1.anInt3537 = Class3_Sub13_Sub34.anInt3415 * 15 + (Unsorted.aBoolean1951?26:22);
             Class3_Sub28_Sub3.anInt3552 = var7 + 8;
          }
 
@@ -136,12 +138,12 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.anInt3217 = var2.getShort() << 4;
+            this.anInt3217 = var2.readUnsignedShort() << 4;
          } else if (var1 == 1) {
-            this.aBoolean2375 = var2.getByteB() == 1;
+            this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          if(!var3) {
@@ -209,10 +211,10 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
       int var14 = var13 = var10 + 128;
       int var15;
       int var16 = var15 = var12 + 128;
-      int var17 = Class44.anIntArrayArrayArray723[var1][var6][var7] - Class3_Sub28_Sub13.anInt3657;
-      int var18 = Class44.anIntArrayArrayArray723[var1][var6 + 1][var7] - Class3_Sub28_Sub13.anInt3657;
-      int var19 = Class44.anIntArrayArrayArray723[var1][var6 + 1][var7 + 1] - Class3_Sub28_Sub13.anInt3657;
-      int var20 = Class44.anIntArrayArrayArray723[var1][var6][var7 + 1] - Class3_Sub28_Sub13.anInt3657;
+      int var17 = Class44.anIntArrayArrayArray723[var1][var6][var7] - Unsorted.anInt3657;
+      int var18 = Class44.anIntArrayArrayArray723[var1][var6 + 1][var7] - Unsorted.anInt3657;
+      int var19 = Class44.anIntArrayArrayArray723[var1][var6 + 1][var7 + 1] - Unsorted.anInt3657;
+      int var20 = Class44.anIntArrayArrayArray723[var1][var6][var7 + 1] - Unsorted.anInt3657;
       int var21 = var12 * var4 + var10 * var5 >> 16;
       var12 = var12 * var5 - var10 * var4 >> 16;
       var10 = var21;
@@ -253,7 +255,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                   if((var26 - var28) * (var25 - var29) - (var27 - var29) * (var24 - var28) > 0) {
                      if(Class3_Sub13_Sub21.aBoolean3261 && Class3_Sub13_Sub4.method185(Class49.anInt819 + Class51.anInt846, Class3_Sub13_Sub23_Sub1.anInt4039 + Class51.anInt835, var27, var29, var25, var26, var28, var24)) {
                         Class27.anInt515 = var6;
-                        Class66.anInt999 = var7;
+                        Unsorted.anInt999 = var7;
                      }
 
                      if(!HDToolKit.highDetail && !var8) {
@@ -279,7 +281,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                   if((var22 - var24) * (var29 - var25) - (var23 - var25) * (var28 - var24) > 0) {
                      if(Class3_Sub13_Sub21.aBoolean3261 && Class3_Sub13_Sub4.method185(Class49.anInt819 + Class51.anInt846, Class3_Sub13_Sub23_Sub1.anInt4039 + Class51.anInt835, var23, var25, var29, var22, var24, var28)) {
                         Class27.anInt515 = var6;
-                        Class66.anInt999 = var7;
+                        Unsorted.anInt999 = var7;
                      }
 
                      if(!HDToolKit.highDetail && !var8) {

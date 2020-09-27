@@ -154,7 +154,7 @@ public final class FadliDialogue extends DialoguePlugin {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			NPCDefinition.forId(958).getConfigurations().put("option:buy", this);
+			NPCDefinition.forId(958).getHandlers().put("option:buy", this);
 			return this;
 		}
 

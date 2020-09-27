@@ -20,9 +20,9 @@ public final class LunarIslePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(16777).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(16774).getConfigurations().put("option:open", this);
-		NPCDefinition.forId(4512).getConfigurations().put("option:go-inside", this);
+		ObjectDefinition.forId(16777).getHandlers().put("option:close", this);
+		ObjectDefinition.forId(16774).getHandlers().put("option:open", this);
+		NPCDefinition.forId(4512).getHandlers().put("option:go-inside", this);
 		return this;
 	}
 

@@ -69,7 +69,7 @@ public final class RowdySlaveNPC extends AbstractNPC {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				NPCDefinition.forId(getIds()[0]).getConfigurations().put("option:talk-to", this);
+				NPCDefinition.forId(getIds()[0]).getHandlers().put("option:talk-to", this);
 				return this;
 			}
 

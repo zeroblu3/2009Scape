@@ -43,18 +43,18 @@ public class LumbridgeBasementPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(6899).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(6898).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(6905).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(6912).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(5949).getConfigurations().put("option:jump-across", this);
-		ObjectDefinition.forId(6658).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(32944).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(40261).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(40262).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(40849).getConfigurations().put("option:jump-down", this);
-		ObjectDefinition.forId(40260).getConfigurations().put("option:climb-through", this);
-		ObjectDefinition.forId(41077).getConfigurations().put("option:crawl-through", this);
+		ObjectDefinition.forId(6899).getHandlers().put("option:squeeze-through", this);
+		ObjectDefinition.forId(6898).getHandlers().put("option:squeeze-through", this);
+		ObjectDefinition.forId(6905).getHandlers().put("option:squeeze-through", this);
+		ObjectDefinition.forId(6912).getHandlers().put("option:squeeze-through", this);
+		ObjectDefinition.forId(5949).getHandlers().put("option:jump-across", this);
+		ObjectDefinition.forId(6658).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(32944).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(40261).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(40262).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(40849).getHandlers().put("option:jump-down", this);
+		ObjectDefinition.forId(40260).getHandlers().put("option:climb-through", this);
+		ObjectDefinition.forId(41077).getHandlers().put("option:crawl-through", this);
 		PluginManager.definePlugins(new LightCreatureNPC(), new LightCreatureHandler(), new FishMongerDialogue());
 		ObjectBuilder.add(new GameObject(40260, Location.create(2526, 5828, 2), 2));
 		return this;

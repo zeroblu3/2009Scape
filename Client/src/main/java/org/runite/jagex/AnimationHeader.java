@@ -21,16 +21,7 @@ final class AnimationHeader {
 	private static short[] aShortArray1397 = new short[500];
 
 
-	public static void method1595() {
-		aShortArray1397 = null;
-		aShortArray1394 = null;
-		aShortArray1391 = null;
-		aShortArray1390 = null;
-		aShortArray1392 = null;
-		aByteArray1389 = null;
-	}
-
-//	AnimationHeader(byte[] bs, Class3_Sub17 skin) {
+	//	AnimationHeader(byte[] bs, Class3_Sub17 skin) {
 //		this.skins = skin;
 //		RSByteBuffer buffer = new RSByteBuffer(bs);
 //		RSByteBuffer parent = new RSByteBuffer(bs);
@@ -125,10 +116,10 @@ final class AnimationHeader {
 //	}
 		   AnimationHeader(byte[] bs, Class3_Sub17 skin) {
 		      this.skins = skin;
-		      RSByteBuffer buffer = new RSByteBuffer(bs);
-		      RSByteBuffer parent = new RSByteBuffer(bs);
+		      DataBuffer buffer = new DataBuffer(bs);
+		      DataBuffer parent = new DataBuffer(bs);
 		      buffer.index = 2;
-		      int size = buffer.getByteB();
+		      int size = buffer.readUnsignedByte();
 		      int var6 = 0;
 		      int var7 = -1;
 		      int var8 = -1;
@@ -140,7 +131,7 @@ final class AnimationHeader {
 		         if(var10 == 0) {
 		            var7 = i;
 		         }
-		         int var11 = buffer.getByteB();
+		         int var11 = buffer.readUnsignedByte();
 		         if(var11 > 0) {
 		            if(var10 == 0) {
 		               var8 = i;

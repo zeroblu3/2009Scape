@@ -21,7 +21,7 @@ public final class EnchantedGemPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(4155).getConfigurations().put("option:check", this);
+		ItemDefinition.forId(4155).getHandlers().put("option:check", this);
 		return this;
 	}
 

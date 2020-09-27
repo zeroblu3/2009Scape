@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.ReferenceCache;
+
 abstract class Class140_Sub4 extends GameObject {
 
    int textEffect = 0;
@@ -14,7 +16,6 @@ abstract class Class140_Sub4 extends GameObject {
    int anInt2762 = 0;
    int renderAnimationId = -1;
    int anInt2764 = -1;
-   static RSString aClass94_2765 = RSString.createRSString(" ");
    private int anInt2766 = 0;
    int[] anIntArray2767 = new int[10];
    int[] anIntArray2768 = new int[4];
@@ -40,7 +41,7 @@ abstract class Class140_Sub4 extends GameObject {
    int anInt2789 = 0;
    int anInt2790;
    int anInt2791 = 0;
-   static Class93 aClass93_2792 = new Class93(64);
+   static ReferenceCache aReferenceCache_2792 = new ReferenceCache(64);
    int anInt2793 = -1;
    static int[] anIntArray2794 = new int[100];
    byte[] aByteArray2795 = new byte[10];
@@ -531,22 +532,6 @@ abstract class Class140_Sub4 extends GameObject {
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "fe.I(" + var1 + ')');
-      }
-   }
-
-   public static void method1974(byte var0) {
-      try {
-         if(var0 > -101) {
-            aClass3_Sub28_Sub16Array2839 = (Class3_Sub28_Sub16[])null;
-         }
-
-         ItemDefinition.methodStack = null;
-         aClass94_2765 = null;
-         aClass93_2792 = null;
-         aClass3_Sub28_Sub16Array2839 = null;
-         anIntArray2794 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "fe.K(" + var0 + ')');
       }
    }
 

@@ -1,5 +1,4 @@
 package org.runite.jagex;
-import org.runite.Configurations;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -7,8 +6,7 @@ import java.util.Date;
 final class Class15 implements Runnable {
 
    static short[][] aShortArrayArray344;
-    static RSString timeZone = RSString.createRSString(" GMT");
-    volatile boolean aBoolean345 = false;
+   volatile boolean aBoolean345 = false;
    static boolean aBoolean346;
    static int[] localNPCIndexes = new int['\u8000'];
    Signlink aClass87_350;
@@ -20,7 +18,7 @@ final class Class15 implements Runnable {
    static boolean method888(int var0, ObjectDefinition var1, int var3, int var4, int var5, int var6) {
       try {
          Class2 var7 = Class3_Sub28_Sub6.c(var1.anInt1516);
-         if(var7.anInt64 == -1) {
+         if(var7.sprite == -1) {
             return false;
          } else {
             if(var1.aBoolean1537) {
@@ -30,7 +28,7 @@ final class Class15 implements Runnable {
                var6 = 0;
             }
 
-            LDIndexedSprite var8 = var7.method77(var6, (byte)-111);
+            LDIndexedSprite var8 = var7.getSprite(var6);
             if(var8 == null) {
                return true;
             } else {
@@ -48,10 +46,10 @@ final class Class15 implements Runnable {
                   var11 = 4 * var9;
                }
 
-               if(var7.anInt61 == 0) {
+               if(var7.color == 0) {
                   var8.method1677(var0 * 4 + 48, 48 + 4 * (-var10 + -var5 + 104), var11, var12);
                } else {
-                  var8.method1669(48 + 4 * var0, 4 * (-var10 + -var5 + 104) + 48, var11, var12, var7.anInt61);
+                  var8.method1669(48 + 4 * var0, 4 * (-var10 + -var5 + 104) + 48, var11, var12, var7.color);
                }
 
                return false;
@@ -62,12 +60,8 @@ final class Class15 implements Runnable {
       }
    }
 
-   static void method889(byte var0, RSByteBuffer var1) {
+   static void method889(DataBuffer var1) {
       try {
-         if(var0 != 105) {
-            localNPCIndexes = (int[])null;
-         }
-
          int var3 = Class158.anInt2010 >> 1;
          int var2 = Class3_Sub13_Sub23_Sub1.anInt4034 >> 2 << 10;
          byte[][] var4 = new byte[Class23.anInt455][Class108.anInt1460];
@@ -79,23 +73,23 @@ final class Class15 implements Runnable {
             int var7 = 0;
             var6 = 0;
             boolean var5 = false;
-            if(var1.getByteB() == 1) {
-               var6 = var1.getByteB();
-               var7 = var1.getByteB();
+            if(var1.readUnsignedByte() == 1) {
+               var6 = var1.readUnsignedByte();
+               var7 = var1.readUnsignedByte();
                var5 = true;
             }
 
-            int var8 = var1.getByteB();
-            int var9 = var1.getByteB();
+            int var8 = var1.readUnsignedByte();
+            int var9 = var1.readUnsignedByte();
             int var10 = -Class3_Sub13_Sub21.anInt3256 + var8 * 64;
-            int var11 = -1 + Class108.anInt1460 - var9 * 64 + Class2.anInt65;
+            int var11 = -1 + Class108.anInt1460 - var9 * 64 + Unsorted.anInt65;
             if(var10 >= 0 && 0 <= -63 + var11 && Class23.anInt455 > var10 - -63 && var11 < Class108.anInt1460) {
                for(var12 = 0; var12 < 64; ++var12) {
                   byte[] var13 = var4[var10 - -var12];
 
                   for(var14 = 0; 64 > var14; ++var14) {
                      if(!var5 || var12 >= 8 * var6 && 8 + 8 * var6 > var12 && var14 >= var7 * 8 && var14 < 8 + 8 * var7) {
-                        var13[var11 - var14] = var1.getByte();
+                        var13[var11 - var14] = var1.readSignedByte();
                      }
                   }
                }
@@ -177,7 +171,7 @@ final class Class15 implements Runnable {
                      int var23 = var36 != 0?Class3_Sub8.method129(var35 / var18, var15 / var18, var14 * 256 / var36):0;
                      if(var4[var12][var19] == 0) {
                         if(var22 != null) {
-                           var22[Class69.bitwiseAnd(4032, var19 << 6) - -Class69.bitwiseAnd(var12, 63)] = 0;
+                           var22[Unsorted.bitwiseAnd(4032, var19 << 6) - -Unsorted.bitwiseAnd(var12, 63)] = 0;
                         }
                      } else {
                         if(var22 == null) {
@@ -192,7 +186,7 @@ final class Class15 implements Runnable {
                         }
 
                         int var25 = var24 + (896 & var23) + (var23 + var2 & '\ufc00');
-                        var22[Class69.bitwiseAnd(4032, var19 << 6) + Class69.bitwiseAnd(63, var12)] = Class51.anIntArray834[Class47.method1100(96, var25)];
+                        var22[Unsorted.bitwiseAnd(4032, var19 << 6) + Unsorted.bitwiseAnd(63, var12)] = Class51.anIntArray834[Unsorted.method1100(96, var25)];
                      }
                   }
                }
@@ -200,33 +194,7 @@ final class Class15 implements Runnable {
          }
 
       } catch (RuntimeException var26) {
-         throw Class44.clientError(var26, "cj.H(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
-      }
-   }
-
-   static Object method890(int var1, byte[] var2) {
-      try {
-         if(var2 == null) {
-            return null;
-         } else {
-            if(var1 >= -67) {
-               method891(19);
-            }
-
-            if(var2.length > 136 && !Class45.aBoolean732) {
-               try {
-                  Class144 var3 = (Class144)Class.forName(Configurations.PACKAGE_JAGEX + ".Class144_Sub1").newInstance();
-                  var3.method2066(400, var2);
-                  return var3;
-               } catch (Throwable var4) {
-                  Class45.aBoolean732 = true;
-               }
-            }
-
-            return var2;
-         }
-      } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "cj.E(" + ',' + var1 + ',' + "{...}" + ')');
+         throw Class44.clientError(var26, "cj.H(" + (var1 != null?"{...}":"null") + ')');
       }
    }
 
@@ -243,7 +211,7 @@ final class Class15 implements Runnable {
                   }
                }
 
-               Class3_Sub13_Sub34.method331(10L, 64);
+               TimeUtils.sleep(10L);
                Class81.method1400(this.aClass87_350, (Object)null, -71);
             }
          } catch (Exception var7) {
@@ -261,7 +229,7 @@ final class Class15 implements Runnable {
       try {
          Class3_Sub28_Sub16[] var1 = new Class3_Sub28_Sub16[Class95.anInt1338];
          if(var0 != -5) {
-            method894(113L, (byte)48);
+            method894(113L);
          }
 
          for(int var2 = 0; var2 < Class95.anInt1338; ++var2) {
@@ -270,13 +238,13 @@ final class Class15 implements Runnable {
             int[] var5 = new int[var3];
 
             for(int var6 = 0; var6 < var3; ++var6) {
-               var5[var6] = Class3_Sub13_Sub38.spritePalette[Class69.bitwiseAnd(255, var4[var6])];
+               var5[var6] = Class3_Sub13_Sub38.spritePalette[Unsorted.bitwiseAnd(255, var4[var6])];
             }
 
             if(HDToolKit.highDetail) {
-               var1[var2] = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+               var1[var2] = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
             } else {
-               var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+               var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
             }
          }
 
@@ -287,46 +255,24 @@ final class Class15 implements Runnable {
       }
    }
 
-   public static void method892(int var0) {
-      try {
-         aShortArrayArray344 = (short[][])null;
-         aClass64_351 = null;
-         if(var0 <= 75) {
-            aBoolean346 = false;
-         }
-
-         localNPCIndexes = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "cj.G(" + var0 + ')');
-      }
-   }
-
-   static RSString method894(long var0, byte var2) {
+   static RSString method894(long var0) {
       try {
          Class3_Sub28_Sub5.aCalendar3581.setTime(new Date(var0));
          int var3 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.DAY_OF_WEEK);//Day of the week
          int var4 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.DATE);
          int var5 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.MONTH);
-         if(var2 < 9) {
-            method889((byte)7, (RSByteBuffer)null);
-         }
-
          int var6 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.YEAR);
          int var7 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.HOUR_OF_DAY);
          int var8 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.MINUTE);
          int var9 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.SECOND);
-         return RenderAnimationDefinition.method903(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], Class3_Sub13_Sub12.aClass94_3145, Class72.method1298((byte)9, var4 / 10), Class72.method1298((byte)9, var4 % 10), Class161.aClass94_2025, TextCore.MonthsOfTheYear[var5], Class161.aClass94_2025, Class72.method1298((byte)9, var6), Class24.aClass94_465, Class72.method1298((byte)9, var7 / 10), Class72.method1298((byte)9, var7 % 10), Class155.char_colon, Class72.method1298((byte)9, var8 / 10), Class72.method1298((byte)9, var8 % 10), Class155.char_colon, Class72.method1298((byte)9, var9 / 10), Class72.method1298((byte)9, var9 % 10), timeZone}, (byte)-96);
+         return RenderAnimationDefinition.method903(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], TextCore.aClass94_3145, Class72.method1298((byte)9, var4 / 10), Class72.method1298((byte)9, var4 % 10), TextCore.aClass94_2025, TextCore.MonthsOfTheYear[var5], TextCore.aClass94_2025, Class72.method1298((byte)9, var6), TextCore.aClass94_465, Class72.method1298((byte)9, var7 / 10), Class72.method1298((byte)9, var7 % 10), TextCore.char_colon, Class72.method1298((byte)9, var8 / 10), Class72.method1298((byte)9, var8 % 10), TextCore.char_colon, Class72.method1298((byte)9, var9 / 10), Class72.method1298((byte)9, var9 % 10), TextCore.timeZone});
       } catch (RuntimeException var10) {
-         throw Class44.clientError(var10, "cj.F(" + var0 + ',' + var2 + ')');
+         throw Class44.clientError(var10, "cj.F(" + var0 + ')');
       }
    }
 
-   static int[][] method895(int var4, byte var8) {
+   static int[][] method895(int var4) {
       try {
-         if(var8 >= -52) {
-            method891(115);
-         }
-
          int[][] var9 = new int[256][64];
          Class3_Sub13_Sub4 var10 = new Class3_Sub13_Sub4();
          var10.anInt3062 = (int)((float) 0.4 * 4096.0F);
@@ -343,7 +289,7 @@ final class Class15 implements Runnable {
 
          return var9;
       } catch (RuntimeException var12) {
-         throw Class44.clientError(var12, "cj.B(" + false + ',' + 3 + ',' + 64 + ',' + 256 + ',' + var4 + ',' + 4 + ',' + 8 + ',' + (float) 0.4 + ',' + var8 + ')');
+         throw Class44.clientError(var12, "cj.B(" + false + ',' + 3 + ',' + 64 + ',' + 256 + ',' + var4 + ',' + 4 + ',' + 8 + ',' + (float) 0.4 + ')');
       }
    }
 

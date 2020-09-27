@@ -27,8 +27,8 @@ public class CoalTrucksHandler extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         PluginManager.definePlugin(new useCoalWithTruck());
         ObjectDefinition def = ObjectDefinition.forId(2114);
-        def.getConfigurations().put("option:remove-coal",this);
-        def.getConfigurations().put("option:investigate",this);
+        def.getHandlers().put("option:remove-coal",this);
+        def.getHandlers().put("option:investigate",this);
         return this;
     }
 

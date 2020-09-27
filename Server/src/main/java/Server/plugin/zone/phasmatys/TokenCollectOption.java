@@ -5,7 +5,6 @@ import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 
@@ -22,7 +21,7 @@ public class TokenCollectOption extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        NPCDefinition.forId(1686).getConfigurations().put("option:collect",this);
+        NPCDefinition.forId(1686).getHandlers().put("option:collect",this);
         return this;
     }
 }

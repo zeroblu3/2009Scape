@@ -338,7 +338,7 @@ public class ItemDefinition extends Definition<Item> {
 			} else if (opcode == 2) {
 				def.name = ByteBufferUtils.getString(buffer);
 			} else if (opcode == 3) {
-				def.configurations.put("examine", ByteBufferUtils.getString(buffer)); // Examine
+				def.handlers.put("examine", ByteBufferUtils.getString(buffer)); // Examine
 																						// info.
 			} else if (opcode == 4) {
 				def.modelZoom = buffer.getShort() & 0xFFFF;
@@ -551,7 +551,7 @@ public class ItemDefinition extends Definition<Item> {
 		modelRotationY = templateReference.modelRotationY;
 		modelZoom = templateReference.modelZoom;
 		textureColour1 = templateReference.textureColour1;
-		configurations.put(ItemConfigParser.TRADEABLE, true);
+		handlers.put(ItemConfigParser.TRADEABLE, true);
 	}
 
 	/**
@@ -1553,7 +1553,7 @@ public class ItemDefinition extends Definition<Item> {
 	 * @param plugin the plugin.
 	 */
 	public void setItemPlugin(ItemPlugin plugin) {
-		getConfigurations().put("wrapper", plugin);
+		getHandlers().put("wrapper", plugin);
 	}
 
 	/**

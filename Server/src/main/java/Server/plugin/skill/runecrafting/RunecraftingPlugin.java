@@ -40,14 +40,14 @@ public class RunecraftingPlugin extends OptionHandler {
 		PluginManager.definePlugin(new EnchantTiaraPlugin());
 		PluginManager.definePlugin(new MysteriousRuinPlugin());
 		PluginManager.definePlugin(new CombinationRunePlugin());
-		ObjectDefinition.forId(2492).getConfigurations().put("option:use", this);
-		NPCDefinition.forId(553).getConfigurations().put("option:teleport", this);
-		NPCDefinition.forId(2328).getConfigurations().put("option:teleport", this);
-		ObjectDefinition.forId(26849).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(26850).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(268).getConfigurations().put("option:climb", this);
-		ObjectDefinition.forId(26844).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(26845).getConfigurations().put("option:squeeze-through", this);
+		ObjectDefinition.forId(2492).getHandlers().put("option:use", this);
+		NPCDefinition.forId(553).getHandlers().put("option:teleport", this);
+		NPCDefinition.forId(2328).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(26849).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(26850).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(268).getHandlers().put("option:climb", this);
+		ObjectDefinition.forId(26844).getHandlers().put("option:squeeze-through", this);
+		ObjectDefinition.forId(26845).getHandlers().put("option:squeeze-through", this);
 		return this;
 	}
 
@@ -129,16 +129,16 @@ public class RunecraftingPlugin extends OptionHandler {
 	 */
 	private void addNodes() {
 		for (Altar altar : Altar.values()) {
-			ObjectDefinition.forId(altar.getObject()).getConfigurations().put("option:craft-rune", this);
-			ObjectDefinition.forId(altar.getPortal()).getConfigurations().put("option:use", this);
+			ObjectDefinition.forId(altar.getObject()).getHandlers().put("option:craft-rune", this);
+			ObjectDefinition.forId(altar.getPortal()).getHandlers().put("option:use", this);
 		}
 		for (MysteriousRuin ruin : MysteriousRuin.values()) {
 			for (int i : ruin.getObject()) {
-				ObjectDefinition.forId(i).getConfigurations().put("option:enter", this);
+				ObjectDefinition.forId(i).getHandlers().put("option:enter", this);
 			}
 		}
 		for (Talisman talisman : Talisman.values()) {
-			ItemDefinition.forId(talisman.getTalisman().getId()).getConfigurations().put("option:locate", this);
+			ItemDefinition.forId(talisman.getTalisman().getId()).getHandlers().put("option:locate", this);
 		}
 	}
 

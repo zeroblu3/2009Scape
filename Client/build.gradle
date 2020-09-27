@@ -6,6 +6,7 @@ mainClassName = 'org.runite.Client'
 
 dependencies {
     implementation 'com.github.Vatuu:discord-rpc:1.6.2'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
     implementation files('libs/clientlibs.jar')
 }

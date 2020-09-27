@@ -21,9 +21,9 @@ public final class CulinomancerChestPliugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(12309).getConfigurations().put("option:bank", this);
-		ObjectDefinition.forId(12309).getConfigurations().put("option:buy-items", this);
-		ObjectDefinition.forId(12309).getConfigurations().put("option:buy-food", this);
+		ObjectDefinition.forId(12309).getHandlers().put("option:bank", this);
+		ObjectDefinition.forId(12309).getHandlers().put("option:buy-items", this);
+		ObjectDefinition.forId(12309).getHandlers().put("option:buy-food", this);
 		GameObject object = RegionManager.getObject(new Location(3219, 9623, 0));
 		ObjectBuilder.replace(object, object.transform(object.getId(), 3));
 		return this;

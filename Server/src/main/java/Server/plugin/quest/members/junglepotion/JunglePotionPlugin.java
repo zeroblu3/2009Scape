@@ -22,10 +22,10 @@ public final class JunglePotionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2584).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(2585).getConfigurations().put("option:climb", this);
+		ObjectDefinition.forId(2584).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(2585).getHandlers().put("option:climb", this);
 		for (JungleObjective s : JungleObjective.values()) {
-			ObjectDefinition.forId(s.getObjectId()).getConfigurations().put("option:search", this);
+			ObjectDefinition.forId(s.getObjectId()).getHandlers().put("option:search", this);
 		}
 		ObjectBuilder.add(new GameObject(2585, Location.create(2828, 9522, 0), 8, 0));
 		return this;

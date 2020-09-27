@@ -24,16 +24,16 @@ public class SpinSpinningWheelPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2644).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(4309).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(8748).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(20365).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(21304).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(25824).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(26143).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(34497).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(36970).getConfigurations().put("option:spin", this);
-		ObjectDefinition.forId(37476).getConfigurations().put("option:spin", this);
+		ObjectDefinition.forId(2644).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(4309).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(8748).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(20365).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(21304).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(25824).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(26143).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(34497).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(36970).getHandlers().put("option:spin", this);
+		ObjectDefinition.forId(37476).getHandlers().put("option:spin", this);
 		return this;
 	}
 

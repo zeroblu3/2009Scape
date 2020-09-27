@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.HashTable;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub2 extends Class3_Sub13 {
@@ -11,28 +13,20 @@ final class Class3_Sub13_Sub2 extends Class3_Sub13 {
    private int anInt3046 = 4096;
 
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(0 == var1) {
-            this.anInt3043 = var2.getShort();
+            this.anInt3043 = var2.readUnsignedShort();
          } else if(1 == var1) {
-            this.anInt3046 = var2.getShort();
+            this.anInt3046 = var2.readUnsignedShort();
          } else if (2 == var1) {
-             this.aBoolean2375 = var2.getByteB() == 1;
+             this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          //aClass94_3042 = (RSString)null;
 
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "aj.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
-      }
-   }
-
-   public static void method172(int var0) {
-      try {
-         anIntArray3045 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "aj.B(" + var0 + ')');
       }
    }
 
@@ -106,7 +100,7 @@ final class Class3_Sub13_Sub2 extends Class3_Sub13 {
 
    static void method174() {
       try {
-         Class163_Sub2_Sub1.aClass93_4015.method1522(-127, 5);
+         Class163_Sub2_Sub1.aReferenceCache_4015.sweep(5);
 
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "aj.E(" + 4096 + ',' + 5 + ')');
@@ -218,14 +212,14 @@ final class Class3_Sub13_Sub2 extends Class3_Sub13 {
          }
 
          for(; var1 < Class95.anInt1344; ++var1) {
-            Class29 var2 = Class145.method2076(-109, var1);
+            Class29 var2 = Class145.method2076(var1);
             if(null != var2 && var2.anInt556 == 0) {
                Class57.anIntArray898[var1] = 0;
                ItemDefinition.ram[var1] = 0;
             }
          }
 
-         Class86.aClass130_3679 = new Class130(16);
+         Class86.aHashTable_3679 = new HashTable(16);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "aj.O(" + var0 + ')');
       }

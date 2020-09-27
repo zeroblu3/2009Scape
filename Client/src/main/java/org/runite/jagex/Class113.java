@@ -27,22 +27,12 @@ final class Class113 {
 
    static void method1702(boolean var1) {
       try {
-         if(var1 == !Class14.aBoolean337) {
-            Class14.aBoolean337 = var1;
+         if(var1 == !Sprites.aBoolean337) {
+            Sprites.aBoolean337 = var1;
             Class3_Sub10.method139(76);
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "pe.B(" + (byte) -124 + ',' + var1 + ')');
-      }
-   }
-
-   public static void method1703(int var0) {
-      try {
-         if(var0 != 10967) {
-            method1703(-117);
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "pe.A(" + var0 + ')');
       }
    }
 

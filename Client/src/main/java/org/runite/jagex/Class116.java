@@ -1,4 +1,6 @@
 package org.runite.jagex;
+import org.rs09.client.util.ArrayUtils;
+
 import java.util.Random;
 
 final class Class116 {
@@ -30,23 +32,12 @@ final class Class116 {
    private Class34 aClass34_1608;
 
 
-   public static void method1715() {
-      anIntArray1598 = null;
-      anIntArray1594 = null;
-      anIntArray1591 = null;
-      anIntArray1601 = null;
-      anIntArray1602 = null;
-      anIntArray1603 = null;
-      anIntArray1599 = null;
-      anIntArray1600 = null;
-   }
-
    private int method1716(int var1, int var2, int var3) {
       return var3 == 1?((var1 & 32767) < 16384?var2:-var2):(var3 == 2?anIntArray1591[var1 & 32767] * var2 >> 14:(var3 == 3?((var1 & 32767) * var2 >> 14) - var2:(var3 == 4?anIntArray1594[var1 / 2607 & 32767] * var2:0)));
    }
 
    final int[] method1717(int var1, int var2) {
-      Class76.method1363(anIntArray1598, 0, var1);
+      ArrayUtils.zero(anIntArray1598, 0, var1);
       if (var2 >= 10) {
          double var3 = (double) var1 / ((double) var2 + 0.0D);
          this.aClass34_1589.method1008();
@@ -233,12 +224,12 @@ final class Class116 {
       return anIntArray1598;
    }
 
-   final void method1718(RSByteBuffer var1) {
+   final void method1718(DataBuffer var1) {
       this.aClass34_1589 = new Class34();
       this.aClass34_1589.method1010(var1);
       this.aClass34_1587 = new Class34();
       this.aClass34_1587.method1010(var1);
-      int var2 = var1.getByteB();
+      int var2 = var1.readUnsignedByte();
       if(var2 != 0) {
          --var1.index;
          this.aClass34_1608 = new Class34();
@@ -247,7 +238,7 @@ final class Class116 {
          this.aClass34_1607.method1010(var1);
       }
 
-      var2 = var1.getByteB();
+      var2 = var1.readUnsignedByte();
       if(var2 != 0) {
          --var1.index;
          this.aClass34_1595 = new Class34();
@@ -256,7 +247,7 @@ final class Class116 {
          this.aClass34_1584.method1010(var1);
       }
 
-      var2 = var1.getByteB();
+      var2 = var1.readUnsignedByte();
       if(var2 != 0) {
          --var1.index;
          this.aClass34_1585 = new Class34();
@@ -278,8 +269,8 @@ final class Class116 {
 
       this.anInt1590 = var1.getSmart();
       this.anInt1604 = var1.getSmart();
-      this.anInt1586 = var1.getShort();
-      this.anInt1593 = var1.getShort();
+      this.anInt1586 = var1.readUnsignedShort();
+      this.anInt1593 = var1.readUnsignedShort();
       this.aClass103_1606 = new Class103();
       this.aClass34_1592 = new Class34();
       this.aClass103_1606.method1620(var1, this.aClass34_1592);

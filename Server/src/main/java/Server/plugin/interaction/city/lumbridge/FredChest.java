@@ -19,9 +19,9 @@ import core.plugin.Plugin;
 public class FredChest extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable{
-        ObjectDefinition.forId(37009).getConfigurations().put("option:open",this);
-        ObjectDefinition.forId(37010).getConfigurations().put("option:shut",this);
-        ObjectDefinition.forId(37010).getConfigurations().put("option:search",this);
+        ObjectDefinition.forId(37009).getHandlers().put("option:open",this);
+        ObjectDefinition.forId(37010).getHandlers().put("option:shut",this);
+        ObjectDefinition.forId(37010).getHandlers().put("option:search",this);
         return this;
     }
     @Override

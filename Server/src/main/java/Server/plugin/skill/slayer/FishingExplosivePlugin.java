@@ -41,8 +41,8 @@ public final class FishingExplosivePlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int id : IDS) {
-			ObjectDefinition.forId(id).getConfigurations().put("option:lure", this);
-			ObjectDefinition.forId(id).getConfigurations().put("option:bait", this);
+			ObjectDefinition.forId(id).getHandlers().put("option:lure", this);
+			ObjectDefinition.forId(id).getHandlers().put("option:bait", this);
 		}
 		new FishingExplosiveHandler().newInstance(arg);
 		new MogreNPC().newInstance(arg);

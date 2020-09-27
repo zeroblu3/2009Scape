@@ -2,15 +2,13 @@ package org.runite.jagex;
 
 import java.util.Objects;
 
-final class Class24 {
+public final class Class24 {
 
    private short[] aShortArray460;
    private short[] aShortArray464;
-   static RSString aClass94_465 = RSString.createRSString(" ");
    int anInt466 = -1;
    static int anInt467 = 0;
-   static RSString aClass94_468 = RSString.createRSString("(U");
-   static int anInt469 = 0;
+   public static int anInt469 = 0;
    private short[] aShortArray470;
    private short[] aShortArray471;
    static int anInt472 = 0;
@@ -69,22 +67,11 @@ final class Class24 {
       }
    }
 
-   public static void method943(int var0) {
-      try {
-         aClass94_468 = null;
-         if(var0 == -9893) {
-            aClass94_465 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "dm.C(" + var0 + ')');
-      }
-   }
-
    static boolean isValidObjectMapping(byte var0, int var1, int var2, byte[] var3) {
       try {
          boolean var5 = true;
          int var7 = -1;
-         RSByteBuffer buffer = new RSByteBuffer(var3);
+         DataBuffer buffer = new DataBuffer(var3);
 
     	 if (buffer.buffer.length == 0) {
 //    		 System.out.println("No object mapping found!");
@@ -94,7 +81,7 @@ final class Class24 {
       	   if (buffer.index == buffer.buffer.length) {
     		   return true;
     	   }
-            int var8 = buffer.method773((byte)-121);
+            int var8 = buffer.method773();
             if(0 == var8) {
                return var5;
             }
@@ -111,7 +98,7 @@ final class Class24 {
                      break;
                   }
 
-                  buffer.getByteB();
+                  buffer.readUnsignedByte();
                } else {
             	   if (buffer.index == buffer.buffer.length) {
             		   break;
@@ -126,7 +113,7 @@ final class Class24 {
                   int var13 = (4088 & var9) >> 6;
                   int var16 = var2 + var12;
                   int var15 = var1 + var13;
-                  int var14 = buffer.getByteB() >> 2;
+                  int var14 = buffer.readUnsignedByte() >> 2;
                   if(var15 > 0 && var16 > 0 && 103 > var15 && 103 > var16) {
                      ObjectDefinition var17 = Class162.getObjectDefinition(var7);
                      if(var14 != 22 || KeyboardListener.aBoolean1905 || 0 != var17.SecondInt || var17.ClipType == 1 || var17.aBoolean1483) {
@@ -163,7 +150,7 @@ final class Class24 {
 
             for(var2 = 0; var1 > var2; ++var2) {
                int var3 = Class15.localNPCIndexes[var2];
-               NPC var4 = Class3_Sub13_Sub24.npcs[var3];
+               NPC var4 = NPC.npcs[var3];
                int var5 = GraphicDefinition.incomingBuffer.getBits(1);
                if(0 == var5) {
                   Class15.localNPCIndexes[Class163.localNPCCount++] = var3;
@@ -173,7 +160,7 @@ final class Class24 {
                   if(var6 == 0) {
                      Class15.localNPCIndexes[Class163.localNPCCount++] = var3;
                      var4.anInt2838 = Class44.anInt719;
-                     Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = var3;
+                     Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = var3;
                   } else {
                      int var7;
                      int var8;
@@ -184,7 +171,7 @@ final class Class24 {
                         var4.walkStep(1, (byte)32, var7);
                         var8 = GraphicDefinition.incomingBuffer.getBits(1);
                         if(1 == var8) {
-                           Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = var3;
+                           Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = var3;
                         }
                      } else if (var6 == 2) {
                         Class15.localNPCIndexes[Class163.localNPCCount++] = var3;
@@ -201,7 +188,7 @@ final class Class24 {
 
                         var7 = GraphicDefinition.incomingBuffer.getBits(1);
                         if (var7 == 1) {
-                           Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = var3;
+                           Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = var3;
                         }
                      } else if (var6 == 3) {
                         Class3_Sub7.anIntArray2292[Class139.anInt1829++] = var3;
@@ -216,43 +203,43 @@ final class Class24 {
       }
    }
 
-   private void method946(RSByteBuffer var2, int var3) {
+   private void method946(DataBuffer var2, int var3) {
       try {
 
           if(var3 == 1) {
-            this.anInt466 = var2.getByteB();
+            this.anInt466 = var2.readUnsignedByte();
          } else {
             int var4;
             int var5;
             if(var3 == 2) {
-               var4 = var2.getByteB();
+               var4 = var2.readUnsignedByte();
                this.anIntArray474 = new int[var4];
 
                for(var5 = 0; var4 > var5; ++var5) {
-                  this.anIntArray474[var5] = var2.getShort();
+                  this.anIntArray474[var5] = var2.readUnsignedShort();
                }
             } else if(var3 == 3) {
                this.aBoolean476 = true;
             } else if(var3 == 40) {
-               var4 = var2.getByteB();
+               var4 = var2.readUnsignedByte();
                this.aShortArray460 = new short[var4];
                this.aShortArray464 = new short[var4];
 
                for(var5 = 0; var5 < var4; ++var5) {
-                  this.aShortArray464[var5] = (short)var2.getShort();
-                  this.aShortArray460[var5] = (short)var2.getShort();
+                  this.aShortArray464[var5] = (short)var2.readUnsignedShort();
+                  this.aShortArray460[var5] = (short)var2.readUnsignedShort();
                }
             } else if (var3 == 41) {
-               var4 = var2.getByteB();
+               var4 = var2.readUnsignedByte();
                this.aShortArray471 = new short[var4];
                this.aShortArray470 = new short[var4];
 
                for (var5 = 0; var5 < var4; ++var5) {
-                  this.aShortArray471[var5] = (short) var2.getShort();
-                  this.aShortArray470[var5] = (short) var2.getShort();
+                  this.aShortArray471[var5] = (short) var2.readUnsignedShort();
+                  this.aShortArray470[var5] = (short) var2.readUnsignedShort();
                }
             } else if (var3 >= 60 && var3 < 70) {
-               this.anIntArray475[-60 + var3] = var2.getShort();
+               this.anIntArray475[-60 + var3] = var2.readUnsignedShort();
             }
          }
 
@@ -363,7 +350,7 @@ final class Class24 {
                   var7 = Class168.aClass3_Sub28_Sub17_2096;
                }
 
-               var7.method702(var4, var3, var2, var0.anInt168, var0.anInt193, var0.anInt218, var0.anInt287, var0.anInt194, var0.anInt225, Class3_Sub13_Sub7.aRandom3088, Class38_Sub1.anInt2618, Player.anIntArray3951);
+               var7.method702(var4, var3, var2, var0.width, var0.height, var0.anInt218, var0.anInt287, var0.anInt194, var0.anInt225, Class3_Sub13_Sub7.aRandom3088, Class38_Sub1.anInt2618, Player.anIntArray3951);
                Class75.method1340(Player.anIntArray3951[0], Player.anIntArray3951[2], Player.anIntArray3951[1], Player.anIntArray3951[3]);
             }
 
@@ -387,10 +374,10 @@ final class Class24 {
       }
    }
 
-   final void method952(RSByteBuffer var2) {
+   final void method952(DataBuffer var2) {
       try {
           while(true) {
-             int var3 = var2.getByteB();
+             int var3 = var2.readUnsignedByte();
              if(0 == var3) {
                 return;
              }
