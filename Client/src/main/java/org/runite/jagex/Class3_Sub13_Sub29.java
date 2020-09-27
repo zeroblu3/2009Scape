@@ -1,14 +1,14 @@
 package org.runite.jagex;
 
+import org.rs09.client.util.ArrayUtils;
+import org.rs09.client.filestore.resources.configs.cursors.CursorDefinition;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub29 extends Class3_Sub13 {
 
-   static int anInt3356;
-   static RSString aClass94_3357 = RSString.createRSString("");
    static boolean disableGEBoxes = false;
    static int[] anIntArray3359 = new int[5];
-   static RSString aClass94_3360 = RSString.createRSString("mem=");
    static CacheIndex aClass153_3361;
 
 
@@ -16,7 +16,7 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
       try {
          int[] var3 = this.aClass114_2382.method1709(var1);
          if(this.aClass114_2382.aBoolean1580) {
-            Class76.method1359(var3, 0, Class113.anInt1559, Class163_Sub3.anIntArray2999[var1]);
+            ArrayUtils.fill(var3, 0, Class113.anInt1559, Class163_Sub3.anIntArray2999[var1]);
          }
 
          return var3;
@@ -28,18 +28,18 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
    static void method304() {
       try {
 
-         Class3_Sub13_Sub34.aClass93_3412.method1524();
-         Class3_Sub13_Sub31.aClass93_3369.method1524();
+         Class3_Sub13_Sub34.aReferenceCache_3412.clear();
+         Class3_Sub13_Sub31.aReferenceCache_3369.clear();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "qg.F(" + 6799 + ')');
       }
    }
 
-   static void method305(Signlink var0, RSByteBuffer var1, int var2) {
+   static void method305(Signlink var0, DataBuffer var1, int var2) {
       try {
          Class3_Sub8 var4 = new Class3_Sub8();
-         var4.anInt2296 = var1.getByteB();
-         var4.anInt2305 = var1.getInt();
+         var4.anInt2296 = var1.readUnsignedByte();
+         var4.anInt2305 = var1.readInt();
          var4.aClass64Array2298 = new Class64[var4.anInt2296];
          var4.anIntArray2300 = new int[var4.anInt2296];
          var4.aByteArrayArrayArray2302 = new byte[var4.anInt2296][][];
@@ -49,16 +49,16 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
 
          for(int var6 = 0; var4.anInt2296 > var6; ++var6) {
             try {
-               int var7 = var1.getByteB();
+               int var7 = var1.readUnsignedByte();
                String var8;
                String var9;
                int var10;
                if (var7 == 0 || var7 == 1 || var7 == 2) {
-                  var8 = new String(var1.getString().method1568());
+                  var8 = new String(var1.readString().method1568());
                   var10 = 0;
-                  var9 = new String(var1.getString().method1568());
+                  var9 = new String(var1.readString().method1568());
                   if(var7 == 1) {
-                     var10 = var1.getInt();
+                     var10 = var1.readInt();
                   }
 
                   var4.anIntArray2301[var6] = var7;
@@ -66,22 +66,22 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
                   var4.aClass64Array2303[var6] = var0.method1447(-41, var9, Class3_Sub13_Sub1.method170(var8));
                } else {
                   if(var7 == 3 || var7 == 4) {
-                     var8 = new String(var1.getString().method1568());
-                     var9 = new String(var1.getString().method1568());
-                     var10 = var1.getByteB();
+                     var8 = new String(var1.readString().method1568());
+                     var9 = new String(var1.readString().method1568());
+                     var10 = var1.readUnsignedByte();
                      String[] var11 = new String[var10];
 
                      for(int var12 = 0; var10 > var12; ++var12) {
-                        var11[var12] = new String(var1.getString().method1568());
+                        var11[var12] = new String(var1.readString().method1568());
                      }
 
                      byte[][] var21 = new byte[var10][];
                      int var14;
                      if(3 == var7) {
                         for(int var13 = 0; var13 < var10; ++var13) {
-                           var14 = var1.getInt();
+                           var14 = var1.readInt();
                            var21[var13] = new byte[var14];
-                           var1.method764(var14, var21[var13]);
+                           var1.readBytes(var21[var13], var14);
                         }
                      }
 
@@ -149,19 +149,6 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
       }
    }
 
-   public static void method309(boolean var0) {
-      try {
-         anIntArray3359 = null;
-         if(var0) {
-            aClass153_3361 = null;
-            aClass94_3357 = null;
-            aClass94_3360 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "qg.S(" + var0 + ')');
-      }
-   }
-
    public Class3_Sub13_Sub29() {
       super(0, true);
    }
@@ -173,7 +160,7 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
             return var3;
          } else {
             if(var1 >= -17) {
-               aClass94_3357 = (RSString)null;
+               TextCore.aClass94_3357 = (RSString)null;
             }
 
             return var0 == 1?7 + -var2:(var0 == 2 ?-var3 + 7:var2);
@@ -183,18 +170,18 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
       }
    }
 
-   static Class55 method311(int var0) {
+   static CursorDefinition method311(int var0) {
       try {
-         Class55 var2 = (Class55)Class41.aClass93_684.get((long)var0);
+         CursorDefinition var2 = (CursorDefinition) Unsorted.aReferenceCache_684.get((long)var0);
          if(var2 == null) {
             byte[] var3 = Class3_Sub13_Sub19.aClass153_3227.getFile(33, var0);
 
-            var2 = new Class55();
+            var2 = new CursorDefinition();
             if(var3 != null) {
-               var2.method1182(new RSByteBuffer(var3), var0, (byte)85);
+               var2.decode(new DataBuffer(var3));
             }
 
-            Class41.aClass93_684.put((byte)-112, var2, (long)var0);
+            Unsorted.aReferenceCache_684.put(var2, (long)var0);
          }
          return var2;
       } catch (RuntimeException var4) {

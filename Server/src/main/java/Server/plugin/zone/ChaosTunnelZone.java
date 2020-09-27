@@ -61,10 +61,10 @@ public final class ChaosTunnelZone extends MapZone implements Plugin<Object> {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
 				for (int i = 0; i < ENTRANCE_DATA.length; i++) {
-					ObjectDefinition.forId((int) ENTRANCE_DATA[i][0]).getConfigurations().put("option:enter", this);
-					ObjectDefinition.forId((int) ENTRANCE_DATA[i][2]).getConfigurations().put("option:climb-up", this);
+					ObjectDefinition.forId((int) ENTRANCE_DATA[i][0]).getHandlers().put("option:enter", this);
+					ObjectDefinition.forId((int) ENTRANCE_DATA[i][2]).getHandlers().put("option:climb-up", this);
 				}
-				ObjectDefinition.forId(23074).getConfigurations().put("option:climb", this);
+				ObjectDefinition.forId(23074).getHandlers().put("option:climb", this);
 				return this;
 			}
 

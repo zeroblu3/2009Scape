@@ -21,8 +21,8 @@ public class MossGiantRopePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2322).getConfigurations().put("option:swing-on", this);
-		ObjectDefinition.forId(2323).getConfigurations().put("option:swing-on", this);
+		ObjectDefinition.forId(2322).getHandlers().put("option:swing-on", this);
+		ObjectDefinition.forId(2323).getHandlers().put("option:swing-on", this);
 		return this;
 	}
 

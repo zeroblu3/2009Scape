@@ -113,7 +113,7 @@ class TalismanHandler : OptionHandler() {
     }
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ItemDefinition.forId(3696).configurations["option:locate"] = this
+        ItemDefinition.forId(3696).handlers["option:locate"] = this
         return this
     }
 

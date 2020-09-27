@@ -100,13 +100,13 @@ public final class FarmHolderPlugin implements Plugin<Object> {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (int i = 0; i < 2; i++) {
-				ItemDefinition.forId(SACK.getId()).getConfigurations().put("option:" + OPTIONS[i], this);
-				ItemDefinition.forId(BASKET.getId()).getConfigurations().put("option:" + OPTIONS[i], this);
+				ItemDefinition.forId(SACK.getId()).getHandlers().put("option:" + OPTIONS[i], this);
+				ItemDefinition.forId(BASKET.getId()).getHandlers().put("option:" + OPTIONS[i], this);
 			}
 			for (FarmingItemHolder holder : FarmingItemHolder.values()) {
 				for (Item item : holder.getHolders()) {
 					for (String option : OPTIONS) {
-						ItemDefinition.forId(item.getId()).getConfigurations().put("option:" + option, this);
+						ItemDefinition.forId(item.getId()).getHandlers().put("option:" + option, this);
 					}
 				}
 			}

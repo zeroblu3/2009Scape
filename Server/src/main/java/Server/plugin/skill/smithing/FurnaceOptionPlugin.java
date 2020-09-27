@@ -44,8 +44,8 @@ public final class FurnaceOptionPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		ObjectDefinition.setOptionHandler("smelt", this);
 		ObjectDefinition.setOptionHandler("smelt-ore", this);
-		ObjectDefinition.forId(3044).getConfigurations().put("option:use", this);
-		ObjectDefinition.forId(21303).getConfigurations().put("option:use", this);
+		ObjectDefinition.forId(3044).getHandlers().put("option:use", this);
+		ObjectDefinition.forId(21303).getHandlers().put("option:use", this);
 		new SmeltUseWithHandler().newInstance(arg);
 		return this;
 	}

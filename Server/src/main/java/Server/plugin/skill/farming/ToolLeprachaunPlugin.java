@@ -27,10 +27,10 @@ public final class ToolLeprachaunPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(3021).getConfigurations().put("option:exchange", this);
-		NPCDefinition.forId(4965).getConfigurations().put("option:exchange", this);
-		NPCDefinition.forId(3021).getConfigurations().put("option:teleport", this);
-		NPCDefinition.forId(4965).getConfigurations().put("option:teleport", this);
+		NPCDefinition.forId(3021).getHandlers().put("option:exchange", this);
+		NPCDefinition.forId(4965).getHandlers().put("option:exchange", this);
+		NPCDefinition.forId(3021).getHandlers().put("option:teleport", this);
+		NPCDefinition.forId(4965).getHandlers().put("option:teleport", this);
 		new ToolLeprechaunDialogue().init();
 		new BankNotePlugin().newInstance(arg);
 		return this;

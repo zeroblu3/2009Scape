@@ -35,12 +35,12 @@ public final class GoblinDiplomacyPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(288).getConfigurations().put("option:wear", this);
+		ItemDefinition.forId(288).getHandlers().put("option:wear", this);
 		for (int object : CRATES) {
-			ObjectDefinition.forId(object).getConfigurations().put("option:search", this);
+			ObjectDefinition.forId(object).getHandlers().put("option:search", this);
 		}
 		for (GoblinMailPlugin.GoblinMail mail : GoblinMailPlugin.GoblinMail.values()) {
-			ItemDefinition.forId(mail.getProduct().getId()).getConfigurations().put("option:wear", this);
+			ItemDefinition.forId(mail.getProduct().getId()).getHandlers().put("option:wear", this);
 		}
 		PluginManager.definePlugin(new GoblinMailPlugin());
 		return this;

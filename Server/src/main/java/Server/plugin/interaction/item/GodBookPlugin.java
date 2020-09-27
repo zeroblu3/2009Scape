@@ -30,8 +30,8 @@ public class GodBookPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (GodBook book : GodBook.values()) {
-			book.getDamagedBook().getDefinition().getConfigurations().put("option:check", this);
-			book.getBook().getDefinition().getConfigurations().put("option:preach", this);
+			book.getDamagedBook().getDefinition().getHandlers().put("option:check", this);
+			book.getBook().getDefinition().getHandlers().put("option:preach", this);
 		}
 		PluginManager.definePlugins(new PageHandler(), new GodBookDialogue(), new GodBookItem(), new SymbolBlessHandler());
 		return this;

@@ -18,7 +18,7 @@ public final class GnomecopterTicket extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(12843).getConfigurations().put("option:read", this);
+		ItemDefinition.forId(12843).getHandlers().put("option:read", this);
 		return this;
 	}
 

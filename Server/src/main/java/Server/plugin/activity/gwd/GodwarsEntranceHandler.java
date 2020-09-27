@@ -26,10 +26,10 @@ public final class GodwarsEntranceHandler extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(26340).getConfigurations().put("option:tie-rope", this);
-		ObjectDefinition.forId(26341).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(26338).getConfigurations().put("option:move", this);
-		ObjectDefinition.forId(26305).getConfigurations().put("option:crawl-through", this);
+		ObjectDefinition.forId(26340).getHandlers().put("option:tie-rope", this);
+		ObjectDefinition.forId(26341).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(26338).getHandlers().put("option:move", this);
+		ObjectDefinition.forId(26305).getHandlers().put("option:crawl-through", this);
 		return this;
 	}
 

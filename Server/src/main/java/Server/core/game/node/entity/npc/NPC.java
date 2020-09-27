@@ -296,7 +296,7 @@ public class NPC extends Entity {
 		if (getProperties().getRangeAnimation() == null && anim != null) {
 			getProperties().setRangeAnimation(anim);
 		}
-		definition.initCombatGraphics(definition.getConfigurations());
+		definition.initCombatGraphics(definition.getHandlers());
 		getProperties().setBonuses(definition.getConfiguration(NPCConfigParser.BONUSES, new int[15]));
 		getProperties().setAttackSpeed(definition.getConfiguration(NPCConfigParser.ATTACK_SPEED, 5));
 		forceTalk = definition.getConfiguration("force_talk", null);

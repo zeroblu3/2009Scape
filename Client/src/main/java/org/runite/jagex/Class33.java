@@ -1,4 +1,6 @@
 package org.runite.jagex;
+import org.rs09.client.rendering.Toolkit;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -22,7 +24,7 @@ final class Class33 {
          var5 = false;
       }
 
-      for(int var6 = 0; var6 < var1.length(-95); ++var6) {
+      for(int var6 = 0; var6 < var1.length(); ++var6) {
          int var7 = anIntArray599[var1.charAt(var6, (byte)65)];
          if(var5) {
             this.method1001(var7, var2 + 1, var3, 1, this.aByteArray594);
@@ -37,11 +39,6 @@ final class Class33 {
 
    final int method998() {
       return this.aByteArray594[8] - 1;
-   }
-
-   public static void method999() {
-      aString597 = null;
-      anIntArray599 = null;
    }
 
    private void method1000(int[] var1, byte[] var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
@@ -72,34 +69,34 @@ final class Class33 {
       int var8 = var5[var1 + 3];
       int var9 = var5[var1 + 4];
       int var10 = var5[var1] * 16384 + var5[var1 + 1] * 128 + var5[var1 + 2];
-      int var11 = var6 + var7 * Class74.anInt1092;
-      int var12 = Class74.anInt1092 - var8;
+      int var11 = var6 + var7 * Toolkit.JAVA_TOOLKIT.width;
+      int var12 = Toolkit.JAVA_TOOLKIT.width - var8;
       int var13 = 0;
       int var14;
-      if(var7 < Class74.anInt1095) {
-         var14 = Class74.anInt1095 - var7;
+      if(var7 < Toolkit.JAVA_TOOLKIT.clipTop) {
+         var14 = Toolkit.JAVA_TOOLKIT.clipTop - var7;
          var9 -= var14;
-         var7 = Class74.anInt1095;
+         var7 = Toolkit.JAVA_TOOLKIT.clipTop;
          var10 += var14 * var8;
-         var11 += var14 * Class74.anInt1092;
+         var11 += var14 * Toolkit.JAVA_TOOLKIT.width;
       }
 
-      if(var7 + var9 >= Class74.anInt1099) {
-         var9 -= var7 + var9 - Class74.anInt1099 + 1;
+      if(var7 + var9 >= Toolkit.JAVA_TOOLKIT.clipBottom) {
+         var9 -= var7 + var9 - Toolkit.JAVA_TOOLKIT.clipBottom + 1;
       }
 
-      if(var6 < Class74.anInt1093) {
-         var14 = Class74.anInt1093 - var6;
+      if(var6 < Toolkit.JAVA_TOOLKIT.clipLeft) {
+         var14 = Toolkit.JAVA_TOOLKIT.clipLeft - var6;
          var8 -= var14;
-         var6 = Class74.anInt1093;
+         var6 = Toolkit.JAVA_TOOLKIT.clipLeft;
          var10 += var14;
          var11 += var14;
          var13 += var14;
          var12 += var14;
       }
 
-      if(var6 + var8 >= Class74.anInt1096) {
-         var14 = var6 + var8 - Class74.anInt1096 + 1;
+      if(var6 + var8 >= Toolkit.JAVA_TOOLKIT.clipRight) {
+         var14 = var6 + var8 - Toolkit.JAVA_TOOLKIT.clipRight + 1;
          var8 -= var14;
          var13 += var14;
          var12 += var14;
@@ -107,9 +104,9 @@ final class Class33 {
 
       if(var8 > 0 && var9 > 0) {
          if(this.aBoolean595) {
-            this.method1000(Class74.anIntArray1100, var5, var4, var10, var11, var8, var9, var12, var13);
+            this.method1000(Toolkit.JAVA_TOOLKIT.getBuffer(), var5, var4, var10, var11, var8, var9, var12, var13);
          } else {
-            this.method1002(Class74.anIntArray1100, var5, var4, var10, var11, var8, var9, var12, var13);
+            this.method1002(Toolkit.JAVA_TOOLKIT.getBuffer(), var5, var4, var10, var11, var8, var9, var12, var13);
          }
       }
 
@@ -164,9 +161,9 @@ final class Class33 {
    final void method1003(RSString var1, int var2, int var3, int var4) {
       int var6 = this.method1005(var1) / 2;
       int var7 = this.method1006();
-      if(var2 - var6 <= Class74.anInt1096) {
-         if(var2 + var6 >= Class74.anInt1093) {
-            if(var3 - var7 <= Class74.anInt1099) {
+      if(var2 - var6 <= Toolkit.JAVA_TOOLKIT.clipRight) {
+         if(var2 + var6 >= Toolkit.JAVA_TOOLKIT.clipLeft) {
+            if(var3 - var7 <= Toolkit.JAVA_TOOLKIT.clipBottom) {
                if(var3 >= 0) {
                   this.method997(var1, var2 - var6, var3, var4, true);
                }
@@ -194,7 +191,7 @@ final class Class33 {
       int var8 = var2.getMaxAscent();
       int var9 = var2.getMaxAscent() + var2.getMaxDescent();
       int var10 = var2.getHeight();
-      Image var11 = Class3_Sub28_Sub12.aCanvas3648.createImage(var6, var9);
+      Image var11 = Class3_Sub28_Sub12.canvas.createImage(var6, var9);
       Graphics var12 = var11.getGraphics();
       var12.setColor(Color.black);
       var12.fillRect(0, 0, var6, var9);
@@ -292,10 +289,10 @@ final class Class33 {
    private int method1005(RSString var1) {
       int var2 = 0;
 
-      for(int var3 = 0; var3 < var1.length(-97); ++var3) {
-         if(var1.charAt(var3, (byte)-41) == 64 && var3 + 4 < var1.length(-93) && var1.charAt(var3 + 4, (byte)66) == 64) {
+      for(int var3 = 0; var3 < var1.length(); ++var3) {
+         if(var1.charAt(var3, (byte)-41) == 64 && var3 + 4 < var1.length() && var1.charAt(var3 + 4, (byte)66) == 64) {
             var3 += 4;
-         } else if(var1.charAt(var3, (byte)101) == 126 && var3 + 4 < var1.length(-60) && var1.charAt(var3 + 4, (byte)-51) == 126) {
+         } else if(var1.charAt(var3, (byte)101) == 126 && var3 + 4 < var1.length() && var1.charAt(var3 + 4, (byte)-51) == 126) {
             var3 += 4;
          } else {
             var2 += this.aByteArray594[anIntArray599[var1.charAt(var3, (byte)-64)] + 7];
@@ -309,10 +306,10 @@ final class Class33 {
       return this.aByteArray594[6];
    }
 
-   Class33(int var1, Component var3) {
+   Class33(int fontSize, Component var3) {
       this.anInt596 = anInt598 * 9;
       this.aBoolean595 = false;
-      Font var4 = new Font("Helvetica", Font.BOLD, var1);
+      Font var4 = new Font("Helvetica", Font.BOLD, fontSize);
       FontMetrics var5 = var3.getFontMetrics(var4);
 
       int var6;
@@ -323,7 +320,7 @@ final class Class33 {
       if(this.aBoolean595) {
          this.anInt596 = anInt598 * 9;
          this.aBoolean595 = false;
-         var4 = new Font("Helvetica", Font.PLAIN, var1);
+         var4 = new Font("Helvetica", Font.PLAIN, fontSize);
          var5 = var3.getFontMetrics(var4);
 
          for(var6 = 0; var6 < anInt598; ++var6) {

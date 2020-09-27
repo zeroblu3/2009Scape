@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.Linkable;
+
 import java.util.Objects;
 
 class Class164_Sub2 extends Class164 {
@@ -41,19 +43,6 @@ class Class164_Sub2 extends Class164 {
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "we.A(" + var1 + ')');
-      }
-   }
-
-   public static void method2245(byte var0) {
-      try {
-         aClass33_3019 = null;
-         if(var0 != -74) {
-            aByteArrayArray3027 = (byte[][])((byte[][])null);
-         }
-
-         aByteArrayArray3027 = (byte[][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "we.I(" + var0 + ')');
       }
    }
 
@@ -131,7 +120,7 @@ class Class164_Sub2 extends Class164 {
                      var11 += var4[var6++];
                      var12 = Class7.getRSInterface(var11);
                      var13 = var4[var6++];
-                     if(-1 != var13 && (!Class38.getItemDefinition(var13, (byte)109).membersItem || Class2.isMember)) {
+                     if(-1 != var13 && (!Class38.getItemDefinition(var13).membersItem || Unsorted.isMember)) {
                         for(var14 = 0; var14 < Objects.requireNonNull(var12).itemAmounts.length; ++var14) {
                            if(1 + var13 == var12.itemAmounts[var14]) {
                               var9 += var12.itemIds[var14];
@@ -169,7 +158,7 @@ class Class164_Sub2 extends Class164 {
                      var11 += var4[var6++];
                      var12 = Class7.getRSInterface(var11);
                      var13 = var4[var6++];
-                     if(var13 != -1 && (!Class38.getItemDefinition(var13, (byte)88).membersItem || Class2.isMember)) {
+                     if(var13 != -1 && (!Class38.getItemDefinition(var13).membersItem || Unsorted.isMember)) {
                         for(var14 = 0; var14 < Objects.requireNonNull(var12).itemAmounts.length; ++var14) {
                            if(1 + var13 == var12.itemAmounts[var14]) {
                               var9 = 999999999;
@@ -180,7 +169,7 @@ class Class164_Sub2 extends Class164 {
                   }
 
                   if(var8 == 11) {
-                     var9 = Class9.anInt136;
+                     var9 = Unsorted.anInt136;
                   }
 
                   if(12 == var8) {
@@ -254,11 +243,11 @@ class Class164_Sub2 extends Class164 {
 
    static void method2249(int var1) {
       try {
-         Class3 var2 = Class124.aClass130_1659.method1776((byte) 83 + -6);
+         Linkable var2 = Class124.aHashTable_1659.first();
 
-          for(; var2 != null; var2 = Class124.aClass130_1659.method1778(-97)) {
-            if((long) var1 == (65535L & var2.aLong71 >> 48)) {
-               var2.method86(-1024);
+          for(; var2 != null; var2 = Class124.aHashTable_1659.next()) {
+            if((long) var1 == (65535L & var2.linkableKey >> 48)) {
+               var2.unlink();
             }
          }
 

@@ -21,7 +21,7 @@ public final class WildernessDitchPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(23271).getConfigurations().put("option:cross", this);
+		ObjectDefinition.forId(23271).getHandlers().put("option:cross", this);
 		PluginManager.definePlugin(new WildernessInterfacePlugin());
 		return this;
 	}

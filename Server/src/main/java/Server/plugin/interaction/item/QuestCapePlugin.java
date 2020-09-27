@@ -18,8 +18,8 @@ public final class QuestCapePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(9813).getConfigurations().put("option:wear", this);
-		ItemDefinition.forId(9814).getConfigurations().put("option:wear", this);
+		ItemDefinition.forId(9813).getHandlers().put("option:wear", this);
+		ItemDefinition.forId(9814).getHandlers().put("option:wear", this);
 		return this;
 	}
 

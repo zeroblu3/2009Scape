@@ -16,7 +16,7 @@ final class Class29 {
 
          int var3;
          for(var3 = 0; Class3_Sub13_Sub23.itemDefinitionSize > var3; ++var3) {
-            ItemDefinition var4 = Class38.getItemDefinition(var3, (byte)119);
+            ItemDefinition var4 = Class38.getItemDefinition(var3);
             if(var4.anInt793 >= 0 || var4.anInt761 >= 0) {
                var1[var2++] = var3;
             }
@@ -38,22 +38,10 @@ final class Class29 {
       }
    }
 
-   static void method969(CacheIndex var0, int var1) {
-      try {
-         Class12.aClass153_322 = var0;
-         if(var1 < 39) {
-            anInt561 = -82;
-         }
-
-      } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "eh.D(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
-      }
-   }
-
-   final void method970(RSByteBuffer var2) {
+   final void method970(DataBuffer var2) {
       try {
          while(true) {
-            int var3 = var2.getByteB();
+            int var3 = var2.readUnsignedByte();
             if(0 == var3) {
 
                 return;
@@ -187,27 +175,15 @@ final class Class29 {
       }
    }
 
-   private void method972(RSByteBuffer var1, int var3) {
+   private void method972(DataBuffer var1, int var3) {
       try {
 
           if(var3 == 5) {
-            this.anInt556 = var1.getShort();
+            this.anInt556 = var1.readUnsignedShort();
          }
 
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "eh.F(" + (var1 != null?"{...}":"null") + ',' + (byte) -117 + ',' + var3 + ')');
-      }
-   }
-
-   public static void method973(byte var0) {
-      try {
-         aClass153_557 = null;
-         anIntArrayArrayArray558 = (int[][][])null;
-         if(var0 != 62) {
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "eh.E(" + var0 + ')');
       }
    }
 

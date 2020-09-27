@@ -5,10 +5,8 @@ final class Class96 {
    static int anInt1345;
    int anInt1346;
    int anInt1347;
-   static RSString aClass94_1349 = RSString.createRSString("underlay");
    int anInt1350;
    int anInt1351;
-   static int anInt1352;
    int anInt1353;
    static int anInt1354 = 0;
    int anInt1355 = -1;
@@ -18,7 +16,7 @@ final class Class96 {
    int anInt1359;
    int anInt1360;
 
-   static void method1587(RSByteBuffer var1) {
+   static void method1587(DataBuffer var1) {
       try {
          label134:
          while(true) {
@@ -26,16 +24,16 @@ final class Class96 {
                boolean var18 = false;
                int var5 = 0;
                int var6 = 0;
-               if(var1.getByteB() == 1) {
-                  var5 = var1.getByteB();
+               if(var1.readUnsignedByte() == 1) {
+                  var5 = var1.readUnsignedByte();
                   var18 = true;
-                  var6 = var1.getByteB();
+                  var6 = var1.readUnsignedByte();
                }
 
-               int var7 = var1.getByteB();
-               int var8 = var1.getByteB();
+               int var7 = var1.readUnsignedByte();
+               int var8 = var1.readUnsignedByte();
                int var9 = -Class3_Sub13_Sub21.anInt3256 + 64 * var7;
-               int var10 = -(var8 * 64) - (-Class2.anInt65 - -1) + Class108.anInt1460;
+               int var10 = -(var8 * 64) - (-Unsorted.anInt65 - -1) + Class108.anInt1460;
                int var11;
                int var12;
                if(var9 >= 0 && -63 + var10 >= 0 && Class23.anInt455 > var9 + 63 && var10 < Class108.anInt1460) {
@@ -50,11 +48,11 @@ final class Class96 {
 
                      for(int var14 = 0; var14 < 64; ++var14) {
                         if(!var18 || var13 >= 8 * var5 && 8 * var5 - -8 > var13 && 8 * var6 <= var14 && var14 < var6 * 8 - -8) {
-                           int var15 = var1.getByteB();
+                           int var15 = var1.readUnsignedByte();
                            if(0 != var15) {
                               int var2;
                               if(1 == (1 & var15)) {
-                                 var2 = var1.getByteB();
+                                 var2 = var1.readUnsignedByte();
                                  if(Class36.aByteArrayArrayArray640[var11][var12] == null) {
                                     Class36.aByteArrayArrayArray640[var11][var12] = new byte[4096];
                                  }
@@ -63,7 +61,7 @@ final class Class96 {
                               }
 
                               if(2 == (var15 & 2)) {
-                                 var2 = var1.getTriByte((byte)85);
+                                 var2 = var1.readMedium();
                                  if(null == Class29.anIntArrayArrayArray558[var11][var12]) {
                                     Class29.anIntArrayArrayArray558[var11][var12] = new int[4096];
                                  }
@@ -72,7 +70,7 @@ final class Class96 {
                               }
 
                               if(4 == (var15 & 4)) {
-                                 var2 = var1.getTriByte((byte)117);
+                                 var2 = var1.readMedium();
                                  if(null == Class44.anIntArrayArrayArray720[var11][var12]) {
                                     Class44.anIntArrayArrayArray720[var11][var12] = new int[4096];
                                  }
@@ -108,7 +106,7 @@ final class Class96 {
                      continue label134;
                   }
 
-                  var12 = var1.getByteB();
+                  var12 = var1.readUnsignedByte();
                   if(var12 != 0) {
                      if((var12 & 1) == 1) {
                         ++var1.index;
@@ -132,17 +130,4 @@ final class Class96 {
          throw Class44.clientError(var17, "nc.A(" + (byte) -83 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
-
-   public static void method1588(byte var0) {
-      try {
-         if(var0 <= 38) {
-            method1588((byte)-126);
-         }
-
-         aClass94_1349 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "nc.B(" + var0 + ')');
-      }
-   }
-
 }

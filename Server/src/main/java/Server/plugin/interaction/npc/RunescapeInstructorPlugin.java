@@ -18,8 +18,8 @@ public class RunescapeInstructorPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(4707).getConfigurations().put("option:claim", this);
-		NPCDefinition.forId(1861).getConfigurations().put("option:claim", this);
+		NPCDefinition.forId(4707).getHandlers().put("option:claim", this);
+		NPCDefinition.forId(1861).getHandlers().put("option:claim", this);
 		return this;
 	}
 

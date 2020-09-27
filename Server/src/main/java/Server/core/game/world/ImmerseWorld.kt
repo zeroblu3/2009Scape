@@ -20,7 +20,7 @@ object ImmerseWorld {
             immerseVarrock()
             immerseWilderness()
             immerseFalador()
-            immerseSlayer()
+           // immerseSlayer()
         }
     }
 

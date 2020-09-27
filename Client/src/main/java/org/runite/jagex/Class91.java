@@ -4,7 +4,6 @@ final class Class91 {
 
    static RSString[] aClass94Array1299 = new RSString[8];
    private final int anInt1300;
-   static RSString aClass94_1301 = RSString.createRSString("(U3");
    static int anInt1302 = 0;
    private final int anInt1303;
    int[][] anIntArrayArray1304;
@@ -666,21 +665,6 @@ final class Class91 {
       }
    }
 
-   public static void method1491(byte var0) {
-      try {
-         if(var0 > -123) {
-            method1491((byte)-27);
-         }
-
-         aShortArray1311 = null;
-         aClass94Array1299 = null;
-         aClass94_1301 = null;
-         aClass33_1305 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "mj.R(" + var0 + ')');
-      }
-   }
-
    final boolean method1492(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       try {
          if(var5 == 1) {
@@ -692,7 +676,7 @@ final class Class91 {
          }
 
          if(var8 <= 78) {
-            aClass94_1301 = (RSString)null;
+            TextCore.aClass94_1301 = (RSString)null;
          }
 
          var7 -= this.anInt1309;
@@ -824,7 +808,7 @@ final class Class91 {
    static void method1493(int var0, int var1, RSInterface var2, int var3) {
       try {
          if(HDToolKit.highDetail) {
-            Class22.method935(var0, var1, var2.anInt168 + var0, var2.anInt193 + var1);
+            Class22.setClipping(var0, var1, var2.width + var0, var2.height + var1);
          }
 
          if(Class161.anInt2028 >= 3) {
@@ -837,9 +821,9 @@ final class Class91 {
                Class74.method1332(var0, var1, var2.anIntArray207, var2.anIntArray291);
             }
          } else if(HDToolKit.highDetail) {
-            ((Class3_Sub28_Sub16_Sub1)Class57.aClass3_Sub28_Sub16_895).method647(var0, var1, var2.anInt168, var2.anInt193, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, 256, (Class3_Sub28_Sub16_Sub1)var2.method866(false));
+            ((Class3_Sub28_Sub16_Sub1)Class57.aClass3_Sub28_Sub16_895).method647(var0, var1, var2.width, var2.height, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, 256, (Class3_Sub28_Sub16_Sub1)var2.method866(false));
          } else {
-            ((Class3_Sub28_Sub16_Sub2)Class57.aClass3_Sub28_Sub16_895).method667(var0, var1, var2.anInt168, var2.anInt193, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, var2.anIntArray207, var2.anIntArray291);
+            ((Class3_Sub28_Sub16_Sub2)Class57.aClass3_Sub28_Sub16_895).method667(var0, var1, var2.width, var2.height, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, var2.anIntArray207, var2.anIntArray291);
          }
 
          Class163_Sub1_Sub1.aBooleanArray4008[var3] = true;
@@ -931,16 +915,16 @@ final class Class91 {
    static boolean method1495(int var0, int var1, int var2, int var3, int var4) {
       int var5 = var3 * Class3_Sub13_Sub34.anInt3417 + var0 * Class3_Sub13_Sub13.anInt3153 >> 16;
       int var6 = var3 * Class3_Sub13_Sub13.anInt3153 - var0 * Class3_Sub13_Sub34.anInt3417 >> 16;
-      int var7 = var1 * Class60.anInt936 + var6 * Class69.anInt1037 >> 16;
-      int var8 = var1 * Class69.anInt1037 - var6 * Class60.anInt936 >> 16;
+      int var7 = var1 * Class60.anInt936 + var6 * Unsorted.anInt1037 >> 16;
+      int var8 = var1 * Unsorted.anInt1037 - var6 * Class60.anInt936 >> 16;
       if(var7 < 1) {
          var7 = 1;
       }
 
       int var9 = (var5 << 9) / var7;
       int var10 = (var8 << 9) / var7;
-      int var11 = var2 * Class60.anInt936 + var6 * Class69.anInt1037 >> 16;
-      int var12 = var2 * Class69.anInt1037 - var6 * Class60.anInt936 >> 16;
+      int var11 = var2 * Class60.anInt936 + var6 * Unsorted.anInt1037 >> 16;
+      int var12 = var2 * Unsorted.anInt1037 - var6 * Class60.anInt936 >> 16;
       if(var11 < 1) {
          var11 = 1;
       }
@@ -1003,7 +987,7 @@ final class Class91 {
       try {
          var3 -= this.anInt1309;
          var1 -= this.anInt1306;
-         this.anIntArrayArray1304[var3][var1] = Class69.bitwiseAnd(this.anIntArrayArray1304[var3][var1], -262145);
+         this.anIntArrayArray1304[var3][var1] = Unsorted.bitwiseAnd(this.anIntArrayArray1304[var3][var1], -262145);
 
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "mj.I(" + var1 + ',' + (byte) -73 + ',' + var3 + ')');
@@ -1141,7 +1125,7 @@ final class Class91 {
    private void method1501(byte var1, int var2, int var3, int var4) {
       try {
          if(var1 >= 18) {
-            this.anIntArrayArray1304[var3][var2] = Class69.bitwiseAnd(this.anIntArrayArray1304[var3][var2], ~var4);
+            this.anIntArrayArray1304[var3][var2] = Unsorted.bitwiseAnd(this.anIntArrayArray1304[var3][var2], ~var4);
          }
       } catch (RuntimeException var6) {
          throw Class44.clientError(var6, "mj.H(" + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');

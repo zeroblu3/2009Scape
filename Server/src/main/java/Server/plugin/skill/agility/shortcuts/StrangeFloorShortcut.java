@@ -73,6 +73,6 @@ public class StrangeFloorShortcut extends AgilityShortcut {
 
 	@Override
 	public void configure(AgilityShortcut shortcut) {
-		ObjectDefinition.forId(getIds()[0]).getConfigurations().put("option:jump-over",this);
+		ObjectDefinition.forId(getIds()[0]).getHandlers().put("option:jump-over",this);
 	}
 }

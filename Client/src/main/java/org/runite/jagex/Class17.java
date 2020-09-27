@@ -7,11 +7,6 @@ final class Class17 {
    static int anInt410;
    static Class64 aClass64_413;
 
-
-   public Class17() {
-      new Class127();
-   }
-
    static void method904(int var0, Class140_Sub4 var1) {
       try {
          if(var1.anInt2779 != 0) {
@@ -19,7 +14,7 @@ final class Class17 {
             int var4;
             int var5;
             if(var1.anInt2772 != -1 && '\u8000' > var1.anInt2772) {
-               NPC var3 = Class3_Sub13_Sub24.npcs[var1.anInt2772];
+               NPC var3 = NPC.npcs[var1.anInt2772];
                if(var3 != null) {
                   var5 = -var3.anInt2829 + var1.anInt2829;
                   var4 = -var3.anInt2819 + var1.anInt2819;
@@ -213,19 +208,6 @@ final class Class17 {
          }
       } catch (RuntimeException var8) {
          throw Class44.clientError(var8, "cm.A(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
-      }
-   }
-
-   public static void method905(int var0) {
-      try {
-         anInterface2_408 = null;
-         aClass64_413 = null;
-         if(var0 != -24912) {
-         }
-
-         aThread409 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "cm.B(" + var0 + ')');
       }
    }
 

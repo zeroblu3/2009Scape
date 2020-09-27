@@ -21,8 +21,8 @@ public final class RovingElvesPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(5252).getConfigurations().put("option:search", this);
-		ItemDefinition.forId(RovingElves.CONSECRATION_SEED_CHARGED.getId()).getConfigurations().put("option:plant", this);
+		ObjectDefinition.forId(5252).getHandlers().put("option:search", this);
+		ItemDefinition.forId(RovingElves.CONSECRATION_SEED_CHARGED.getId()).getHandlers().put("option:plant", this);
 		return this;
 	}
 

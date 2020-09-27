@@ -22,7 +22,7 @@ public final class ShelfPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		PluginManager.definePlugin(new ShelfDialogue());
 		for (int i = 13545; i < 13552; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:search", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:search", this);
 		}
 		return this;
 	}

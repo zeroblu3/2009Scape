@@ -17,8 +17,8 @@ public final class AvasDevicePlugin implements Plugin<Object> {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		AnimalMagnetism.AVAS_ACCUMULATOR.getDefinition().getConfigurations().put("equipment", this);
-		AnimalMagnetism.AVAS_ATTRACTOR.getDefinition().getConfigurations().put("equipment", this);
+		AnimalMagnetism.AVAS_ACCUMULATOR.getDefinition().getHandlers().put("equipment", this);
+		AnimalMagnetism.AVAS_ATTRACTOR.getDefinition().getHandlers().put("equipment", this);
 		PluginManager.definePlugin(new DisableDevicePlugin());
 		return this;
 	}
@@ -53,8 +53,8 @@ public final class AvasDevicePlugin implements Plugin<Object> {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			ItemDefinition.forId(10499).getConfigurations().put("option:operate", this);
-			ItemDefinition.forId(10498).getConfigurations().put("option:operate", this);
+			ItemDefinition.forId(10499).getHandlers().put("option:operate", this);
+			ItemDefinition.forId(10498).getHandlers().put("option:operate", this);
 			return this;
 		}
 

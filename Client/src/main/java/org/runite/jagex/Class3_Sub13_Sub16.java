@@ -3,13 +3,10 @@ import java.util.Random;
 
 final class Class3_Sub13_Sub16 extends Class3_Sub13 {
 
-   static RSString aClass94_3190 = RSString.createRSString("<img=1>");
    private int anInt3191 = 2;
-   static RSString aClass94_3192 = RSString.createRSString(" ");
    private int anInt3193 = 2048;
    private int anInt3194 = 1;
    private byte[] aByteArray3195 = new byte[512];
-   static RSString aClass94_3196 = RSString.createRSString("Fps:");
    private int anInt3197 = 0;
    static int anInt3198 = 0;
    private short[] aShortArray3200 = new short[512];
@@ -51,7 +48,7 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
       try {
 
           for(int var2 = 0; Class3_Sub13_Sub19.aClass94Array3238.length > var2; ++var2) {
-            if(Class3_Sub13_Sub19.aClass94Array3238[var2].equals((byte) 13 + 40, var0)) {
+            if(Class3_Sub13_Sub19.aClass94Array3238[var2].equalsStringIgnoreCase(var0)) {
                return var2;
             }
          }
@@ -73,7 +70,7 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
             for(int var15 = 0; var15 < Class113.anInt1559; ++var15) {
                Class3_Sub13_Sub36.anInt3422 = Integer.MAX_VALUE;
                KeyboardListener.anInt1914 = Integer.MAX_VALUE;
-               Class69.anInt1042 = Integer.MAX_VALUE;
+               Unsorted.anInt1042 = Integer.MAX_VALUE;
                Class3_Sub28_Sub5.anInt3589 = Integer.MAX_VALUE;
                int var16 = this.anInt3203 * Class102.anIntArray2125[var15] + 2048;
                int var17 = var16 >> 12;
@@ -111,10 +108,10 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
                      }
 
                      if(var12 >= Class3_Sub28_Sub5.anInt3589) {
-                        if(Class69.anInt1042 > var12) {
+                        if(Unsorted.anInt1042 > var12) {
                            Class3_Sub13_Sub36.anInt3422 = KeyboardListener.anInt1914;
-                           KeyboardListener.anInt1914 = Class69.anInt1042;
-                           Class69.anInt1042 = var12;
+                           KeyboardListener.anInt1914 = Unsorted.anInt1042;
+                           Unsorted.anInt1042 = var12;
                         } else if(KeyboardListener.anInt1914 <= var12) {
                            if(var12 < Class3_Sub13_Sub36.anInt3422) {
                               Class3_Sub13_Sub36.anInt3422 = var12;
@@ -125,8 +122,8 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
                         }
                      } else {
                         Class3_Sub13_Sub36.anInt3422 = KeyboardListener.anInt1914;
-                        KeyboardListener.anInt1914 = Class69.anInt1042;
-                        Class69.anInt1042 = Class3_Sub28_Sub5.anInt3589;
+                        KeyboardListener.anInt1914 = Unsorted.anInt1042;
+                        Unsorted.anInt1042 = Class3_Sub28_Sub5.anInt3589;
                         Class3_Sub28_Sub5.anInt3589 = var12;
                      }
                   }
@@ -136,13 +133,13 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
                if(var19 == 0) {
                   var3[var15] = Class3_Sub28_Sub5.anInt3589;
                } else if(var19 == 1) {
-                  var3[var15] = Class69.anInt1042;
+                  var3[var15] = Unsorted.anInt1042;
                } else if (var19 == 3) {
                    var3[var15] = KeyboardListener.anInt1914;
                } else if (var19 == 4) {
                    var3[var15] = Class3_Sub13_Sub36.anInt3422;
                } else if (var19 == 2) {
-                   var3[var15] = Class69.anInt1042 + -Class3_Sub28_Sub5.anInt3589;
+                   var3[var15] = Unsorted.anInt1042 + -Class3_Sub28_Sub5.anInt3589;
                }
             }
          }
@@ -171,26 +168,26 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
-            this.method157(-122, (RSByteBuffer)null, false);
+            this.method157(-122, (DataBuffer)null, false);
          }
 
          if(var1 == 0) {
-            this.anInt3203 = this.anInt3204 = var2.getByteB();
+            this.anInt3203 = this.anInt3204 = var2.readUnsignedByte();
          } else if(var1 == 1) {
-            this.anInt3197 = var2.getByteB();
+            this.anInt3197 = var2.readUnsignedByte();
          } else if(2 == var1) {
-            this.anInt3193 = var2.getShort();
+            this.anInt3193 = var2.readUnsignedShort();
          } else if (var1 == 3) {
-             this.anInt3191 = var2.getByteB();
+             this.anInt3191 = var2.readUnsignedByte();
          } else if (var1 == 4) {
-             this.anInt3194 = var2.getByteB();
+             this.anInt3194 = var2.readUnsignedByte();
          } else if (var1 == 5) {
-             this.anInt3203 = var2.getByteB();
+             this.anInt3203 = var2.readUnsignedByte();
          } else if (var1 == 6) {
-             this.anInt3204 = var2.getByteB();
+             this.anInt3204 = var2.readUnsignedByte();
          }
 
       } catch (RuntimeException var5) {
@@ -200,21 +197,6 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
 
    public Class3_Sub13_Sub16() {
       super(0, true);
-   }
-
-   public static void method245(int var0) {
-      try {
-         aClass44_Sub1Array3201 = null;
-         aClass94_3192 = null;
-         if(var0 != 0) {
-            method245(111);
-         }
-
-         aClass94_3190 = null;
-         aClass94_3196 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "hm.B(" + var0 + ')');
-      }
    }
 
 }

@@ -49,7 +49,7 @@ public final class KhardianInteractionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2670).getConfigurations().put("option:cut", this);
+		ObjectDefinition.forId(2670).getHandlers().put("option:cut", this);
 		return this;
 	}
 

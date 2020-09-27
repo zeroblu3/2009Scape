@@ -23,7 +23,7 @@ public final class AlKahridLeafletPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(3680).getConfigurations().put("option:take-flyer", this);
+		NPCDefinition.forId(3680).getHandlers().put("option:take-flyer", this);
 		return this;
 	}
 

@@ -20,7 +20,7 @@ public class DoomsayerTogglePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(3777).getConfigurations().put("option:toggle-warnings", this);
+		NPCDefinition.forId(3777).getHandlers().put("option:toggle-warnings", this);
 		new WarningMessagePlugin().newInstance(arg);
 		return this;
 	}

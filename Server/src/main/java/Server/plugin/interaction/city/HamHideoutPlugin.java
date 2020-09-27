@@ -30,11 +30,11 @@ public final class HamHideoutPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(5490).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(5490).getConfigurations().put("option:pick-lock", this);
-		ObjectDefinition.forId(5491).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(5491).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(5493).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(5490).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(5490).getHandlers().put("option:pick-lock", this);
+		ObjectDefinition.forId(5491).getHandlers().put("option:close", this);
+		ObjectDefinition.forId(5491).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(5493).getHandlers().put("option:climb-up", this);
 		return this;
 	}
 

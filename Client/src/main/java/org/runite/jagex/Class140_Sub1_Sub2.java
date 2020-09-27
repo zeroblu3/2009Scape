@@ -379,7 +379,7 @@ final class Class140_Sub1_Sub2 extends Model {
                               var34 = var21 / var13;
                            }
 
-                           if(Class3_Sub28_Sub11.anInt3642 >= var31 && Class3_Sub28_Sub11.anInt3642 <= var33 && RenderAnimationDefinition.anInt384 >= var32 && RenderAnimationDefinition.anInt384 <= var34) {
+                           if(Unsorted.anInt3642 >= var31 && Unsorted.anInt3642 <= var33 && RenderAnimationDefinition.anInt384 >= var32 && RenderAnimationDefinition.anInt384 <= var34) {
                               var31 = 999999;
                               var33 = -999999;
                               var32 = 999999;
@@ -428,9 +428,9 @@ final class Class140_Sub1_Sub2 extends Model {
                                  }
                               }
 
-                              if(Class3_Sub28_Sub11.anInt3642 >= var31 && Class3_Sub28_Sub11.anInt3642 <= var33 && RenderAnimationDefinition.anInt384 >= var32 && RenderAnimationDefinition.anInt384 <= var34) {
+                              if(Unsorted.anInt3642 >= var31 && Unsorted.anInt3642 <= var33 && RenderAnimationDefinition.anInt384 >= var32 && RenderAnimationDefinition.anInt384 <= var34) {
                                  if(this.aBoolean2699) {
-                                    Class3_Sub13_Sub38.aLongArray3448[Class2.anInt59++] = var9;
+                                    Class3_Sub13_Sub38.aLongArray3448[Unsorted.anInt59++] = var9;
                                  } else {
                                     var30 = true;
                                  }
@@ -543,9 +543,9 @@ final class Class140_Sub1_Sub2 extends Model {
             var13.aShortArray3871 = this.aShortArray3871;
             var13.aBoolean2699 = this.aBoolean2699;
             if(var1 == 3) {
-               var13.anIntArray3885 = Class65.method1233(this.anIntArray3885, 2);
-               var13.anIntArray3883 = Class65.method1233(this.anIntArray3883, 2);
-               var13.anIntArray3895 = Class65.method1233(this.anIntArray3895, 2);
+               var13.anIntArray3885 = Class65.method1233(this.anIntArray3885);
+               var13.anIntArray3883 = Class65.method1233(this.anIntArray3883);
+               var13.anIntArray3895 = Class65.method1233(this.anIntArray3895);
             } else {
                var13.anIntArray3885 = this.anIntArray3885;
                var13.anIntArray3883 = new int[var13.anInt3891];
@@ -1230,8 +1230,8 @@ final class Class140_Sub1_Sub2 extends Model {
                      }
                   }
                } else {
-                  if(var2 && this.method1944(Class3_Sub28_Sub11.anInt3642 + Class51.anInt846, RenderAnimationDefinition.anInt384 + Class51.anInt835, anIntArray3932[var11], anIntArray3932[var12], anIntArray3932[var13], var14, var15, var16)) {
-                     Class3_Sub13_Sub38.aLongArray3448[Class2.anInt59++] = var3;
+                  if(var2 && this.method1944(Unsorted.anInt3642 + Class51.anInt846, RenderAnimationDefinition.anInt384 + Class51.anInt835, anIntArray3932[var11], anIntArray3932[var12], anIntArray3932[var13], var14, var15, var16)) {
+                     Class3_Sub13_Sub38.aLongArray3448[Unsorted.anInt59++] = var3;
                      var2 = false;
                   }
 
@@ -1617,50 +1617,6 @@ final class Class140_Sub1_Sub2 extends Model {
       this.aShort3884 = (short)((int)(Math.sqrt((double)var7) + 0.99D));
       this.aShort3886 = (short)((int)(Math.sqrt((double)var8) + 0.99D));
       this.aBoolean3897 = true;
-   }
-
-   public static void method1948() {
-      aClass140_Sub1_Sub2_3902 = null;
-      aByteArray3907 = null;
-      aShortArray3910 = null;
-      anIntArray3905 = null;
-      anIntArray3909 = null;
-      anIntArray3904 = null;
-      aClass140_Sub1_Sub2_3906 = null;
-      aByteArray3914 = null;
-      aShortArray3912 = null;
-      anIntArray3913 = null;
-      anIntArray3916 = null;
-      anIntArray3911 = null;
-      aClass140_Sub1_Sub2_3915 = null;
-      aByteArray3933 = null;
-      aShortArray3949 = null;
-      anIntArray3939 = null;
-      anIntArray3947 = null;
-      anIntArray3924 = null;
-      aBooleanArray3937 = null;
-      aBooleanArray3917 = null;
-      anIntArray3943 = null;
-      anIntArray3932 = null;
-      anIntArray3920 = null;
-      anIntArray3950 = null;
-      anIntArray3948 = null;
-      anIntArray3928 = null;
-      anIntArray3921 = null;
-      anIntArray3946 = null;
-      anIntArrayArray3926 = (int[][])null;
-      anIntArray3935 = null;
-      anIntArrayArray3923 = (int[][])null;
-      anIntArray3931 = null;
-      anIntArray3929 = null;
-      anIntArray3918 = null;
-      anIntArrayArray3938 = (int[][])null;
-      anIntArray3922 = null;
-      anIntArray3941 = null;
-      anIntArray3944 = null;
-      anIntArray3919 = null;
-      anIntArray3925 = null;
-      anIntArray3936 = null;
    }
 
    final int method1884() {

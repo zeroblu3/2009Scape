@@ -38,8 +38,8 @@ public class NewsPaperPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(7922).getConfigurations().put("option:read", this);
-		ItemDefinition.forId(11169).getConfigurations().put("option:read", this);
+		ItemDefinition.forId(7922).getHandlers().put("option:read", this);
+		ItemDefinition.forId(11169).getHandlers().put("option:read", this);
 		return this;
 	}
 }

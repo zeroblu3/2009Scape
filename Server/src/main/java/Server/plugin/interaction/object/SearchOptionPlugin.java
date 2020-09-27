@@ -1,5 +1,6 @@
 package plugin.interaction.object;
 
+import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.ObjectDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -46,10 +47,7 @@ public class SearchOptionPlugin extends OptionHandler {
 		private Item item;
 
 		/**
-		 * Constructs a new {@code SearchOptionPlugin.java} {@Code
-		 * Object}
-		 * @param object
-		 * @param item
+		 * Constructs a new {@code SearchOptionPlugin.java}
 		 */
 		Search(int object, Item item) {
 			this.object = object;
@@ -78,7 +76,13 @@ public class SearchOptionPlugin extends OptionHandler {
 			player.getPacketDispatch().sendMessage("You find nothing of interest to you.");
 			return true;
 		}
-		player.getPacketDispatch().sendMessage("You search the " + ((GameObject) node).getName().toLowerCase() + " but find nothing.");
+		if (node.getId() == 14743 && !player.getInventory().containItems(946) && !player.inCombat()) {
+			player.getPacketDispatch().sendMessage("You mindlessly reach into the sack labeled 'knives'...");
+			player.getPacketDispatch().sendMessage("Against all odds you pull out a knife without hurting yourself.",2);
+			player.getInventory().add(new Item(946));
+			return true;
+		}
+		player.getPacketDispatch().sendMessage("You search the " + node.getName().toLowerCase() + " but find nothing.");
 		return true;
 	}
 

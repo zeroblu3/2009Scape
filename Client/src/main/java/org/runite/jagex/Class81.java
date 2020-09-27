@@ -1,25 +1,27 @@
 package org.runite.jagex;
+import org.rs09.client.data.Queue;
+
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Objects;
 
 final class Class81 {
 
-   static NodeList aClass13_1139 = new NodeList();
+   static Queue aClass13_1139 = new Queue();
    static int[][][] anIntArrayArrayArray1142;
 
 
-   static void putRandomDataFile(RSByteBuffer var0, boolean var1) {
+   static void putRandomDataFile(DataBuffer var0, boolean var1) {
       try {
          if(!var1) {
             anIntArrayArrayArray1142 = (int[][][])((int[][][])null);
          }
 
          byte[] var2 = new byte[24];
-         if(null != Class69.aClass30_1039) {
+         if(null != Unsorted.aClass30_1039) {
             try {
-               Class69.aClass30_1039.method984(-41, 0L);
-               Class69.aClass30_1039.method982(var2);
+               Unsorted.aClass30_1039.method984(-41, 0L);
+               Unsorted.aClass30_1039.method982(var2);
 
                int var3;
                for(var3 = 0; var3 < 24 && var2[var3] == 0; ++var3) {
@@ -35,7 +37,7 @@ final class Class81 {
             }
          }
 
-         var0.putBytes(var2, 24, 88);
+         var0.putBytes(var2, 24);
       } catch (RuntimeException var6) {
          throw Class44.clientError(var6, "la.G(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }
@@ -66,34 +68,34 @@ final class Class81 {
       try {
          if(var1 != 0L) {
             if(Class3_Sub28_Sub5.anInt3591 < 100) {
-               RSString var4 = Objects.requireNonNull(Class41.method1052(var1)).method1545();
+               RSString var4 = Objects.requireNonNull(Unsorted.method1052(var1)).method1545();
 
                int var5;
                for(var5 = 0; var5 < Class3_Sub28_Sub5.anInt3591; ++var5) {
                   if(Class114.ignores[var5] == var1) {
-                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var4, TextCore.HasIgnoreAlready}, (byte)-108), -1);
+                     Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var4, TextCore.HasIgnoreAlready}), -1);
                      return;
                   }
                }
 
                for(var5 = 0; Class8.anInt104 > var5; ++var5) {
                   if(var1 == Class50.aLongArray826[var5]) {
-                     Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.HasPleaseRemove, var4, TextCore.HasFriendsToIgnore}, (byte)-65), -1);
+                     Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.HasPleaseRemove, var4, TextCore.HasFriendsToIgnore}), -1);
                      return;
                   }
                }
 
-               if(var4.method1528(Class102.player.displayName)) {
-                  Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, TextCore.HasOnOwnIgnoreList, -1);
+               if(var4.equalsString(Class102.player.displayName)) {
+                  Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, TextCore.HasOnOwnIgnoreList, -1);
                } else {
                   Class114.ignores[Class3_Sub28_Sub5.anInt3591] = var1;
-                  Class3_Sub13_Sub27.aClass94Array3341[Class3_Sub28_Sub5.anInt3591++] = Class41.method1052(var1);
+                  Class3_Sub13_Sub27.aClass94Array3341[Class3_Sub28_Sub5.anInt3591++] = Unsorted.method1052(var1);
                   Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(34);
-                  Class3_Sub13_Sub1.outgoingBuffer.putLong(var1, -2037491440);
+                  Class3_Sub13_Sub1.outgoingBuffer.writeLong(var1);
                }
             } else {
-               Class3_Sub30_Sub1.addChatMessage(Class3_Sub28_Sub14.aClass94_3672, 0, TextCore.HasIgnoreListFull, -1);
+               Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, TextCore.HasIgnoreListFull, -1);
             }
          }
       } catch (RuntimeException var6) {
@@ -107,13 +109,13 @@ final class Class81 {
             anIntArrayArrayArray1142 = (int[][][])((int[][][])null);
          }
 
-         if(null != var0.anEventQueue1199) {
-            for(int var3 = 0; var3 < 50 && null != var0.anEventQueue1199.peekEvent(); ++var3) {
-               Class3_Sub13_Sub34.method331(1L, 64);
+         if(null != var0.systemEventQueue) {
+            for(int var3 = 0; var3 < 50 && null != var0.systemEventQueue.peekEvent(); ++var3) {
+               TimeUtils.sleep(1L);
             }
 
             if(var1 != null) {
-               var0.anEventQueue1199.postEvent(new ActionEvent(var1, 1001, "dummy"));
+               var0.systemEventQueue.postEvent(new ActionEvent(var1, 1001, "dummy"));
             }
 
          }
@@ -124,15 +126,15 @@ final class Class81 {
 
    static Class57 method1401(int var1) {
       try {
-         Class57 var2 = (Class57)Class128.aClass93_1683.get((long)var1);
+         Class57 var2 = (Class57)Class128.aReferenceCache_1683.get((long)var1);
          if(var2 == null) {
             byte[] var3 = Class46.aClass153_737.getFile(31, var1);
             var2 = new Class57();
             if(var3 != null) {
-               var2.method1190(new RSByteBuffer(var3), var1);
+               var2.method1190(new DataBuffer(var3), var1);
             }
 
-            Class128.aClass93_1683.put((byte)-75, var2, (long)var1);
+            Class128.aReferenceCache_1683.put(var2, (long)var1);
          }
          return var2;
       } catch (RuntimeException var4) {
@@ -140,39 +142,28 @@ final class Class81 {
       }
    }
 
-   public static void method1402(byte var0) {
-      try {
-         aClass13_1139 = null;
-         anIntArrayArrayArray1142 = (int[][][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "la.F(" + var0 + ')');
-      }
-   }
-
-   static Class131 method1403(int var0, RSString var1, CacheIndex var2) {
+   static Class131 method1403(RSString var1, CacheIndex var2) {
       try {
          int var3 = var2.getArchiveForName(var1);
          if(var3 == -1) {
             return new Class131(0);
-         } else if(var0 > -38) {
-            return (Class131)null;
-         } else {
+         }  else {
             int[] var4 = var2.getFileIds(var3);
             Class131 var5 = new Class131(Objects.requireNonNull(var4).length);
 
             for(int var6 = 0; var5.anInt1720 > var6; ++var6) {
-               RSByteBuffer var7 = new RSByteBuffer(var2.getFile(var3, var4[var6]));
-               var5.aClass94Array1721[var6] = var7.getString();
-               var5.aByteArray1730[var6] = var7.getByte();
-               var5.aShortArray1727[var6] = (short)var7.getShort();
-               var5.aShortArray1718[var6] = (short)var7.getShort();
-               var5.anIntArray1725[var6] = var7.getInt();
+               DataBuffer var7 = new DataBuffer(var2.getFile(var3, var4[var6]));
+               var5.aClass94Array1721[var6] = var7.readString();
+               var5.aByteArray1730[var6] = var7.readSignedByte();
+               var5.aShortArray1727[var6] = (short)var7.readUnsignedShort();
+               var5.aShortArray1718[var6] = (short)var7.readUnsignedShort();
+               var5.anIntArray1725[var6] = var7.readInt();
             }
 
             return var5;
          }
       } catch (RuntimeException var8) {
-         throw Class44.clientError(var8, "la.C(" + var0 + ',' + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var8, "la.C(" + (var1 != null?"{...}":"null") + ',' + (var2 != null?"{...}":"null") + ')');
       }
    }
 

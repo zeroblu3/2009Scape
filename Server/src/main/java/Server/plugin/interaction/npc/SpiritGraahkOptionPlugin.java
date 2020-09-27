@@ -16,7 +16,7 @@ public final class SpiritGraahkOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(7363).getConfigurations().put("option:interact", this);
+		NPCDefinition.forId(7363).getHandlers().put("option:interact", this);
 		return this;
 	}
 

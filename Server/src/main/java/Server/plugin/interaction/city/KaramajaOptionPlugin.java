@@ -3,9 +3,6 @@ package plugin.interaction.city;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
-import core.game.content.ItemNames;
-import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.action.ClimbActionHandler;
 import core.game.content.global.action.DoorActionHandler;
@@ -44,7 +41,7 @@ public final class KaramajaOptionPlugin extends OptionHandler {
     /**
      * Represents the pine apple objects.
      */
-    private static final int[] PINEAPPLE_OBJECTS = new int[]{1408, 1409, 1410, 1411, 1412, 1413};
+    private static final int[] PINEAPPLE_OBJECTS = new int[]{ 1408, 1409, 1410, 1411, 1412, 1413 };
 
     /**
      * Represents the musa point dungeon.

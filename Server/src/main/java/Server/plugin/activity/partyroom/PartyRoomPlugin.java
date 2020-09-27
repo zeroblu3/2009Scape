@@ -67,10 +67,10 @@ public final class PartyRoomPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(CLOSED_CHEST).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(OPEN_CHEST).getConfigurations().put("option:deposit", this);
-		ObjectDefinition.forId(OPEN_CHEST).getConfigurations().put("option:shut", this);
-		ObjectDefinition.forId(LEVER).getConfigurations().put("option:pull", this);
+		ObjectDefinition.forId(CLOSED_CHEST).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(OPEN_CHEST).getHandlers().put("option:deposit", this);
+		ObjectDefinition.forId(OPEN_CHEST).getHandlers().put("option:shut", this);
+		ObjectDefinition.forId(LEVER).getHandlers().put("option:pull", this);
 		PluginManager.definePlugin(new DepositInterfaceHandler());
 		PluginManager.definePlugin(new BalloonManager());
 		return this;

@@ -15,7 +15,7 @@ public class RCGuildMap extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(38422).getConfigurations().put("option:study",this);
+        ObjectDefinition.forId(38422).getHandlers().put("option:study",this);
         return null;
     }
 

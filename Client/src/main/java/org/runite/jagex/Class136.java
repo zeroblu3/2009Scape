@@ -1,10 +1,12 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.ReferenceCache;
+
 final class Class136 {
 
    LDIndexedSprite aClass109_Sub1_1770;
    static int anInt1771;
-   static Class93 aClass93_1772 = new Class93(64);
+   static ReferenceCache aReferenceCache_1772 = new ReferenceCache(64);
    
    static byte[][][] aByteArrayArrayArray1774;
    GameObject aClass140_1777;
@@ -84,20 +86,6 @@ final class Class136 {
       }
    }
 
-   public static void method1815(byte var0) {
-      try {
-         aShortArray1779 = null;
-         aClass93_1772 = null;
-         aClass64_1778 = null;
-         if(var0 > -33) {
-            method1816(-10, 68);
-         }
-         aByteArrayArrayArray1774 = (byte[][][])null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "sm.A(" + var0 + ')');
-      }
-   }
-
    static void method1816(int var0, int var1) {
       try {
          if(var1 == -7) {
@@ -105,7 +93,7 @@ final class Class136 {
             Class159.anIntArray2021 = new int[var0];
             AnimationDefinition.anIntArray1871 = new int[var0];
             Player.anIntArray3959 = new int[var0];
-            Class41.anIntArray686 = new int[var0];
+            Unsorted.anIntArray686 = new int[var0];
          }
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "sm.C(" + var0 + ',' + var1 + ')');

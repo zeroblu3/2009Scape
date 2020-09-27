@@ -1,16 +1,17 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.HashTable;
+import org.rs09.client.data.ReferenceCache;
+import org.rs09.client.data.NodeCache;
+
 final class Class3_Sub13_Sub11 extends Class3_Sub13 {
 
    private int anInt3129;
-   static Class93 aClass93_3130 = new Class93(4);
-   static int anInt3132;
-   static RSString aClass94_3133 = RSString.createRSString(")2");
+   static ReferenceCache aReferenceCache_3130 = new ReferenceCache(4);
    private int anInt3134;
    private int anInt3135;
-   static Class47 aClass47_3137 = new Class47(64);
+   static NodeCache aClass47_3137 = new NodeCache(64);
    static int[] anIntArray3139 = new int[14];
-   static RSString aClass94_3140 = RSString.createRSString("overlay2");
 
 
    protected Class3_Sub13_Sub11() {
@@ -20,18 +21,6 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
          this.method218(0);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "fm.<init>(" + 0 + ')');
-      }
-   }
-
-   public static void method217(int var0) {
-      try {
-         aClass94_3133 = null;
-         aClass94_3140 = null;
-         aClass93_3130 = null;
-         anIntArray3139 = null;
-         aClass47_3137 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "fm.B(" + var0 + ')');
       }
    }
 
@@ -77,17 +66,17 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
                Class60.method1208((byte)-128, Class3_Sub28_Sub12.anInt3655);
             }
 
-            for(Class3_Sub31 var2 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1776(3000 + -2908); null != var2; var2 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1778(-122)) {
+            for(Class3_Sub31 var2 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.first(); null != var2; var2 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.next()) {
                Class3_Sub13_Sub18.method254(true, var2);
             }
 
             Class3_Sub28_Sub12.anInt3655 = -1;
-            Class3_Sub13_Sub17.aClass130_3208 = new Class130(8);
+            Class3_Sub13_Sub17.aHashTable_3208 = new HashTable(8);
             Class3_Sub7.method122(3000 + -2918);
             Class3_Sub28_Sub12.anInt3655 = Class3_Sub22.anInt2529;
             Class124.method1746(false, (byte)-36);
-            Class47.method1093(false);
-            Class3_Sub13_Sub12.method226(Class3_Sub28_Sub12.anInt3655, 3000 ^ 2960);
+            Unsorted.method1093(false);
+            Class3_Sub13_Sub12.method226(Class3_Sub28_Sub12.anInt3655);
          }
 
          Class3_Sub28_Sub5.anInt3590 = -1;
@@ -97,7 +86,7 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
          Class102.player.anInt2819 = 3000;
          if(HDToolKit.highDetail) {
             if(Class133.anInt1753 == 2) {
-               NPC.anInt3995 = Canvas_Sub2.anInt30 << 7;
+               NPC.anInt3995 = Unsorted.anInt30 << 7;
                Class77.anInt1111 = Class146.anInt1904 << 7;
             } else {
                Class3_Sub28_Sub6.d(3000 ^ '\uf447');
@@ -107,7 +96,7 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
             Class3_Sub13_Sub6.method195();
             Class117.method1719(28);
          } else {
-            Class84.method1418(-110, Class140_Sub6.spritesCacheIndex);
+            Class84.method1418(-110, CacheIndex.spritesIndex);
             Class117.method1719(10);
          }
 
@@ -136,14 +125,14 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
             method221(-64, (RSString)null, (RSString)null, (RSString)null, 34);
          }
 
          if(var1 == 0) {
-            this.method218(var2.getTriByte((byte)82));
+            this.method218(var2.readMedium());
          }
 
       } catch (RuntimeException var5) {

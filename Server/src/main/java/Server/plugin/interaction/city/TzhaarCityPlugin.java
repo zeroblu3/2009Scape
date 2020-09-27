@@ -27,12 +27,12 @@ public final class TzhaarCityPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(31284).getConfigurations().put("option:enter", this);// karamja
+		ObjectDefinition.forId(31284).getHandlers().put("option:enter", this);// karamja
 		// cave.
-		ObjectDefinition.forId(9359).getConfigurations().put("option:enter", this);// tzhaar
+		ObjectDefinition.forId(9359).getHandlers().put("option:enter", this);// tzhaar
 		// exit
-		ObjectDefinition.forId(9356).getConfigurations().put("option:enter", this);
-		ObjectDefinition.forId(9369).getConfigurations().put("option:pass", this);
+		ObjectDefinition.forId(9356).getHandlers().put("option:enter", this);
+		ObjectDefinition.forId(9369).getHandlers().put("option:pass", this);
 		new TzhaarDialogue().init();
 		return this;
 	}

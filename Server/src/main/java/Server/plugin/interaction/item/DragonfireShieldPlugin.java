@@ -32,11 +32,11 @@ public final class DragonfireShieldPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(11283).getConfigurations().put("option:empty", this);
-		ItemDefinition.forId(11283).getConfigurations().put("option:inspect", this);
-		ItemDefinition.forId(11283).getConfigurations().put("option:operate", this);
-		ItemDefinition.forId(11284).getConfigurations().put("option:inspect", this);
-		ItemDefinition.forId(11284).getConfigurations().put("option:operate", this);
+		ItemDefinition.forId(11283).getHandlers().put("option:empty", this);
+		ItemDefinition.forId(11283).getHandlers().put("option:inspect", this);
+		ItemDefinition.forId(11283).getHandlers().put("option:operate", this);
+		ItemDefinition.forId(11284).getHandlers().put("option:inspect", this);
+		ItemDefinition.forId(11284).getHandlers().put("option:operate", this);
 		PluginManager.definePlugin(new DFSItemPlugin());
 		return this;
 	}

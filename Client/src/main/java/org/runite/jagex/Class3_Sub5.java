@@ -1,6 +1,8 @@
 package org.runite.jagex;
 
-final class Class3_Sub5 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub5 extends Linkable {
 
    int anInt2266;
 
@@ -24,7 +26,7 @@ final class Class3_Sub5 extends Class3 {
             for(int var9 = 0; var9 < Class119.aClass131_1624.anInt1720; ++var9) {
                if(Class119.aClass131_1624.method1787(var9)) {
                   int var10 = -Class3_Sub13_Sub21.anInt3256 + Class119.aClass131_1624.aShortArray1727[var9];
-                  int var11 = Class2.anInt65 - (Class119.aClass131_1624.aShortArray1718[var9] - -1 - Class108.anInt1460);
+                  int var11 = Unsorted.anInt65 - (Class119.aClass131_1624.aShortArray1718[var9] - -1 - Class108.anInt1460);
                   int var12 = var1 + (-var1 + var4) * (var10 - var3) / (-var3 + var7);
                   int var14 = Class119.aClass131_1624.method1791(var9, 8);
                   int var13 = (var8 + -var2) * (var11 - var6) / (var5 + -var6) + var2;
@@ -36,7 +38,7 @@ final class Class3_Sub5 extends Class3 {
                      }
 
                      if(4.0D == (double)Class44.aFloat727) {
-                        var16 = IOHandler.aClass33_1238;
+                        var16 = Unsorted.aClass33_1238;
                      }
 
                      if((double)Class44.aFloat727 == 6.0D) {
@@ -97,7 +99,7 @@ final class Class3_Sub5 extends Class3 {
                      for(int var18 = 0; var18 < var17; ++var18) {
                         RSString var19 = Class158_Sub1.aClass94Array2977[var18];
                         if(-1 + var17 > var18) {
-                           var19.method1553(-4 + var19.length(-101));
+                           var19.method1553(-4 + var19.length());
                         }
 
                         var16.method1003(var19, var12, var13, var15);
@@ -177,18 +179,18 @@ final class Class3_Sub5 extends Class3 {
 
    static int method115(boolean var0) {
       try {
-         long var2 = Class5.method830((byte)-55);
+         long var2 = TimeUtils.time();
 
-         for(Class3_Sub7 var4 = !var0?(Class3_Sub7) Class86.aClass130_3679.method1778(-123):(Class3_Sub7) Class86.aClass130_3679.method1776(-1 + 56); var4 != null; var4 = (Class3_Sub7) Class86.aClass130_3679.method1778(-64)) {
+         for(Class3_Sub7 var4 = !var0?(Class3_Sub7) Class86.aHashTable_3679.next():(Class3_Sub7) Class86.aHashTable_3679.first(); var4 != null; var4 = (Class3_Sub7) Class86.aHashTable_3679.next()) {
             if((4611686018427387903L & var4.aLong2295) < var2) {
                if((4611686018427387904L & var4.aLong2295) != 0) {
-                  int var5 = (int)var4.aLong71;
+                  int var5 = (int)var4.linkableKey;
                   ItemDefinition.ram[var5] = Class57.anIntArray898[var5];
-                  var4.method86(-1024);
+                  var4.unlink();
                   return var5;
                }
 
-               var4.method86(~1023);
+               var4.unlink();
             }
          }
 

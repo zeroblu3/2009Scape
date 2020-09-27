@@ -60,28 +60,16 @@ final class Class157 {
       return var3 != null && var3.aClass70_2234 != null?var3.aClass70_2234.aLong1048:0L;
    }
 
-   public static void method2175(byte var0) {
-      try {
-         aClass3_Sub28_Sub17_Sub1_2000 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "vj.F(" + var0 + ')');
-      }
-   }
-
-   static Class3_Sub28_Sub16_Sub2[] method2176(int var0, int var1, int var2, CacheIndex var3) {
+   static Class3_Sub28_Sub16_Sub2[] method2176(int var0, CacheIndex var1) {
       try {
     	  //System.out.println("Class 157 " + var2);
-         if(Class75_Sub4.method1351(var3, var0, var2, -30901)) {
-            if(var1 != 32767) {
-               method2176(-111, 55, -18, (CacheIndex)null);
-            }
-
+         if(Class75_Sub4.method1351(var1, 0, var0, -30901)) {
             return Class10.method851();
          } else {
             return null;
          }
       } catch (RuntimeException var5) {
-         throw Class44.clientError(var5, "vj.A(" + var0 + ',' + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
+         throw Class44.clientError(var5, "vj.A(" + 0 + ',' + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
    }
 

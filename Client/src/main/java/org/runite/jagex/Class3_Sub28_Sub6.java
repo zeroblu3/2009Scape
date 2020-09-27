@@ -1,5 +1,7 @@
 package org.runite.jagex;
 
+import org.rs09.client.Node;
+
 final class Class3_Sub28_Sub6 extends Node {
 
    static boolean aBoolean3594;
@@ -12,8 +14,8 @@ final class Class3_Sub28_Sub6 extends Node {
 
    final void a() {
       try {
-         this.aLong2569 = Class5.method830((byte)-55) - -500L | Long.MIN_VALUE & this.aLong2569;
-         Class81.aClass13_1139.method879(this);
+         this.nodeKey = TimeUtils.time() - -500L | Long.MIN_VALUE & this.nodeKey;
+         Class81.aClass13_1139.offer(this);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "da.U(" + true + ')');
       }
@@ -27,17 +29,17 @@ final class Class3_Sub28_Sub6 extends Node {
             Class163_Sub2_Sub1.anInt4020 += var1;
             if(Class163_Sub2_Sub1.anInt4020 >= 65535) {
                Class163_Sub2_Sub1.anInt4020 = '\uffff';
-               Class3_Sub28_Sub1.aBoolean3531 = !Class3_Sub28_Sub14.aBoolean3668;
+               Class3_Sub28_Sub1.aBoolean3531 = !WorldMapZoomFont.aBoolean3668;
 
-               Class3_Sub28_Sub14.aBoolean3668 = true;
+               WorldMapZoomFont.aBoolean3668 = true;
             } else {
-               Class3_Sub28_Sub14.aBoolean3668 = false;
+               WorldMapZoomFont.aBoolean3668 = false;
                Class3_Sub28_Sub1.aBoolean3531 = false;
             }
 
             if(var0 == '\uffff') {
                float var2 = (float)Class163_Sub2_Sub1.anInt4020 / 65535.0F;
-               int var4 = Class73.anInt1081 * 2;
+               int var4 = Unsorted.anInt1081 * 2;
 
                int var6;
                int var7;
@@ -92,7 +94,7 @@ final class Class3_Sub28_Sub6 extends Node {
    final long b() {
       try {
 
-         return this.aLong2569 & Long.MAX_VALUE;
+         return this.nodeKey & Long.MAX_VALUE;
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "da.A(" + true + ')');
       }
@@ -106,21 +108,17 @@ final class Class3_Sub28_Sub6 extends Node {
       }
    }
 
-   final int e(int var1) {
+   final int e() {
       try {
-         if(var1 != 2063817568) {
-            this.anInt3598 = -47;
-         }
-
-         return (int)(255L & this.aLong71 >>> 32);
+         return (int)(255L & this.linkableKey >>> 32);
       } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "da.D(" + var1 + ')');
+         throw Class44.clientError(var3, "da.D()");
       }
    }
 
    final int f() {
       try {
-         return (int)this.aLong71;
+         return (int)this.linkableKey;
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "da.P(" + (byte) 117 + ')');
       }
@@ -128,16 +126,16 @@ final class Class3_Sub28_Sub6 extends Node {
 
    static Class2 c(int var0) {
       try {
-         Class2 var2 = (Class2)Class3_Sub13_Sub34.aClass93_3412.get((long)var0);
+         Class2 var2 = (Class2)Class3_Sub13_Sub34.aReferenceCache_3412.get((long)var0);
          if(var2 == null) {
             byte[] var3 = Class107.aClass153_878.getFile(34, var0);
 
             var2 = new Class2();
             if(var3 != null) {
-               var2.method74((byte)-115, new RSByteBuffer(var3), var0);
+               var2.decode(new DataBuffer(var3));
             }
 
-            Class3_Sub13_Sub34.aClass93_3412.put((byte)-86, var2, (long)var0);
+            Class3_Sub13_Sub34.aReferenceCache_3412.put(var2, (long)var0);
          }
          return var2;
       } catch (RuntimeException var4) {
@@ -163,7 +161,7 @@ final class Class3_Sub28_Sub6 extends Node {
             if(null != var3 && Class49.method1122(var3) != null) {
                Class56.aClass11_886 = var3;
                PacketParser.aClass11_88 = Class49.method1122(var3);
-               Class144.anInt1881 = var1;
+               Unsorted.anInt1881 = var1;
                NPC.aBoolean3975 = false;
                Class75_Sub3.anInt2658 = 0;
                Class95.anInt1336 = var0;
@@ -177,28 +175,28 @@ final class Class3_Sub28_Sub6 extends Node {
    static void a(int var0, int var2, int var3, RSString var4, long var5, int var7, RSString name) {
       try {
     	  System.out.println("Class3_Sub28_Sub6 " + var0 + ", " + 10603 + ", " + var2 + ", " + var3 + ", " + var4 + ", " + var5 + ", " + var7);
-         RSByteBuffer var8 = new RSByteBuffer(128);
-         var8.putByte((byte)-101, 10);
-         var8.putShort((int)(Math.random() * 99999.0D));
-         var8.putShort(530);
-         var8.putString(name);
-         var8.putInt(-122, (int)(Math.random() * 9.9999999E7D));
-         var8.putString(var4);
-         var8.putInt(-123, (int)(Math.random() * 9.9999999E7D));
-         var8.putShort(Class3_Sub26.anInt2554);
-         var8.putByte((byte)-125, var0);
-         var8.putByte((byte)-8, var3);
-         var8.putInt(-127, (int)(Math.random() * 9.9999999E7D));
-         var8.putShort(var7);
-         var8.putShort(var2);
-         var8.putInt(-127, (int)(9.9999999E7D * Math.random()));
-         var8.encryptRSA(Class3_Sub13_Sub14.aBigInteger3162, Class3_Sub13_Sub37.aBigInteger3441);
+         DataBuffer var8 = new DataBuffer(128);
+         var8.writeByte(10);
+         var8.writeShort((int)(Math.random() * 99999.0D));
+         var8.writeShort(530);
+         var8.writeString(name);
+         var8.writeInt((int)(Math.random() * 9.9999999E7D));
+         var8.writeString(var4);
+         var8.writeInt((int)(Math.random() * 9.9999999E7D));
+         var8.writeShort(Class3_Sub26.anInt2554);
+         var8.writeByte(var0);
+         var8.writeByte(var3);
+         var8.writeInt((int)(Math.random() * 9.9999999E7D));
+         var8.writeShort(var7);
+         var8.writeShort(var2);
+         var8.writeInt((int)(9.9999999E7D * Math.random()));
+         var8.rsaEncrypt(Class3_Sub13_Sub14.aBigInteger3162, Class3_Sub13_Sub37.aBigInteger3441);
          Class3_Sub13_Sub1.outgoingBuffer.index = 0;
-         Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-46, 36);
-         Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-41, var8.index);
-         Class3_Sub13_Sub1.outgoingBuffer.putBytes(var8.buffer, var8.index, 115);
-         Class130.anInt1711 = -3;
-         Canvas_Sub1.registryStage = 1;
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte(36);
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte(var8.index);
+         Class3_Sub13_Sub1.outgoingBuffer.putBytes(var8.buffer, var8.index);
+         Unsorted.anInt1711 = -3;
+         Unsorted.registryStage = 1;
          Class132.anInt1734 = 0;
          GraphicDefinition.anInt548 = 0;
       } catch (RuntimeException var9) {
@@ -208,9 +206,9 @@ final class Class3_Sub28_Sub6 extends Node {
 
    final void g() {
       try {
-         this.aLong2569 |= Long.MIN_VALUE;
+         this.nodeKey |= Long.MIN_VALUE;
          if(this.b() == 0) {
-            Class126.aClass13_1666.method879(this);
+            Class126.aClass13_1666.offer(this);
          }
 
       } catch (RuntimeException var3) {
@@ -218,18 +216,9 @@ final class Class3_Sub28_Sub6 extends Node {
       }
    }
 
-   public static void f(int var0) {
-      try {
-         if(var0 == 3) {
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "da.O(" + var0 + ')');
-      }
-   }
-
    Class3_Sub28_Sub6(int var1, int var2) {
       try {
-         this.aLong71 = (long)var1 << 32 | (long)var2;
+         this.linkableKey = (long)var1 << 32 | (long)var2;
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "da.<init>(" + var1 + ',' + var2 + ')');
       }
@@ -237,10 +226,10 @@ final class Class3_Sub28_Sub6 extends Node {
 
    static void h() {
       try {
-         Class114.aClass93_1569.method1523((byte)-109);
+         Class114.aReferenceCache_1569.clearSoftReferences();
 
-         Class3_Sub15.aClass93_2428.method1523((byte)-123);
-         Class47.aClass93_743.method1523((byte)-106);
+         Class3_Sub15.aReferenceCache_2428.clearSoftReferences();
+         Unsorted.aReferenceCache_743.clearSoftReferences();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "da.E(" + (byte) 3 + ')');
       }

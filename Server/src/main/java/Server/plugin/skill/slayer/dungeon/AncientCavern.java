@@ -61,7 +61,7 @@ public final class AncientCavern extends MapZone implements Plugin<Object> {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(25274).getConfigurations().put("option:dive in", this);
+				ObjectDefinition.forId(25274).getHandlers().put("option:dive in", this);
 				return this;
 			}
 

@@ -17,23 +17,23 @@ final class Class169 {
 
 
    final void method2281(int[][] var1, int var2, int var3) {
-      RSByteBuffer var4 = new RSByteBuffer(1620);
+      DataBuffer var4 = new DataBuffer(1620);
 
       int var6;
       for(int var5 = 0; var5 <= 8; ++var5) {
          for(var6 = 0; var6 <= 8; ++var6) {
             if(HDToolKit.aBoolean1790) {
-               var4.method801((float)var6 / 8.0F);
-               var4.method801((float)var5 / 8.0F);
-               var4.method801((float)(var6 * 128));
-               var4.method801((float)var1[var6 + var2][var5 + var3]);
-               var4.method801((float)(var5 * 128));
+               var4.writeFloat((float)var6 / 8.0F);
+               var4.writeFloat((float)var5 / 8.0F);
+               var4.writeFloat((float)(var6 * 128));
+               var4.writeFloat((float)var1[var6 + var2][var5 + var3]);
+               var4.writeFloat((float)(var5 * 128));
             } else {
-               var4.method762((float)var6 / 8.0F, (byte)104);
-               var4.method762((float)var5 / 8.0F, (byte)65);
-               var4.method762((float)(var6 * 128), (byte)106);
-               var4.method762((float)var1[var6 + var2][var5 + var3], (byte)79);
-               var4.method762((float)(var5 * 128), (byte)124);
+               var4.writeFloatLE((float)var6 / 8.0F);
+               var4.writeFloatLE((float)var5 / 8.0F);
+               var4.writeFloatLE((float)(var6 * 128));
+               var4.writeFloatLE((float)var1[var6 + var2][var5 + var3]);
+               var4.writeFloatLE((float)(var5 * 128));
             }
          }
       }
@@ -48,24 +48,24 @@ final class Class169 {
          this.aByteBuffer2109.flip();
       }
 
-      RSByteBuffer var8 = new RSByteBuffer(1536);
+      DataBuffer var8 = new DataBuffer(1536);
 
       for(var6 = 0; var6 < 8; ++var6) {
          for(int var7 = 0; var7 < 8; ++var7) {
             if(HDToolKit.aBoolean1790) {
-               var8.putInt(-125, var7 + (var6 + 1) * 9);
-               var8.putInt(-128, var7 + var6 * 9);
-               var8.putInt(-128, var7 + 1 + var6 * 9);
-               var8.putInt(-120, var7 + (var6 + 1) * 9);
-               var8.putInt(-127, var7 + 1 + var6 * 9);
-               var8.putInt(-122, var7 + 1 + (var6 + 1) * 9);
+               var8.writeInt(var7 + (var6 + 1) * 9);
+               var8.writeInt(var7 + var6 * 9);
+               var8.writeInt(var7 + 1 + var6 * 9);
+               var8.writeInt(var7 + (var6 + 1) * 9);
+               var8.writeInt(var7 + 1 + var6 * 9);
+               var8.writeInt(var7 + 1 + (var6 + 1) * 9);
             } else {
-               var8.method757(var7 + (var6 + 1) * 9, 109);
-               var8.method757(var7 + var6 * 9, 122);
-               var8.method757(var7 + 1 + var6 * 9, 67);
-               var8.method757(var7 + (var6 + 1) * 9, 116);
-               var8.method757(var7 + 1 + var6 * 9, 90);
-               var8.method757(var7 + 1 + (var6 + 1) * 9, 93);
+               var8.writeIntLE(var7 + (var6 + 1) * 9);
+               var8.writeIntLE(var7 + var6 * 9);
+               var8.writeIntLE(var7 + 1 + var6 * 9);
+               var8.writeIntLE(var7 + (var6 + 1) * 9);
+               var8.writeIntLE(var7 + 1 + var6 * 9);
+               var8.writeIntLE(var7 + 1 + (var6 + 1) * 9);
             }
          }
       }
@@ -83,8 +83,8 @@ final class Class169 {
    }
 
    final void method2282(LDIndexedSprite var1, int var2, int var3) {
-      byte[] var4 = var1.aByteArray2674;
-      int var5 = var1.anInt1461;
+      byte[] var4 = var1.raster;
+      int var5 = var1.width;
       int var6 = var2 * 128 + 1 + (var3 * 128 + 1) * var5;
       int var7 = 0;
 
@@ -145,10 +145,6 @@ final class Class169 {
          HDToolKit.bindTexture2D(this.anInt2108);
          var12.glTexImage2D(3553, 0, 6406, 128, 128, 0, 6406, 5121, var13);
       }
-   }
-
-   public static void method2283() {
-      aByteArray2111 = null;
    }
 
    final void method2284() {

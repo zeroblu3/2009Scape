@@ -1,12 +1,15 @@
 package org.runite.jagex;
 
-final class CS2Script extends Class3 {
+import org.rs09.client.Linkable;
+import org.rs09.client.data.ReferenceCache;
+
+final class CS2Script extends Linkable {
 
    RSInterface aClass11_2438;
    RSString aClass94_2439;
    static int anInt2440 = 0;
    int scrollbarScrollAmount;
-   static Class93 aClass93_2442 = new Class93(50);
+   static ReferenceCache aReferenceCache_2442 = new ReferenceCache(50);
    int anInt2443;
    int inputTextCode;
    int interfaceButtons;
@@ -14,39 +17,25 @@ final class CS2Script extends Class3 {
    int worldSelectCursorPositionX;
    Object[] arguments;
    RSInterface aClass11_2449;
-   static Class93 aClass93_2450 = new Class93(64);
+   static ReferenceCache aReferenceCache_2450 = new ReferenceCache(64);
    static int anInt2451 = -1;
    static byte[][][] aByteArrayArrayArray2452;
    static int anInt2453 = 127;
 
 
-   public static void method376(boolean var0) {
-      try {
-         aClass93_2442 = null;
-         if(var0) {
-            method378(97, (byte)-80);
-         }
-
-         aByteArrayArrayArray2452 = (byte[][][])null;
-         aClass93_2450 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "jl.E(" + ')');
-      }
-   }
-
    static void sendRegistryRequest(int year, int country, int day, int month) {
       try {
     	//  System.out.println("CS2Script year=" + year + ", country=" + country + ", day=" + day + ", month=" + month + ", stage=" + stage + ", " + System.currentTimeMillis());
          Class3_Sub13_Sub1.outgoingBuffer.index = 0;
-         Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-119, 147);//Handshake opcode
-         Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-128, day);
-         Class3_Sub13_Sub1.outgoingBuffer.putByte((byte)-105, month);
-         Class3_Sub13_Sub1.outgoingBuffer.putShort(year);
-         Class3_Sub13_Sub1.outgoingBuffer.putShort(country);
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte(147);//Handshake opcode
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte(day);
+         Class3_Sub13_Sub1.outgoingBuffer.writeByte(month);
+         Class3_Sub13_Sub1.outgoingBuffer.writeShort(year);
+         Class3_Sub13_Sub1.outgoingBuffer.writeShort(country);
          Class132.anInt1734 = 0;
          GraphicDefinition.anInt548 = 0;
-         Canvas_Sub1.registryStage = 1;
-         Class130.anInt1711 = -3;
+         Unsorted.registryStage = 1;
+         Unsorted.anInt1711 = -3;
       } catch (RuntimeException var6) {
          throw Class44.clientError(var6, "jl.C(" + year + ',' + country + ',' + day + ',' + month + ',' + 1 + ')');
       }
@@ -54,7 +43,7 @@ final class CS2Script extends Class3 {
 
    static Class79 method378(int var0, byte var1) {
       try {
-         Class79 var2 = (Class79)aClass93_2450.get((long)var0);
+         Class79 var2 = (Class79) aReferenceCache_2450.get((long)var0);
          if(var2 == null) {
             if(var1 < 126) {
                return (Class79)null;
@@ -62,10 +51,10 @@ final class CS2Script extends Class3 {
                byte[] var3 = Class101.aClass153_1420.getFile(Class140_Sub7.method2032(var0), var0 & 1023);
                var2 = new Class79();
                if(var3 != null) {
-                  var2.method1387(new RSByteBuffer(var3));
+                  var2.method1387(new DataBuffer(var3));
                }
 
-               aClass93_2450.put((byte)-84, var2, (long)var0);
+               aReferenceCache_2450.put(var2, (long)var0);
                return var2;
             }
          } else {
@@ -79,50 +68,50 @@ final class CS2Script extends Class3 {
    static void method379() {
       try {
          int var2 = Class146.anInt1904 * 128 - -64;
-         int var1 = 128 * Canvas_Sub2.anInt30 + 64;
+         int var1 = 128 * Unsorted.anInt30 + 64;
          int var3 = Class121.method1736(WorldListCountry.localPlane, 1, var1, var2) - Class3_Sub13_Sub34.anInt3414;
-         if(100 <= Class3_Sub28_Sub10.anInt3631) {
-            NPC.anInt3995 = 64 + Canvas_Sub2.anInt30 * 128;
+         if(100 <= Unsorted.anInt3631) {
+            NPC.anInt3995 = 64 + Unsorted.anInt30 * 128;
             Class77.anInt1111 = 64 + Class146.anInt1904 * 128;
             Class7.anInt2162 = Class121.method1736(WorldListCountry.localPlane, 1024 + -1023, NPC.anInt3995, Class77.anInt1111) + -Class3_Sub13_Sub34.anInt3414;
          } else {
             if(NPC.anInt3995 < var1) {
-               NPC.anInt3995 += Class163_Sub2_Sub1.anInt4021 + Class3_Sub28_Sub10.anInt3631 * (-NPC.anInt3995 + var1) / 1000;
+               NPC.anInt3995 += Class163_Sub2_Sub1.anInt4021 + Unsorted.anInt3631 * (-NPC.anInt3995 + var1) / 1000;
                if(var1 < NPC.anInt3995) {
                   NPC.anInt3995 = var1;
                }
             }
 
             if(var3 > Class7.anInt2162) {
-               Class7.anInt2162 += (-Class7.anInt2162 + var3) * Class3_Sub28_Sub10.anInt3631 / 1000 + Class163_Sub2_Sub1.anInt4021;
+               Class7.anInt2162 += (-Class7.anInt2162 + var3) * Unsorted.anInt3631 / 1000 + Class163_Sub2_Sub1.anInt4021;
                if(Class7.anInt2162 > var3) {
                   Class7.anInt2162 = var3;
                }
             }
 
             if(var1 < NPC.anInt3995) {
-               NPC.anInt3995 -= Class163_Sub2_Sub1.anInt4021 + (NPC.anInt3995 + -var1) * Class3_Sub28_Sub10.anInt3631 / 1000;
+               NPC.anInt3995 -= Class163_Sub2_Sub1.anInt4021 + (NPC.anInt3995 + -var1) * Unsorted.anInt3631 / 1000;
                if(NPC.anInt3995 < var1) {
                   NPC.anInt3995 = var1;
                }
             }
 
             if(Class77.anInt1111 < var2) {
-               Class77.anInt1111 += Class163_Sub2_Sub1.anInt4021 + Class3_Sub28_Sub10.anInt3631 * (var2 - Class77.anInt1111) / 1000;
+               Class77.anInt1111 += Class163_Sub2_Sub1.anInt4021 + Unsorted.anInt3631 * (var2 - Class77.anInt1111) / 1000;
                if(Class77.anInt1111 > var2) {
                   Class77.anInt1111 = var2;
                }
             }
 
             if(var3 < Class7.anInt2162) {
-               Class7.anInt2162 -= (Class7.anInt2162 - var3) * Class3_Sub28_Sub10.anInt3631 / 1000 + Class163_Sub2_Sub1.anInt4021;
+               Class7.anInt2162 -= (Class7.anInt2162 - var3) * Unsorted.anInt3631 / 1000 + Class163_Sub2_Sub1.anInt4021;
                if(Class7.anInt2162 < var3) {
                   Class7.anInt2162 = var3;
                }
             }
 
             if(var2 < Class77.anInt1111) {
-               Class77.anInt1111 -= Class163_Sub2_Sub1.anInt4021 - -((-var2 + Class77.anInt1111) * Class3_Sub28_Sub10.anInt3631 / 1000);
+               Class77.anInt1111 -= Class163_Sub2_Sub1.anInt4021 - -((-var2 + Class77.anInt1111) * Unsorted.anInt3631 / 1000);
                if(Class77.anInt1111 < var2) {
                   Class77.anInt1111 = var2;
                }

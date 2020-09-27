@@ -2,7 +2,6 @@ package org.runite.jagex;
 
 final class Class10 {
 
-   static RSString aClass94_148 = RSString.createRSString("(U(Y");
    int anInt149;
    Class3_Sub28_Sub4 aClass3_Sub28_Sub4_151;
    static CacheIndex aClass153_152;
@@ -20,10 +19,10 @@ final class Class10 {
             int[] var5 = new int[var3];
 
             for(int var6 = 0; var3 > var6; ++var6) {
-               var5[var6] = Class3_Sub13_Sub38.spritePalette[Class69.bitwiseAnd(255, var4[var6])];
+               var5[var6] = Class3_Sub13_Sub38.spritePalette[Unsorted.bitwiseAnd(255, var4[var6])];
             }
 
-            var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], RSByteBuffer.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+            var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
          }
 
          Class39.method1035((byte)113);
@@ -35,7 +34,7 @@ final class Class10 {
 
    static void method852(byte var0, int var1) {
       try {
-         Class3_Sub25 var2 = (Class3_Sub25)Class3_Sub2.aClass130_2220.method1780((long)var1);
+         Class3_Sub25 var2 = (Class3_Sub25)Class3_Sub2.aHashTable_2220.get((long)var1);
          if(var2 != null) {
             if(var0 != 114) {
                aClass153_152 = (CacheIndex)null;
@@ -49,18 +48,6 @@ final class Class10 {
          }
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "bd.C(" + var0 + ',' + var1 + ')');
-      }
-   }
-
-   public static void method853(int var0) {
-      try {
-         aClass94_148 = null;
-         if(var0 != 0) {
-         }
-
-         aClass153_152 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bd.A(" + var0 + ')');
       }
    }
 

@@ -30,10 +30,10 @@ public class SorceressGardenObject extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(21709).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(21753).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(21731).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(21687).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(21709).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(21753).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(21731).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(21687).getHandlers().put("option:open", this);
 		return this;
 	}
 

@@ -1,39 +1,21 @@
 package org.runite.jagex;
 
+import org.rs09.client.rendering.Toolkit;
+
 abstract class Class129 {
 
    static int[] anIntArray1690;
    static int anInt1691 = -1;
    static int anInt1692 = 0;
    static int[] anIntArray1693 = new int[128];
-   static RSString aClass94_1694 = RSString.createRSString("document)3cookie=(R");
    static int[] anIntArray1695;
 
 
-   static int method1765(int var0, int var1) {
+   static int method1765(int var0) {
       try {
-         if(var1 != -1732504441) {
-            method1765(97, -97);
-         }
-
          return var0 >>> 7;
       } catch (RuntimeException var3) {
-         throw Class44.clientError(var3, "s.D(" + var0 + ',' + var1 + ')');
-      }
-   }
-
-   public static void method1766(int var0) {
-      try {
-         anIntArray1695 = null;
-         if(var0 != 24241) {
-            method1766(84);
-         }
-
-         anIntArray1690 = null;
-         anIntArray1693 = null;
-         aClass94_1694 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "s.E(" + var0 + ')');
+         throw Class44.clientError(var3, "s.D(" + var0 + ')');
       }
    }
 
@@ -48,7 +30,7 @@ abstract class Class129 {
 
          short var3 = 256;
          int var4 = 0;
-         int var5 = Class74.anInt1092 * var2;
+         int var5 = Toolkit.JAVA_TOOLKIT.width * var2;
          int var6 = 0;
 
          for(int var7 = 1; var7 < var3 + -1; ++var7) {
@@ -61,7 +43,7 @@ abstract class Class129 {
 
             int var9;
             for(var9 = var8; var9 < 128; ++var9) {
-               int var11 = Class74.anIntArray1100[var5++ + var0];
+               int var11 = Toolkit.JAVA_TOOLKIT.getBuffer()[var5++ + var0];
                int var10 = Class127.anIntArray1681[var4++];
                if(var10 == 0) {
                   Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = var11;
@@ -77,15 +59,15 @@ abstract class Class129 {
                   }
 
                   var10 = Class52.anIntArray861[var10];
-                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Class69.bitwiseAnd(var13 * Class69.bitwiseAnd(var11, 16711935) + Class69.bitwiseAnd(16711935, var10) * var12, -16711936) - -Class69.bitwiseAnd(Class69.bitwiseAnd(var10, '\uff00') * var12 - -(Class69.bitwiseAnd('\uff00', var11) * var13), 16711680) >> 8;
+                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Unsorted.bitwiseAnd(var13 * Unsorted.bitwiseAnd(var11, 16711935) + Unsorted.bitwiseAnd(16711935, var10) * var12, -16711936) - -Unsorted.bitwiseAnd(Unsorted.bitwiseAnd(var10, '\uff00') * var12 - -(Unsorted.bitwiseAnd('\uff00', var11) * var13), 16711680) >> 8;
                }
             }
 
             for(var9 = 0; var9 < var8; ++var9) {
-               Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Class74.anIntArray1100[var0 + var5++];
+               Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Toolkit.JAVA_TOOLKIT.getBuffer()[var0 + var5++];
             }
 
-            var5 += Class74.anInt1092 + -128;
+            var5 += Toolkit.JAVA_TOOLKIT.width + -128;
          }
 
           if(HDToolKit.highDetail) {

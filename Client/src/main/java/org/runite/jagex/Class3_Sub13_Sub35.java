@@ -4,7 +4,6 @@ import java.util.Objects;
 
 final class Class3_Sub13_Sub35 extends Class3_Sub13 {
 
-   static RSString aClass94_3418 = RSString.createRSString("(U5");
    static int anInt3419 = 0;
    static Class131 aClass131_3421;
 
@@ -42,11 +41,11 @@ final class Class3_Sub13_Sub35 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var3) {
             if(var1 == 0) {
-               this.aBoolean2375 = var2.getByteB() == 1;
+               this.aBoolean2375 = var2.readUnsignedByte() == 1;
             }
 
          }
@@ -81,47 +80,6 @@ final class Class3_Sub13_Sub35 extends Class3_Sub13 {
          }
       } catch (RuntimeException var12) {
          throw Class44.clientError(var12, "tb.T(" + var1 + ',' + var2 + ')');
-      }
-   }
-
-   static Class3_Sub28_Sub1 getQuickChatMessage(int fileId) {
-      try {
-         Class3_Sub28_Sub1 var2 = (Class3_Sub28_Sub1)Class3_Sub13_Sub11.aClass47_3137.getNodeByID((long)fileId);
-         if(null == var2) {
-            byte[] var3;
-            if(fileId < '\u8000') {
-               var3 = Class47.quickChatMessages.getFile(0, fileId);
-            } else {
-               var3 = NodeList.aClass153_332.getFile(0, fileId & 32767);
-            }
-
-            var2 = new Class3_Sub28_Sub1();
-            if(null != var3) {
-               var2.method530(new RSByteBuffer(var3));
-            }
-
-             if(fileId >= 32768) {
-               var2.method525();
-            }
-
-            Class3_Sub13_Sub11.aClass47_3137.method1097(var2, (long)fileId, (byte)40);
-         }
-         return var2;
-      } catch (RuntimeException var4) {
-         throw Class44.clientError(var4, "tb.B(" + fileId + ',' + (byte) -54 + ')');
-      }
-   }
-
-   public static void method337(int var0) {
-      try {
-         aClass94_3418 = null;
-         if(var0 != 2) {
-            anInt3419 = -53;
-         }
-
-         aClass131_3421 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "tb.E(" + var0 + ')');
       }
    }
 

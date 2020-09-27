@@ -1,8 +1,11 @@
 package org.runite.jagex;
 
+import org.rs09.client.util.ArrayUtils;
+import org.rs09.client.data.ReferenceCache;
+
 final class Class67 implements Runnable {
 
-   static Class93 aClass93_1013 = new Class93(100);
+   static ReferenceCache aReferenceCache_1013 = new ReferenceCache(100);
    static byte[][][] aByteArrayArrayArray1014;
    boolean aBoolean1015 = true;
    Object anObject1016 = new Object();
@@ -11,27 +14,14 @@ final class Class67 implements Runnable {
    int[] anIntArray1019 = new int[500];
    int[] anIntArray1020 = new int[500];
 
-
-   public static void method1257(int var0) {
-      try {
-         if(var0 == 25951) {
-            aClass11_1017 = null;
-            aByteArrayArrayArray1014 = (byte[][][])null;
-            aClass93_1013 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "jd.B(" + var0 + ')');
-      }
-   }
-
    public final void run() {
       try {
-         for(; this.aBoolean1015; Class3_Sub13_Sub34.method331(50L, 64)) {
+         for(; this.aBoolean1015; TimeUtils.sleep(50L)) {
             Object var1 = this.anObject1016;
             synchronized(var1) {
                if(this.anInt1018 < 500) {
                   this.anIntArray1020[this.anInt1018] = Class126.anInt1676;
-                  this.anIntArray1019[this.anInt1018] = Class130.anInt1709;
+                  this.anIntArray1019[this.anInt1018] = Unsorted.anInt1709;
                   ++this.anInt1018;
                }
             }
@@ -74,12 +64,12 @@ final class Class67 implements Runnable {
                      continue;
                   }
 
-                  method1260(var0, var4.anInt279, var2);
+                  method1260(var0, var4.componentHash, var2);
                   if(var4.aClass11Array262 != null) {
-                     method1260(23206, var4.anInt279, var4.aClass11Array262);
+                     method1260(23206, var4.componentHash, var4.aClass11Array262);
                   }
 
-                  Class3_Sub31 var5 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1780((long)var4.anInt279);
+                  Class3_Sub31 var5 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.get((long)var4.componentHash);
                   if(var5 != null) {
                      Class52.method1160(-111, var5.anInt2602);
                   }
@@ -97,7 +87,7 @@ final class Class67 implements Runnable {
 
                      if(var6 != -1) {
                         AnimationDefinition var7 = Client.getAnimationDefinition(var6);
-                        for(var4.anInt267 += Class106.anInt1446; var7.duration[var4.anInt283] < var4.anInt267; Class20.method909(115, var4)) {
+                        for(var4.anInt267 += Class106.anInt1446; var7.duration[var4.anInt283] < var4.anInt267; Class20.method909(var4)) {
                            var4.anInt267 -= var7.duration[var4.anInt283];
                            ++var4.anInt283;
                            if(var7.frames.length <= var4.anInt283) {
@@ -125,16 +115,11 @@ final class Class67 implements Runnable {
                      var4.anInt182 = 2047 & var10 + var4.anInt182;
                      var6 *= Class106.anInt1446;
                      var4.anInt308 = var4.anInt308 - -var6 & 2047;
-                     Class20.method909(117, var4);
+                     Class20.method909(var4);
                   }
                }
             }
          }
-
-         if(var0 != 23206) {
-            method1257(107);
-         }
-
       } catch (RuntimeException var8) {
          throw Class44.clientError(var8, "jd.E(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ')');
       }
@@ -146,7 +131,7 @@ final class Class67 implements Runnable {
 
          for(int var5 = 0; var1 > var5; ++var5) {
             if(null == var2[var0 - -var5]) {
-               var2[var5 + var0] = Class3_Sub13_Sub27.aClass94_3339;
+               var2[var5 + var0] = TextCore.aClass94_3339;
             }
 
             var4 += var2[var5 + var0].length;
@@ -157,14 +142,14 @@ final class Class67 implements Runnable {
 
          for(int var7 = 0; var1 > var7; ++var7) {
             RSString var8 = var2[var7 + var0];
-            Class76.method1357(var8.byteArray, 0, var10, var6, var8.length);
+            ArrayUtils.arraycopy(var8.buffer, 0, var10, var6, var8.length);
             var6 += var8.length;
          }
 
          RSString var11 = new RSString();
          var11.length = var4;
 
-         var11.byteArray = var10;
+         var11.buffer = var10;
          return var11;
       } catch (RuntimeException var9) {
          throw Class44.clientError(var9, "jd.C(" + var0 + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + 2774 + ')');

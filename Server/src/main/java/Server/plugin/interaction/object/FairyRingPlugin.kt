@@ -28,9 +28,9 @@ class FairyRingPlugin : OptionHandler() {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (i in RINGS) {
-            ObjectDefinition.forId(i).configurations["option:use"] = this
+            ObjectDefinition.forId(i).handlers["option:use"] = this
         }
-        ObjectDefinition.forId(MAIN_RING).configurations["option:use"] = this
+        ObjectDefinition.forId(MAIN_RING).handlers["option:use"] = this
         definePlugin(FairyInterfaceHandler())
         return this
     }

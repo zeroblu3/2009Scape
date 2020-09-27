@@ -39,35 +39,35 @@ public final class HunterPlugin extends OptionHandler {
 		for (Traps trap : Traps.values()) {
 			for (int nodeId : trap.getSettings().getNodeIds()) {
 				definition = trap.getSettings().isObjectTrap() ? ObjectDefinition.forId(nodeId) : ItemDefinition.forId(nodeId);
-				definition.getConfigurations().put("option:" + trap.getSettings().getOption(), this);
+				definition.getHandlers().put("option:" + trap.getSettings().getOption(), this);
 			}
 			if (trap.getSettings().getFailId() != -1) {
 				definition = ObjectDefinition.forId(trap.getSettings().getFailId());
-				definition.getConfigurations().put("option:dismantle", this);
-				definition.getConfigurations().put("option:deactivate", this);
+				definition.getHandlers().put("option:dismantle", this);
+				definition.getHandlers().put("option:deactivate", this);
 			}
 			for (int objectId : trap.getSettings().getObjectIds()) {
 				definition = ObjectDefinition.forId(objectId);
-				definition.getConfigurations().put("option:deactivate", this);
-				definition.getConfigurations().put("option:dismantle", this);
-				definition.getConfigurations().put("option:investigate", this);
+				definition.getHandlers().put("option:deactivate", this);
+				definition.getHandlers().put("option:dismantle", this);
+				definition.getHandlers().put("option:investigate", this);
 			}
 			for (TrapNode node : trap.getNodes()) {
 				for (int objectId : node.getObjectIds()) {
 					definition = ObjectDefinition.forId(objectId);
-					definition.getConfigurations().put("option:check", this);
-					definition.getConfigurations().put("option:retrieve", this);
+					definition.getHandlers().put("option:check", this);
+					definition.getHandlers().put("option:retrieve", this);
 				}
 			}
 		}
 		for (NetTrap trap : NetTrap.values()) {
-			ObjectDefinition.forId(trap.getBent()).getConfigurations().put("option:dismantle", this);
-			ObjectDefinition.forId(trap.getFailed()).getConfigurations().put("option:dismantle", this);
-			ObjectDefinition.forId(trap.getNet()).getConfigurations().put("option:dismantle", this);
-			ObjectDefinition.forId(trap.getCaught()).getConfigurations().put("option:check", this);
-			ObjectDefinition.forId(trap.getBent()).getConfigurations().put("option:investigate", this);
-			ObjectDefinition.forId(trap.getFailed()).getConfigurations().put("option:investigate", this);
-			ObjectDefinition.forId(trap.getNet()).getConfigurations().put("option:investigate", this);
+			ObjectDefinition.forId(trap.getBent()).getHandlers().put("option:dismantle", this);
+			ObjectDefinition.forId(trap.getFailed()).getHandlers().put("option:dismantle", this);
+			ObjectDefinition.forId(trap.getNet()).getHandlers().put("option:dismantle", this);
+			ObjectDefinition.forId(trap.getCaught()).getHandlers().put("option:check", this);
+			ObjectDefinition.forId(trap.getBent()).getHandlers().put("option:investigate", this);
+			ObjectDefinition.forId(trap.getFailed()).getHandlers().put("option:investigate", this);
+			ObjectDefinition.forId(trap.getNet()).getHandlers().put("option:investigate", this);
 		}
 		PluginManager.definePlugin(new HunterNPC());
 		PluginManager.definePlugin(new HunterNetPlugin());
@@ -192,7 +192,7 @@ public final class HunterPlugin extends OptionHandler {
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			ItemDefinition.setOptionHandler("release", this);
 			for (int i = BNetTypes.BABY_IMPLING.ordinal() - 1; i < BNetTypes.values().length; i++) {
-				BNetTypes.values()[i].getNode().getReward().getDefinition().getConfigurations().put("option:loot", this);
+				BNetTypes.values()[i].getNode().getReward().getDefinition().getHandlers().put("option:loot", this);
 			}
 			return this;
 		}
@@ -295,7 +295,7 @@ public final class HunterPlugin extends OptionHandler {
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			for (BNetTypes type : BNetTypes.values()) {
 				for (int id : type.getNode().getNpcs()) {
-					NPCDefinition.forId(id).getConfigurations().put("option:catch", this);
+					NPCDefinition.forId(id).getHandlers().put("option:catch", this);
 				}
 			}
 			return this;

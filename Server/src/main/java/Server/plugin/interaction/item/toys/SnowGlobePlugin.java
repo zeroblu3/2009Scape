@@ -14,7 +14,6 @@ import core.game.world.update.flag.context.Graphics;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.plugin.PluginManager;
-import core.tools.ItemNames;
 
 @InitializablePlugin
 public class SnowGlobePlugin extends OptionHandler {
@@ -30,7 +29,7 @@ public class SnowGlobePlugin extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         PluginManager.definePlugin(new SnowGlobeInterface());
-        ItemDefinition.forId(11949).getConfigurations().put("option:shake",this);
+        ItemDefinition.forId(11949).getHandlers().put("option:shake",this);
         return this;
     }
 

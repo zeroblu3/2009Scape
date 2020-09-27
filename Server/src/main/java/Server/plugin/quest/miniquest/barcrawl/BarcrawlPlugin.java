@@ -1,8 +1,6 @@
 package plugin.quest.miniquest.barcrawl;
 
 import core.cache.def.impl.NPCDefinition;
-import plugin.dialogue.DialogueInterpreter;
-import plugin.dialogue.DialoguePlugin;
 import plugin.skill.Skills;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -32,7 +30,7 @@ public final class BarcrawlPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (BarcrawlType type : BarcrawlType.values()) {
 			for (int npc : type.getNpc()) {
-				NPCDefinition.forId(npc).getConfigurations().put("option:talk-to", this);
+				NPCDefinition.forId(npc).getHandlers().put("option:talk-to", this);
 			}
 		}
 		PluginManager.definePlugin(new BarcrawlDialogue());

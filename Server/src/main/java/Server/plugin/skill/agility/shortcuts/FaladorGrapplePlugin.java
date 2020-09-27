@@ -9,6 +9,7 @@ import core.game.node.entity.impl.ForceMovement;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
+import core.game.node.object.GameObject;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
@@ -55,14 +56,14 @@ public final class FaladorGrapplePlugin extends OptionHandler {
     };
     private static final Item MITH_GRAPPLE = new Item(9419);
 
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(17049).getConfigurations().put("option:grapple", this);
-        ObjectDefinition.forId(17050).getConfigurations().put("option:grapple", this);
-        ObjectDefinition.forId(17051).getConfigurations().put("option:jump", this);
-        ObjectDefinition.forId(17052).getConfigurations().put("option:jump", this);
-        return this;
-    }
+	@Override
+	public Plugin<Object> newInstance(Object arg) throws Throwable {
+		ObjectDefinition.forId(17049).getHandlers().put("option:grapple", this);
+		ObjectDefinition.forId(17050).getHandlers().put("option:grapple", this);
+		ObjectDefinition.forId(17051).getHandlers().put("option:jump", this);
+		ObjectDefinition.forId(17052).getHandlers().put("option:jump", this);
+		return this;
+	}
 
     @Override
     public boolean handle(final Player player, final Node node, String option) {

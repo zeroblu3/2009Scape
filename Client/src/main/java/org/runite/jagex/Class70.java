@@ -8,31 +8,14 @@ final class Class70 {
    long aLong1048 = 0L;
    GameObject aClass140_1049;
    static double aDouble1050 = -1.0D;
-   static RSString aClass94_1051 = RSString.createRSString("(Udns");
    GameObject aClass140_1052;
    static int anInt1053 = 0;
    int anInt1054;
    int anInt1055;
    static Class10 aClass10_1056;
    int anInt1057;
-   static CacheIndex aClass153_1058;
    int anInt1059;
 
-
-   public static void method1284(byte var0) {
-      try {
-         if(var0 != -87) {
-            aClass94Array1046 = (RSString[])null;
-         }
-
-         aClass153_1058 = null;
-         aClass94_1051 = null;
-         aClass94Array1046 = null;
-         aClass10_1056 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "jh.A(" + var0 + ')');
-      }
-   }
 
    static void method1285(CacheIndex var0, int var2, int var5) {
       try {
@@ -81,7 +64,7 @@ final class Class70 {
                var8.anInt2316 = var8.anInt2310 - -((int)(Math.random() * (double)(-var8.anInt2310 + var8.anInt2325)));
             }
 
-            Class3.aClass61_78.method1215(var8);
+            Unsorted.aClass61_78.method1215(var8);
          } else if(null != var4) {
             var8.aClass140_Sub4_Sub2_2324 = var4;
             NPCDefinition var12 = var4.definition;
@@ -97,14 +80,14 @@ final class Class70 {
                var8.anInt2328 = 128 * var12.anInt1291;
             }
 
-            IOHandler.aClass61_1242.method1215(var8);
+            Unsorted.aClass61_1242.method1215(var8);
          } else if(null != var7) {
             var8.aClass140_Sub4_Sub1_2327 = var7;
             var8.anInt2321 = (var7.getSize() + var5) * 128;
             var8.anInt2307 = 128 * (var7.getSize() + var0);
             var8.anInt2332 = Class81.method1398(var7);
             var8.anInt2328 = 128 * var7.anInt3969;
-            Class3_Sub28_Sub7_Sub1.aClass130_4046.method1779(var8, var7.displayName.toLong(-112));
+            Unsorted.aHashTable_4046.put(var7.displayName.toLong(), var8);
          }
 
       } catch (RuntimeException var11) {

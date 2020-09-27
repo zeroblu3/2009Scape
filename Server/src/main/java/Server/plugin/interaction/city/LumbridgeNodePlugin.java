@@ -2,6 +2,7 @@ package plugin.interaction.city;
 
 import core.cache.def.impl.ObjectDefinition;
 import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.component.Component;
 import plugin.activity.ActivityManager;
 import core.game.content.global.action.ClimbActionHandler;
 import plugin.skill.Skills;
@@ -35,16 +36,17 @@ public final class LumbridgeNodePlugin extends OptionHandler {
      */
     private static boolean FLAG_IN_USE;
 
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(36978).getConfigurations().put("option:play", this);
-        ObjectDefinition.forId(37335).getConfigurations().put("option:raise", this);
-        ObjectDefinition.forId(37095).getConfigurations().put("option:shoot-at", this);
-        ObjectDefinition.forId(36976).getConfigurations().put("option:ring", this);
-        ObjectDefinition.forId(22114).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(29355).getConfigurations().put("option:climb-up", this);
-        return this;
-    }
+	@Override
+	public Plugin<Object> newInstance(Object arg) throws Throwable {
+		ObjectDefinition.forId(36978).getHandlers().put("option:play", this);
+		ObjectDefinition.forId(37335).getHandlers().put("option:raise", this);
+		ObjectDefinition.forId(37095).getHandlers().put("option:shoot-at", this);
+		ObjectDefinition.forId(36976).getHandlers().put("option:ring", this);
+		ObjectDefinition.forId(22114).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(29355).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(37655).getHandlers().put("option:view", this);
+		return this;
+	}
 
     @Override
     public boolean handle(final Player player, Node node, String option) {
@@ -108,7 +110,12 @@ public final class LumbridgeNodePlugin extends OptionHandler {
                 break;
             case 36976:
                 player.getPacketDispatch().sendMessage("The towns people wouldn't appreciate you ringing their bell.");
+                break
+            case 37655:
+                player.getInterfaceManager().open(new Component(270));
                 break;
+
+
         }
         return true;
     }

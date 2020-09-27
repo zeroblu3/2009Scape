@@ -48,7 +48,7 @@ public final class HunterKitSpell extends MagicSpell {
 	@Override
 	public Plugin<SpellType> newInstance(SpellType arg) throws Throwable {
 		SpellBook.LUNAR.register(8, this);
-		ItemDefinition.forId(KIT.getId()).getConfigurations().put("option:open", new OptionHandler() {
+		ItemDefinition.forId(KIT.getId()).getHandlers().put("option:open", new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
 				return this;

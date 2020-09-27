@@ -55,18 +55,18 @@ class WorkForOptionHandler : OptionHandler() {
     )
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any>? {
-        NPCDefinition.forId(4906).configurations["option:work-for"] = this
-        NPCDefinition.forId(4707).configurations["option:work-for"] = this
-        NPCDefinition.forId(4904).configurations["option:work-for"] = this
-        NPCDefinition.forId(4903).configurations["option:work-for"] = this
-        NPCDefinition.forId(4902).configurations["option:work-for"] = this
-        NPCDefinition.forId(4901).configurations["option:work-for"] = this
-        NPCDefinition.forId(4899).configurations["option:work-for"] = this
-        NPCDefinition.forId(3807).configurations["option:work-for"] = this
-        NPCDefinition.forId(1861).configurations["option:work-for"] = this
-        NPCDefinition.forId(922).configurations["option:work-for"] = this
-        NPCDefinition.forId(705).configurations["option:work-for"] = this
-        NPCDefinition.forId(0).configurations["option:work-for"] = this
+        NPCDefinition.forId(4906).handlers["option:work-for"] = this
+        NPCDefinition.forId(4707).handlers["option:work-for"] = this
+        NPCDefinition.forId(4904).handlers["option:work-for"] = this
+        NPCDefinition.forId(4903).handlers["option:work-for"] = this
+        NPCDefinition.forId(4902).handlers["option:work-for"] = this
+        NPCDefinition.forId(4901).handlers["option:work-for"] = this
+        NPCDefinition.forId(4899).handlers["option:work-for"] = this
+        NPCDefinition.forId(3807).handlers["option:work-for"] = this
+        NPCDefinition.forId(1861).handlers["option:work-for"] = this
+        NPCDefinition.forId(922).handlers["option:work-for"] = this
+        NPCDefinition.forId(705).handlers["option:work-for"] = this
+        NPCDefinition.forId(0).handlers["option:work-for"] = this
         return this
     }
 
@@ -110,7 +110,6 @@ class WorkForOptionHandler : OptionHandler() {
         if(node.asNpc().id == 4901) {
             player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 0, 14)
         }
-
         return true
     }
 

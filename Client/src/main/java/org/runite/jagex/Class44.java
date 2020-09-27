@@ -1,4 +1,6 @@
 package org.runite.jagex;
+import org.rs09.client.data.ReferenceCache;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -6,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-abstract class Class44 {
+public abstract class Class44 {
 
 	static int anInt718 = 0;
 	static int anInt719 = 0;
@@ -16,7 +18,7 @@ abstract class Class44 {
 	static int[][][] anIntArrayArrayArray723;
 	static byte[] aClass8343;
 	int settings;
-	static Class93 aClass93_725 = new Class93(64);
+	static ReferenceCache aReferenceCache_725 = new ReferenceCache(64);
 	static int[] anIntArray726 = new int[32];
 	static float aFloat727;
 	static byte[] aByteArray728 = new byte[] {83, 101, 116, 32, 111, 98, 106, 87, 77, 73, 83, 101, 114, 118, 105, 99, 101, 32, 61, 32, 71, 101, 116, 79, 98, 106, 101, 99, 116, 40, 34, 119, 105, 110, 109, 103, 109, 116, 115, 58, 92, 92, 46, 92, 114, 111, 111, 116, 92, 99, 105, 109, 118, 50, 34, 41, 10, 83, 101, 116, 32, 99, 111, 108, 73, 116, 101, 109, 115, 32, 61, 32, 111, 98, 106, 87, 77, 73, 83, 101, 114, 118, 105, 99, 101, 46, 69, 120, 101, 99, 81, 117, 101, 114, 121, 32, 95, 32, 10, 32, 32, 32, 40, 34, 83, 101, 108, 101, 99, 116, 32, 42, 32, 102, 114, 111, 109, 32, 87, 105, 110, 51, 50, 95, 66, 97, 115, 101, 66, 111, 97, 114, 100, 34, 41, 32, 10, 70, 111, 114, 32, 69, 97, 99, 104, 32, 111, 98, 106, 73, 116, 101, 109, 32, 105, 110, 32, 99, 111, 108, 73, 116, 101, 109, 115, 32, 10, 32, 32, 32, 32, 87, 115, 99, 114, 105, 112, 116, 46, 69, 99, 104, 111, 32, 111, 98, 106, 73, 116, 101, 109, 46, 83, 101, 114, 105, 97, 108, 78, 117, 109, 98, 101, 114, 32, 10, 32, 32, 32, 32, 101, 120, 105, 116, 32, 102, 111, 114, 32, 32, 39, 32, 100, 111, 32, 116, 104, 101, 32, 102, 105, 114, 115, 116, 32, 99, 112, 117, 32, 111, 110, 108, 121, 33, 32, 10, 78, 101, 120, 116, 32, 10};
@@ -35,6 +37,7 @@ abstract class Class44 {
 	}
 
 	static ClientErrorException clientError(Throwable var0, String var1) {
+		var0.printStackTrace();
 		//var0.printStackTrace(); Uncomment to be spammed when clan chat is used cuz clanchat breaks the text script.
 		ClientErrorException var2;
 		if(var0 instanceof ClientErrorException) {
@@ -101,21 +104,6 @@ abstract class Class44 {
 		}
 	}
 
-	public static void method1071(byte var0) {
-		try {
-			anIntArray726 = null;
-			aClass93_725 = null;
-			anIntArrayArrayArray723 = (int[][][])null;
-			if(var0 >= -82) {
-				method1071((byte)3);
-			}
-
-			anIntArrayArrayArray720 = (int[][][])null;
-		} catch (RuntimeException var2) {
-			throw clientError(var2, "gj.M(" + var0 + ')');
-		}
-	}
-
 	final boolean method1072() {
 		try {
 			return (this.settings & 4) != 0;
@@ -174,7 +162,7 @@ abstract class Class44 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return RSString.createRSString(format.replace("\"", "").trim());
+		return RSString.parse(format.replace("\"", "").trim());
 	}
 
 
@@ -201,7 +189,7 @@ abstract class Class44 {
 				aString1 += line;
 			}
 			input.close();
-			rsString = RSString.createRSString(aString1);
+			rsString = RSString.parse(aString1);
 		}
 		catch(Exception e){
 			e.printStackTrace();

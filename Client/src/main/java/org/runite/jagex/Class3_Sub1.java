@@ -1,9 +1,10 @@
 package org.runite.jagex;
 
-final class Class3_Sub1 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub1 extends Linkable {
 
    int anInt2202;
-   static CacheIndex interfaceScriptsIndex;
    int anInt2205;
    static int anInt2208 = -1;
    static int[] anIntArray2209 = new int[]{2, 2, 4, 2, 1, 8, 4, 1, 4, 4, 2, 1, 1, 1, 4, 1};
@@ -91,20 +92,6 @@ final class Class3_Sub1 extends Class3 {
          }
       } catch (RuntimeException var9) {
          throw Class44.clientError(var9, "bf.D(" + var0 + ')');
-      }
-   }
-
-   public static void method91(byte var0) {
-      try {
-         anIntArray2213 = null;
-         if(var0 <= 110) {
-            method90(-74);
-         }
-
-         interfaceScriptsIndex = null;
-         anIntArray2209 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bf.P(" + var0 + ')');
       }
    }
 

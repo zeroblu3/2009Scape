@@ -25,10 +25,6 @@ final class Class112 implements Interface5 {
       this.anInt2180 = var3[0];
    }
 
-   public static void method1700() {
-      aFloatArray2178 = null;
-   }
-
    private void method1701() {
       javax.media.opengl.GL var1 = HDToolKit.gl;
       this.anInt2177 = var1.glGenLists(2);
@@ -100,7 +96,7 @@ final class Class112 implements Interface5 {
    public final void method23(int var1) {
       javax.media.opengl.GL var2 = HDToolKit.gl;
       var2.glActiveTexture('\u84c1');
-      var2.glTexEnvfv(8960, 8705, Class151.aFloatArray1934, 0);
+      var2.glTexEnvfv(8960, 8705, Unsorted.aFloatArray1934, 0);
       var2.glActiveTexture('\u84c0');
       if((var1 & 1) == 1) {
          if(Class88.aBoolean1227) {

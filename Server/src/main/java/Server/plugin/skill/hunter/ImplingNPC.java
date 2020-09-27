@@ -44,7 +44,7 @@ public final class ImplingNPC extends AbstractNPC {
 		super(id, location);
 		this.impling = impling;
 		if (impling != null) {
-			this.getDefinition().getConfigurations().put(NPCConfigParser.RESPAWN_DELAY, impling.getRespawnTime());
+			this.getDefinition().getHandlers().put(NPCConfigParser.RESPAWN_DELAY, impling.getRespawnTime());
 		}
 	}
 

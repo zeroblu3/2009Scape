@@ -19,7 +19,7 @@ public final class MonasteryPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2641).getConfigurations().put("option:climb-up", this);
+		ObjectDefinition.forId(2641).getHandlers().put("option:climb-up", this);
 		return this;
 	}
 

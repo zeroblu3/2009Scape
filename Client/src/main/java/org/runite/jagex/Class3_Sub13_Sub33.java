@@ -10,7 +10,6 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
    static byte[] aByteArray3396;
    
    static volatile int anInt3398 = 0;
-   static RSString aClass94_3399 = RSString.createRSString("<br>(X");
 
    final int[] method154(int var1, byte var2) {
       try {
@@ -65,13 +64,13 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var1 == 0) {
-            this.aClass75Array3392 = new Class75[var2.getByteB()];
+            this.aClass75Array3392 = new Class75[var2.readUnsignedByte()];
 
             for(int var4 = 0; var4 < this.aClass75Array3392.length; ++var4) {
-               int var5 = var2.getByteB();
+               int var5 = var2.readUnsignedByte();
                if(var5 == 0) {
                   this.aClass75Array3392[var4] = Class8.method843(-5232, var2);
                } else if(var5 == 1) {
@@ -83,7 +82,7 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
                }
             }
          } else if(1 == var1) {
-            this.aBoolean2375 = var2.getByteB() == 1;
+            this.aBoolean2375 = var2.readUnsignedByte() == 1;
          }
 
          if(!var3) {
@@ -107,27 +106,13 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
       }
    }
 
-   public static void method325(int var0) {
-      try {
-         aByteArrayArrayArray3390 = (byte[][][])null;
-         if(var0 == 0) {
-            aByteArray3396 = null;
-            aClass133Array3393 = null;
-            aClass94Array3391 = null;
-            aClass94_3399 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "si.E(" + var0 + ')');
-      }
-   }
-
    static int method326(byte var0, RSString var1) {
       try {
          if(var0 <= 13) {
-            aClass94_3399 = (RSString)null;
+            TextCore.aClass94_3399 = (RSString)null;
          }
 
-         return var1.length(-43) + 1;
+         return var1.length() + 1;
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "si.O(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
@@ -153,9 +138,9 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
 
                   for(int var14 = 0; Class113.anInt1559 > var14; ++var14) {
                      int var15 = var9[var14];
-                     var13[var14] = Class69.bitwiseAnd(255, var15) << 4;
-                     var12[var14] = Class69.bitwiseAnd(4080, var15 >> 4);
-                     var11[var14] = Class69.bitwiseAnd(var15 >> 12, 4080);
+                     var13[var14] = Unsorted.bitwiseAnd(255, var15) << 4;
+                     var12[var14] = Unsorted.bitwiseAnd(4080, var15 >> 4);
+                     var11[var14] = Unsorted.bitwiseAnd(var15 >> 12, 4080);
                   }
                }
             }

@@ -33,13 +33,13 @@ public class ShantayPassPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (int i = 35542; i < 35545; i++) {
-			ObjectDefinition.forId(i).getConfigurations().put("option:look-at", this);
-			ObjectDefinition.forId(i).getConfigurations().put("option:go-through", this);
-			ObjectDefinition.forId(i).getConfigurations().put("option:quick-pass", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:look-at", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:go-through", this);
+			ObjectDefinition.forId(i).getHandlers().put("option:quick-pass", this);
 		}
-		NPCDefinition.forId(838).getConfigurations().put("option:bribe", this);
-		ObjectDefinition.forId(35401).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2693).getConfigurations().put("option:open", this);
+		NPCDefinition.forId(838).getHandlers().put("option:bribe", this);
+		ObjectDefinition.forId(35401).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2693).getHandlers().put("option:open", this);
 		new ShantayComponentPlugin().newInstance(arg);
 		return this;
 	}

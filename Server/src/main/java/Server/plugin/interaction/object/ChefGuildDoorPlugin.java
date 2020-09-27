@@ -61,8 +61,11 @@ public final class ChefGuildDoorPlugin extends OptionHandler {
                 break;
         }
 
-        return true;
-    }
+	@Override
+	public Plugin<Object> newInstance(Object arg) throws Throwable {
+		ObjectDefinition.forId(2712).getHandlers().put("option:open", this);
+		return this;
+	}
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {

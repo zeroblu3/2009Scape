@@ -24,8 +24,8 @@ public class StonemasonPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(4248).getConfigurations().put("option:trade", this);
-		NPCDefinition.forId(4248).getConfigurations().put("option:talk-to", this);
+		NPCDefinition.forId(4248).getHandlers().put("option:trade", this);
+		NPCDefinition.forId(4248).getHandlers().put("option:talk-to", this);
 		return this;
 	}
 

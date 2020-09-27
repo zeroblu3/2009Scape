@@ -32,8 +32,8 @@ public final class ThievableChestPlugin extends OptionHandler {
 		for (Chest chest : Chest.values()) {
 			for (int id : chest.getObjectIds()) {
 				ObjectDefinition def = ObjectDefinition.forId(id);
-				def.getConfigurations().put("option:open", this);
-				def.getConfigurations().put("option:search for traps", this);
+				def.getHandlers().put("option:open", this);
+				def.getHandlers().put("option:search for traps", this);
 			}
 		}
 		return this;

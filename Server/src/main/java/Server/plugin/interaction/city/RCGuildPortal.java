@@ -16,8 +16,8 @@ import core.plugin.Plugin;
 public class RCGuildPortal extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(38279).getConfigurations().put("option:examine",this);
-        ObjectDefinition.forId(38279).getConfigurations().put("option:enter",this);
+        ObjectDefinition.forId(38279).getHandlers().put("option:examine",this);
+        ObjectDefinition.forId(38279).getHandlers().put("option:enter",this);
         return null;
     }
 

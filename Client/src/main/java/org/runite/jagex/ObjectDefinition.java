@@ -1,5 +1,10 @@
 package org.runite.jagex;
 
+import org.rs09.client.Linkable;
+import org.rs09.client.config.GameConfig;
+import org.rs09.client.data.HashTable;
+import org.rs09.client.LinkableInt;
+
 import java.util.Objects;
 
 final class ObjectDefinition {
@@ -29,7 +34,7 @@ final class ObjectDefinition {
    boolean NotClipped;
    RSString[] options;
    private short aShort1500;
-   private Class130 aClass130_1501;
+   private HashTable aHashTable_1501;
    boolean aBoolean1502 = false;
    boolean aBoolean1503;
    RSString name;
@@ -69,13 +74,12 @@ final class ObjectDefinition {
    private boolean aBoolean1541;
    boolean aBoolean1542;
 
-
    final boolean method1684(int var2) {
       try {
          if(this.configuration != null) {
             for(int var7 = 0; var7 < this.configuration.length; ++var7) {
                if(this.configuration[var7] == var2) {
-                  return Class69.aClass153_1043.method2129((byte)72, 0, this.models[var7] & '\uffff');
+                  return Unsorted.aClass153_1043.method2129((byte)72, 0, this.models[var7] & '\uffff');
                }
             }
 
@@ -86,7 +90,7 @@ final class ObjectDefinition {
             boolean var4 = true;
 
             for(int var5 = 0; this.models.length > var5; ++var5) {
-               var4 &= Class69.aClass153_1043.method2129((byte)71, 0, '\uffff' & this.models[var5]);
+               var4 &= Unsorted.aClass153_1043.method2129((byte)71, 0, '\uffff' & this.models[var5]);
             }
 
             return var4;
@@ -149,9 +153,9 @@ final class ObjectDefinition {
                   var8 += 65536;
                }
 
-               var4 = (Model_Sub1)Class99.aClass93_1401.get((long)var8);
+               var4 = (Model_Sub1)Class99.aReferenceCache_1401.get((long)var8);
                if(var4 == null) {
-                  var4 = Model_Sub1.method2015(Class69.aClass153_1043, var8 & '\uffff');
+                  var4 = Model_Sub1.method2015(Unsorted.aClass153_1043, var8 & '\uffff');
                   if(var4 == null) {
                      return null;
                   }
@@ -160,7 +164,7 @@ final class ObjectDefinition {
                      var4.method2002();
                   }
 
-                  Class99.aClass93_1401.put((byte)-91, var4, (long)var8);
+                  Class99.aReferenceCache_1401.put(var4, (long)var8);
                }
 
                if(1 < var6) {
@@ -190,9 +194,9 @@ final class ObjectDefinition {
                var7 += 65536;
             }
 
-            var4 = (Model_Sub1)Class99.aClass93_1401.get((long)var7);
+            var4 = (Model_Sub1)Class99.aReferenceCache_1401.get((long)var7);
             if(null == var4) {
-               var4 = Model_Sub1.method2015(Class69.aClass153_1043, var7 & '\uffff');
+               var4 = Model_Sub1.method2015(Unsorted.aClass153_1043, var7 & '\uffff');
                if(null == var4) {
                   return null;
                }
@@ -201,7 +205,7 @@ final class ObjectDefinition {
                   var4.method2002();
                }
 
-               Class99.aClass93_1401.put((byte)-122, var4, (long)var7);
+               Class99.aReferenceCache_1401.put(var4, (long)var7);
             }
          }
 
@@ -257,24 +261,10 @@ final class ObjectDefinition {
       }
    }
 
-   public static void method1687(int var0) {
-      try {
-         anIntArrayArrayArray1497 = (int[][][])null;
-         aBooleanArray1490 = null;
-         if(var0 != -11) {
-            anInt1521 = -96;
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "pb.B(" + var0 + ')');
-      }
-   }
-
    static void method1688(int var0, int var1, int var2) {
       Class3_Sub2 var3 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2];
       if(var3 == null) {
       } else {
-         Class72 var4 = var3.aClass72_2245;
          var3.aClass72_2245 = null;
       }
    }
@@ -296,7 +286,7 @@ final class ObjectDefinition {
          }
 
          if(var1 != -2116) {
-            this.method1692(67, (RSByteBuffer)null);
+            this.method1692(67, (DataBuffer)null);
          }
 
          if(-1 == this.anInt1540) {
@@ -334,21 +324,21 @@ final class ObjectDefinition {
       try {
          if(var3 <= 76) {
             return -40;
-         } else if(this.aClass130_1501 == null) {
+         } else if(this.aHashTable_1501 == null) {
             return var1;
          } else {
-            Class3_Sub18 var4 = (Class3_Sub18)this.aClass130_1501.method1780((long)var2);
-            return var4 != null?var4.anInt2467:var1;
+            LinkableInt var4 = (LinkableInt)this.aHashTable_1501.get((long)var2);
+            return var4 != null?var4.value :var1;
          }
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "pb.N(" + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 
-   final void method1692(int var1, RSByteBuffer var2) {
+   final void method1692(int var1, DataBuffer var2) {
       try {
          while(true) {
-            int var3 = var2.getByteB();
+            int var3 = var2.readUnsignedByte();
             if(var3 == 0) {
                if(var1 != 6219) {
                   this.method1696(105, -55, (int[][])((int[][])null), -39, 71, (int[][])((int[][])null), true, (LDIndexedSprite)null, (byte)-117, false, -25);
@@ -364,53 +354,53 @@ final class ObjectDefinition {
       }
    }
 
-   private void parseOpcode(RSByteBuffer buffer, int opcode) {
+   private void parseOpcode(DataBuffer buffer, int opcode) {
       try {
 
          int var4;
          int var5;
          if(1 == opcode) {
-            var4 = buffer.getByteB();
+            var4 = buffer.readUnsignedByte();
             if(var4 > 0) {
-               if(this.models == null || Class47.aBoolean742) {
+               if(this.models == null || Unsorted.aBoolean742) {
                   this.configuration = new int[var4];
                   this.models = new int[var4];
 
                   for(var5 = 0; var4 > var5; ++var5) {
-                     this.models[var5] = buffer.getShort();
-                     this.configuration[var5] = buffer.getByteB();
+                     this.models[var5] = buffer.readUnsignedShort();
+                     this.configuration[var5] = buffer.readUnsignedByte();
                   }
                } else {
                   buffer.index += var4 * 3;
                }
             }
          } else if(opcode == 2) {
-            this.name = buffer.getString();
+            this.name = buffer.readString();
          } else if(opcode == 5) {
-            var4 = buffer.getByteB();
+            var4 = buffer.readUnsignedByte();
             if(var4 > 0) {
-               if(null == this.models || Class47.aBoolean742) {
+               if(null == this.models || Unsorted.aBoolean742) {
                   this.models = new int[var4];
                   this.configuration = null;
 
                   for(var5 = 0; var4 > var5; ++var5) {
-                     this.models[var5] = buffer.getShort();
+                     this.models[var5] = buffer.readUnsignedShort();
                   }
                } else {
                   buffer.index += var4 * 2;
                }
             }
          } else if (opcode == 14) {
-            this.SizeX = buffer.getByteB();
+            this.SizeX = buffer.readUnsignedByte();
          } else if (opcode == 15) {
-            this.SizeY = buffer.getByteB();
+            this.SizeY = buffer.readUnsignedByte();
          } else if (opcode == 17) {
             this.ClipType = 0;
             this.ProjectileClipped = false;
          } else if (18 == opcode) {
             this.ProjectileClipped = false;
          } else if (opcode == 19) {
-            this.SecondInt = buffer.getByteB();
+            this.SecondInt = buffer.readUnsignedByte();
          } else if (opcode == 21) {
             this.aByte1505 = 1;
          } else if (opcode == 22) {
@@ -418,98 +408,98 @@ final class ObjectDefinition {
          } else if (opcode == 23) {
             this.aBoolean1542 = true;
          } else if (opcode == 24) {
-            this.animationId = buffer.getShort();
+            this.animationId = buffer.readUnsignedShort();
             if (this.animationId == 65535) {
                this.animationId = -1;
             }
          } else if (opcode == 27) {
             this.ClipType = 1;
          } else if (28 == opcode) {
-            this.anInt1528 = buffer.getByteB();
+            this.anInt1528 = buffer.readUnsignedByte();
          } else if (opcode == 29) {
-            this.anInt1494 = buffer.getByte();
+            this.anInt1494 = buffer.readSignedByte();
          } else if (39 == opcode) {
-            this.anInt1489 = buffer.getByte() * 5;
+            this.anInt1489 = buffer.readSignedByte() * 5;
          } else if (opcode >= 30 && opcode < 35) {
-            this.options[opcode - 30] = buffer.getString();
-            if (this.options[-30 + opcode].equals(-112, TextCore.HasHidden)) {
+            this.options[opcode - 30] = buffer.readString();
+            if (this.options[-30 + opcode].equalsStringIgnoreCase(TextCore.HasHidden)) {
                this.options[-30 + opcode] = null;
             }
          } else if (opcode == 40) {
-            var4 = buffer.getByteB();
+            var4 = buffer.readUnsignedByte();
             this.OriginalColors = new short[var4];
             this.ModifiedColors = new short[var4];
 
             for (var5 = 0; var5 < var4; ++var5) {
-               this.OriginalColors[var5] = (short) buffer.getShort();
-               this.ModifiedColors[var5] = (short) buffer.getShort();
+               this.OriginalColors[var5] = (short) buffer.readUnsignedShort();
+               this.ModifiedColors[var5] = (short) buffer.readUnsignedShort();
             }
          } else if (opcode == 41) {
-            var4 = buffer.getByteB();
+            var4 = buffer.readUnsignedByte();
             this.aShortArray1495 = new short[var4];
             this.aShortArray1476 = new short[var4];
 
             for (var5 = 0; var4 > var5; ++var5) {
-               this.aShortArray1476[var5] = (short) buffer.getShort();
-               this.aShortArray1495[var5] = (short) buffer.getShort();
+               this.aShortArray1476[var5] = (short) buffer.readUnsignedShort();
+               this.aShortArray1495[var5] = (short) buffer.readUnsignedShort();
             }
          } else if (opcode == 42) {
-            var4 = buffer.getByteB();
+            var4 = buffer.readUnsignedByte();
             this.aByteArray1513 = new byte[var4];
 
             for (var5 = 0; var4 > var5; ++var5) {
-               this.aByteArray1513[var5] = buffer.getByte();
+               this.aByteArray1513[var5] = buffer.readSignedByte();
             }
          } else if (opcode == 60) {
-            this.MapIcon = buffer.getShort();
+            this.MapIcon = buffer.readUnsignedShort();
          } else if (opcode == 62) {
             this.aBoolean1536 = true;
          } else if (opcode == 64) {
             this.aBoolean1525 = false;
          } else if (opcode == 65) {
-            this.anInt1479 = buffer.getShort();
+            this.anInt1479 = buffer.readUnsignedShort();
          } else if (opcode == 66) {
-            this.anInt1488 = buffer.getShort();
+            this.anInt1488 = buffer.readUnsignedShort();
          } else if (opcode == 67) {
-            this.anInt1481 = buffer.getShort();
+            this.anInt1481 = buffer.readUnsignedShort();
          } else if (opcode == 69) {
-            this.WalkingFlag = buffer.getByteB();
+            this.WalkingFlag = buffer.readUnsignedByte();
          } else if (70 == opcode) {
-            this.anInt1496 = buffer.getShort((byte) 123);
+            this.anInt1496 = buffer.readSignedShort();
          } else if (71 == opcode) {
-            this.anInt1511 = buffer.getShort((byte) 94);
+            this.anInt1511 = buffer.readSignedShort();
          } else if (72 == opcode) {
-            this.SecondBool = buffer.getShort((byte) 76);
+            this.SecondBool = buffer.readSignedShort();
          } else if (opcode == 73) {
             this.aBoolean1483 = true;
          } else if (opcode == 74) {
             this.NotClipped = true;
          } else if (75 == opcode) {
-            this.anInt1540 = buffer.getByteB();
+            this.anInt1540 = buffer.readUnsignedByte();
          } else if (opcode == 77 || opcode == 92) {
             var4 = -1;
-            this.ConfigFileId = buffer.getShort();
+            this.ConfigFileId = buffer.readUnsignedShort();
             if ('\uffff' == this.ConfigFileId) {
                this.ConfigFileId = -1;
             }
 
-            this.ConfigId = buffer.getShort();
+            this.ConfigId = buffer.readUnsignedShort();
             if ('\uffff' == this.ConfigId) {
                this.ConfigId = -1;
             }
 
             if (92 == opcode) {
-               var4 = buffer.getShort();
+               var4 = buffer.readUnsignedShort();
                if (var4 == '\uffff') {
                   var4 = -1;
                }
             }
 
-            var5 = buffer.getByteB();
+            var5 = buffer.readUnsignedByte();
             this.ChildrenIds = new int[var5 - -2];
 
             for (int var6 = 0; var5 >= var6; ++var6) {
-               this.ChildrenIds[var6] = buffer.getShort();
+               this.ChildrenIds[var6] = buffer.readUnsignedShort();
                if ('\uffff' == this.ChildrenIds[var6]) {
                   this.ChildrenIds[var6] = -1;
                }
@@ -517,21 +507,21 @@ final class ObjectDefinition {
 
             this.ChildrenIds[1 + var5] = var4;
          } else if (78 == opcode) {
-            this.anInt1512 = buffer.getShort();
-            this.anInt1484 = buffer.getByteB();
+            this.anInt1512 = buffer.readUnsignedShort();
+            this.anInt1484 = buffer.readUnsignedByte();
          } else if (opcode == 79) {
-            this.anInt1518 = buffer.getShort();
-            this.anInt1515 = buffer.getShort();
-            this.anInt1484 = buffer.getByteB();
-            var4 = buffer.getByteB();
+            this.anInt1518 = buffer.readUnsignedShort();
+            this.anInt1515 = buffer.readUnsignedShort();
+            this.anInt1484 = buffer.readUnsignedByte();
+            var4 = buffer.readUnsignedByte();
             this.anIntArray1539 = new int[var4];
 
             for (var5 = 0; var5 < var4; ++var5) {
-               this.anIntArray1539[var5] = buffer.getShort();
+               this.anIntArray1539[var5] = buffer.readUnsignedShort();
             }
          } else if (81 == opcode) {
             this.aByte1505 = 2;
-            this.aShort1500 = (short) (256 * buffer.getByteB());
+            this.aShort1500 = (short) (256 * buffer.readUnsignedByte());
          } else if (opcode == 82) {
             this.aBoolean1530 = true;
          } else if (opcode == 88) {
@@ -544,7 +534,7 @@ final class ObjectDefinition {
             this.aBoolean1491 = true;
          } else if (opcode == 93) {
             this.aByte1505 = 3;
-            this.aShort1500 = (short) buffer.getShort();
+            this.aShort1500 = (short) buffer.readUnsignedShort();
          } else if (opcode == 94) {
             this.aByte1505 = 4;
          } else if (opcode == 95) {
@@ -556,37 +546,43 @@ final class ObjectDefinition {
          } else if (opcode == 98) {
             this.aBoolean1510 = true;
          } else if (opcode == 99) {
-            this.anInt1493 = buffer.getByteB();
-            this.anInt1517 = buffer.getShort();
+            this.anInt1493 = buffer.readUnsignedByte();
+            this.anInt1517 = buffer.readUnsignedShort();
          } else if (opcode == 100) {
-            this.anInt1520 = buffer.getByteB();
-            this.anInt1522 = buffer.getShort();
+            this.anInt1520 = buffer.readUnsignedByte();
+            this.anInt1522 = buffer.readUnsignedShort();
          } else if (opcode == 101) {
-            this.anInt1478 = buffer.getByteB();
+            this.anInt1478 = buffer.readUnsignedByte();
          } else if (opcode == 102) {
-            this.anInt1516 = buffer.getShort();
+            this.anInt1516 = buffer.readUnsignedShort();
          } else if (249 == opcode) {
-            var4 = buffer.getByteB();
-            if (null == this.aClass130_1501) {
+            var4 = buffer.readUnsignedByte();
+            if (null == this.aHashTable_1501) {
                var5 = Class95.method1585((byte) 83, var4);
-               this.aClass130_1501 = new Class130(var5);
+               this.aHashTable_1501 = new HashTable(var5);
             }
 
             for (var5 = 0; var4 > var5; ++var5) {
-               boolean var10 = buffer.getByteB() == 1;
-               int var7 = buffer.getTriByte((byte) 122);
+               boolean var10 = buffer.readUnsignedByte() == 1;
+               int var7 = buffer.readMedium();
                Object var8;
                if (var10) {
-                  var8 = new Class3_Sub29(buffer.getString());
+                  var8 = new LinkableRSString(buffer.readString());
                } else {
-                  var8 = new Class3_Sub18(buffer.getInt());
+                  var8 = new LinkableInt(buffer.readInt());
                }
 
-               this.aClass130_1501.method1779((Class3) var8, (long) var7);
+               this.aHashTable_1501.put((long) var7, (Linkable) var8);
             }
          }
       } catch (RuntimeException var9) {
          throw Class44.clientError(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + -80 + ')');
+      }
+
+      if (GameConfig.OBJECT_DEBUG_ENABLED) {
+         if (options[0] == null && options[1] == null && options[2] == null && options[3] == null && options[4] == null) {
+            options[0] = RSString.parse("Viewing object");
+         }
       }
    }
 
@@ -598,7 +594,7 @@ final class ObjectDefinition {
             boolean var2 = true;
 
             for(int var3 = 0; var3 < this.models.length; ++var3) {
-               var2 &= Class69.aClass153_1043.method2129((byte)64, 0, '\uffff' & this.models[var3]);
+               var2 &= Unsorted.aClass153_1043.method2129((byte)64, 0, '\uffff' & this.models[var3]);
             }
 
             return var2;
@@ -639,12 +635,12 @@ final class ObjectDefinition {
                var16 = ~var16;
             }
 
-            var5 = (Class140_Sub1_Sub1)Class99.aClass93_1401.get(var16);
+            var5 = (Class140_Sub1_Sub1)Class99.aReferenceCache_1401.get(var16);
             if(null == var5) {
                Model_Sub1 var17 = null;
 
                for(var12 = 0; var12 < var8; ++var12) {
-                  var17 = Model_Sub1.method2015(Class69.aClass153_1043, this.models[var12] & '\uffff');
+                  var17 = Model_Sub1.method2015(Unsorted.aClass153_1043, this.models[var12] & '\uffff');
                   if(null == var17) {
                      return null;
                   }
@@ -659,7 +655,7 @@ final class ObjectDefinition {
                }
 
                var5 = new Class140_Sub1_Sub1(var17, var6, var7, var2);
-               Class99.aClass93_1401.put((byte)-75, var5, var16);
+               Class99.aReferenceCache_1401.put(var5, var16);
             }
          } else {
             var8 = -1;
@@ -681,15 +677,15 @@ final class ObjectDefinition {
                var9 += 65536;
             }
 
-            var5 = (Class140_Sub1_Sub1)Class99.aClass93_1401.get((long)var9);
+            var5 = (Class140_Sub1_Sub1)Class99.aReferenceCache_1401.get((long)var9);
             if(null == var5) {
-               Model_Sub1 var10 = Model_Sub1.method2015(Class69.aClass153_1043, '\uffff' & var9);
+               Model_Sub1 var10 = Model_Sub1.method2015(Unsorted.aClass153_1043, '\uffff' & var9);
                if(null == var10) {
                   return null;
                }
 
                var5 = new Class140_Sub1_Sub1(var10, var6, var7, var2);
-               Class99.aClass93_1401.put((byte)-101, var5, (long)var9);
+               Class99.aReferenceCache_1401.put(var5, (long)var9);
             }
          }
 
@@ -766,7 +762,7 @@ final class ObjectDefinition {
                   var12 = (long)(var1 + (this.objectId << 10) - -(var4 << 3));
                }
 
-               Class136 var16 = (Class136)Class3_Sub28_Sub7_Sub1.aClass93_4051.get(var12);
+               Class136 var16 = (Class136) Unsorted.aReferenceCache_4051.get(var12);
                Class140_Sub1_Sub1 var14;
                LDIndexedSprite var15;
                if(null == var16) {
@@ -790,7 +786,7 @@ final class ObjectDefinition {
                   var16 = new Class136();
                   var16.aClass140_1777 = var14;
                   var16.aClass109_Sub1_1770 = var15;
-                  Class3_Sub28_Sub7_Sub1.aClass93_4051.put((byte)-93, var16, var12);
+                  Unsorted.aReferenceCache_4051.put(var16, var12);
                } else {
                   var14 = (Class140_Sub1_Sub1)var16.aClass140_1777;
                   var15 = var16.aClass109_Sub1_1770;
@@ -821,7 +817,7 @@ final class ObjectDefinition {
                   var20 = false;
                }
 
-               Object var22 = (GameObject)Class3_Sub28_Sub7_Sub1.aClass93_4051.get(var12);
+               Object var22 = (GameObject) Unsorted.aReferenceCache_4051.get(var12);
                if(null == var22) {
                   Model_Sub1 var21 = this.method1686(var1, var4);
                   if(var21 == null) {
@@ -843,7 +839,7 @@ final class ObjectDefinition {
                      var22 = new Class140_Sub1_Sub2(var21, 64 - -this.anInt1494, 5 * this.anInt1489 + 768, -50, -10, -50);
                   }
 
-                  Class3_Sub28_Sub7_Sub1.aClass93_4051.put((byte)-89, var22, var12);
+                  Unsorted.aReferenceCache_4051.put(var22, var12);
                }
 
                if(var20) {
@@ -881,7 +877,7 @@ final class ObjectDefinition {
                var15 = (long)((var13 << 3) + ((this.objectId << 10) - -var6));
             }
 
-            Class140_Sub1_Sub1 var23 = (Class140_Sub1_Sub1)Class154.aClass93_1965.get(var15);
+            Class140_Sub1_Sub1 var23 = (Class140_Sub1_Sub1)Class154.aReferenceCache_1965.get(var15);
             if(var23 == null) {
                var23 = this.method1695(var6, true, var13);
                if(null == var23) {
@@ -890,7 +886,7 @@ final class ObjectDefinition {
 
                var23.method1908();
                var23.method1920(false, false, false, false, false, true);
-               Class154.aClass93_1965.put((byte)-75, var23, var15);
+               Class154.aReferenceCache_1965.put(var23, var15);
             }
 
             boolean var19 = false;
@@ -931,7 +927,7 @@ final class ObjectDefinition {
                var15 = (long)(var6 + (this.objectId << 10) + (var13 << 3));
             }
 
-            Class140_Sub1_Sub2 var17 = (Class140_Sub1_Sub2)Class154.aClass93_1965.get(var15);
+            Class140_Sub1_Sub2 var17 = (Class140_Sub1_Sub2)Class154.aReferenceCache_1965.get(var15);
             if(var17 == null) {
                Model_Sub1 var18 = this.method1686(var6, var13);
                if(var18 == null) {
@@ -939,7 +935,7 @@ final class ObjectDefinition {
                }
 
                var17 = new Class140_Sub1_Sub2(var18, 64 + this.anInt1494, this.anInt1489 * 5 + 768, -50, -10, -50);
-               Class154.aClass93_1965.put((byte)-94, var17, var15);
+               Class154.aReferenceCache_1965.put(var17, var15);
             }
 
             boolean var21 = false;
@@ -976,11 +972,11 @@ final class ObjectDefinition {
    final RSString method1698(RSString var1, int var3) {
       try {
 
-         if(null == this.aClass130_1501) {
+         if(null == this.aHashTable_1501) {
             return var1;
          } else {
-            Class3_Sub29 var4 = (Class3_Sub29)this.aClass130_1501.method1780((long)var3);
-            return var4 == null?var1:var4.aClass94_2586;
+            LinkableRSString var4 = (LinkableRSString)this.aHashTable_1501.get((long)var3);
+            return var4 == null?var1:var4.value;
          }
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "pb.E(" + (var1 != null?"{...}":"null") + ',' + -23085 + ',' + var3 + ')');
@@ -988,7 +984,7 @@ final class ObjectDefinition {
    }
 
    public ObjectDefinition() {
-      this.name = RSString.createRSString("null");
+      this.name = RSString.parse("null");
       this.aBoolean1503 = true;
       this.anInt1493 = -1;
       this.anInt1515 = 0;

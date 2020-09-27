@@ -1,14 +1,15 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.NodeCache;
+
 final class Class56 {
 
    static Class3_Sub26 aClass3_Sub26_884 = new Class3_Sub26(0, 0);
-   static Class47 aClass47_885 = new Class47(128);
+   static NodeCache aClass47_885 = new NodeCache(128);
    static RSInterface aClass11_886 = null;
    static int[] localPlayerIndexes = new int[2048];
    static Class106[] aClass106Array890;
-   
-   static RSString aClass94_892 = RSString.createRSString(" )2> <col=ffffff>");
+
    static int anInt893 = 0;
 
    static int method1186(int var1) {
@@ -93,33 +94,17 @@ final class Class56 {
       }
    }
 
-   public static void method1187(int var0) {
-      try {
-         if(var0 != 30351) {
-            method1189(-73, -127, -26, 43, 67, 125, 38, 80, (GameObject)null, -92, true, 27L);
-         }
-         aClass94_892 = null;
-         aClass11_886 = null;
-         localPlayerIndexes = null;
-         aClass47_885 = null;
-         aClass106Array890 = null;
-         aClass3_Sub26_884 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ib.B(" + var0 + ')');
-      }
-   }
-
    static void method1188() {
       try {
          MouseListeningClass.anIntArray1920 = null;
          Class38_Sub1.anIntArrayArrayArray2609 = (int[][][])null;
-         Class3_Sub18.anIntArray2469 = null;
-         Class93.aByteArrayArrayArray1328 = (byte[][][])null;
+         Unsorted.anIntArray2469 = null;
+         Unsorted.aByteArrayArrayArray1328 = (byte[][][])null;
          PacketParser.aByteArrayArrayArray81 = (byte[][][])null;
          Class67.aByteArrayArrayArray1014 = (byte[][][])null;
          Class139.aByteArrayArrayArray1828 = (byte[][][])null;
          Class3_Sub13_Sub36.aByteArrayArrayArray3430 = (byte[][][])null;
-         Class80.anIntArray1138 = null;
+         Unsorted.anIntArray1138 = null;
          Class129.anIntArray1695 = null;
          Class3_Sub31.anIntArray2606 = null;
       } catch (RuntimeException var2) {
@@ -128,13 +113,13 @@ final class Class56 {
    }
 
    static boolean method1189(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, GameObject var8, int var9, boolean var10, long var11) {
-      boolean var13 = Class44.anIntArrayArrayArray723 == Class3_Sub28_Sub7.anIntArrayArrayArray3605;
+      boolean var13 = Class44.anIntArrayArrayArray723 == Unsorted.anIntArrayArrayArray3605;
       int var14 = 0;
 
       int var16;
       for(int var15 = var1; var15 < var1 + var3; ++var15) {
          for(var16 = var2; var16 < var2 + var4; ++var16) {
-            if(var15 < 0 || var16 < 0 || var15 >= IOHandler.anInt1234 || var16 >= Class3_Sub13_Sub15.anInt3179) {
+            if(var15 < 0 || var16 < 0 || var15 >= Unsorted.anInt1234 || var16 >= Class3_Sub13_Sub15.anInt3179) {
                return false;
             }
 

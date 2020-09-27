@@ -196,20 +196,20 @@ public class WitchsHousePlugin extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         PluginManager.definePlugin(new WitchsHouseUseWithHandler());
         PluginManager.definePlugin(new MouseNPC());
-        ObjectDefinition.forId(2867).getConfigurations().put("option:look-under", this);
-        ObjectDefinition.forId(2861).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2865).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2866).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2862).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(24724).getConfigurations().put("option:wind-up", this);
-        ObjectDefinition.forId(24673).getConfigurations().put("option:walk-down", this);
-        ObjectDefinition.forId(24672).getConfigurations().put("option:walk-up", this);
-        ObjectDefinition.forId(24721).getConfigurations().put("option:play", this);
-        ObjectDefinition.forId(24692).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2869).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2863).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(2864).getConfigurations().put("option:check", this);
-        ItemDefinition.forId(2408).getConfigurations().put("option:read", this);
+        ObjectDefinition.forId(2867).getHandlers().put("option:look-under", this);
+        ObjectDefinition.forId(2861).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2865).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2866).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2862).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(24724).getHandlers().put("option:wind-up", this);
+        ObjectDefinition.forId(24673).getHandlers().put("option:walk-down", this);
+        ObjectDefinition.forId(24672).getHandlers().put("option:walk-up", this);
+        ObjectDefinition.forId(24721).getHandlers().put("option:play", this);
+        ObjectDefinition.forId(24692).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2869).getHandlers().put("option:search", this);
+        ObjectDefinition.forId(2863).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(2864).getHandlers().put("option:check", this);
+        ItemDefinition.forId(2408).getHandlers().put("option:read", this);
 
         return this;
     }

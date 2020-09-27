@@ -13,7 +13,6 @@ final class Class140_Sub6 extends GameObject {
    int anInt2903;
    private boolean aBoolean2904;
    static int anInt2905 = 0;
-   static CacheIndex spritesCacheIndex;
    int anInt2907;
    private double aDouble2908;
    private Class127_Sub1 aClass127_Sub1_2909;
@@ -37,19 +36,9 @@ final class Class140_Sub6 extends GameObject {
    private final int anInt2927;
 
 
-   public static void method2019(boolean var0) {
-      try {
-         if(var0) {
-            spritesCacheIndex = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ra.C(" + var0 + ')');
-      }
-   }
-
    static void method2020(int var0, ObjectDefinition var1, int var3, int var4) {
       try {
-         Class3_Sub9 var5 = (Class3_Sub9)Class3.aClass61_78.method1222();
+         Class3_Sub9 var5 = (Class3_Sub9) Unsorted.aClass61_78.method1222();
 
           while(null != var5) {
             if(var4 == var5.anInt2314 && 128 * var0 == var5.anInt2326 && var5.anInt2308 == 128 * var3 && var5.aClass111_2320.objectId == var1.objectId) {
@@ -63,11 +52,11 @@ final class Class140_Sub6 extends GameObject {
                   var5.aClass3_Sub24_Sub1_2315 = null;
                }
 
-               var5.method86(-1024);
+               var5.unlink();
                return;
             }
 
-            var5 = (Class3_Sub9)Class3.aClass61_78.method1221();
+            var5 = (Class3_Sub9) Unsorted.aClass61_78.method1221();
          }
 
       } catch (RuntimeException var6) {
@@ -192,9 +181,9 @@ final class Class140_Sub6 extends GameObject {
 
    static void method2025() {
       try {
-          Class3_Sub28_Sub7_Sub1.aClass93_4043.method1522(-128, 5);
-          CS2Script.aClass93_2442.method1522(-126, 5);
-          Class154.aClass93_1964.method1522(-127, 5);
+          Unsorted.aReferenceCache_4043.sweep(5);
+          CS2Script.aReferenceCache_2442.sweep(5);
+          Class154.aReferenceCache_1964.sweep(5);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "ra.F(" + (byte) -62 + ',' + 5 + ')');
       }

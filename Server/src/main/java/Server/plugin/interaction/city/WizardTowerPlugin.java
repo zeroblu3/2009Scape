@@ -63,24 +63,24 @@ public final class WizardTowerPlugin extends OptionHandler {
      */
     private static final Location GROUND_FLOOR = new Location(3105, 3162, 0);
 
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(12540).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(12539).getConfigurations().put("option:search", this);
-        ObjectDefinition.forId(2147).getConfigurations().put("option:climb-down", this);
-        ObjectDefinition.forId(32015).getConfigurations().put("option:climb-up", this);
-        NPCDefinition.forId(300).getConfigurations().put("option:teleport", this);
-        ObjectDefinition.forId(11993).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(37668).getConfigurations().put("option:taunt-through", this);
-        PluginManager.definePlugin(new WizardtowerWizardNPC());
-        PluginManager.definePlugin(new WizardTowerDialogue());
-        PluginManager.definePlugin(new WizardMisgogDialogue());
-        PluginManager.definePlugin(new WizardGrayzagDialogue());
-        PluginManager.definePlugin(new WizardDialogue());
-        PluginManager.definePlugin(new SedridorDialogue());
-        PluginManager.definePlugin(new AuburyDialoguePlugin());
-        return this;
-    }
+	@Override
+	public Plugin<Object> newInstance(Object arg) throws Throwable {
+		ObjectDefinition.forId(12540).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(12539).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(2147).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(32015).getHandlers().put("option:climb-up", this);
+		NPCDefinition.forId(300).getHandlers().put("option:teleport", this);
+		ObjectDefinition.forId(11993).getHandlers().put("option:open", this);
+                ObjectDefinition.forId(37668).getHandlers().put("option:taunt-through", this);
+		PluginManager.definePlugin(new WizardtowerWizardNPC());
+		PluginManager.definePlugin(new WizardTowerDialogue());
+		PluginManager.definePlugin(new WizardMisgogDialogue());
+		PluginManager.definePlugin(new WizardGrayzagDialogue());
+		PluginManager.definePlugin(new WizardDialogue());
+		PluginManager.definePlugin(new SedridorDialogue());
+		PluginManager.definePlugin(new AuburyDialoguePlugin());
+		return this;
+	}
 
     @Override
     public boolean handle(Player player, Node node, String option) {

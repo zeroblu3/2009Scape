@@ -19,9 +19,9 @@ public class SawmillOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(4250).getConfigurations().put("option:buy-plank", this);
-		NPCDefinition.forId(4250).getConfigurations().put("option:talk-to", this);
-		NPCDefinition.forId(4250).getConfigurations().put("option:trade", this);
+		NPCDefinition.forId(4250).getHandlers().put("option:buy-plank", this);
+		NPCDefinition.forId(4250).getHandlers().put("option:talk-to", this);
+		NPCDefinition.forId(4250).getHandlers().put("option:trade", this);
 		return this;
 	}
 

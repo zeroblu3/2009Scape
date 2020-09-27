@@ -24,7 +24,7 @@ public final class ShooAwayStrayDogPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(5917).getConfigurations().put("option:shoo-away", this);
+		NPCDefinition.forId(5917).getHandlers().put("option:shoo-away", this);
 		NPCDefinition.setOptionHandler("shoo-away", this);
 		return this;
 	}

@@ -195,7 +195,7 @@ public final class WildernessZone extends MapZone {
 		if (!logout && e instanceof Player) {
 			Player p = (Player) e;
 			leave(p);
-			p.getAntiMacroHandler().isDisabled = false;
+			p.getAntiMacroHandler().isDisabled = p.getAttribute("randoms:disabled",false);
 			if (p.getFamiliarManager().hasFamiliar() && !p.getFamiliarManager().hasPet()) {
 				Familiar familiar = p.getFamiliarManager().getFamiliar();
 				if (familiar.isCombatFamiliar()) {

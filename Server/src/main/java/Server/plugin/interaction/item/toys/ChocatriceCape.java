@@ -13,7 +13,7 @@ import core.plugin.Plugin;
 public class ChocatriceCape extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ItemDefinition.forId(12634).getConfigurations().put("option:operate",this);
+        ItemDefinition.forId(12634).getHandlers().put("option:operate",this);
         return this;
     }
 

@@ -173,38 +173,156 @@ public final class SlayerMasterDialogue extends DialoguePlugin {
 					sendDialogue("Vannaka takes the Varrock armour and carves some symbols into it.", "He waves his hands over the symbols and the armour appears to glow", "brilliantly.");
 					stage++;
 					break;
-                case 445:
-                    npc("I have upgraded your Varrock armour for you so that,", "when using the Edgeville furnace, you'll have the chance", "of making an extra bar up to and including", "adamantite. It will also give you the chance of an extra");
-                    stage++;
-                    break;
-                case 446:
-                    npc("ore when Mining up to adamantite, as well.");
-                    stage++;
-                    break;
-                case 447:
-                    npc("I have watched your achievements with interest and", "have sent word to the Cooking Guild, west of Varrock.", "They have a prestigious bank there which you will be", "allowed entrance to, as of now, if you are wearing your");
-                    stage++;
-                    break;
-                case 448:
-                    npc("Varrock armour.");
-                    stage++;
-                    break;
-                case 449:
-                    npc("Well done on completing all of the tasks set before you,", player.getName());
-                    stage++;
-                    break;
-                case 450:
-                    npc("This magic lamp should help you with your skills. I", "trust you already know what should be done with it.");
-                    stage++;
-                    break;
-                case 451:
-                    player("Wow, thanks!");
-                    stage++;
-                    break;
-                case 452:
-                    npc("Now, if you should happen to lose that armour, you", "may come back to me to reclaim it.");
-                    stage = -1;
-                    break;
+				case 3:
+					player("How do I claim the rewards?");
+					stage = 430;
+					break;
+				case 4:
+					end();
+					break;
+				}
+				break;
+			case 41:
+				end();
+				break;
+			case 440:
+				npc("Yes I see that, you'll be wanting your", "reward then I assume?");
+				stage++;
+				break;
+			case 441:
+				player("Yes please.");
+				stage++;
+				break;
+			case 442:
+				diary.setRewarded(2);
+				for (Item i : diary.getType().getRewards(2)) {
+					player.getInventory().add(i, player);
+				}
+				npc("This armour is a representation of the adventures you", "went on to complete your tasks.");
+				stage += 2;
+				break;
+			case 444:
+				player("Wow, thanks!");
+				stage = 41;
+				break;
+			case 450:
+				player.getInventory().add(diary.getType().getRewards(2)[0], player);
+				npc("You better be more careful this time.");
+				stage = 41;
+				break;
+			case 410:
+				npc("It's a diary that helps you keep track of particular", "achievements. Here in Varrock it can help you", "discover some quite useful things. Eventually, with", "enough exploration, the people of Varrock will reward");
+				stage++;
+				break;
+			case 411:
+				npc("you.");
+				stage++;
+				break;
+			case 412:
+				npc("You can see what tasks you have listed by clicking on", "the green button in the Quest List.");
+				stage = 41;
+				break;
+			case 420:
+				npc("Well, there's three different levels of Varrock Armour,", "which match up with the three levels of difficulty. Each", "has the same rewards as the previous level, and an", "additional one too... but I won't spoil your surprise.");
+				stage++;
+				break;
+			case 421:
+				npc("Rest assured, the people of Varrock are happy to see", "you visiting the land.");
+				stage = 41;
+				break;
+			case 430:
+				npc("Just complete the tasks so they're all ticked off, then", "you can claim your reward. Most of them are", "straightforward; you might find some require quests to", "be started, if not finished.");
+				stage++;
+				break;
+			case 431:
+				npc("To claim the different Varrock Armour, speak to Vannaka", "Rat Burgis, and myself.");
+				stage = 41;
+				break;
+			case 50:
+				end();
+				break;
+			}
+			return true;
+		}
+		switch (stage) {
+		case -1:
+			switch (buttonId) {
+			case 1:
+				interpreter.sendDialogues(master.getNpc(), getExpression(master), "'Ello, and what are you after, then?");
+				stage = 0;
+				break;
+			case 2:
+				sendDiaryDialogue();
+				break;
+			}
+			break;
+		case 0:
+			if (quest.getStage(player) == 30) {
+				interpreter.sendOptions("Select an Option", "I need another assignment.", "Do you have anything for trade?", "Er...nothing...", "I'm here about a quest.");
+				stage = 700;
+				break;
+			} else if (quest.getStage(player) == 31) {
+				interpreter.sendOptions("Select an Option", "I need another assignment.", "Do you have anything for trade?", "Er...nothing...", "Hello, I'm here about those trees again.");
+				stage = 700;
+				break;
+			}
+			if (!player.getSlayer().hasStarted()) {
+				interpreter.sendOptions("Select an Option", "Who are you?", "Do you have anything for trade?", "Er...nothing...");
+				stage = 1;
+			} else {
+				interpreter.sendOptions("Select an Option", "I need another assignment.", "Do you have anything for trade?", "Er...nothing...");
+				stage = 700;
+			}
+			break;
+		case 1:
+			switch (buttonId) {
+			case 1:
+				player("Who are you?");
+				stage = 10;
+				break;
+			case 2:
+				player("Do you have anything for trade?");
+				stage = 20;
+				break;
+			case 3:
+				player("Er...nothing...");
+				stage = 30;
+				break;
+			}
+			break;
+		case 20:
+			interpreter.sendDialogues(master.getNpc(), getExpression(master), "I have a wide selection of Slayer equipment; take a look!");
+			stage = 21;
+			break;
+		case 21:
+			end();
+			if (npc != null) {
+				npc.openShop(player);
+			}
+			break;
+		case 30:
+			end();
+			break;
+		case 10:
+			interpreter.sendDialogues(master.getNpc(), getExpression(master), "I'm "+(master.getNpc() == 8273 ? "the lowest level Slayer Master available." : "one of the elite Slayer Masters."),
+					master.getNpc() == 8273 ? "The other Slayer Masters are spread around the world." : "I can teach you about the ways of the Slayer.");
+			stage = 11;
+			break;
+		case 11:
+			interpreter.sendOptions("Select an Option", "What's a Slayer?", "Never heard of you...");
+			stage = 12;
+			break;
+		case 12:
+			switch (buttonId) {
+			case 1:
+				player("What's a Slayer?");
+				stage = 100;
+				break;
+			case 2:
+				player("Never heard of you...");
+				stage = 2000;
+				break;
+			}
 
                 case 460:
                     player.getInventory().add(diary.getType().getRewards(level)[0], player);

@@ -1,6 +1,8 @@
 package org.runite;
 
+import org.rs09.client.config.GameConfig;
 import org.runite.jagex.GameShell;
+import org.runite.jagex.RSString;
 
 /**
  * Handles the launching of our Game Client.
@@ -15,7 +17,7 @@ NOTICE: THIS IS THE LIVESERVER CLIENT. For development purposes, use GameLaunch.
  */
 public class Client {
 
-	public static final String CONF_FILE="client.conf";
+	public static final String CONF_FILE="config.json";
 
 	public static String PUBLIC_IP_ADDRESS;
 
@@ -32,9 +34,11 @@ public class Client {
 	 */
 	public static void main(String[]args) {
 		try {
-			PUBLIC_IP_ADDRESS = "localhost";
+			GameConfig.parse(CONF_FILE);
+			PUBLIC_IP_ADDRESS = GameConfig.IP_ADDRESS;
 		} catch (Exception e){
 			System.out.println("Can't find config file " + CONF_FILE + " defaulting to IP 127.0.0.1");
+			e.printStackTrace();
 			PUBLIC_IP_ADDRESS = "play.2009scape.org";
 		}
 		System.out.println("Running liveserver client");

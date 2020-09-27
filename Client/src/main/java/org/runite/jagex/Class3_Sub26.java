@@ -1,6 +1,8 @@
 package org.runite.jagex;
 
-final class Class3_Sub26 extends Class3 {
+import org.rs09.client.Linkable;
+
+final class Class3_Sub26 extends Linkable {
 
    int anInt2553;
    static int anInt2554 = 0;
@@ -14,22 +16,11 @@ final class Class3_Sub26 extends Class3 {
    static Class3_Sub24_Sub2 aClass3_Sub24_Sub2_2563;
 
 
-   public static void method511(byte var0) {
-      try {
-         aClass3_Sub28_Sub16_2560 = null;
-         anIntArray2559 = null;
-         aClass61_2557 = null;
-         aClass3_Sub24_Sub2_2563 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "qi.A(" + var0 + ')');
-      }
-   }
-
    static void method512() {
       try {
-         Class3_Sub28_Sub7_Sub1.aClass93_4043.method1524();
-         CS2Script.aClass93_2442.method1524();
-         Class154.aClass93_1964.method1524();
+         Unsorted.aReferenceCache_4043.clear();
+         CS2Script.aReferenceCache_2442.clear();
+         Class154.aReferenceCache_1964.clear();
 
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "qi.D(" + (byte) -108 + ')');

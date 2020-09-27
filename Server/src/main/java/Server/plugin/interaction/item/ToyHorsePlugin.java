@@ -41,7 +41,7 @@ public class ToyHorsePlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		int[] ids = new int[] { 2524, 2526, 2522 };
 		for (int id : ids) {
-			ItemDefinition.forId(id).getConfigurations().put("play-with", this);
+			ItemDefinition.forId(id).getHandlers().put("play-with", this);
 		}
 		return this;
 	}

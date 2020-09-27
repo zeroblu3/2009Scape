@@ -1,5 +1,8 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.HashTable;
+import org.rs09.client.LinkableInt;
+
 import java.nio.ByteBuffer;
 import javax.media.opengl.GL;
 
@@ -19,7 +22,7 @@ final class Class37 {
    int anInt653;
    private byte[] aByteArray654;
    int anInt655;
-   private Class130 aClass130_656;
+   private HashTable aHashTable_656;
    int anInt657;
 
 
@@ -27,9 +30,9 @@ final class Class37 {
       long var8 = 0L;
       if((var2 & 127) == 0 || (var4 & 127) == 0) {
          var8 = (long)(var2 + (var4 << 16));
-         Class3_Sub18 var10 = (Class3_Sub18)this.aClass130_656.method1780(var8);
+         LinkableInt var10 = (LinkableInt)this.aHashTable_656.get(var8);
          if(var10 != null) {
-            return var10.anInt2467;
+            return var10.value;
          }
       }
 
@@ -79,41 +82,41 @@ final class Class37 {
       this.anIntArray645[this.anInt653] = var2;
       this.anIntArray649[this.anInt653] = var3;
       this.anIntArray648[this.anInt653] = var4;
-      this.aClass130_656.method1779(new Class3_Sub18(this.anInt653), var8);
+      this.aHashTable_656.put(var8, new LinkableInt(this.anInt653));
       return this.anInt653++;
    }
 
    final void method1019() {
-      RSByteBuffer var1 = new RSByteBuffer(this.anInt655 * 4);
-      RSByteBuffer var2 = new RSByteBuffer(this.anInt653 * 16);
+      DataBuffer var1 = new DataBuffer(this.anInt655 * 4);
+      DataBuffer var2 = new DataBuffer(this.anInt653 * 16);
       int var3;
       if(HDToolKit.aBoolean1790) {
          for(var3 = 0; var3 < this.anInt653; ++var3) {
-            var2.putByte((byte)-53, this.aByteArray654[var3]);
-            var2.putByte((byte)-7, this.aByteArray644[var3]);
-            var2.putByte((byte)-126, this.aByteArray650[var3]);
-            var2.putByte((byte)-13, 255);
-            var2.method801((float)this.anIntArray645[var3]);
-            var2.method801((float)this.anIntArray649[var3]);
-            var2.method801((float)this.anIntArray648[var3]);
+            var2.writeByte(this.aByteArray654[var3]);
+            var2.writeByte(this.aByteArray644[var3]);
+            var2.writeByte(this.aByteArray650[var3]);
+            var2.writeByte(255);
+            var2.writeFloat((float)this.anIntArray645[var3]);
+            var2.writeFloat((float)this.anIntArray649[var3]);
+            var2.writeFloat((float)this.anIntArray648[var3]);
          }
 
          for(var3 = 0; var3 < this.anInt655; ++var3) {
-            var1.putInt(-122, this.anIntArray643[var3]);
+            var1.writeInt(this.anIntArray643[var3]);
          }
       } else {
          for(var3 = 0; var3 < this.anInt653; ++var3) {
-            var2.putByte((byte)-105, this.aByteArray654[var3]);
-            var2.putByte((byte)-103, this.aByteArray644[var3]);
-            var2.putByte((byte)-28, this.aByteArray650[var3]);
-            var2.putByte((byte)-111, 255);
-            var2.method762((float)this.anIntArray645[var3], (byte)102);
-            var2.method762((float)this.anIntArray649[var3], (byte)89);
-            var2.method762((float)this.anIntArray648[var3], (byte)122);
+            var2.writeByte(this.aByteArray654[var3]);
+            var2.writeByte(this.aByteArray644[var3]);
+            var2.writeByte(this.aByteArray650[var3]);
+            var2.writeByte(255);
+            var2.writeFloatLE((float)this.anIntArray645[var3]);
+            var2.writeFloatLE((float)this.anIntArray649[var3]);
+            var2.writeFloatLE((float)this.anIntArray648[var3]);
          }
 
          for(var3 = 0; var3 < this.anInt655; ++var3) {
-            var1.method757(this.anIntArray643[var3], 55);
+            var1.writeIntLE(this.anIntArray643[var3]);
          }
       }
 
@@ -140,7 +143,7 @@ final class Class37 {
       this.aByteArray644 = null;
       this.aByteArray650 = null;
       this.anIntArray643 = null;
-      this.aClass130_656 = null;
+      this.aHashTable_656 = null;
    }
 
    final void method1020() {
@@ -151,7 +154,7 @@ final class Class37 {
       this.aByteArray654 = new byte[this.anInt657];
       this.aByteArray644 = new byte[this.anInt657];
       this.aByteArray650 = new byte[this.anInt657];
-      this.aClass130_656 = new Class130(Class95.method1585((byte)70, this.anInt657));
+      this.aHashTable_656 = new HashTable(Class95.method1585((byte)70, this.anInt657));
    }
 
    final void method1021() {

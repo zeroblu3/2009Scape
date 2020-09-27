@@ -11,7 +11,6 @@ final class Class101 {
    static int anInt1425 = 0;
    static int[] anIntArray1426;
    static int anInt1427;
-   static CacheIndex aClass153_1428;
    static short[][] aShortArrayArray1429;
 
 
@@ -57,7 +56,7 @@ final class Class101 {
 
    public static void method1608(byte var0) {
       try {
-         aClass153_1428 = null;
+         CacheIndex.npcConfigIndex = null;
          aClass61_1424 = null;
          aShortArrayArray1429 = (short[][])null;
          anIntArray1426 = null;
@@ -76,7 +75,7 @@ final class Class101 {
 
    static void method1609() {
       try {
-         Class2.anInterface5Array70 = null;
+         Unsorted.anInterface5Array70 = null;
 
           Class88.method1455();
       } catch (RuntimeException var2) {

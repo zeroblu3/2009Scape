@@ -133,7 +133,7 @@ public abstract class AgilityShortcut extends OptionHandler {
 		for (int objectId : shortcut.ids) {
 			ObjectDefinition def = ObjectDefinition.forId(objectId);
 			for (String option : shortcut.options) {
-				def.getConfigurations().put("option:" + option, shortcut);
+				def.getHandlers().put("option:" + option, shortcut);
 			}
 		}
 	}

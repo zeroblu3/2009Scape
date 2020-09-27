@@ -28,8 +28,8 @@ public final class TaverlyDungeonPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2143).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2144).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(2143).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2144).getHandlers().put("option:open", this);
 		return this;
 	}
 

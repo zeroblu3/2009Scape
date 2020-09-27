@@ -20,15 +20,15 @@ public class BarrowsTunnelShortcut extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(5055).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(5054).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(5052).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(30261).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(30262).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(30265).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(5005).getConfigurations().put("option:climb up", this);
-		ObjectDefinition.forId(5005).getConfigurations().put("option:climb down", this);
-		ObjectDefinition.forId(5002).getConfigurations().put("option:walk-here", this);
+		ObjectDefinition.forId(5055).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(5054).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(5052).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(30261).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(30262).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(30265).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(5005).getHandlers().put("option:climb up", this);
+		ObjectDefinition.forId(5005).getHandlers().put("option:climb down", this);
+		ObjectDefinition.forId(5002).getHandlers().put("option:walk-here", this);
 		return this;
 	}
 

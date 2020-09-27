@@ -4,11 +4,8 @@ import java.util.Objects;
 
 final class Class52 {
 
-   static RSString aClass94_852 = RSString.createRSString("(U4");
-   static RSString aClass94_853 = RSString.createRSString("::tele ");
    int pnpcId;
    private long aLong855;
-   static RSString COMMAND_LOWRES_GRAPHICS = RSString.createRSString("::wm0");
    private int[] lookInfo;
    private int renderAnim;
    static int[] anIntArray859;
@@ -23,7 +20,7 @@ final class Class52 {
       try {
 
          long var9 = (long)var3 | (long)(var7 << 16) | (long)var2 << 32;
-         Model var11 = (Model)Class80.aClass93_1131.get(var9);
+         Model var11 = (Model) Unsorted.aReferenceCache_1131.get(var9);
          if(null == var11) {
             Model_Sub1[] var12 = new Model_Sub1[3];
             int var13 = 0;
@@ -53,7 +50,7 @@ final class Class52 {
             }
 
             var11 = var14.method2008(64, 768, -50, -10, -50);
-            Class80.aClass93_1131.put((byte)-111, var11, var9);
+            Unsorted.aReferenceCache_1131.put(var11, var9);
          }
 
          if(null != var5) {
@@ -88,7 +85,7 @@ final class Class52 {
 
          this.aLong860 = var4[(int)(((long)(this.aBoolean864?1:0) ^ this.aLong860) & 255L)] ^ this.aLong860 >>> 8;
          if(var2 != 0 && this.aLong860 != var2) {
-            KeyboardListener.aClass93_1911.method1518(var2, (byte)-124);
+            KeyboardListener.aReferenceCache_1911.remove(var2);
          }
 
       } catch (RuntimeException var6) {
@@ -107,7 +104,7 @@ final class Class52 {
 
    static void method1160(int var0, int var1) {
       try {
-         if(Canvas_Sub2.loadInterface(var1)) {
+         if(Unsorted.loadInterface(var1)) {
             if(var0 > -100) {
                method1168(52);
             }
@@ -163,7 +160,7 @@ final class Class52 {
    final int method1163() {
       try {
 
-         return this.pnpcId != -1?305419896 + Node.method522(this.pnpcId).npcId:(this.lookInfo[8] << 10) + ((this.anIntArray862[0] << 25) - -(this.anIntArray862[4] << 20)) - (-(this.lookInfo[0] << 15) - ((this.lookInfo[11] << 5) + this.lookInfo[1]));
+         return this.pnpcId != -1?305419896 + Unsorted.method522(this.pnpcId).npcId:(this.lookInfo[8] << 10) + ((this.anIntArray862[0] << 25) - -(this.anIntArray862[4] << 20)) - (-(this.lookInfo[0] << 15) - ((this.lookInfo[11] << 5) + this.lookInfo[1]));
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "hh.E(" + -24861 + ')');
       }
@@ -213,7 +210,7 @@ final class Class52 {
                }
             }
 
-            Model var37 = (Model) KeyboardListener.aClass93_1911.get(var13);
+            Model var37 = (Model) KeyboardListener.aReferenceCache_1911.get(var13);
             boolean var17;
             int var23;
             int var22;
@@ -233,7 +230,7 @@ final class Class52 {
                for(int var18 = 0; var18 < 12; ++var18) {
                   var19 = var15[var18];
                   if((var19 & 1073741824) != 0) {
-                     if(!Class38.getItemDefinition(1073741823 & var19, (byte)92).method1108(this.aBoolean864)) {
+                     if(!Class38.getItemDefinition(1073741823 & var19).method1108(this.aBoolean864)) {
                         var17 = true;
                      }
                   } else if((var19 < 0) && !Class3_Sub13_Sub13.method231(1073741823 & var19).method942()) {
@@ -243,7 +240,7 @@ final class Class52 {
 
                if(var17) {
                   if(this.aLong855 != -1L) {
-                     var37 = (Model) KeyboardListener.aClass93_1911.get(this.aLong855);
+                     var37 = (Model) KeyboardListener.aReferenceCache_1911.get(this.aLong855);
                   }
 
                   if(null == var37) {
@@ -266,7 +263,7 @@ final class Class52 {
                            }
                         }
                      } else {
-                        var21 = Class38.getItemDefinition(var20 & 1073741823, (byte)115).method1117(this.aBoolean864);
+                        var21 = Class38.getItemDefinition(var20 & 1073741823).method1117(this.aBoolean864);
                         if(null != var21) {
                            var39[var19] = var21;
                         }
@@ -354,7 +351,7 @@ final class Class52 {
                      ((Class140_Sub1_Sub1)var37).method1920(false, false, true, false, false, true);
                   }
 
-                  KeyboardListener.aClass93_1911.put((byte)-115, var37, var13);
+                  KeyboardListener.aReferenceCache_1911.put(var37, var13);
                   this.aLong855 = var13;
                }
             }
@@ -506,7 +503,7 @@ final class Class52 {
                return var51;
             }
          } else {
-            return Node.method522(this.pnpcId).method1476(var1, var6, (byte)-128, var11, var2, var8, var10, var3, var5, var4);
+            return Unsorted.method522(this.pnpcId).method1476(var1, var6, (byte)-128, var11, var2, var8, var10, var3, var5, var4);
          }
       } catch (RuntimeException var36) {
          throw Class44.clientError(var36, "hh.D(" + (var1 != null?"{...}":"null") + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + (var4 != null?"{...}":"null") + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ',' + true + ',' + var10 + ',' + var11 + ')');
@@ -818,7 +815,7 @@ final class Class52 {
    final Model method1167(int var1, AnimationDefinition var3, int var4, int var5) {
       try {
          if(this.pnpcId == -1) {
-            Model var6 = (Model)Class80.aClass93_1131.get(this.aLong860);
+            Model var6 = (Model) Unsorted.aReferenceCache_1131.get(this.aLong860);
 
             if(var6 == null) {
                boolean var7 = false;
@@ -830,7 +827,7 @@ final class Class52 {
                      if(var9 < 0 && Class3_Sub13_Sub13.method231(var9 & 1073741823).method948()) {
                         var7 = true;
                      }
-                  } else if(!Class38.getItemDefinition(1073741823 & var9, (byte)127).method1102(this.aBoolean864)) {
+                  } else if(!Class38.getItemDefinition(1073741823 & var9).method1102(this.aBoolean864)) {
                      var7 = true;
                   }
                }
@@ -852,7 +849,7 @@ final class Class52 {
                         var14[var9++] = var12;
                      }
                   } else {
-                     var12 = Class38.getItemDefinition(var11 & 1073741823, (byte)89).method1116(this.aBoolean864);
+                     var12 = Class38.getItemDefinition(var11 & 1073741823).method1116(this.aBoolean864);
                      if(var12 != null) {
                         var14[var9++] = var12;
                      }
@@ -872,7 +869,7 @@ final class Class52 {
                }
 
                var6 = var15.method2008(64, 768, -50, -10, -50);
-               Class80.aClass93_1131.put((byte)-102, var6, this.aLong860);
+               Unsorted.aReferenceCache_1131.put(var6, this.aLong860);
             }
 
             if(var3 != null) {
@@ -881,7 +878,7 @@ final class Class52 {
 
             return var6;
          } else {
-            return Node.method522(this.pnpcId).getChatModel(var3, var1, var5, -109, var4);
+            return Unsorted.method522(this.pnpcId).getChatModel(var3, var1, var5, -109, var4);
          }
       } catch (RuntimeException var13) {
          throw Class44.clientError(var13, "hh.F(" + var1 + ',' + (byte) 127 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ')');
@@ -890,11 +887,11 @@ final class Class52 {
 
    public static void method1168(int var0) {
       try {
-         aClass94_853 = null;
-         aClass94_852 = null;
+         TextCore.aClass94_853 = null;
+         TextCore.aClass94_852 = null;
          if(var0 == 8160) {
             anIntArray859 = null;
-            COMMAND_LOWRES_GRAPHICS = null;
+            TextCore.COMMAND_LOWRES_GRAPHICS = null;
             anIntArray861 = null;
          }
       } catch (RuntimeException var2) {

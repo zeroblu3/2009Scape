@@ -1,16 +1,17 @@
 package org.runite.jagex;
 
+import org.rs09.client.data.NodeCache;
+
 final class Class25 {
 
    int anInt478;
    GameObject aClass140_479;
-   static Class47 aClass47_480 = new Class47(16);
+   static NodeCache aClass47_480 = new NodeCache(16);
    int anInt481;
    int anInt482;
    int anInt483;
    int anInt484;
-   
-   static int anInt486 = 5063219;
+
    int anInt487;
    static boolean aBoolean488 = true;
    int anInt489;
@@ -25,23 +26,11 @@ final class Class25 {
 
    static void method953() {
       try {
-         Class114.aClass93_1569.method1522(-13508 ^ 13501, 50);
-         Class3_Sub15.aClass93_2428.method1522(-126, 50);
-         Class47.aClass93_743.method1522(-126, 50);
+         Class114.aReferenceCache_1569.sweep(50);
+         Class3_Sub15.aReferenceCache_2428.sweep(50);
+         Unsorted.aReferenceCache_743.sweep(50);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "ec.D(" + -13508 + ',' + 50 + ')');
-      }
-   }
-
-   public static void method954(int var0) {
-      try {
-         aClass47_480 = null;
-         anIntArrayArray499 = (int[][])null;
-         if(var0 != 128) {
-            method954(113);
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ec.A(" + var0 + ')');
       }
    }
 
@@ -108,8 +97,8 @@ final class Class25 {
 
    static void method957(boolean var1) {
       try {
-          Class3_Sub28_Sub13.aBoolean3665 = var1;
-          Class47.aBoolean742 = !NPC.method1986(42);
+          Unsorted.aBoolean3665 = var1;
+          Unsorted.aBoolean742 = !NPC.method1986(42);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "ec.C(" + 96 + ',' + var1 + ')');
       }
@@ -128,7 +117,7 @@ final class Class25 {
 
             GameObject.aBoolean1837 = false;
             Class3_Sub28_Sub5.anInt3590 = -1;
-            Class20.method909(-107, var1);
+            Class20.method909(var1);
          }
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "ec.E(" + var0 + ')');
@@ -137,7 +126,7 @@ final class Class25 {
 
    static void method959() {
       try {
-         CS2Script.aClass93_2450.method1524();
+         CS2Script.aReferenceCache_2450.clear();
 
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "ec.B(" + 0 + ')');

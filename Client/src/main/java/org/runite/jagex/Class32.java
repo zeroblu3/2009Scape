@@ -3,10 +3,9 @@ package org.runite.jagex;
 final class Class32 {
 
    static int anInt590 = -1;
-   static RSString aClass94_592 = RSString.createRSString("<img=0>");
 
 
-   static RSString method992(RSByteBuffer var0) {
+   static RSString method992(DataBuffer var0) {
       try {
 
          return Class140_Sub7.method2033(var0);
@@ -33,25 +32,15 @@ final class Class32 {
       }
    }
 
-   public static void method994(int var0) {
-      try {
-         if(var0 == '\u93bd') {
-            aClass94_592 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "fc.A(" + var0 + ')');
-      }
-   }
-
    static void method995() {
       int var0;
       int var1;
       int var2;
-      if(Class3_Sub28_Sub10_Sub2.aClass3_Sub2ArrayArrayArray4070 != null) {
-         for(var0 = 0; var0 < Class3_Sub28_Sub10_Sub2.aClass3_Sub2ArrayArrayArray4070.length; ++var0) {
-            for(var1 = 0; var1 < IOHandler.anInt1234; ++var1) {
+      if(Unsorted.aClass3_Sub2ArrayArrayArray4070 != null) {
+         for(var0 = 0; var0 < Unsorted.aClass3_Sub2ArrayArrayArray4070.length; ++var0) {
+            for(var1 = 0; var1 < Unsorted.anInt1234; ++var1) {
                for(var2 = 0; var2 < Class3_Sub13_Sub15.anInt3179; ++var2) {
-                  Class3_Sub28_Sub10_Sub2.aClass3_Sub2ArrayArrayArray4070[var0][var1][var2] = null;
+                  Unsorted.aClass3_Sub2ArrayArrayArray4070[var0][var1][var2] = null;
                }
             }
          }
@@ -60,7 +49,7 @@ final class Class32 {
       Client.aClass3_Sub11ArrayArray2199 = (Class3_Sub11[][])null;
       if(Class166.aClass3_Sub2ArrayArrayArray2065 != null) {
          for(var0 = 0; var0 < Class166.aClass3_Sub2ArrayArrayArray2065.length; ++var0) {
-            for(var1 = 0; var1 < IOHandler.anInt1234; ++var1) {
+            for(var1 = 0; var1 < Unsorted.anInt1234; ++var1) {
                for(var2 = 0; var2 < Class3_Sub13_Sub15.anInt3179; ++var2) {
                   Class166.aClass3_Sub2ArrayArrayArray2065[var0][var1][var2] = null;
                }
@@ -81,9 +70,9 @@ final class Class32 {
          Class3_Sub13_Sub5.anInt3070 = 0;
       }
 
-      if(Class3_Sub28_Sub10_Sub1.aClass25Array4060 != null) {
-         for(var0 = 0; var0 < Class3_Sub28_Sub10_Sub1.aClass25Array4060.length; ++var0) {
-            Class3_Sub28_Sub10_Sub1.aClass25Array4060[var0] = null;
+      if(Unsorted.aClass25Array4060 != null) {
+         for(var0 = 0; var0 < Unsorted.aClass25Array4060.length; ++var0) {
+            Unsorted.aClass25Array4060[var0] = null;
          }
       }
 
@@ -105,7 +94,7 @@ final class Class32 {
                Class3_Sub13.anInt2384 = Class133.anInt1744;
             } else {
                while(Class3_Sub13.anInt2384 != Class133.anInt1744) {
-                  var2 = Class151_Sub1.anIntArray2952[Class133.anInt1744];
+                  var2 = Unsorted.anIntArray2952[Class133.anInt1744];
                   Class133.anInt1744 = 127 & 1 + Class133.anInt1744;
                   if(0 <= var2) {
                      ObjectDefinition.aBooleanArray1490[var2] = true;

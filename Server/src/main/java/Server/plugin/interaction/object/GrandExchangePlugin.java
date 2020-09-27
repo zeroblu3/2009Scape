@@ -23,21 +23,21 @@ public final class GrandExchangePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(28089).getConfigurations().put("option:use", this);
-		ObjectDefinition.forId(28089).getConfigurations().put("option:exchange", this);
-		ObjectDefinition.forId(28089).getConfigurations().put("option:collect", this);
-		ObjectDefinition.forId(28089).getConfigurations().put("option:history", this);
-		ObjectDefinition.forId(28089).getConfigurations().put("option:sets", this);
+		ObjectDefinition.forId(28089).getHandlers().put("option:use", this);
+		ObjectDefinition.forId(28089).getHandlers().put("option:exchange", this);
+		ObjectDefinition.forId(28089).getHandlers().put("option:collect", this);
+		ObjectDefinition.forId(28089).getHandlers().put("option:history", this);
+		ObjectDefinition.forId(28089).getHandlers().put("option:sets", this);
 		for (int i : new int[] { 6528, 6529, 6530, 6531 }) {
-			NPCDefinition.forId(i).getConfigurations().put("option:exchange", this);
-			NPCDefinition.forId(i).getConfigurations().put("option:history", this);
-			NPCDefinition.forId(i).getConfigurations().put("option:sets", this);
+			NPCDefinition.forId(i).getHandlers().put("option:exchange", this);
+			NPCDefinition.forId(i).getHandlers().put("option:history", this);
+			NPCDefinition.forId(i).getHandlers().put("option:sets", this);
 		}
-		NPCDefinition.forId(6527).getConfigurations().put("option:info-combat", this);
-		NPCDefinition.forId(6526).getConfigurations().put("option:info-logs", this);
-		NPCDefinition.forId(6525).getConfigurations().put("option:info-runes", this);
-		NPCDefinition.forId(6524).getConfigurations().put("option:info-herbs", this);
-		NPCDefinition.forId(6523).getConfigurations().put("option:info-ores", this);
+		NPCDefinition.forId(6527).getHandlers().put("option:info-combat", this);
+		NPCDefinition.forId(6526).getHandlers().put("option:info-logs", this);
+		NPCDefinition.forId(6525).getHandlers().put("option:info-runes", this);
+		NPCDefinition.forId(6524).getHandlers().put("option:info-herbs", this);
+		NPCDefinition.forId(6523).getHandlers().put("option:info-ores", this);
 		new GENPCPlugin().newInstance(arg);
 		return this;
 	}
@@ -118,12 +118,12 @@ public final class GrandExchangePlugin extends OptionHandler {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			NPCDefinition.forId(6528).getConfigurations().put("option:talk-to", this);
-			NPCDefinition.forId(6529).getConfigurations().put("option:talk-to", this);
-			NPCDefinition.forId(6535).getConfigurations().put("option:talk-to", this);
-			NPCDefinition.forId(6533).getConfigurations().put("option:talk-to", this);
-			NPCDefinition.forId(6535).getConfigurations().put("option:bank", this);
-			NPCDefinition.forId(6533).getConfigurations().put("option:collect", this);
+			NPCDefinition.forId(6528).getHandlers().put("option:talk-to", this);
+			NPCDefinition.forId(6529).getHandlers().put("option:talk-to", this);
+			NPCDefinition.forId(6535).getHandlers().put("option:talk-to", this);
+			NPCDefinition.forId(6533).getHandlers().put("option:talk-to", this);
+			NPCDefinition.forId(6535).getHandlers().put("option:bank", this);
+			NPCDefinition.forId(6533).getHandlers().put("option:collect", this);
 			return this;
 		}
 

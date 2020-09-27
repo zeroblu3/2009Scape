@@ -1478,7 +1478,7 @@ public class DeathMansionEvent extends HolidayEvent {
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
 			PluginManager.definePlugin(new DarkPortalDialogue());
-			ObjectDefinition.forId(DEATH_PORTAL).getConfigurations().put("option:enter", this);
+			ObjectDefinition.forId(DEATH_PORTAL).getHandlers().put("option:enter", this);
 			return this;
 		}
 

@@ -53,7 +53,7 @@ public final class ChairBenchPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (Object[] data : CHAIRS) {
-			ObjectDefinition.forId(((Decoration) data[0]).getObjectId()).getConfigurations().put("option:sit-on", this);
+			ObjectDefinition.forId(((Decoration) data[0]).getObjectId()).getHandlers().put("option:sit-on", this);
 		}
 		return this;
 	}

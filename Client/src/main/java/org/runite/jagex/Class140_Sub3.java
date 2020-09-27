@@ -9,14 +9,12 @@ final class Class140_Sub3 extends GameObject {
    private final int anInt2724;
    private int anInt2725 = 0;
    private int anInt2726;
-   static CacheIndex aClass153_2727;
    private boolean aBoolean2728 = true;
    private final int objectId;
    private final int anInt2730;
    private final int anInt2732;
    private int anInt2733;
    private final int type;
-   static RSString aClass94_2735 = RSString.createRSString(")4");
    private final int anInt2736;
    static int anInt2737 = 0;
    private LDIndexedSprite aClass109_Sub1_2738 = null;
@@ -24,7 +22,6 @@ final class Class140_Sub3 extends GameObject {
    static volatile int anInt2743 = 0;
    static int anInt2745 = 0;
    private int anInt2746;
-   static byte[][] aByteArrayArray2747 = new byte[50][];
    private int anInt2748 = 0;
    private int anInt2749;
    private int anInt2750 = -1;
@@ -34,7 +31,7 @@ final class Class140_Sub3 extends GameObject {
    static Model method1957(int var0, boolean var1, AnimationDefinition var2, int var3, int var4, int var5, int var6, int var7, Model var8, int var9, int var10, int var11, int var12) {
       try {
          long var14 = ((long)var4 << 48) + (long)(var7 + (var0 << 16) - -(var12 << 24)) + ((long)var6 << 32);
-         Model var16 = (Model)Class158_Sub1.aClass93_2982.get(var14);
+         Model var16 = (Model)Class158_Sub1.aReferenceCache_2982.get(var14);
          int var21;
          int var23;
          int var25;
@@ -89,7 +86,7 @@ final class Class140_Sub3 extends GameObject {
             }
 
             var16 = var20.method2008(64, 768, -50, -10, -50);
-            Class158_Sub1.aClass93_2982.put((byte)-125, var16, var14);
+            Class158_Sub1.aReferenceCache_2982.put(var16, var14);
          }
 
          int var32 = var7 * 64 + -1;
@@ -163,7 +160,7 @@ final class Class140_Sub3 extends GameObject {
             Class140_Sub1_Sub1 var36 = (Class140_Sub1_Sub1)var16;
             if(var11 != Class121.method1736(WorldListCountry.localPlane, (byte) -49 ^ -50, var3 - -var35, var24 + var5) || var11 != Class121.method1736(WorldListCountry.localPlane, 1, var23 + var3, var5 - -var25)) {
                for(var28 = 0; var28 < var36.anInt3823; ++var28) {
-                  var36.anIntArray3845[var28] += -var11 + Class121.method1736(WorldListCountry.localPlane, Class93.bitwiseXOR((byte) -49, -50), var36.anIntArray3822[var28] - -var3, var5 + var36.anIntArray3848[var28]);
+                  var36.anIntArray3845[var28] += -var11 + Class121.method1736(WorldListCountry.localPlane, Unsorted.bitwiseXOR((byte) -49, -50), var36.anIntArray3822[var28] - -var3, var5 + var36.anIntArray3848[var28]);
                }
 
                var36.aClass6_3835.aBoolean98 = false;
@@ -186,20 +183,6 @@ final class Class140_Sub3 extends GameObject {
       }
    }
 
-   public static void method1958(int var0) {
-      try {
-         aClass153_2727 = null;
-         if(var0 != 2) {
-            method1958(64);
-         }
-
-         aByteArrayArray2747 = (byte[][])null;
-         aClass94_2735 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "dc.G(" + var0 + ')');
-      }
-   }
-
    final void method1867(int var1, int var2, int var3, int var4, int var5) {
       try {
          if(HDToolKit.highDetail) {
@@ -216,7 +199,7 @@ final class Class140_Sub3 extends GameObject {
    static void method1959(boolean var3) {
       try {
          Class3_Sub24_Sub4.anInt3507 = 2;
-         RSString.aBoolean2150 = var3;
+         Unsorted.aBoolean2150 = var3;
          Class21.anInt443 = 22050;
       } catch (RuntimeException var5) {
          throw Class44.clientError(var5, "dc.D(" + 256 + ',' + 2 + ',' + 22050 + ',' + var3 + ')');
@@ -280,7 +263,7 @@ final class Class140_Sub3 extends GameObject {
             }
 
             while(this.aClass142_2722.duration[this.anInt2726] < var4) {
-               IOHandler.method1470(var1, this.aClass142_2722, 183921384, var2, false, this.anInt2726);
+               Unsorted.method1470(var1, this.aClass142_2722, 183921384, var2, false, this.anInt2726);
                var4 -= this.aClass142_2722.duration[this.anInt2726];
                ++this.anInt2726;
                if(this.anInt2726 >= this.aClass142_2722.frames.length) {
@@ -365,7 +348,7 @@ final class Class140_Sub3 extends GameObject {
             int var11 = (var8 >> 1) + this.anInt2730;
             int var12 = (var8 - -1 >> 1) + this.anInt2730;
             this.method1961(128 * var11, var9 * 128);
-            boolean var13 = !var3 && var4.aBoolean1503 && (var4.objectId != this.anInt2750 || (this.anInt2752 != this.anInt2726 || this.aClass142_2722 != null && (this.aClass142_2722.aBoolean1872 || Class3_Sub26.aBoolean2558) && this.anInt2733 != this.anInt2726) && Class80.anInt1137 >= 2);
+            boolean var13 = !var3 && var4.aBoolean1503 && (var4.objectId != this.anInt2750 || (this.anInt2752 != this.anInt2726 || this.aClass142_2722 != null && (this.aClass142_2722.aBoolean1872 || Class3_Sub26.aBoolean2558) && this.anInt2733 != this.anInt2726) && Unsorted.anInt1137 >= 2);
             if(var1 && !var13) {
                return null;
             } else {
@@ -474,7 +457,7 @@ final class Class140_Sub3 extends GameObject {
                   if(type == 0) {
                      Class56.localPlayerIndexes[Class159.localPlayerCount++] = var3;
                      var4.anInt2838 = Class44.anInt719;
-                     Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = var3;
+                     Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = var3;
                   } else {
                      int var7;
                      int var8;
@@ -485,7 +468,7 @@ final class Class140_Sub3 extends GameObject {
                         var4.walkStep(1, (byte)46, var7);
                         var8 = GraphicDefinition.incomingBuffer.getBits(1);
                         if(var8 == 1) {
-                           Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = var3;
+                           Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = var3;
                         }
                      } else if (type == 2) {
                         Class56.localPlayerIndexes[Class159.localPlayerCount++] = var3;
@@ -502,7 +485,7 @@ final class Class140_Sub3 extends GameObject {
 
                         var7 = GraphicDefinition.incomingBuffer.getBits(1);
                         if (1 == var7) {
-                           Class21.maskUpdateIndexes[Class66.maskUpdateCount++] = var3;
+                           Class21.maskUpdateIndexes[Unsorted.maskUpdateCount++] = var3;
                         }
                      } else if (type == 3) {
                         Class3_Sub7.anIntArray2292[Class139.anInt1829++] = var3;

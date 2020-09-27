@@ -26,10 +26,10 @@ public class MarionettePlugin extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         for(Item item : MARIONETTES) {
             ItemDefinition def = item.getDefinition();
-            def.getConfigurations().put("option:jump",this);
-            def.getConfigurations().put("option:walk",this);
-            def.getConfigurations().put("option:bow",this);
-            def.getConfigurations().put("option:dance",this);
+            def.getHandlers().put("option:jump",this);
+            def.getHandlers().put("option:walk",this);
+            def.getHandlers().put("option:bow",this);
+            def.getHandlers().put("option:dance",this);
         }
         return this;
     }

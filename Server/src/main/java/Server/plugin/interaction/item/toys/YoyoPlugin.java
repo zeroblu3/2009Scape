@@ -20,10 +20,10 @@ public class YoyoPlugin extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ItemDefinition def = ItemDefinition.forId(YOYO.getId());
-        def.getConfigurations().put("option:play",this);
-        def.getConfigurations().put("option:loop",this);
-        def.getConfigurations().put("option:walk",this);
-        def.getConfigurations().put("option:crazy",this);
+        def.getHandlers().put("option:play",this);
+        def.getHandlers().put("option:loop",this);
+        def.getHandlers().put("option:walk",this);
+        def.getHandlers().put("option:crazy",this);
         return this;
     }
 

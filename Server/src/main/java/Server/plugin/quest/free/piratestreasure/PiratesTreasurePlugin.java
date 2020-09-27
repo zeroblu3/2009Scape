@@ -30,14 +30,14 @@ public final class PiratesTreasurePlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2079).getConfigurations().put("option:open", this);// blue
+		ObjectDefinition.forId(2079).getHandlers().put("option:open", this);// blue
 		// moon
 		// chest(pirates
 		// treasure
 		// quest)
-		ItemDefinition.forId(433).getConfigurations().put("option:read", this);// pirate
+		ItemDefinition.forId(433).getHandlers().put("option:read", this);// pirate
 		// message.
-		ItemDefinition.forId(7956).getConfigurations().put("option:open", this);
+		ItemDefinition.forId(7956).getHandlers().put("option:open", this);
 		for (Location l : TreasureDigPlugin.LOCATIONS) {
 			DigSpadeHandler.register(l, DIG_ACTION);
 		}

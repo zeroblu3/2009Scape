@@ -120,15 +120,8 @@ public class YanilleGrapple extends OptionHandler {
     }
 
     @Override
-    public Location getDestination(final Node moving, final Node destination) {
-        if (destination.asObject().getId() == 17047) {
-            if (moving.getLocation().getY() < 3073) {
-                return Location.create(2556, 3072, 0);
-            } else {
-                return Location.create(2556, 3075, 0);
-            }
-        } else {
-            return null;
-        }
+    public Plugin<Object> newInstance(Object arg) throws Throwable {
+        ObjectDefinition.forId(17047).getHandlers().put("option:grapple",this);
+        return this;
     }
 }

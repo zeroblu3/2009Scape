@@ -55,7 +55,7 @@ public class FOGActivityPlugin extends ActivityPlugin {
 		PluginManager.definePlugin(new OptionHandler() {
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(30204).getConfigurations().put("option:enter", this);
+				ObjectDefinition.forId(30204).getHandlers().put("option:enter", this);
 				return this;
 			}
 

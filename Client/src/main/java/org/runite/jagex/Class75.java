@@ -13,18 +13,6 @@ abstract class Class75 {
    static int anInt1109 = 0;
 
 
-   public static void method1334(byte var0) {
-      try {
-         anIntArray1107 = null;
-         aClass3_Sub28_Sub5Array1103 = null;
-         if(var0 != -115) {
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "kf.J(" + var0 + ')');
-      }
-   }
-
    abstract void method1335(int var1, int var2, int var3);
 
    static Class25 method1336(int var0, int var1, int var2) {
@@ -68,8 +56,8 @@ abstract class Class75 {
    static void method1339(RSString var0) {
       try {
          for(Class3_Sub28_Sub3 var2 = (Class3_Sub28_Sub3)Class134.aClass61_1758.method1222(); var2 != null; var2 = (Class3_Sub28_Sub3)Class134.aClass61_1758.method1221()) {
-            if(var2.aClass94_3561.method1528(var0)) {
-               RSByteBuffer.aClass3_Sub28_Sub3_2600 = var2;
+            if(var2.aClass94_3561.equalsString(var0)) {
+               Unsorted.aClass3_Sub28_Sub3_2600 = var2;
                return;
             }
          }
@@ -84,7 +72,7 @@ abstract class Class75 {
 
          for(int var5 = 0; var5 < Class3_Sub28_Sub3.anInt3557; ++var5) {
             if(var0 < Class3_Sub28_Sub18.anIntArray3768[var5] + Class155.anIntArray1969[var5] && Class155.anIntArray1969[var5] < var1 + var0 && Class140_Sub4.anIntArray2794[var5] + Player.anIntArray3954[var5] > var3 && Player.anIntArray3954[var5] < var3 - -var4) {
-               Class3_Sub28_Sub14.aBooleanArray3674[var5] = true;
+               WorldMapZoomFont.aBooleanArray3674[var5] = true;
             }
          }
 

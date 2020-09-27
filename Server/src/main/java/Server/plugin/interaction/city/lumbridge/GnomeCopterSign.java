@@ -14,7 +14,7 @@ public class GnomeCopterSign extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         new SignDialogue().init();
-        ObjectDefinition.forId(30037).getConfigurations().put("option:read",this);
+        ObjectDefinition.forId(30037).getHandlers().put("option:read",this);
         return this;
     }
 

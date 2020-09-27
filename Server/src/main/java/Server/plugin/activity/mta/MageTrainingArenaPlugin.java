@@ -39,19 +39,19 @@ public class MageTrainingArenaPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(6885).getConfigurations().put("option:destroy", this);
-		ItemDefinition.forId(6885).getConfigurations().put("option:talk-to", this);
-		ObjectDefinition.forId(10721).getConfigurations().put("option:enter", this);
-		NPCDefinition.forId(3103).getConfigurations().put("option:trade-with", this);
+		ItemDefinition.forId(6885).getHandlers().put("option:destroy", this);
+		ItemDefinition.forId(6885).getHandlers().put("option:talk-to", this);
+		ObjectDefinition.forId(10721).getHandlers().put("option:enter", this);
+		NPCDefinition.forId(3103).getHandlers().put("option:trade-with", this);
 		for (MTAType type : MTAType.values()) {
 			if (type.getZone() != null) {
 				ZoneBuilder.configure(type.getZone());
 			}
-			ObjectDefinition.forId(type.getObjectId()).getConfigurations().put("option:enter", this);
+			ObjectDefinition.forId(type.getObjectId()).getHandlers().put("option:enter", this);
 		}
-		ItemDefinition.forId(TelekineticZone.STATUE).getConfigurations().put("option:observe", this);
-		ItemDefinition.forId(TelekineticZone.STATUE).getConfigurations().put("option:reset", this);
-		NPCDefinition.forId(3102).getConfigurations().put("option:talk-to", this);
+		ItemDefinition.forId(TelekineticZone.STATUE).getHandlers().put("option:observe", this);
+		ItemDefinition.forId(TelekineticZone.STATUE).getHandlers().put("option:reset", this);
+		NPCDefinition.forId(3102).getHandlers().put("option:talk-to", this);
 		PluginManager.definePlugins(new CharmedWarriorDialogue(), new EntranceGuardianDialogue(), new RewardsGuardianDialogue(), new ProgressHatDialogue(), new EnchantmentGuardianDialogue(), new EnchantSpell(), new BonesConvertingSpells(), new GraveyardGuardianDialogue(), new AlchemyGuardianDialogue(), new AlchemySpell(), new TelekineticGrabSpell(), new TelekineticGuardianDialogue(), new MazeGuardianDialogue());
 		return this;
 	}

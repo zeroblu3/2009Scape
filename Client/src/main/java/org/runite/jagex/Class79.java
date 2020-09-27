@@ -38,10 +38,10 @@ final class Class79 {
       }
    }
 
-   final void method1387(RSByteBuffer var1) {
+   final void method1387(DataBuffer var1) {
       try {
          while(true) {
-            int var3 = var1.getByteB();
+            int var3 = var1.readUnsignedByte();
             if(var3 == 0) {
                return;
             }
@@ -53,23 +53,12 @@ final class Class79 {
       }
    }
 
-   public static void method1388(boolean var0) {
-      try {
-         if(!var0) {
-            anInt1126 = 8;
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "kk.D(" + var0 + ')');
-      }
-   }
-
-   private void method1389(RSByteBuffer var1, int var3) {
+   private void method1389(DataBuffer var1, int var3) {
       try {
          if(1 == var3) {
-            this.anInt1128 = var1.getShort();
-            this.anInt1123 = var1.getByteB();
-            this.anInt1125 = var1.getByteB();
+            this.anInt1128 = var1.readUnsignedShort();
+            this.anInt1123 = var1.readUnsignedByte();
+            this.anInt1125 = var1.readUnsignedByte();
          }
 
       } catch (RuntimeException var5) {
@@ -77,10 +66,10 @@ final class Class79 {
       }
    }
 
-   static void method1390(RSByteBuffer var0) {
+   static void method1390(DataBuffer var0) {
       try {
          if(-var0.index + var0.buffer.length >= 1) {
-            int var2 = var0.getByteB();
+            int var2 = var0.readUnsignedByte();
             if(var2 >= 0 && var2 <= 11) {
                byte var3;
                if(var2 == 11) {
@@ -110,66 +99,66 @@ final class Class79 {
                }
 
                if(var3 <= var0.buffer.length - var0.index) {
-                  Class3_Sub28_Sub10.anInt3625 = var0.getByteB();
-                  if(Class3_Sub28_Sub10.anInt3625 >= 1) {
-                     if(Class3_Sub28_Sub10.anInt3625 > 4) {
-                        Class3_Sub28_Sub10.anInt3625 = 4;
+                  Unsorted.anInt3625 = var0.readUnsignedByte();
+                  if(Unsorted.anInt3625 >= 1) {
+                     if(Unsorted.anInt3625 > 4) {
+                        Unsorted.anInt3625 = 4;
                      }
                   } else {
-                     Class3_Sub28_Sub10.anInt3625 = 1;
+                     Unsorted.anInt3625 = 1;
                   }
 
-                  Class25.method957(1 == var0.getByteB());
-                  Class3_Sub28_Sub7.aBoolean3604 = var0.getByteB() == 1;
-                  KeyboardListener.aBoolean1905 = 1 == var0.getByteB();
-                  Class25.aBoolean488 = 1 == var0.getByteB();
-                  RSInterface.aBoolean236 = var0.getByteB() == 1;
-                  WorldListEntry.aBoolean2623 = var0.getByteB() == 1;
-                  Class3_Sub13_Sub22.aBoolean3275 = var0.getByteB() == 1;
-                  Class140_Sub6.aBoolean2910 = 1 == var0.getByteB();
-                  Class80.anInt1137 = var0.getByteB();
-                  if(2 < Class80.anInt1137) {
-                     Class80.anInt1137 = 2;
+                  Class25.method957(1 == var0.readUnsignedByte());
+                  Unsorted.aBoolean3604 = var0.readUnsignedByte() == 1;
+                  KeyboardListener.aBoolean1905 = 1 == var0.readUnsignedByte();
+                  Class25.aBoolean488 = 1 == var0.readUnsignedByte();
+                  RSInterface.aBoolean236 = var0.readUnsignedByte() == 1;
+                  WorldListEntry.aBoolean2623 = var0.readUnsignedByte() == 1;
+                  Class3_Sub13_Sub22.aBoolean3275 = var0.readUnsignedByte() == 1;
+                  Class140_Sub6.aBoolean2910 = 1 == var0.readUnsignedByte();
+                  Unsorted.anInt1137 = var0.readUnsignedByte();
+                  if(2 < Unsorted.anInt1137) {
+                     Unsorted.anInt1137 = 2;
                   }
 
                   if(var2 < 2) {
-                     Class106.aBoolean1441 = var0.getByteB() == 1;
-                     var0.getByteB();
+                     Class106.aBoolean1441 = var0.readUnsignedByte() == 1;
+                     var0.readUnsignedByte();
                   } else {
-                     Class106.aBoolean1441 = var0.getByteB() == 1;
+                     Class106.aBoolean1441 = var0.readUnsignedByte() == 1;
                   }
 
-                  Class128.aBoolean1685 = 1 == var0.getByteB();
-                  Class38.aBoolean661 = var0.getByteB() == 1;
-                  Class3_Sub28_Sub9.anInt3622 = var0.getByteB();
+                  Class128.aBoolean1685 = 1 == var0.readUnsignedByte();
+                  Class38.aBoolean661 = var0.readUnsignedByte() == 1;
+                  Class3_Sub28_Sub9.anInt3622 = var0.readUnsignedByte();
                   if(Class3_Sub28_Sub9.anInt3622 > 2) {
                      Class3_Sub28_Sub9.anInt3622 = 2;
                   }
 
-                  Class3_Sub28_Sub14.anInt3671 = Class3_Sub28_Sub9.anInt3622;
-                  Class3_Sub13_Sub15.aBoolean3184 = var0.getByteB() == 1;
-                  CS2Script.anInt2453 = var0.getByteB();
+                  WorldMapZoomFont.anInt3671 = Class3_Sub28_Sub9.anInt3622;
+                  Class3_Sub13_Sub15.aBoolean3184 = var0.readUnsignedByte() == 1;
+                  CS2Script.anInt2453 = var0.readUnsignedByte();
                   if(CS2Script.anInt2453 > 127) {
                      CS2Script.anInt2453 = 127;
                   }
 
-                  Class9.anInt120 = var0.getByteB();
-                  Class14.anInt340 = var0.getByteB();
-                  if(Class14.anInt340 > 127) {
-                     Class14.anInt340 = 127;
+                  Unsorted.anInt120 = var0.readUnsignedByte();
+                  Sprites.anInt340 = var0.readUnsignedByte();
+                  if(Sprites.anInt340 > 127) {
+                     Sprites.anInt340 = 127;
                   }
 
                   if(var2 >= 1) {
-                     Class3_Sub13.anInt2378 = var0.getShort();
-                     Class3_Sub13_Sub5.anInt3071 = var0.getShort();
+                     Class3_Sub13.anInt2378 = var0.readUnsignedShort();
+                     Class3_Sub13_Sub5.anInt3071 = var0.readUnsignedShort();
                   }
 
                   if(var2 >= 3 && var2 < 6) {
-                     var0.getByteB();
+                     var0.readUnsignedByte();
                   }
 
                   if(var2 >= 4) {
-                     int var4 = var0.getByteB();
+                     int var4 = var0.readUnsignedByte();
                      if(Class3_Sub24_Sub3.anInt3492 < 96) {
                         var4 = 0;
                      }
@@ -178,31 +167,31 @@ final class Class79 {
                   }
 
                   if(var2 >= 5) {
-                     RSString.anInt2148 = var0.getInt();
+                     Unsorted.anInt2148 = var0.readInt();
                   }
 
                   if(6 <= var2) {
-                     Node.anInt2577 = var0.getByteB();
+                     Unsorted.anInt2577 = var0.readUnsignedByte();
                   }
 
                   if(var2 >= 7) {
-                     RSString.aBoolean2146 = 1 == var0.getByteB();
+                     Unsorted.aBoolean2146 = 1 == var0.readUnsignedByte();
                   }
 
                   if(8 <= var2) {
-                     Class15.aBoolean346 = var0.getByteB() == 1;
+                     Class15.aBoolean346 = var0.readUnsignedByte() == 1;
                   }
 
                   if(9 <= var2) {
-                     Class3_Sub20.anInt2488 = var0.getByteB();
+                     Class3_Sub20.anInt2488 = var0.readUnsignedByte();
                   }
 
                   if(10 <= var2) {
-                     Class73.aBoolean1080 = 0 != var0.getByteB();
+                     Unsorted.aBoolean1080 = 0 != var0.readUnsignedByte();
                   }
 
                   if(var2 >= 11) {
-                     Class163_Sub3.aBoolean3004 = var0.getByteB() != 0;
+                     Class163_Sub3.aBoolean3004 = var0.readUnsignedByte() != 0;
                   }
 
                }

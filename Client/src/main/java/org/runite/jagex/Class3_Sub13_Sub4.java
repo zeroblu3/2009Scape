@@ -5,13 +5,11 @@ import java.lang.reflect.Method;
 final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
    static int worldListOffset;
-   static RSString aClass94_3055 = RSString.createRSString("k");
    int anInt3056 = 4;
    static byte[][] aByteArrayArray3057;
    int anInt3058 = 4;
    private byte[] aByteArray3059 = new byte[512];
    int anInt3060 = 4;
-   static int anInt3061;
    int anInt3062 = 1638;
    private short[] aShortArray3063;
    static boolean aBoolean3064 = true;
@@ -148,19 +146,6 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
       }
    }
 
-   public static void method187(boolean var0) {
-      try {
-         aByteArrayArray3057 = (byte[][])null;
-         if(var0) {
-            aClass94_3055 = (RSString)null;
-         }
-
-         aClass94_3055 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "bi.S(" + var0 + ')');
-      }
-   }
-
    final void method158(int var1) {
       try {
          this.aByteArray3059 = Class49.method1123(16711935, this.anInt3067);
@@ -190,7 +175,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
             method188(38, 29);
          }
 
-         Class154.aClass93_1955.method1522(-125, var0);
+         Class154.aReferenceCache_1955.sweep(var0);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "bi.U(" + var0 + ',' + var1 + ')');
       }
@@ -220,7 +205,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
          for(var1 = 0; var1 < Class163.localNPCCount; ++var1) {
             var2 = Class15.localNPCIndexes[var1];
-            NPC var6 = Class3_Sub13_Sub24.npcs[var2];
+            NPC var6 = NPC.npcs[var2];
             if(null != var6 && var6.textCycle > 0) {
                --var6.textCycle;
                if(var6.textCycle == 0) {
@@ -234,33 +219,33 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
       }
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
             this.method192(49, -110, -55, -117, 117, 10, -51);
          }
 
          if(var1 == 0) {
-            this.aBoolean3065 = var2.getByteB() == 1;
+            this.aBoolean3065 = var2.readUnsignedByte() == 1;
          } else if(var1 == 1) {
-            this.anInt3058 = var2.getByteB();
+            this.anInt3058 = var2.readUnsignedByte();
          } else if(var1 == 2) {
-            this.anInt3062 = var2.getShort((byte)30);
+            this.anInt3062 = var2.readSignedShort();
             if(0 > this.anInt3062) {
                this.aShortArray3066 = new short[this.anInt3058];
 
                for(int var4 = 0; this.anInt3058 > var4; ++var4) {
-                  this.aShortArray3066[var4] = (short)var2.getShort((byte)19);
+                  this.aShortArray3066[var4] = (short)var2.readSignedShort();
                }
             }
          } else if(var1 == 3) {
-            this.anInt3060 = this.anInt3056 = var2.getByteB();
+            this.anInt3060 = this.anInt3056 = var2.readUnsignedByte();
          } else if(var1 == 4) {
-            this.anInt3067 = var2.getByteB();
+            this.anInt3067 = var2.readUnsignedByte();
          } else if(var1 == 5) {
-            this.anInt3060 = var2.getByteB();
+            this.anInt3060 = var2.readUnsignedByte();
          } else if(var1 == 6) {
-            this.anInt3056 = var2.getByteB();
+            this.anInt3056 = var2.readUnsignedByte();
          }
 
       } catch (RuntimeException var5) {
@@ -410,7 +395,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
             worldListOffset = 85;
          }
 
-         Method var2 = Signlink.aMethod1222;
+         Method var2 = Signlink.setTraversalKeysEnabled;
          if(null != var2) {
             try {
                var2.invoke(var1, new Object[]{Boolean.FALSE});

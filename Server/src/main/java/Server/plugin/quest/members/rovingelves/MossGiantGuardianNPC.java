@@ -61,7 +61,7 @@ public final class MossGiantGuardianNPC extends AbstractNPC {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				NPCDefinition.forId(getIds()[0]).getConfigurations().put("option:attack", this);
+				NPCDefinition.forId(getIds()[0]).getHandlers().put("option:attack", this);
 				return this;
 			}
 

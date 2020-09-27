@@ -1,51 +1,43 @@
 package org.runite.jagex;
 
+import org.rs09.client.Linkable;
+import org.rs09.client.data.Queue;
+
 abstract class AbstractIndexedSprite {
 
-   int anInt1461;
+   int width;
    static int anInt1462;
    static int anInt1463 = -16 + (int)(Math.random() * 33.0D);
    int anInt1464;
    static long aLong1465 = 0L;
    int anInt1467;
-   int anInt1468;
+   int height;
    int anInt1469;
    int anInt1470;
 
 
-   static void method1662(Class3 var0, Class3 var1) {
+   static void method1662(Linkable var0, Linkable var1) {
       try {
-         if(null != var0.aClass3_76) {
-            var0.method86(-1024);
+         if(null != var0.previous) {
+            var0.unlink();
          }
 
-         var0.aClass3_74 = var1;
-         var0.aClass3_76 = var1.aClass3_76;
-         var0.aClass3_76.aClass3_74 = var0;
-         var0.aClass3_74.aClass3_76 = var0;
+         var0.next = var1;
+         var0.previous = var1.previous;
+         var0.previous.next = var0;
+         var0.next.previous = var0;
       } catch (RuntimeException var4) {
          throw Class44.clientError(var4, "ok.C(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + -16 + ')');
       }
    }
 
-   public static void method1663(int var0) {
+   static Queue method1664(int var0, int var1) {
       try {
-         if(var0 != 33) {
-            anInt1463 = 15;
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "ok.D(" + var0 + ')');
-      }
-   }
-
-   static NodeList method1664(int var0, int var1) {
-      try {
-         NodeList var3 = new NodeList();
+         Queue var3 = new Queue();
 
          for(Class3_Sub28_Sub3 var4 = (Class3_Sub28_Sub3)Class134.aClass61_1758.method1222(); var4 != null; var4 = (Class3_Sub28_Sub3)Class134.aClass61_1758.method1221()) {
             if(var4.aBoolean3553 && var4.method537(var1, var0)) {
-               var3.method879(var4);
+               var3.offer(var4);
             }
          }
 

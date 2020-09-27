@@ -35,9 +35,9 @@ public class RedberryBushPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(23628).getConfigurations().put("option:pick-from", this);
-		ObjectDefinition.forId(23629).getConfigurations().put("option:pick-from", this);
-		ObjectDefinition.forId(23630).getConfigurations().put("option:pick-from", this);
+		ObjectDefinition.forId(23628).getHandlers().put("option:pick-from", this);
+		ObjectDefinition.forId(23629).getHandlers().put("option:pick-from", this);
+		ObjectDefinition.forId(23630).getHandlers().put("option:pick-from", this);
 		return this;
 	}
 

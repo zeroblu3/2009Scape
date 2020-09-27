@@ -228,19 +228,19 @@ final class Class3_Sub13_Sub37 extends Class3_Sub13 {
       super(1, false);
    }
 
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(var3) {
             if(var1 == 0) {
-               int var4 = var2.getByteB();
+               int var4 = var2.readUnsignedByte();
                if(var4 == 0) {
-                  this.anIntArrayArray3438 = new int[var2.getByteB()][4];
+                  this.anIntArrayArray3438 = new int[var2.readUnsignedByte()][4];
 
                   for(int var5 = 0; var5 < this.anIntArrayArray3438.length; ++var5) {
-                     this.anIntArrayArray3438[var5][0] = var2.getShort();
-                     this.anIntArrayArray3438[var5][1] = var2.getByteB() << 4;
-                     this.anIntArrayArray3438[var5][2] = var2.getByteB() << 4;
-                     this.anIntArrayArray3438[var5][3] = var2.getByteB() << 4;
+                     this.anIntArrayArray3438[var5][0] = var2.readUnsignedShort();
+                     this.anIntArrayArray3438[var5][1] = var2.readUnsignedByte() << 4;
+                     this.anIntArrayArray3438[var5][2] = var2.readUnsignedByte() << 4;
+                     this.anIntArrayArray3438[var5][3] = var2.readUnsignedByte() << 4;
                   }
                } else {
                   this.method345(var4);
@@ -350,7 +350,7 @@ final class Class3_Sub13_Sub37 extends Class3_Sub13 {
       try {
          int[][] var3 = this.aClass97_2376.method1594((byte)90, var2);
          if(var1 != -1) {
-            this.method157(-71, (RSByteBuffer)null, false);
+            this.method157(-71, (DataBuffer)null, false);
          }
 
          if(this.aClass97_2376.aBoolean1379) {
@@ -370,26 +370,15 @@ final class Class3_Sub13_Sub37 extends Class3_Sub13 {
                }
 
                var4 = this.anIntArray3443[var4];
-               var6[var9] = Class69.bitwiseAnd(var4, 16711680) >> 12;
-               var7[var9] = Class69.bitwiseAnd(4080, var4 >> 4);
-               var8[var9] = Class69.bitwiseAnd(255, var4) << 4;
+               var6[var9] = Unsorted.bitwiseAnd(var4, 16711680) >> 12;
+               var7[var9] = Unsorted.bitwiseAnd(4080, var4 >> 4);
+               var8[var9] = Unsorted.bitwiseAnd(255, var4) << 4;
             }
          }
 
          return var3;
       } catch (RuntimeException var10) {
          throw Class44.clientError(var10, "um.T(" + var1 + ',' + var2 + ')');
-      }
-   }
-
-   public static void method348(int var0) {
-      try {
-         if(var0 >= 7) {
-            aClass3_Sub28_Sub17_Sub1_3440 = null;
-            aBigInteger3441 = null;
-         }
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "um.Q(" + var0 + ')');
       }
    }
 
@@ -464,15 +453,15 @@ final class Class3_Sub13_Sub37 extends Class3_Sub13 {
 
    static Class168 method350(byte var0, int var1) {
       try {
-         Class168 var2 = (Class168)Class163_Sub2_Sub1.aClass93_4015.get((long)var1);
+         Class168 var2 = (Class168)Class163_Sub2_Sub1.aReferenceCache_4015.get((long)var1);
          if(null == var2) {
             byte[] var4 = Class3_Sub28_Sub5.aClass153_3580.getFile(4, var1);
             var2 = new Class168();
             if(var4 != null) {
-               var2.method2274(new RSByteBuffer(var4), var1);
+               var2.method2274(new DataBuffer(var4), var1);
             }
 
-            Class163_Sub2_Sub1.aClass93_4015.put((byte)-109, var2, (long)var1);
+            Class163_Sub2_Sub1.aReferenceCache_4015.put(var2, (long)var1);
          }
           return var2;
       } catch (RuntimeException var5) {

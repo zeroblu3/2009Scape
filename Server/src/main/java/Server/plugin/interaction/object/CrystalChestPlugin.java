@@ -39,7 +39,7 @@ public final class CrystalChestPlugin extends UseWithHandler {
 
 			@Override
 			public Plugin<Object> newInstance(Object arg) throws Throwable {
-				ObjectDefinition.forId(172).getConfigurations().put("option:open", this);
+				ObjectDefinition.forId(172).getHandlers().put("option:open", this);
 				return this;
 			}
 

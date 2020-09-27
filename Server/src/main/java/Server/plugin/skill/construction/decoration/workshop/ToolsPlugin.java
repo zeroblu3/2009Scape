@@ -78,7 +78,7 @@ public class ToolsPlugin extends OptionHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (ToolStore t : ToolStore.values()) {
-			ObjectDefinition.forId(t.objectId).getConfigurations().put("option:search", this);
+			ObjectDefinition.forId(t.objectId).getHandlers().put("option:search", this);
 		}
 		PluginManager.definePlugin(new ToolDialogue());
 		return this;

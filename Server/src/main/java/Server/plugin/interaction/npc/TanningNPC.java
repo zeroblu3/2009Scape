@@ -17,7 +17,7 @@ public class TanningNPC extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(1041).getConfigurations().put("option:trade", this);
+		NPCDefinition.forId(1041).getHandlers().put("option:trade", this);
 		return this;
 	}
 

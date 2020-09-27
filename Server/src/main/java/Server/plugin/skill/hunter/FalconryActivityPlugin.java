@@ -125,17 +125,17 @@ public final class FalconryActivityPlugin extends ActivityPlugin {
 
 		@Override
 		public Plugin<Object> newInstance(Object arg) throws Throwable {
-			NPCDefinition.forId(5093).getConfigurations().put("option:quick-falconry", this);
-			NPCDefinition.forId(5094).getConfigurations().put("option:retrieve", this);
+			NPCDefinition.forId(5093).getHandlers().put("option:quick-falconry", this);
+			NPCDefinition.forId(5094).getHandlers().put("option:retrieve", this);
 			for (FalconCatch falconCatch : FalconCatch.values()) {
-				NPCDefinition.forId(falconCatch.getNpc()).getConfigurations().put("option:catch", this);
+				NPCDefinition.forId(falconCatch.getNpc()).getHandlers().put("option:catch", this);
 			}
 			PluginManager.definePlugin(new Plugin<Object>() {
 
 				@Override
 				public Plugin<Object> newInstance(Object arg) throws Throwable {
-					ItemDefinition.forId(10024).getConfigurations().put("equipment", this);
-					ItemDefinition.forId(10023).getConfigurations().put("equipment", this);
+					ItemDefinition.forId(10024).getHandlers().put("equipment", this);
+					ItemDefinition.forId(10023).getHandlers().put("equipment", this);
 					return this;
 				}
 

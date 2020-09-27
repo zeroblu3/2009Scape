@@ -29,20 +29,6 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
       }
    }
 
-   public static void method463(int var0) {
-      try {
-         aClass153_3490 = null;
-         anIntArray3491 = null;
-         anIntArray3494 = null;
-         if(var0 != -28918) {
-            method468(-39);
-         }
-
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "te.C(" + var0 + ')');
-      }
-   }
-
    final Class3_Sub24 method411() {
       try {
          Class3_Sub22 var1 = (Class3_Sub22)this.aClass61_3489.method1222();
@@ -84,7 +70,7 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
    static void method465() {
       try {
 
-         Class140_Sub4.aClass93_2792.method1522(-128, 5);
+         Class140_Sub4.aReferenceCache_2792.sweep(5);
       } catch (RuntimeException var3) {
          throw Class44.clientError(var3, "te.O(" + 5 + ',' + true + ')');
       }
@@ -100,10 +86,10 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
 
    static Class3_Sub28_Sub6 method466(int var1, int var2) {
       try {
-         Class3_Sub28_Sub6 var3 = (Class3_Sub28_Sub6)Client.aClass130_2194.method1780((long)var2 | (long)var1 << 32);
+         Class3_Sub28_Sub6 var3 = (Class3_Sub28_Sub6)Client.aHashTable_2194.get((long)var2 | (long)var1 << 32);
          if(null == var3) {
             var3 = new Class3_Sub28_Sub6(var1, var2);
-            Client.aClass130_2194.method1779(var3, var3.aLong71);
+            Client.aHashTable_2194.put(var3.linkableKey, var3);
          }
 
          return var3;
@@ -116,7 +102,7 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
       try {
           if (var0 != null) {
               for (int var2 = 0; var2 < Class3_Sub28_Sub5.anInt3591; ++var2) {
-                  if (var0.equals(63, Class3_Sub13_Sub27.aClass94Array3341[var2])) {
+                  if (var0.equalsStringIgnoreCase(Class3_Sub13_Sub27.aClass94Array3341[var2])) {
                       return true;
                   }
               }
@@ -131,13 +117,13 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
    static void method468(int var0) {
       try {
          Class88.method1456();
-         Class2.anInterface5Array70 = new Interface5[7];
-         Class2.anInterface5Array70[1] = new Class160();
-         Class2.anInterface5Array70[2] = new Class125();
-         Class2.anInterface5Array70[3] = new Class165();
-         Class2.anInterface5Array70[4] = new Class112();
-         Class2.anInterface5Array70[5] = new Class104();
-         Class2.anInterface5Array70[var0] = new Class147();
+         Unsorted.anInterface5Array70 = new Interface5[7];
+         Unsorted.anInterface5Array70[1] = new Class160();
+         Unsorted.anInterface5Array70[2] = new Class125();
+         Unsorted.anInterface5Array70[3] = new Class165();
+         Unsorted.anInterface5Array70[4] = new Class112();
+         Unsorted.anInterface5Array70[5] = new Class104();
+         Unsorted.anInterface5Array70[var0] = new Class147();
       } catch (RuntimeException var2) {
          throw Class44.clientError(var2, "te.T(" + var0 + ')');
       }

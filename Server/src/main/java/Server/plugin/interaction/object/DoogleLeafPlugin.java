@@ -23,7 +23,7 @@ public class DoogleLeafPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(31155).getConfigurations().put("option:pick-leaf", this);
+		ObjectDefinition.forId(31155).getHandlers().put("option:pick-leaf", this);
 		return this;
 	}
 

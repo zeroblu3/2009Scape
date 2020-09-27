@@ -1,4 +1,6 @@
 package org.runite.jagex;
+import org.rs09.client.util.ArrayUtils;
+
 import java.util.Random;
 
 final class Class3_Sub13_Sub19 extends Class3_Sub13 {
@@ -15,18 +17,18 @@ final class Class3_Sub13_Sub19 extends Class3_Sub13 {
    private int anInt3229 = 1024;
    private int[] anIntArray3230;
    private int anInt3231 = 0;
-   private static RSString aClass94_3232 = RSString.createRSString("pt");
+   private static RSString aClass94_3232 = RSString.parse("pt");
    private int anInt3233 = 8;
    private int anInt3234 = 1024;
    private int anInt3235;
    private int anInt3236 = 409;
-   private static RSString aClass94_3237 = RSString.createRSString("en");
-   private static RSString aClass94_3239 = RSString.createRSString("fr");
+   private static RSString aClass94_3237 = RSString.parse("en");
+   private static RSString aClass94_3239 = RSString.parse("fr");
    private int[][] anIntArrayArray3240;
    static short aShort3241 = 1;
    private int anInt3242 = 4;
-   private static RSString aClass94_3243 = RSString.createRSString("de");
-static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_3243, aClass94_3239, aClass94_3232};
+   private static RSString aClass94_3243 = RSString.parse("de");
+   static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_3243, aClass94_3239, aClass94_3232};
    
 
    final void method158(int var1) {
@@ -52,41 +54,24 @@ static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_324
       }
    }
 
-   public static void method261(int var0) {
-      try {
-         aClass153_3227 = null;
-         aClass94_3243 = null;
-         aClass94_3232 = null;
-         aClass94_3239 = null;
-         aClass94_3220 = null;
-         anIntArray3228 = null;
-         aClass94Array3238 = null;
-         aClass94Array3226 = null;
-         aClass94_3237 = null;
-         aClass3_Sub28_Sub16_Sub2_3221 = null;
-      } catch (RuntimeException var2) {
-         throw Class44.clientError(var2, "mc.F(" + var0 + ')');
-      }
-   }
-
-   final void method157(int var1, RSByteBuffer var2, boolean var3) {
+   final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(0 == var1) {
-            this.anInt3242 = var2.getByteB();
+            this.anInt3242 = var2.readUnsignedByte();
          } else if (var1 == 1) {
-            this.anInt3233 = var2.getByteB();
+            this.anInt3233 = var2.readUnsignedByte();
          } else if (var1 == 2) {
-            this.anInt3236 = var2.getShort();
+            this.anInt3236 = var2.readUnsignedShort();
          } else if (var1 == 3) {
-            this.anInt3219 = var2.getShort();
+            this.anInt3219 = var2.readUnsignedShort();
          } else if (4 == var1) {
-            this.anInt3234 = var2.getShort();
+            this.anInt3234 = var2.readUnsignedShort();
          } else if (var1 == 5) {
-            this.anInt3231 = var2.getShort();
+            this.anInt3231 = var2.readUnsignedShort();
          } else if (var1 == 6) {
-            this.anInt3224 = var2.getShort();
+            this.anInt3224 = var2.readUnsignedShort();
          } else if (var1 == 7) {
-            this.anInt3229 = var2.getShort();
+            this.anInt3229 = var2.readUnsignedShort();
          }
 
          if(!var3) {
@@ -176,7 +161,7 @@ static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_324
       try {
          Class3_Sub13_Sub1.outgoingBuffer.putOpcode(184);
 
-         for(Class3_Sub31 var1 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1776(124); null != var1; var1 = (Class3_Sub31)Class3_Sub13_Sub17.aClass130_3208.method1778(-79)) {
+         for(Class3_Sub31 var1 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.first(); null != var1; var1 = (Class3_Sub31)Class3_Sub13_Sub17.aHashTable_3208.next()) {
             if(var1.anInt2603 == 0) {
                Class3_Sub13_Sub18.method254(true, var1);
             }
@@ -187,7 +172,7 @@ static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_324
          }
 
          if(null != Class3_Sub13_Sub7.aClass11_3087) {
-            Class20.method909(125, Class3_Sub13_Sub7.aClass11_3087);
+            Class20.method909(Class3_Sub13_Sub7.aClass11_3087);
             Class3_Sub13_Sub7.aClass11_3087 = null;
          }
 
@@ -246,7 +231,7 @@ static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_324
                   }
                }
             } else {
-               Class76.method1359(var3, 0, Class113.anInt1559, 0);
+               ArrayUtils.fill(var3, 0, Class113.anInt1559, 0);
             }
          }
 

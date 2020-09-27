@@ -38,22 +38,22 @@ public final class ShieldArravPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2402).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(2397).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2399).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2398).getConfigurations().put("option:open", this);
-		ItemDefinition.forId(761).getConfigurations().put("option:read", this);
-		ObjectDefinition.forId(2403).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2404).getConfigurations().put("option:close", this);
-		ObjectDefinition.forId(2404).getConfigurations().put("option:search", this);
-		ItemDefinition.forId(767).getConfigurations().put("option:take", this);
-		ObjectDefinition.forId(24356).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(2400).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(2401).getConfigurations().put("option:search", this);
-		ObjectDefinition.forId(2401).getConfigurations().put("option:shut", this);
-		ItemDefinition.forId(ShieldofArrav.PHOENIX_CERTIFICATE.getId()).getConfigurations().put("option:read", this);
-		ItemDefinition.forId(ShieldofArrav.BLACKARM_CERTIFICATE.getId()).getConfigurations().put("option:read", this);
-		ItemDefinition.forId(769).getConfigurations().put("option:read", this);
+		ObjectDefinition.forId(2402).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(2397).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2399).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2398).getHandlers().put("option:open", this);
+		ItemDefinition.forId(761).getHandlers().put("option:read", this);
+		ObjectDefinition.forId(2403).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2404).getHandlers().put("option:close", this);
+		ObjectDefinition.forId(2404).getHandlers().put("option:search", this);
+		ItemDefinition.forId(767).getHandlers().put("option:take", this);
+		ObjectDefinition.forId(24356).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(2400).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(2401).getHandlers().put("option:search", this);
+		ObjectDefinition.forId(2401).getHandlers().put("option:shut", this);
+		ItemDefinition.forId(ShieldofArrav.PHOENIX_CERTIFICATE.getId()).getHandlers().put("option:read", this);
+		ItemDefinition.forId(ShieldofArrav.BLACKARM_CERTIFICATE.getId()).getHandlers().put("option:read", this);
+		ItemDefinition.forId(769).getHandlers().put("option:read", this);
 		return this;
 	}
 

@@ -44,6 +44,12 @@ public final class GameInterface extends ComponentPlugin {
 				return true;
 			case 746:
 				switch (button){
+					case 12:
+						player.getPacketDispatch().sendString("When you have finished playing " + GameWorld.getName() + ", always use the button below to logout safely. ", 182, 0);
+						break;
+					case 49:
+						player.getPacketDispatch().sendString("Friends List - " + GameWorld.getName() + " " + GameWorld.getSettings().getWorldId(), 550, 3);
+						break;
 					case 110:
 						configureWorldMap(player);
 						break;
@@ -61,7 +67,7 @@ public final class GameInterface extends ComponentPlugin {
 							player.getConfigManager().set(1021, 0);
 							TutorialStage.load(player, 64, false);
 						}
-
+						player.getPacketDispatch().sendString("Friends List -" + GameWorld.getName() + " " + GameWorld.getSettings().getWorldId(), 550, 3);
 						break;
 					case 22://Ignore Tab
 						if (tut_stage == 64) {

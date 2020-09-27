@@ -18,7 +18,7 @@ public class ShantayOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(836).getConfigurations().put("option:buy-pass", this);
+		NPCDefinition.forId(836).getHandlers().put("option:buy-pass", this);
 		return this;
 	}
 

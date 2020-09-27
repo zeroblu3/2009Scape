@@ -22,12 +22,12 @@ public final class SpiritKyattOptionPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(7365).getConfigurations().put("option:interact", this);
-		ObjectDefinition.forId(28741).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(28743).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(28743).getConfigurations().put("option:climb-up", this);
-		ObjectDefinition.forId(14910).getConfigurations().put("option:take", this);
-		ObjectDefinition.forId(14912).getConfigurations().put("option:take", this);
+		NPCDefinition.forId(7365).getHandlers().put("option:interact", this);
+		ObjectDefinition.forId(28741).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(28743).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(28743).getHandlers().put("option:climb-up", this);
+		ObjectDefinition.forId(14910).getHandlers().put("option:take", this);
+		ObjectDefinition.forId(14912).getHandlers().put("option:take", this);
 		return this;
 	}
 

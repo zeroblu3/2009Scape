@@ -19,11 +19,11 @@ public final class GliderPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		NPCDefinition.forId(3809).getConfigurations().put("option:glider", this);
-		NPCDefinition.forId(3810).getConfigurations().put("option:glider", this);
-		NPCDefinition.forId(3811).getConfigurations().put("option:glider", this);
-		NPCDefinition.forId(3812).getConfigurations().put("option:glider", this);
-		NPCDefinition.forId(3813).getConfigurations().put("option:glider", this);
+		NPCDefinition.forId(3809).getHandlers().put("option:glider", this);
+		NPCDefinition.forId(3810).getHandlers().put("option:glider", this);
+		NPCDefinition.forId(3811).getHandlers().put("option:glider", this);
+		NPCDefinition.forId(3812).getHandlers().put("option:glider", this);
+		NPCDefinition.forId(3813).getHandlers().put("option:glider", this);
 		return this;
 	}
 

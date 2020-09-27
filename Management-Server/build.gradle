@@ -13,4 +13,5 @@ jar {
     manifest {
         attributes 'Main-Class': 'ms.Management'
     }
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }
