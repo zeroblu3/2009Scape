@@ -45,7 +45,7 @@ class SpawnCommandSet : CommandSet(Command.Privilege.ADMIN){
                 return@define
             }
             val id = args[1].toIntOrNull() ?: return@define
-            var amount = args.get(2).toIntOrNull() ?: 1
+            var amount = (args.getOrNull(2) ?: "1").toInt()
             if (id > Cache.getItemDefinitionsSize()) {
                 reject(player,"Item ID '$id' out of range.")
                 return@define

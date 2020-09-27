@@ -17,6 +17,9 @@ class AnimationCommandSet : CommandSet(Command.Privilege.ADMIN) {
 
     override fun defineCommands() {
 
+        /**
+         * Force the player to play animation <Animation ID>
+         */
         define("anim"){ player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::anim <Animation ID>")
@@ -26,6 +29,9 @@ class AnimationCommandSet : CommandSet(Command.Privilege.ADMIN) {
             player.animate(animation)
         }
 
+        /**
+         * Force the player to loop animation <Animation ID>
+         */
         define("loopanim"){ player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::loopanim <Animation ID> <Loop Amount>")
@@ -46,6 +52,9 @@ class AnimationCommandSet : CommandSet(Command.Privilege.ADMIN) {
             })
         }
 
+        /**
+         * Change the player's render animation to <Render Animation ID>
+         */
         define("ranim"){ player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::ranim <Render Animation ID>")
@@ -60,6 +69,10 @@ class AnimationCommandSet : CommandSet(Command.Privilege.ADMIN) {
             }
         }
 
+
+        /**
+         * Reset the player's render animation to default
+         */
         define("ranimreset"){ player, _ ->
             player.appearance.prepareBodyData(player)
             player.appearance.setDefaultAnimations()
