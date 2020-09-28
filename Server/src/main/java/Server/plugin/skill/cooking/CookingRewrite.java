@@ -1,6 +1,5 @@
 package plugin.skill.cooking;
 
-import com.sun.tools.javac.util.ArrayUtils;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.player.Player;
@@ -9,9 +8,6 @@ import core.game.node.object.GameObject;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.tools.ItemNames;
-
-import java.util.Arrays;
-import java.util.stream.Stream;
 
 //author: Ceik
 @InitializablePlugin
