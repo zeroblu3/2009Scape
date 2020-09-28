@@ -111,6 +111,7 @@ public final class CaptainShanksDialogue extends DialoguePlugin {
                         stage++;
                         break;
                 }
+                break;
             case 5:
                 npc("Very well me old shipmate, come back if you change", "your mind now.");
                 stage = 999;
@@ -137,7 +138,6 @@ public final class CaptainShanksDialogue extends DialoguePlugin {
                 interpreter.sendOptions("Captain Shanks asks, 'Do you want to sail anywhere?'", "Khazard Port please.", "Port Sarim please.", "Nowhere just at the moment thanks.");
                 stage = 1;
                 break;
-
             case 10:
                 npc("Very well then me old shipmate, I'll just take your ticket and then we'll set sail.");
                 stage = 11;

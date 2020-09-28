@@ -2,7 +2,6 @@ package org.runite;
 
 import org.rs09.client.config.GameConfig;
 import org.runite.jagex.GameShell;
-import org.runite.jagex.RSString;
 
 /**
  * Handles the launching of our Game Client.

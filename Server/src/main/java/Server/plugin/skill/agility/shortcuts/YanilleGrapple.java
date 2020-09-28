@@ -44,8 +44,8 @@ public class YanilleGrapple extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(17047).getConfigurations().put("option:grapple", this);
-        ObjectDefinition.forId(17048).getConfigurations().put("option:jump", this);
+        ObjectDefinition.forId(17047).getHandlers().put("option:grapple", this);
+        ObjectDefinition.forId(17048).getHandlers().put("option:jump", this);
         return this;
     }
 
@@ -117,11 +117,5 @@ public class YanilleGrapple extends OptionHandler {
                 break;
         }
         return true;
-    }
-
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(17047).getHandlers().put("option:grapple",this);
-        return this;
     }
 }

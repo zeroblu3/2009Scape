@@ -55,7 +55,7 @@ public class KaramjaGrapple extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(17074).getConfigurations().put("option:grapple", this);
+        ObjectDefinition.forId(17074).getHandlers().put("option:grapple", this);
         // island tree 17074 +1 rope loop, +2 grappled one way, +3 grappled other way
         // north tree 17056 +1 rope loop, +2 grappled
         // south tree 17059 +1 rope loop, +2 grappled

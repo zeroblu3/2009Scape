@@ -37,11 +37,11 @@ public class ASoulsBanePlugin extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         PluginManager.definePlugins(new SoulsBaneRiftRopeHandler());
         for (int obj : RIFT_IDS) {
-            ObjectDefinition.forId(obj).getConfigurations().put("option:enter", this);
+            ObjectDefinition.forId(obj).getHandlers().put("option:enter", this);
         }
 
         for (int obj : OBJ_EXIT) {
-            ObjectDefinition.forId(obj).getConfigurations().put("option:use", this);
+            ObjectDefinition.forId(obj).getHandlers().put("option:use", this);
         }
         return this;
     }

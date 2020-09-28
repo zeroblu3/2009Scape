@@ -27,8 +27,8 @@ public final class EntranaObjectPlugin extends OptionHandler {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2408).getConfigurations().put("option:climb-down", this);
-		ObjectDefinition.forId(2407).getConfigurations().put("option:open", this);// magic door
+		ObjectDefinition.forId(2408).getHandlers().put("option:climb-down", this);
+		ObjectDefinition.forId(2407).getHandlers().put("option:open", this);// magic door
 		return this;
 	}
 

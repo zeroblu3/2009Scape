@@ -31,8 +31,8 @@ public final class ChefGuildDoorPlugin extends OptionHandler {
 
     @Override
     public boolean handle(Player player, Node node, String option) {
-		final GameObject object = (GameObject) node;
-		switch (object.getId()) {
+        final GameObject object = (GameObject) node;
+        switch (object.getId()) {
             case 2712: // cooking guild front door
                 if (player.getSkills().getLevel(Skills.COOKING) < 32) {
                     if (!player.getEquipment().containsOneItem(ENTRANCE_ITEMS)) {
@@ -52,25 +52,22 @@ public final class ChefGuildDoorPlugin extends OptionHandler {
                 }
                 break;
             case 26810: // cooking guild bank door
-				if (!player.getEquipment().containsOneItem(VARROCK_ARMOUR_3) // player not wearing Varrock Armour 3
-						&& player.getLocation().getX() <= 3143) { // outside bank area
-					player.getDialogueInterpreter().sendDialogues(CHEF_NPC, null, "The bank's closed. You just can't get the staff these days.");
-				} else {
-					DoorActionHandler.handleAutowalkDoor(player, object);
-				}
+                if (!player.getEquipment().containsOneItem(VARROCK_ARMOUR_3) // player not wearing Varrock Armour 3
+                        && player.getLocation().getX() <= 3143) { // outside bank area
+                    player.getDialogueInterpreter().sendDialogues(CHEF_NPC, null, "The bank's closed. You just can't get the staff these days.");
+                } else {
+                    DoorActionHandler.handleAutowalkDoor(player, object);
+                }
                 break;
         }
+        return true;
+    }
 
-	@Override
-	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ObjectDefinition.forId(2712).getHandlers().put("option:open", this);
-		return this;
-	}
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(2712).getConfigurations().put("option:open", this);
-        ObjectDefinition.forId(26810).getConfigurations().put("option:open", this);
+        ObjectDefinition.forId(2712).getHandlers().put("option:open", this);
+        ObjectDefinition.forId(26810).getHandlers().put("option:open", this);
         return this;
     }
 

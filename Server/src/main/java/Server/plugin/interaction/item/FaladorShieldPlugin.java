@@ -29,13 +29,13 @@ public class FaladorShieldPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ItemDefinition.forId(14577).getConfigurations().put("option:operate",this);
-        ItemDefinition.forId(14578).getConfigurations().put("option:operate",this);
-        ItemDefinition.forId(14579).getConfigurations().put("option:operate",this);
+        ItemDefinition.forId(14577).getHandlers().put("option:operate",this);
+        ItemDefinition.forId(14578).getHandlers().put("option:operate",this);
+        ItemDefinition.forId(14579).getHandlers().put("option:operate",this);
 
-        ItemDefinition.forId(14577).getConfigurations().put("option:prayer-restore",this);
-        ItemDefinition.forId(14578).getConfigurations().put("option:prayer-restore",this);
-        ItemDefinition.forId(14579).getConfigurations().put("option:prayer-restore",this);
+        ItemDefinition.forId(14577).getHandlers().put("option:prayer-restore",this);
+        ItemDefinition.forId(14578).getHandlers().put("option:prayer-restore",this);
+        ItemDefinition.forId(14579).getHandlers().put("option:prayer-restore",this);
         return this;
     }
 

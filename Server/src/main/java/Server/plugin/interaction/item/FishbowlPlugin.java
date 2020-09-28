@@ -46,14 +46,14 @@ public class FishbowlPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ItemDefinition.forId(FISHBOWL_WATER).getConfigurations().put("option:empty", this);
-        ItemDefinition.forId(FISHBOWL_SEAWEED).getConfigurations().put("option:empty", this);
+        ItemDefinition.forId(FISHBOWL_WATER).getHandlers().put("option:empty", this);
+        ItemDefinition.forId(FISHBOWL_SEAWEED).getHandlers().put("option:empty", this);
         for (int id : new int[] {FISHBOWL_BLUE, FISHBOWL_GREEN, FISHBOWL_SPINE}) {
             ItemDefinition def = ItemDefinition.forId(id);
-            def.getConfigurations().put("option:talk-at", this);
-            def.getConfigurations().put("option:play-with", this);
-            def.getConfigurations().put("option:feed", this);
-            def.getConfigurations().put("option:drop", this);
+            def.getHandlers().put("option:talk-at", this);
+            def.getHandlers().put("option:play-with", this);
+            def.getHandlers().put("option:feed", this);
+            def.getHandlers().put("option:drop", this);
         }
         PluginManager.definePlugin(new FishbowlDialogue());
         PluginManager.definePlugin(new FeedPetFishHandler());
@@ -219,7 +219,7 @@ public class FishbowlPlugin extends OptionHandler {
     public static final class AquariumPlugin extends OptionHandler {
         @Override
         public Plugin<Object> newInstance(Object arg) throws Throwable {
-            ObjectDefinition.forId(10091).getConfigurations().put("option:fish-in", this);
+            ObjectDefinition.forId(10091).getHandlers().put("option:fish-in", this);
             PluginManager.definePlugin(new TinyNetHandler());
             return this;
         }

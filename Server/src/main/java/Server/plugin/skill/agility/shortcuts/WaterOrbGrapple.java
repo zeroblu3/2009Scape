@@ -54,7 +54,7 @@ public class WaterOrbGrapple extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(17062).getConfigurations().put("option:grapple", this);
+        ObjectDefinition.forId(17062).getHandlers().put("option:grapple", this);
         return this;
     }
 

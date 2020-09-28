@@ -109,8 +109,8 @@ public final class LumbridgeNodePlugin extends OptionHandler {
                 }
                 break;
             case 36976:
-                player.getPacketDispatch().sendMessage("The towns people wouldn't appreciate you ringing their bell.");
-                break
+                player.getPacketDispatch().sendMessage("The townspeople wouldn't appreciate you ringing their bell.");
+                break;
             case 37655:
                 player.getInterfaceManager().open(new Component(270));
                 break;

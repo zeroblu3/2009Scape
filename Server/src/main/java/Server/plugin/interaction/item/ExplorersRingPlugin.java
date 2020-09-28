@@ -32,14 +32,14 @@ public class ExplorersRingPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ItemDefinition.forId(13560).getConfigurations().put("option:run-replenish", this);
-        ItemDefinition.forId(13561).getConfigurations().put("option:run-replenish", this);
-        ItemDefinition.forId(13562).getConfigurations().put("option:run-replenish", this);
+        ItemDefinition.forId(13560).getHandlers().put("option:run-replenish", this);
+        ItemDefinition.forId(13561).getHandlers().put("option:run-replenish", this);
+        ItemDefinition.forId(13562).getHandlers().put("option:run-replenish", this);
 
-        ItemDefinition.forId(13561).getConfigurations().put("option:low-alchemy", this);
-        ItemDefinition.forId(13562).getConfigurations().put("option:low-alchemy", this);
+        ItemDefinition.forId(13561).getHandlers().put("option:low-alchemy", this);
+        ItemDefinition.forId(13562).getHandlers().put("option:low-alchemy", this);
 
-        ItemDefinition.forId(13562).getConfigurations().put("option:cabbage-port", this);
+        ItemDefinition.forId(13562).getHandlers().put("option:cabbage-port", this);
         return this;
     }
 

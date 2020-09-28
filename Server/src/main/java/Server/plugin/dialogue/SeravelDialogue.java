@@ -4,7 +4,9 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.content.ItemNames;
+import core.plugin.InitializablePlugin;
 
+@InitializablePlugin
 public class SeravelDialogue extends DialoguePlugin {
     public SeravelDialogue() {
     }
@@ -33,6 +35,7 @@ public class SeravelDialogue extends DialoguePlugin {
         switch (stage) {
             case 999:
                 end();
+                break;
             case -1:
                 npc("Hello Bwana. Are you interested in buying a ticket", "for the 'Lady of the Waves'?");
                 stage++;
@@ -93,6 +96,6 @@ public class SeravelDialogue extends DialoguePlugin {
 
     @Override
     public int[] getIds() {
-        return new int[514];
+        return new int[] { 514 };
     }
 }

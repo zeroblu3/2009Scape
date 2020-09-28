@@ -22,15 +22,15 @@ public final class EdgevilleNodePlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(9262).getConfigurations().put("option:take-seed", this);
-        ObjectDefinition.forId(9261).getConfigurations().put("option:take-seed", this);
-        ObjectDefinition.forId(30806).getConfigurations().put("option:take-seed", this);
-        ObjectDefinition.forId(12265).getConfigurations().put("option:climb", this);
+        ObjectDefinition.forId(9262).getHandlers().put("option:take-seed", this);
+        ObjectDefinition.forId(9261).getHandlers().put("option:take-seed", this);
+        ObjectDefinition.forId(30806).getHandlers().put("option:take-seed", this);
+        ObjectDefinition.forId(12265).getHandlers().put("option:climb", this);
 
-		ObjectDefinition.forId(12266).getConfigurations().put("option:open", this);
+		ObjectDefinition.forId(12266).getHandlers().put("option:open", this);
 
-        ObjectDefinition.forId(26933).getConfigurations().put("option:open", this);
-		ObjectDefinition.forId(26934).getConfigurations().put("option:close", this);
+        ObjectDefinition.forId(26933).getHandlers().put("option:open", this);
+		ObjectDefinition.forId(26934).getHandlers().put("option:close", this);
         return this;
     }
 

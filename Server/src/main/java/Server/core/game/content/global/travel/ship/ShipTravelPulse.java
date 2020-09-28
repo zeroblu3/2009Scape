@@ -84,6 +84,9 @@ public final class ShipTravelPulse extends Pulse {
 		if (ship == Ships.BRIMHAVEN_TO_ARDOUGNE) {
 			player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 0, 4);
 		}
+		if (ship == Ships.CAIRN_ISLAND_TO_PORT_KHAZARD) {
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 6);
+		}
 	}
 
 	/**

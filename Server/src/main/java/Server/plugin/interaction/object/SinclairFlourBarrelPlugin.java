@@ -58,7 +58,7 @@ public final class SinclairFlourBarrelPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(26122).getConfigurations().put("option:take from", this);
+        ObjectDefinition.forId(26122).getHandlers().put("option:take from", this);
         PluginManager.definePlugin(new FlourHandler());
         return this;
     }

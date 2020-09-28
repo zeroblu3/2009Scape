@@ -3,6 +3,9 @@ package plugin.interaction.city;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
+import core.game.content.ItemNames;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.action.ClimbActionHandler;
 import core.game.content.global.action.DoorActionHandler;
@@ -70,26 +73,26 @@ public final class KaramajaOptionPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ObjectDefinition.forId(2072).getConfigurations().put("option:search", this);// banana crate.
-        ObjectDefinition.forId(2072).getConfigurations().put("option:fill", this);// banana crate.
-        ObjectDefinition.forId(2078).getConfigurations().put("option:search", this);// random crate.
-        ObjectDefinition.forId(492).getConfigurations().put("option:climb-down", this);// musa point rock
-        ObjectDefinition.forId(1764).getConfigurations().put("option:climb", this);// musa dungeon rope
-        ObjectDefinition.forId(3617).getConfigurations().put("option:climb-down", this);// agility ladder
-        ObjectDefinition.forId(3618).getConfigurations().put("option:climb-up", this);// agility ladder
-        NPCDefinition.forId(437).getConfigurations().put("option:pay", this);// capn izzy
-        NPCDefinition.forId(1055).getConfigurations().put("option:trade", this);// capn izzy trader (tickets)
-        ObjectDefinition.forId(2626).getConfigurations().put("option:open", this);// grubors locked door
-        ObjectDefinition.forId(2628).getConfigurations().put("option:open", this);// the shrimp and parrot door (chef)
-        ObjectDefinition.forId(2627).getConfigurations().put("option:open", this);// garv door
-        ObjectDefinition.forId(1591).getConfigurations().put("option:open", this);// garv door
-        NPCDefinition.forId(1178).getConfigurations().put("option:fish", this);// lubufu fishing spot
-        ObjectDefinition.forId(5083).getConfigurations().put("option:enter", this);// sanibock dungeon entrance
-        ObjectDefinition.forId(2439).getConfigurations().put("option:open", this);
+        ObjectDefinition.forId(2072).getHandlers().put("option:search", this);// banana crate.
+        ObjectDefinition.forId(2072).getHandlers().put("option:fill", this);// banana crate.
+        ObjectDefinition.forId(2078).getHandlers().put("option:search", this);// random crate.
+        ObjectDefinition.forId(492).getHandlers().put("option:climb-down", this);// musa point rock
+        ObjectDefinition.forId(1764).getHandlers().put("option:climb", this);// musa dungeon rope
+        ObjectDefinition.forId(3617).getHandlers().put("option:climb-down", this);// agility ladder
+        ObjectDefinition.forId(3618).getHandlers().put("option:climb-up", this);// agility ladder
+        NPCDefinition.forId(437).getHandlers().put("option:pay", this);// capn izzy
+        NPCDefinition.forId(1055).getHandlers().put("option:trade", this);// capn izzy trader (tickets)
+        ObjectDefinition.forId(2626).getHandlers().put("option:open", this);// grubors locked door
+        ObjectDefinition.forId(2628).getHandlers().put("option:open", this);// the shrimp and parrot door (chef)
+        ObjectDefinition.forId(2627).getHandlers().put("option:open", this);// garv door
+        ObjectDefinition.forId(1591).getHandlers().put("option:open", this);// garv door
+        NPCDefinition.forId(1178).getHandlers().put("option:fish", this);// lubufu fishing spot
+        ObjectDefinition.forId(5083).getHandlers().put("option:enter", this);// sanibock dungeon entrance
+        ObjectDefinition.forId(2439).getHandlers().put("option:open", this);
         for (int pineapple : PINEAPPLE_OBJECTS) {
-            ObjectDefinition.forId(pineapple).getConfigurations().put("option:pick", this);// pineapple picking
+            ObjectDefinition.forId(pineapple).getHandlers().put("option:pick", this);// pineapple picking
         }
-        ObjectDefinition.forId(2975).getConfigurations().put("option:shake", this); // leafy palm tree
+        ObjectDefinition.forId(2975).getHandlers().put("option:shake", this); // leafy palm tree
         return this;
     }
 
