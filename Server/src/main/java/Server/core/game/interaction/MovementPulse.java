@@ -11,6 +11,7 @@ import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.path.Path;
 import core.game.world.map.path.Pathfinder;
+import core.game.world.map.zone.ZoneBorders;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.PlayerContext;
 import core.net.packet.out.ClearMinimapFlag;
@@ -94,57 +95,6 @@ public abstract class MovementPulse extends Pulse {
      */
     public MovementPulse(Entity mover, Node destination, boolean forceRun) {
         this(mover, destination, null, forceRun);
-
-        // seers diary statue walk coords, from north west clockwise
-        // TODO this kinda sucks, but it does work
-        // 2739, 3492
-        // 2742, 3492
-        // 2742, 3489
-        // 2739, 3489
-        if (mover instanceof Player) {
-            Player player = mover.asPlayer();
-            if (!forceRun
-                    && player.getLocation().isInside(Location.create(2739, 3492), Location.create(2742, 3489))
-                    && destination.getLocation().isInside(Location.create(2739, 3492), Location.create(2742, 3489))) { // can only do seers task walking, also should cut down on processing done in all these pulses
-                double origin_x = 2740.5;
-                double origin_y = 3490.5;
-                Vector3d origin = new Vector3d(origin_x, origin_y, 0);
-                if (player.getAttribute("diary:seers:statue-walk-start") != null) {
-                    Vector3d start = player.getAttribute("diary:seers:statue-walk-start");
-                    Vector3d a = player.getAttribute("diary:seers:statue-walk-a");
-                    Vector3d b = new Vector3d(destination.getLocation()).sub(origin);
-                    Vector3d c = new Vector3d(mover.getLocation()).sub(origin);
-                    Vector3d n = new Vector3d(0, 0, 1);
-
-                    double angle_a_b = Vector3d.signedAngle(a, b, n) * 360. / 2 / 3.1415926535;
-
-                    if (!player.getWalkingQueue().isMoving()) {
-                        //System.out.println("removing, not moving");
-                        player.removeAttribute("diary:seers:statue-walk-start");
-                    }
-                    if (angle_a_b >= 0) {
-                        //System.out.println("removing, not going clockwise");
-                        player.removeAttribute("diary:seers:statue-walk-start");
-                    }
-                    if (c.epsilonEquals(start, .001)) {
-                        player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 0, 1);
-                        //System.out.println("removing, finished task");
-                        player.removeAttribute("diary:seers:statue-walk-start");
-                    }
-
-                    player.setAttribute("diary:seers:statue-walk-a", b);
-                } else {
-                    //System.out.println("started");
-                    Vector3d start = new Vector3d(mover.getLocation()).sub(origin);
-                    Vector3d dest = new Vector3d(destination.getLocation()).sub(origin);
-                    player.setAttribute("diary:seers:statue-walk-start", start);
-                    player.setAttribute("diary:seers:statue-walk-a", dest);
-                }
-            } else {
-                //System.out.println("removing, running or outside");
-                player.removeAttribute("diary:seers:statue-walk-start");
-            }
-        }
     }
 
     /**

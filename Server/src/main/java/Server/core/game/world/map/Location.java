@@ -263,34 +263,6 @@ public final class Location extends Node {
 	}
 
 	/**
-	 * Returns whether the location is inside a box defined by two other locations, inclusive
-	 * @param a One corner of the bounding box
-	 * @param b Other corner of the bounding box
-	 * @return True if inside the bounding box
-	 */
-	public boolean isInside(Location a, Location b){
-		final int xmin = Math.min(a.x, b.x);
-		final int xmax = Math.max(a.x, b.x);
-		final int ymin = Math.min(a.y, b.y);
-		final int ymax = Math.max(a.y, b.y);
-		final int zmin = Math.min(a.z, b.z);
-		final int zmax = Math.max(a.z, b.z);
-		return (this.getX() <= xmax && this.getX() >= xmin
-				&& this.getY() <= ymax && this.getY() >= ymin
-				&& this.getZ() <= zmax && this.getZ() >= zmin);
-	}
-
-	public boolean isInside(Location[] as, Location[] bs) {
-		final int len = as.length;
-		for (int ii = 0; ii < len; ii++) {
-			if (this.isInside(as[ii], bs[ii])) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
 	 * Gets the x position on the region chunk.
 	 * @return The x position on the region chunk.
 	 */

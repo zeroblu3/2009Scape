@@ -2,6 +2,7 @@ package plugin.skill.fletching.items.bow;
 
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 import plugin.skill.SkillPulse;
 import plugin.skill.Skills;
 import plugin.skill.fletching.Fletching;
@@ -67,13 +68,12 @@ public class StringPulse extends SkillPulse<Item> {
             player.getSkills().addExperience(Skills.FLETCHING, bow.experience, true);
             player.getPacketDispatch().sendMessage("You add a string to the bow.");
 
-			if (bow == Fletching.String.MAGIC_SHORTBOW
-					&& player.getLocation().isInside(
-					new Location[]{new Location(2721, 3493, 0), new Location(2724, 3489, 0)},
-					new Location[]{new Location(2730, 3490, 0), new Location(2727, 3487, 0)})
-					&& player.getAttribute("diary:seers:fletch-magic-short-bow", false)) {
-				player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 2);
-			}
+            if (bow == Fletching.String.MAGIC_SHORTBOW
+                    && (new ZoneBorders(2721, 3489, 2724, 3493, 0).insideBorder(player)
+                    || new ZoneBorders(2727, 3487, 2730, 3490, 0).insideBorder(player))
+                    && player.getAttribute("diary:seers:fletch-magic-short-bow", false)) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 2);
+            }
         }
         if (!player.getInventory().containsItem(new Item(bow.string)) || !player.getInventory().containsItem(new Item(bow.unfinished))) {
             return true;

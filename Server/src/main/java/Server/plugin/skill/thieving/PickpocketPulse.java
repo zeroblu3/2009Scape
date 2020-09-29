@@ -2,6 +2,7 @@ package plugin.skill.thieving;
 
 import core.game.content.global.SkillcapePerks;
 import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 import plugin.skill.SkillPulse;
 import plugin.skill.Skills;
 import core.game.node.entity.Entity;
@@ -115,8 +116,9 @@ public final class PickpocketPulse extends SkillPulse<NPC> {
             if (type == Pickpocket.GUARD && node.getId() == 9) {
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 1, 6);
             }
-            if (type == Pickpocket.GUARD && node.getId() == 5920 && player.getLocation().isInside(Location.create(3202, 3459, 0), Location.create(3224, 3470, 0))) {
-				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 12);
+            if (type == Pickpocket.GUARD && node.getId() == 5920
+                    && new ZoneBorders(3202, 3459, 3224, 3470, 0).insideBorder(player)) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 12);
             }
         } else {
             node.animate(NPC_ANIM);

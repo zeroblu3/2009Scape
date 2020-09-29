@@ -20,16 +20,16 @@
       },
       "styles": {
         "Presets provide default customizations.": "rs3, classic, or custom. custom allows you to define your own values above. Classic is standard 2009.",
-        "presets": "classic",
+        "presets": "rs3",
         "rs3border": true
       }
     }
   },
 
   "debug": {
-    "item_debug": true,
-    "object_debug": true,
-    "npc_debug": true,
+    "item_debug": false,
+    "object_debug": false,
+    "npc_debug": false,
     "hd_login_region_debug": false,
     "hd_login_region_debug_verbose": false,
     "cache_debug": false,

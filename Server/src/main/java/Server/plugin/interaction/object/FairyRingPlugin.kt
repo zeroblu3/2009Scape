@@ -308,20 +308,6 @@ class FairyRingPlugin : OptionHandler() {
                     player.savedData.globalData.setTravelLog(fairyRing.ordinal)
                 }
             }
-            // Achievement Diary Handlers
-            if (fairyRing != null) {
-                if (fairyRing == FairyRing.AIQ) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.FALADOR, 2, 4)
-                }
-
-                if (fairyRing == FairyRing.ALS) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 2, 4)
-                }
-
-                if (fairyRing == FairyRing.DKR) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 1, 19)
-                }
-            }
             sendTeleport(player, tile)
         }
 

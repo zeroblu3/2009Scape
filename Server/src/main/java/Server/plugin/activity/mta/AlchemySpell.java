@@ -2,6 +2,7 @@ package plugin.activity.mta;
 
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 import core.tools.ItemNames;
 import plugin.skill.fletching.Fletching;
 import plugin.skill.magic.MagicSpell;
@@ -127,9 +128,8 @@ public final class AlchemySpell extends MagicSpell {
 
 			if ((item.getId() == ItemNames.MAGIC_SHORTBOW_861 || item.getId() == ItemNames.MAGIC_SHORTBOW_NOTED_862)
 					&& highAlchemy
-					&& p.getLocation().isInside(
-					new Location[]{new Location(2721, 3493, 0), new Location(2724, 3489, 0)},
-					new Location[]{new Location(2730, 3490, 0), new Location(2727, 3487, 0)})) {
+					&& (new ZoneBorders(2721, 3489, 2724, 3493, 0).insideBorder(p)
+					|| new ZoneBorders(2727, 3487, 2730, 3490, 0).insideBorder(p))) {
 				p.getAchievementDiaryManager().finishTask(p, DiaryType.SEERS_VILLAGE, 2, 6);
 			}
 		} else {

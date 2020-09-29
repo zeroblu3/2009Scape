@@ -114,11 +114,6 @@ public final class BankContainer extends Container {
 		player.getPacketDispatch().sendRunScript(1451, "");
 		open = true;
 		setTabConfigurations();
-
-        // Access the bank in Draynor Village
-        if (player.getLocation().withinDistance(Location.create(3092, 3243, 0))) {
-            player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 1, 15);
-        }
 	}
 	
 	public void open(Player player) {

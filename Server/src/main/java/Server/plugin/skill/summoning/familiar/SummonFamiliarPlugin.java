@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import plugin.npc.familiar.IbisNPC;
@@ -36,8 +37,8 @@ public final class SummonFamiliarPlugin extends OptionHandler {
 		// Achievement diary handlers
 		if (player.getFamiliarManager().hasFamiliar()
 				&& player.getFamiliarManager().getFamiliar() instanceof IbisNPC
-				&& (player.getLocation().isInside(new Location(3011,3229,0), new Location(3017,3222,0))
-				|| player.getLocation().isInside(new Location(3015,3221,0), new Location(3011,3220,0)))) {
+				&& (new ZoneBorders(3011, 3222, 3017, 3229, 0).insideBorder(player)
+				|| new ZoneBorders(3011, 3220, 3015, 3221, 0).insideBorder(player))) {
 			player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 2, 9);
 		}
 		return true;

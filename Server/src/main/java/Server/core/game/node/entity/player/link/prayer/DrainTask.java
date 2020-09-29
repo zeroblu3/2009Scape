@@ -5,6 +5,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.system.task.NodeTask;
 import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 
 /**
  * Represents an event used to drain prayer points.
@@ -27,8 +28,8 @@ public final class DrainTask extends NodeTask {
 		}
 		player.getSkills().decrementPrayerPoints(getDrain(player.getPrayer()));
 
-		if (player.getPrayer().isActive(PrayerType.PIETY)
-				&& player.getLocation().isInside(Location.create(2732,3471,0), Location.create(2739,3467,0))) {
+		if (player.getPrayer().getActive().contains(PrayerType.PIETY)
+				&& new ZoneBorders(2732, 3467, 2739, 3471, 0).insideBorder(player)) {
 			player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 3);
 		}
 

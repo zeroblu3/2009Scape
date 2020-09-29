@@ -7,6 +7,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
+import core.game.world.map.zone.ZoneBorders;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 
@@ -37,7 +38,7 @@ public final class ForestersArmsCiderPlugin extends UseWithHandler {
     @Override
     public boolean handle(NodeUsageEvent event) {
         final Player player = event.getPlayer();
-        if (!player.getLocation().isInside(new Location(2689,3488,0), new Location(2700,3498,0))) {
+        if (!new ZoneBorders(2689, 3488, 2700, 3498, 0).insideBorder(player)) {
             return true;
         }
         final NPC npc = event.getUsedWith() instanceof NPC ? event.getUsedWith().asNpc() : null;

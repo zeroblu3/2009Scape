@@ -3,6 +3,7 @@ package plugin.interaction.item.withitem;
 import core.game.content.ItemNames;
 import core.game.content.global.LightSource;
 import core.game.node.entity.player.link.diary.DiaryType;
+import core.game.world.map.zone.ZoneBorders;
 import plugin.skill.Skills;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
@@ -60,7 +61,8 @@ public class LightSourcePlugin extends UseWithHandler {
 		// Achievement Diary - Falador medium - light bullseye lantern inside chemists
 		if (source.getProduct().getId() == ItemNames.BULLSEYE_LANTERN_4550
 				&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(1,5)
-				&& (player.getLocation().isInside(new Location(2936,3213,0), new Location(2929,3207,0)) || player.getLocation().isInside(new Location(2936,3210,0), new Location(2939,3207,0)) )) {
+				&& (new ZoneBorders(2929, 3207, 2936, 3213, 0).insideBorder(player)
+				|| new ZoneBorders(2936, 3207, 2939, 3210, 0).insideBorder(player))) {
 			player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player,1,5,true);
 		}
 		return true;

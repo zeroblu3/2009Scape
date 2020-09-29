@@ -1,5 +1,6 @@
 package plugin.skill.firemaking;
 
+import core.game.world.map.zone.ZoneBorders;
 import plugin.quest.tutorials.tutorialisland.TutorialSession;
 import plugin.quest.tutorials.tutorialisland.TutorialStage;
 import plugin.skill.SkillPulse;
@@ -148,7 +149,8 @@ public final class FireMakingPulse extends SkillPulse<Item> {
 			player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 1, 9);
 		}
 		// Light a willow log fire in Lumbridge Castle courtyard
-		if (fire == Log.WILLOW && player.getLocation().isInside(Location.create(3216,3233,0), Location.create(3225,3207,0))) {
+		if (fire == Log.WILLOW
+				&& new ZoneBorders(3216, 3207, 3225, 3233, 0).insideBorder(player)) {
 			player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 2, 3);
 		}
 

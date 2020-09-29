@@ -678,12 +678,9 @@ public class Container {
      * @return true if at least one item from list of IDs is in the container
      */
     public boolean containsOneItem(int[] itemIds) {
-        for (Item item : items) {
-            if (item != null
-                    && Arrays.stream(itemIds).anyMatch(i -> i == item.getId())
-                    && item.getAmount() == 1) {
+        for (int id : itemIds) {
+            if (getAmount(id) >= 1)
                 return true;
-            }
         }
         return false;
     }
