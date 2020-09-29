@@ -241,7 +241,7 @@ public class SorceressApprenticeDialogue extends DialoguePlugin {
 		player.lock();
 		Projectile.create(npc, player, 109).send();
 		npc.sendChat("Senventior Disthinte Molesko!");
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			int counter = 0;
 
 			@Override

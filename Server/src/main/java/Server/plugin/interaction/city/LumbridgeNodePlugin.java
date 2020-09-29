@@ -73,7 +73,7 @@ public final class LumbridgeNodePlugin extends OptionHandler {
 				FLAG_IN_USE = true;
 				player.getPacketDispatch().sendObjectAnimation(((GameObject) node), new Animation(9979));
 				player.sendMessage("You start cranking the lever.");
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int counter;
 
 					@Override

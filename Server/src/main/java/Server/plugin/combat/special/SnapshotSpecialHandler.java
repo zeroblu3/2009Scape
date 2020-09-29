@@ -87,7 +87,7 @@ public final class SnapshotSpecialHandler extends RangeSwingHandler implements P
 				victim.getImpactHandler().handleImpact(entity, hitt, CombatStyle.RANGE, state);
 				return;
 			}
-			GameWorld.Pulser.submit(new Pulse(1, victim) {
+			GameWorld.getPulser().submit(new Pulse(1, victim) {
 				@Override
 				public boolean pulse() {
 					victim.getImpactHandler().handleImpact(entity, hitt, CombatStyle.RANGE, state);

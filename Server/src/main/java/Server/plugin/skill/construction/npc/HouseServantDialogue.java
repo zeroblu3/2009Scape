@@ -481,7 +481,7 @@ public class HouseServantDialogue extends DialoguePlugin {
 					manager.getServant().setItem(new Item(plank.getPlank().getId(), amt));
 					servant.setInvisible(true);
 					servant.getLocks().lockMovement(100);
-					GameWorld.Pulser.submit(new Pulse((int) (type.getTimer() / 0.6)){
+					GameWorld.getPulser().submit(new Pulse((int) (type.getTimer() / 0.6)){
 
 						@Override
 						public boolean pulse() {
@@ -519,7 +519,7 @@ public class HouseServantDialogue extends DialoguePlugin {
 		end();
 		servant.setInvisible(true);
 		servant.getLocks().lockMovement(100);
-		GameWorld.Pulser.submit(new Pulse((int) (type.getTimer() / 0.6)) {
+		GameWorld.getPulser().submit(new Pulse((int) (type.getTimer() / 0.6)) {
 
 			@Override
 			public boolean pulse() {

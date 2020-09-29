@@ -69,7 +69,7 @@ class FairyRingPlugin : OptionHandler() {
             var thirdIndex = 0
             when (component.id) {
                 734 -> {
-                    if (player.getAttribute("fairy-delay", 0) > GameWorld.getTicks()) {
+                    if (player.getAttribute("fairy-delay", 0) > GameWorld.ticks) {
                         return true
                     }
                     when(button){
@@ -86,7 +86,7 @@ class FairyRingPlugin : OptionHandler() {
                         21 -> teleport(player,getFirst(player),getSecond(player),getThird(player)).also { return true }
                     }
                     SystemLogger.log("Letters Selected: ${SELECTOR_LETTERS[0][getFirst(player)]}${SELECTOR_LETTERS[1][getSecond(player)]}${SELECTOR_LETTERS[2][getThird(player)]}")
-                    player.setAttribute("fairy-delay", GameWorld.getTicks() + 4)
+                    player.setAttribute("fairy-delay", GameWorld.ticks + 4)
                 }
                 735 -> when (button) {
                     12 -> { TODO("Add handling for list re-sorting.") }

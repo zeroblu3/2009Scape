@@ -39,7 +39,7 @@ public final class HolidayItem extends GroundItem {
 	 * @param spawnLocations The spawn locations.
 	 */
 	public static void startRandomSpawn(final Item spawn, int interval, final Location... spawnLocations) {
-		GameWorld.Pulser.submit(new Pulse(interval) {
+		GameWorld.getPulser().submit(new Pulse(interval) {
 			GroundItem item;
 			int lastIndex = -1;
 

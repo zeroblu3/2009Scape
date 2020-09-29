@@ -146,7 +146,7 @@ public final class CanoeExtension {
 		player.lock(3);
 		player.animate(axe.getAnimation());
 		player.getConfigManager().set(675, (station.ordinal() + 1) << 17);
-		GameWorld.Pulser.submit(new Pulse(4, player) {
+		GameWorld.getPulser().submit(new Pulse(4, player) {
 			@Override
 			public boolean pulse() {
 				player.animate(new Animation(-1, Priority.HIGH));
@@ -226,7 +226,7 @@ public final class CanoeExtension {
 	public final void setAfloat(final GameObject object) {
 		player.animate(PUSH);
 		player.getConfigManager().set(674, (CONFIGS[3] << (currentStation.ordinal() * 8)) + currentStation.getCraftConfig(canoe, true));
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			int counter = 0;
 
 			@Override
@@ -253,7 +253,7 @@ public final class CanoeExtension {
 			return;
 		}
 		player.lock(18);
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			int count = 0;
 
 			@Override

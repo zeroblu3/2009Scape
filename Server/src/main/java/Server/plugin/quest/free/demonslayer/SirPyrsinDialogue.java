@@ -175,7 +175,7 @@ public class SirPyrsinDialogue extends DialoguePlugin {
 				}
 				close();
 				player.lock();
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int counter = 0;
 
 					@Override

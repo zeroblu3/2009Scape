@@ -36,7 +36,7 @@ class GEOfferDispatch : Pulse(), CallBack {
     }
 
     override fun pulse(): Boolean {
-        if (GameWorld.getTicks() % 24000 == 0) {
+        if (GameWorld.ticks % 24000 == 0) {
             for (offer in OFFER_MAPPING.values) {
                 if (offer.isActive && offer.isLimitation) {
                     updateOffer(offer)

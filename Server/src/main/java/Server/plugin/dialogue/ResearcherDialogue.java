@@ -51,7 +51,7 @@ public final class ResearcherDialogue extends DialoguePlugin {
 	    stage = 1;
 	    break;
 	case 1:
-	    npc("I am indeed. I am a traveling researcher studying the", "lands of "+GameWorld.getName()+".");
+	    npc("I am indeed. I am a traveling researcher studying the", "lands of "+GameWorld.getSettings().getName()+".");
 	    stage = 2;
 	    break;
 	case 2:

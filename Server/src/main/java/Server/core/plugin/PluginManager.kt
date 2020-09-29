@@ -8,7 +8,9 @@ import io.github.classgraph.ClassGraph
 import io.github.classgraph.ClassInfo
 import plugin.activity.ActivityManager
 import plugin.activity.ActivityPlugin
+import plugin.command.Command
 import plugin.dialogue.DialoguePlugin
+import java.lang.Exception
 import java.util.*
 import java.util.function.Consumer
 import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
@@ -52,7 +54,7 @@ object PluginManager {
     }
 
     fun load() {
-        val result = ClassGraph().enableClassInfo().enableAnnotationInfo().scan()
+        var result = ClassGraph().enableClassInfo().enableAnnotationInfo().scan()
         result.getClassesWithAnnotation("core.plugin.InitializablePlugin").forEach(Consumer { p: ClassInfo ->
             try {
                 definePlugin(p.loadClass().newInstance() as Plugin<JvmType.Object>)
@@ -62,6 +64,12 @@ object PluginManager {
                 e.printStackTrace()
             }
         })
+        result.getSubclasses("plugin.command.Command").forEach {
+            System.out.println("E")
+            try {
+                definePlugin(it.loadClass().newInstance() as Plugin<Command>).also { System.out.println("Initializing $it") }
+            } catch (e: Exception) {e.printStackTrace()}
+        }
     }
 
     /**

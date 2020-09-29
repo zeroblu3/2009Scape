@@ -152,7 +152,7 @@ public final class BarrowsActivityPlugin extends ActivityPlugin {
 			if (!PULSE.isRunning()) {
 				PULSE.restart();
 				PULSE.start();
-				GameWorld.Pulser.submit(PULSE);
+				GameWorld.getPulser().submit(PULSE);
 			}
 		} else {
 			((NPC) e).setAggressive(true);

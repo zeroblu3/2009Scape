@@ -193,7 +193,7 @@ public class SilkMerchantPlugin extends DialoguePlugin {
 					break;
 				}
 			}
-			GameWorld.Pulser.submit(new Pulse(1) {
+			GameWorld.getPulser().submit(new Pulse(1) {
 				int count = 0;
 
 				@Override

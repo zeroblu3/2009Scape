@@ -79,7 +79,7 @@ public final class AbyssPlugin extends OptionHandler {
 		npc.sendChat("Veniens! Sallakar! Rinnesset!");
 		player.getSkills().decrementPrayerPoints(100);
 		player.getSkullManager().checkSkull(player);
-		GameWorld.Pulser.submit(new Pulse(2, player) {
+		GameWorld.getPulser().submit(new Pulse(2, player) {
 			@Override
 			public boolean pulse() {
 				player.getProperties().setTeleportLocation(Location.create(3021, 4847, 0));
@@ -104,7 +104,7 @@ public final class AbyssPlugin extends OptionHandler {
 				}
 				player.animate(new Animation(733));
 				player.lock(3);
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int count = 0;
 
 					@Override
@@ -145,7 +145,7 @@ public final class AbyssPlugin extends OptionHandler {
 				}
 				player.animate(tool.getAnimation());
 				player.lock(3);
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int count = 0;
 
 					@Override
@@ -186,7 +186,7 @@ public final class AbyssPlugin extends OptionHandler {
 				}
 				player.animate(tool.getAnimation());
 				player.lock(3);
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int count = 0;
 
 					@Override
@@ -223,7 +223,7 @@ public final class AbyssPlugin extends OptionHandler {
 				player.animate(new Animation(1331));
 				player.lock(3);
 				player.lock(3);
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int count = 0;
 
 					@Override
@@ -256,7 +256,7 @@ public final class AbyssPlugin extends OptionHandler {
 				int index = RandomFunction.random(emotes.length);
 				player.animate(new Animation(emotes[index]));
 				player.lock(3);
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int count = 0;
 
 					@Override

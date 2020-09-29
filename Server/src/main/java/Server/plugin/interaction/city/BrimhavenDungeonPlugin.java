@@ -94,7 +94,7 @@ public final class BrimhavenDungeonPlugin extends OptionHandler {
 			}
 			player.lock(12);
 			final Direction dir = AgilityHandler.forceWalk(player, -1, player.getLocation(), object.getLocation(), Animation.create(769), 10, 0, null).getDirection();
-			GameWorld.Pulser.submit(new Pulse(3, player) {
+			GameWorld.getPulser().submit(new Pulse(3, player) {
 				int stage = dir == Direction.NORTH ? -1 : 0;
 				Direction direction = dir;
 

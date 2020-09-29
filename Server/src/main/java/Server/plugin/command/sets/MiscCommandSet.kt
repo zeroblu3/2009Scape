@@ -86,7 +86,7 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
                     builder.append("<br>Max amount we can show on this interface.")
                     break
                 }
-                if (p == null || p.isAdmin && !GameWorld.getSettings().isDevMode && !player.isAdmin || p.isArtificial) {
+                if (p == null || p.isAdmin && GameWorld.settings?.isDevMode != true && !player.isAdmin || p.isArtificial) {
                     continue
                 }
                 builder.append(red + "<img=" + (Rights.getChatIcon(p) - 1) + ">" + p.username + if(rights > 0) " [ip=" + p.details.ipAddress + ", name=" + p.details.compName + "]<br><br>" else "<br><br>")

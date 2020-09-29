@@ -159,7 +159,7 @@ public enum EnchantedJewellery {
 		player.lock();
 		player.visualize(ANIMATION, GRAPHICS);
 		player.getImpactHandler().setDisabledTicks(4);
-		GameWorld.Pulser.submit(new Pulse(4, player) {
+		GameWorld.getPulser().submit(new Pulse(4, player) {
 			@Override
 			public boolean pulse() {
 				player.unlock();

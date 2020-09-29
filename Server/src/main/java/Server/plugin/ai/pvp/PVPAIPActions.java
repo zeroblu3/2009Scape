@@ -56,7 +56,7 @@ public class PVPAIPActions {
 			};
 			bot.getProperties().setRetaliating(true);
 			bot.setAttribute("dead", false);
-			GameWorld.Pulser.submit(new Pulse(1, bot) {
+			GameWorld.getPulser().submit(new Pulse(1, bot) {
 				int ticks;
 				@Override
 				public boolean pulse() {
@@ -131,7 +131,7 @@ public class PVPAIPActions {
 		bot.sendChat("Ahh!");
 		bot.sendChat("GTFO M8");
 		bot.sendChat("Someone spec him!");
-		GameWorld.Pulser.submit(new Pulse(1, bot) {
+		GameWorld.getPulser().submit(new Pulse(1, bot) {
 			int ticks;
 			@Override
 			public boolean pulse() {

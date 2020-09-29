@@ -75,7 +75,7 @@ public final class DonieDialogue extends DialoguePlugin {
 			stage = 1;
 			break;
 		case 20:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Aye, not too bad thank you. Lovely weather in", "" + GameWorld.getName() + " this fine day.");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Aye, not too bad thank you. Lovely weather in", "" + GameWorld.getSettings().getName() + " this fine day.");
 			stage = 21;
 			break;
 		case 21:

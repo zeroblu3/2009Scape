@@ -500,7 +500,7 @@ class PvMBotsBuilder {
 		spawnDragonKiller(new Location(3417, 3561, 1));
 		//Brimhaven dragons
 		spawnDragonKiller(new Location(2704, 9450));
-		spawnDragonKiller(new Location(2704, 9450));*/println("[" + GameWorld.getName() + "]: PvMBotsBuilder: Spawned " + botsSpawned + " bots.")
+		spawnDragonKiller(new Location(2704, 9450));*/println("[" + GameWorld.settings?.name + "]: PvMBotsBuilder: Spawned " + botsSpawned + " bots.")
             }
         }
     }

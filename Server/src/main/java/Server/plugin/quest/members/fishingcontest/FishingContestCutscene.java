@@ -66,9 +66,9 @@ public class FishingContestCutscene extends CutscenePlugin {
         if(player.getAttribute("fishing_contest:garlic",false)){
             NPC stranger = npcs.get(2);
             stranger.sendChat("What is this smell??");
-            GameWorld.submit(new SwitchPulse());
+            GameWorld.getPulser().submit(new SwitchPulse());
         } else {
-            GameWorld.submit(new FishingPulse());
+            GameWorld.getPulser().submit(new FishingPulse());
         }
         player.lock();
     }
@@ -93,10 +93,10 @@ public class FishingContestCutscene extends CutscenePlugin {
                         player.setAttribute("/save:fishing_contest:won",true);
                         player.getWalkingQueue().setRunDisabled(false);
                     }
-                    GameWorld.submit(getEndPulse());
+                    GameWorld.getPulser().submit(getEndPulse());
                     break;
                 case 15:
-                    GameWorld.submit(new Pulse(){
+                    GameWorld.getPulser().submit(new Pulse(){
                         int counter = 0;
                         @Override
                         public boolean pulse() {
@@ -161,7 +161,7 @@ public class FishingContestCutscene extends CutscenePlugin {
                             return true;
                         }
                     }, "movement");
-                    GameWorld.submit(new FishingPulse());
+                    GameWorld.getPulser().submit(new FishingPulse());
                     return true;
             }
             return false;

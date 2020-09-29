@@ -77,11 +77,11 @@ class GnomeStrongholdCourse
                     player.packetDispatch.sendMessage("You can't do that from here.")
                     return true
                 }
-                if (USED_PIPES[index] > GameWorld.getTicks()) {
+                if (USED_PIPES[index] > GameWorld.ticks) {
                     player.packetDispatch.sendMessage("The pipe is being used.")
                     return true
                 }
-                USED_PIPES[index] = GameWorld.getTicks() + 10
+                USED_PIPES[index] = GameWorld.ticks + 10
                 player.lock(12)
 
                 //Animations and force walking

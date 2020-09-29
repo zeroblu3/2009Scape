@@ -199,7 +199,7 @@ public final class TouristTrap extends Quest {
 	public static void jail(final Player player, String dialogue) {
 		player.getDialogueInterpreter().sendDialogues(4999, null, dialogue);
 		player.lock();
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			int counter;
 
 			@Override
