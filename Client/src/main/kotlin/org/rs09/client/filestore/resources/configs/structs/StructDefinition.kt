@@ -4,10 +4,10 @@ import org.rs09.client.Linkable
 import org.rs09.client.LinkableInt
 import org.rs09.client.Node
 import org.rs09.client.data.HashTable
-import org.runite.jagex.Class95
-import org.runite.jagex.DataBuffer
-import org.runite.jagex.LinkableRSString
-import org.runite.jagex.RSString
+import org.runite.client.Class95
+import org.runite.client.DataBuffer
+import org.runite.client.LinkableRSString
+import org.runite.client.RSString
 
 class StructDefinition: Node() {
     var values: HashTable<Linkable>? = null

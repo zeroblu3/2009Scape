@@ -1,7 +1,7 @@
 package org.rs09.client
 
 import org.rs09.client.util.ByteArrayPool
-import org.runite.jagex.RSString
+import org.runite.client.RSString
 
 open class DataBuffer(@JvmField val buffer: ByteArray, @JvmField var index: Int) : Linkable() {
     constructor(buffer: ByteArray) : this(buffer, 0)

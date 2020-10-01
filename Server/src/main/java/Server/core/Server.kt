@@ -4,7 +4,6 @@ import core.game.system.SystemLogger
 import core.game.system.SystemShutdownHook
 import core.game.system.config.ServerConfigParser
 import core.game.system.mysql.SQLManager
-import core.game.world.GameSettings.Companion.parse
 import core.game.world.GameWorld
 import core.gui.ConsoleFrame
 import core.net.NioReactor
@@ -12,9 +11,7 @@ import core.net.amsc.WorldCommunicator
 import core.tools.TimeStamp
 import plugin.ge.BotGrandExchange
 import plugin.ge.GEAutoStock
-import java.io.File
 import java.net.BindException
-import java.util.*
 
 /**
  * The main class, for those that are unable to read the class' name.

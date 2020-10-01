@@ -1,10 +1,11 @@
 package org.rs09.client.console
 
 import org.rs09.client.LinkableInt
+import org.rs09.client.config.GameConfig
 import org.rs09.client.filestore.resources.configs.enums.EnumDefinitionProvider
 import org.rs09.client.rendering.RenderingUtils
 import org.rs09.client.rendering.Toolkit
-import org.runite.jagex.*
+import org.runite.client.*
 import java.awt.event.KeyEvent
 import java.util.*
 
@@ -49,7 +50,7 @@ object DeveloperConsole {
         val tk = Toolkit.getActiveToolkit()
         tk.fillRect(0, 0, RenderingUtils.width, HEIGHT, BACKGROUND_COLOR, 128)
         tk.drawHorizontalLine(0, HEIGHT - 14 - 2, RenderingUtils.width, -1)
-        RenderingUtils.drawText("530", RenderingUtils.width - 27, HEIGHT - 2, -1)
+        RenderingUtils.drawText(GameConfig.CLIENT_BUILD.toString(), RenderingUtils.width - 27, HEIGHT - 2, -1)
         RenderingUtils.drawText("-> $str", 3, HEIGHT - 2, -1)
 
         RenderingUtils.setClipping(0, 0, RenderingUtils.width, HEIGHT - 16)
