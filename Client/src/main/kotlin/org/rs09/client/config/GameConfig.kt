@@ -118,8 +118,8 @@ class GameConfig {
             val data = parser.parse(reader) as JSONObject
 
             //Networking
-            if(data.containsKey("ip_address")) IP_ADDRESS = data["ip_address"].toString()
-            if(data.containsKey("ip_management")) IP_MANAGEMENT = data["ip_management"].toString()
+            if(data.containsKey("ip_address")) IP_ADDRESS = data["ip_address"].toString() else IP_ADDRESS = "play.2009scape.org"
+            if(data.containsKey("ip_management")) IP_MANAGEMENT = data["ip_management"].toString() else IP_MANAGEMENT = IP_ADDRESS
             if(data.containsKey("wl_port")) WL_PORT = data["wl_port"].toString().toInt()
             if(data.containsKey("server_port")) SERVER_PORT = data["server_port"].toString().toInt()
             if(data.containsKey("world")) WORLD = data["world"].toString().toInt()
@@ -265,6 +265,6 @@ class GameConfig {
          * Path to config
          */
         @JvmField
-        var configLocation = "./config.json"
+        var configLocation = "config.json"
     }
 }

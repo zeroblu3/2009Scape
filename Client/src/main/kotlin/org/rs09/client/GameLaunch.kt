@@ -13,7 +13,13 @@ object GameLaunch {
      */
     @JvmStatic
     fun main(args: Array<String>) {
-        GameConfig.parse(GameConfig.configLocation)
+        try {
+            GameConfig.parse(GameConfig.configLocation)
+        } catch (e: Exception){
+            GameConfig.IP_ADDRESS = "play.2009scape.org"
+            GameConfig.IP_MANAGEMENT = "play.2009scape.org"
+            GameConfig.RCM_STYLE_PRESET = "classic"
+        }
         for (i in args.indices) {
             val cmd = args[i].split("=").toTypedArray()
             when (cmd[0]) {

@@ -143,7 +143,6 @@ object GameWorld {
         configParser.postPlugin()
         RareDropTable.init()
         log("Initialized Rare Drop Table from " + ServerConstants.RDT_DATA_PATH)
-        //ResourceAIPManager.get().init(); Commented out as we do not use Skilling Tasks, which is what this is for
         if (settings!!.enable_bots) {
             ImmerseWorld.init()
         }

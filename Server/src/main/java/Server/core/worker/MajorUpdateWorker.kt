@@ -24,7 +24,12 @@ class MajorUpdateWorker {
                 val rmlist = ArrayList<Pulse>()
                 val list = ArrayList(GameWorld.Pulser.TASKS)
                 for(pulse in list){
-                    if(pulse.update()) rmlist.add(pulse)
+                    try {
+                        if (pulse.update()) rmlist.add(pulse)
+                    } catch (e: Exception){
+                        e.printStackTrace()
+                        rmlist.add(pulse)
+                    }
                 }
                 GameWorld.Pulser.TASKS.removeAll(rmlist)
                 sequence.start()
