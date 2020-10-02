@@ -3,26 +3,16 @@ package org.runite.client;
 final class Class77 {
 
    static int anInt1111;
-   static Class52 aClass52_1112 = new Class52();
 
 
    static LDIndexedSprite method1364() {
       try {
-         LDIndexedSprite var1 = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], Class163_Sub1.aByteArrayArray2987[0], Class3_Sub13_Sub38.spritePalette);
+         LDIndexedSprite var1 = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Unsorted.anIntArray3076[0], Class163_Sub1.aByteArrayArray2987[0], Class3_Sub13_Sub38.spritePalette);
 
          Class39.method1035((byte)127);
          return var1;
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "kh.B(" + (byte) 82 + ')');
-      }
-   }
-
-   static void method1366() {
-      try {
-
-          Class158_Sub1.aReferenceCache_2982.sweep(5);
-      } catch (RuntimeException var3) {
-         throw ClientErrorException.clientError(var3, "kh.C(" + 104 + ',' + 5 + ')');
       }
    }
 

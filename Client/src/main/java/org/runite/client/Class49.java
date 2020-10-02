@@ -22,7 +22,7 @@ final class Class49 {
          byte[][] var3;
          if(HDToolKit.highDetail && var0) {
             var2 = 1;
-            var3 = WorldMap.aByteArrayArray3669;
+            var3 = Class40.aByteArrayArray3669;
          } else {
             var3 = Class164_Sub2.aByteArrayArray3027;
             var2 = 4;
@@ -156,7 +156,7 @@ final class Class49 {
             return;
          }
 
-         Class64 var4 = Class3_Sub13_Sub10.aClass87_3125.method1439(false, new URL(Class3_Sub13_Sub10.aClass87_3125.applet.getCodeBase(), "clienterror.ws?c=" + Class3_Sub13_Sub23_Sub1.anInt4033 + "&u=" + Class3_Sub13_Sub16.aLong3202 + "&v1=" + Signlink.javaVendor + "&v2=" + Signlink.javaVersion + "&e=" + var3));
+         Class64 var4 = Class3_Sub13_Sub10.aClass87_3125.method1439(false, new URL(Class3_Sub13_Sub10.aClass87_3125.applet.getCodeBase(), "clienterror.ws?c=" + GameShell.anInt4033 + "&u=" + PacketParser.aLong3202 + "&v1=" + Signlink.javaVendor + "&v2=" + Signlink.javaVersion + "&e=" + var3));
 
          while(var4.anInt978 == 0) {
             TimeUtils.sleep(1L);
@@ -209,12 +209,12 @@ final class Class49 {
          if(var0 == 0) {
             int var1;
             for(var1 = 0; var1 < Class3_Sub28_Sub3.anInt3557; ++var1) {
-               if(WorldMap.aBooleanArray3674[var1]) {
+               if(Unsorted.aBooleanArray3674[var1]) {
                   Class163_Sub1_Sub1.aBooleanArray4008[var1] = true;
                }
 
-               Unsorted.aBooleanArray1712[var1] = WorldMap.aBooleanArray3674[var1];
-               WorldMap.aBooleanArray3674[var1] = false;
+               Unsorted.aBooleanArray1712[var1] = Unsorted.aBooleanArray3674[var1];
+               Unsorted.aBooleanArray3674[var1] = false;
             }
 
             Class3_Sub28_Sub16.aClass11_3708 = null;
@@ -266,7 +266,7 @@ final class Class49 {
                ObjectDefinition.anInt1521 = 2;
             }
 
-            if(Client.anInt3689 == 3) {
+            if(Client.rectDebugInt == 3) {
                for(int var2 = 0; Class3_Sub28_Sub3.anInt3557 > var2; ++var2) {
                   if(!Unsorted.aBooleanArray1712[var2]) {
                      if(Class163_Sub1_Sub1.aBooleanArray4008[var2]) {

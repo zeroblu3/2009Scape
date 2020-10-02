@@ -7,12 +7,8 @@ import java.awt.*;
 
 final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
 
-   static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array4031 = new Class3_Sub28_Sub5[14];
    static int anInt4032 = 0;
-   static int anInt4033;
-   static int anInt4034 = -8 + (int)(17.0D * Math.random());
    static int[] anIntArray4035 = new int[]{1, 1, 0, 0, 0, 8, 0, 0, 8};
-   static int anInt4037;
    static short aShort4038 = 32767;
    static int anInt4039 = 0;
    static int anInt4041 = -1;

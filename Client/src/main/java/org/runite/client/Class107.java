@@ -2,7 +2,6 @@ package org.runite.client;
 
 final class Class107 {
 
-   static int currentChunkY;
    static RSInterface aClass11_1453;
    static CacheIndex aClass153_878;
 
@@ -53,14 +52,14 @@ final class Class107 {
       }
    }
 
-   static void method1650() {
-      try {
-         Class61.aReferenceCache_939.clearSoftReferences();
-
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "og.G(" + 21 + ')');
-      }
-   }
+//   static void method1650() {
+//      try {
+//         Class61.aReferenceCache_939.clearSoftReferences();
+//
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "og.G(" + 21 + ')');
+//      }
+//   }
 
    static int method1651(int var1, int var2) {
       try {

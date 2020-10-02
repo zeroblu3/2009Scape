@@ -23,7 +23,6 @@ abstract class Class140_Sub4 extends GameObject {
    int anInt2771 = -1;
    int anInt2772 = -1;
    int anInt2773 = 0;
-   static boolean aBoolean2774 = true;
    int anInt2775;
    int anInt2776 = -1;
    int anInt2777;

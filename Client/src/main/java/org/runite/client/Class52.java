@@ -4,7 +4,10 @@ import java.util.Objects;
 
 final class Class52 {
 
-   int pnpcId;
+   static int[] anIntArray1833 = new int[14];
+   static int[] anIntArray3139 = new int[14];
+    static int[] anIntArray1679 = new int[14];
+    int pnpcId;
    private long aLong855;
    private int[] lookInfo;
    private int renderAnim;
@@ -129,7 +132,7 @@ final class Class52 {
             for(int var7 = 0; var7 < 8; ++var7) {
                for(int var8 = 0; Class25.anInt497 > var8; ++var8) {
                   Class24 var9 = Class3_Sub13_Sub13.method231(var8);
-                  if(!var9.aBoolean476 && ((var3 ? Class3_Sub13_Sub19.anIntArray3228[var7] : Class3_Sub26.anIntArray2559[var7]) == var9.anInt466)) {
+                  if(!var9.aBoolean476 && ((var3 ? CS2Script.anIntArray3228[var7] : Class3_Sub26.anIntArray2559[var7]) == var9.anInt466)) {
                      look[Class163.anIntArray2043[var7]] = Class3_Sub13_Sub29.bitwiseOr(Integer.MIN_VALUE, var8);
                      break;
                   }
@@ -374,29 +377,29 @@ final class Class52 {
                      frame = var41.frames[var24];
                      Class166.aClass3_Sub28_Sub5Array2070[var22] = Class3_Sub9.method133(frame >>> 16);
                      frame &= '\uffff';
-                     GameObject.anIntArray1833[var22] = frame;
+                     anIntArray1833[var22] = frame;
                      if(Class166.aClass3_Sub28_Sub5Array2070[var22] != null) {
                         var42 |= Class166.aClass3_Sub28_Sub5Array2070[var22].method561(frame, (byte)119);
                         var38 |= Class166.aClass3_Sub28_Sub5Array2070[var22].method559(frame);
                         var44 |= var41.aBoolean1848;
                      }
 
-                     if((var41.aBoolean1846 || Class3_Sub26.aBoolean2558) && var25 != -1 && var25 < var41.frames.length) {
+                     if((var41.aBoolean1846 || ClientCommands.tweeningEnabled) && var25 != -1 && var25 < var41.frames.length) {
                         Class154.anIntArray1960[var22] = var41.duration[var24];
-                        Class3_Sub13_Sub11.anIntArray3139[var22] = var1[var22].anInt1897;
+                        anIntArray3139[var22] = var1[var22].anInt1897;
                         var47 = var41.frames[var25];
                         Class75.aClass3_Sub28_Sub5Array1103[var22] = Class3_Sub9.method133(var47 >>> 16);
                         var47 &= '\uffff';
-                        Class127.anIntArray1679[var22] = var47;
+                        anIntArray1679[var22] = var47;
                         if(null != Class75.aClass3_Sub28_Sub5Array1103[var22]) {
                            var42 |= Class75.aClass3_Sub28_Sub5Array1103[var22].method561(var47, (byte)117);
                            var38 |= Class75.aClass3_Sub28_Sub5Array1103[var22].method559(var47);
                         }
                      } else {
                         Class154.anIntArray1960[var22] = 0;
-                        Class3_Sub13_Sub11.anIntArray3139[var22] = 0;
+                        anIntArray3139[var22] = 0;
                         Class75.aClass3_Sub28_Sub5Array1103[var22] = null;
-                        Class127.anIntArray1679[var22] = -1;
+                        anIntArray1679[var22] = -1;
                      }
                   }
                }
@@ -421,7 +424,7 @@ final class Class52 {
                      var44 |= var4.aBoolean1848;
                   }
 
-                  if((var4.aBoolean1846 || Class3_Sub26.aBoolean2558) && var2 != -1 && var4.frames.length > var2) {
+                  if((var4.aBoolean1846 || ClientCommands.tweeningEnabled) && var2 != -1 && var4.frames.length > var2) {
                      var23 = var4.frames[var2];
                      var28 = var23 >>> 16;
                      var23 &= '\uffff';
@@ -455,7 +458,7 @@ final class Class52 {
                      var44 |= var3.aBoolean1848;
                   }
 
-                  if((var3.aBoolean1846 || Class3_Sub26.aBoolean2558) && var6 != -1 && var3.frames.length > var6) {
+                  if((var3.aBoolean1846 || ClientCommands.tweeningEnabled) && var6 != -1 && var3.frames.length > var6) {
                      var29 = var3.duration[var11];
                      var28 = var3.frames[var6];
                      var33 = var28 >>> 16;
@@ -478,7 +481,7 @@ final class Class52 {
 
                for(var34 = 1; var33 < var45; var34 <<= 1) {
                   if(Class166.aClass3_Sub28_Sub5Array2070[var33] != null) {
-                     var51.method1887(Class166.aClass3_Sub28_Sub5Array2070[var33], GameObject.anIntArray1833[var33], Class75.aClass3_Sub28_Sub5Array1103[var33], Class127.anIntArray1679[var33], Class3_Sub13_Sub11.anIntArray3139[var33] + -1, Class154.anIntArray1960[var33], var34, Class123.aClass142Array1654[var33].aBoolean1848, this.anIntArrayArray863[var33]);
+                     var51.method1887(Class166.aClass3_Sub28_Sub5Array2070[var33], anIntArray1833[var33], Class75.aClass3_Sub28_Sub5Array1103[var33], anIntArray1679[var33], anIntArray3139[var33] + -1, Class154.anIntArray1960[var33], var34, Class123.aClass142Array1654[var33].aBoolean1848, this.anIntArrayArray863[var33]);
                   }
 
                   ++var33;

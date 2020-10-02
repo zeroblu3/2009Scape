@@ -6,14 +6,10 @@ import java.util.Random;
 final class Class3_Sub13_Sub19 extends Class3_Sub13 {
 
    private int anInt3219 = 204;
-   static RSString aClass94_3220;
-   static Class3_Sub28_Sub16_Sub2 aClass3_Sub28_Sub16_Sub2_3221;
    private int anInt3223;
    private int anInt3224 = 81;
    private int[][] anIntArrayArray3225;
-   static RSString[] aClass94Array3226 = new RSString[100];
    static CacheIndex aClass153_3227;
-   static int[] anIntArray3228 = new int[]{7, 8, 9, 10, 11, 12, 13, 15};
    private int anInt3229 = 1024;
    private int[] anIntArray3230;
    private int anInt3231 = 0;
@@ -25,7 +21,6 @@ final class Class3_Sub13_Sub19 extends Class3_Sub13 {
    private static RSString aClass94_3237 = RSString.parse("en");
    private static RSString aClass94_3239 = RSString.parse("fr");
    private int[][] anIntArrayArray3240;
-   static short aShort3241 = 1;
    private int anInt3242 = 4;
    private static RSString aClass94_3243 = RSString.parse("de");
    static RSString[] aClass94Array3238 = new RSString[]{aClass94_3237, aClass94_3243, aClass94_3239, aClass94_3232};

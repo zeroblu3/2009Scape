@@ -15,7 +15,7 @@ final class Class3_Sub28_Sub5 extends Node {
    static int anInt3590 = -1;
    static int anInt3591 = 0;
    static int[] anIntArray3592 = new int[256];
-   static volatile boolean aBoolean3593 = false;
+   static volatile boolean forceReplaceCanvasEnable = false;
 
 
    static void method556(int var0, int var1, int var2, byte var3, int var4, int var5) {
@@ -118,7 +118,7 @@ final class Class3_Sub28_Sub5 extends Node {
          Class75.anInt1105 = 0;
          Class163_Sub2_Sub1.anInt4014 = 0;
          NPCDefinition.anInt1252 = -1;
-         Class3_Sub7.anInt2293 = -1;
+         Class3_Sub28_Sub6.anInt2293 = -1;
          Class133.anInt1753 = 1;
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "cl.A(" + -21556 + ')');

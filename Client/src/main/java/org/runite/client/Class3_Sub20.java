@@ -5,8 +5,9 @@ import org.rs09.client.Linkable;
 final class Class3_Sub20 extends Linkable {
 
    static int[] anIntArray2480 = new int[25];
+    static RSString aClass94_3220;
 
-   int anInt2483;
+    int anInt2483;
    static int wlPacketIndex = 0;
    static int language = 0;
    static int anInt2487;
@@ -16,9 +17,9 @@ final class Class3_Sub20 extends Linkable {
    static void method388(byte var0) {
       try {
          //int var1 = 44 / ((-2 - var0) / 52);
-         if(Class3_Sub13_Sub19.aClass94_3220 != null) {
-            Class3_Sub10.method138(Class3_Sub13_Sub19.aClass94_3220);
-            Class3_Sub13_Sub19.aClass94_3220 = null;
+         if(aClass94_3220 != null) {
+            Class3_Sub10.method138(aClass94_3220);
+            aClass94_3220 = null;
          }
 
       } catch (RuntimeException var2) {
@@ -33,7 +34,7 @@ final class Class3_Sub20 extends Linkable {
 	         Class58.anInt909 = -1;
 	         Class3_Sub13_Sub30.method313((byte)55);
 	         Class3_Sub28_Sub21.aClass47_3801.clear();
-	         Class100.aClass136_1413 = new Class136();
+	         ObjectDefinition.aClass136_1413 = new Class136();
 	         ((Class102)Class51.anInterface2_838).method1618();
 	         Class68.anInt1032 = 0;
 	         Class68.aClass43Array1021 = new Class43[255];
@@ -58,10 +59,10 @@ final class Class3_Sub20 extends Linkable {
 	         Class3_Sub28_Sub9.method581(CacheIndex.fontsIndex, CacheIndex.spritesIndex);
 	         Sprites.method887(CacheIndex.spritesIndex);
 	         Class3_Sub26.aClass3_Sub28_Sub16_2560 = null;
-	         Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099 = null;
+	         ISAACCipher.aClass3_Sub28_Sub16_3099 = null;
 	         Class50.aClass3_Sub28_Sub16_824 = null;
-	         Class95.aClass3_Sub28_Sub16_1339 = null;
-	         Class108.aClass3_Sub28_Sub16_1457 = null;
+	         ISAACCipher.aClass3_Sub28_Sub16_1339 = null;
+	         ISAACCipher.aClass3_Sub28_Sub16_1457 = null;
 	         if(Class143.loadingStage == 5) {
 	            Class108.method1656(CacheIndex.spritesIndex, (byte)-60);
 	         }

@@ -63,7 +63,7 @@ class Class164_Sub1 extends Class164 {
          int var9 = var6 - 238;
          if(var3 < 16) {
             if(var3 == 1) {
-               if(var4 > Class129_Sub1.anInt2697) {
+               if(var4 > Class145.anInt2697) {
                   if(!Class3_Sub13_Sub37.method349(var4, var6, var5)) {
                      return true;
                   }
@@ -119,7 +119,7 @@ class Class164_Sub1 extends Class164 {
             }
 
             if(var3 == 4) {
-               if(var4 < Class129_Sub1.anInt2697) {
+               if(var4 < Class145.anInt2697) {
                   if(!Class3_Sub13_Sub37.method349(var4 + 128, var6, var5)) {
                      return true;
                   }

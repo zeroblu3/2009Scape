@@ -11,7 +11,6 @@ public final class Class3_Sub13_Sub3 extends Class3_Sub13 {
    private int anInt3047 = 4096;
    static KeyboardListener aClass148_3049 = new KeyboardListener();
    private boolean aBoolean3050 = true;
-   static short aShort3052 = 205;
 
 
    static RSString method178(byte[] var0, int var2, int var3) {
@@ -49,7 +48,7 @@ public final class Class3_Sub13_Sub3 extends Class3_Sub13 {
    final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if (!var3) {
-            aShort3052 = -37;
+            CS2Script.aShort3052 = -37;
          }
 
          if (0 == var1) {
@@ -134,7 +133,7 @@ public final class Class3_Sub13_Sub3 extends Class3_Sub13 {
 //            return PacketParser.parseIncomingPackets();
          return PacketDecoder.INSTANCE.decodePacket();
       } catch (IOException var4) {
-         Class3_Sub13_Sub24.method289();
+         Class3_Sub13_Sub13.breakClientConnection();
          return true;
       } catch (Exception var5) {
          String var2 = "T2 - " + Unsorted.incomingOpcode + "," + Class7.anInt2166 + "," + Class24.anInt469 + " - " + Unsorted.incomingPacketLength + "," + (Class131.anInt1716 - -Class102.player.anIntArray2767[0]) + "," + (Class102.player.anIntArray2755[0] + Class82.anInt1152) + " - ";

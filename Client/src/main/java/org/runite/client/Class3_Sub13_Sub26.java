@@ -3,35 +3,27 @@ package org.runite.client;
 final class Class3_Sub13_Sub26 extends Class3_Sub13 {
 
 	static int anInt3332 = 50;
-	static RSString[] aClass94Array3317 = new RSString[anInt3332];
-	static int[] anIntArray3318 = new int[anInt3332];
-	static int[] anIntArray3319 = new int[anInt3332];
 	static int rights = 0;
 	static int[] anIntArray3321 = new int[]{76, 8, 137, 4, 0, 1, 38, 2, 19};
 	private int anInt3322 = 4096;
 	static int anInt3323 = 50;
-	static int[] anIntArray3327 = new int[anInt3332];
 	static int[] anIntArray3328 = new int[8];
-	static int[] anIntArray3329 = new int[anInt3332];
-	static int[] anIntArray3331 = new int[anInt3332];
 	static byte[][] aByteArrayArray3335;
-	static int[] anIntArray3336 = new int[anInt3332];
-	static int[] anIntArray3337 = new int[anInt3332];
 
 
 	public static void method294(byte var0) {
 		try {
-			anIntArray3327 = null;
-			anIntArray3337 = null;
-			aClass94Array3317 = null;
+			Class82.anIntArray3327 = null;
+			Class82.anIntArray3337 = null;
+			Class82.aClass94Array3317 = null;
 			anIntArray3328 = null;
-			anIntArray3319 = null;
-			aByteArrayArray3335 = (byte[][])null;
-			anIntArray3329 = null;
-			anIntArray3336 = null;
+			Class82.anIntArray3319 = null;
+			aByteArrayArray3335 = null;
+			Class82.anIntArray3329 = null;
+			Class82.anIntArray3336 = null;
 			anIntArray3321 = null;
-			anIntArray3318 = null;
-			anIntArray3331 = null;
+			Class82.anIntArray3318 = null;
+			Class82.anIntArray3331 = null;
 		} catch (RuntimeException var2) {
 			throw ClientErrorException.clientError(var2, "pg.B(" + var0 + ')');
 		}

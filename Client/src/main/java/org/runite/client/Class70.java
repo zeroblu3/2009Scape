@@ -24,7 +24,7 @@ final class Class70 {
          Class3_Sub13_Sub36.anInt3423 = var5;
          Class132.anInt1741 = 0;
          Class3_Sub13_Sub39.anInt3463 = var2;
-         Class3_Sub9.aBoolean2311 = false;
+         Unsorted.aBoolean2311 = false;
 
          GraphicDefinition.anInt546 = 10000;
       } catch (RuntimeException var7) {

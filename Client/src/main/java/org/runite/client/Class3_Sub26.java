@@ -9,7 +9,6 @@ final class Class3_Sub26 extends Linkable {
    int anInt2555;
    static int anInt2556 = 0;
    static Class61 aClass61_2557 = new Class61();
-   static boolean aBoolean2558 = false;
    static int[] anIntArray2559 = new int[]{0, 1, 2, 3, 4, 5, 6, 14};
    static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_2560;
    static int anInt2561 = -1;

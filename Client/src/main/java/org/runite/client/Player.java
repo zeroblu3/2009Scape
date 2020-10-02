@@ -25,8 +25,65 @@ final class Player extends Class140_Sub4 {
    int anInt3973 = -1;
    int anInt3974 = 0;
 
+   static RSString combatLevelColor(int otherPlayer, byte levelByte, int yourPlayer) {
+      try {
+         int playerLevelDiff = -otherPlayer + yourPlayer;
+         if (levelByte > -52)
+            return (RSString)null;
+         if (playerLevelDiff < -9)
+            return ColorCore.LvlDiffN9;//Solid Red
+         if (playerLevelDiff < -6)
+            return ColorCore.LvlDiffN6;//Dark Orange
+         if (playerLevelDiff < -3)
+            return ColorCore.LvlDiffN3;//Orange
+         if (playerLevelDiff < 0)
+            return ColorCore.LvlDiffN0;//Yellow-Orange
+         if (playerLevelDiff > 9)
+            return ColorCore.LvlDiffP9;//Bright Green
+         if (playerLevelDiff > 6)
+            return ColorCore.LvlDiffP6;//Green
+         if (playerLevelDiff > 3)
+            return ColorCore.LvlDiffP3;//Yellow-Green
+         if (playerLevelDiff > 0)
+            return ColorCore.LvlDiffP0;//Yellow
 
-   final int getSize() {
+         return ColorCore.LvlDiffDefault;//Yellow
+
+      } catch (RuntimeException var4) {
+         throw ClientErrorException.clientError(var4, "jj.E(" + otherPlayer + ',' + levelByte + ',' + yourPlayer + ')');
+      }
+   }
+
+    /**
+     * Gets the properly colored string for the combat level difference.
+     * @param otherPlayer Their combat level
+     * @param yourPlayer  Your combat level
+     * @returns the RSString color
+     */
+
+    static RSString getCombatLevelDifferenceColor(int otherPlayer, int yourPlayer) {
+       int playerLevelDiff = -otherPlayer + yourPlayer;
+       if (playerLevelDiff < -9)
+          return ColorCore.LvlDiffN9;//Solid Red
+       if (playerLevelDiff < -6)
+          return ColorCore.LvlDiffN6;//Dark Orange
+       if (playerLevelDiff < -3)
+          return ColorCore.LvlDiffN3;//Orange
+       if (playerLevelDiff < 0)
+          return ColorCore.LvlDiffN0;//Yellow-Orange
+       if (playerLevelDiff > 9)
+          return ColorCore.LvlDiffP9;//Bright Green
+       if (playerLevelDiff > 6)
+          return ColorCore.LvlDiffP6;//Green
+       if (playerLevelDiff > 3)
+          return ColorCore.LvlDiffP3;//Yellow-Green
+       if (playerLevelDiff > 0)
+          return ColorCore.LvlDiffP0;//Yellow
+       return ColorCore.LvlDiffDefault;//Yellow
+    }
+
+
+    final int getSize() {
       try {
          if(null == this.class52 || this.class52.pnpcId == -1) {
 

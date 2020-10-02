@@ -6,17 +6,12 @@ final class Class3_Sub9 extends Linkable {
 
    int anInt2307;
    int anInt2308;
-   static int anInt2309 = 128;
    int anInt2310;
-   static boolean aBoolean2311;
    Class3_Sub24_Sub1 aClass3_Sub24_Sub1_2312;
-   static long aLong2313 = 0L;
    int anInt2314;
    Class3_Sub24_Sub1 aClass3_Sub24_Sub1_2315;
    int anInt2316;
-   static int anInt2317 = 0;
    static Class64 aClass64_2318;
-   static int[][] regionXteaKeys;
    ObjectDefinition aClass111_2320;
    int anInt2321;
    int anInt2322 = 0;
@@ -26,10 +21,8 @@ final class Class3_Sub9 extends Linkable {
    Player aClass140_Sub4_Sub1_2327;
    int anInt2328;
    boolean aBoolean2329;
-   static int anInt2330 = 0;
    int anInt2332;
    int[] anIntArray2333;
-   static int anInt2334;
 
 
    static Class3_Sub28_Sub5 method133(int var0) {

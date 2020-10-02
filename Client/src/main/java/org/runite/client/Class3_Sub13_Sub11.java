@@ -2,16 +2,14 @@ package org.runite.client;
 
 import org.rs09.client.data.HashTable;
 import org.rs09.client.data.ReferenceCache;
-import org.rs09.client.data.NodeCache;
 
 final class Class3_Sub13_Sub11 extends Class3_Sub13 {
 
-   private int anInt3129;
+    static int anInt3274;
+    private int anInt3129;
    static ReferenceCache aReferenceCache_3130 = new ReferenceCache(4);
    private int anInt3134;
    private int anInt3135;
-   static NodeCache aClass47_3137 = new NodeCache(64);
-   static int[] anIntArray3139 = new int[14];
 
 
    protected Class3_Sub13_Sub11() {
@@ -108,10 +106,10 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
    static void method220(int var1, int var2) {
       try {
          Class46.anInt741 = Class115.aClass86ArrayArray1581[var2][var1].anInt1185;
-         Class3_Sub13_Sub22.anInt3274 = Class115.aClass86ArrayArray1581[var2][var1].anInt1181;
+         anInt3274 = Class115.aClass86ArrayArray1581[var2][var1].anInt1181;
 
          Class86.anInt1191 = Class115.aClass86ArrayArray1581[var2][var1].anInt1178;
-         Class92.setLightPosition((float)Class46.anInt741, (float)Class3_Sub13_Sub22.anInt3274, (float)Class86.anInt1191);
+         Class92.setLightPosition((float)Class46.anInt741, (float) anInt3274, (float)Class86.anInt1191);
       } catch (RuntimeException var4) {
          throw ClientErrorException.clientError(var4, "fm.C(" + true + ',' + var1 + ',' + var2 + ')');
       }

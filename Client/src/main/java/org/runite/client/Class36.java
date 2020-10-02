@@ -33,7 +33,7 @@ final class Class36 {
 
    static RSString method1013(byte var0, int var1) {
       try {
-         RSString var2 = Class72.method1298((byte)9, var1);
+         RSString var2 = Class72.method1298(var1);
          if(var0 >= -87) {
             return (RSString)null;
          } else {
@@ -93,7 +93,7 @@ final class Class36 {
                   var7 = Class51.anIntArray834[LinkableRSString.method729((byte)-63, var10, 96)];
                }
 
-               Class84.anIntArray1161[1 + var4] = var7;
+               Class83.anIntArray1161[1 + var4] = var7;
             }
          }
 

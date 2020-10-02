@@ -362,7 +362,7 @@ final class Class140_Sub1_Sub2 extends Model {
                         int var34;
                         int var32;
                         int var33;
-                        if(var9 > 0L && Class3_Sub13_Sub7.aBoolean3094 && var14 > 0) {
+                        if(var9 > 0L && Class3_Sub13_Sub36.aBoolean3094 && var14 > 0) {
                            if(var17 > 0) {
                               var31 = var19 / var13;
                               var33 = var18 / var14;
@@ -1614,8 +1614,8 @@ final class Class140_Sub1_Sub2 extends Model {
       this.aShort3892 = (short)var5;
       this.aShort3879 = (short)var3;
       this.aShort3888 = (short)var6;
-      this.aShort3884 = (short)((int)(Math.sqrt((double)var7) + 0.99D));
-      this.aShort3886 = (short)((int)(Math.sqrt((double)var8) + 0.99D));
+      this.aShort3884 = (short)((int)(Math.sqrt(var7) + 0.99D));
+      this.aShort3886 = (short)((int)(Math.sqrt(var8) + 0.99D));
       this.aBoolean3897 = true;
    }
 

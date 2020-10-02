@@ -2,16 +2,13 @@ package org.runite.client;
 
 final class Class96 {
 
-   static int anInt1345;
    int anInt1346;
    int anInt1347;
    int anInt1350;
    int anInt1351;
    int anInt1353;
-   static int anInt1354 = 0;
    int anInt1355 = -1;
    int anInt1356;
-   static int anInt1357 = 0;
    static int anInt1358 = 0;
    int anInt1359;
    int anInt1360;
@@ -76,7 +73,7 @@ final class Class96 {
                                  }
 
                                  --var2;
-                                 ObjectDefinition var3 = Class162.getObjectDefinition(var2);
+                                 ObjectDefinition var3 = ObjectDefinition.getObjectDefinition(var2);
                                  if(null != var3.ChildrenIds) {
                                     var3 = var3.method1685(0);
                                     if(var3 == null || var3.MapIcon == -1) {

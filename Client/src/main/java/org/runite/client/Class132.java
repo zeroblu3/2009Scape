@@ -5,10 +5,7 @@ import org.rs09.client.config.GameConfig;
 final class Class132 {
 
    static int anInt1734 = 0;
-   static int anInt1736;
-   static int anInt1737 = 1;
    static RSString[] aClass94Array1739 = new RSString[1000];
-   static int anInt1740 = 0;
    static int anInt1741;
 
 
@@ -17,7 +14,7 @@ final class Class132 {
          long var2 = 0L;
          int var4 = -1;
          if(var0 <= 17) {
-            anInt1740 = -43;
+            Class159.anInt1740 = -43;
          }
 
          int var5 = 0;

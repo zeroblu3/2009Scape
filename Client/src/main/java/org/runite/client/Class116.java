@@ -5,7 +5,9 @@ import java.util.Random;
 
 final class Class116 {
 
-   private Class34 aClass34_1584;
+    static int[][] anIntArrayArray1435 = new int[2][8];
+    static int anInt1436;
+    private Class34 aClass34_1584;
    private Class34 aClass34_1585;
    int anInt1586 = 500;
    private Class34 aClass34_1587;
@@ -146,14 +148,14 @@ final class Class116 {
 
                int var17;
                while (var14 < var15) {
-                  var16 = (int) ((long) anIntArray1598[var14 + var12] * (long) Class103.anInt1436 >> 16);
+                  var16 = (int) ((long) anIntArray1598[var14 + var12] * (long) anInt1436 >> 16);
 
                   for (var17 = 0; var17 < var12; ++var17) {
-                     var16 += (int) ((long) anIntArray1598[var14 + var12 - 1 - var17] * (long) Class103.anIntArrayArray1435[0][var17] >> 16);
+                     var16 += (int) ((long) anIntArray1598[var14 + var12 - 1 - var17] * (long) anIntArrayArray1435[0][var17] >> 16);
                   }
 
                   for (var17 = 0; var17 < var14; ++var17) {
-                     var16 -= (int) ((long) anIntArray1598[var14 - 1 - var17] * (long) Class103.anIntArrayArray1435[1][var17] >> 16);
+                     var16 -= (int) ((long) anIntArray1598[var14 - 1 - var17] * (long) anIntArrayArray1435[1][var17] >> 16);
                   }
 
                   anIntArray1598[var14] = var16;
@@ -169,14 +171,14 @@ final class Class116 {
                   }
 
                   while (var14 < var15) {
-                     var16 = (int) ((long) anIntArray1598[var14 + var12] * (long) Class103.anInt1436 >> 16);
+                     var16 = (int) ((long) anIntArray1598[var14 + var12] * (long) anInt1436 >> 16);
 
                      for (var17 = 0; var17 < var12; ++var17) {
-                        var16 += (int) ((long) anIntArray1598[var14 + var12 - 1 - var17] * (long) Class103.anIntArrayArray1435[0][var17] >> 16);
+                        var16 += (int) ((long) anIntArray1598[var14 + var12 - 1 - var17] * (long) anIntArrayArray1435[0][var17] >> 16);
                      }
 
                      for (var17 = 0; var17 < var13; ++var17) {
-                        var16 -= (int) ((long) anIntArray1598[var14 - 1 - var17] * (long) Class103.anIntArrayArray1435[1][var17] >> 16);
+                        var16 -= (int) ((long) anIntArray1598[var14 - 1 - var17] * (long) anIntArrayArray1435[1][var17] >> 16);
                      }
 
                      anIntArray1598[var14] = var16;
@@ -189,11 +191,11 @@ final class Class116 {
                         var16 = 0;
 
                         for (var17 = var14 + var12 - var1; var17 < var12; ++var17) {
-                           var16 += (int) ((long) anIntArray1598[var14 + var12 - 1 - var17] * (long) Class103.anIntArrayArray1435[0][var17] >> 16);
+                           var16 += (int) ((long) anIntArray1598[var14 + var12 - 1 - var17] * (long) anIntArrayArray1435[0][var17] >> 16);
                         }
 
                         for (var17 = 0; var17 < var13; ++var17) {
-                           var16 -= (int) ((long) anIntArray1598[var14 - 1 - var17] * (long) Class103.anIntArrayArray1435[1][var17] >> 16);
+                           var16 -= (int) ((long) anIntArray1598[var14 - 1 - var17] * (long) anIntArrayArray1435[1][var17] >> 16);
                         }
 
                         anIntArray1598[var14] = var16;

@@ -6,8 +6,8 @@ import java.util.Objects;
 
 final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
-	private boolean aBoolean3100 = true;
-	static int anInt3101 = 0;
+    static CacheIndex aClass153_1967;
+    private boolean aBoolean3100 = true;
 	static int anInt3102 = 0;
 	static int anInt3103;
 	private boolean aBoolean3104 = true;
@@ -76,7 +76,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			if(Unsorted.anInt3660 == 2) {
 				if(Class3_Sub13_Sub39.anInt3460 == NPCDefinition.anInt1297 && Class38_Sub1.anInt2612 == Class168.anInt2099) {
 					Unsorted.anInt3660 = 0;
-					if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
+					if(ClientCommands.shiftClickEnabled && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
 						Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 + -2);
 					} else {
 						Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 + -1);
@@ -84,7 +84,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 				}
 			} else if(NPCDefinition.anInt1297 == Class163_Sub1.anInt2993 && Class38_Sub1.anInt2614 == Class38_Sub1.anInt2612) {
 				Unsorted.anInt3660 = 0;
-				if(Class101.aBoolean1419 && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
+				if(ClientCommands.shiftClickEnabled && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
 					Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 - 2);
 				} else {
 					Class3_Sub30_Sub1.method806(Class3_Sub13_Sub34.anInt3415 - 1);
@@ -111,7 +111,7 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 			}
 
 			Class3_Sub13_Sub1.outgoingBuffer.writeShort(Class140_Sub7.anInt2934);
-			Class3_Sub13_Sub1.outgoingBuffer.writeByte(WorldMap.anInt3671);
+			Class3_Sub13_Sub1.outgoingBuffer.writeByte(Unsorted.anInt3671);
 		} catch (RuntimeException var2) {
 			throw ClientErrorException.clientError(var2, "ej.C(" + var0 + ')');
 		}
@@ -119,15 +119,15 @@ final class Class3_Sub13_Sub8 extends Class3_Sub13 {
 
 	static void method205(CacheIndex var0, CacheIndex var2, Interface4 var3) {
 		try {
-			Class154.aClass153_1967 = var0;
+			aClass153_1967 = var0;
 			Class58.anInterface4_915 = var3;
 			Class3_Sub24_Sub3.aClass153_3490 = var2;
 			if(Class3_Sub24_Sub3.aClass153_3490 != null) {
 				Class83.anInt1156 = Class3_Sub24_Sub3.aClass153_3490.getFileAmount(1);
 			}
 
-			if(Class154.aClass153_1967 != null) {
-				RenderAnimationDefinition.anInt377 = Class154.aClass153_1967.getFileAmount(1);
+			if(aClass153_1967 != null) {
+				RenderAnimationDefinition.anInt377 = aClass153_1967.getFileAmount(1);
 			}
 		} catch (RuntimeException var5) {
 			throw ClientErrorException.clientError(var5, "ej.E(" + (var0 != null?"{...}":"null") + ',' + 115 + ',' + (var2 != null?"{...}":"null") + ',' + (var3 != null?"{...}":"null") + ')');

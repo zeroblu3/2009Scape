@@ -12,7 +12,6 @@ public final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 	static RSString aClass2323;
 	static String aString2324;
 	static RSString aClass2325;
-	static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array3041 = new Class3_Sub28_Sub5[14];
 
 
 	static void method167(int var0) {
@@ -137,10 +136,10 @@ public final class Class3_Sub13_Sub1 extends Class3_Sub13 {
 				Unsorted.method1095(var2, var8, var4, GameObject.aClass11ArrayArray1834[var1], var3, -1, var7, var6, (byte)119, var5);
 			} else if (var5 == -1) {
 				for (int var9 = 0; var9 < 100; ++var9) {
-					WorldMap.aBooleanArray3674[var9] = true;
+					Unsorted.aBooleanArray3674[var9] = true;
 				}
 			} else {
-				WorldMap.aBooleanArray3674[var5] = true;
+				Unsorted.aBooleanArray3674[var5] = true;
 			}
 		} catch (RuntimeException var10) {
 			throw ClientErrorException.clientError(var10, "ag.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ')');

@@ -6,6 +6,7 @@ import java.util.Date;
 final class Class15 implements Runnable {
 
    static short[][] aShortArrayArray344;
+   static int anInt4034 = -8 + (int)(17.0D * Math.random());
    volatile boolean aBoolean345 = false;
    static boolean aBoolean346;
    static int[] localNPCIndexes = new int['\u8000'];
@@ -63,7 +64,7 @@ final class Class15 implements Runnable {
    static void method889(DataBuffer var1) {
       try {
          int var3 = Class158.anInt2010 >> 1;
-         int var2 = Class3_Sub13_Sub23_Sub1.anInt4034 >> 2 << 10;
+         int var2 = anInt4034 >> 2 << 10;
          byte[][] var4 = new byte[Class23.anInt455][Class108.anInt1460];
 
          int var6;
@@ -233,7 +234,7 @@ final class Class15 implements Runnable {
          }
 
          for(int var2 = 0; var2 < Class95.anInt1338; ++var2) {
-            int var3 = Class140_Sub7.anIntArray2931[var2] * Class3_Sub13_Sub6.anIntArray3076[var2];
+            int var3 = Class140_Sub7.anIntArray2931[var2] * Unsorted.anIntArray3076[var2];
             byte[] var4 = Class163_Sub1.aByteArrayArray2987[var2];
             int[] var5 = new int[var3];
 
@@ -242,9 +243,9 @@ final class Class15 implements Runnable {
             }
 
             if(HDToolKit.highDetail) {
-               var1[var2] = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+               var1[var2] = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Unsorted.anIntArray3076[var2], var5);
             } else {
-               var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+               var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Unsorted.anIntArray3076[var2], var5);
             }
          }
 
@@ -265,7 +266,7 @@ final class Class15 implements Runnable {
          int var7 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.HOUR_OF_DAY);
          int var8 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.MINUTE);
          int var9 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.SECOND);
-         return RenderAnimationDefinition.method903(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], TextCore.aClass94_3145, Class72.method1298((byte)9, var4 / 10), Class72.method1298((byte)9, var4 % 10), TextCore.aClass94_2025, TextCore.MonthsOfTheYear[var5], TextCore.aClass94_2025, Class72.method1298((byte)9, var6), TextCore.aClass94_465, Class72.method1298((byte)9, var7 / 10), Class72.method1298((byte)9, var7 % 10), TextCore.char_colon, Class72.method1298((byte)9, var8 / 10), Class72.method1298((byte)9, var8 % 10), TextCore.char_colon, Class72.method1298((byte)9, var9 / 10), Class72.method1298((byte)9, var9 % 10), TextCore.timeZone});
+         return RenderAnimationDefinition.method903(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], TextCore.aClass94_3145, Class72.method1298(var4 / 10), Class72.method1298(var4 % 10), TextCore.aClass94_2025, TextCore.MonthsOfTheYear[var5], TextCore.aClass94_2025, Class72.method1298(var6), TextCore.aClass94_465, Class72.method1298(var7 / 10), Class72.method1298(var7 % 10), TextCore.char_colon, Class72.method1298(var8 / 10), Class72.method1298(var8 % 10), TextCore.char_colon, Class72.method1298(var9 / 10), Class72.method1298(var9 % 10), TextCore.timeZone});
       } catch (RuntimeException var10) {
          throw ClientErrorException.clientError(var10, "cj.F(" + var0 + ')');
       }

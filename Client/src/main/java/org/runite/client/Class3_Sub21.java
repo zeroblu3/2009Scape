@@ -23,7 +23,7 @@ final class Class3_Sub21 extends Linkable {
 
    static void method394(int var0, int var1) {
       try {
-         Class3_Sub13_Sub23.anInt3285 = var0;
+         Class165.anInt3285 = var0;
          Unsorted.method383(-32584, 3);
          Unsorted.method383(-32584, 4);
          if(var1 <= 83) {
@@ -44,7 +44,7 @@ final class Class3_Sub21 extends Linkable {
       int var12;
       int var13;
       for(var9 = 0; var9 < var8; ++var9) {
-         var10 = var0.anIntArray627[var9] - Class129_Sub1.anInt2697;
+         var10 = var0.anIntArray627[var9] - Class145.anInt2697;
          var11 = var0.anIntArray615[var9] - Unsorted.anInt3657;
          var12 = var0.anIntArray618[var9] - Class3_Sub13_Sub30.anInt3363;
          var13 = var12 * var3 + var10 * var4 >> 16;
@@ -97,7 +97,7 @@ final class Class3_Sub21 extends Linkable {
                      }
                   } else {
                      int var19 = Class51.anInterface2_838.method15(var0.anIntArray616[var9], '\uffff');
-                     Class51.method1154(var16, var17, var18, var13, var14, var15, Class127.method1753(var19, var0.anIntArray625[var9]), Class127.method1753(var19, var0.anIntArray632[var9]), Class127.method1753(var19, var0.anIntArray631[var9]));
+                     Class51.method1154(var16, var17, var18, var13, var14, var15, LoginHandler.method1753(var19, var0.anIntArray625[var9]), LoginHandler.method1753(var19, var0.anIntArray632[var9]), LoginHandler.method1753(var19, var0.anIntArray631[var9]));
                   }
                } else if(var0.anIntArray625[var9] != 12345678) {
                   Class51.method1154(var16, var17, var18, var13, var14, var15, var0.anIntArray625[var9], var0.anIntArray632[var9], var0.anIntArray631[var9]);

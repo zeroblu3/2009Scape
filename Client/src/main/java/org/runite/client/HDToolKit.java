@@ -242,9 +242,9 @@ public final class HDToolKit {
          }
 
          GLDrawableFactory var1 = GLDrawableFactory.getFactory();
-         GLDrawable var2 = var1.getGLDrawable(var0, (GLCapabilities)null, (GLCapabilitiesChooser)null);
+         GLDrawable var2 = var1.getGLDrawable(var0, null, null);
          var2.setRealized(true);
-         GLContext var3 = var2.createContext((GLContext)null);
+         GLContext var3 = var2.createContext(null);
          var3.makeCurrent();
          var3.release();
          var3.destroy();
@@ -268,7 +268,7 @@ public final class HDToolKit {
       if(!viewportSetup) {
          gl.glMatrixMode(5889);
          gl.glLoadIdentity();
-         gl.glOrtho(0.0D, (double) viewWidth, 0.0D, (double) viewHeight, -1.0D, 1.0D);
+         gl.glOrtho(0.0D, viewWidth, 0.0D, viewHeight, -1.0D, 1.0D);
          gl.glViewport(0, 0, viewWidth, viewHeight);
          gl.glMatrixMode(5888);
          gl.glLoadIdentity();
@@ -579,13 +579,13 @@ public final class HDToolKit {
             }
 
             GLDrawableFactory var3 = GLDrawableFactory.getFactory();
-            aGLDrawable1815 = var3.getGLDrawable(var0, var2, (GLCapabilitiesChooser)null);
+            aGLDrawable1815 = var3.getGLDrawable(var0, var2, null);
             aGLDrawable1815.setRealized(true);
             int var4 = 0;
 
             int var5;
             while(true) {
-               aGLContext1800 = aGLDrawable1815.createContext((GLContext)null);
+               aGLContext1800 = aGLDrawable1815.createContext(null);
 
                try {
                   var5 = aGLContext1800.makeCurrent();

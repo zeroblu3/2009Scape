@@ -1,13 +1,9 @@
 package org.runite.client;
 
-import org.rs09.client.LinkableInt;
-
 final class Class106 {
 
    static boolean aBoolean1441 = true;
    static int anInt1442 = 0;
-   static Class67 aClass67_1443;
-   static short aShort1444 = 256;
    static int anInt1446 = 0;
    int anInt1447;
    int anInt1449;
@@ -34,38 +30,6 @@ final class Class106 {
          }
       } catch (RuntimeException var5) {
          throw ClientErrorException.clientError(var5, "od.C(" + 3803 + ',' + (var1 != null?"{...}":"null") + ')');
-      }
-   }
-
-   static int method1643(boolean var1, int var2, int var3) {
-      try {
-
-          Class3_Sub25 var4 = (Class3_Sub25)Class3_Sub2.aHashTable_2220.get((long)var2);
-         if(null == var4) {
-            return 0;
-         } else {
-            int var5 = 0;
-
-            for(int var6 = 0; var6 < var4.anIntArray2547.length; ++var6) {
-               if(var4.anIntArray2547[var6] >= 0 && Class3_Sub13_Sub23.itemDefinitionSize > var4.anIntArray2547[var6]) {
-                  ItemDefinition var7 = Class38.getItemDefinition(var4.anIntArray2547[var6]);
-                  if(null != var7.aHashTable_798) {
-                     LinkableInt var8 = (LinkableInt)var7.aHashTable_798.get((long)var3);
-                     if(null != var8) {
-                        if(var1) {
-                           var5 += var4.anIntArray2551[var6] * var8.value;
-                        } else {
-                           var5 += var8.value;
-                        }
-                     }
-                  }
-               }
-            }
-
-            return var5;
-         }
-      } catch (RuntimeException var9) {
-         throw ClientErrorException.clientError(var9, "od.B(" + 10131 + ',' + var1 + ',' + var2 + ',' + var3 + ')');
       }
    }
 

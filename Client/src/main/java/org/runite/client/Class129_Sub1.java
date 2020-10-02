@@ -12,9 +12,7 @@ final class Class129_Sub1 extends Class129 {
     private int anInt2692;
     static int anInt2693 = 0;
     private final long[] aLongArray2694 = new long[10];
-    static Image anImage2695;
     static int[] anIntArray2696 = new int[2];
-    static int anInt2697;
 
 
     final void method1770() {

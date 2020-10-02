@@ -102,7 +102,7 @@ final class Class56 {
          Unsorted.aByteArrayArrayArray1328 = (byte[][][])null;
          PacketParser.aByteArrayArrayArray81 = (byte[][][])null;
          Class67.aByteArrayArrayArray1014 = (byte[][][])null;
-         Class139.aByteArrayArrayArray1828 = (byte[][][])null;
+         Class158_Sub1.aByteArrayArrayArray1828 = (byte[][][])null;
          Class3_Sub13_Sub36.aByteArrayArrayArray3430 = (byte[][][])null;
          Unsorted.anIntArray1138 = null;
          Class129.anIntArray1695 = null;
@@ -191,7 +191,7 @@ final class Class56 {
       }
 
       if(var10) {
-         AnimationDefinition.aClass25Array1868[Class3_Sub13_Sub5.anInt3070++] = var20;
+         AnimationDefinition.aClass25Array1868[Unsorted.anInt3070++] = var20;
       }
 
       return true;

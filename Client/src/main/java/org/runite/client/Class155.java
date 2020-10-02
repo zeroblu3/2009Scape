@@ -6,13 +6,9 @@ import java.awt.Component;
 class Class155 {
 
    static int[] anIntArray1969 = new int[100];
-   static int anInt1971;
    private long aLong1972 = TimeUtils.time();
    private Class3_Sub24 aClass3_Sub24_1973;
    int[] anIntArray1975;
-   static int[] anIntArray1976 = new int[]{1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0};
-   static int anInt1977 = 0;
-   static int[] anIntArray1978 = new int[128];
    private long aLong1979 = 0L;
    private final Class3_Sub24[] aClass3_Sub24Array1980 = new Class3_Sub24[8];
    private int anInt1981 = 0;

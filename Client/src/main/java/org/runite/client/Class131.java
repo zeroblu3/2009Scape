@@ -5,7 +5,9 @@ import org.rs09.client.config.GameConfig;
 final class Class131 {
 
    static int anInt1716;
-   short[] aShortArray1718;
+    static RSString password = TextCore.aClass94_3672;
+    static RSString username = TextCore.aClass94_3672;
+    short[] aShortArray1718;
    static int anInt1719 = -1;
    int anInt1720;
    RSString[] aClass94Array1721;
@@ -13,7 +15,6 @@ final class Class131 {
    static CacheIndex aClass153_1723;
    int[] anIntArray1725;
    short[] aShortArray1727;
-   static int[] anIntArray1729 = new int[]{12543016, 15504954, 15914854, 16773818};
    byte[] aByteArray1730;
 
    static void addLocalPlayers() {
@@ -124,23 +125,23 @@ final class Class131 {
 
    static void method1793(RSString var0, RSString var1, int var2) {
       try {
-         WorldMap.password = var1;
+         password = var1;
          Class7.anInt2161 = var2;
-         WorldMap.username = var0;
-         if(WorldMap.username.equalsString(TextCore.aClass94_3672) || WorldMap.password.equalsString(TextCore.aClass94_3672)) {
+         username = var0;
+         if(username.equalsString(TextCore.aClass94_3672) || password.equalsString(TextCore.aClass94_3672)) {
             Class158.anInt2005 = 3;
          } else if (CS2Script.anInt2451 == -1) {
-            Class3_Sub2.anInt2246 = 0;
-            Class117.anInt1616 = 0;
+            Class163_Sub1_Sub1.anInt2246 = 0;
+            Class163_Sub1_Sub1.anInt1616 = 0;
             Class158.anInt2005 = -3;
-            Class3_Sub13_Sub31.anInt3375 = 1;
+            Class163_Sub1_Sub1.anInt3375 = 1;
             DataBuffer var4 = new DataBuffer(128);
             var4.writeByte(10);
             var4.writeShort((int) (Math.random() * 99999.0D));
             var4.writeShort(GameConfig.CLIENT_BUILD);
-            var4.writeLong(WorldMap.username.toLong());
+            var4.writeLong(username.toLong());
             var4.writeInt((int) (Math.random() * 9.9999999E7D));
-            var4.writeString(WorldMap.password);
+            var4.writeString(password);
             var4.writeInt((int) (Math.random() * 9.9999999E7D));
             var4.rsaEncrypt(Class3_Sub13_Sub14.aBigInteger3162, Class3_Sub13_Sub37.aBigInteger3441);
             Class3_Sub13_Sub1.outgoingBuffer.index = 0;

@@ -17,7 +17,6 @@ final class Class86 {
     float aFloat1189;
     float aFloat1190;
     static int anInt1191;
-    static Class3_Sub24_Sub4 aClass3_Sub24_Sub4_1193;
     static int screenLowerY;
 
     static void method1427(int var1) {
@@ -51,12 +50,12 @@ final class Class86 {
 
     static Class3_Sub28_Sub17_Sub1 method1430(int var1) {
         try {
-            Class3_Sub28_Sub17_Sub1 var2 = (Class3_Sub28_Sub17_Sub1) Unsorted.aReferenceCache_1135.get((long) var1);
+            Class3_Sub28_Sub17_Sub1 var2 = (Class3_Sub28_Sub17_Sub1) Unsorted.aReferenceCache_1135.get(var1);
             if (var2 == null) {
                 byte[] var3 = CacheIndex.fontsIndex.getFile(var1, 0);
                 var2 = new Class3_Sub28_Sub17_Sub1(var3);
-                var2.method697(Class3_Sub13_Sub22.aClass109Array3270, (int[]) null);
-                Unsorted.aReferenceCache_1135.put(var2, (long) var1);
+                var2.method697(Class3_Sub13_Sub22.aClass109Array3270, null);
+                Unsorted.aReferenceCache_1135.put(var2, var1);
             }
             return var2;
         } catch (RuntimeException var4) {

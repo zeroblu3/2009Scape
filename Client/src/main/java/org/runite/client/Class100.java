@@ -4,12 +4,10 @@ import java.util.Random;
 final class Class100 {
 
    int anInt1406;
-   static int anInt1407;
    int anInt1408;
 
    boolean aBoolean1411 = true;
    int anInt1412 = -1;
-   static Class136 aClass136_1413 = new Class136();
    int anInt1414 = 128;
    static int worldListArraySize;
    int anInt1417;

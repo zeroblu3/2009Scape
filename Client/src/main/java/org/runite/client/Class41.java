@@ -5,6 +5,7 @@ import java.io.IOException;
 
 final class Class41 {
 
+    static byte[] aByteArray2040 = new byte[520];
     private final Class30 aClass30_681;
     int cacheIndex;
     private final Class30 aClass30_683;
@@ -38,9 +39,9 @@ final class Class41 {
                 }
 
                 this.aClass30_683.method984(-35, (long) (6 * var1));
-                this.aClass30_683.method978(0, Class162.aByteArray2040, 6);
-                int var5 = ((255 & Class162.aByteArray2040[3]) << 16) - (-(Class162.aByteArray2040[4] << 8 & '\uff00') + -(255 & Class162.aByteArray2040[5]));
-                int var4 = (Class162.aByteArray2040[2] & 255) + ('\uff00' & Class162.aByteArray2040[1] << 8) + (16711680 & Class162.aByteArray2040[0] << 16);
+                this.aClass30_683.method978(0, aByteArray2040, 6);
+                int var5 = ((255 & aByteArray2040[3]) << 16) - (-(aByteArray2040[4] << 8 & '\uff00') + -(255 & aByteArray2040[5]));
+                int var4 = (aByteArray2040[2] & 255) + ('\uff00' & aByteArray2040[1] << 8) + (16711680 & aByteArray2040[0] << 16);
                 if (this.anInt687 < var4) {
                     var10000 = null;
                     return (byte[]) var10000;
@@ -63,11 +64,11 @@ final class Class41 {
                             var10 = 512;
                         }
 
-                        this.aClass30_681.method978(0, Class162.aByteArray2040, 8 + var10);
-                        int var11 = (Class162.aByteArray2040[0] << 8 & '\uff00') - -(255 & Class162.aByteArray2040[1]);
-                        int var12 = (Class162.aByteArray2040[3] & 255) + ('\uff00' & Class162.aByteArray2040[2] << 8);
-                        int var14 = 255 & Class162.aByteArray2040[7];
-                        var13 = (Class162.aByteArray2040[6] & 255) + ('\uff00' & Class162.aByteArray2040[5] << 8) + (Class162.aByteArray2040[4] << 16 & 16711680);
+                        this.aClass30_681.method978(0, aByteArray2040, 8 + var10);
+                        int var11 = (aByteArray2040[0] << 8 & '\uff00') - -(255 & aByteArray2040[1]);
+                        int var12 = (aByteArray2040[3] & 255) + ('\uff00' & aByteArray2040[2] << 8);
+                        int var14 = 255 & aByteArray2040[7];
+                        var13 = (aByteArray2040[6] & 255) + ('\uff00' & aByteArray2040[5] << 8) + (aByteArray2040[4] << 16 & 16711680);
                         if (var1 != var11 || var9 != var12 || this.cacheIndex != var14) {
                             var10000 = null;
                             return (byte[]) var10000;
@@ -79,7 +80,7 @@ final class Class41 {
                         }
 
                         for (int var15 = 0; var10 > var15; ++var15) {
-                            var7[var8++] = Class162.aByteArray2040[var15 + 8];
+                            var7[var8++] = aByteArray2040[var15 + 8];
                         }
 
                         ++var9;
@@ -114,8 +115,8 @@ final class Class41 {
                     }
 
                     this.aClass30_683.method984(-116, (long) (6 * var3));
-                    this.aClass30_683.method978(0, Class162.aByteArray2040, 6);
-                    var7 = (16711680 & Class162.aByteArray2040[3] << 16) + ('\uff00' & Class162.aByteArray2040[4] << 8) + (Class162.aByteArray2040[5] & 255);
+                    this.aClass30_683.method978(0, aByteArray2040, 6);
+                    var7 = (16711680 & aByteArray2040[3] << 16) + ('\uff00' & aByteArray2040[4] << 8) + (aByteArray2040[5] & 255);
                     if (var7 <= 0 || (long) var7 > this.aClass30_681.method976(0) / 520L) {
                         return false;
                     }
@@ -126,20 +127,20 @@ final class Class41 {
                     }
                 }
 
-                Class162.aByteArray2040[0] = (byte) (var2 >> 16);
-                Class162.aByteArray2040[4] = (byte) (var7 >> 8);
+                aByteArray2040[0] = (byte) (var2 >> 16);
+                aByteArray2040[4] = (byte) (var7 >> 8);
                 int var8 = 0;
-                Class162.aByteArray2040[5] = (byte) var7;
-                Class162.aByteArray2040[2] = (byte) var2;
-                Class162.aByteArray2040[3] = (byte) (var7 >> 16);
+                aByteArray2040[5] = (byte) var7;
+                aByteArray2040[2] = (byte) var2;
+                aByteArray2040[3] = (byte) (var7 >> 16);
                 if (var1 != 87) {
                     this.method1054((byte) 41, 108, -107, (byte[]) null, true);
                 }
 
                 int var9 = 0;
-                Class162.aByteArray2040[1] = (byte) (var2 >> 8);
+                aByteArray2040[1] = (byte) (var2 >> 8);
                 this.aClass30_683.method984(-14, (long) (var3 * 6));
-                this.aClass30_683.method983(Class162.aByteArray2040, 0, var1 ^ -903171097, 6);
+                this.aClass30_683.method983(aByteArray2040, 0, var1 ^ -903171097, 6);
 
                 while (true) {
                     if (var2 > var8) {
@@ -151,15 +152,15 @@ final class Class41 {
                                 this.aClass30_681.method984(-116, (long) (520 * var7));
 
                                 try {
-                                    this.aClass30_681.method978(0, Class162.aByteArray2040, 8);
+                                    this.aClass30_681.method978(0, aByteArray2040, 8);
                                 } catch (EOFException var15) {
                                     break label146;
                                 }
 
-                                var10 = ((Class162.aByteArray2040[4] & 255) << 16) + ('\uff00' & Class162.aByteArray2040[5] << 8) - -(Class162.aByteArray2040[6] & 255);
-                                var11 = (255 & Class162.aByteArray2040[1]) + ((Class162.aByteArray2040[0] & 255) << 8);
-                                int var13 = 255 & Class162.aByteArray2040[7];
-                                int var12 = (Class162.aByteArray2040[3] & 255) + (Class162.aByteArray2040[2] << 8 & '\uff00');
+                                var10 = ((aByteArray2040[4] & 255) << 16) + ('\uff00' & aByteArray2040[5] << 8) - -(aByteArray2040[6] & 255);
+                                var11 = (255 & aByteArray2040[1]) + ((aByteArray2040[0] & 255) << 8);
+                                int var13 = 255 & aByteArray2040[7];
+                                int var12 = (aByteArray2040[3] & 255) + (aByteArray2040[2] << 8 & '\uff00');
                                 if (var11 != var3 || var12 != var9 || var13 != this.cacheIndex) {
                                     return false;
                                 }
@@ -182,26 +183,26 @@ final class Class41 {
                                 }
                             }
 
-                            Class162.aByteArray2040[7] = (byte) this.cacheIndex;
-                            Class162.aByteArray2040[0] = (byte) (var3 >> 8);
+                            aByteArray2040[7] = (byte) this.cacheIndex;
+                            aByteArray2040[0] = (byte) (var3 >> 8);
                             if (-var8 + var2 <= 512) {
                                 var10 = 0;
                             }
 
-                            Class162.aByteArray2040[4] = (byte) (var10 >> 16);
+                            aByteArray2040[4] = (byte) (var10 >> 16);
                             if (var11 > 512) {
                                 var11 = 512;
                             }
 
-                            Class162.aByteArray2040[1] = (byte) var3;
-                            Class162.aByteArray2040[6] = (byte) var10;
-                            Class162.aByteArray2040[2] = (byte) (var9 >> 8);
-                            Class162.aByteArray2040[3] = (byte) var9;
+                            aByteArray2040[1] = (byte) var3;
+                            aByteArray2040[6] = (byte) var10;
+                            aByteArray2040[2] = (byte) (var9 >> 8);
+                            aByteArray2040[3] = (byte) var9;
                             ++var9;
-                            Class162.aByteArray2040[5] = (byte) (var10 >> 8);
+                            aByteArray2040[5] = (byte) (var10 >> 8);
                             this.aClass30_681.method984(var1 + -128, (long) (var7 * 520));
                             var7 = var10;
-                            this.aClass30_681.method983(Class162.aByteArray2040, 0, -903171152, 8);
+                            this.aClass30_681.method983(aByteArray2040, 0, -903171152, 8);
                             this.aClass30_681.method983(var4, var8, -903171152, var11);
                             var8 += var11;
                             continue;

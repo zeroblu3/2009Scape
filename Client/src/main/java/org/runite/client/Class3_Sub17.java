@@ -36,12 +36,12 @@ final class Class3_Sub17 extends Linkable {
 			}
 
 			for(int var1 = 0; var1 < Class3_Sub28_Sub3.anInt3557; ++var1) {
-				if(WorldMap.aBooleanArray3674[var1]) {
+				if(Unsorted.aBooleanArray3674[var1]) {
 					Class163_Sub1_Sub1.aBooleanArray4008[var1] = true;
 				}
 
-				Unsorted.aBooleanArray1712[var1] = WorldMap.aBooleanArray3674[var1];
-				WorldMap.aBooleanArray3674[var1] = false;
+				Unsorted.aBooleanArray1712[var1] = Unsorted.aBooleanArray3674[var1];
+				Unsorted.aBooleanArray3674[var1] = false;
 			}
 
 			Class53.anInt865 = -1;

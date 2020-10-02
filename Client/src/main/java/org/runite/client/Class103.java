@@ -7,8 +7,6 @@ final class Class103 {
    private final int[][][] anIntArrayArrayArray1432 = new int[2][2][4];
    private static float aFloat1433;
    int[] anIntArray1434 = new int[2];
-   static int[][] anIntArrayArray1435 = new int[2][8];
-   static int anInt1436;
    private final int[] anIntArray1437 = new int[2];
 
 
@@ -62,7 +60,7 @@ final class Class103 {
          var3 = (float)this.anIntArray1437[0] + (float)(this.anIntArray1437[1] - this.anIntArray1437[0]) * var2;
          var3 *= 0.0030517578F;
          aFloat1433 = (float)Math.pow(0.1D, (double)(var3 / 20.0F));
-         anInt1436 = (int)(aFloat1433 * 65536.0F);
+         Class116.anInt1436 = (int)(aFloat1433 * 65536.0F);
       }
 
       if(this.anIntArray1434[var1] == 0) {
@@ -95,7 +93,7 @@ final class Class103 {
          }
 
          for(var4 = 0; var4 < this.anIntArray1434[var1] * 2; ++var4) {
-            anIntArrayArray1435[var1][var4] = (int)(aFloatArrayArray1431[var1][var4] * 65536.0F);
+            Class116.anIntArrayArray1435[var1][var4] = (int)(aFloatArrayArray1431[var1][var4] * 65536.0F);
          }
 
          return this.anIntArray1434[var1] * 2;

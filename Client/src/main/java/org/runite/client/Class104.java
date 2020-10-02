@@ -34,7 +34,7 @@ final class Class104 implements Interface5 {
          } else if (1 != Signlink.anInt1214 && Signlink.anInt1214 != 2 && Class44.anInt718 != 2) {
             RSString var9 = GameShell.aClass94_8;
             if (Class44.anInt718 != 0) {
-               var9 = RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_4007, Class72.method1298((byte) 9, var2.worldId - -7000)});
+               var9 = RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_4007, Class72.method1298(var2.worldId - -7000)});
             }
 
             if (var1 > -2) {
@@ -44,7 +44,7 @@ final class Class104 implements Interface5 {
                if (Class163_Sub2.aClass94_2996 != null) {
                   var4 = RenderAnimationDefinition.method903(new RSString[]{Class97.aClass94_1380, Class163_Sub2.aClass94_2996});
                }
-               RSString var5 = RenderAnimationDefinition.method903(new RSString[]{RSString.parse("http:)4)4"), var2.address, var9, TextCore.aClass94_2608, Class72.method1298((byte) 9, Class3_Sub20.language), aClass94_2175, Class72.method1298((byte) 9, Class3_Sub26.anInt2554), var4, TextCore.aClass94_1133, !Unsorted.aBoolean3641 ? TextCore.aClass94_3013 : TextCore.aClass94_339, TextCore.aClass94_2610, !Class163_Sub2_Sub1.aBoolean4018 ? TextCore.aClass94_3013 : TextCore.aClass94_339, TextCore.aClass94_1617, Class3_Sub28_Sub19.aBoolean3779 ? TextCore.aClass94_339 : TextCore.aClass94_3013});
+               RSString var5 = RenderAnimationDefinition.method903(new RSString[]{RSString.parse("http:)4)4"), var2.address, var9, TextCore.aClass94_2608, Class72.method1298(Class3_Sub20.language), aClass94_2175, Class72.method1298(Class3_Sub26.anInt2554), var4, TextCore.aClass94_1133, !Unsorted.aBoolean3641 ? TextCore.aClass94_3013 : TextCore.aClass94_339, TextCore.aClass94_2610, !Class163_Sub2_Sub1.aBoolean4018 ? TextCore.aClass94_3013 : TextCore.aClass94_339, TextCore.aClass94_1617, Class3_Sub28_Sub19.aBoolean3779 ? TextCore.aClass94_339 : TextCore.aClass94_3013});
 
                try {
                   Objects.requireNonNull(Class126.aClient1671.getAppletContext()).showDocument(var5.toURL(), "_self");
@@ -112,7 +112,7 @@ final class Class104 implements Interface5 {
                 var25 = var26;
                 int var18;
                 if(var14 == 2 && Unsorted.method2096(WorldListCountry.localPlane, var12, var27, var26)) {
-                   ObjectDefinition var16 = Class162.getObjectDefinition(var15);
+                   ObjectDefinition var16 = ObjectDefinition.getObjectDefinition(var15);
                    if(null != var16.ChildrenIds) {
                       var16 = var16.method1685(0);
                    }
@@ -396,7 +396,7 @@ final class Class104 implements Interface5 {
          this.aFloatArray2174[1] = var5;
          var2.glTexGenfv(8193, 9474, this.aFloatArray2174, 0);
          var2.glPopMatrix();
-         if(Class88.aBoolean1227) {
+         if(Class88.Texture3DEnabled) {
             this.aFloatArray2174[3] = (float)HDToolKit.anInt1791 * var4;
             this.aFloatArray2174[1] = 0.0F;
             this.aFloatArray2174[0] = 0.0F;
@@ -451,7 +451,7 @@ final class Class104 implements Interface5 {
          this.anInt2173 = var2.glGenLists(2);
          var2.glNewList(this.anInt2173, 4864);
          var2.glActiveTexture('\u84c1');
-         if(Class88.aBoolean1227) {
+         if(Class88.Texture3DEnabled) {
             var2.glBindTexture('\u806f', Class88.anInt1229);
             var2.glTexGeni(8194, 9472, 9217);
             var2.glEnable(3170);
@@ -468,7 +468,7 @@ final class Class104 implements Interface5 {
          var2.glEndList();
          var2.glNewList(this.anInt2173 + 1, 4864);
          var2.glActiveTexture('\u84c1');
-         if(Class88.aBoolean1227) {
+         if(Class88.Texture3DEnabled) {
             var2.glDisable('\u806f');
             var2.glDisable(3170);
          } else {

@@ -5,8 +5,8 @@ import org.rs09.client.rendering.Toolkit;
 
 final class Class83 {
 
+   static int[] anIntArray1161;
    private final CacheIndex aClass153_1153;
-   static Class3_Sub27 aClass3_Sub27_1154;
    private final HashTable aHashTable_1155 = new HashTable(256);
    static int anInt1156 = 0;
    private final CacheIndex aClass153_1157;
@@ -80,7 +80,7 @@ final class Class83 {
                         } else {
                            if(Unsorted.aClass3_Sub28_Sub3_2600.anInt3550 == -1) {
                               if((var6 + var13 & 4) == (4 & var24 + var3)) {
-                                 var32 = Class84.anIntArray1161[1 + Class3_Sub13_Sub6.anInt3081];
+                                 var32 = anIntArray1161[1 + Class3_Sub13_Sub6.anInt3081];
                               } else {
                                  var32 = 4936552;
                               }
@@ -98,12 +98,12 @@ final class Class83 {
                            }
                         }
 
-                        var33 = var45[var28] == null?0:Class84.anIntArray1161[var45[var28][var31] & 255];
+                        var33 = var45[var28] == null?0: anIntArray1161[var45[var28][var31] & 255];
                         if(var32 == 0) {
                            var32 = 1;
                         }
 
-                        int var34 = var46[var28] != null?Class84.anIntArray1161[255 & var46[var28][var31]]:0;
+                        int var34 = var46[var28] != null? anIntArray1161[255 & var46[var28][var31]]:0;
                         int var36;
                         if(var33 == 0 && var34 == 0) {
                            Toolkit.JAVA_TOOLKIT.method934(var14, var25, var16, var27, var32);
@@ -229,7 +229,7 @@ final class Class83 {
                      if(-1 != Unsorted.aClass3_Sub28_Sub3_2600.anInt3550) {
                         var19 = Unsorted.aClass3_Sub28_Sub3_2600.anInt3550;
                      } else if((var13 - -var6 & 4) == (4 & var18 + var3)) {
-                        var19 = Class84.anIntArray1161[1 + Class3_Sub13_Sub6.anInt3081];
+                        var19 = anIntArray1161[1 + Class3_Sub13_Sub6.anInt3081];
                      } else {
                         var19 = 4936552;
                      }

@@ -34,7 +34,7 @@ final class Class67 implements Runnable {
 
    static int method1258(byte var0) {
       try {
-         Class136.anInt1780 = 0;
+         Class3_Sub13_Sub17.anInt1780 = 0;
          if(var0 != -53) {
             method1258((byte)-35);
          }

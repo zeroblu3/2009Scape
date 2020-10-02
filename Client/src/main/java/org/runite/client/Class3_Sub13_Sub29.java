@@ -9,7 +9,6 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
 
    static boolean disableGEBoxes = false;
    static int[] anIntArray3359 = new int[5];
-   static CacheIndex aClass153_3361;
 
 
    final int[] method154(int var1, byte var2) {

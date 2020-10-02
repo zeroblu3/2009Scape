@@ -42,7 +42,7 @@ public final class LinkableRSString extends Linkable {
 
                     Class101.aClass3_Sub24_Sub4_1421.method505((byte) -128);
                     Class101.aClass3_Sub24_Sub4_1421.method485();
-                    Class83.aClass3_Sub27_1154 = null;
+                    NPC.aClass3_Sub27_1154 = null;
                     Class3_Sub28_Sub4.aClass83_3579 = null;
                     if (Class101.aClass153_1423 == null) {
                         Class10.anInt154 = 0;
@@ -54,7 +54,7 @@ public final class LinkableRSString extends Linkable {
                 var2.printStackTrace();
                 Class101.aClass3_Sub24_Sub4_1421.method505((byte) -127);
                 Class101.aClass153_1423 = null;
-                Class83.aClass3_Sub27_1154 = null;
+                NPC.aClass3_Sub27_1154 = null;
                 Class10.anInt154 = 0;
                 Class3_Sub28_Sub4.aClass83_3579 = null;
             }
@@ -126,7 +126,7 @@ public final class LinkableRSString extends Linkable {
                 if (var1 < 32768) {
                     var3 = Class3_Sub24_Sub3.aClass153_3490.getFile(1, var1);
                 } else {
-                    var3 = Class154.aClass153_1967.getFile(1, 32767 & var1);
+                    var3 = Class3_Sub13_Sub8.aClass153_1967.getFile(1, 32767 & var1);
                 }
 
                 var2 = new Class3_Sub28_Sub4();

@@ -4,9 +4,7 @@ import java.lang.reflect.Method;
 
 final class Class3_Sub13_Sub4 extends Class3_Sub13 {
 
-   static int worldListOffset;
    int anInt3056 = 4;
-   static byte[][] aByteArrayArray3057;
    int anInt3058 = 4;
    private byte[] aByteArray3059 = new byte[512];
    int anInt3060 = 4;
@@ -175,7 +173,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
             method188(38, 29);
          }
 
-         Class154.aReferenceCache_1955.sweep(var0);
+         RenderAnimationDefinition.aReferenceCache_1955.sweep(var0);
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "bi.U(" + var0 + ',' + var1 + ')');
       }
@@ -392,7 +390,7 @@ final class Class3_Sub13_Sub4 extends Class3_Sub13 {
    static void method193(byte var0, Component var1) {
       try {
          if(var0 < 49) {
-            worldListOffset = 85;
+            Class53.worldListOffset = 85;
          }
 
          Method var2 = Signlink.setTraversalKeysEnabled;

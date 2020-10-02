@@ -64,7 +64,7 @@ final class Class81 {
       }
    }
 
-   static void method1399(long var1) {
+   static void friendsIgnoreListAlerts(long var1) {
       try {
          if(var1 != 0L) {
             if(Class3_Sub28_Sub5.anInt3591 < 100) {
@@ -90,7 +90,7 @@ final class Class81 {
                } else {
                   Class114.ignores[Class3_Sub28_Sub5.anInt3591] = var1;
                   Class3_Sub13_Sub27.aClass94Array3341[Class3_Sub28_Sub5.anInt3591++] = Unsorted.method1052(var1);
-                  Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
+                  Class110.anInt1472 = PacketParser.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(34);
                   Class3_Sub13_Sub1.outgoingBuffer.writeLong(var1);
                }
@@ -142,7 +142,7 @@ final class Class81 {
       }
    }
 
-   static Class131 method1403(RSString var1, CacheIndex var2) {
+   static Class131 getWorldMapArchive(RSString var1, CacheIndex var2) {
       try {
          int var3 = var2.getArchiveForName(var1);
          if(var3 == -1) {

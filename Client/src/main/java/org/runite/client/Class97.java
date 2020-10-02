@@ -20,7 +20,6 @@ public final class Class97 {
    public static CacheIndex aClass153_1378;
    boolean aBoolean1379 = false;
    static RSString aClass94_1380;
-   static Class3_Sub28_Sub16_Sub2 aClass3_Sub28_Sub16_Sub2_1381;
 
 
    final int[][][] method1589() {

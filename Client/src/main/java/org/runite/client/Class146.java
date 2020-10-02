@@ -54,7 +54,7 @@ abstract class Class146 {
             for(var15 = Unsorted.anInt3603; var15 < Class126.anInt1665; ++var15) {
                Class3_Sub2 var16 = var13[var14][var15];
                if(var16 != null) {
-                  if(Class23.aBooleanArrayArray457[var14 - Class97.anInt1375 + Class3_Sub13_Sub39.anInt3466][var15 - Class3_Sub13_Sub27.anInt3340 + Class3_Sub13_Sub39.anInt3466] && (var3 == null || var12 < var4 || var3[var12][var14][var15] != var5)) {
+                  if(Class23.aBooleanArrayArray457[var14 - Class97.anInt1375 + Class3_Sub13_Sub39.anInt3466][var15 - Class145.anInt3340 + Class3_Sub13_Sub39.anInt3466] && (var3 == null || var12 < var4 || var3[var12][var14][var15] != var5)) {
                      var16.aBoolean2222 = true;
                      var16.aBoolean2225 = true;
                      var16.aBoolean2236 = var16.anInt2223 > 0;
@@ -110,7 +110,7 @@ abstract class Class146 {
             Class3_Sub13_Sub17.aBoolean3207 = true;
             Class165.method2254();
             Unsorted.anInt1244 = -1;
-            Class3_Sub13_Sub5.anInt3072 = -1;
+            Class145.anInt3072 = -1;
 
             for(var14 = 0; var14 < Class3_Sub23.aClass3_Sub11ArrayArray2542[0].length; ++var14) {
                Class3_Sub11 var28 = Class3_Sub23.aClass3_Sub11ArrayArray2542[0][var14];
@@ -139,7 +139,7 @@ abstract class Class146 {
 
                if(var14 == 0 && Unsorted.anInt1137 > 0) {
                   HDToolKit.method1832(101.5F);
-                  Class141.method2038(Class97.anInt1375, Class3_Sub13_Sub27.anInt3340, Class3_Sub13_Sub39.anInt3466, Class23.aBooleanArrayArray457);
+                  Class141.method2038(Class97.anInt1375, Class145.anInt3340, Class3_Sub13_Sub39.anInt3466, Class23.aBooleanArrayArray457);
                }
             }
 
@@ -164,8 +164,8 @@ abstract class Class146 {
             var29 = Class97.anInt1375 - var15;
             if(var32 >= Class163_Sub1_Sub1.anInt4006 || var29 < Unsorted.anInt67) {
                for(var34 = -Class3_Sub13_Sub39.anInt3466; var34 <= 0; ++var34) {
-                  var19 = Class3_Sub13_Sub27.anInt3340 + var34;
-                  var20 = Class3_Sub13_Sub27.anInt3340 - var34;
+                  var19 = Class145.anInt3340 + var34;
+                  var20 = Class145.anInt3340 - var34;
                   if(var32 >= Class163_Sub1_Sub1.anInt4006) {
                      if(var19 >= Unsorted.anInt3603) {
                         var21 = var27[var32][var19];
@@ -218,8 +218,8 @@ abstract class Class146 {
             var29 = Class97.anInt1375 - var15;
             if(var32 >= Class163_Sub1_Sub1.anInt4006 || var29 < Unsorted.anInt67) {
                for(var34 = -Class3_Sub13_Sub39.anInt3466; var34 <= 0; ++var34) {
-                  var19 = Class3_Sub13_Sub27.anInt3340 + var34;
-                  var20 = Class3_Sub13_Sub27.anInt3340 - var34;
+                  var19 = Class145.anInt3340 + var34;
+                  var20 = Class145.anInt3340 - var34;
                   if(var32 >= Class163_Sub1_Sub1.anInt4006) {
                      if(var19 >= Unsorted.anInt3603) {
                         var21 = var27[var32][var19];

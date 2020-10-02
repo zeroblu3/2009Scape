@@ -9,35 +9,6 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
    static Class61 aClass61_3364 = new Class61();
    static long aLong3366;
    static int[] anIntArray3367 = new int[64];
-   
-   
-   /**
-    * Gets the properly colored string for the combat level difference.
-    * @param otherPlayer Their combat level
-    * @param yourPlayer  Your combat level
-    * @returns the RSString color
-    */
-
-   static RSString getCombatLevelDifferenceColor(int otherPlayer, int yourPlayer) {
-      int playerLevelDiff = -otherPlayer + yourPlayer;
-      if (playerLevelDiff < -9)
-         return ColorCore.LvlDiffN9;//Solid Red
-      if (playerLevelDiff < -6)
-         return ColorCore.LvlDiffN6;//Dark Orange
-      if (playerLevelDiff < -3)
-         return ColorCore.LvlDiffN3;//Orange
-      if (playerLevelDiff < 0)
-         return ColorCore.LvlDiffN0;//Yellow-Orange
-      if (playerLevelDiff > 9)
-         return ColorCore.LvlDiffP9;//Bright Green
-      if (playerLevelDiff > 6)
-         return ColorCore.LvlDiffP6;//Green
-      if (playerLevelDiff > 3)
-         return ColorCore.LvlDiffP3;//Yellow-Green
-      if (playerLevelDiff > 0)
-         return ColorCore.LvlDiffP0;//Yellow
-      return ColorCore.LvlDiffDefault;//Yellow
-   }
 
 
    static void method312(int var0, int var1, int var2, Player playerUsername, int var4) {
@@ -63,13 +34,13 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
 
                   RSString levelEquals = Class158.anInt2014 != 1?TextCore.HasLevel:TextCore.HasRating;
                   if(playerUsername.COMBAT_LEVEL < playerUsername.combatLevel) {
-                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-73, Class102.player.COMBAT_LEVEL) : ColorCore.ContextColor , TextCore.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), TextCore.aClass94_673, Class72.method1298((byte)9, playerUsername.combatLevel + -playerUsername.COMBAT_LEVEL), TextCore.RIGHT_PARENTHESES});
+                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Player.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-73, Class102.player.COMBAT_LEVEL) : ColorCore.ContextColor , TextCore.LEFT_PARENTHESES, levelEquals, Class72.method1298(playerUsername.COMBAT_LEVEL), TextCore.aClass94_673, Class72.method1298(playerUsername.combatLevel + -playerUsername.COMBAT_LEVEL), TextCore.RIGHT_PARENTHESES});
                   } else {
                 	 //here
-                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Class72.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-128, Class102.player.COMBAT_LEVEL) : getCombatLevelDifferenceColor(playerUsername.COMBAT_LEVEL, Class102.player.COMBAT_LEVEL), TextCore.LEFT_PARENTHESES, levelEquals, Class72.method1298((byte)9, playerUsername.COMBAT_LEVEL), TextCore.RIGHT_PARENTHESES});
+                     var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), var6 ? Player.combatLevelColor(playerUsername.COMBAT_LEVEL, (byte)-128, Class102.player.COMBAT_LEVEL) : Player.getCombatLevelDifferenceColor(playerUsername.COMBAT_LEVEL, Class102.player.COMBAT_LEVEL), TextCore.LEFT_PARENTHESES, levelEquals, Class72.method1298(playerUsername.COMBAT_LEVEL), TextCore.RIGHT_PARENTHESES});
                   }
                } else {
-                  var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), TextCore.LEFT_PARENTHESES, TextCore.HasSkill, Class72.method1298((byte)9, playerUsername.anInt3974), TextCore.RIGHT_PARENTHESES});
+                  var5 = RenderAnimationDefinition.method903(new RSString[]{playerUsername.getName(), TextCore.LEFT_PARENTHESES, TextCore.HasSkill, Class72.method1298(playerUsername.anInt3974), TextCore.RIGHT_PARENTHESES});
                }
 
                int var12;
@@ -240,7 +211,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
                int var20 = var19 >> 2;
                int var21 = 3 & var19;
                if(var18 == var3 && var8 <= var17 && var17 < 8 + var8 && var9 <= var16 && 8 + var9 > var16) {
-                  ObjectDefinition var22 = Class162.getObjectDefinition(var12);
+                  ObjectDefinition var22 = ObjectDefinition.getObjectDefinition(var12);
                   int var23 = Class3_Sub7.method121(var16 & 7, var4, var21, var22.SizeY, var22.SizeX, 7 & var17) + var5;
                   int var24 = GameObject.method1863(var22.SizeX, var4, var22.SizeY, 7 & var17, var21, 7 & var16) + var6;
                   if(var23 > 0 && var24 > 0 && var23 < 103 && var24 < 103) {

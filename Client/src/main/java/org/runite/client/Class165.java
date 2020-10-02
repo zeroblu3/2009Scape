@@ -5,7 +5,8 @@ import javax.media.opengl.GL;
 
 final class Class165 implements Interface5 {
 
-   private final float[] aFloatArray2190 = new float[4];
+    static int anInt3285 = 128;
+    private final float[] aFloatArray2190 = new float[4];
    private static boolean aBoolean2191 = false;
    private int anInt2192 = -1;
    private int anInt2193 = -1;
@@ -141,9 +142,9 @@ final class Class165 implements Interface5 {
          var2.glTexEnvfv(8960, 8705, Class72.method1297(), 0);
          if(var1 >= 0) {
             this.aFloatArray2190[0] = 0.0F;
-            this.aFloatArray2190[1] = 1.0F / (float)Class3_Sub13_Sub23.anInt3285;
+            this.aFloatArray2190[1] = 1.0F / (float) anInt3285;
             this.aFloatArray2190[2] = 0.0F;
-            this.aFloatArray2190[3] = 1.0F * (float)var1 / (float)Class3_Sub13_Sub23.anInt3285;
+            this.aFloatArray2190[3] = 1.0F * (float)var1 / (float) anInt3285;
             var2.glTexGenfv(8192, 9474, this.aFloatArray2190, 0);
             var2.glEnable(3168);
          } else {

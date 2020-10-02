@@ -5,9 +5,7 @@ import org.rs09.client.data.HashTable;
 
 final class Class3_Sub2 extends Linkable {
 
-   static int anInt2217 = 2;
    static int anInt2218 = -1;
-   static short[] aShortArray2219 = new short[]{(short)-4160, (short)-4163, (short)-8256, (short)-8259, (short)22461};
    static HashTable aHashTable_2220 = new HashTable(32);
    Class25[] aClass25Array2221 = new Class25[5];
    boolean aBoolean2222;
@@ -31,7 +29,6 @@ final class Class3_Sub2 extends Linkable {
    int anInt2241;
    int anInt2244;
    Class72 aClass72_2245;
-   static int anInt2246 = 0;
 
    Class3_Sub2(int var1, int var2, int var3) {
       try {

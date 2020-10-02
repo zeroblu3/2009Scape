@@ -38,7 +38,6 @@ final class MouseWheel extends Class146 implements MouseWheelListener {
          //Class3_Sub28_Sub12.sendMessage("Game client is back to default zoom.");
       }
 
-
    }
 
    final void method2084(Component var1, int var2) {

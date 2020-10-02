@@ -5,9 +5,7 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
    static Class3_Sub11[][] aClass3_Sub11ArrayArray3346;
    private int anInt3347 = 3216;
    private final int[] anIntArray3348 = new int[3];
-   static short[] aShortArray3349 = new short[]{(short)-10304, (short)9104, (short)-1, (short)-1, (short)-1};
    private int anInt3350 = 4096;
-   static int anInt3351;
    static RSString aClass94_3353;
    private int anInt3354 = 3216;
 
@@ -147,14 +145,14 @@ final class Class3_Sub13_Sub28 extends Class3_Sub13 {
 
    private void method303() {
       try {
-         double var2 = Math.cos((double)((float)this.anInt3354 / 4096.0F));
-         this.anIntArray3348[0] = (int)(4096.0D * var2 * Math.sin((double)((float)this.anInt3347 / 4096.0F)));
-          this.anIntArray3348[1] = (int)(Math.cos((double)((float)this.anInt3347 / 4096.0F)) * var2 * 4096.0D);
-          this.anIntArray3348[2] = (int)(4096.0D * Math.sin((double)((float)this.anInt3354 / 4096.0F)));
+         double var2 = Math.cos((float)this.anInt3354 / 4096.0F);
+         this.anIntArray3348[0] = (int)(4096.0D * var2 * Math.sin((float)this.anInt3347 / 4096.0F));
+          this.anIntArray3348[1] = (int)(Math.cos((float)this.anInt3347 / 4096.0F) * var2 * 4096.0D);
+          this.anIntArray3348[2] = (int)(4096.0D * Math.sin((float)this.anInt3354 / 4096.0F));
           int var6 = this.anIntArray3348[2] * this.anIntArray3348[2] >> 12;
           int var5 = this.anIntArray3348[1] * this.anIntArray3348[1] >> 12;
           int var4 = this.anIntArray3348[0] * this.anIntArray3348[0] >> 12;
-          int var7 = (int)(4096.0D * Math.sqrt((double)(var4 - (-var5 - var6) >> 12)));
+          int var7 = (int)(4096.0D * Math.sqrt(var4 - (-var5 - var6) >> 12));
           if(var7 != 0) {
              this.anIntArray3348[2] = (this.anIntArray3348[2] << 12) / var7;
              this.anIntArray3348[0] = (this.anIntArray3348[0] << 12) / var7;

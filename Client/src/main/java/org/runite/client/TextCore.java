@@ -192,16 +192,16 @@ public class TextCore {
     static RSString COMMAND_HIGHRES_GRAPHICS_WINDOW = RSString.parse("::wm1");
     static RSString COMMAND_QA_OP_TEST = RSString.parse("::qa_op_test");
     static RSString COMMAND_NOCLIP = RSString.parse("::noclip");
-    static RSString aClass94_3152 = RSString.parse("::gc");
+    static RSString COMMAND_GARBAGE_COLLECTOR = RSString.parse("::gc");
     static RSString COMMAND_HIGHRES_GRAPHICS_FULLSCREEN = RSString.parse("::wm3");
-    static RSString aClass94_3289 = RSString.parse("::fps ");
+    static RSString COMMAND_FPS = RSString.parse("::fps ");
     static RSString COMMAND_TWEENING = RSString.parse("::tween");
-    static RSString aClass94_3651 = RSString.parse("::mm");
+    static RSString COMMAND_MEMORY_MANAGEMENT = RSString.parse("::mm");
     static RSString COMMAND_BREAK_JS5_CLIENT_CONNECTION = RSString.parse("::clientjs5drop");
     static RSString COMMAND_BREAK_JS5_SERVER_CONNECTION = RSString.parse("::serverjs5drop");
     static RSString COMMAND_GRAPHICS_CARD_MEMORY = RSString.parse("::cardmem");
     static RSString COMMAND_TOGGLE_FPSOFF = RSString.parse("::fpsoff");
-    static RSString aClass94_1830 = RSString.parse("::pcachesize");
+    static RSString COMMAND_PC_CACHE_SIZE = RSString.parse("::pcachesize");
     static RSString aClass94_853 = RSString.parse("::tele ");
     static RSString COMMAND_LOWRES_GRAPHICS = RSString.parse("::wm0");
     static RSString COMMAND_TOGGLE_FPSON = RSString.parse("::fpson");
@@ -209,6 +209,7 @@ public class TextCore {
     static RSString COMMAND_BREAK_CONNECTION = RSString.parse("::breakcon");
     static RSString COMMAND_ERROR_TEST = RSString.parse("::errortest");
     static RSString COMMAND_SET_PARTICLES = RSString.parse("::setparticles");
+    static RSString COMMAND_RECT_DEBUG = RSString.parse("::rect_debug");
 
     /**
      * Used as text for client commands
@@ -218,11 +219,11 @@ public class TextCore {
     public static RSString aClass94_4057 = RSString.parse("Mem:");
     static RSString aClass94_985 = RSString.parse("Fps:");
     static RSString aClass94_1630 = RSString.parse("Mem:");
-    static RSString aClass94_1625 = RSString.parse("Memory before cleanup=");
+    static RSString memoryBeforeCleanup = RSString.parse("Memory before cleanup=");
     static RSString aClass94_3653 = RSString.parse("Shift)2click disabled)3");
     static RSString aClass94_434 = RSString.parse("Shift)2click ENABLED(Q");
-    static RSString aClass94_2061 = RSString.parse("Forced tweening disabled)3");
-    static RSString aClass94_3961 = RSString.parse("Forced tweening / animation smoothing ENABLED(Q");
+    static RSString forcedTweeningDisabled = RSString.parse("Forced tweening disabled)3");
+    static RSString forcedTweeningEnabled = RSString.parse("Forced tweening / animation smoothing ENABLED(Q");
 
     /**
      * Website
@@ -286,7 +287,7 @@ public class TextCore {
     static RSString aClass94_3268 = RSString.parse(")1");
     static RSString aClass94_3339 = RSString.parse("null");
     static RSString aClass94_3357 = RSString.parse("");
-    static RSString aClass94_3360 = RSString.parse("mem=");
+    static RSString memoryEquals = RSString.parse("mem=");
     static RSString aClass94_3399 = RSString.parse("<br>(X");
     static RSString aClass94_3418 = RSString.parse("(U5");
     static RSString aClass94_2498 = RSString.parse("(U (X");
@@ -339,7 +340,7 @@ public class TextCore {
     static RSString aClass94_4023 = RSString.parse(")3");
     static RSString aClass94_3013 = RSString.parse("0");
     static RSString aClass94_2074 = RSString.parse("; version=1; path=)4; domain=");
-    static RSString aClass94_2075 = RSString.parse("rect_debug=");
+    static RSString rectDebugEquals = RSString.parse("rect_debug=");
     static RSString aClass94_2080 = RSString.parse("(U2");
     static RSString aClass94_2116 = RSString.parse("Hidden)2use");
     static RSString aClass94_1915 = RSString.parse("Null");
@@ -350,4 +351,5 @@ public class TextCore {
     static RSString aClass94_2323 = RSString.parse("<img=0>");
     static RSString aClass94_2331 = RSString.parse("");
     static RSString RIGHT_PARENTHESES = RSString.parse("(Y");
+
 }

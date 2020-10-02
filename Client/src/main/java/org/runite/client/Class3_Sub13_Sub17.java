@@ -8,44 +8,12 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
 
    static boolean aBoolean3207 = false;
    static HashTable<Class3_Sub31> aHashTable_3208 = new HashTable<>(8);
-   static CacheIndex aClass153_3210;
    static int[] anIntArray3212;
-   static int anInt3213 = 1;
+    static int anInt1780;
 
 
-   public Class3_Sub13_Sub17() {
+    public Class3_Sub13_Sub17() {
       super(1, false);
-   }
-
-   static void method246(int var0) {
-      try {
-         Class3_Sub28_Sub20.method724();
-         Class3_Sub28_Sub18.method710();
-         Class108.method1654(var0 ^ -15455);
-         Unsorted.method55();
-         Class163_Sub2_Sub1.method2222();
-         Class3_Sub30_Sub1.method813();
-         Class133.method1803();
-         Class38.method1025((byte)-93);
-         Class40.method1044(-3782);
-         Class136.aReferenceCache_1772.clearSoftReferences();
-         Class158_Sub1.method2192();
-         Class159.method2196();
-         Class50.method1132(103);
-         Class3_Sub13_Sub6.method196(false);
-         if(var0 != 8) {
-            method246(-120);
-         }
-
-         Class115.method1714();
-         Class3_Sub28_Sub6.h();
-         Class107.method1650();
-         MouseListeningClass.method2089();
-         Class3_Sub13_Sub11.aReferenceCache_3130.clearSoftReferences();
-         Unsorted.aReferenceCache_1135.clearSoftReferences();
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "je.O(" + var0 + ')');
-      }
    }
 
    static void method247(byte var0) {
@@ -107,7 +75,7 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
          }
 
          if(!var3) {
-            aClass153_3210 = (CacheIndex)null;
+            WorldMap.aClass153_3210 = (CacheIndex)null;
          }
 
       } catch (RuntimeException var5) {
@@ -128,12 +96,12 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
          if(Class119.aClass131_1624 == null) {
             return -1;
          } else {
-            while(Class119.aClass131_1624.anInt1720 > Class136.anInt1780) {
-               if(Class119.aClass131_1624.method1794(Class136.anInt1780, -20138)) {
-                  return Class136.anInt1780++;
+            while(Class119.aClass131_1624.anInt1720 > anInt1780) {
+               if(Class119.aClass131_1624.method1794(anInt1780, -20138)) {
+                  return anInt1780++;
                }
 
-               ++Class136.anInt1780;
+               ++anInt1780;
             }
 
             return -1;

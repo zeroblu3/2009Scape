@@ -4,11 +4,7 @@ import java.util.Objects;
 
 final class Class3_Sub13_Sub5 extends Class3_Sub13 {
 
-   static int anInt3068 = 0;
    static int anInt3069 = 0;
-   static int anInt3070 = 0;
-   static int anInt3071 = 0;
-   static int anInt3072 = -1;
 
 
    final int[][] method166(int var1, int var2) {

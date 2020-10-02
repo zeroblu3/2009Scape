@@ -49,11 +49,7 @@ public class Signlink implements Runnable {
     public static Method setTraversalKeysEnabled;
 
 
-    public final void method1431(int var1) {
-        if (var1 != 0) {
-            this.method1442(null, 99);
-        }
-
+    public final void method1431() {
         aLong1221 = TimeUtils.time() - -5000L;
     }
 

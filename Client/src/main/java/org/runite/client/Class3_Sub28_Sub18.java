@@ -56,13 +56,13 @@ final class Class3_Sub28_Sub18 extends Node {
       Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[3][var0][var1] = null;
    }
 
-   static void method710() {
-      try {
-         Class44.aReferenceCache_725.clearSoftReferences();
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "sd.C(" + (byte) 126 + ')');
-      }
-   }
+//   static void method710() {
+//      try {
+//         Class44.aReferenceCache_725.clearSoftReferences();
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "sd.C(" + (byte) 126 + ')');
+//      }
+//   }
 
    final void method712() {
       try {

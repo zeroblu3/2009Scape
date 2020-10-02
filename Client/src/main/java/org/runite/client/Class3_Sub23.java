@@ -7,6 +7,7 @@ import java.util.Objects;
 
 final class Class3_Sub23 extends Linkable {
 
+   static RSString aClass94_3080 = Class95.method1586();
    int anInt2531;
    int anInt2532;
    static int[] anIntArray2533;
@@ -62,7 +63,7 @@ final class Class3_Sub23 extends Linkable {
 
          if(var0 == 2) {
             var7 = TextCore.aClass94_1880;
-            var8 = Class3_Sub13_Sub6.aClass94_3080;
+            var8 = aClass94_3080;
          }
 
          if(var0 == 3) {
@@ -74,7 +75,7 @@ final class Class3_Sub23 extends Linkable {
 
          int var11;
          for(var11 = 0; var2 > var11; ++var11) {
-            Objects.requireNonNull(var10).append(Class72.method1298((byte)9, (int)(var3 % 10L)));
+            Objects.requireNonNull(var10).append(Class72.method1298((int)(var3 % 10L)));
             var3 /= 10L;
          }
 
@@ -89,7 +90,7 @@ final class Class3_Sub23 extends Linkable {
                   var12.append(var8);
                }
 
-               Objects.requireNonNull(var12).append(Class72.method1298((byte)9, (int)(var3 % 10L)));
+               Objects.requireNonNull(var12).append(Class72.method1298((int)(var3 % 10L)));
                ++var11;
             }
 

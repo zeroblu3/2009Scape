@@ -2,8 +2,6 @@ package org.runite.client;
 
 final class Class137 {
 
-   static boolean aBoolean1784 = false;
-
 
    static int method1817() {
       try {

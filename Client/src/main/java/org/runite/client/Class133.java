@@ -4,11 +4,9 @@ final class Class133 {
 
    private byte aByte1742;
    static int[] anIntArray1743 = new int[25];
-   static int anInt1744 = 0;
    int anInt1746;
    int anInt1747;
    static int anInt1748;
-   static RSInterface aClass11_1749;
    int anInt1750;
    int anInt1752;
    static int anInt1753;

@@ -1,10 +1,14 @@
 package org.runite.client;
 
+import org.rs09.client.data.NodeCache;
+
 public class QuickChat {
+
+    static NodeCache aClass47_3137 = new NodeCache(64);
 
     static Class3_Sub28_Sub1 getQuickChatMessage(int fileId) {
        try {
-          Class3_Sub28_Sub1 var2 = (Class3_Sub28_Sub1)Class3_Sub13_Sub11.aClass47_3137.get((long)fileId);
+          Class3_Sub28_Sub1 var2 = (Class3_Sub28_Sub1) aClass47_3137.get((long)fileId);
           if(null == var2) {
              byte[] var3;
              if(fileId < '\u8000') {
@@ -22,7 +26,7 @@ public class QuickChat {
                 var2.method525();
              }
 
-             Class3_Sub13_Sub11.aClass47_3137.put((long)fileId, var2);
+             aClass47_3137.put((long)fileId, var2);
           }
           return var2;
        } catch (RuntimeException var4) {

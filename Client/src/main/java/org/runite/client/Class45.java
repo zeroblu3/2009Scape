@@ -9,9 +9,10 @@ final class Class45 {
 	static int anInt733 = 0;
 	static int anInt734 = 0;
 	static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_736;
+    static DataBuffer aClass3_Sub30_2030 = new DataBuffer(new byte[5000]);
 
 
-	static void parsePlayerMask(int var0, int var1, Player var3) {
+    static void parsePlayerMask(int var0, int var1, Player var3) {
 		try {
 			int var4;
 			int chatIcon;
@@ -40,18 +41,18 @@ final class Class45 {
 					}
 
 					if(!var11 && 0 == PacketParser.inTutorialIsland) {
-						Class161.aClass3_Sub30_2030.index = 0;
-						GraphicDefinition.incomingBuffer.readBytesReverse(var6, Class161.aClass3_Sub30_2030.buffer);
-						Class161.aClass3_Sub30_2030.index = 0;
+						aClass3_Sub30_2030.index = 0;
+						GraphicDefinition.incomingBuffer.readBytesReverse(var6, aClass3_Sub30_2030.buffer);
+						aClass3_Sub30_2030.index = 0;
 						int var13 = -1;
 						RSString message;
 						if(var8) {
-							Class10 var14 = Class155.method2156(Class161.aClass3_Sub30_2030);
+							Class10 var14 = Class155.method2156(aClass3_Sub30_2030);
 							var4 &= 32767;
 							var13 = var14.anInt149;
-							message = var14.aClass3_Sub28_Sub4_151.method555(Class161.aClass3_Sub30_2030);
+							message = var14.aClass3_Sub28_Sub4_151.method555(aClass3_Sub30_2030);
 						} else {
-							message = Class3_Sub28_Sub17.method686(Objects.requireNonNull(Class32.method992(Class161.aClass3_Sub30_2030).properlyCapitalize()));
+							message = Class3_Sub28_Sub17.method686(Objects.requireNonNull(Class32.method992(aClass3_Sub30_2030).properlyCapitalize()));
 						}
 
 						var3.textSpoken = message.trim(1);
@@ -216,7 +217,7 @@ final class Class45 {
 			DataBuffer var2 = new DataBuffer(var0);
 			var2.index = -2 + var0.length;
 			Class95.anInt1338 = var2.readUnsignedShort();
-			Class3_Sub13_Sub6.anIntArray3076 = new int[Class95.anInt1338];
+			Unsorted.anIntArray3076 = new int[Class95.anInt1338];
 			Class140_Sub7.anIntArray2931 = new int[Class95.anInt1338];
 			Class164.anIntArray2048 = new int[Class95.anInt1338];
 			Class3_Sub13_Sub22.aBooleanArray3272 = new boolean[Class95.anInt1338];
@@ -242,7 +243,7 @@ final class Class45 {
 			}
 
 			for(var4 = 0; Class95.anInt1338 > var4; ++var4) {
-				Class3_Sub13_Sub6.anIntArray3076[var4] = var2.readUnsignedShort();
+				Unsorted.anIntArray3076[var4] = var2.readUnsignedShort();
 			}
 
 			var2.index = -(8 * Class95.anInt1338) + var0.length + -7 + 3 + -(var3 * 3);
@@ -259,7 +260,7 @@ final class Class45 {
 
 			for(var4 = 0; var4 < Class95.anInt1338; ++var4) {
 				int var5 = Class140_Sub7.anIntArray2931[var4];
-				int var6 = Class3_Sub13_Sub6.anIntArray3076[var4];
+				int var6 = Unsorted.anIntArray3076[var4];
 				int var7 = var5 * var6;
 				byte[] var8 = new byte[var7];
 				boolean var10 = false;
@@ -307,7 +308,7 @@ final class Class45 {
 
 	static void method1083(byte var0) {
 		try {
-			Class3_Sub13_Sub9.anIntArray3107 = Unsorted.method62();
+			Class43.anIntArray3107 = Unsorted.method62();
 		} catch (RuntimeException var2) {
 			throw ClientErrorException.clientError(var2, "gk.C(" + var0 + ')');
 		}

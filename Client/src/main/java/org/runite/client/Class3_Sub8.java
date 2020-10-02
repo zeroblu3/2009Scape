@@ -9,7 +9,8 @@ import java.util.Objects;
 
 final class Class3_Sub8 extends Linkable {
 
-   int anInt2296;
+    static int[] anIntArray3083 = new int[50];
+    int anInt2296;
    Class64[] aClass64Array2298;
    int[] anIntArray2299;
    int[] anIntArray2300;
@@ -108,7 +109,7 @@ final class Class3_Sub8 extends Linkable {
             for(var9 = 0; MouseListeningClass.anInt1924 > var9; ++var9) {
                var10 = -(Class102.player.anInt2819 / 32) + 2 + 4 * Class84.anIntArray1163[var9];
                var11 = -(Class102.player.anInt2829 / 32) + 2 + (Unsorted.anIntArray4050[var9] * 4);
-               ObjectDefinition var20 = Class162.getObjectDefinition(Class3_Sub19.anIntArray3693[var9]);
+               ObjectDefinition var20 = ObjectDefinition.getObjectDefinition(Class3_Sub19.anIntArray3693[var9]);
                if(null != var20.ChildrenIds) {
                   var20 = var20.method1685(var1 + -59);
                   if(null == var20 || var20.MapIcon == -1) {
@@ -331,9 +332,9 @@ final class Class3_Sub8 extends Linkable {
 
    static WorldListEntry getWorld(int var0, int index) {
       try {
-         if(Class30.loadedWorldList && Class3_Sub13_Sub4.worldListOffset <= index && Class100.worldListArraySize >= index) {
+         if(Class30.loadedWorldList && Class53.worldListOffset <= index && Class100.worldListArraySize >= index) {
             GameConfig.WORLD = index;
-            return Class117.worldList[index - Class3_Sub13_Sub4.worldListOffset];
+            return Class117.worldList[index - Class53.worldListOffset];
          } else {
             return null;
          }
@@ -354,7 +355,7 @@ final class Class3_Sub8 extends Linkable {
                   Class102.aClass135Array2131[var2] = Class102.aClass135Array2131[var2 + 1];
                   Class166.anIntArray2068[var2] = Class166.anIntArray2068[1 + var2];
                   Unsorted.anIntArray2157[var2] = Unsorted.anIntArray2157[1 + var2];
-                  Class3_Sub13_Sub6.anIntArray3083[var2] = Class3_Sub13_Sub6.anIntArray3083[var2 - -1];
+                  anIntArray3083[var2] = anIntArray3083[var2 - -1];
                }
 
                --var1;
@@ -372,12 +373,12 @@ final class Class3_Sub8 extends Linkable {
 
                if(0 > Unsorted.anIntArray2157[var1]) {
                   int var3;
-                  if(Class3_Sub13_Sub6.anIntArray3083[var1] == 0) {
+                  if(anIntArray3083[var1] == 0) {
                      var3 = CS2Script.anInt2453;
                   } else {
-                     int var4 = 128 * (255 & Class3_Sub13_Sub6.anIntArray3083[var1]);
-                     int var7 = Class3_Sub13_Sub6.anIntArray3083[var1] >> 8 & 255;
-                     int var5 = 255 & Class3_Sub13_Sub6.anIntArray3083[var1] >> 16;
+                     int var4 = 128 * (255 & anIntArray3083[var1]);
+                     int var7 = anIntArray3083[var1] >> 8 & 255;
+                     int var5 = 255 & anIntArray3083[var1] >> 16;
                      int var8 = -Class102.player.anInt2829 + 64 + 128 * var7;
                      if(var8 < 0) {
                         var8 = -var8;

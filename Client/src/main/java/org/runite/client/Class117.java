@@ -4,7 +4,6 @@ final class Class117 {
 
    static WorldListEntry[] worldList;
    static int[] anIntArray1613 = new int[500];
-   static int anInt1616 = 0;
 
 
    static void method1719(int var0) {
@@ -28,8 +27,8 @@ final class Class117 {
                Class162.anInt2038 = 0;
                LinkableRSString.anInt2579 = 1;
                Class163_Sub2_Sub1.anInt4019 = 0;
-               Class3_Sub5.anInt2275 = 1;
-               Class3_Sub13_Sub24.anInt3293 = 0;
+               Client.anInt2275 = 1;
+               Class40.anInt3293 = 0;
                Unsorted.method1250(102, true);
             }
 
@@ -88,7 +87,7 @@ final class Class117 {
          Unsorted.anIntArray2469 = new int[104];
          Class38_Sub1.anIntArrayArrayArray2609 = new int[var2][105][var1];
          Class67.aByteArrayArrayArray1014 = new byte[var2][105][105];
-         Class139.aByteArrayArrayArray1828 = new byte[var2][104][104];
+         Class158_Sub1.aByteArrayArrayArray1828 = new byte[var2][104][104];
          Class3_Sub31.anIntArray2606 = new int[104];
          PacketParser.aByteArrayArrayArray81 = new byte[var2][104][104];
          Class3_Sub13_Sub36.aByteArrayArrayArray3430 = new byte[var2][104][104];
@@ -99,7 +98,7 @@ final class Class117 {
 
    static Class3_Sub28_Sub16_Sub2 method1722(int var0) {
       try {
-         int var1 = Class140_Sub7.anIntArray2931[0] * Class3_Sub13_Sub6.anIntArray3076[0];
+         int var1 = Class140_Sub7.anIntArray2931[0] * Unsorted.anIntArray3076[0];
          byte[] var2 = Class163_Sub1.aByteArrayArray2987[0];
          int[] var3 = new int[var1];
 
@@ -107,7 +106,7 @@ final class Class117 {
             var3[var4] = Class3_Sub13_Sub38.spritePalette[Unsorted.bitwiseAnd(var2[var4], 255)];
          }
 
-         Class3_Sub28_Sub16_Sub2 var6 = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
+         Class3_Sub28_Sub16_Sub2 var6 = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Unsorted.anIntArray3076[0], var3);
          Class39.method1035((byte)122);
          return var0 >= -51?(Class3_Sub28_Sub16_Sub2)null:var6;
       } catch (RuntimeException var5) {

@@ -11,9 +11,11 @@ final class Class159 {
    static int localPlayerCount = 0;
    static int anInt2023 = 0;
    static int anInt2024 = 0;
+    static int[] anIntArray1681;
+    static int anInt1740 = 0;
 
 
-   static Class12 method2193(int var0, int var1, int var2) {
+    static Class12 method2193(int var0, int var1, int var2) {
       Class3_Sub2 var3 = Class75_Sub2.aClass3_Sub2ArrayArrayArray2638[var0][var1][var2];
       if(var3 == null) {
          return null;
@@ -28,7 +30,7 @@ final class Class159 {
       try {
          if(Unsorted.aBoolean3641) {
             try {
-               return !((Boolean) TextCore.aClass94_3209.method1577(Class38.aClass87_665.applet)).booleanValue();
+               return !(Boolean) TextCore.aClass94_3209.method1577(Class38.aClass87_665.applet);
             } catch (Throwable var2) {
             }
          }
@@ -65,12 +67,12 @@ final class Class159 {
          int var6;
          int var7;
          for(var6 = 0; var6 < var5; ++var6) {
-            var7 = Class127.anIntArray1681[var3 - -var4] - var0 * Class161.anIntArray2026[-1 + Class161.anIntArray2026.length & Class72.anInt1071 + var3] / 6;
+            var7 = anIntArray1681[var3 - -var4] - var0 * Class161.anIntArray2026[-1 + Class161.anIntArray2026.length & Class72.anInt1071 + var3] / 6;
             if(0 > var7) {
                var7 = 0;
             }
 
-            Class127.anIntArray1681[var3++] = var7;
+            anIntArray1681[var3++] = var7;
          }
 
          int var8;
@@ -81,9 +83,9 @@ final class Class159 {
             for(var8 = 0; 128 > var8; ++var8) {
                var9 = (int)(100.0D * Math.random());
                if(var9 < 50 && var8 > 10 && var8 < 118) {
-                  Class127.anIntArray1681[var8 + var7] = 255;
+                  anIntArray1681[var8 + var7] = 255;
                } else {
-                  Class127.anIntArray1681[var8 + var7] = 0;
+                  anIntArray1681[var8 + var7] = 0;
                }
             }
          }
@@ -97,16 +99,16 @@ final class Class159 {
             ++Class1.anInt57;
          }
 
-         Class132.anInt1740 += var0;
+         anInt1740 += var0;
          var6 = (var0 - -(1 & Class44.anInt719)) / 2;
          if(var6 > 0) {
-            for(var7 = 0; Class132.anInt1740 > var7; ++var7) {
+            for(var7 = 0; anInt1740 > var7; ++var7) {
                var8 = 2 + (int)(124.0D * Math.random());
                var9 = (int)(128.0D * Math.random()) + 128;
-               Class127.anIntArray1681[var8 - -(var9 << 7)] = 192;
+               anIntArray1681[var8 - -(var9 << 7)] = 192;
             }
 
-            Class132.anInt1740 = 0;
+            anInt1740 = 0;
 
             int var10;
             for(var7 = 0; var7 < var2; ++var7) {
@@ -115,11 +117,11 @@ final class Class159 {
 
                for(var10 = -var6; var10 < 128; ++var10) {
                   if(128 > var6 + var10) {
-                     var8 += Class127.anIntArray1681[var9 + (var10 - -var6)];
+                     var8 += anIntArray1681[var9 + (var10 - -var6)];
                   }
 
                   if(-1 + -var6 + var10 >= 0) {
-                     var8 -= Class127.anIntArray1681[-var6 + -1 + var10 + var9];
+                     var8 -= anIntArray1681[-var6 + -1 + var10 + var9];
                   }
 
                   if(0 <= var10) {
@@ -142,7 +144,7 @@ final class Class159 {
                   }
 
                   if(var9 >= 0) {
-                     Class127.anIntArray1681[var10 + var7] = var8 / (var6 * 2 - -1);
+                     anIntArray1681[var10 + var7] = var8 / (var6 * 2 - -1);
                   }
                }
             }
@@ -153,14 +155,14 @@ final class Class159 {
       }
    }
 
-   static void method2196() {
-      try {
-         Class3_Sub13_Sub34.aReferenceCache_3412.clearSoftReferences();
-
-         Class3_Sub13_Sub31.aReferenceCache_3369.clearSoftReferences();
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "vl.D(" + 128 + ')');
-      }
-   }
+//   static void method2196() {
+//      try {
+//         Class3_Sub13_Sub34.aReferenceCache_3412.clearSoftReferences();
+//
+//         Class3_Sub13_Sub31.aReferenceCache_3369.clearSoftReferences();
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "vl.D(" + 128 + ')');
+//      }
+//   }
 
 }

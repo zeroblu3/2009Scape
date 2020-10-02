@@ -14,7 +14,7 @@ final class Class115 {
                return;
             }
 
-            Object var2;
+            Class140_Sub4 var2;
             int var3;
             if(0 > var1.anInt2273) {
                var3 = -var1.anInt2273 - 1;
@@ -29,7 +29,7 @@ final class Class115 {
             }
 
             if(var2 != null) {
-               ObjectDefinition var20 = Class162.getObjectDefinition(var1.anInt2270);
+               ObjectDefinition var20 = ObjectDefinition.getObjectDefinition(var1.anInt2270);
 
                int var4;
                int var5;
@@ -73,13 +73,13 @@ final class Class115 {
 
                if(null != var12) {
                   Unsorted.method881(WorldListCountry.localPlane, var1.anInt2282, -96, 0, var1.anInt2271, var1.anInt2283 - -1, -1, var13, 0, var1.anInt2266 - -1);
-                  ((Class140_Sub4)var2).anInt2778 = var1.anInt2283 + Class44.anInt719;
-                  ((Class140_Sub4)var2).anInt2833 = 64 * var5 + var1.anInt2282 * 128;
-                  ((Class140_Sub4)var2).anInt2782 = var4 * 64 + 128 * var1.anInt2271;
-                  ((Class140_Sub4)var2).anObject2796 = var12;
+                  var2.anInt2778 = var1.anInt2283 + Class44.anInt719;
+                  var2.anInt2833 = 64 * var5 + var1.anInt2282 * 128;
+                  var2.anInt2782 = var4 * 64 + 128 * var1.anInt2271;
+                  var2.anObject2796 = var12;
                   int var22 = var1.anInt2268;
-                  ((Class140_Sub4)var2).anInt2812 = var11;
-                  ((Class140_Sub4)var2).anInt2797 = Class44.anInt719 + var1.anInt2266;
+                  var2.anInt2812 = var11;
+                  var2.anInt2797 = Class44.anInt719 + var1.anInt2266;
                   int var15 = var1.anInt2272;
                   int var16 = var1.anInt2277;
                   int var17 = var1.anInt2279;
@@ -90,16 +90,16 @@ final class Class115 {
                      var15 = var18;
                   }
 
-                  ((Class140_Sub4)var2).anInt2818 = var1.anInt2271 + var15;
+                  var2.anInt2818 = var1.anInt2271 + var15;
                   if(var17 < var16) {
                      var18 = var16;
                      var16 = var17;
                      var17 = var18;
                   }
 
-                  ((Class140_Sub4)var2).anInt2777 = var1.anInt2282 + var16;
-                  ((Class140_Sub4)var2).anInt2817 = var17 + var1.anInt2282;
-                  ((Class140_Sub4)var2).anInt2788 = var1.anInt2271 - -var22;
+                  var2.anInt2777 = var1.anInt2282 + var16;
+                  var2.anInt2817 = var17 + var1.anInt2282;
+                  var2.anInt2788 = var1.anInt2271 - -var22;
                }
             }
          }
@@ -108,14 +108,14 @@ final class Class115 {
       }
    }
 
-   static void method1714() {
-      try {
-         KeyboardListener.aReferenceCache_1911.clearSoftReferences();
-
-          Unsorted.aReferenceCache_1131.clearSoftReferences();
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "ph.C(" + (byte) -6 + ')');
-      }
-   }
+//   static void method1714() {
+//      try {
+//         KeyboardListener.aReferenceCache_1911.clearSoftReferences();
+//
+//          Unsorted.aReferenceCache_1131.clearSoftReferences();
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "ph.C(" + (byte) -6 + ')');
+//      }
+//   }
 
 }

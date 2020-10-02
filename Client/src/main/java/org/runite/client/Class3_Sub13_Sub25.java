@@ -10,7 +10,6 @@ final class Class3_Sub13_Sub25 extends Class3_Sub13 {
    private int anInt3300 = 1024;
    private int anInt3301 = 819;
    private int anInt3303 = 1024;
-   static int loginStage = 0;
    private int anInt3308 = 2048;
    private int anInt3309 = 0;
    private int anInt3310 = 409;

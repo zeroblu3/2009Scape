@@ -19,7 +19,6 @@ final class Class102 implements Interface2 {
    private final short[] aShortArray2137;
    private NodeCache aClass47_2138;
    private int anInt2139;
-   static Class3_Sub28_Sub16_Sub2[] aClass3_Sub28_Sub16_Sub2Array2140;
    static Player player;
    private NodeCache aClass47_2142;
    private final byte[] aByteArray2143;
@@ -197,7 +196,7 @@ final class Class102 implements Interface2 {
          }
 
          anIntArray2125 = null;
-         aClass3_Sub28_Sub16_Sub2Array2140 = null;
+         Sprites.aClass3_Sub28_Sub16_Sub2Array2140 = null;
          aClass135Array2131 = null;
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "nk.W(" + var0 + ')');

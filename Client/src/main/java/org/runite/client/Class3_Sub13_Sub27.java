@@ -6,8 +6,6 @@ import java.util.Objects;
 
 final class Class3_Sub13_Sub27 extends Class3_Sub13 {
 
-   static long isaacServerKey = 0L;
-   static int anInt3340;
    static RSString[] aClass94Array3341 = new RSString[100];
    static int anInt3342;
    private int anInt3343 = 6;
@@ -267,7 +265,7 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
                      Unsorted.aBooleanArray73[var4] = Unsorted.aBooleanArray73[1 + var4];
                   }
 
-                  Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
+                  Class110.anInt1472 = PacketParser.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(57);
                   Class3_Sub13_Sub1.outgoingBuffer.writeLong(var0);
                   break;

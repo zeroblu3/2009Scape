@@ -39,7 +39,7 @@ final class Class112 implements Interface5 {
       var1.glTexGenfv(8193, 9473, new float[]{0.0F, 0.0F, 9.765625E-4F, 0.0F}, 0);
       var1.glEnable(3168);
       var1.glEnable(3169);
-      if(Class88.aBoolean1227) {
+      if(Class88.Texture3DEnabled) {
          var1.glBindTexture('\u806f', Class88.anInt1228);
          var1.glTexGeni(8194, 9472, 9217);
          var1.glTexGeni(8195, 9472, 9217);
@@ -80,7 +80,7 @@ final class Class112 implements Interface5 {
       var1.glTexEnvi(8960, '\u8589', '\u8578');
       var1.glDisable(3168);
       var1.glDisable(3169);
-      if(Class88.aBoolean1227) {
+      if(Class88.Texture3DEnabled) {
          var1.glDisable(3170);
          var1.glDisable(3171);
          var1.glDisable('\u806f');
@@ -99,7 +99,7 @@ final class Class112 implements Interface5 {
       var2.glTexEnvfv(8960, 8705, Unsorted.aFloatArray1934, 0);
       var2.glActiveTexture('\u84c0');
       if((var1 & 1) == 1) {
-         if(Class88.aBoolean1227) {
+         if(Class88.Texture3DEnabled) {
             if(this.anInt2181 != HDToolKit.anInt1791) {
                this.aFloatArray2179[0] = 0.0F;
                this.aFloatArray2179[1] = 0.0F;
@@ -111,7 +111,7 @@ final class Class112 implements Interface5 {
          } else {
             HDToolKit.bindTexture2D(Class88.anIntArray1224[HDToolKit.anInt1791 * 64 / 100 % 64]);
          }
-      } else if(Class88.aBoolean1227) {
+      } else if(Class88.Texture3DEnabled) {
          this.aFloatArray2179[0] = 0.0F;
          this.aFloatArray2179[1] = 0.0F;
          this.aFloatArray2179[2] = 0.0F;

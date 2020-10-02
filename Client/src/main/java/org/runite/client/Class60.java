@@ -26,7 +26,7 @@ final class Class60 {
       try {
          if(-1 != var1) {
             if(Unsorted.aBooleanArray1703[var1]) {
-               Class3_Sub13_Sub29.aClass153_3361.method2128(var1);
+               Unsorted.aClass153_3361.method2128(var1);
                if(null != GameObject.aClass11ArrayArray1834[var1]) {
                   boolean var2 = true;
 

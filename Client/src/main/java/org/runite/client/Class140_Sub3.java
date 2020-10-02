@@ -3,7 +3,8 @@ package org.runite.client;
 
 final class Class140_Sub3 extends GameObject {
 
-   private int anInt2720 = 0;
+    static LDIndexedSprite aClass109_Sub1_2631 = null;
+    private int anInt2720 = 0;
    private boolean aBoolean2721 = false;
    private AnimationDefinition aClass142_2722;
    private final int anInt2724;
@@ -16,7 +17,6 @@ final class Class140_Sub3 extends GameObject {
    private int anInt2733;
    private final int type;
    private final int anInt2736;
-   static int anInt2737 = 0;
    private LDIndexedSprite aClass109_Sub1_2738 = null;
    private Class127_Sub1 aClass127_Sub1_2742;
    static volatile int anInt2743 = 0;
@@ -295,7 +295,7 @@ final class Class140_Sub3 extends GameObject {
    private GameObject method1962(boolean var1) {
       try {
          boolean var3 = Class58.anIntArrayArrayArray914 != Class44.anIntArrayArrayArray723;
-         ObjectDefinition var4 = Class162.getObjectDefinition(this.objectId);
+         ObjectDefinition var4 = ObjectDefinition.getObjectDefinition(this.objectId);
          int var5 = var4.animationId;
          if(null != var4.ChildrenIds) {
             var4 = var4.method1685(0);
@@ -348,7 +348,7 @@ final class Class140_Sub3 extends GameObject {
             int var11 = (var8 >> 1) + this.anInt2730;
             int var12 = (var8 - -1 >> 1) + this.anInt2730;
             this.method1961(128 * var11, var9 * 128);
-            boolean var13 = !var3 && var4.aBoolean1503 && (var4.objectId != this.anInt2750 || (this.anInt2752 != this.anInt2726 || this.aClass142_2722 != null && (this.aClass142_2722.aBoolean1872 || Class3_Sub26.aBoolean2558) && this.anInt2733 != this.anInt2726) && Unsorted.anInt1137 >= 2);
+            boolean var13 = !var3 && var4.aBoolean1503 && (var4.objectId != this.anInt2750 || (this.anInt2752 != this.anInt2726 || this.aClass142_2722 != null && (this.aClass142_2722.aBoolean1872 || ClientCommands.tweeningEnabled) && this.anInt2733 != this.anInt2726) && Unsorted.anInt1137 >= 2);
             if(var1 && !var13) {
                return null;
             } else {
@@ -370,9 +370,9 @@ final class Class140_Sub3 extends GameObject {
                boolean var19 = null == this.aClass109_Sub1_2738;
                Class136 var20;
                if(this.aClass142_2722 == null) {
-                  var20 = var4.method1696(this.anInt2724, var16, var14, this.type, var15, var18, false, var19?Class75_Sub1.aClass109_Sub1_2631:this.aClass109_Sub1_2738, (byte)-128, var13, var17);
+                  var20 = var4.method1696(this.anInt2724, var16, var14, this.type, var15, var18, false, var19? aClass109_Sub1_2631:this.aClass109_Sub1_2738, (byte)-128, var13, var17);
                } else {
-                  var20 = var4.method1697(var17, var16, !var19?this.aClass109_Sub1_2738:Class75_Sub1.aClass109_Sub1_2631, var15, this.aClass142_2722, this.anInt2724, var14, var13, this.anInt2726, -2 ^ -8310, var18, this.anInt2733, this.type, this.anInt2746);
+                  var20 = var4.method1697(var17, var16, !var19?this.aClass109_Sub1_2738: aClass109_Sub1_2631, var15, this.aClass142_2722, this.anInt2724, var14, var13, this.anInt2726, -2 ^ -8310, var18, this.anInt2733, this.type, this.anInt2746);
                }
 
                if(null == var20) {
@@ -380,7 +380,7 @@ final class Class140_Sub3 extends GameObject {
                } else {
                   if(HDToolKit.highDetail && var13) {
                      if(var19) {
-                        Class75_Sub1.aClass109_Sub1_2631 = var20.aClass109_Sub1_1770;
+                        aClass109_Sub1_2631 = var20.aClass109_Sub1_1770;
                      }
 
                      int var21 = 0;
@@ -399,7 +399,7 @@ final class Class140_Sub3 extends GameObject {
                         this.aClass109_Sub1_2738 = var24;
                         this.anInt2748 = var17;
                         if(var19) {
-                           Class75_Sub1.aClass109_Sub1_2631 = null;
+                           aClass109_Sub1_2631 = null;
                         }
 
                         this.anInt2720 = var21;
@@ -515,7 +515,7 @@ final class Class140_Sub3 extends GameObject {
             if(var9 instanceof Class140_Sub3) {
                ((Class140_Sub3)var9).method1960();
             } else {
-               var10 = Class162.getObjectDefinition(this.objectId);
+               var10 = ObjectDefinition.getObjectDefinition(this.objectId);
                if(var10.ChildrenIds != null) {
                   var10 = var10.method1685(0);
                }
@@ -568,7 +568,7 @@ final class Class140_Sub3 extends GameObject {
          }
 
          if(var9 == null) {
-            var10 = Class162.getObjectDefinition(this.objectId);
+            var10 = ObjectDefinition.getObjectDefinition(this.objectId);
             if(null != var10.ChildrenIds) {
                this.aBoolean2721 = true;
             }

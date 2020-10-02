@@ -6,7 +6,10 @@ import org.rs09.client.config.GameConfig;
 final class Class3_Sub28_Sub6 extends Node {
 
    static boolean aBoolean3594;
-   int anInt3596;
+   static boolean aBoolean3668 = false;
+    static int anInt2293 = -1;
+    static float aFloat1169;
+    int anInt3596;
    int anInt3597;
    int anInt3598;
    RSString aClass94_3599;
@@ -24,17 +27,17 @@ final class Class3_Sub28_Sub6 extends Node {
 
    static void d(int var0) {
       try {
-         if(NPCDefinition.anInt1252 != -1 && Class3_Sub7.anInt2293 != -1) {
+         if(NPCDefinition.anInt1252 != -1 && anInt2293 != -1) {
             int var1 = (Class163_Sub2_Sub1.anInt4020 * (-Class134.anInt1759 + Class3_Sub13.anInt2383) >> 16) + Class134.anInt1759;
             float[] var3 = new float[3];
             Class163_Sub2_Sub1.anInt4020 += var1;
             if(Class163_Sub2_Sub1.anInt4020 >= 65535) {
                Class163_Sub2_Sub1.anInt4020 = '\uffff';
-               Class3_Sub28_Sub1.aBoolean3531 = !WorldMap.aBoolean3668;
+               Class3_Sub28_Sub1.aBoolean3531 = !aBoolean3668;
 
-               WorldMap.aBoolean3668 = true;
+               aBoolean3668 = true;
             } else {
-               WorldMap.aBoolean3668 = false;
+               aBoolean3668 = false;
                Class3_Sub28_Sub1.aBoolean3531 = false;
             }
 
@@ -67,13 +70,13 @@ final class Class3_Sub28_Sub6 extends Node {
                var6 = Class39.anInt670 * 2;
 
                for(var7 = 0; var7 < 3; ++var7) {
-                  var8 = Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][var6][var7] * 3;
-                  var10 = (Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][2 + var6][var7] - Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][3 + var6][var7] + Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][var6 - -2][var7]) * 3;
-                  var11 = Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][var6][var7];
-                  var9 = Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][1 + var6][var7] * 3;
+                  var8 = Class58.anIntArrayArrayArray911[anInt2293][var6][var7] * 3;
+                  var10 = (Class58.anIntArrayArrayArray911[anInt2293][2 + var6][var7] - Class58.anIntArrayArrayArray911[anInt2293][3 + var6][var7] + Class58.anIntArrayArrayArray911[anInt2293][var6 - -2][var7]) * 3;
+                  var11 = Class58.anIntArrayArrayArray911[anInt2293][var6][var7];
+                  var9 = Class58.anIntArrayArrayArray911[anInt2293][1 + var6][var7] * 3;
                   var12 = var9 + -var8;
                   int var13 = var10 + var8 + -(2 * var9);
-                  int var14 = -var10 + Class58.anIntArrayArrayArray911[Class3_Sub7.anInt2293][var6 - -2][var7] + -var11 + var9;
+                  int var14 = -var10 + Class58.anIntArrayArrayArray911[anInt2293][var6 - -2][var7] + -var11 + var9;
                   var16[var7] = (float)var11 + var2 * (var2 * (var2 * (float)var14 + (float)var13) + (float)var12);
                }
 
@@ -81,9 +84,9 @@ final class Class3_Sub28_Sub6 extends Node {
                float var19 = var16[2] - var3[2];
                float var18 = (-var3[1] + var16[1]) * -1.0F;
                double var20 = Math.sqrt((double)(var19 * var19 + var17 * var17));
-               Class85.aFloat1169 = (float)Math.atan2((double)var18, var20);
+               aFloat1169 = (float)Math.atan2((double)var18, var20);
                Class45.aFloat730 = -((float)Math.atan2((double)var17, (double)var19));
-               Class139.anInt1823 = 2047 & (int)(325.949D * (double)Class85.aFloat1169);
+               Class139.anInt1823 = 2047 & (int)(325.949D * (double) aFloat1169);
                Class3_Sub13_Sub25.anInt3315 = 2047 & (int)((double)Class45.aFloat730 * 325.949D);
             }
          }
@@ -127,7 +130,7 @@ final class Class3_Sub28_Sub6 extends Node {
 
    static Class2 c(int var0) {
       try {
-         Class2 var2 = (Class2)Class3_Sub13_Sub34.aReferenceCache_3412.get((long)var0);
+         Class2 var2 = (Class2)Class3_Sub13_Sub34.aReferenceCache_3412.get(var0);
          if(var2 == null) {
             byte[] var3 = Class107.aClass153_878.getFile(34, var0);
 
@@ -225,15 +228,15 @@ final class Class3_Sub28_Sub6 extends Node {
       }
    }
 
-   static void h() {
-      try {
-         Class114.aReferenceCache_1569.clearSoftReferences();
-
-         Class3_Sub15.aReferenceCache_2428.clearSoftReferences();
-         Unsorted.aReferenceCache_743.clearSoftReferences();
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "da.E(" + (byte) 3 + ')');
-      }
-   }
+//   static void h() {
+//      try {
+//         Class114.aReferenceCache_1569.clearSoftReferences();
+//
+//         Class3_Sub15.aReferenceCache_2428.clearSoftReferences();
+//         Unsorted.aReferenceCache_743.clearSoftReferences();
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "da.E(" + (byte) 3 + ')');
+//      }
+//   }
 
 }

@@ -48,7 +48,7 @@ public final class Class7 implements Interface4 {
             ItemDefinition var8 = Class38.getItemDefinition((int) var4);
             return var8.name;
          } else {
-            return var1 != 6 && var1 != 7 && 11 != var1 ? (var3 != 4936 ? (RSString) null : null) : EnumDefinitionProvider.provide(var2[0]).getString((int) var4);
+            return var1 != 6 && var1 != 7 && 11 != var1 ? (var3 != 4936 ? null : null) : EnumDefinitionProvider.provide(var2[0]).getString((int) var4);
          }
       } catch (RuntimeException var7) {
          throw ClientErrorException.clientError(var7, "af.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ',' + var4 + ')');

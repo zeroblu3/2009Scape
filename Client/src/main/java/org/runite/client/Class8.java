@@ -4,7 +4,8 @@ import java.util.Objects;
 
 final class Class8 {
 
-   private DataBuffer aClass3_Sub30_99;
+    static RSInterface[] aClass11Array1836;
+    private DataBuffer aClass3_Sub30_99;
    private Js5ResourceRequest aJs5ResourceRequest_100;
    static int anInt101;
    private final Js5Worker aJs5Worker_102;
@@ -134,11 +135,11 @@ final class Class8 {
 
    static void method841() {
       try {
-         GameObject.aClass11Array1836 = null;
+         aClass11Array1836 = null;
          Class3_Sub13_Sub1.method171(-101, Class3_Sub28_Sub12.anInt3655, 0, Class23.anInt454, 0, -1, Class140_Sub7.anInt2934, 0, 0);
-         if(GameObject.aClass11Array1836 != null) {
-            Unsorted.method1095(0, Unsorted.anInt1082, Unsorted.anInt3602, GameObject.aClass11Array1836, Class23.anInt454, -1412584499, 0, Class140_Sub7.anInt2934, (byte)73, PacketParser.aClass11_88.anInt292);
-            GameObject.aClass11Array1836 = null;
+         if(aClass11Array1836 != null) {
+            Unsorted.method1095(0, Unsorted.anInt1082, Unsorted.anInt3602, aClass11Array1836, Class23.anInt454, -1412584499, 0, Class140_Sub7.anInt2934, (byte)73, PacketParser.aClass11_88.anInt292);
+            aClass11Array1836 = null;
          }
 
       } catch (RuntimeException var2) {

@@ -17,6 +17,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     public static Canvas canvas;
     static int anInt950;
     static volatile boolean hasWindowFocus = true;
+    static long aLong2313 = 0L;
+    static int anInt4033;
+    static int anInt1737 = 1;
+    static boolean aBoolean1784 = false;
     private boolean aBoolean1 = false;
     static int anInt3 = 0;
     static Frame frame;
@@ -25,7 +29,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     static boolean aBoolean6 = false;
     static RSString aClass94_8 = RSString.parse("");
     static RSString aClass94_9 = RSString.parse(")3)3)3");
-    static RSString aClass94_10 = RSString.parse("::rect_debug");
     static boolean aBoolean11 = false;
 
     public final void focusLost(FocusEvent var1) {
@@ -125,9 +128,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 hasWindowFocus = true;
                 Class3_Sub13_Sub10.aBoolean3116 = true;
                 Class3_Sub13_Sub6.aBoolean3078 = true;
-                Class3_Sub28_Sub5.aBoolean3593 = false;
+                Class3_Sub28_Sub5.forceReplaceCanvasEnable = false;
                 AnimationDefinition.aLong1847 = TimeUtils.time();
-                Class3_Sub26.aBoolean2558 = true;
+                ClientCommands.tweeningEnabled = true;
             }
         } catch (RuntimeException var4) {
             throw ClientErrorException.clientError(var4, "rc.BA(" + var1 + ')');
@@ -137,7 +140,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     public final void destroy() {
         try {
             if (this == LinkableRSString.anApplet_Sub1_2588 && !Class29.aBoolean554) {
-                Class3_Sub9.aLong2313 = TimeUtils.time();
+                aLong2313 = TimeUtils.time();
                 TimeUtils.sleep(5000L);
                 Class3_Sub13_Sub10.aClass87_3125 = null;
                 this.method35(46, false);
@@ -184,11 +187,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         if (LinkableRSString.anApplet_Sub1_2588 == this && !Class29.aBoolean554) {
             Class3_Sub13_Sub10.aBoolean3116 = true;
 
-            if (Class137.aBoolean1784 && !HDToolKit.highDetail && -AnimationDefinition.aLong1847 + TimeUtils.time() > 1000) {
+            if (aBoolean1784 && !HDToolKit.highDetail && -AnimationDefinition.aLong1847 + TimeUtils.time() > 1000) {
                 Rectangle var2 = g.getClipBounds();
 
-                if (var2 == null || Class3_Sub9.anInt2334 <= var2.width && var2.height >= Class70.anInt1047) {
-                    Class3_Sub28_Sub5.aBoolean3593 = true;
+                if (var2 == null || Unsorted.anInt2334 <= var2.width && var2.height >= Class70.anInt1047) {
+                    Class3_Sub28_Sub5.forceReplaceCanvasEnable = true;
                 }
             }
         }
@@ -209,7 +212,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
             Class140_Sub3.method1959(Class3_Sub13_Sub15.aBoolean3184);
             WorldListEntry.aClass155_2627 = Class58.method1195(22050, Class38.aClass87_665, canvas, 0);
-            WorldListEntry.aClass155_2627.method2154(114, Class86.aClass3_Sub24_Sub4_1193);
+            WorldListEntry.aClass155_2627.method2154(114, Client.aClass3_Sub24_Sub4_1193);
             Class3_Sub21.aClass155_2491 = Class58.method1195(2048, Class38.aClass87_665, canvas, 1);
             Class3_Sub21.aClass155_2491.method2154(-126, Class3_Sub26.aClass3_Sub24_Sub2_2563);
         } catch (RuntimeException var2) {
@@ -360,7 +363,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                             return;
                         }
 
-                        Class132.anInt1737 = 5;
+                        anInt1737 = 5;
                     }
                 }
 
@@ -379,7 +382,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                     }
 
                     if (var9 >= 5) {
-                        Class137.aBoolean1784 = true;
+                        aBoolean1784 = true;
                     }
                 }
 
@@ -399,8 +402,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 this.method39();
                 Class3_Sub25.aClass129_2552 = Class36.method1012();
 
-                while (Class3_Sub9.aLong2313 == 0 || Class3_Sub9.aLong2313 > TimeUtils.time()) {
-                    Class133.anInt1754 = Class3_Sub25.aClass129_2552.method1767(-1, Class132.anInt1737, WorldListEntry.anInt2626);
+                while (aLong2313 == 0 || aLong2313 > TimeUtils.time()) {
+                    Class133.anInt1754 = Class3_Sub25.aClass129_2552.method1767(-1, anInt1737, WorldListEntry.anInt2626);
 
                     for (var7 = 0; var7 < Class133.anInt1754; ++var7) {
                         this.method36();
@@ -434,7 +437,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     public final void stop() {
         try {
             if (LinkableRSString.anApplet_Sub1_2588 == this && !Class29.aBoolean554) {
-                Class3_Sub9.aLong2313 = 4000L + TimeUtils.time();
+                aLong2313 = 4000L + TimeUtils.time();
             }
         } catch (RuntimeException var2) {
             throw ClientErrorException.clientError(var2, "rc.stop()");
@@ -450,9 +453,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 Class140_Sub7.anInt2934 = 768;
                 Class70.anInt1047 = 768;
                 Class84.anInt1164 = 0;
-                Class3_Sub13_Sub23_Sub1.anInt4033 = 530;
+                anInt4033 = 530;
                 Class23.anInt454 = 1024;
-                Class3_Sub9.anInt2334 = 1024;
+                Unsorted.anInt2334 = 1024;
                 Class106.anInt1442 = 0;
                 LinkableRSString.anApplet_Sub1_2588 = this;
                 Frame frame = new Frame();
@@ -462,7 +465,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 frame.setVisible(true);
                 frame.toFront();
                 Insets var9 = frame.getInsets();
-                frame.setSize(var9.left + Class3_Sub9.anInt2334 + var9.right, var9.top + Class70.anInt1047 + var9.bottom);
+                frame.setSize(var9.left + Unsorted.anInt2334 + var9.right, var9.top + Class70.anInt1047 + var9.bottom);
                 Class3_Sub13_Sub10.aClass87_3125 = Class38.aClass87_665 = new Signlink((Applet) null, 32 - -Class3_Sub13_Sub13.anInt3148, "runescape", 29);
                 Class64 var10 = Class38.aClass87_665.method1451(1, this);
 
@@ -487,7 +490,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     public final void start() {
         try {
             if (LinkableRSString.anApplet_Sub1_2588 == this && !Class29.aBoolean554) {
-                Class3_Sub9.aLong2313 = 0L;
+                aLong2313 = 0L;
             }
         } catch (RuntimeException var2) {
             throw ClientErrorException.clientError(var2, "rc.start()");
@@ -509,9 +512,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 }
                 LinkableRSString.anApplet_Sub1_2588 = this;
                 Class106.anInt1442 = 0;
-                Class3_Sub13_Sub23_Sub1.anInt4033 = 1530;
+                anInt4033 = 1530;
                 Class23.anInt454 = 765;
-                Class3_Sub9.anInt2334 = 765;
+                Unsorted.anInt2334 = 765;
                 Class84.anInt1164 = 0;
                 Class140_Sub7.anInt2934 = 503;
                 Class70.anInt1047 = 503;

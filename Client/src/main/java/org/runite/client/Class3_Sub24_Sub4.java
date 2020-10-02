@@ -71,7 +71,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
          var7 = new int[]{22050};
          for(Class3_Sub6 var9 = (Class3_Sub6)var1.aHashTable_2564.first(); var9 != null; var9 = (Class3_Sub6)var1.aHashTable_2564.next()) {
             int var10 = (int)var9.linkableKey;
-            Class3_Sub15 var11 = (Class3_Sub15)this.aHashTable_3508.get((long)var10);
+            Class3_Sub15 var11 = (Class3_Sub15)this.aHashTable_3508.get(var10);
             if(null == var11) {
                var11 = Unsorted.method1245(var3, var10);
                if(null == var11) {
@@ -79,7 +79,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
                   continue;
                }
 
-               this.aHashTable_3508.put((long)var10, var11);
+               this.aHashTable_3508.put(var10, var11);
             }
 
             if(!var11.method373(var7, var4, var9.aByteArray2289)) {
@@ -133,10 +133,10 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
    static void method474() {
       try {
          Unsorted.aReferenceCache_21.sweep(5);
-         Class99.aReferenceCache_1401.sweep(5);
+         ObjectDefinition.aReferenceCache_1401.sweep(5);
 
          Unsorted.aReferenceCache_4051.sweep(5);
-         Class154.aReferenceCache_1965.sweep(5);
+         ObjectDefinition.aReferenceCache_1965.sweep(5);
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "va.S(" + 2 + ',' + 5 + ')');
       }
@@ -220,12 +220,12 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
 
                   if(var7 <= var2 && var0 >= var8 && 32 + var7 > var2 && var0 < var8 + 32) {
                      Class99.aClass11_1402 = var3;
-                     Class140_Sub2.anInt2701 = var15;
+                     Class3_Sub13_Sub13.anInt2701 = var15;
                      if(var3.itemAmounts[var15] > 0) {
                         Class3_Sub1 var9 = Client.method44(var3);
                         ItemDefinition var10 = Class38.getItemDefinition(var3.itemAmounts[var15] + -1);
                         if(1 == Class164_Sub1.anInt3012 && var9.method99()) {
-                           if(var3.componentHash != Class3_Sub28_Sub18.anInt3764 || var15 != Class110.anInt1473) {
+                           if(var3.componentHash != Class3_Sub28_Sub18.anInt3764 || var15 != Class3_Sub30_Sub1.anInt1473) {
                               method1177(-1, (long)var10.itemId, (byte)-91, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, ColorCore.BankItemColor, var10.name}), var15, (short)40, TextCore.HasUse, var3.componentHash);
                            }
                         } else if(GameObject.aBoolean1837 && var9.method99()) {

@@ -4,7 +4,6 @@ import java.util.Objects;
 
 final class Class108 {
 
-   static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_1457;
    static int anInt1460;
 
 
@@ -25,19 +24,19 @@ final class Class108 {
    static RSString method1653(int var0) {
       try {
 
-         return RenderAnimationDefinition.method903(new RSString[]{Class72.method1298((byte)9, 255 & var0 >> 24), TextCore.aClass94_4023, Class72.method1298((byte)9, (var0 & 16712751) >> 16), TextCore.aClass94_4023, Class72.method1298((byte)9, 255 & var0 >> 8), TextCore.aClass94_4023, Class72.method1298((byte)9, var0 & 255)});
+         return RenderAnimationDefinition.method903(new RSString[]{Class72.method1298(255 & var0 >> 24), TextCore.aClass94_4023, Class72.method1298((var0 & 16712751) >> 16), TextCore.aClass94_4023, Class72.method1298(255 & var0 >> 8), TextCore.aClass94_4023, Class72.method1298(var0 & 255)});
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "oi.F(" + var0 + ',' + 0 + ')');
       }
    }
 
-   static void method1654(int var0) {
-      try {
-         Class140_Sub4.aReferenceCache_2792.clearSoftReferences();
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "oi.E(" + var0 + ')');
-      }
-   }
+//   static void method1654(int var0) { //Separated into method1656 + clearClientCacheMemory
+//      try {
+//         Class140_Sub4.aReferenceCache_2792.clearSoftReferences();
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "oi.E(" + var0 + ')');
+//      }
+//   }
 
    static void method1656(CacheIndex var0, byte var1) {
       try {
@@ -56,7 +55,7 @@ final class Class108 {
             Objects.requireNonNull(AnimationDefinition.aClass109_1856).method1667(Class23.anInt454 / 2 + -(AnimationDefinition.aClass109_1856.width / 2), 18);
             Class140_Sub2.aBoolean2713 = true;
             if(var1 > -50) {
-               method1654(-27);
+               Class140_Sub4.aReferenceCache_2792.clearSoftReferences();
             }
 
          }

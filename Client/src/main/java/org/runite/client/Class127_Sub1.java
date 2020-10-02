@@ -2,7 +2,7 @@ package org.runite.client;
 import java.nio.FloatBuffer;
 import javax.media.opengl.GL;
 
-final class Class127_Sub1 extends Class127 {
+final class Class127_Sub1 extends LoginHandler {
 
    private static int anInt2682;
 

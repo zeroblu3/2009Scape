@@ -2,7 +2,8 @@ package org.runite.client;
 
 final class Class43 {
 
-   boolean aBoolean690;
+    static int[] anIntArray3107;
+    boolean aBoolean690;
    
    static int anInt692 = 0;
    private int anInt693;
@@ -62,7 +63,7 @@ final class Class43 {
    static Class3_Sub28_Sub16 method1062(int var0) {
       try {
          byte[] var2 = Class163_Sub1.aByteArrayArray2987[0];
-         int var1 = Class140_Sub7.anIntArray2931[0] * Class3_Sub13_Sub6.anIntArray3076[0];
+         int var1 = Class140_Sub7.anIntArray2931[0] * Unsorted.anIntArray3076[0];
          int[] var3 = new int[var1];
          if(var0 < 70) {
             method1062(67);
@@ -74,9 +75,9 @@ final class Class43 {
 
          Object var6;
          if(HDToolKit.highDetail) {
-            var6 = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
+            var6 = new Class3_Sub28_Sub16_Sub1(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Unsorted.anIntArray3076[0], var3);
          } else {
-            var6 = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Class3_Sub13_Sub6.anIntArray3076[0], var3);
+            var6 = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[0], Unsorted.anIntArray2591[0], Class140_Sub7.anIntArray2931[0], Unsorted.anIntArray3076[0], var3);
          }
 
          Class39.method1035((byte)111);
@@ -95,7 +96,7 @@ final class Class43 {
          if(var6 == 1) {
             var4 = 1024 - -(Class51.anIntArray840[var5] >> 6);
          } else if(var6 == 3) {
-            var4 = Class3_Sub13_Sub9.anIntArray3107[var5] >> 1;
+            var4 = anIntArray3107[var5] >> 1;
          } else if (var6 == 4) {
             var4 = var5 >> 10 << 11;
          } else if (var6 == 2) {
@@ -220,7 +221,7 @@ final class Class43 {
 
    protected Class43() {
       try {
-         if(Class3_Sub13_Sub9.anIntArray3107 == null) {
+         if(anIntArray3107 == null) {
             Class45.method1083((byte)-90);
          }
 
@@ -232,7 +233,7 @@ final class Class43 {
 
    Class43(DataBuffer var1) {
       try {
-         if(null == Class3_Sub13_Sub9.anIntArray3107) {
+         if(null == anIntArray3107) {
             Class45.method1083((byte)-94);
          }
 

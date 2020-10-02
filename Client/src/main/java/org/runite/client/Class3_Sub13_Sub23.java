@@ -8,20 +8,14 @@ class Class3_Sub13_Sub23 extends Class3_Sub13 {
    int anInt3280;
    int anInt3283;
    int[] anIntArray3284;
-   static int anInt3285 = 128;
    static int itemDefinitionSize;
-   static int[] anIntArray3288 = new int[]{4, 4, 1, 2, 6, 4, 2, 49, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
-   static int method275(int var0, int var1, int var2, int var3, int var4) {
+   static int method275(int var0, int var1, int var2, int var3) {
       try {
-         if(var3 <= 8) {
-            anIntArray3288 = (int[])null;
-         }
-
-         int var5 = -Class51.anIntArray851[1024 * var2 / var4] + 65536 >> 1;
+         int var5 = -Class51.anIntArray851[1024 * var2 / var3] + 65536 >> 1;
          return (var0 * (-var5 + 65536) >> 16) + (var1 * var5 >> 16);
       } catch (RuntimeException var6) {
-         throw ClientErrorException.clientError(var6, "nh.CA(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
+         throw ClientErrorException.clientError(var6, "nh.CA(" + var0 + ',' + var1 + ',' + var2 + ',' + ',' + var3 + ')');
       }
    }
 
@@ -50,7 +44,7 @@ class Class3_Sub13_Sub23 extends Class3_Sub13 {
          if(1 == opcode) {
             boolean updated = buffer.readUnsignedByte() == 1;
             if(updated) {
-               Class53.parseWorldList(buffer);
+               WorldListEntry.parseWorldList(buffer);
             }
 
             Class3_Sub13_Sub10.method216(buffer);
@@ -69,7 +63,7 @@ class Class3_Sub13_Sub23 extends Class3_Sub13 {
             if(this.anInt3278 < 0) {
                return false;
             } else {
-               Class3_Sub28_Sub16_Sub2 var3 = Class126.anInt1668 < 0 ? Unsorted.method1537(Class104.aClass153_2172, this.anInt3278):Class40.method1043(this.anInt3278, Class104.aClass153_2172, Class126.anInt1668);
+               Class3_Sub28_Sub16_Sub2 var3 = Class82.anInt1668 < 0 ? Unsorted.method1537(Class104.aClass153_2172, this.anInt3278):Class40.method1043(this.anInt3278, Class104.aClass153_2172, Class82.anInt1668);
                Objects.requireNonNull(var3).method665();
                this.anInt3283 = var3.anInt3696;
                this.anInt3280 = var3.anInt3707;

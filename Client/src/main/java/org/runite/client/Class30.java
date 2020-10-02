@@ -192,9 +192,9 @@ final class Class30 {
 
    static void method979(int var0, int var1, int var2) {
       try {
-         RSString var4 = RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_853, Class72.method1298((byte)9, var2), TextCore.aClass94_3268, Class72.method1298((byte)9, var0 >> 6), TextCore.aClass94_3268, Class72.method1298((byte)9, var1 >> 6), TextCore.aClass94_3268, Class72.method1298((byte)9, var0 & 63), TextCore.aClass94_3268, Class72.method1298((byte)9, 63 & var1)});
+         RSString var4 = RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_853, Class72.method1298(var2), TextCore.aClass94_3268, Class72.method1298(var0 >> 6), TextCore.aClass94_3268, Class72.method1298(var1 >> 6), TextCore.aClass94_3268, Class72.method1298(var0 & 63), TextCore.aClass94_3268, Class72.method1298(63 & var1)});
 
-          Unsorted.ClientCommands(var4);
+          ClientCommands.ClientCommands(var4);
       } catch (RuntimeException var5) {
          throw ClientErrorException.clientError(var5, "en.I(" + var0 + ',' + var1 + ',' + var2 + ',' + (byte) -4 + ')');
       }

@@ -1,5 +1,4 @@
 package org.runite.client;
-import org.rs09.client.config.GameConfig;
 
 
 import java.io.*;
@@ -9,6 +8,7 @@ final class Class53 {
    static int anInt865 = -1;
    static long aLong866 = 0L;
    static int anInt867;
+    static int worldListOffset;
 
 
    static int method1170(int var1) {
@@ -97,45 +97,9 @@ final class Class53 {
       }
    }
 
-   static void parseWorldList(DataBuffer buffer) {
-      try {
-         int var2 = buffer.getSmart();
-         Class119.countries = new WorldListCountry[var2];
-
-         int var3;
-         for(var3 = 0; var3 < var2; ++var3) {
-            Class119.countries[var3] = new WorldListCountry();
-            Class119.countries[var3].flagId = buffer.getSmart();
-            Class119.countries[var3].name = buffer.getGJString2(105);
-         }
-
-         Class3_Sub13_Sub4.worldListOffset = buffer.getSmart();
-         Class100.worldListArraySize = buffer.getSmart();
-         Class57.activeWorldListSize = buffer.getSmart();
-         Class117.worldList = new WorldListEntry[-Class3_Sub13_Sub4.worldListOffset + Class100.worldListArraySize + 1];
-
-         for(var3 = 0; var3 < Class57.activeWorldListSize; ++var3) {
-            int worldId = buffer.getSmart();
-            WorldListEntry var5 = Class117.worldList[worldId] = new WorldListEntry();
-            var5.countryIndex = buffer.readUnsignedByte();
-            var5.settings = buffer.readInt();
-            var5.worldId = worldId - -Class3_Sub13_Sub4.worldListOffset;
-            var5.activity = buffer.getGJString2(98);
-            var5.address = buffer.getGJString2(79);
-            GameConfig.WORLD = worldId;
-//            GameLaunch.SETTINGS.setWorld(worldId);
-            System.out.println("Registering to world: " + GameConfig.WORLD);
-         }
-         Unsorted.updateStamp = buffer.readInt();
-         Class30.loadedWorldList = true;
-      } catch (RuntimeException var6) {
-         throw ClientErrorException.clientError(var6, "hi.B(" + (buffer != null?"{...}":"null") + ',' + -88 + ')');
-      }
-   }
-
    static RSString method1174(RSInterface var0, byte var1) {
       try {
-         return Client.method44(var0).method101() != 0 ?(null != var0.aClass94_245 && var0.aClass94_245.trim(1).length() != 0?var0.aClass94_245:(Unsorted.aBoolean1040? TextCore.aClass94_2116:null)):null;
+         return Client.method44(var0).method101() != 0 ?(null != var0.aClass94_245 && var0.aClass94_245.trim(1).length() != 0?var0.aClass94_245:(ClientCommands.commandQaOpEnabled? TextCore.aClass94_2116:null)):null;
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "hi.F(" + (var0 != null?"{...}":"null") + ',' + var1 + ')');
       }

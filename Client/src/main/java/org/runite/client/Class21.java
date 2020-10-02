@@ -44,7 +44,7 @@ final class Class21 {
          Class117.method1719(30);
 
          for(var1 = 0; var1 < 100; ++var1) {
-            WorldMap.aBooleanArray3674[var1] = true;
+            Unsorted.aBooleanArray3674[var1] = true;
          }
 
          Class3_Sub13_Sub8.method204(-3);

@@ -270,14 +270,14 @@ final class Class3_Sub28_Sub20 extends Node {
       }
    }
 
-   static void method724() {
-      try {
-         Class163_Sub2_Sub1.aReferenceCache_4015.clearSoftReferences();
-
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "uh.B(" + -109 + ')');
-      }
-   }
+//   static void method724() {
+//      try {
+//         Class163_Sub2_Sub1.aReferenceCache_4015.clearSoftReferences();
+//
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "uh.B(" + -109 + ')');
+//      }
+//   }
 
    protected final void finalize() throws Throwable {
       try {

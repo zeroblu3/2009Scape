@@ -2,9 +2,7 @@ package org.runite.client;
 
 final class Class85 {
 
-   static int anInt1166;
    static boolean aBoolean1167 = false;
-   static float aFloat1169;
    static CacheIndex aClass153_1171;
    static int anInt1174 = 99;
 

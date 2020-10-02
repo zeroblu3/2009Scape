@@ -13,8 +13,11 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
    static boolean[] aBooleanArray4008 = new boolean[100];
    static int[] anIntArray4009 = new int[5];
    static int[][] anIntArrayArray4010 = new int[104][104];
+    static int anInt2246 = 0;
+    static int anInt3375 = 0;
+    static int anInt1616 = 0;
 
-   static void method2214() {
+    static void method2214() {
       try {
 
          if(NPC.method1986(90) || WorldListCountry.localPlane == Class140_Sub3.anInt2745) {
@@ -35,7 +38,7 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
       try {
          var0.removeKeyListener(Class3_Sub13_Sub3.aClass148_3049);
          var0.removeFocusListener(Class3_Sub13_Sub3.aClass148_3049);
-         Class3_Sub13.anInt2384 = -1;
+         KeyboardListener.anInt2384 = -1;
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "ch.G(" + (var0 != null?"{...}":"null") + ',' + -9320 + ')');
       }
@@ -44,23 +47,23 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
    static void method2216() {
       try {
 
-         if(Class3_Sub13_Sub31.anInt3375 != 0) {
+         if(anInt3375 != 0) {
             try {
-               if(1500 < ++Class3_Sub2.anInt2246) {
+               if(1500 < ++anInt2246) {
                   if(null != Class3_Sub15.activeConnection) {
                      Class3_Sub15.activeConnection.close();
                      Class3_Sub15.activeConnection = null;
                   }
 
-                  if(1 <= Class117.anInt1616) {
+                  if(1 <= anInt1616) {
                      Class158.anInt2005 = -5;
-                     Class3_Sub13_Sub31.anInt3375 = 0;
+                     anInt3375 = 0;
                      return;
                   }
 
-                  Class3_Sub2.anInt2246 = 0;
-                  ++Class117.anInt1616;
-                  Class3_Sub13_Sub31.anInt3375 = 1;
+                  anInt2246 = 0;
+                  ++anInt1616;
+                  anInt3375 = 1;
                   if(Class123.anInt1658 == Class3_Sub28_Sub19.anInt3773) {
                      Class123.anInt1658 = Class53.anInt867;
                   } else {
@@ -68,13 +71,13 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                   }
                }
 
-               if(Class3_Sub13_Sub31.anInt3375 == 1) {
+               if(anInt3375 == 1) {
                   Class3_Sub9.aClass64_2318 = Class38.aClass87_665.method1441((byte)8, ClientErrorException.worldListHost, Class123.anInt1658);
-                  Class3_Sub13_Sub31.anInt3375 = 2;
+                  anInt3375 = 2;
                }
 
                int var1;
-               if(Class3_Sub13_Sub31.anInt3375 == 2) {
+               if(anInt3375 == 2) {
                   if(Objects.requireNonNull(Class3_Sub9.aClass64_2318).anInt978 == 2) {
                      throw new IOException();
                   }
@@ -104,16 +107,16 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
 
                   if(var1 != 101) {
                      Class158.anInt2005 = var1;
-                     Class3_Sub13_Sub31.anInt3375 = 0;
+                     anInt3375 = 0;
                      Class3_Sub15.activeConnection.close();
                      Class3_Sub15.activeConnection = null;
                      return;
                   }
 
-                  Class3_Sub13_Sub31.anInt3375 = 3;
+                  anInt3375 = 3;
                }
 
-               if(Class3_Sub13_Sub31.anInt3375 == 3) {
+               if(anInt3375 == 3) {
                   if(Class3_Sub15.activeConnection.availableBytes() < 2) {
                      return;
                   }
@@ -121,14 +124,14 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                   var1 = Class3_Sub15.activeConnection.readByte() << 8 | Class3_Sub15.activeConnection.readByte();
                   Class104.method1627(var1, (byte)-16);
                   if(CS2Script.anInt2451 == -1) {
-                     Class3_Sub13_Sub31.anInt3375 = 0;
+                     anInt3375 = 0;
                      Class158.anInt2005 = 6;
                      Class3_Sub15.activeConnection.close();
                      Class3_Sub15.activeConnection = null;
                      return;
                   }
 
-                  Class3_Sub13_Sub31.anInt3375 = 0;
+                  anInt3375 = 0;
                   Class3_Sub15.activeConnection.close();
                   Class3_Sub15.activeConnection = null;
                   Class24.method951();
@@ -140,19 +143,19 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                   Class3_Sub15.activeConnection = null;
                }
 
-               if(Class117.anInt1616 < 1) {
+               if(anInt1616 < 1) {
                   if(Class123.anInt1658 == Class3_Sub28_Sub19.anInt3773) {
                      Class123.anInt1658 = Class53.anInt867;
                   } else {
                      Class123.anInt1658 = Class3_Sub28_Sub19.anInt3773;
                   }
 
-                  Class3_Sub13_Sub31.anInt3375 = 1;
-                  Class3_Sub2.anInt2246 = 0;
-                  ++Class117.anInt1616;
+                  anInt3375 = 1;
+                  anInt2246 = 0;
+                  ++anInt1616;
                } else {
                   Class158.anInt2005 = -4;
-                  Class3_Sub13_Sub31.anInt3375 = 0;
+                  anInt3375 = 0;
                }
             }
 

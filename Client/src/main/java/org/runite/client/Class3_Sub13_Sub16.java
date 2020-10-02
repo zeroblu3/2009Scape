@@ -10,8 +10,6 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
    private int anInt3197 = 0;
    static int anInt3198 = 0;
    private short[] aShortArray3200 = new short[512];
-   static WorldListEntry[] aClass44_Sub1Array3201 = new WorldListEntry[0];
-   static long aLong3202;
    private int anInt3203 = 5;
    private int anInt3204 = 5;
 
@@ -34,7 +32,7 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
    final void method158(int var1) {
       try {
          if(var1 != 16251) {
-            aClass44_Sub1Array3201 = (WorldListEntry[])null;
+            Unsorted.aClass44_Sub1Array3201 = (WorldListEntry[])null;
          }
 
          this.aByteArray3195 = Class49.method1123(var1 ^ 16727940, this.anInt3197);

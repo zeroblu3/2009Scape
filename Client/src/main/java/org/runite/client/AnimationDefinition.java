@@ -32,21 +32,6 @@ public final class AnimationDefinition {
 	boolean aBoolean1872 = false;
 
 
-	static Class3_Sub11 method2052(HashTable var0, Class168 var2) {
-		try {
-			long var3 = (long)((var2.anInt2095 - -1 << 16) + var2.anInt2090) + (((long)var2.anInt2100 << 56) - -((long)var2.anInt2094 << 32));
-			Class3_Sub11 var5 = (Class3_Sub11)var0.get(var3);
-			if(null == var5) {
-				var5 = new Class3_Sub11(var2.anInt2095, (float)var2.anInt2090, true, false, var2.anInt2094);
-				var0.put(var3, var5);
-			}
-
-			return var5;
-		} catch (RuntimeException var6) {
-			throw ClientErrorException.clientError(var6, "tk.J(" + (var0 != null?"{...}":"null") + ',' + false + ',' + (var2 != null?"{...}":"null") + ')');
-		}
-	}
-
 	final void method2053(DataBuffer var1) {
 		try {
 			//	System.out.print("Animation " + animId + " - parsed [");
@@ -76,7 +61,7 @@ public final class AnimationDefinition {
 				var5 &= 3;
 				Class3_Sub28_Sub5 var9 = null;
 
-				if((this.aBoolean1846 || Class3_Sub26.aBoolean2558) && var3 != -1 && this.frames.length > var3) {
+				if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && var3 != -1 && this.frames.length > var3) {
 					var3 = this.frames[var3];
 					var9 = Class3_Sub9.method133(var3 >> 16);
 					var3 &= '\uffff';
@@ -139,7 +124,7 @@ public final class AnimationDefinition {
 				return var1.method1894(true, true, true);
 			} else {
 				Class3_Sub28_Sub5 var9 = null;
-				if((this.aBoolean1846 || Class3_Sub26.aBoolean2558) && var3 != -1 && this.frames.length > var3) {
+				if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && var3 != -1 && this.frames.length > var3) {
 					var3 = this.frames[var3];
 					var9 = Class3_Sub9.method133(var3 >> 16);
 					var3 &= '\uffff';
@@ -158,7 +143,7 @@ public final class AnimationDefinition {
 						}
 					}
 
-					if((this.aBoolean1846 || Class3_Sub26.aBoolean2558) && -1 != var3 && this.anIntArray1870.length > var3) {
+					if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && -1 != var3 && this.anIntArray1870.length > var3) {
 						var14 = this.anIntArray1870[var3];
 						if(var14 != 65535) {
 							var11 = Class3_Sub9.method133(var14 >> 16);
@@ -208,7 +193,7 @@ public final class AnimationDefinition {
 			} else {
 				var4 &= 3;
 				Class3_Sub28_Sub5 var9 = null;
-				if((this.aBoolean1846 || Class3_Sub26.aBoolean2558) && var1 != -1 && this.frames.length > var1) {
+				if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && var1 != -1 && this.frames.length > var1) {
 					var1 = this.frames[var1];
 					var9 = Class3_Sub9.method133(var1 >> 16);
 					var1 &= '\uffff';
@@ -294,7 +279,7 @@ public final class AnimationDefinition {
 				return var5.method1882(true, true, true);
 			} else {
 				Class3_Sub28_Sub5 var9 = null;
-				if((this.aBoolean1846 || Class3_Sub26.aBoolean2558) && var1 != -1 && var1 < this.frames.length) {
+				if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && var1 != -1 && var1 < this.frames.length) {
 					var1 = this.frames[var1];
 					var9 = Class3_Sub9.method133(var1 >> 16);
 					var1 &= '\uffff';
@@ -403,9 +388,9 @@ public final class AnimationDefinition {
 	static void resetAll() {
 		try {
 			Class3_Sub26.anInt2556 = 0;
-			Class140_Sub4.aBoolean2774 = true;
-			AbstractIndexedSprite.aLong1465 = 0L;
-			Class106.aClass67_1443.anInt1018 = 0;
+			Class3_Sub13_Sub13.aBoolean2774 = true;
+			Class3_Sub13_Sub13.aLong1465 = 0L;
+			Class3_Sub13_Sub13.aClass67_1443.anInt1018 = 0;
 			Class3_Sub13_Sub6.aBoolean3078 = true;
 			Class3_Sub13.method153(112);
 			Class24.anInt469 = -1;
@@ -432,7 +417,7 @@ public final class AnimationDefinition {
 			}
 
 			Class164_Sub1.anInt3012 = 0;
-			Class3_Sub13_Sub18.anInt3216 = (int)(Math.random() * 100.0D) + -50;
+			Class3_Sub13_Sub13.anInt3216 = (int)(Math.random() * 100.0D) + -50;
 			Class45.anInt733 = 0;
 			GraphicDefinition.CAMERA_DIRECTION = 2047 & (int)(Math.random() * 20.0D) - 10;
 			Class58.anInt909 = -1;
@@ -471,7 +456,7 @@ public final class AnimationDefinition {
 			}
 
 			Class3_Sub13_Sub6.aClass61_3075 = new Class61();
-			Class96.anInt1357 = 0;
+			CS2Script.anInt1357 = 0;
 			Class8.anInt104 = 0;
 			Class3_Sub13_Sub2.method176(-114);
 			Class3_Sub2.method103();
@@ -504,7 +489,7 @@ public final class AnimationDefinition {
 			Class3_Sub13_Sub7.aClass11_3087 = null;
 			Class38_Sub1.aBoolean2615 = false;
 			Class3_Sub13_Sub34.anInt3415 = 0;
-			Class77.aClass52_1112.method1161(new int[]{0, 0, 0, 0, 0}, -1, false, (int[])null, -1);
+			Unsorted.aClass52_1112.method1161(new int[]{0, 0, 0, 0, 0}, -1, false, (int[])null, -1);
 
 			for(var1 = 0; 8 > var1; ++var1) {
 				Class91.aClass94Array1299[var1] = null;
@@ -516,7 +501,7 @@ public final class AnimationDefinition {
 			Class3_Sub13_Sub4.aBoolean3064 = true;
 
 			for(var1 = 0; var1 < 100; ++var1) {
-				WorldMap.aBooleanArray3674[var1] = true;
+				Unsorted.aBooleanArray3674[var1] = true;
 			}
 
 			Unsorted.clanSize = 0;

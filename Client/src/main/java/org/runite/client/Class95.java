@@ -4,8 +4,6 @@ public final class Class95 {
 
    static int anInt1336 = 0;
    static int anInt1338;
-   static Class3_Sub28_Sub16 aClass3_Sub28_Sub16_1339;
-   static volatile int anInt1340 = -1;
    static int anInt1343;
    static int anInt1344;
 

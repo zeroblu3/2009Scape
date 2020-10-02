@@ -383,7 +383,7 @@ final class Class3_Sub13_Sub37 extends Class3_Sub13 {
    }
 
    static boolean method349(int var0, int var1, int var2) {
-      for(int var3 = 0; var3 < Class126.anInt1672; ++var3) {
+      for(int var3 = 0; var3 < Class72.anInt1672; ++var3) {
          Class113 var4 = Class145.aClass113Array1895[var3];
          int var5;
          int var6;

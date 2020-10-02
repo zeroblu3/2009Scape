@@ -44,9 +44,9 @@ abstract class Class129 {
             int var9;
             for(var9 = var8; var9 < 128; ++var9) {
                int var11 = Toolkit.JAVA_TOOLKIT.getBuffer()[var5++ + var0];
-               int var10 = Class127.anIntArray1681[var4++];
+               int var10 = Class159.anIntArray1681[var4++];
                if(var10 == 0) {
-                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = var11;
+                  Class84.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = var11;
                } else {
                   int var12 = 18 + var10;
                   if(var12 > 255) {
@@ -59,21 +59,21 @@ abstract class Class129 {
                   }
 
                   var10 = Class52.anIntArray861[var10];
-                  Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Unsorted.bitwiseAnd(var13 * Unsorted.bitwiseAnd(var11, 16711935) + Unsorted.bitwiseAnd(16711935, var10) * var12, -16711936) - -Unsorted.bitwiseAnd(Unsorted.bitwiseAnd(var10, '\uff00') * var12 - -(Unsorted.bitwiseAnd('\uff00', var11) * var13), 16711680) >> 8;
+                  Class84.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Unsorted.bitwiseAnd(var13 * Unsorted.bitwiseAnd(var11, 16711935) + Unsorted.bitwiseAnd(16711935, var10) * var12, -16711936) - -Unsorted.bitwiseAnd(Unsorted.bitwiseAnd(var10, '\uff00') * var12 - -(Unsorted.bitwiseAnd('\uff00', var11) * var13), 16711680) >> 8;
                }
             }
 
             for(var9 = 0; var9 < var8; ++var9) {
-               Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Toolkit.JAVA_TOOLKIT.getBuffer()[var0 + var5++];
+               Class84.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081[var6++] = Toolkit.JAVA_TOOLKIT.getBuffer()[var0 + var5++];
             }
 
             var5 += Toolkit.JAVA_TOOLKIT.width + -128;
          }
 
           if(HDToolKit.highDetail) {
-             Class22.method926(Class97.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081, var0, var2, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3707, Class97.aClass3_Sub28_Sub16_Sub2_1381.anInt3696);
+             Class22.method926(Class84.aClass3_Sub28_Sub16_Sub2_1381.anIntArray4081, var0, var2, Class84.aClass3_Sub28_Sub16_Sub2_1381.anInt3707, Class84.aClass3_Sub28_Sub16_Sub2_1381.anInt3696);
           } else {
-             Class97.aClass3_Sub28_Sub16_Sub2_1381.method635(var0, var2);
+             Class84.aClass3_Sub28_Sub16_Sub2_1381.method635(var0, var2);
           }
 
       } catch (RuntimeException var14) {

@@ -65,13 +65,13 @@ final class Class3_Sub19 extends Linkable {
                for(var7 = 0; 104 > var7; ++var7) {
                   long var20 = Class3_Sub2.method104(WorldListCountry.localPlane, var6, var7 - -var3);
                   if(var20 != 0) {
-                     ObjectDefinition var10 = Class162.getObjectDefinition((int)(var20 >>> 32) & Integer.MAX_VALUE);
+                     ObjectDefinition var10 = ObjectDefinition.getObjectDefinition((int)(var20 >>> 32) & Integer.MAX_VALUE);
                      int var11 = var10.MapIcon;
                      int var12;
                      if(null != var10.ChildrenIds) {
                         for(var12 = 0; var12 < var10.ChildrenIds.length; ++var12) {
                            if(-1 != var10.ChildrenIds[var12]) {
-                              ObjectDefinition var13 = Class162.getObjectDefinition(var10.ChildrenIds[var12]);
+                              ObjectDefinition var13 = ObjectDefinition.getObjectDefinition(var10.ChildrenIds[var12]);
                               if(0 <= var13.MapIcon) {
                                  var11 = var13.MapIcon;
                                  break;

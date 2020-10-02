@@ -11,7 +11,6 @@ final class Class91 {
    private final int anInt1306;
    static byte aByte1308;
    private final int anInt1309;
-   static long aLong1310 = 0L;
    static short[] aShortArray1311;
 
 
@@ -913,8 +912,8 @@ final class Class91 {
    }
 
    static boolean method1495(int var0, int var1, int var2, int var3, int var4) {
-      int var5 = var3 * Class3_Sub13_Sub34.anInt3417 + var0 * Class3_Sub13_Sub13.anInt3153 >> 16;
-      int var6 = var3 * Class3_Sub13_Sub13.anInt3153 - var0 * Class3_Sub13_Sub34.anInt3417 >> 16;
+      int var5 = var3 * Class3_Sub13_Sub34.anInt3417 + var0 * Class145.anInt3153 >> 16;
+      int var6 = var3 * Class145.anInt3153 - var0 * Class3_Sub13_Sub34.anInt3417 >> 16;
       int var7 = var1 * Class60.anInt936 + var6 * Unsorted.anInt1037 >> 16;
       int var8 = var1 * Unsorted.anInt1037 - var6 * Class60.anInt936 >> 16;
       if(var7 < 1) {

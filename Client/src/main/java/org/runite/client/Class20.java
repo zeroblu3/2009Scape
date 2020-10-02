@@ -3,7 +3,6 @@ package org.runite.client;
 final class Class20 {
 
     static short[][] aShortArrayArray435 = new short[][]{{(short) 6554, (short) 115, (short) 10304, (short) 28, (short) 5702, (short) 7756, (short) 5681, (short) 4510, (short) -31835, (short) 22437, (short) 2859, (short) -11339, (short) 16, (short) 5157, (short) 10446, (short) 3658, (short) -27314, (short) -21965, (short) 472, (short) 580, (short) 784, (short) 21966, (short) 28950, (short) -15697, (short) -14002}, {(short) 9104, (short) 10275, (short) 7595, (short) 3610, (short) 7975, (short) 8526, (short) 918, (short) -26734, (short) 24466, (short) 10145, (short) -6882, (short) 5027, (short) 1457, (short) 16565, (short) -30545, (short) 25486, (short) 24, (short) 5392, (short) 10429, (short) 3673, (short) -27335, (short) -21957, (short) 192, (short) 687, (short) 412, (short) 21821, (short) 28835, (short) -15460, (short) -14019}, new short[0], new short[0], new short[0]};
-    static boolean aBoolean438 = false;
     static RSInterface aClass11_439;
 
 
@@ -42,7 +41,7 @@ final class Class20 {
 
     static void method909(RSInterface iface) {
         if (Class3_Sub23.anInt2535 == iface.anInt204) {
-            WorldMap.aBooleanArray3674[iface.anInt292] = true;
+            Unsorted.aBooleanArray3674[iface.anInt292] = true;
         }
     }
 
@@ -61,7 +60,7 @@ final class Class20 {
 
             int var19 = (519128 & (int) var7) >> 14;
             int var17 = (int) (var7 >>> 32) & Integer.MAX_VALUE;
-            ObjectDefinition var12 = Class162.getObjectDefinition(var17);
+            ObjectDefinition var12 = ObjectDefinition.getObjectDefinition(var17);
             if (var12.method1690()) {
                 Class140_Sub6.method2020(var2, var12, var1, var3);
             }
@@ -124,7 +123,7 @@ final class Class20 {
                             if (var13 instanceof Class140_Sub3) {
                                 ((Class140_Sub3) var13).method1960();
                             } else {
-                                Class8.method840(var12, (byte) -28, 8 * Class163_Sub3.anIntArray3007[var18], 4 - -var18, 8 * Class3_Sub13.anIntArray2386[var18], 4, var2, var1, var5);
+                                Class8.method840(var12, (byte) -28, 8 * Class163_Sub3.anIntArray3007[var18], 4 - -var18, 8 * Class110.anIntArray2386[var18], 4, var2, var1, var5);
                             }
                         } else if (var19 == 7) {
                             if (var13 instanceof Class140_Sub3) {
@@ -136,13 +135,13 @@ final class Class20 {
                             if (var13 instanceof Class140_Sub3) {
                                 ((Class140_Sub3) var13).method1960();
                             } else {
-                                Class8.method840(var12, (byte) -45, Class163_Sub3.anIntArray3007[var18] * 8, var18 + 4, 8 * Class3_Sub13.anIntArray2386[var18], 4, var2, var1, var5);
+                                Class8.method840(var12, (byte) -45, Class163_Sub3.anIntArray3007[var18] * 8, var18 + 4, 8 * Class110.anIntArray2386[var18], 4, var2, var1, var5);
                             }
 
                             if (var14 instanceof Class140_Sub3) {
                                 ((Class140_Sub3) var14).method1960();
                             } else {
-                                Class8.method840(var12, (byte) -24, Class163_Sub3.anIntArray3007[var18] * 8, 4 - -(3 & 2 + var18), Class3_Sub13.anIntArray2386[var18] * 8, 4, var2, var1, var5);
+                                Class8.method840(var12, (byte) -24, Class163_Sub3.anIntArray3007[var18] * 8, 4 - -(3 & 2 + var18), Class110.anIntArray2386[var18] * 8, 4, var2, var1, var5);
                             }
                         } else if (11 != var19) {
                             if (var13 instanceof Class140_Sub3) {

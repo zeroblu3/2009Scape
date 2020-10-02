@@ -11,11 +11,9 @@ final class Class3_Sub5 extends Linkable {
    int anInt2271;
    int anInt2272;
    int anInt2273;
-   static int anInt2275 = 1;
    int anInt2277;
    int anInt2278;
    int anInt2279;
-   static int anInt2281 = 0;
    int anInt2282;
    int anInt2283;
    int anInt2284;

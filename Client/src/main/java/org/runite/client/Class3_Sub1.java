@@ -6,11 +6,7 @@ final class Class3_Sub1 extends Linkable {
 
    int anInt2202;
    int anInt2205;
-   static int anInt2208 = -1;
-   static int[] anIntArray2209 = new int[]{2, 2, 4, 2, 1, 8, 4, 1, 4, 4, 2, 1, 1, 1, 4, 1};
    static int localIndex = -1;
-   static int anInt2212 = 0;
-   static int[] anIntArray2213 = new int[]{16776960, 16711680, '\uff00', '\uffff', 16711935, 16777215};
 
 
    static void method90(int var0) {

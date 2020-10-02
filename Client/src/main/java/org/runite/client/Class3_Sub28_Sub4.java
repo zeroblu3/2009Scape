@@ -8,7 +8,9 @@ import java.util.Objects;
 final class Class3_Sub28_Sub4 extends Node {
 
    static int[] anIntArray3565 = new int[32];
-   private int[] anIntArray3566;
+   static int[] anIntArray2209 = new int[]{2, 2, 4, 2, 1, 8, 4, 1, 4, 4, 2, 1, 1, 1, 4, 1};
+    static int[] anIntArray1976 = new int[]{1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0};
+    private int[] anIntArray3566;
    int[] anIntArray3567;
    boolean aBoolean3568 = true;
    private int[][] anIntArrayArray3570;
@@ -149,9 +151,9 @@ final class Class3_Sub28_Sub4 extends Node {
                for (var5 = 0; var4 > var5; ++var5) {
                   int var6 = var1.readUnsignedShort();
                   this.anIntArray3566[var5] = var6;
-                  this.anIntArrayArray3570[var5] = new int[Class155.anIntArray1976[var6]];
+                  this.anIntArrayArray3570[var5] = new int[anIntArray1976[var6]];
 
-                  for (int var7 = 0; Class155.anIntArray1976[var6] > var7; ++var7) {
+                  for (int var7 = 0; anIntArray1976[var6] > var7; ++var7) {
                      this.anIntArrayArray3570[var5][var7] = var1.readUnsignedShort();
                   }
                }
@@ -192,7 +194,7 @@ final class Class3_Sub28_Sub4 extends Node {
          if(this.anIntArray3566 != null) {
             for(int var4 = 0; var4 < this.anIntArray3566.length; ++var4) {
                Objects.requireNonNull(var3).append(this.aClass94Array3571[var4]);
-               var3.append(Class49.method1124(this.anIntArrayArray3570[var4], var2.method772(Class3_Sub1.anIntArray2209[this.anIntArray3566[var4]]), this.anIntArray3566[var4]));
+               var3.append(Class49.method1124(this.anIntArrayArray3570[var4], var2.method772(anIntArray2209[this.anIntArray3566[var4]]), this.anIntArray3566[var4]));
             }
          }
 

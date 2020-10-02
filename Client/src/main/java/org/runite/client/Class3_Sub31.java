@@ -29,7 +29,7 @@ final class Class3_Sub31 extends Linkable {
 
           for(int var3 = 0; var3 < 5; ++var3) {
             var2[var3] = RenderAnimationDefinition.method903(new RSString[]{
-                    Class72.method1298((byte)9, var3), TextCore.aClass94_3577});
+                    Class72.method1298(var3), TextCore.aClass94_3577});
             if(var1 != null && null != var1[var3]) {
                var2[var3] = RenderAnimationDefinition.method903(new RSString[]{var2[var3], var1[var3]});
             }

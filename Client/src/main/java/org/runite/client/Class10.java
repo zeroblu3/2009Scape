@@ -14,7 +14,7 @@ final class Class10 {
          Class3_Sub28_Sub16_Sub2[] var1 = new Class3_Sub28_Sub16_Sub2[Class95.anInt1338];
 
          for(int var2 = 0; Class95.anInt1338 > var2; ++var2) {
-            int var3 = Class3_Sub13_Sub6.anIntArray3076[var2] * Class140_Sub7.anIntArray2931[var2];
+            int var3 = Unsorted.anIntArray3076[var2] * Class140_Sub7.anIntArray2931[var2];
             byte[] var4 = Class163_Sub1.aByteArrayArray2987[var2];
             int[] var5 = new int[var3];
 
@@ -22,7 +22,7 @@ final class Class10 {
                var5[var6] = Class3_Sub13_Sub38.spritePalette[Unsorted.bitwiseAnd(255, var4[var6])];
             }
 
-            var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], var5);
+            var1[var2] = new Class3_Sub28_Sub16_Sub2(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Unsorted.anIntArray3076[var2], var5);
          }
 
          Class39.method1035((byte)113);

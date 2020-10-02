@@ -91,7 +91,7 @@ final class Class3_Sub13_Sub10 extends Class3_Sub13 {
                      Class3_Sub13_Sub27.aClass94Array3341[var4] = Class3_Sub13_Sub27.aClass94Array3341[1 + var4];
                   }
 
-                  Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
+                  Class110.anInt1472 = PacketParser.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(213);
                   Class3_Sub13_Sub1.outgoingBuffer.writeLong(var0);
                   break;

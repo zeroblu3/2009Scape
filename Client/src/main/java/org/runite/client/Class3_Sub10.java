@@ -4,7 +4,6 @@ import org.rs09.client.Linkable;
 
 public final class Class3_Sub10 extends Linkable {
 
-   static int[] anIntArray2338 = new int[]{160, 192, 80, 96, 0, 144, 80, 48, 160};
    static byte[][][] aByteArrayArrayArray2339;
    public RSString value;
 
@@ -22,9 +21,9 @@ public final class Class3_Sub10 extends Linkable {
       try {
          if(var0 >= 63) {
             Unsorted.aReferenceCache_21.clear();
-            Class99.aReferenceCache_1401.clear();
+            ObjectDefinition.aReferenceCache_1401.clear();
             Unsorted.aReferenceCache_4051.clear();
-            Class154.aReferenceCache_1965.clear();
+            ObjectDefinition.aReferenceCache_1965.clear();
          }
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "hb.D(" + var0 + ')');
@@ -41,7 +40,7 @@ public final class Class3_Sub10 extends Linkable {
 
    static RenderAnimationDefinition getRenderAnimationDefinition(int renderAnimationId) {
       try {
-         RenderAnimationDefinition def = (RenderAnimationDefinition)Class154.aReferenceCache_1955.get((long)renderAnimationId);
+         RenderAnimationDefinition def = (RenderAnimationDefinition) RenderAnimationDefinition.aReferenceCache_1955.get(renderAnimationId);
          if(def == null) {
             byte[] var3 = Class97.aClass153_1372.getFile(32, renderAnimationId);
 
@@ -51,7 +50,7 @@ public final class Class3_Sub10 extends Linkable {
             }
 
             def.method899();
-            Class154.aReferenceCache_1955.put(def, (long)renderAnimationId);
+            RenderAnimationDefinition.aReferenceCache_1955.put(def, (long)renderAnimationId);
          }
          return def;
       } catch (RuntimeException var4) {

@@ -43,7 +43,7 @@ public final class Class23 {
          var1.writeByte(Unsorted.anInt120);
          var1.writeByte(Sprites.anInt340);
          var1.writeShort(Class3_Sub13.anInt2378);
-         var1.writeShort(Class3_Sub13_Sub5.anInt3071);
+         var1.writeShort(Unsorted.anInt3071);
          var1.writeByte(Class127_Sub1.method1757());
          var1.writeInt(Unsorted.anInt2148);
          var1.writeByte(Unsorted.anInt2577);

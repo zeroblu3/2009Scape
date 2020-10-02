@@ -105,7 +105,7 @@ public class Translation {
 
 
     //Class3_Sub28_Sub11 English to German
-    static void englishToGerman(boolean var0) {
+    static void englishToGerman() {
         try {
             TextCore.TextWave = RSString.parse("welle:");
             TextCore.HasMoreOptions = RSString.parse(" weitere Optionen");
@@ -131,9 +131,6 @@ public class Translation {
             TextCore.TextColorRed = RSString.parse("rot:");
             TextCore.HasOK = RSString.parse("Okay");
             TextCore.RSLoadingPleaseWait = RSString.parse("RuneScape wird geladen )2 bitte warten)3)3)3");
-            if(var0) {
-                Unsorted.aBoolean3641 = false;
-            }
             TextCore.TextColorPurple = RSString.parse("lila:");
             TextCore.CreatedWorld = RSString.parse("Spielwelt erstellt)3");
             TextCore.HasPleaseRemove = RSString.parse("Bitte entfernen Sie ");
@@ -201,7 +198,7 @@ public class Translation {
             TextCore.PreparedSoundEngine = RSString.parse("Musik)2Engine vorbereitet)3");
             TextCore.HasLevel = RSString.parse("Stufe: ");
         } catch (RuntimeException var2) {
-            throw ClientErrorException.clientError(var2, "lk.A(" + var0 + ')');
+            throw ClientErrorException.clientError(var2, "lk.A(" + ')');
         }
     }
 }

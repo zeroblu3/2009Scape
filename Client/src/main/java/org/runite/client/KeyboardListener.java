@@ -17,8 +17,10 @@ final class KeyboardListener implements KeyListener, FocusListener {
    static int anInt1914;
    static CacheIndex aClass153_1916;
    static int anInt1918 = 0;
+    static int anInt2384 = 0;
+    static int[] anIntArray1978 = new int[128];
 
-   static void adjustKeyCodeMap() {
+    static void adjustKeyCodeMap() {
          if(!Signlink.javaVendor.toLowerCase().contains("microsoft")) {
             if(null == Signlink.setTraversalKeysEnabled) {
                KEY_CODE_MAP[192] = 58;
@@ -112,12 +114,12 @@ final class KeyboardListener implements KeyListener, FocusListener {
              * Tab to reply
              */
 			if (var1.getKeyCode() == KeyEvent.VK_TAB) {
-				Unsorted.ClientCommands(RSString.parse("::reply"));
+				ClientCommands.ClientCommands(RSString.parse("::reply"));
 			}
 
 			if (var1.getKeyCode() == KeyEvent.VK_ESCAPE)
             {
-               Unsorted.ClientCommands(RSString.parse("::shutdowninterface"));
+               ClientCommands.ClientCommands(RSString.parse("::shutdowninterface"));
             }
 			
 			//causing issues when in other interfaces, such as GE interface. My quick thing impl didn't work - Jamix77
@@ -131,11 +133,11 @@ final class KeyboardListener implements KeyListener, FocusListener {
             /**
              * Controls arrow key mouse movement
              */
-            if(Class3_Sub13.anInt2384 >= 0 && var2 >= 0) {
-               Unsorted.anIntArray2952[Class3_Sub13.anInt2384] = var2;
-               Class3_Sub13.anInt2384 = 127 & Class3_Sub13.anInt2384 - -1;
-               if(Class3_Sub13.anInt2384 == Class133.anInt1744) {
-                  Class3_Sub13.anInt2384 = -1;
+            if(anInt2384 >= 0 && var2 >= 0) {
+               Unsorted.anIntArray2952[anInt2384] = var2;
+               anInt2384 = 127 & anInt2384 - -1;
+               if(anInt2384 == Class32.anInt1744) {
+                  anInt2384 = -1;
                }
             }
 
@@ -144,7 +146,7 @@ final class KeyboardListener implements KeyListener, FocusListener {
                var3 = 127 & 1 + Class25.anInt491;
                if(var3 != Class3_Sub28_Sub9.anInt3620) {
                   Class129.anIntArray1693[Class25.anInt491] = var2;
-                  Class155.anIntArray1978[Class25.anInt491] = -1;
+                  anIntArray1978[Class25.anInt491] = -1;
                   Class25.anInt491 = var3;
                }
             }
@@ -174,7 +176,7 @@ final class KeyboardListener implements KeyListener, FocusListener {
                int var3 = 1 + Class25.anInt491 & 127;
                if(var3 != Class3_Sub28_Sub9.anInt3620) {
                   Class129.anIntArray1693[Class25.anInt491] = -1;
-                  Class155.anIntArray1978[Class25.anInt491] = var2;
+                  anIntArray1978[Class25.anInt491] = var2;
                   Class25.anInt491 = var3;
                }
             }
@@ -188,7 +190,7 @@ final class KeyboardListener implements KeyListener, FocusListener {
 
    public final synchronized void focusLost(FocusEvent var1) {
       if(Class3_Sub13_Sub3.aClass148_3049 != null) {
-         Class3_Sub13.anInt2384 = -1;
+         anInt2384 = -1;
       }
    }
 
@@ -216,11 +218,11 @@ final class KeyboardListener implements KeyListener, FocusListener {
                var2 = -1;
             }
 
-            if(Class3_Sub13.anInt2384 >= 0 && var2 >= 0) {
-               Unsorted.anIntArray2952[Class3_Sub13.anInt2384] = ~var2;
-               Class3_Sub13.anInt2384 = 127 & 1 + Class3_Sub13.anInt2384;
-               if(Class3_Sub13.anInt2384 == Class133.anInt1744) {
-                  Class3_Sub13.anInt2384 = -1;
+            if(anInt2384 >= 0 && var2 >= 0) {
+               Unsorted.anIntArray2952[anInt2384] = ~var2;
+               anInt2384 = 127 & 1 + anInt2384;
+               if(anInt2384 == Class32.anInt1744) {
+                  anInt2384 = -1;
                }
             }
          }

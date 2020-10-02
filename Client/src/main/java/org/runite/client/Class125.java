@@ -36,7 +36,7 @@ final class Class125 implements Interface5 {
          var1.glRotatef(-((float)Class140_Sub7.anInt2938 * 360.0F) / 2048.0F, 1.0F, 0.0F, 0.0F);
          var1.glRotatef(-180.0F, 1.0F, 0.0F, 0.0F);
          var1.glMatrixMode(5888);
-         if(!Class88.aBoolean1227) {
+         if(!Class88.Texture3DEnabled) {
             var1.glBindTexture(3553, Class88.anIntArray1224[(int)((float)(HDToolKit.anInt1791 * 64) * 0.0050F) % 64]);
          }
 
@@ -50,7 +50,7 @@ final class Class125 implements Interface5 {
                var2 += 4;
             }
 
-            if(Class88.aBoolean1227) {
+            if(Class88.Texture3DEnabled) {
                var1.glProgramLocalParameter4fARB('\u8620', 65, (float)HDToolKit.anInt1791 * 0.0050F, 0.0F, 0.0F, 1.0F);
             } else {
                var1.glProgramLocalParameter4fARB('\u8620', 65, 0.0F, 0.0F, 0.0F, 1.0F);
@@ -67,7 +67,7 @@ final class Class125 implements Interface5 {
       this.anInt2186 = var1.glGenLists(2);
       var1.glNewList(this.anInt2186, 4864);
       var1.glActiveTexture('\u84c1');
-      if(Class88.aBoolean1227) {
+      if(Class88.Texture3DEnabled) {
          var1.glBindTexture('\u806f', Class88.anInt1228);
       }
 
@@ -86,7 +86,7 @@ final class Class125 implements Interface5 {
       var1.glTexEnvi(8960, '\u8571', 8448);
       var1.glTexEnvi(8960, '\u8572', 8448);
       var1.glTexEnvi(8960, '\u8588', 5890);
-      var1.glDisable(Class88.aBoolean1227?'\u806f':3553);
+      var1.glDisable(Class88.Texture3DEnabled?'\u806f':3553);
       var1.glActiveTexture('\u84c0');
       var1.glBindProgramARB('\u8620', 0);
       var1.glDisable('\u8620');
@@ -113,9 +113,9 @@ final class Class125 implements Interface5 {
          javax.media.opengl.GL var2 = HDToolKit.gl;
          var2.glActiveTexture('\u84c1');
          if((var1 & 128) == 0) {
-            var2.glEnable(Class88.aBoolean1227?'\u806f':3553);
+            var2.glEnable(Class88.Texture3DEnabled?'\u806f':3553);
          } else {
-            var2.glDisable(Class88.aBoolean1227?'\u806f':3553);
+            var2.glDisable(Class88.Texture3DEnabled?'\u806f':3553);
          }
 
          var2.glActiveTexture('\u84c0');

@@ -1,8 +1,11 @@
 package org.runite.client;
 
+import org.rs09.client.data.ReferenceCache;
+
 final class RenderAnimationDefinition {
 
     static int[] anIntArray356 = new int[]{1, 0, -1, 0};
+    static ReferenceCache aReferenceCache_1955 = new ReferenceCache(64);
     int anInt357 = 0;
     int[][] anIntArrayArray359;
     int anInt360 = -1;

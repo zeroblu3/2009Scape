@@ -4,13 +4,10 @@ import org.rs09.client.data.ReferenceCache;
 
 final class Class154 {
 
-   static ReferenceCache aReferenceCache_1955 = new ReferenceCache(64);
    static int anInt1957;
    static int[] anIntArray1960 = new int[14];
    static ReferenceCache aReferenceCache_1964 = new ReferenceCache(5);
-   static ReferenceCache aReferenceCache_1965 = new ReferenceCache(50);
    static int anInt1966 = -1;
-   static CacheIndex aClass153_1967;
 
    static void method2146(int var0, int var1, int var2, int var3, GameObject var4, GameObject var5, int var6, int var7, long var8) {
       if(var4 != null || var5 != null) {
@@ -45,7 +42,7 @@ final class Class154 {
 
              return TextCore.aClass94_1687;
          } else {
-            return Class72.method1298((byte)9, var0);
+            return Class72.method1298(var0);
          }
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "vf.C(" + var0 + ',' + (byte) -78 + ')');

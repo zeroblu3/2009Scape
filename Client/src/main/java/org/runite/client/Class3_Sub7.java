@@ -5,7 +5,6 @@ import org.rs09.client.Linkable;
 final class Class3_Sub7 extends Linkable {
 
    static int[] anIntArray2292 = new int[1000];
-   static int anInt2293 = -1;
    static int anInt2294;
    long aLong2295;
 
@@ -27,8 +26,8 @@ final class Class3_Sub7 extends Linkable {
 
    static void method122(int var0) {
       try {
-         GameObject.aClass11ArrayArray1834 = new RSInterface[Class3_Sub13_Sub29.aClass153_3361.method2121()][];
-         Unsorted.aBooleanArray1703 = new boolean[Class3_Sub13_Sub29.aClass153_3361.method2121()];
+         GameObject.aClass11ArrayArray1834 = new RSInterface[Unsorted.aClass153_3361.method2121()][];
+         Unsorted.aBooleanArray1703 = new boolean[Unsorted.aClass153_3361.method2121()];
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "eb.D(" + var0 + ')');
       }
@@ -37,13 +36,13 @@ final class Class3_Sub7 extends Linkable {
    static RSString itemStackColor(int var0, int var1) {
       try {
          if(100000 > var1) {
-            return RenderAnimationDefinition.method903(new RSString[]{ColorCore.DefaultStackColor, Class72.method1298((byte)9, var1), TextCore.aClass94_1076});
+            return RenderAnimationDefinition.method903(new RSString[]{ColorCore.DefaultStackColor, Class72.method1298(var1), TextCore.aClass94_1076});
          } else {
             if(var0 != 1000) {
                itemStackColor(-54, 54);
             }
 
-            return var1 >= 10000000?RenderAnimationDefinition.method903(new RSString[]{ColorCore.MillionStackColor, Class72.method1298((byte)9, var1 / 1000000), TextCore.MillionM, TextCore.aClass94_1076}):RenderAnimationDefinition.method903(new RSString[]{ColorCore.ThousandStackColor, Class72.method1298((byte)9, var1 / 1000), TextCore.ThousandK, TextCore.aClass94_1076});
+            return var1 >= 10000000?RenderAnimationDefinition.method903(new RSString[]{ColorCore.MillionStackColor, Class72.method1298(var1 / 1000000), TextCore.MillionM, TextCore.aClass94_1076}):RenderAnimationDefinition.method903(new RSString[]{ColorCore.ThousandStackColor, Class72.method1298(var1 / 1000), TextCore.ThousandK, TextCore.aClass94_1076});
          }
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "eb.C(" + var0 + ',' + var1 + ')');

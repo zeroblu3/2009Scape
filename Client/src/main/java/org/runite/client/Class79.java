@@ -135,7 +135,7 @@ final class Class79 {
                      Class3_Sub28_Sub9.anInt3622 = 2;
                   }
 
-                  WorldMap.anInt3671 = Class3_Sub28_Sub9.anInt3622;
+                  Unsorted.anInt3671 = Class3_Sub28_Sub9.anInt3622;
                   Class3_Sub13_Sub15.aBoolean3184 = var0.readUnsignedByte() == 1;
                   CS2Script.anInt2453 = var0.readUnsignedByte();
                   if(CS2Script.anInt2453 > 127) {
@@ -150,7 +150,7 @@ final class Class79 {
 
                   if(var2 >= 1) {
                      Class3_Sub13.anInt2378 = var0.readUnsignedShort();
-                     Class3_Sub13_Sub5.anInt3071 = var0.readUnsignedShort();
+                     Unsorted.anInt3071 = var0.readUnsignedShort();
                   }
 
                   if(var2 >= 3 && var2 < 6) {

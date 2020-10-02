@@ -6,7 +6,6 @@ final class Class119 {
 
    static Class131 aClass131_1624;
    static Class33 aClass33_1626;
-   static WorldListCountry[] countries;
    static CacheIndex aClass153_1628;
 
 
@@ -23,23 +22,23 @@ final class Class119 {
             var1 = Class3_Sub13_Sub10.aFrame3121;
          }
 
-         Class3_Sub9.anInt2334 = ((Container)var1).getSize().width;
+         Unsorted.anInt2334 = ((Container)var1).getSize().width;
          Class70.anInt1047 = ((Container)var1).getSize().height;
          Insets var2;
          if(var1 == GameShell.frame) {
             var2 = GameShell.frame.getInsets();
             Class70.anInt1047 -= var2.bottom + var2.top;
-            Class3_Sub9.anInt2334 -= var2.right + var2.left;
+            Unsorted.anInt2334 -= var2.right + var2.left;
          }
 
          if(Class83.method1411(0) >= 2) {
-            Class23.anInt454 = Class3_Sub9.anInt2334;
+            Class23.anInt454 = Unsorted.anInt2334;
             Class84.anInt1164 = 0;
             Class106.anInt1442 = 0;
             Class140_Sub7.anInt2934 = Class70.anInt1047;
          } else {
             Class106.anInt1442 = 0;
-            Class84.anInt1164 = (-765 + Class3_Sub9.anInt2334) / 2;
+            Class84.anInt1164 = (-765 + Unsorted.anInt2334) / 2;
             Class140_Sub7.anInt2934 = 503;
             Class23.anInt454 = 765;
          }

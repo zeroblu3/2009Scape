@@ -3,9 +3,10 @@ package org.runite.client;
 final class Class32 {
 
    static int anInt590 = -1;
+    static int anInt1744 = 0;
 
 
-   static RSString method992(DataBuffer var0) {
+    static RSString method992(DataBuffer var0) {
       try {
 
          return Class140_Sub7.method2033(var0);
@@ -63,11 +64,11 @@ final class Class32 {
       }
 
       if(AnimationDefinition.aClass25Array1868 != null) {
-         for(var0 = 0; var0 < Class3_Sub13_Sub5.anInt3070; ++var0) {
+         for(var0 = 0; var0 < Unsorted.anInt3070; ++var0) {
             AnimationDefinition.aClass25Array1868[var0] = null;
          }
 
-         Class3_Sub13_Sub5.anInt3070 = 0;
+         Unsorted.anInt3070 = 0;
       }
 
       if(Unsorted.aClass25Array4060 != null) {
@@ -86,16 +87,16 @@ final class Class32 {
             Class3_Sub28_Sub9.anInt3620 = Class134.anInt1762;
             ++Class3_Sub13_Sub33.anInt3398;
             int var2;
-            if(Class3_Sub13.anInt2384 < 0) {
+            if(KeyboardListener.anInt2384 < 0) {
                for(var2 = 0; var2 < 112; ++var2) {
                   ObjectDefinition.aBooleanArray1490[var2] = false;
                }
 
-               Class3_Sub13.anInt2384 = Class133.anInt1744;
+               KeyboardListener.anInt2384 = anInt1744;
             } else {
-               while(Class3_Sub13.anInt2384 != Class133.anInt1744) {
-                  var2 = Unsorted.anIntArray2952[Class133.anInt1744];
-                  Class133.anInt1744 = 127 & 1 + Class133.anInt1744;
+               while(KeyboardListener.anInt2384 != anInt1744) {
+                  var2 = Unsorted.anIntArray2952[anInt1744];
+                  anInt1744 = 127 & 1 + anInt1744;
                   if(0 <= var2) {
                      ObjectDefinition.aBooleanArray1490[var2] = true;
                   } else {

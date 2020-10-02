@@ -7,12 +7,8 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
    private int anInt3073 = 0;
    private int anInt3074 = 4096;
    static Class61 aClass61_3075 = new Class61();
-   static int[] anIntArray3076;
    static boolean aBoolean3078;
-   static RSString aClass94_3080 = Class95.method1586();
    static int anInt3081 = 0;
-   static int[] anIntArray3082 = new int[100];
-   static int[] anIntArray3083 = new int[50];
 
 
    static void method195() {
@@ -26,15 +22,15 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
          Class3_Sub28_Sub5.anIntArray3587 = new int[var6];
          Class3_Sub13_Sub26.aByteArrayArray3335 = new byte[var6][];
          Client.anIntArray2200 = new int[var6];
-         Class3_Sub9.regionXteaKeys = new int[var6][4];
-         WorldMap.aByteArrayArray3669 = new byte[var6][];
+         Class39.regionXteaKeys = new int[var6][4];
+         Class40.aByteArrayArray3669 = new byte[var6][];
          Class3_Sub24_Sub3.anIntArray3494 = new int[var6];
          Class164_Sub2.aByteArrayArray3027 = new byte[var6][];
          NPC.npcSpawnCacheIndices = new int[var6];
          Class3_Sub13_Sub15.anIntArray3181 = new int[var6];
          Class101.anIntArray1426 = new int[var6];
          byte sceneY = 8;
-         Class3_Sub13_Sub4.aByteArrayArray3057 = new byte[var6][];
+         Class40.aByteArrayArray3057 = new byte[var6][];
          int var11 = 0;
 
          int var7;
@@ -51,48 +47,48 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
                 * 4. Gets the archives for the map underlays (this would be like water for example
                 * 5. Gets the archives for the landscape underlays (things that (appear to be/are) -1 on the plane)
                 */
-               Client.anIntArray2200[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3807, Class72.method1298((byte)9, var7), TextCore.aClass94_3161, Class72.method1298((byte)9, var8)}));
+               Client.anIntArray2200[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3807, Class72.method1298(var7), TextCore.aClass94_3161, Class72.method1298(var8)}));
                if (GameConfig.HD_LOGIN_DEBUG) {
                   System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting archive for map: " + Client.anIntArray2200[var11]);
                   if (GameConfig.HD_LOGIN_VERBOSE) {
-                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for map: " + "Type: " + TextCore.aClass94_3807 + " Place in cache: " + Class72.method1298((byte) 9, var7) + TextCore.aClass94_3161 + Class72.method1298((byte) 9, var8));
+                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for map: " + "Type: " + TextCore.aClass94_3807 + " Place in cache: " + Class72.method1298(var7) + TextCore.aClass94_3161 + Class72.method1298(var8));
                   }
                }
 
 
 
-               Class101.anIntArray1426[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2029, Class72.method1298((byte)9, var7), TextCore.aClass94_3161, Class72.method1298((byte)9, var8)}));
+               Class101.anIntArray1426[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2029, Class72.method1298(var7), TextCore.aClass94_3161, Class72.method1298(var8)}));
                if (GameConfig.HD_LOGIN_DEBUG) {
                   System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting archive for landscape: " + Class101.anIntArray1426[var11]);
                   if (GameConfig.HD_LOGIN_VERBOSE) {
-                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for landscape: " + "Type: " + TextCore.aClass94_2029 + " Place in cache: " + Class72.method1298((byte)9, var7) + TextCore.aClass94_3161 + Class72.method1298((byte)9, var8));
+                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for landscape: " + "Type: " + TextCore.aClass94_2029 + " Place in cache: " + Class72.method1298(var7) + TextCore.aClass94_3161 + Class72.method1298(var8));
                   }
                }
 
 
-               NPC.npcSpawnCacheIndices[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{RSString.parse("n"), Class72.method1298((byte)9, var7), TextCore.aClass94_3161, Class72.method1298((byte)9, var8)}));
+               NPC.npcSpawnCacheIndices[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{RSString.parse("n"), Class72.method1298(var7), TextCore.aClass94_3161, Class72.method1298(var8)}));
                if (GameConfig.HD_LOGIN_DEBUG) {
                   System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting archive for packed NPCs: " + NPC.npcSpawnCacheIndices[var11]);
                   if (GameConfig.HD_LOGIN_VERBOSE) {
-                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for packed NPCs: " + "Type: " + RSString.parse("n") + " Place in cache: " + Class72.method1298((byte)9, var7) + TextCore.aClass94_3161 + Class72.method1298((byte)9, var8));
+                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for packed NPCs: " + "Type: " + RSString.parse("n") + " Place in cache: " + Class72.method1298(var7) + TextCore.aClass94_3161 + Class72.method1298(var8));
                   }
                }
 
 
-               Class3_Sub13_Sub15.anIntArray3181[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_1333, Class72.method1298((byte)9, var7), TextCore.aClass94_3161, Class72.method1298((byte)9, var8)}));
+               Class3_Sub13_Sub15.anIntArray3181[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_1333, Class72.method1298(var7), TextCore.aClass94_3161, Class72.method1298(var8)}));
                if (GameConfig.HD_LOGIN_DEBUG) {
                   System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting archive for map underlays: " + Class3_Sub13_Sub15.anIntArray3181[var11]);
                   if (GameConfig.HD_LOGIN_VERBOSE) {
-                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for map underlays: " + "Type: " + TextCore.aClass94_1333 + " Place in cache: " + Class72.method1298((byte)9, var7) + TextCore.aClass94_3161 + Class72.method1298((byte)9, var8));
+                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for map underlays: " + "Type: " + TextCore.aClass94_1333 + " Place in cache: " + Class72.method1298(var7) + TextCore.aClass94_3161 + Class72.method1298(var8));
                   }
                }
 
 
-               Class3_Sub28_Sub5.anIntArray3587[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298((byte)9, var7), TextCore.aClass94_3161, Class72.method1298((byte)9, var8)}));
+               Class3_Sub28_Sub5.anIntArray3587[var11] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298(var7), TextCore.aClass94_3161, Class72.method1298(var8)}));
                if (GameConfig.HD_LOGIN_DEBUG) {
                   System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting archive for landscape underlays: " + Class3_Sub28_Sub5.anIntArray3587[var11]);
                   if (GameConfig.HD_LOGIN_VERBOSE) {
-                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for landscape underlays: " + "Type: " + TextCore.HasULLookUp + " Place in cache: " + Class72.method1298((byte)9, var7) + TextCore.aClass94_3161 + Class72.method1298((byte)9, var8));
+                     System.out.println("Class3_Sub13_sub6: HD Login Screen Debug: Getting specific info for landscape underlays: " + "Type: " + TextCore.HasULLookUp + " Place in cache: " + Class72.method1298(var7) + TextCore.aClass94_3161 + Class72.method1298(var8));
                   }
                }
                /* End login screen index lookup */
@@ -141,23 +137,19 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
       }
    }
 
-   static void method196(boolean var0) {
+   static void method196() {
       try {
-         Unsorted.aReferenceCache_684.clearSoftReferences();
-         Class163_Sub1.aReferenceCache_2984.clearSoftReferences();
-         if(var0) {
-            anIntArray3083 = (int[])null;
-         }
+         Class3_Sub8.anIntArray3083 = (int[])null;
 
       } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "ca.B(" + var0 + ')');
+         throw ClientErrorException.clientError(var2, "ca.B(" + ')');
       }
    }
 
    final void method157(int var1, DataBuffer var2, boolean var3) {
       try {
          if(!var3) {
-            method196(true);
+            method196();
          }
 
          if(var1 == 0) {
@@ -181,7 +173,7 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
          int var3 = Class164_Sub2.aByteArrayArray3027.length;
          byte[][] var2;
          if(HDToolKit.highDetail && var0) {
-            var2 = Class3_Sub13_Sub4.aByteArrayArray3057;
+            var2 = Class40.aByteArrayArray3057;
          } else {
             var2 = Class3_Sub22.aByteArrayArray2521;
          }
@@ -209,7 +201,7 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
             Class166.anIntArray2068[Class113.anInt1552] = var0;
             Unsorted.anIntArray2157[Class113.anInt1552] = var2;
             Class102.aClass135Array2131[Class113.anInt1552] = null;
-            anIntArray3083[Class113.anInt1552] = 0;
+            Class3_Sub8.anIntArray3083[Class113.anInt1552] = 0;
             ++Class113.anInt1552;
          }
 

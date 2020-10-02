@@ -115,7 +115,7 @@ final class Class140_Sub1_Sub1 extends Model {
                               var27 = Class51.anIntArray851[var1];
                            }
 
-                           if(var9 > 0L && Class3_Sub13_Sub7.aBoolean3094 && var19 > 0) {
+                           if(var9 > 0L && Class3_Sub13_Sub36.aBoolean3094 && var19 > 0) {
                               int var28;
                               int var30;
                               if(var20 > 0) {

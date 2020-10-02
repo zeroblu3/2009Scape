@@ -7,7 +7,8 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
    static int anInt3422;
    static int anInt3423;
    static float aFloat3424;
-   private int[] anIntArray3425;
+    static boolean aBoolean3094 = false;
+    private int[] anIntArray3425;
    static byte[][][] aByteArrayArrayArray3430;
    private int anInt3431;
    private int anInt3433;
@@ -42,7 +43,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
          int var7;
          if(1 == Class133.anInt1753) {
             var7 = 2047 & LinkableRSString.anInt2589 + GraphicDefinition.CAMERA_DIRECTION;
-            var6 = Class3_Sub9.anInt2309;
+            var6 = Unsorted.anInt2309;
             if(Class75_Sub4.anInt2670 / 256 > var6) {
                var6 = Class75_Sub4.anInt2670 / 256;
             }
@@ -51,7 +52,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
                var6 = 128 + Class166.anIntArray2073[4];
             }
 
-            Class140_Sub2.method1952(Class3_Sub13_Sub13.anInt3155, var1, Class121.method1736(WorldListCountry.localPlane, 1, Class102.player.anInt2819, Class102.player.anInt2829) + -50, Client.ZOOM - -(var6 * 3), var7, Unsorted.anInt942, var6);
+            Class140_Sub2.method1952(Unsorted.anInt3155, var1, Class121.method1736(WorldListCountry.localPlane, 1, Class102.player.anInt2819, Class102.player.anInt2829) + -50, Client.ZOOM - -(var6 * 3), var7, Unsorted.anInt942, var6);
          }
 
          var7 = Class7.anInt2162;
@@ -100,7 +101,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
             float var17 = (float)Class139.anInt1823 * 0.17578125F;
             float var16 = 0.17578125F * (float)Class3_Sub13_Sub25.anInt3315;
             if(Class133.anInt1753 == 3) {
-               var17 = 360.0F * Class85.aFloat1169 / 6.2831855F;
+               var17 = 360.0F * Class3_Sub28_Sub6.aFloat1169 / 6.2831855F;
                var16 = Class45.aFloat730 * 360.0F / 6.2831855F;
             }
 
@@ -111,7 +112,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
          }
 
          if(!Class38_Sub1.aBoolean2615 && var3 <= NPCDefinition.anInt1297 && var4 + var3 > NPCDefinition.anInt1297 && var5 <= Class38_Sub1.anInt2612 && Class38_Sub1.anInt2612 < var1 + var5) {
-            Class3_Sub13_Sub7.aBoolean3094 = true;
+            aBoolean3094 = true;
             Unsorted.anInt59 = 0;
             var12 = Class145.screenUpperX;
             int var13 = Class1.screenUpperY;
@@ -120,7 +121,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
             int var14 = Class86.screenLowerY;
             RenderAnimationDefinition.anInt384 = (-var13 + var14) * (Class38_Sub1.anInt2612 - var5) / var1 + var13;
          } else {
-            Class3_Sub13_Sub7.aBoolean3094 = false;
+            aBoolean3094 = false;
             Unsorted.anInt59 = 0;
          }
 
@@ -285,9 +286,9 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
 
 	         for(int var2 = 0; var2 < Class95.anInt1338; ++var2) {
 	            if(HDToolKit.highDetail) {
-	               var1[var2] = new HDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
+	               var1[var2] = new HDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Unsorted.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
 	            } else {
-	               var1[var2] = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Class3_Sub13_Sub6.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
+	               var1[var2] = new LDIndexedSprite(Class3_Sub15.anInt2426, Class133.anInt1748, Class164.anIntArray2048[var2], Unsorted.anIntArray2591[var2], Class140_Sub7.anIntArray2931[var2], Unsorted.anIntArray3076[var2], Class163_Sub1.aByteArrayArray2987[var2], Class3_Sub13_Sub38.spritePalette);
 	            }
              }
 	         Class39.method1035((byte)113);

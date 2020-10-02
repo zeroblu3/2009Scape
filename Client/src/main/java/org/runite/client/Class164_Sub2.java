@@ -48,11 +48,10 @@ class Class164_Sub2 extends Class164 {
 
    Class164_Sub2() {
       super(8, 8, 8);
-
       try {
          this.anInt3022 = (int)(4096.0F * (float) 3.0);
          this.anInt3026 = (int)((float) 0.55 * 4096.0F);
-         this.anInt3018 = this.anInt3021 = (int)(Math.pow(0.5D, (double)(-(float) 0.1)) * 4096.0D);
+         this.anInt3018 = this.anInt3021 = (int)(Math.pow(0.5D, -(float) 0.1) * 4096.0D);
       } catch (RuntimeException var10) {
          throw ClientErrorException.clientError(var10, "we.<init>(" + 8 + ',' + 5 + ',' + 8 + ',' + 8 + ',' + 2 + ',' + (float) 0.1 + ',' + (float) 0.55 + ',' + (float) 3.0 + ')');
       }

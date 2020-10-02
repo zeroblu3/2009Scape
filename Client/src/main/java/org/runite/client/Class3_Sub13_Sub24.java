@@ -4,10 +4,8 @@ import java.util.Objects;
 
 final class Class3_Sub13_Sub24 extends Class3_Sub13 {
 
-   static int anInt3293 = 0;
    private int anInt3294 = 1;
    static RSString aClass94_3295;
-   static long aLong3296 = 0L;
    private int anInt3297 = 1;
 
 
@@ -60,21 +58,6 @@ final class Class3_Sub13_Sub24 extends Class3_Sub13 {
 
    public Class3_Sub13_Sub24() {
       super(1, false);
-   }
-
-   static void method289() {
-      try {
-
-          if(Class159.anInt2023 > 0) {
-            Class167.method2269((byte)46);
-         } else {
-            Class163_Sub2_Sub1.aClass89_4012 = Class3_Sub15.activeConnection;
-            Class3_Sub15.activeConnection = null;
-            Class117.method1719(40);
-         }
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "nm.B(" + false + ')');
-      }
    }
 
    final int[][] method166(int var1, int var2) {

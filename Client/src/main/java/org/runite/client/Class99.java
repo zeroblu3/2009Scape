@@ -10,7 +10,6 @@ final class Class99 {
    static short[] aShortArray1398;
    static Class33 aClass33_1399;
    static int anInt1400;
-   static ReferenceCache aReferenceCache_1401 = new ReferenceCache(500);
    static RSInterface aClass11_1402;
    static int anInt1403 = -1;
 
@@ -18,7 +17,7 @@ final class Class99 {
    static void method1596(RSString var0, byte var1, boolean var2) {
       try {
          if(var1 < 124) {
-            aReferenceCache_1401 = (ReferenceCache)null;
+            ObjectDefinition.aReferenceCache_1401 = (ReferenceCache)null;
          }
 
          if(var2) {

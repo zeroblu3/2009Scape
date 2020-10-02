@@ -9,7 +9,6 @@ final class Class58 {
 
    static int anInt909 = -1;
    static int[][][] anIntArrayArrayArray911 = new int[2][][];
-   static int[] anIntArray912 = new int[14];
    static boolean aBoolean913 = false;
    static int[][][] anIntArrayArrayArray914;
    static Interface4 anInterface4_915 = null;

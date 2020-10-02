@@ -87,7 +87,7 @@ final class Class163_Sub3 extends Class163 {
                   Class57.anIntArray904[Class8.anInt104] = 0;
                   Unsorted.aBooleanArray73[Class8.anInt104] = false;
                   ++Class8.anInt104;
-                  Class110.anInt1472 = Class3_Sub13_Sub17.anInt3213;
+                  Class110.anInt1472 = PacketParser.anInt3213;
                   Class3_Sub13_Sub1.outgoingBuffer.putOpcode(120);
                   Class3_Sub13_Sub1.outgoingBuffer.writeLong(var0);
                }

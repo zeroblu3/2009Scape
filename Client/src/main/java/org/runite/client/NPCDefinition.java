@@ -10,7 +10,11 @@ import java.util.Objects;
 final class NPCDefinition {
 
    static AnimationDefinition[] aClass142Array1168 = new AnimationDefinition[14];
-   int size = 1;
+    static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array3041 = new Class3_Sub28_Sub5[14];
+    static CacheIndex aClass153_3173;
+    static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array4031 = new Class3_Sub28_Sub5[14];
+    static int[] anIntArray912 = new int[14];
+    int size = 1;
    private short[] aShortArray1246;
    private byte[] aByteArray1247;
    private short[] aShortArray1248;
@@ -167,7 +171,7 @@ final class NPCDefinition {
                var12 = false;
 
                for (int model : this.models) {
-                  if (model != -1 && !Class3_Sub13_Sub14.aClass153_3173.method2129((byte) 102, 0, model)) {
+                  if (model != -1 && !aClass153_3173.method2129((byte) 102, 0, model)) {
                      var12 = true;
                   }
                }
@@ -180,7 +184,7 @@ final class NPCDefinition {
 
                for(int var15 = 0; var15 < this.models.length; ++var15) {
                   if(this.models[var15] != -1) {
-                     var14[var15] = Model_Sub1.method2015(Class3_Sub13_Sub14.aClass153_3173, this.models[var15]);
+                     var14[var15] = Model_Sub1.method2015(aClass153_3173, this.models[var15]);
                      if(null != this.anIntArrayArray1261 && this.anIntArrayArray1261[var15] != null && var14[var15] != null) {
                         var14[var15].method2001(this.anIntArrayArray1261[var15][0], this.anIntArrayArray1261[var15][1], this.anIntArrayArray1261[var15][2]);
                      }
@@ -296,30 +300,30 @@ final class NPCDefinition {
                      var12 = true;
                      var19 = var1[var17].anInt1893;
                      var21 = def.frames[var19];
-                     Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17] = Class3_Sub9.method133(var21 >>> 16);
+                     aClass3_Sub28_Sub5Array3041[var17] = Class3_Sub9.method133(var21 >>> 16);
                      var21 &= '\uffff';
-                     Class58.anIntArray912[var17] = var21;
-                     if(Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17] != null) {
-                        var35 |= Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17].method561(var21, (byte)124);
-                        var37 |= Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var17].method559(var21);
+                     anIntArray912[var17] = var21;
+                     if(aClass3_Sub28_Sub5Array3041[var17] != null) {
+                        var35 |= aClass3_Sub28_Sub5Array3041[var17].method561(var21, (byte)124);
+                        var37 |= aClass3_Sub28_Sub5Array3041[var17].method559(var21);
                         var36 |= def.aBoolean1848;
                      }
 
-                     if((def.aBoolean1846 || Class3_Sub26.aBoolean2558) && var20 != -1 && var20 < def.frames.length) {
+                     if((def.aBoolean1846 || ClientCommands.tweeningEnabled) && var20 != -1 && var20 < def.frames.length) {
                         Class38.anIntArray664[var17] = def.duration[var19];
                         Unsorted.anIntArray2574[var17] = var1[var17].anInt1897;
                         var22 = def.frames[var20];
-                        Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17] = Class3_Sub9.method133(var22 >>> 16);
+                        aClass3_Sub28_Sub5Array4031[var17] = Class3_Sub9.method133(var22 >>> 16);
                         var22 &= '\uffff';
                         Class30.anIntArray574[var17] = var22;
-                        if(null != Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17]) {
-                           var35 |= Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17].method561(var22, (byte)124);
-                           var37 |= Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17].method559(var22);
+                        if(null != aClass3_Sub28_Sub5Array4031[var17]) {
+                           var35 |= aClass3_Sub28_Sub5Array4031[var17].method561(var22, (byte)124);
+                           var37 |= aClass3_Sub28_Sub5Array4031[var17].method559(var22);
                         }
                      } else {
                         Class38.anIntArray664[var17] = 0;
                         Unsorted.anIntArray2574[var17] = 0;
-                        Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var17] = null;
+                        aClass3_Sub28_Sub5Array4031[var17] = null;
                         Class30.anIntArray574[var17] = -1;
                      }
                   }
@@ -350,7 +354,7 @@ final class NPCDefinition {
                      var36 |= var10.aBoolean1848;
                   }
 
-                  if((var10.aBoolean1846 || Class3_Sub26.aBoolean2558) && var5 != -1 && var5 < var10.frames.length) {
+                  if((var10.aBoolean1846 || ClientCommands.tweeningEnabled) && var5 != -1 && var5 < var10.frames.length) {
                      var19 = var10.duration[var7];
                      var18 = var10.frames[var5];
                      var42 = var18 >>> 16;
@@ -388,7 +392,7 @@ final class NPCDefinition {
                      var36 |= var8.aBoolean1848;
                   }
 
-                  if((var8.aBoolean1846 || Class3_Sub26.aBoolean2558) && var2 != -1 && var2 < var8.frames.length) {
+                  if((var8.aBoolean1846 || ClientCommands.tweeningEnabled) && var2 != -1 && var2 < var8.frames.length) {
                      var24 = var8.duration[var4];
                      var42 = var8.frames[var2];
                      var28 = var42 >>> 16;
@@ -410,8 +414,8 @@ final class NPCDefinition {
                var29 = 1;
 
                for(var28 = 0; var28 < var16; ++var28) {
-                  if(Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var28] != null) {
-                     var45.method1887(Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var28], Class58.anIntArray912[var28], Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var28], Class30.anIntArray574[var28], -1 + Unsorted.anIntArray2574[var28], Class38.anIntArray664[var28], var29, aClass142Array1168[var28].aBoolean1848, this.anIntArrayArray1258[var28]);
+                  if(aClass3_Sub28_Sub5Array3041[var28] != null) {
+                     var45.method1887(aClass3_Sub28_Sub5Array3041[var28], anIntArray912[var28], aClass3_Sub28_Sub5Array4031[var28], Class30.anIntArray574[var28], -1 + Unsorted.anIntArray2574[var28], Class38.anIntArray664[var28], var29, aClass142Array1168[var28].aBoolean1848, this.anIntArrayArray1258[var28]);
                   }
 
                   var29 <<= 1;
@@ -428,8 +432,8 @@ final class NPCDefinition {
                }
 
                for(var28 = 0; var16 > var28; ++var28) {
-                  Class3_Sub13_Sub1.aClass3_Sub28_Sub5Array3041[var28] = null;
-                  Class3_Sub13_Sub23_Sub1.aClass3_Sub28_Sub5Array4031[var28] = null;
+                  aClass3_Sub28_Sub5Array3041[var28] = null;
+                  aClass3_Sub28_Sub5Array4031[var28] = null;
                   aClass142Array1168[var28] = null;
                }
 
@@ -550,7 +554,7 @@ final class NPCDefinition {
                   boolean var7 = false;
 
                   for(int var8 = 0; this.anIntArray1250.length > var8; ++var8) {
-                     if(!Class3_Sub13_Sub14.aClass153_3173.method2129((byte)-69, 0, this.anIntArray1250[var8])) {
+                     if(!aClass153_3173.method2129((byte)-69, 0, this.anIntArray1250[var8])) {
                         var7 = true;
                      }
                   }
@@ -562,7 +566,7 @@ final class NPCDefinition {
                   Model_Sub1[] var14 = new Model_Sub1[this.anIntArray1250.length];
 
                   for(int var9 = 0; this.anIntArray1250.length > var9; ++var9) {
-                     var14[var9] = Model_Sub1.method2015(Class3_Sub13_Sub14.aClass153_3173, this.anIntArray1250[var9]);
+                     var14[var9] = Model_Sub1.method2015(aClass153_3173, this.anIntArray1250[var9]);
                   }
 
                   Model_Sub1 var15;

@@ -10,7 +10,6 @@ final class Class114 {
    static ReferenceCache aReferenceCache_1569 = new ReferenceCache(200);
    private int anInt1570 = 0;
    private Class3_Sub26[] aClass3_Sub26Array1571;
-   static Class30 aClass30_1572;
    private int[][] anIntArrayArray1573;
    static long[] ignores = new long[100];
    private int anInt1576 = -1;

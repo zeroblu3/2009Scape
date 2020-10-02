@@ -8,8 +8,6 @@ final class Class3_Sub13_Sub2 extends Class3_Sub13 {
 
    //static RSString aClass94_3042 = RSString.createRSString("<col=ff9040>");
    private int anInt3043 = 0;
-   static float aFloat3044;
-   static int[] anIntArray3045;
    private int anInt3046 = 4096;
 
 

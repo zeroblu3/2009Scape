@@ -185,13 +185,13 @@ final class Class121 {
                Class3_Sub20.wlPacketIndex += wlUpdateStamp;
                if(Class3_Sub20.wlPacketIndex >= Unsorted.wlPacketSize) {
                   if(Class3_Sub13_Sub23.handleWorldListUpdate(Class3_Sub13_Sub33.aByteArray3396)) {
-                     Class3_Sub13_Sub16.aClass44_Sub1Array3201 = new WorldListEntry[Class57.activeWorldListSize];
+                     Unsorted.aClass44_Sub1Array3201 = new WorldListEntry[Class57.activeWorldListSize];
                      var2 = 0;
 
-                     for(int var3 = Class3_Sub13_Sub4.worldListOffset; var3 <= Class100.worldListArraySize; ++var3) {
+                     for(int var3 = Class53.worldListOffset; var3 <= Class100.worldListArraySize; ++var3) {
                         WorldListEntry var4 = Class3_Sub8.getWorld(91, var3);
                         if(null != var4) {
-                           Class3_Sub13_Sub16.aClass44_Sub1Array3201[var2++] = var4;
+                           Unsorted.aClass44_Sub1Array3201[var2++] = var4;
                         }
                         //System.out.println("world = " +var4.worldId);
                      }

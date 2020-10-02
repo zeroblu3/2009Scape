@@ -3,10 +3,7 @@ package org.runite.client;
 abstract class GameObject {
 
    static AbstractIndexedSprite[] aClass109Array1831;
-   static int[] anIntArray1833 = new int[14];
    static RSInterface[][] aClass11ArrayArray1834;
-   static int[] anIntArray1835 = new int[100];
-   static RSInterface[] aClass11Array1836;
    static boolean aBoolean1837 = false;
    static int[] anIntArray1838;
    static Class3_Sub28_Sub16_Sub2[] aClass3_Sub28_Sub16_Sub2Array1839;

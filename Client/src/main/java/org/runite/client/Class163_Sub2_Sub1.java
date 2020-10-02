@@ -45,7 +45,7 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
             if(null != var9 && var9.anInt1360 == 2) {
                Unsorted.method1724(var0 >> 1, var5, (-Class82.anInt1152 + var9.anInt1347 << 7) - -var9.anInt1350, var9.anInt1353 * 2, var2 >> 1, var9.anInt1346 + (var9.anInt1356 + -Class131.anInt1716 << 7), (byte)-114, var4);
                if(-1 < Class32.anInt590 && Class44.anInt719 % 20 < 10) {
-                  Class166.aClass3_Sub28_Sub16Array2072[var9.anInt1351].method643(-12 + var1 + Class32.anInt590, -28 + var6 - -Class3_Sub1.anInt2208);
+                  Class166.aClass3_Sub28_Sub16Array2072[var9.anInt1351].method643(-12 + var1 + Class32.anInt590, -28 + var6 - -Class82.anInt2208);
                }
             }
          }
@@ -55,23 +55,23 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
       }
    }
 
-   static void method2222() {
-      try {
-         Unsorted.aReferenceCache_4043.clearSoftReferences();
-         CS2Script.aReferenceCache_2442.clearSoftReferences();
-         Class154.aReferenceCache_1964.clearSoftReferences();
-
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "t.G(" + (byte) 127 + ')');
-      }
-   }
+//   static void method2222() {
+//      try {
+//         Unsorted.aReferenceCache_4043.clearSoftReferences();
+//         CS2Script.aReferenceCache_2442.clearSoftReferences();
+//         Class154.aReferenceCache_1964.clearSoftReferences();
+//
+//      } catch (RuntimeException var2) {
+//         throw ClientErrorException.clientError(var2, "t.G(" + (byte) 127 + ')');
+//      }
+//   }
 
    static void method2223(boolean var0, byte var1) {
       try {
          byte var3;
          byte[][] var4;
          if(HDToolKit.highDetail && var0) {
-            var4 = Class3_Sub13_Sub4.aByteArrayArray3057;
+            var4 = Class40.aByteArrayArray3057;
             var3 = 1;
          } else {
             var3 = 4;
@@ -116,7 +116,7 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
          int var6 = (int)var1 >> 20 & 3;
          int var7 = (int)(var1 >>> 32) & Integer.MAX_VALUE;
          if (var5 == 10 || var5 == 11 || var5 == 22) {
-            ObjectDefinition var8 = Class162.getObjectDefinition(var7);
+            ObjectDefinition var8 = ObjectDefinition.getObjectDefinition(var7);
             int var9;
             int var10;
             if(var6 == 0 || var6 == 2) {

@@ -6,13 +6,13 @@ import org.rs09.client.rendering.Toolkit;
 final class Class84 {
 
    static int[][] anIntArrayArray1160 = new int[104][104];
-   static int[] anIntArray1161;
    static Class61 aClass61_1162 = new Class61();
    static int[] anIntArray1163 = new int[1000];
    static int anInt1164 = 0;
-   static int anInt1165 = -1;
+    static Class3_Sub28_Sub16_Sub2 aClass3_Sub28_Sub16_Sub2_1381;
+    static int[] anIntArray1729 = new int[]{12543016, 15504954, 15914854, 16773818};
 
-   static void method1417() {
+    static void method1417() {
       try {
          if(Class143.loadingStage == 10 && HDToolKit.highDetail) {
             Class117.method1719(28);
@@ -34,14 +34,14 @@ final class Class84 {
 
          int var2;
          for(var2 = 0; var2 < 3; ++var2) {
-            int var4 = (Class131.anIntArray1729[1 + var2] & 16711680) >> 16;
-            float var3 = (float)((Class131.anIntArray1729[var2] & 16711680) >> 16);
-            float var6 = (float)(Class131.anIntArray1729[var2] >> 8 & 255);
-            float var9 = (float)(Class131.anIntArray1729[var2] & 255);
+            int var4 = (anIntArray1729[1 + var2] & 16711680) >> 16;
+            float var3 = (float)((anIntArray1729[var2] & 16711680) >> 16);
+            float var6 = (float)(anIntArray1729[var2] >> 8 & 255);
+            float var9 = (float)(anIntArray1729[var2] & 255);
             float var5 = ((float)var4 - var3) / 64.0F;
-            int var7 = (Class131.anIntArray1729[var2 + 1] & '\uff00') >> 8;
+            int var7 = (anIntArray1729[var2 + 1] & '\uff00') >> 8;
             float var8 = (-var6 + (float)var7) / 64.0F;
-            int var10 = Class131.anIntArray1729[var2 + 1] & 255;
+            int var10 = anIntArray1729[var2 + 1] & 255;
             float var11 = ((float)var10 - var9) / 64.0F;
 
             for(int var12 = 0; var12 < 64; ++var12) {
@@ -53,15 +53,15 @@ final class Class84 {
          }
 
          for(var2 = 192; var2 < 255; ++var2) {
-            Class52.anIntArray861[var2] = Class131.anIntArray1729[3];
+            Class52.anIntArray861[var2] = anIntArray1729[3];
          }
 
           Class161.anIntArray2026 = new int['\u8000'];
          Unsorted.anIntArray49 = new int['\u8000'];
-         Class3_Sub13_Sub10.method215((byte)-89, (LDIndexedSprite)null);
+         Class3_Sub13_Sub10.method215((byte)-89, null);
          Class3_Sub30_Sub1.anIntArray3805 = new int['\u8000'];
-         Class127.anIntArray1681 = new int['\u8000'];
-         Class97.aClass3_Sub28_Sub16_Sub2_1381 = new Class3_Sub28_Sub16_Sub2(128, 254);
+         Class159.anIntArray1681 = new int['\u8000'];
+         aClass3_Sub28_Sub16_Sub2_1381 = new Class3_Sub28_Sub16_Sub2(128, 254);
       } catch (RuntimeException var13) {
          throw ClientErrorException.clientError(var13, "lf.E(" + var0 + ',' + (var1 != null?"{...}":"null") + ')');
       }
@@ -130,7 +130,7 @@ final class Class84 {
          var5.anInt3598 = var3;
          var5.anInt3596 = var1;
          if(var4 >= -35) {
-            anInt1165 = 86;
+            Unsorted.anInt1165 = 86;
          }
 
       } catch (RuntimeException var6) {

@@ -203,7 +203,7 @@ final class ItemDefinition {
 
 	static void method1103(CacheIndex var0, CacheIndex var1) {
 		try {
-			Class3_Sub13_Sub14.aClass153_3173 = var0;
+			NPCDefinition.aClass153_3173 = var0;
 			Class29.aClass153_557 = var1;
 		} catch (RuntimeException var4) {
 			throw ClientErrorException.clientError(var4, "h.B(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + false + ')');
@@ -249,8 +249,8 @@ final class ItemDefinition {
 
 	static WorldListEntry method1107(int var0) {
 		try {
-			if(Class3_Sub13_Sub16.aClass44_Sub1Array3201.length > Class3_Sub6.anInt2291) {
-				return Class3_Sub13_Sub16.aClass44_Sub1Array3201[Class3_Sub6.anInt2291++];
+			if(Unsorted.aClass44_Sub1Array3201.length > Class3_Sub6.anInt2291) {
+				return Unsorted.aClass44_Sub1Array3201[Class3_Sub6.anInt2291++];
 			} else {
 				if(var0 != 5422) {
 					method1107(-66);

@@ -33,7 +33,7 @@ public final class Class3_Sub15 extends Linkable {
    static void method370() {
       try {
          //int var1 = -125 / ((0 - var0) / 59);
-         Class154.aReferenceCache_1955.clear();
+         RenderAnimationDefinition.aReferenceCache_1955.clear();
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "jk.B(" + (byte) -73 + ')');
       }

@@ -11,6 +11,21 @@ final class Class3_Sub24_Sub2 extends Class3_Sub24 {
    private int anInt3487 = 0;
    private int anInt3488 = -1;
 
+   static void method1662(Linkable var0, Linkable var1) {
+      try {
+         if(null != var0.previous) {
+            var0.unlink();
+         }
+
+         var0.next = var1;
+         var0.previous = var1.previous;
+         var0.previous.next = var0;
+         var0.next.previous = var0;
+      } catch (RuntimeException var4) {
+         throw ClientErrorException.clientError(var4, "ok.C(" + (var0 != null?"{...}":"null") + ',' + (var1 != null?"{...}":"null") + ',' + -16 + ')');
+      }
+   }
+
 
    private void method456(Class3_Sub3 var1) {
       var1.unlink();
@@ -142,7 +157,7 @@ final class Class3_Sub24_Sub2 extends Class3_Sub24 {
          var1 = var1.next;
       }
 
-      AbstractIndexedSprite.method1662(var2, var1);
+      method1662(var2, var1);
       this.anInt3488 = ((Class3_Sub3)this.aClass61_3486.aClass3_940.next).anInt2247;
    }
 

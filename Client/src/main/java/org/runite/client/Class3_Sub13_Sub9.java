@@ -2,7 +2,6 @@ package org.runite.client;
 
 final class Class3_Sub13_Sub9 extends Class3_Sub13 {
 
-   static int[] anIntArray3107;
    private int anInt3108 = 1;
    private int anInt3109 = 204;
    static short[] aShortArray3110 = new short[256];

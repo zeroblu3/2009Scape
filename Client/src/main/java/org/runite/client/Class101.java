@@ -2,12 +2,10 @@ package org.runite.client;
 
 final class Class101 {
 
-   static boolean aBoolean1419 = false;
    static CacheIndex aClass153_1420;
    static Class3_Sub24_Sub4 aClass3_Sub24_Sub4_1421;
    static Class30 aClass30_1422;
    static CacheIndex aClass153_1423;
-   static Class61 aClass61_1424 = new Class61();
    static int anInt1425 = 0;
    static int[] anIntArray1426;
    static int anInt1427;
@@ -57,7 +55,7 @@ final class Class101 {
    public static void method1608(byte var0) {
       try {
          CacheIndex.npcConfigIndex = null;
-         aClass61_1424 = null;
+         Class136.aClass61_1424 = null;
          aShortArrayArray1429 = (short[][])null;
          anIntArray1426 = null;
          aClass3_Sub24_Sub4_1421 = null;

@@ -5,7 +5,8 @@ import java.awt.event.*;
 
 final class MouseListeningClass implements MouseListener, MouseMotionListener, FocusListener
 {
-	public int mouseWheelX;
+    static volatile int anInt1340 = -1;
+    public int mouseWheelX;
 	  public int mouseWheelY;
 	  static float[] aFloatArray1919 = new float[4];
 	  static int[] anIntArray1920;
@@ -23,7 +24,7 @@ final class MouseListeningClass implements MouseListener, MouseMotionListener, F
 	      {
 	        Unsorted.anInt4045 = 0;
 	        Class3_Sub21.anInt2493 = var1.getX();
-	        Class95.anInt1340 = var1.getY();
+	        anInt1340 = var1.getY();
 	      }
 	    }
 	    catch (RuntimeException var3)
@@ -85,17 +86,17 @@ final class MouseListeningClass implements MouseListener, MouseMotionListener, F
 	    }
 	  }
 	  
-	  static void method2089()
-	  {
-	    try
-	    {
-	      Class158_Sub1.aReferenceCache_2982.clearSoftReferences();
-		}
-	    catch (RuntimeException var2)
-	    {
-	      throw ClientErrorException.clientError(var2, "ug.D(" + (byte) 115 + ')');
-	    }
-	  }
+//	  static void method2089()
+//	  {
+//	    try
+//	    {
+//	      Class158_Sub1.aReferenceCache_2982.clearSoftReferences();
+//		}
+//	    catch (RuntimeException var2)
+//	    {
+//	      throw ClientErrorException.clientError(var2, "ug.D(" + (byte) 115 + ')');
+//	    }
+//	  }
 	  
 	  public final synchronized void mouseDragged(MouseEvent var1)
 	  {
@@ -110,14 +111,14 @@ final class MouseListeningClass implements MouseListener, MouseMotionListener, F
 	        this.mouseWheelX = var1.getX();
 	        this.mouseWheelY = var1.getY();
 	        GraphicDefinition.CAMERA_DIRECTION += accelX * 2;
-	        Class3_Sub9.anInt2309 -= (accelY << 1);
+	        Unsorted.anInt2309 -= (accelY << 1);
 	        return;
 	      }
 	      if (Unsorted.aClass149_4047 != null)
 	      {
 	        Unsorted.anInt4045 = 0;
 	        Class3_Sub21.anInt2493 = var1.getX();
-	        Class95.anInt1340 = var1.getY();
+	        anInt1340 = var1.getY();
 	      }
 	    }
 	    catch (RuntimeException var3)
@@ -225,7 +226,7 @@ final class MouseListeningClass implements MouseListener, MouseMotionListener, F
 	      {
 	        Unsorted.anInt4045 = 0;
 	        Class3_Sub21.anInt2493 = -1;
-	        Class95.anInt1340 = -1;
+	        anInt1340 = -1;
 	      }
 	    }
 	    catch (RuntimeException var3)
@@ -256,7 +257,7 @@ final class MouseListeningClass implements MouseListener, MouseMotionListener, F
 	      {
 	        Unsorted.anInt4045 = 0;
 	        Class3_Sub21.anInt2493 = var1.getX();
-	        Class95.anInt1340 = var1.getY();
+	        anInt1340 = var1.getY();
 	      }
 	    }
 	    catch (RuntimeException var3)

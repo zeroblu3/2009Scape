@@ -14,8 +14,6 @@ abstract class Class3_Sub13 extends Linkable {
    int anInt2381;
    Class114 aClass114_2382;
    static int anInt2383 = 0;
-   static int anInt2384 = 0;
-   static int[] anIntArray2386 = new int[]{1, -1, -1, 1};
 
 
    final int[] method152(int var1, int var2, int var3) {
@@ -149,7 +147,7 @@ abstract class Class3_Sub13 extends Linkable {
             return null;
          } else {
 
-            Class3_Sub28_Sub17_Sub1 var2 = new Class3_Sub28_Sub17_Sub1(var0, Class164.anIntArray2048, Unsorted.anIntArray2591, Class140_Sub7.anIntArray2931, Class3_Sub13_Sub6.anIntArray3076, Class163_Sub1.aByteArrayArray2987);
+            Class3_Sub28_Sub17_Sub1 var2 = new Class3_Sub28_Sub17_Sub1(var0, Class164.anIntArray2048, Unsorted.anIntArray2591, Class140_Sub7.anIntArray2931, Unsorted.anIntArray3076, Class163_Sub1.aByteArrayArray2987);
             Class39.method1035((byte)126);
             return var2;
          }
@@ -204,11 +202,11 @@ abstract class Class3_Sub13 extends Linkable {
 
    static void method165() {
       try {
-         Class95.aClass3_Sub28_Sub16_1339 = null;
-         Class3_Sub13_Sub7.aClass3_Sub28_Sub16_3099 = null;
+         ISAACCipher.aClass3_Sub28_Sub16_1339 = null;
+         ISAACCipher.aClass3_Sub28_Sub16_3099 = null;
          Class50.aClass3_Sub28_Sub16_824 = null;
 
-         Class108.aClass3_Sub28_Sub16_1457 = null;
+         ISAACCipher.aClass3_Sub28_Sub16_1457 = null;
          Class3_Sub26.aClass3_Sub28_Sub16_2560 = null;
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "j.VA(" + -7878 + ')');

@@ -48,14 +48,14 @@ final class Class3_Sub4 extends Linkable {
 		Class3_Sub28_Sub8.aClass113Array3610 = new Class113[500];
 		anInt2249 = 0;
 		Class145.aClass113Array1895 = new Class113[500];
-		Class126.anInt1672 = 0;
+		Class72.anInt1672 = 0;
 		Class81.anIntArrayArrayArray1142 = new int[4][Unsorted.anInt1234 + 1][Class3_Sub13_Sub15.anInt3179 + 1];
 		AnimationDefinition.aClass25Array1868 = new Class25[5000];
-		Class3_Sub13_Sub5.anInt3070 = 0;
+		Unsorted.anInt3070 = 0;
 		Unsorted.aClass25Array4060 = new Class25[100];
 		Class23.aBooleanArrayArray457 = new boolean[Class3_Sub13_Sub39.anInt3466 + Class3_Sub13_Sub39.anInt3466 + 1][Class3_Sub13_Sub39.anInt3466 + Class3_Sub13_Sub39.anInt3466 + 1];
 		Class49.aBooleanArrayArray814 = new boolean[Class3_Sub13_Sub39.anInt3466 + Class3_Sub13_Sub39.anInt3466 + 2][Class3_Sub13_Sub39.anInt3466 + Class3_Sub13_Sub39.anInt3466 + 2];
-		Class136.aByteArrayArrayArray1774 = new byte[4][Unsorted.anInt1234][Class3_Sub13_Sub15.anInt3179];
+		Unsorted.aByteArrayArrayArray1774 = new byte[4][Unsorted.anInt1234][Class3_Sub13_Sub15.anInt3179];
 	}
 
 }

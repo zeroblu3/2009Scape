@@ -9,7 +9,7 @@ final class Class88 {
    static int[] anIntArray1224 = null;
    private static ByteBuffer aByteBuffer1225;
    private static ByteBuffer aByteBuffer1226;
-   static boolean aBoolean1227;
+   static boolean Texture3DEnabled;
    static int anInt1228 = -1;
    static int anInt1229 = -1;
 
@@ -72,7 +72,7 @@ final class Class88 {
    }
 
    static void method1456() {
-      aBoolean1227 = HDToolKit.supportTexture3D;
+      Texture3DEnabled = HDToolKit.supportTexture3D;
       method1454();
       method1458();
       method1459();
@@ -80,7 +80,7 @@ final class Class88 {
 
    private static void method1458() {
       javax.media.opengl.GL var0 = HDToolKit.gl;
-      if(aBoolean1227) {
+      if(Texture3DEnabled) {
          int[] var1 = new int[1];
          var0.glGenTextures(1, var1, 0);
          var0.glBindTexture('\u806f', var1[0]);
@@ -108,7 +108,7 @@ final class Class88 {
 
    private static void method1459() {
       javax.media.opengl.GL var0 = HDToolKit.gl;
-      if(aBoolean1227) {
+      if(Texture3DEnabled) {
          int[] var1 = new int[1];
          var0.glGenTextures(1, var1, 0);
          var0.glBindTexture('\u806f', var1[0]);

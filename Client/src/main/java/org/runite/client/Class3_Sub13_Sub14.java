@@ -3,7 +3,6 @@ import java.math.BigInteger;
 
 final class Class3_Sub13_Sub14 extends Class3_Sub13 {
 
-   static int anInt3158 = -8 + (int)(17.0D * Math.random());
    static CacheResourceWorker aCacheResourceWorker_3159;
    private int anInt3160 = 0;
    static BigInteger aBigInteger3162 = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
@@ -11,8 +10,6 @@ final class Class3_Sub13_Sub14 extends Class3_Sub13 {
    private int anInt3164 = 1365;
    private int anInt3165 = 0;
    static boolean aBoolean3166 = false;
-   static int[] anIntArray3171 = new int[]{0, 4, 4, 8, 0, 0, 8, 0, 0};
-   static CacheIndex aClass153_3173;
 
    final void method157(int var1, DataBuffer var2, boolean var3) {
       try {

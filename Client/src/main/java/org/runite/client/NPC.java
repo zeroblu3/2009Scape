@@ -7,6 +7,7 @@ final class NPC extends Class140_Sub4 {
 	static boolean aBoolean3975 = false;
     static int[] npcSpawnCacheIndices;
     static NPC[] npcs = new NPC['\u8000'];
+    static Class3_Sub27 aClass3_Sub27_1154;
     NPCDefinition definition;
 	static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array3977;
 	static float aFloat3979;
@@ -337,9 +338,9 @@ final class NPC extends Class140_Sub4 {
 		try {
 			try {
 				if(Class10.anInt154 == 2) {
-					if(Class83.aClass3_Sub27_1154 == null) {
-						Class83.aClass3_Sub27_1154 = Class3_Sub27.method517(Class101.aClass153_1423, Class3_Sub13_Sub39.anInt3463, Class132.anInt1741);
-						if(null == Class83.aClass3_Sub27_1154) {
+					if(aClass3_Sub27_1154 == null) {
+						aClass3_Sub27_1154 = Class3_Sub27.method517(Class101.aClass153_1423, Class3_Sub13_Sub39.anInt3463, Class132.anInt1741);
+						if(null == aClass3_Sub27_1154) {
 							return false;
 						}
 					}
@@ -348,12 +349,12 @@ final class NPC extends Class140_Sub4 {
 						Class3_Sub28_Sub4.aClass83_3579 = new Class83(Class40.aClass153_679, Class3_Sub28_Sub20.aClass153_3786);
 					}
 
-					if(Class101.aClass3_Sub24_Sub4_1421.method470(Class83.aClass3_Sub27_1154, Class124.aClass153_1661, Class3_Sub28_Sub4.aClass83_3579)) {
+					if(Class101.aClass3_Sub24_Sub4_1421.method470(aClass3_Sub27_1154, Class124.aClass153_1661, Class3_Sub28_Sub4.aClass83_3579)) {
 						Class101.aClass3_Sub24_Sub4_1421.method471();
 						Class101.aClass3_Sub24_Sub4_1421.method506(Class3_Sub13_Sub36.anInt3423);
-						Class101.aClass3_Sub24_Sub4_1421.method490(Class3_Sub9.aBoolean2311, Class83.aClass3_Sub27_1154);
+						Class101.aClass3_Sub24_Sub4_1421.method490(Unsorted.aBoolean2311, aClass3_Sub27_1154);
 						Class10.anInt154 = 0;
-						Class83.aClass3_Sub27_1154 = null;
+						aClass3_Sub27_1154 = null;
 						Class3_Sub28_Sub4.aClass83_3579 = null;
 						Class101.aClass153_1423 = null;
 						return true;
@@ -363,7 +364,7 @@ final class NPC extends Class140_Sub4 {
 				var2.printStackTrace();
 				Class101.aClass3_Sub24_Sub4_1421.method505((byte)-128);
 				Class101.aClass153_1423 = null;
-				Class83.aClass3_Sub27_1154 = null;
+				aClass3_Sub27_1154 = null;
 				Class10.anInt154 = 0;
 				Class3_Sub28_Sub4.aClass83_3579 = null;
 			}

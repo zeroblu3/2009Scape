@@ -4,12 +4,16 @@ import org.rs09.client.Linkable;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.LinkableInt;
+import org.rs09.client.data.ReferenceCache;
 
 import java.util.Objects;
 
 final class ObjectDefinition {
 
-   private short[] aShortArray1476;
+    static ReferenceCache aReferenceCache_1401 = new ReferenceCache(500);
+    static Class136 aClass136_1413 = new Class136();
+    static ReferenceCache aReferenceCache_1965 = new ReferenceCache(50);
+    private short[] aShortArray1476;
    private short[] OriginalColors;
    int anInt1478;
    private int anInt1479;
@@ -74,7 +78,37 @@ final class ObjectDefinition {
    private boolean aBoolean1541;
    boolean aBoolean1542;
 
-   final boolean method1684(int var2) {
+    static ObjectDefinition getObjectDefinition(int objectId) {
+       try {
+           //36873, 24065, 22418
+          ObjectDefinition objdef = (ObjectDefinition) Unsorted.aReferenceCache_21.get(objectId);
+          if(objdef == null) {
+             byte[] var3 = Class85.aClass153_1171.getFile(Class3_Sub13_Sub36.method340(objectId), objectId & 255);
+             objdef = new ObjectDefinition();
+             objdef.objectId = objectId;
+             if(null != var3) {
+                objdef.method1692(6219, new DataBuffer(var3));
+             }
+
+             objdef.method1689(4 + -2120);
+             if(!Sprites.aBoolean337 && objdef.aBoolean1491) {
+                objdef.options = null;
+             }
+
+             if(objdef.NotClipped) {
+                objdef.ClipType = 0;
+                objdef.ProjectileClipped = false;
+             }
+
+             Unsorted.aReferenceCache_21.put(objdef, objectId);
+          }
+          return objdef;
+       } catch (RuntimeException var4) {
+          throw ClientErrorException.clientError(var4, "wc.D(" + 4 + ',' + objectId + ')');
+       }
+    }
+
+    final boolean method1684(int var2) {
       try {
          if(this.configuration != null) {
             for(int var7 = 0; var7 < this.configuration.length; ++var7) {
@@ -116,10 +150,10 @@ final class ObjectDefinition {
          }
 
          if(var2 >= 0 && this.ChildrenIds.length - 1 > var2 && this.ChildrenIds[var2] != -1) {
-            return Class162.getObjectDefinition(this.ChildrenIds[var2]);
+            return getObjectDefinition(this.ChildrenIds[var2]);
          } else {
             int var3 = this.ChildrenIds[-1 + this.ChildrenIds.length];
-            return var3 == -1 ?null:Class162.getObjectDefinition(var3);
+            return var3 == -1 ?null: getObjectDefinition(var3);
          }
       } catch (RuntimeException var4) {
          throw ClientErrorException.clientError(var4, "pb.C(" + var1 + ')');
@@ -153,7 +187,7 @@ final class ObjectDefinition {
                   var8 += 65536;
                }
 
-               var4 = (Model_Sub1)Class99.aReferenceCache_1401.get((long)var8);
+               var4 = (Model_Sub1) aReferenceCache_1401.get((long)var8);
                if(var4 == null) {
                   var4 = Model_Sub1.method2015(Unsorted.aClass153_1043, var8 & '\uffff');
                   if(var4 == null) {
@@ -164,7 +198,7 @@ final class ObjectDefinition {
                      var4.method2002();
                   }
 
-                  Class99.aReferenceCache_1401.put(var4, (long)var8);
+                  aReferenceCache_1401.put(var4, (long)var8);
                }
 
                if(1 < var6) {
@@ -194,7 +228,7 @@ final class ObjectDefinition {
                var7 += 65536;
             }
 
-            var4 = (Model_Sub1)Class99.aReferenceCache_1401.get((long)var7);
+            var4 = (Model_Sub1) aReferenceCache_1401.get((long)var7);
             if(null == var4) {
                var4 = Model_Sub1.method2015(Unsorted.aClass153_1043, var7 & '\uffff');
                if(null == var4) {
@@ -205,7 +239,7 @@ final class ObjectDefinition {
                   var4.method2002();
                }
 
-               Class99.aReferenceCache_1401.put(var4, (long)var7);
+               aReferenceCache_1401.put(var4, (long)var7);
             }
          }
 
@@ -306,7 +340,7 @@ final class ObjectDefinition {
 
             for(int var2 = 0; this.ChildrenIds.length > var2; ++var2) {
                if(this.ChildrenIds[var2] != -1) {
-                  ObjectDefinition var3 = Class162.getObjectDefinition(this.ChildrenIds[var2]);
+                  ObjectDefinition var3 = getObjectDefinition(this.ChildrenIds[var2]);
                   if(var3.anInt1512 != -1 || var3.anIntArray1539 != null) {
                      return true;
                   }
@@ -635,7 +669,7 @@ final class ObjectDefinition {
                var16 = ~var16;
             }
 
-            var5 = (Class140_Sub1_Sub1)Class99.aReferenceCache_1401.get(var16);
+            var5 = (Class140_Sub1_Sub1) aReferenceCache_1401.get(var16);
             if(null == var5) {
                Model_Sub1 var17 = null;
 
@@ -655,7 +689,7 @@ final class ObjectDefinition {
                }
 
                var5 = new Class140_Sub1_Sub1(var17, var6, var7, var2);
-               Class99.aReferenceCache_1401.put(var5, var16);
+               aReferenceCache_1401.put(var5, var16);
             }
          } else {
             var8 = -1;
@@ -677,7 +711,7 @@ final class ObjectDefinition {
                var9 += 65536;
             }
 
-            var5 = (Class140_Sub1_Sub1)Class99.aReferenceCache_1401.get((long)var9);
+            var5 = (Class140_Sub1_Sub1) aReferenceCache_1401.get((long)var9);
             if(null == var5) {
                Model_Sub1 var10 = Model_Sub1.method2015(Unsorted.aClass153_1043, '\uffff' & var9);
                if(null == var10) {
@@ -685,7 +719,7 @@ final class ObjectDefinition {
                }
 
                var5 = new Class140_Sub1_Sub1(var10, var6, var7, var2);
-               Class99.aReferenceCache_1401.put(var5, (long)var9);
+               aReferenceCache_1401.put(var5, (long)var9);
             }
          }
 
@@ -768,9 +802,9 @@ final class ObjectDefinition {
                if(null == var16) {
                   var14 = this.method1695(var1, false, var4);
                   if(null == var14) {
-                     Class100.aClass136_1413.aClass140_1777 = null;
-                     Class100.aClass136_1413.aClass109_Sub1_1770 = null;
-                     return Class100.aClass136_1413;
+                     aClass136_1413.aClass140_1777 = null;
+                     aClass136_1413.aClass109_Sub1_1770 = null;
+                     return aClass136_1413;
                   }
 
                   if(var4 == 10 && var1 > 3) {
@@ -799,9 +833,9 @@ final class ObjectDefinition {
                }
 
                var18.method1920(this.SecondInt == 0 && !this.aBoolean1510, true, true, this.SecondInt == 0, true, false);
-               Class100.aClass136_1413.aClass140_1777 = var18;
+               aClass136_1413.aClass140_1777 = var18;
                var18.aBoolean3809 = var17;
-               Class100.aClass136_1413.aClass109_Sub1_1770 = var15;
+               aClass136_1413.aClass109_Sub1_1770 = var15;
             } else {
                if(this.configuration == null) {
                   var12 = (long)((this.objectId << 10) + var1);
@@ -821,8 +855,8 @@ final class ObjectDefinition {
                if(null == var22) {
                   Model_Sub1 var21 = this.method1686(var1, var4);
                   if(var21 == null) {
-                     Class100.aClass136_1413.aClass140_1777 = null;
-                     return Class100.aClass136_1413;
+                     aClass136_1413.aClass140_1777 = null;
+                     return aClass136_1413;
                   }
 
                   var21.method2010();
@@ -854,9 +888,9 @@ final class ObjectDefinition {
                   }
                }
 
-               Class100.aClass136_1413.aClass140_1777 = (GameObject)var22;
+               aClass136_1413.aClass140_1777 = (GameObject)var22;
             }
-            return Class100.aClass136_1413;
+            return aClass136_1413;
          }
       } catch (RuntimeException var19) {
          throw ClientErrorException.clientError(var19, "pb.A(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + var5 + ',' + (var6 != null?"{...}":"null") + ',' + var7 + ',' + (var8 != null?"{...}":"null") + ',' + var9 + ',' + var10 + ',' + var11 + ')');
@@ -877,7 +911,7 @@ final class ObjectDefinition {
                var15 = (long)((var13 << 3) + ((this.objectId << 10) - -var6));
             }
 
-            Class140_Sub1_Sub1 var23 = (Class140_Sub1_Sub1)Class154.aReferenceCache_1965.get(var15);
+            Class140_Sub1_Sub1 var23 = (Class140_Sub1_Sub1) aReferenceCache_1965.get(var15);
             if(var23 == null) {
                var23 = this.method1695(var6, true, var13);
                if(null == var23) {
@@ -886,7 +920,7 @@ final class ObjectDefinition {
 
                var23.method1908();
                var23.method1920(false, false, false, false, false, true);
-               Class154.aReferenceCache_1965.put(var23, var15);
+               aReferenceCache_1965.put(var23, var15);
             }
 
             boolean var19 = false;
@@ -906,9 +940,9 @@ final class ObjectDefinition {
             }
 
             if(var8) {
-               Class100.aClass136_1413.aClass109_Sub1_1770 = var22.method1933(var3);
+               aClass136_1413.aClass109_Sub1_1770 = var22.method1933(var3);
             } else {
-               Class100.aClass136_1413.aClass109_Sub1_1770 = null;
+               aClass136_1413.aClass109_Sub1_1770 = null;
             }
 
             if(this.aByte1505 != 0) {
@@ -919,7 +953,7 @@ final class ObjectDefinition {
                var22.method1919(this.aByte1505, this.aShort1500, var23, var7, var11, var2, var4, var1);
             }
 
-            Class100.aClass136_1413.aClass140_1777 = var22;
+            aClass136_1413.aClass140_1777 = var22;
          } else {
             if(this.configuration == null) {
                var15 = (long)((this.objectId << 10) + var6);
@@ -927,7 +961,7 @@ final class ObjectDefinition {
                var15 = (long)(var6 + (this.objectId << 10) + (var13 << 3));
             }
 
-            Class140_Sub1_Sub2 var17 = (Class140_Sub1_Sub2)Class154.aReferenceCache_1965.get(var15);
+            Class140_Sub1_Sub2 var17 = (Class140_Sub1_Sub2) aReferenceCache_1965.get(var15);
             if(var17 == null) {
                Model_Sub1 var18 = this.method1686(var6, var13);
                if(var18 == null) {
@@ -935,7 +969,7 @@ final class ObjectDefinition {
                }
 
                var17 = new Class140_Sub1_Sub2(var18, 64 + this.anInt1494, this.anInt1489 * 5 + 768, -50, -10, -50);
-               Class154.aReferenceCache_1965.put(var17, var15);
+               aReferenceCache_1965.put(var17, var15);
             }
 
             boolean var21 = false;
@@ -961,9 +995,9 @@ final class ObjectDefinition {
                var17 = var17.method1941(this.aByte1505, this.aShort1500, var7, var11, var2, var4, var1, false);
             }
 
-            Class100.aClass136_1413.aClass140_1777 = var17;
+            aClass136_1413.aClass140_1777 = var17;
          }
-         return Class100.aClass136_1413;
+         return aClass136_1413;
       } catch (RuntimeException var20) {
          throw ClientErrorException.clientError(var20, "pb.M(" + var1 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ',' + var4 + ',' + (var5 != null?"{...}":"null") + ',' + var6 + ',' + (var7 != null?"{...}":"null") + ',' + var8 + ',' + var9 + ',' + var10 + ',' + (var11 != null?"{...}":"null") + ',' + var12 + ',' + var13 + ',' + var14 + ')');
       }

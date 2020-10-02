@@ -8,7 +8,6 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
 
    static CacheIndex aClass153_3214;
    static int[][] anIntArrayArray3215 = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}, {0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1}, {0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0}, {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1}};
-   static int anInt3216 = 0;
    private int anInt3217 = '\u8000';
    static int[] anIntArray3218 = new int[]{1, 4};
 
@@ -147,27 +146,11 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
          }
 
          if(!var3) {
-            anInt3216 = -7;
+            Class3_Sub13_Sub13.anInt3216 = -7;
          }
 
       } catch (RuntimeException var5) {
          throw ClientErrorException.clientError(var5, "ke.A(" + var1 + ',' + (var2 != null?"{...}":"null") + ',' + var3 + ')');
-      }
-   }
-
-   static void method256(int var0, int var1, int var2, byte var3, int var4) {
-      try {
-         Class3_Sub28_Sub6 var5 = Class3_Sub24_Sub3.method466(4, var2);
-         var5.g();
-         var5.anInt3597 = var4;
-         var5.anInt3596 = var0;
-         if(var3 >= -108) {
-            method258(-75);
-         }
-
-         var5.anInt3598 = var1;
-      } catch (RuntimeException var6) {
-         throw ClientErrorException.clientError(var6, "ke.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ')');
       }
    }
 
@@ -192,19 +175,9 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
       }
    }
 
-   public static void method258(int var0) {
-      try {
-         anIntArray3218 = null;
-         anIntArrayArray3215 = (int[][])null;
-         aClass153_3214 = null;
-      } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "ke.B(" + var0 + ')');
-      }
-   }
-
    static void method259(Class126 var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8) {
       int var9;
-      int var10 = var9 = (var6 << 7) - Class129_Sub1.anInt2697;
+      int var10 = var9 = (var6 << 7) - Class145.anInt2697;
       int var11;
       int var12 = var11 = (var7 << 7) - Class3_Sub13_Sub30.anInt3363;
       int var13;
@@ -273,7 +246,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                            }
                         } else {
                            var30 = Class51.anInterface2_838.method15(var0.anInt1670, '\uffff');
-                           Class51.method1154(var27, var29, var25, var26, var28, var24, Class127.method1753(var30, var0.anInt1664), Class127.method1753(var30, var0.anInt1663), Class127.method1753(var30, var0.anInt1667));
+                           Class51.method1154(var27, var29, var25, var26, var28, var24, LoginHandler.method1753(var30, var0.anInt1664), LoginHandler.method1753(var30, var0.anInt1663), LoginHandler.method1753(var30, var0.anInt1667));
                         }
                      }
                   }
@@ -295,7 +268,7 @@ final class Class3_Sub13_Sub18 extends Class3_Sub13 {
                            Class51.method1135(var23, var25, var29, var22, var24, var28, var0.anInt1675, var0.anInt1667, var0.anInt1663, var10, var14, var9, var17, var18, var21, var12, var11, var15, var0.anInt1670);
                         } else {
                            var30 = Class51.anInterface2_838.method15(var0.anInt1670, '\uffff');
-                           Class51.method1154(var23, var25, var29, var22, var24, var28, Class127.method1753(var30, var0.anInt1675), Class127.method1753(var30, var0.anInt1667), Class127.method1753(var30, var0.anInt1663));
+                           Class51.method1154(var23, var25, var29, var22, var24, var28, LoginHandler.method1753(var30, var0.anInt1675), LoginHandler.method1753(var30, var0.anInt1667), LoginHandler.method1753(var30, var0.anInt1663));
                         }
                      }
                   }
