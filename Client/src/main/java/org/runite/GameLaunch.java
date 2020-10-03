@@ -1,6 +1,5 @@
 package org.runite;
 
-import org.rs09.client.config.GameConfig;
 import org.runite.jagex.GameShell;
 
 /**
@@ -9,8 +8,6 @@ import org.runite.jagex.GameShell;
  *
  */
 public class GameLaunch {
-
-	public static final String CONF_FILE="config.json";
 
 	/**
 	 * The game settings.
@@ -27,13 +24,6 @@ public class GameLaunch {
 	 * @param args the arguments casted on runtime.
 	 */
 	public static void main(String[]args) {
-		try {
-			GameConfig.parse(CONF_FILE);
-		} catch (Exception e){
-			System.out.println("Can't find config file " + CONF_FILE);
-			e.printStackTrace();
-		}
-
 		for (int i = 0; i < args.length; i++) {
 			String[] cmd = args[i].split("=");
 			switch (cmd[0]) {
