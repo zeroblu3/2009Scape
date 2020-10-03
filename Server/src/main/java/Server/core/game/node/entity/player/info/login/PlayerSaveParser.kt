@@ -63,12 +63,12 @@ class PlayerSaveParser(val player: Player) {
             parseTT()
             parseBankPin()
             parseHouse()
-            parseAchievements()
             parseIronman()
             parseEmoteManager()
             parseStatistics()
             parseBrawlingGloves()
             parseAttributes()
+            parseAchievements()
             parsePouches()
         }
     }
@@ -143,8 +143,12 @@ class PlayerSaveParser(val player: Player) {
     }
 
     fun parseAchievements(){
-        val achvData = saveFile!!["achievementData"] as JSONArray
-        player.achievementDiaryManager.parse(achvData)
+        if(saveFile!!.containsKey("achievementDiaries")) {
+            val achvData = saveFile!!["achievementDiaries"] as JSONArray
+            player.achievementDiaryManager.parse(achvData)
+        } else {
+            player.achievementDiaryManager.resetRewards()
+        }
     }
 
     fun parseHouse(){

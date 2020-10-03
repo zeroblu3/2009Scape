@@ -66,7 +66,7 @@ public class AchievementDiary implements SavingModule {
 	 */
 	public AchievementDiary(DiaryType type) {
 		this.type = type;
-		this.taskCompleted = new boolean[type.getAchievements().length][50];
+		this.taskCompleted = new boolean[type.getAchievements().length][25];
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class AchievementDiary implements SavingModule {
 		int child = 12;
 
 		sendString(player, (isComplete() ? GREEN : isStarted() ? YELLOW : "<red>") + type.getName() + " Area Tasks", child++);
-		child++;
+		//child++;
 
 		if (!type.getInfo().isEmpty() && !this.isStarted()) {
 			sendString(player, type.getInfo(), child++);

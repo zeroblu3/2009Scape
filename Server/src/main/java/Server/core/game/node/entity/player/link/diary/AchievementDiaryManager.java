@@ -10,6 +10,7 @@ import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
 
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 /**
  * Manages the achievement diary of a player.
@@ -53,7 +54,13 @@ public class AchievementDiaryManager implements SavingModule {
 
 	public void parse(JSONArray data){
 		for(int i = 0; i < data.size(); i++){
-			diarys[i].parse((JSONObject) data.get(i));
+			JSONObject diary = (JSONObject) data.get(i);
+			String name = (String) diary.keySet().toArray()[0];
+			for (int ii = 0; ii < diarys.length; ii++) {
+				if (diarys[ii].getType().getName().equalsIgnoreCase(name)) {
+					diarys[ii].parse((JSONObject) diary.get(name));
+				}
+			}
 		}
 	}
 
@@ -249,4 +256,25 @@ public class AchievementDiaryManager implements SavingModule {
 		return diarys;
 	}
 
+	/**
+	 * Removes rewards from player
+	 * obtained via old incomplete diaries
+	 */
+	public void resetRewards() {
+		for (AchievementDiary diary: diarys) {
+			for (Item[] axis : diary.getType().getRewards()) {
+				for (Item item : axis) {
+					if (player.getInventory().containsItem(item)) {
+						player.getInventory().remove(item);
+					}
+					if (player.getBank().containsItem(item)) {
+						player.getBank().remove(item);
+					}
+					if (player.getEquipment().containsItem(item)) {
+						player.getEquipment().remove(item);
+					}
+				}
+			}
+		}
+	}
 }

@@ -173,9 +173,11 @@ class PlayerSaver (val player: Player){
                 rewardedLevels.add(it)
             }
             diary.put("rewardedLevels",rewardedLevels)
-            achievementData.add(diary)
+            val diaryCollector = JSONObject()
+            diaryCollector.put(it.type.name, diary)
+            achievementData.add(diaryCollector)
         }
-        root.put("achievementData",achievementData)
+        root.put("achievementDiaries",achievementData)
     }
 
     fun saveHouseData(root: JSONObject){

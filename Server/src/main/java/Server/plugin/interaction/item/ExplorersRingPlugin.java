@@ -61,7 +61,7 @@ public class ExplorersRingPlugin extends OptionHandler {
                 }
                 player.getSettings().updateRunEnergy(-50);
                 player.getSavedData().getGlobalData().setRunReplenishCharges(charges + 1);
-                player.sendMessage("You replenish 50% of your run energy.");
+                player.sendMessage("You feel refreshed as the ring revitalises you and a charge is used up.");
                 player.visualize(new Animation(9988), new Graphics(1733));
                 break;
             case "low-alchemy":
@@ -78,7 +78,7 @@ public class ExplorersRingPlugin extends OptionHandler {
                     player.sendMessage("You have used all the charges you can for one day.");
                     return true;
                 }
-                player.sendMessage("You grant yourself with 30 free low alchemy charges.");
+                player.sendMessage("You grant yourself with 30 free low alchemy charges."); // todo this implementation is not correct, see https://www.youtube.com/watch?v=UbUIF2Kw_Dw
                 player.getSavedData().getGlobalData().setLowAlchemyCharges(30);
                 break;
             case "cabbage-port":

@@ -150,7 +150,7 @@ public enum DiaryType {
                     {new Item(11757), new Item(11754)},
                     {new Item(11758), new Item(11755)}
             },
-            "",
+            "To start marking off tasks in your journal, speak to<br><br>Rat Burgiss south of the city, Reldo in the palace<br><br>library, or Vannaka in the sewers.", // todo made up, can't find source
             // Varrock Armour 1-3
             // 1k xp 30 or higher, 5k xp 40 or higher, 10k 50 or higher
             // Rat Burgiss, Reldo (has an NPC config...), Vannaka
@@ -247,7 +247,7 @@ public enum DiaryType {
                     {new Item(13560), new Item(11185)},
                     {new Item(13561), new Item(11186)},
                     {new Item(13562), new Item(11187)}},
-            "",
+            "To start marking off tasks in your journal, speak to<br><br>Explorer Jack near the Lumbridge General Store, Bob<br><br>in his axe store or Ned in his house in Draynor Village.", // todo made up, can't find source
             // Explorer Jack, Bob, Ned // todo more accurate dialogues for these guys
             new int[]{7969, 519, 743}
             /**
@@ -322,7 +322,7 @@ public enum DiaryType {
                     {new Item(14578), new Item(14581)},
                     {new Item(14579), new Item(14582)}
             },
-            "",
+            "To start marking off tasks in your journal, speak to<br><br>Redbeard Frank outside the bar in Port Sarim, The<br><br>Chemist west of Rimmington, or Sir Vyvin's Squire in the<br><br>Falador Castle courtyard.", // todo made up, can't find source
             // Redbeard Frank, Chemist, Squire
             new int[]{375, 367, 606}
             /**
@@ -386,7 +386,7 @@ public enum DiaryType {
                     {new Item(14572), new Item(14575)},
                     {new Item(14573), new Item(14576)}
             },
-            "",
+            "", // todo
             // Council Workman, Yrsa, Advisor Ghrim  // TODO dialogues for all these
             new int[]{1287, 1301, 1375}
     ),
@@ -444,7 +444,7 @@ public enum DiaryType {
                     {new Item(14631), new Item(14634)},
                     {new Item(14631), new Item(14635)}
             },
-            "Talk to any seer in Seers' Village, Stankers by the coal<br>trucks or Sir Kay in Camelot to start your journal.",
+            "To start marking off tasks in your journal, speak to<br><br>any seer in Seers' Village, Stankers by the coal<br><br>trucks or Sir Kay in Camelot.", // todo made up, can't find source
             // Seer, Stankers, Sir Kay
             new int[]{388, 383, 241}
             /**
