@@ -203,7 +203,7 @@ public class Region {
 			if (!activityPulse.isRunning()) {
 				activityPulse.restart();
 				activityPulse.start();
-				GameWorld.getPulser().submit(activityPulse);
+				GameWorld.Pulser.submit(activityPulse);
 			}
 		}
 		return true;

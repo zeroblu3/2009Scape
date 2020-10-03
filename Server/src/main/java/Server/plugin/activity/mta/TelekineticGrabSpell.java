@@ -103,7 +103,7 @@ public final class TelekineticGrabSpell extends MagicSpell {
 		}
 		entity.lock(2);
 		visualize(entity, target);
-		GameWorld.getPulser().submit(getGrabPulse(entity, ground));
+		GameWorld.Pulser.submit(getGrabPulse(entity, ground));
 		return true;
 	}
 

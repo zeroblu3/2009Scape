@@ -2,7 +2,7 @@ package org.rs09.client.net.game.inbound
 
 import org.rs09.client.console.AutocompletionHints
 import org.rs09.client.console.DeveloperConsole
-import org.runite.client.DataBuffer
+import org.runite.jagex.DataBuffer
 
 object ConsoleAutocompletionPacketDecoder: GamePacketDecoder {
     override fun decode(buffer: DataBuffer) {

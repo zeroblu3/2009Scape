@@ -1,6 +1,6 @@
 package org.rs09.client.filestore.resources.configs.cursors
 
-import org.runite.client.*
+import org.runite.jagex.*
 
 class CursorDefinition {
     var hotspotX = 0

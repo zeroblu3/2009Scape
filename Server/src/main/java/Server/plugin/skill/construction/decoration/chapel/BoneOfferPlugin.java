@@ -88,7 +88,7 @@ public class BoneOfferPlugin extends UseWithHandler {
 			return;
 		}
 		final Location start = player.getLocation();
-		GameWorld.getPulser().submit(new Pulse(1) {
+		GameWorld.Pulser.submit(new Pulse(1) {
 			int counter = 0;
 			
 			@Override

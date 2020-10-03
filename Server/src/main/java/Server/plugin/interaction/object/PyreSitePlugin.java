@@ -112,7 +112,7 @@ public final class PyreSitePlugin extends OptionHandler {
 		player.lock();
 		USED_LOCATIONS.add(object.getLocation());
 		player.faceLocation(object.getLocation());
-		GameWorld.getPulser().submit(getPulse(player, object));
+		GameWorld.Pulser.submit(getPulse(player, object));
 	}
 
 	/**

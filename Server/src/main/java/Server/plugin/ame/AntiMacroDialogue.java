@@ -74,7 +74,7 @@ public abstract class AntiMacroDialogue extends DialoguePlugin {
 		if (wave != null) {
 			npc.animate(wave);
 		}
-		GameWorld.getPulser().submit(new Pulse(4, npc, player) {
+		GameWorld.Pulser.submit(new Pulse(4, npc, player) {
 			@Override
 			public boolean pulse() {
 				((AntiMacroNPC) npc).clear();
