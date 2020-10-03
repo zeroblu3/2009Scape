@@ -2,6 +2,8 @@ package org.runite.client;
 
 import org.rs09.client.config.GameConfig;
 
+import org.rs09.client.config.GameConfig;
+
 import java.util.Objects;
 
 final class Class3_Sub13_Sub18 extends Class3_Sub13 {

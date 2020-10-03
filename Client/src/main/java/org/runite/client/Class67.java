@@ -3,6 +3,9 @@ package org.runite.client;
 import org.rs09.client.util.ArrayUtils;
 import org.rs09.client.data.ReferenceCache;
 
+import org.rs09.client.util.ArrayUtils;
+import org.rs09.client.data.ReferenceCache;
+
 final class Class67 implements Runnable {
 
    static ReferenceCache aReferenceCache_1013 = new ReferenceCache(100);
