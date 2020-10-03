@@ -1,6 +1,6 @@
 package org.rs09.client.rendering
 
-import org.runite.jagex.*
+import org.runite.client.*
 
 /**
  * A utility class to make rendering new things easier. This should only be used for new things. Ideally only port the

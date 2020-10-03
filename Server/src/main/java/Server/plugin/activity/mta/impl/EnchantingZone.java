@@ -126,7 +126,7 @@ public class EnchantingZone extends MTAZone {
 			if (!PULSE.isRunning()) {
 				PULSE.restart();
 				PULSE.start();
-				GameWorld.Pulser.submit(PULSE);
+				GameWorld.getPulser().submit(PULSE);
 			}
 			createGroundSpawns(e.asPlayer());
 			BONUS_SHAPE.setAsBonus(e.asPlayer());
@@ -180,7 +180,7 @@ public class EnchantingZone extends MTAZone {
 
 				@Override
 				public void respawn() {
-					GameWorld.Pulser.submit(getRespawnPulse(this));
+					GameWorld.getPulser().submit(getRespawnPulse(this));
 				}
 			};
 			items.add(item);

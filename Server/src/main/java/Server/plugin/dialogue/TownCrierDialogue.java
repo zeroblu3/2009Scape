@@ -40,7 +40,7 @@ public final class TownCrierDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hear ye! Hear ye! Player Moderators massive help to ", GameWorld.getName() + "!");
+		interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hear ye! Hear ye! Player Moderators massive help to ", GameWorld.getSettings().getName() + "!");
 		stage = 1;
 		return true;
 	}
@@ -54,7 +54,7 @@ public final class TownCrierDialogue extends DialoguePlugin {
 			stage = 2;
 			break;
 		case 2:
-			interpreter.sendOptions("Select an Option", "Tell me about Player Moderators.", "Tell me about the Rules of " + GameWorld.getName() + ".", "Can you give me a handy tip please?", "Bye!");
+			interpreter.sendOptions("Select an Option", "Tell me about Player Moderators.", "Tell me about the Rules of " + GameWorld.getSettings().getName() + ".", "Can you give me a handy tip please?", "Bye!");
 			stage = 3;
 			break;
 		case 3:
@@ -64,7 +64,7 @@ public final class TownCrierDialogue extends DialoguePlugin {
 				stage = 50;
 				break;
 			case 2:
-				interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "Tell me about the Rules of " + GameWorld.getName() + ".");
+				interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "Tell me about the Rules of " + GameWorld.getSettings().getName() + ".");
 				stage = 70;
 				break;
 			case 3:
@@ -117,7 +117,7 @@ public final class TownCrierDialogue extends DialoguePlugin {
 			player.lock(4);
 			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "At once. Take a look at my book here.");
 			npc.animate(new Animation(6866));
-			GameWorld.Pulser.submit(new Pulse(4) {
+			GameWorld.getPulser().submit(new Pulse(4) {
 				@Override
 				public boolean pulse() {
 					//player.getDialogueInterpreter().open(496107759);
@@ -150,7 +150,7 @@ public final class TownCrierDialogue extends DialoguePlugin {
 				stage = 2;
 				break;
 			case 5:
-				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "" + GameWorld.getName() + " will never email you asking for your log-in details.");
+				interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "" + GameWorld.getSettings().getName() + " will never email you asking for your log-in details.");
 				stage = 2;
 				break;
 			}
@@ -177,15 +177,15 @@ public final class TownCrierDialogue extends DialoguePlugin {
 			stage = 51;
 			break;
 		case 160:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Player Moderators, or 'P-mods', have the ability to mute", "rule breakers and " + GameWorld.getName() + " view their reports as a priority so", "that reward is taken as quickly as possible. P-Mods also", "have acces to the Player Moderator Centre. Within the");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Player Moderators, or 'P-mods', have the ability to mute", "rule breakers and " + GameWorld.getSettings().getName() + " view their reports as a priority so", "that reward is taken as quickly as possible. P-Mods also", "have acces to the Player Moderator Centre. Within the");
 			stage = 161;
 			break;
 		case 161:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Centre are tools to help them Moderate " + GameWorld.getName() + ".", "These tools include dedicated forums, the Player", "Moderator Guidelines and the Player Moderator Code of", "Conduct.");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Centre are tools to help them Moderate " + GameWorld.getSettings().getName() + ".", "These tools include dedicated forums, the Player", "Moderator Guidelines and the Player Moderator Code of", "Conduct.");
 			stage = 153;
 			break;
 		case 170:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "" + GameWorld.getName() + " picks players who spend their time and effort to", "help better the " + GameWorld.getName() + " community. To increase your", "chances of becoming a Player Moderator:");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "" + GameWorld.getSettings().getName() + " picks players who spend their time and effort to", "help better the " + GameWorld.getSettings().getName() + " community. To increase your", "chances of becoming a Player Moderator:");
 			stage = 171;
 			break;
 		case 171:
@@ -193,11 +193,11 @@ public final class TownCrierDialogue extends DialoguePlugin {
 			stage = 173;
 			break;
 		case 173:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Play by the rules! The rules of " + GameWorld.getName() + " are enforced", "for a reason, to make the game a fair and enjoyable", "environment for all.");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Play by the rules! The rules of " + GameWorld.getSettings().getName() + " are enforced", "for a reason, to make the game a fair and enjoyable", "environment for all.");
 			stage = 174;
 			break;
 		case 174:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Report accuratley! When " + GameWorld.getName() + " consider an account for", "review they look for quality, not quantity. Ensure your", "reports are of a high quality by following the report", "guidelines.");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Report accuratley! When " + GameWorld.getSettings().getName() + " consider an account for", "review they look for quality, not quantity. Ensure your", "reports are of a high quality by following the report", "guidelines.");
 			stage = 175;
 			break;
 		case 175:
@@ -205,15 +205,15 @@ public final class TownCrierDialogue extends DialoguePlugin {
 			stage = 153;
 			break;
 		case 180:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "P-Mods cannot ban your account - they can only report", "offences. " + GameWorld.getName() + " then take reward based on the evidence", "received. If you lose your password or get scamme dby", "another player, P_Mods cannot help you get your account");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "P-Mods cannot ban your account - they can only report", "offences. " + GameWorld.getSettings().getName() + " then take reward based on the evidence", "received. If you lose your password or get scamme dby", "another player, P_Mods cannot help you get your account");
 			stage = 181;
 			break;
 		case 181:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "back. All they can do is recommend you to go to Player", "Support. They cannot retrieve any items you may have", "lost and they certainly do not recieve any free items", "from " + GameWorld.getName() + " for moderating the game. They are players");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "back. All they can do is recommend you to go to Player", "Support. They cannot retrieve any items you may have", "lost and they certainly do not recieve any free items", "from " + GameWorld.getSettings().getName() + " for moderating the game. They are players");
 			stage = 182;
 			break;
 		case 182:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "who give their all to help the community, out of the", "goodness of their hearts! P-mods do not work for " + GameWorld.getName() + "", "and so cannot make you a Moderator, or recommend", "other accounts to become Moderators. If you wish yo");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "who give their all to help the community, out of the", "goodness of their hearts! P-mods do not work for " + GameWorld.getSettings().getName() + "", "and so cannot make you a Moderator, or recommend", "other accounts to become Moderators. If you wish yo");
 			stage = 183;
 			break;
 		case 183:

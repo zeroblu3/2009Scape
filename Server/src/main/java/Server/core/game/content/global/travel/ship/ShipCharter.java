@@ -291,7 +291,7 @@ public final class ShipCharter {
 		 */
 		public void sail(final Player player) {
 			player.lock(7);
-			GameWorld.Pulser.submit(new Pulse(1) {
+			GameWorld.getPulser().submit(new Pulse(1) {
 				int count = 0;
 
 				@Override

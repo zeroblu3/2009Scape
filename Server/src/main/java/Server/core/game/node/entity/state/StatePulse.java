@@ -83,7 +83,7 @@ public abstract class StatePulse extends Pulse {
 		}
 		restart();
 		start();
-		GameWorld.Pulser.submit(this);
+		GameWorld.getPulser().submit(this);
 	}
 
 }

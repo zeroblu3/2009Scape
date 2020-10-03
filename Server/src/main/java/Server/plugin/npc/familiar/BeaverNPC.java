@@ -81,14 +81,14 @@ public class BeaverNPC extends Forager {
 		owner.lock(ticks);
 		multiChop = true;
 		getPulseManager().clear();
-		GameWorld.Pulser.submit(new Pulse(ticks, owner, this) {
+		GameWorld.getPulser().submit(new Pulse(ticks, owner, this) {
 			@Override
 			public boolean pulse() {
 				lock(11);
 				owner.lock(11);
 				faceLocation(object.getLocation());
 				animate(Animation.create(7722));
-				GameWorld.Pulser.submit(new Pulse(1, owner, BeaverNPC.this) {
+				GameWorld.getPulser().submit(new Pulse(1, owner, BeaverNPC.this) {
 					int counter;
 					boolean recieved = false;
 

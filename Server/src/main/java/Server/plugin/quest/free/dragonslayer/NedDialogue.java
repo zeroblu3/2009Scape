@@ -468,7 +468,7 @@ public final class NedDialogue extends DialoguePlugin {
 			stage = 46;
 			break;
 		case 100:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "There you go, finest rope in " + GameWorld.getName() + ".");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "There you go, finest rope in " + GameWorld.getSettings().getName() + ".");
 			stage = 101;
 			break;
 		case 101:

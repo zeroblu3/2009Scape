@@ -237,7 +237,7 @@ public class ForceMovement extends Pulse {
 		}
 		ForceMovement fm = new ForceMovement(e, start, destination, startAnim, animation, direction, commenceSpeed, pathSpeed);
 		fm.start();
-		GameWorld.Pulser.submit(fm);
+		GameWorld.getPulser().submit(fm);
 		return fm;
 	}
 
@@ -255,7 +255,7 @@ public class ForceMovement extends Pulse {
 		this.pathSpeed = pathSpeed == 0 ? path : speed;
 		this.commenceSpeed = commence;
 		start();
-		GameWorld.Pulser.submit(this);
+		GameWorld.getPulser().submit(this);
 	}
 
 	/**

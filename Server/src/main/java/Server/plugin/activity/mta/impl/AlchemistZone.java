@@ -123,7 +123,7 @@ public class AlchemistZone extends MTAZone {
 			if (!PULSE.isRunning()) {
 				PULSE.restart();
 				PULSE.start();
-				GameWorld.Pulser.submit(PULSE);
+				GameWorld.getPulser().submit(PULSE);
 			}
 			e.asPlayer().removeAttribute("alch-earn");
 			setSession(e.asPlayer());

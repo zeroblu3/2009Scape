@@ -184,7 +184,7 @@ public final class DesertZone extends MapZone implements Plugin<Object> {
 			if (!pulse.isRunning()) {
 				pulse.restart();
 				pulse.start();
-				GameWorld.Pulser.submit(pulse);
+				GameWorld.getPulser().submit(pulse);
 			}
 		}
 		return true;

@@ -107,7 +107,7 @@ public final class InformationclerkMuseumDialogue extends DialoguePlugin {
 			stage = 153;
 			break;
 		case 180:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Why, yes. The Natural History exhibit has displays of", "various creatures you can find around " + GameWorld.getName() + ".");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Why, yes. The Natural History exhibit has displays of", "various creatures you can find around " + GameWorld.getSettings().getName() + ".");
 			stage = 181;
 			break;
 		case 181:

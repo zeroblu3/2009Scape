@@ -208,7 +208,7 @@ public final class FamiliarManager implements SavingModule {
 	 * Summons a familiar.
 	 * @param item The item.
 	 * @param pet If the familiar is a pet.
-	 * @param if we should delete the item.
+	 * @param deleteItem we should delete the item.
 	 */
 	public void summon(Item item, boolean pet, boolean deleteItem) {
 		if (hasFamiliar()) {
@@ -238,7 +238,7 @@ public final class FamiliarManager implements SavingModule {
 		final int npcId = pouch.getNpcId();
 		Familiar fam = FAMILIARS.get(npcId);
 		if (fam == null) {
-			player.getPacketDispatch().sendMessage("Invalid familiar " + npcId + " - report on www.keldagrim.com");
+			player.getPacketDispatch().sendMessage("Invalid familiar " + npcId);
 			return;
 		}
 		fam = fam.construct(player, npcId);
@@ -284,7 +284,7 @@ public final class FamiliarManager implements SavingModule {
 	/**
 	 * Summons a pet.
 	 * @param item the item.
-	 * @param delete the item.
+	 * @param deleteItem the item.
 	 */
 	private boolean summonPet(final Item item, boolean deleteItem) {
 		return summonPet(item, deleteItem, false, null);
@@ -293,7 +293,6 @@ public final class FamiliarManager implements SavingModule {
 	/**
 	 * Summons a pet.
 	 * @param item the item.
-	 * @param delete the item.
 	 * @param morph the pet.
 	 */
 	private boolean summonPet(final Item item, boolean deleteItem, boolean morph, Location location) {
@@ -462,7 +461,7 @@ public final class FamiliarManager implements SavingModule {
 
 	/**
 	 * Dismisses the familiar.
-	 * @param save the details of a pet.
+	 * @param saveDetails the details of a pet.
 	 */
 	public void dismiss(boolean saveDetails) {
 		if (hasPet() && !saveDetails) {
@@ -482,7 +481,7 @@ public final class FamiliarManager implements SavingModule {
 
 	/**
 	 * Removes the details for this pet.
-	 * @param npcId The item id of the pet.
+	 * @param itemId The item id of the pet.
 	 */
 	public void removeDetails(int itemId) {
 		Pets pets = Pets.forId(itemId);

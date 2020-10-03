@@ -69,7 +69,7 @@ public final class ElvargNPC extends AbstractNPC {
 	@Override
 	public void commenceDeath(Entity killer) {
 		final Direction direction = Direction.getLogicalDirection(getLocation(), killer.getLocation());
-		GameWorld.Pulser.submit(new Pulse(1, this) {
+		GameWorld.getPulser().submit(new Pulse(1, this) {
 			@Override
 			public boolean pulse() {
 				faceLocation(getCenterLocation().transform(direction.getStepX() * 3, direction.getStepY() * 3, 0));
@@ -86,7 +86,7 @@ public final class ElvargNPC extends AbstractNPC {
 		ObjectBuilder.add(object);
 		killer.faceLocation(object.getCenterLocation());
 		killer.lock();
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			int counter = 0;
 
 			@Override

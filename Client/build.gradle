@@ -2,7 +2,7 @@ apply plugin: 'application'
 
 archivesBaseName = 'client'
 
-mainClassName = 'org.runite.Client'
+mainClassName = 'org.rs09.client.GameLaunch'
 
 dependencies {
     implementation 'com.github.Vatuu:discord-rpc:1.6.2'
@@ -13,6 +13,8 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.runite.Client'
+        attributes 'Main-Class': 'org.rs09.client.GameLaunch'
     }
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+
 }

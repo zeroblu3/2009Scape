@@ -73,7 +73,7 @@ public final class LundailDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 20:
-			npc("That, my friend is the mage battle arena. Top mages", "come from all over " + GameWorld.getName() + " to compete in the arena.");
+			npc("That, my friend is the mage battle arena. Top mages", "come from all over " + GameWorld.getSettings().getName() + " to compete in the arena.");
 			stage++;
 			break;
 		case 21:

@@ -4,18 +4,14 @@ import core.game.system.SystemLogger
 import core.game.system.SystemShutdownHook
 import core.game.system.config.ServerConfigParser
 import core.game.system.mysql.SQLManager
-import core.game.world.GameSettings.Companion.parse
 import core.game.world.GameWorld
 import core.gui.ConsoleFrame
 import core.net.NioReactor
 import core.net.amsc.WorldCommunicator
 import core.tools.TimeStamp
-import core.tools.backup.AutoBackup
 import plugin.ge.BotGrandExchange
 import plugin.ge.GEAutoStock
-import java.io.File
 import java.net.BindException
-import java.util.*
 
 /**
  * The main class, for those that are unable to read the class' name.
@@ -33,7 +29,6 @@ object Server {
      * The NIO reactor.
      */
     var reactor: NioReactor? = null
-    private val backup: AutoBackup? = null
 
     /**
      * The main method, in this method we load background utilities such as
@@ -49,7 +44,7 @@ object Server {
             println("No config file supplied! Attempting to use default...")
             ServerConfigParser("worldprops/default.json")
         }
-        if (GameWorld.getSettings()!!.isGui) {
+        if (GameWorld.settings?.isGui == true) {
             try {
                 ConsoleFrame.getInstance().init()
             } catch (e: Exception) {
@@ -64,9 +59,9 @@ object Server {
         Runtime.getRuntime().addShutdownHook(Thread(SystemShutdownHook()))
         SystemLogger.log("Starting NIO reactor...")
         try {
-            NioReactor.configure(43594 + GameWorld.getSettings()!!.worldId).start()
+            NioReactor.configure(43594 + GameWorld.settings?.worldId!!).start()
         } catch (e: BindException) {
-            println("Port " + (43594 + GameWorld.getSettings()!!.worldId) + " is already in use!")
+            println("Port " + (43594 + GameWorld.settings?.worldId!!) + " is already in use!")
             throw e
         }
         /*val timer = java.util.Timer()
@@ -77,8 +72,8 @@ object Server {
         }
         timer.schedule(task, 0, 1000 * 60 * 5)*/
         WorldCommunicator.connect()
-        SystemLogger.log(GameWorld.getName() + " flags " + GameWorld.getSettings().toString())
-        SystemLogger.log(GameWorld.getName() + " started in " + t.duration(false, "") + " milliseconds.")
+        SystemLogger.log(GameWorld.settings?.name + " flags " + GameWorld.settings?.toString())
+        SystemLogger.log(GameWorld.settings?.name + " started in " + t.duration(false, "") + " milliseconds.")
         GEAutoStock.parse(ServerConstants.GRAND_EXCHANGE_DATA_PATH + "itemstostock.xml")
         BotGrandExchange.loadOffersFromDB()
         // TODO Run the eco kick starter 1 time for the live server then comment it out

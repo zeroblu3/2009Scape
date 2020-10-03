@@ -142,7 +142,7 @@ public final class RestlessGhostPlugin extends OptionHandler {
 			return;
 		}
 		GHOST.setInvisible(false);
-		GameWorld.Pulser.submit(new Pulse(100, GHOST) {
+		GameWorld.getPulser().submit(new Pulse(100, GHOST) {
 			@Override
 			public boolean pulse() {
 				GHOST.setInvisible(true);

@@ -36,7 +36,7 @@ public final class ArmourSuitNPC extends AbstractNPC {
 	public void init() {
 		super.init();
 		super.setRespawn(false);
-		GameWorld.Pulser.submit(new Pulse(50, this) {
+		GameWorld.getPulser().submit(new Pulse(50, this) {
 			@Override
 			public boolean pulse() {
 				if (!getProperties().getCombatPulse().isAttacking() && !inCombat()) {

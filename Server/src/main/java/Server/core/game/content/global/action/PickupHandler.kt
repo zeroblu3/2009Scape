@@ -37,7 +37,7 @@ object PickupHandler {
             player.packetDispatch.sendMessage("Too late!")
             return true
         }
-        if (player.getAttribute("droppedItem:" + item.id, 0) > GameWorld.getTicks()) { //Splinter
+        if (player.getAttribute("droppedItem:" + item.id, 0) > GameWorld.ticks) { //Splinter
             log("$player, tried to do the drop & quick pick-up Ground Item dupe.")
             return true
         }

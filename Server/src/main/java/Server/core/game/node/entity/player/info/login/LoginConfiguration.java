@@ -105,7 +105,7 @@ public final class LoginConfiguration {
         }
         Repository.getLobbyPlayers().add(player);
         player.getPacketDispatch().sendString(getLastLogin(player), 378, 116);
-        player.getPacketDispatch().sendString("Welcome to " + GameWorld.getName(), 378, 115);
+        player.getPacketDispatch().sendString("Welcome to " + GameWorld.getSettings().getName(), 378, 115);
         player.getPacketDispatch().sendString(" ", 378, 37);
         player.getPacketDispatch().sendString("Want to stay up to date with the latest news and updates? Join our <br>discord by using the link below!", 378, 38);
         player.getPacketDispatch().sendString(" ", 378, 39);
@@ -177,7 +177,7 @@ public final class LoginConfiguration {
             player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Welcome to " + GameWorld.getSettings().getName() + "!","To customize your character, speak with","the makeover mage nearby. Hans at the castle","also provides some more options such as ironman,","xp rate settings, and more.");
 
             //Appending the welcome message and some other stuff
-            player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getName() + ".");
+            player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getSettings().getName() + ".");
 
 
             player.unlock();
@@ -194,7 +194,7 @@ public final class LoginConfiguration {
 
             player.removeAttribute("tut-island:hi_slot");
             HintIconManager.removeHintIcon(player, slot);
-            GameWorld.submit(new Pulse(1) {
+            GameWorld.getPulser().submit(new Pulse(1) {
                 @Override
                 public boolean pulse() {
                     CharacterDesign.open(player);
@@ -241,7 +241,7 @@ public final class LoginConfiguration {
 
             return;
         }
-        player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getName() + ".");
+        player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getSettings().getName() + ".");
         //player.getPacketDispatch().sendMessage("You are currently playing in beta version 1.2");
         if (player.getDetails().isMuted()) {
             player.getPacketDispatch().sendMessage("You are muted.");

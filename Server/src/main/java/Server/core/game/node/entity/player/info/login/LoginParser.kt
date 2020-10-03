@@ -224,6 +224,6 @@ class LoginParser(
      * @param type The login type.
      */
     init {
-        timeStamp = GameWorld.getTicks()
+        timeStamp = GameWorld.ticks
     }
 }

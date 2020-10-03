@@ -320,7 +320,7 @@ public abstract class Entity extends Node {
 	 * @param ticks the ticks.
 	 */
 	public void teleport(final Location location, int ticks) {
-		GameWorld.Pulser.submit(new Pulse(ticks, this) {
+		GameWorld.getPulser().submit(new Pulse(ticks, this) {
 			@Override
 			public boolean pulse() {
 				teleport(location);
@@ -406,7 +406,7 @@ public abstract class Entity extends Node {
 	 * @return {@code True} if so.
 	 */
 	public boolean graphics(final Graphics graphics, int delay) {
-		GameWorld.Pulser.submit(new Pulse(delay, this) {
+		GameWorld.getPulser().submit(new Pulse(delay, this) {
 			@Override
 			public boolean pulse() {
 				graphics(graphics);
@@ -433,7 +433,7 @@ public abstract class Entity extends Node {
 	 * @return {@code True} if succesful.
 	 */
 	public boolean animate(final Animation animation, int delay) {
-		GameWorld.Pulser.submit(new Pulse(delay, this) {
+		GameWorld.getPulser().submit(new Pulse(delay, this) {
 			@Override
 			public boolean pulse() {
 				animate(animation);
@@ -489,7 +489,7 @@ public abstract class Entity extends Node {
 	 */
 	public boolean faceTemporary(Entity entity, final Entity reset, int ticks) {
 		if (face(entity)) {
-			GameWorld.Pulser.submit(new Pulse(ticks + 1, this) {
+			GameWorld.getPulser().submit(new Pulse(ticks + 1, this) {
 				@Override
 				public boolean pulse() {
 					face(reset);
@@ -597,7 +597,7 @@ public abstract class Entity extends Node {
 	 * @param ticks the ticks.
 	 */
 	public void sendChat(final String string, int ticks) {
-		GameWorld.Pulser.submit(new Pulse(ticks, this) {
+		GameWorld.getPulser().submit(new Pulse(ticks, this) {
 			@Override
 			public boolean pulse() {
 				sendChat(string);

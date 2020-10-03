@@ -105,7 +105,7 @@ public class ObjectParser extends StartupPlugin {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        GameWorld.STARTUP_PLUGINS.add(this);
+        GameWorld.getSTARTUP_PLUGINS().add(this);
         return this;
     }
 
