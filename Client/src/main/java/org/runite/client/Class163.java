@@ -2,6 +2,8 @@ package org.runite.client;
 
 import org.rs09.client.data.NodeCache;
 
+import org.rs09.client.data.NodeCache;
+
 import java.util.Objects;
 
 class Class163 {

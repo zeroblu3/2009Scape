@@ -3,6 +3,8 @@ package org.runite.client;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.util.ArrayUtils;
 
+import org.rs09.client.util.ArrayUtils;
+
 import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 import java.util.Objects;

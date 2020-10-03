@@ -2,6 +2,8 @@ package org.runite.client;
 
 import org.rs09.client.LinkableInt;
 
+import org.rs09.client.LinkableInt;
+
 import javax.media.opengl.GL;
 
 final class Class31 {

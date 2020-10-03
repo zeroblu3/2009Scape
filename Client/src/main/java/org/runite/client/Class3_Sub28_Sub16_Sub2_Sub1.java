@@ -2,6 +2,8 @@ package org.runite.client;
 
 import org.rs09.client.rendering.Toolkit;
 
+import org.rs09.client.rendering.Toolkit;
+
 final class Class3_Sub28_Sub16_Sub2_Sub1 extends Class3_Sub28_Sub16_Sub2 {
 
    final void method660(int var1, int var2, double var7) {
