@@ -153,7 +153,7 @@ public final class DMCHandler {
 		}
 		firingPulse.restart();
 		firingPulse.start();
-		GameWorld.getPulser().submit(firingPulse);
+		GameWorld.Pulser.submit(firingPulse);
 	}
 
 	/**
@@ -193,7 +193,7 @@ public final class DMCHandler {
 		player.getWalkingQueue().reset();
 		player.lock(9);
 		player.faceLocation(spawn.transform(Direction.NORTH_EAST));
-		GameWorld.getPulser().submit(new Pulse(2, player) {
+		GameWorld.Pulser.submit(new Pulse(2, player) {
 			int count = 0;
 			GameObject object = null;
 

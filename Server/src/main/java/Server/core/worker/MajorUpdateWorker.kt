@@ -1,46 +1,41 @@
 package core.worker
 
-import core.game.system.task.Pulse
+import core.game.system.SystemLogger
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import plugin.CorePluginTypes.Managers
+import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledExecutorService
 
-/**
- * Handles the running of pulses and writing of masks, etc
- * @author Ceikry
- */
-class MajorUpdateWorker {
-    var started = false
+class MajorUpdateWorker : Runnable {
     val sequence = UpdateSequence()
-    fun start() = GlobalScope.launch {
+    val executor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
+    var started = false
+
+    fun start(){
+        if(started)
+            return
         started = true
-        while(true){
-            delay(600L)
-            launch {
-                val rmlist = ArrayList<Pulse>()
-                val list = ArrayList(GameWorld.Pulser.TASKS)
-                for(pulse in list){
-                    try {
-                        if (pulse.update()) rmlist.add(pulse)
-                    } catch (e: Exception){
-                        e.printStackTrace()
-                        rmlist.add(pulse)
-                    }
-                }
-                GameWorld.Pulser.TASKS.removeAll(rmlist)
-                sequence.start()
-                sequence.run()
-                sequence.end()
+        //executor.scheduleAtFixedRate(this,1200,600,TimeUnit.MILLISECONDS)
+        Executors.newSingleThreadExecutor().execute { run() }
+    }
+
+    override fun run() {
+        Thread.currentThread().name = "Major Update Worker"
+        while(true) {
+            try {
+                GameWorld.Pulser.Runner().run()
+            } catch (e: Exception){
+
             }
-            launch {
-                GameWorld.pulse()
-                Repository.getDisconnectionQueue().update()
-            }
+            sequence.start()
+            sequence.run()
+            sequence.end()
+            GameWorld.pulse()
+            Repository.getDisconnectionQueue().update()
             Managers.tick()
+            Thread.sleep(600)
         }
     }
 }

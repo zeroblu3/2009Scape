@@ -5,8 +5,7 @@ import core.plugin.InitializablePlugin
 import plugin.dialogue.DialoguePlugin
 import plugin.dialogue.FacialExpression
 
-//@InitializablePlugin
-//Disabled because the quest isn't done yet.
+@InitializablePlugin
 class AskeladdenDialogue(player: Player? = null) : DialoguePlugin(player) {
     override fun open(vararg args: Any?): Boolean {
         player?.let {

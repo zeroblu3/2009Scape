@@ -11,15 +11,7 @@ import kotlin.math.floor
  * @author ceik
  * @author eli
  */
-
 class PulseRunner {
-    val TASKS = ArrayList<Pulse>()
-    fun submit(pulse: Pulse){
-        TASKS.add(pulse)
-    }
-}
-/*
-class PulseeRunner {
     val MAXIMUM_NUM_THREADS = 4
     val TARGET_PULSES_PER_THREAD = 100
     val ThreadPool = Executors.newFixedThreadPool(MAXIMUM_NUM_THREADS - 1) as ThreadPoolExecutor
@@ -41,8 +33,7 @@ class PulseeRunner {
             var pulses: MutableList<Pulse>? = null
             pulses = ArrayList(TASKS)
             val pulseArray: Array<Any?> = pulses.toTypedArray()
-            */
-/*var numThreads = 1 + pulseArray.size / TARGET_PULSES_PER_THREAD
+            /*var numThreads = 1 + pulseArray.size / TARGET_PULSES_PER_THREAD
             if (numThreads > MAXIMUM_NUM_THREADS) numThreads = MAXIMUM_NUM_THREADS
             val nowTime = System.nanoTime()
             // Execute all the tasks not run on the first core
@@ -55,9 +46,7 @@ class PulseeRunner {
 
 
             // Execute the first core tasks all together just as before
-            val pulsesLengthStart = floor(pulseArray.size / numThreads.toDouble()).toInt()*//*
-
-
+            val pulsesLengthStart = floor(pulseArray.size / numThreads.toDouble()).toInt()*/
             for (element in pulseArray) {
                 val pulse = element as Pulse? ?: continue
                 try {
@@ -97,4 +86,4 @@ class PulseeRunner {
         }
 
     }
-}*/
+}

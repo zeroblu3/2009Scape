@@ -88,7 +88,7 @@ public class PartyPeteDialoguePlugin extends DialoguePlugin {
 			stage = 51;
 			break;
 		case 51:
-			interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "How do you have a party in " + GameWorld.getSettings().getName() + "?");
+			interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "How do you have a party in " + GameWorld.getName() + "?");
 			stage = 52;
 			break;
 		case 52:

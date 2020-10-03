@@ -253,7 +253,7 @@ public class TrapSetting {
 		npc.getWalkingQueue().reset();
 		npc.getPulseManager().clear();
 		wrapper.setTicks(wrapper.getTicks() + 4);
-		GameWorld.getPulser().submit(getCatchPulse(wrapper, node, npc, success));
+		GameWorld.Pulser.submit(getCatchPulse(wrapper, node, npc, success));
 	}
 
 	/**
