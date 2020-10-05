@@ -61,7 +61,7 @@ final class CS2Script extends Linkable {
 
    static Class79 method378(int var0, byte var1) {
       try {
-         Class79 var2 = (Class79) aReferenceCache_2450.get((long)var0);
+         Class79 var2 = (Class79) aReferenceCache_2450.get(var0);
          if(var2 == null) {
             if(var1 < 126) {
                return (Class79)null;
@@ -142,8 +142,8 @@ final class CS2Script extends Linkable {
          int var5 = var3 + -Class7.anInt2162;
          int var6 = -Class77.anInt1111 + var2;
          int var4 = -NPC.anInt3995 + var1;
-         int var7 = (int)Math.sqrt((double)(var4 * var4 + var6 * var6));
-         int var8 = (int)(325.949D * Math.atan2((double)var5, (double)var7)) & 2047;
+         int var7 = (int)Math.sqrt(var4 * var4 + var6 * var6);
+         int var8 = (int)(325.949D * Math.atan2(var5, var7)) & 2047;
          if(128 > var8) {
             var8 = 128;
          }

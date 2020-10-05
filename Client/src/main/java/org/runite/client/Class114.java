@@ -2,8 +2,6 @@ package org.runite.client;
 
 import org.rs09.client.data.ReferenceCache;
 
-import org.rs09.client.data.ReferenceCache;
-
 import java.util.Objects;
 
 final class Class114 {
