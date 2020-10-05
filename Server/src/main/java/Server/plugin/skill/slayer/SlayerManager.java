@@ -211,7 +211,7 @@ public final class SlayerManager implements SavingModule {
 	 * @param npc The NPC. You're currently
 	 */
 	public void finalizeDeath(Player player, NPC npc) {
-		player.getSkills().addExperience(Skills.SLAYER, npc.getDefinition().getConfiguration(NPCConfigParser.SLAYER_EXP, (double) npc.getSkills().getStaticLevel(Skills.HITPOINTS)), true);
+		player.getSkills().addExperience(Skills.SLAYER,npc.getSkills().getMaximumLifepoints());
 		decrementAmount(1);
 		if (!hasTask()) {
 			clear();
