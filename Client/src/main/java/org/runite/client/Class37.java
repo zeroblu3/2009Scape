@@ -3,9 +3,6 @@ package org.runite.client;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.LinkableInt;
 
-import org.rs09.client.data.HashTable;
-import org.rs09.client.LinkableInt;
-
 import java.nio.ByteBuffer;
 import javax.media.opengl.GL;
 

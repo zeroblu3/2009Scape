@@ -3,9 +3,6 @@ package org.runite.client;
 import org.rs09.client.Node;
 import org.rs09.client.data.HashTable;
 
-import org.rs09.client.Node;
-import org.rs09.client.data.HashTable;
-
 final class AssembledMethod extends Node {
 
    // The ints are loaded in this order

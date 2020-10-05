@@ -3,9 +3,6 @@ package org.runite.client;
 import org.rs09.client.Linkable;
 import org.rs09.client.data.HashTable;
 
-import org.rs09.client.Linkable;
-import org.rs09.client.data.HashTable;
-
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;

@@ -2,8 +2,6 @@ package org.runite.client;
 
 import org.rs09.client.rendering.Toolkit;
 
-import org.rs09.client.rendering.Toolkit;
-
 final class Class51 {
 
    static int[] anIntArray834 = new int[65536];
