@@ -247,6 +247,13 @@ public class TextCore {
     static Font Helvetica = new Font("Helvetica", Font.BOLD, 13);
 
     /**
+     * Holiday Event Text
+     */
+    //Halloween
+    public static RSString TrickorTreat = RSString.of("Trick-or-treat");
+    public static RSString GazeInto = RSString.of("Gaze-into");
+
+    /**
      * Unsorted
      */
     static RSString Spacer = RSString.parse(" ");

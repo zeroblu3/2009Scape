@@ -3,6 +3,7 @@ package org.rs09.client.config
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
+import java.util.*
 
 /**
  * Handles the client's config loading
@@ -260,11 +261,42 @@ class GameConfig {
         @JvmField
         var SERVER_NAME = "2009scape"
 
-
         /**
          * Path to config
          */
         @JvmField
         var configLocation = "config.json"
+
+        /**
+         * Holiday Event Toggles
+         */
+        @JvmField
+        var HOLIDAYS_ENABLED = true
+
+        /**
+         * Halloween event NPC Definitions are handled inside of NPCDefinition.java
+         */
+        @JvmField
+        var HALLOWEEN_EVENT_ENABLED = false
+
+        @JvmField
+        var THANKSGIVING_EVENT_ENABLED = false
+
+        @JvmField
+        var CHRISTMAS_EVENT_ENABLED = false
+
+        private val calendar: Calendar = Calendar.getInstance()
+        private val month = calendar.get(Calendar.MONTH)
+
+        @JvmStatic
+        fun implementHoliday() {
+            if (HOLIDAYS_ENABLED) {
+                when (month) {
+                    9 -> HALLOWEEN_EVENT_ENABLED = true
+                    10 -> THANKSGIVING_EVENT_ENABLED = true
+                    11 -> CHRISTMAS_EVENT_ENABLED = true
+                }
+            }
+        }
     }
 }

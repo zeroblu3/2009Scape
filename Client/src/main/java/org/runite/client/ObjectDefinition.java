@@ -613,6 +613,19 @@ final class ObjectDefinition {
          throw ClientErrorException.clientError(var9, "pb.K(" + (buffer != null?"{...}":"null") + ',' + opcode + ',' + -80 + ')');
       }
 
+      /**
+       * Will find a better way to incorporate this without tacking it onto the end of ObjectDefinitions at some point.
+       * Will *Actually* worry about it and make it 100x better when working on the new client. ~ Woah
+       *
+       * Checks to see if the Halloween Event is enabled, and then applies the "Gaze-into" option to the cauldron that
+       * had it during the 2008 Halloween Event
+       */
+      if (GameConfig.HALLOWEEN_EVENT_ENABLED) {
+         if (objectId == 39233) {
+            options[0] = TextCore.GazeInto;
+         }
+      }
+
       if (GameConfig.OBJECT_DEBUG_ENABLED) {
          if (options[0] == null && options[1] == null && options[2] == null && options[3] == null && options[4] == null) {
             options[0] = RSString.parse("Viewing object");

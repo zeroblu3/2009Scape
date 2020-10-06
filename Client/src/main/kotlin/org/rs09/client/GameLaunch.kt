@@ -15,10 +15,12 @@ object GameLaunch {
     fun main(args: Array<String>) {
         try {
             GameConfig.parse(GameConfig.configLocation)
+            GameConfig.implementHoliday()
         } catch (e: Exception){
             GameConfig.IP_ADDRESS = "play.2009scape.org"
             GameConfig.IP_MANAGEMENT = "play.2009scape.org"
             GameConfig.RCM_STYLE_PRESET = "classic"
+            GameConfig.RCM_TITLE = "<col=5d5447>Choose Option</col>"
         }
         for (i in args.indices) {
             val cmd = args[i].split("=").toTypedArray()

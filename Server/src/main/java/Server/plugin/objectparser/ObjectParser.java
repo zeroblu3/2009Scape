@@ -75,6 +75,7 @@ public class ObjectParser extends StartupPlugin {
                                     break;
                                 case "se":
                                     dir = 7;
+                                    break;
                                 case "s":
                                     dir = 6;
                                     break;

@@ -2,12 +2,13 @@ package org.runite.client;
 
 
 import org.rs09.client.Linkable;
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.LinkableInt;
 
 import java.util.Objects;
 
-final class NPCDefinition {
+public final class NPCDefinition {
 
    static AnimationDefinition[] aClass142Array1168 = new AnimationDefinition[14];
     static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array3041 = new Class3_Sub28_Sub5[14];
@@ -28,7 +29,7 @@ final class NPCDefinition {
    short aShort1256 = 0;
    private int configId;
    private int[][] anIntArrayArray1258;
-   RSString[] options;
+   public RSString[] options;
    int anInt1260;
    private int[][] anIntArrayArray1261;
    int anInt1262 = -1;
@@ -52,7 +53,7 @@ final class NPCDefinition {
    int renderAnimationId;
    private int anInt1282;
    int anInt1283;
-   int npcId;
+   public int npcId;
    boolean aBoolean1285;
    short aShort1286;
    byte aByte1287;
@@ -812,6 +813,35 @@ final class NPCDefinition {
       } catch (RuntimeException var9) {
          throw ClientErrorException.clientError(var9, "me.H(" + var1 + ',' + opcode + ',' + (buffer != null?"{...}":"null") + ')');
       }
+
+      /**
+       * Will find a better way to incorporate this without tacking it onto the end of NPCDefinitions at some point.
+       * Will *Actually* worry about it and make it 100x better when working on the new client. ~ Woah
+       *
+       * Checks to see if the Halloween Event is enabled, and then applies the "Trick-or-Treat" option to the NPC's that
+       * had it during the 2008 Halloween Event
+       */
+      if (GameConfig.HALLOWEEN_EVENT_ENABLED) {
+         //First Options
+         /*
+            None
+          */
+         //Second Options
+         if (npcId == 307 || npcId == 375 || npcId == 743 || npcId == 744 || npcId == 755 || npcId == 2634 || npcId == 2690 || npcId == 2691 || npcId == 2692) {
+            options[2] = TextCore.TrickorTreat;
+         }
+         //Third Options
+         if (npcId == 530 || npcId == 531 || npcId == 556 || npcId == 557 || npcId == 558 || npcId == 559 || npcId == 583 || npcId == 585 || npcId == 1860 || npcId == 3299 || npcId == 3671) {
+            options[3] = TextCore.TrickorTreat;
+         }
+         //Fourth Options
+         if (npcId == 922 || npcId == 970) {
+            options[4] = TextCore.TrickorTreat;
+         }
+
+
+      }
+
    }
 
    public NPCDefinition() {
