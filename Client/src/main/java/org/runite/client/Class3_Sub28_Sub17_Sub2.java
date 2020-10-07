@@ -1,6 +1,8 @@
 package org.runite.client;
 
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL4bc;
+
+
 import java.nio.ByteBuffer;
 
 public final class Class3_Sub28_Sub17_Sub2 extends Class3_Sub28_Sub17 {
@@ -31,7 +33,7 @@ public final class Class3_Sub28_Sub17_Sub2 extends Class3_Sub28_Sub17 {
    }
 
    final void method678(int var1, int var2, int var3, int var4, int var5, int var6) {
-      GL var8;
+      GL4bc var8;
       if(Class22.aClass3_Sub28_Sub16_Sub1_447 == null) {
          HDToolKit.method1824();
          var8 = HDToolKit.gl;
@@ -84,7 +86,7 @@ public final class Class3_Sub28_Sub17_Sub2 extends Class3_Sub28_Sub17 {
 
    final void method679(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       HDToolKit.method1824();
-      javax.media.opengl.GL var9 = HDToolKit.gl;
+      GL4bc var9 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4084);
       var9.glColor4ub((byte)(var6 >> 16), (byte)(var6 >> 8), (byte)var6, var7 > 255?-1:(byte)var7);
       var9.glTranslatef((float)var2, (float)(HDToolKit.viewHeight - var3), 0.0F);
@@ -95,7 +97,7 @@ public final class Class3_Sub28_Sub17_Sub2 extends Class3_Sub28_Sub17 {
    private void method707() {
       if(this.anIntArray4085 == null) {
          this.anIntArray4085 = new int[256];
-         javax.media.opengl.GL var1 = HDToolKit.gl;
+         GL4bc var1 = HDToolKit.gl;
 
          for(int var2 = 0; var2 < 256; ++var2) {
             float var3 = (float)(var2 % 16) / 16.0F;
@@ -171,7 +173,7 @@ public final class Class3_Sub28_Sub17_Sub2 extends Class3_Sub28_Sub17 {
          }
 
          ByteBuffer var14 = ByteBuffer.wrap(var3);
-         javax.media.opengl.GL var15 = HDToolKit.gl;
+         GL4bc var15 = HDToolKit.gl;
          if(this.anInt4084 == -1) {
             int[] var16 = new int[1];
             var15.glGenTextures(1, var16, 0);

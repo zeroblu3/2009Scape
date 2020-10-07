@@ -1,7 +1,9 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL4bc;
+
 import java.nio.ByteBuffer;
-import javax.media.opengl.GL;
+
 
 final class Class165 implements Interface5 {
 
@@ -13,7 +15,7 @@ final class Class165 implements Interface5 {
 
 
    private void method2251() {
-      GL var1 = HDToolKit.gl;
+      GL4bc var1 = HDToolKit.gl;
       this.anInt2193 = var1.glGenLists(2);
       var1.glNewList(this.anInt2193, 4864);
       var1.glActiveTexture('\u84c1');
@@ -81,19 +83,19 @@ final class Class165 implements Interface5 {
    }
 
    static void method2253() {
-      javax.media.opengl.GL var0 = HDToolKit.gl;
+      GL4bc var0 = HDToolKit.gl;
       var0.glClientActiveTexture(method2252());
       var0.glDisableClientState('\u8078');
       var0.glClientActiveTexture('\u84c0');
    }
 
    public final void method22() {
-      javax.media.opengl.GL var1 = HDToolKit.gl;
+      GL4bc var1 = HDToolKit.gl;
       var1.glCallList(this.anInt2193);
    }
 
    static void method2254() {
-      javax.media.opengl.GL var0 = HDToolKit.gl;
+      GL4bc var0 = HDToolKit.gl;
       var0.glClientActiveTexture(method2252());
       var0.glEnableClientState('\u8078');
       var0.glClientActiveTexture('\u84c0');
@@ -104,12 +106,12 @@ final class Class165 implements Interface5 {
    }
 
    public final void method21() {
-      javax.media.opengl.GL var1 = HDToolKit.gl;
+      GL4bc var1 = HDToolKit.gl;
       var1.glCallList(this.anInt2193 + 1);
    }
 
    public final void method23(int var1) {
-      javax.media.opengl.GL var2 = HDToolKit.gl;
+      GL4bc var2 = HDToolKit.gl;
       var2.glActiveTexture('\u84c1');
       if(!aBoolean2191 && var1 < 0) {
          var2.glDisable(3168);
@@ -165,7 +167,7 @@ final class Class165 implements Interface5 {
          for(int var3 = 0; var3 < 8; var2[var3++] = (byte)(96 + var3 * 159 / 8)) {
          }
 
-         javax.media.opengl.GL var4 = HDToolKit.gl;
+         GL4bc var4 = HDToolKit.gl;
          var4.glGenTextures(1, var1, 0);
          var4.glBindTexture(3552, var1[0]);
          var4.glTexImage1D(3552, 0, 6406, 8, 0, 6406, 5121, ByteBuffer.wrap(var2));

@@ -242,11 +242,11 @@ final class Class39 {
 
 	static void method1036() {
 		try {
-			Class86 var1 = new Class86();
+			AtmosphereParser var1 = new AtmosphereParser();
 
 			for(int var2 = 0; var2 < 13; ++var2) {
 				for(int var3 = 0; var3 < 13; ++var3) {
-					Class115.aClass86ArrayArray1581[var2][var3] = var1;
+					Class115.aAtmosphereParserArrayArray1581[var2][var3] = var1;
 				}
 			}
 

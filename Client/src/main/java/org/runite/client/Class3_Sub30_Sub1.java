@@ -871,7 +871,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 				Class3_Sub13_Sub32.aBoolean3387 = false;
 			}
 
-			Class86 var5 = Class115.aClass86ArrayArray1581[var3][var1];
+			AtmosphereParser var5 = Class115.aAtmosphereParserArrayArray1581[var3][var1];
 			float var7 = ((float)var2 * 0.1F + 0.7F) * var5.aFloat1187;
 			float var8 = var5.aFloat1190;
 			int var6 = var5.anInt1177;
@@ -919,7 +919,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 			Class92.setLightParams(Unsorted.anInt1950, Class30.aFloat578, Class3_Sub13_Sub36.aFloat3424, Class12.aFloat319);
 			Class92.setFogValues(Class3_Sub28_Sub12.anInt3652, Unsorted.anInt689);
 
-			Class92.setLightPosition((float)Class46.anInt741, (float) Class3_Sub13_Sub11.anInt3274, (float)Class86.anInt1191);
+			Class92.setLightPosition((float)Class46.anInt741, (float) Class3_Sub13_Sub11.anInt3274, (float) AtmosphereParser.anInt1191);
 			Class92.method1504();
 			return Class3_Sub28_Sub12.anInt3652;
 		} catch (RuntimeException var16) {

@@ -311,7 +311,7 @@ final class CS2Script extends Linkable {
                   }
                   if (opcode == CS2AsmOpcodes.POP_INT_TO_RAM.getOp()) {
                         int i3 = instructionOperands[programCounter];
-                        Class86.method1428(i3, ItemDefinition.intsStack[--iStackCounter]);
+                        AtmosphereParser.method1428(i3, ItemDefinition.intsStack[--iStackCounter]);
                         continue;
                   }
                   if (opcode == CS2AsmOpcodes.PUSH_STR.getOp()) {
@@ -944,7 +944,7 @@ final class CS2Script extends Linkable {
                                                       continue;
                                                    }
                                                    if (opcode == 3201) {
-                                                      Class86.method1427(ItemDefinition.intsStack[--iStackCounter]);
+                                                      AtmosphereParser.method1427(ItemDefinition.intsStack[--iStackCounter]);
                                                       continue;
                                                    }
                                                    if (opcode != 3202)
@@ -3308,7 +3308,7 @@ final class CS2Script extends Linkable {
                                                    iStackCounter -= 2;
                                                    int l73 = ItemDefinition.intsStack[iStackCounter - -1];
                                                    int i63 = ItemDefinition.intsStack[iStackCounter];
-                                                   ItemDefinition.intsStack[iStackCounter++] = Class86.method1430(l73).method684(class94_34, i63);
+                                                   ItemDefinition.intsStack[iStackCounter++] = AtmosphereParser.method1430(l73).method684(class94_34, i63);
                                                    continue;
                                                 }
                                                 if (opcode == 4109) {
@@ -3316,7 +3316,7 @@ final class CS2Script extends Linkable {
                                                    RSString class94_35 = ItemDefinition.stringsStack[--sStackCounter];
                                                    int i74 = ItemDefinition.intsStack[1 + iStackCounter];
                                                    int j63 = ItemDefinition.intsStack[iStackCounter];
-                                                   ItemDefinition.intsStack[iStackCounter++] = Class86.method1430(i74).method680(class94_35, j63);
+                                                   ItemDefinition.intsStack[iStackCounter++] = AtmosphereParser.method1430(i74).method680(class94_35, j63);
                                                    continue;
                                                 }
                                                 if (opcode == 4110) {

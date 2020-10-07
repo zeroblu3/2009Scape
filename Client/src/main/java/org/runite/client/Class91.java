@@ -930,7 +930,7 @@ final class Class91 {
 
       int var13 = (var5 << 9) / var11;
       int var14 = (var12 << 9) / var11;
-      return (var7 >= 50 || var11 >= 50) && ((var7 <= var4 || var11 <= var4) && ((var9 >= Class139.screenLowerX || var13 >= Class139.screenLowerX) && ((var9 <= Class145.screenUpperX || var13 <= Class145.screenUpperX) && ((var10 >= Class1.screenUpperY || var14 >= Class1.screenUpperY) && (var10 <= Class86.screenLowerY || var14 <= Class86.screenLowerY)))));
+      return (var7 >= 50 || var11 >= 50) && ((var7 <= var4 || var11 <= var4) && ((var9 >= Class139.screenLowerX || var13 >= Class139.screenLowerX) && ((var9 <= Class145.screenUpperX || var13 <= Class145.screenUpperX) && ((var10 >= Class1.screenUpperY || var14 >= Class1.screenUpperY) && (var10 <= AtmosphereParser.screenLowerY || var14 <= AtmosphereParser.screenLowerY)))));
    }
 
    final void method1496() {

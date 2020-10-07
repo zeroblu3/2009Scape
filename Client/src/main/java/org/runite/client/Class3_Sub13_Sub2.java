@@ -217,7 +217,7 @@ final class Class3_Sub13_Sub2 extends Class3_Sub13 {
             }
          }
 
-         Class86.aHashTable_3679 = new HashTable(16);
+         AtmosphereParser.aHashTable_3679 = new HashTable(16);
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "aj.O(" + var0 + ')');
       }

@@ -1,8 +1,9 @@
 package org.runite.client;
+import com.jogamp.opengl.GL4bc;
 import org.rs09.client.config.GameConfig;
 
 
-import javax.media.opengl.GL;
+
 import java.util.Objects;
 
 final class Class104 implements Interface5 {
@@ -78,7 +79,7 @@ final class Class104 implements Interface5 {
          int var9;
          int var12;
          if(Class164_Sub1.anInt3012 == 0) {
-            int var10 = Class86.screenLowerY;
+            int var10 = AtmosphereParser.screenLowerY;
             var9 = Class1.screenUpperY;
             int var8 = Class145.screenUpperX;
             int var7 = Class139.screenLowerX;
@@ -364,7 +365,7 @@ final class Class104 implements Interface5 {
 
    public final void method23(int var1) {
       try {
-         GL var2 = HDToolKit.gl;
+         GL4bc var2 = HDToolKit.gl;
          float var4 = (float)(1 + (var1 >> 3 & 3)) * 0.01F;
          float var3 = -0.01F * (float)(1 + (var1 & 3));
          float var5 = 0 == (var1 & 64)?4.8828125E-4F:9.765625E-4F;
@@ -415,7 +416,7 @@ final class Class104 implements Interface5 {
 
    public final void method21() {
       try {
-         GL var1 = HDToolKit.gl;
+         GL4bc var1 = HDToolKit.gl;
          var1.glCallList(1 + this.anInt2173);
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "ob.A()");
@@ -424,7 +425,7 @@ final class Class104 implements Interface5 {
 
    public final void method22() {
       try {
-         GL var1 = HDToolKit.gl;
+         GL4bc var1 = HDToolKit.gl;
          var1.glCallList(this.anInt2173);
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "ob.D()");
@@ -447,7 +448,7 @@ final class Class104 implements Interface5 {
 
    private void method1631() {
       try {
-         GL var2 = HDToolKit.gl;
+         GL4bc var2 = HDToolKit.gl;
          this.anInt2173 = var2.glGenLists(2);
          var2.glNewList(this.anInt2173, 4864);
          var2.glActiveTexture('\u84c1');

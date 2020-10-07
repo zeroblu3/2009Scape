@@ -534,7 +534,7 @@ final class Class52 {
          Class45.anIntArray729[var15] = var12;
          int var16 = 0;
          boolean var17 = false;
-         int[][] var18 = Class86.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
+         int[][] var18 = AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
 
          int var19;
          int var20;
@@ -549,18 +549,18 @@ final class Class52 {
             }
 
             if(0 != var7) {
-               if((var7 < 5 || 10 == var7) && Class86.aClass91Array1182[WorldListCountry.localPlane].method1488(var0, var13, var14, var6, var7 + -1, var5, var4)) {
+               if((var7 < 5 || 10 == var7) && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1488(var0, var13, var14, var6, var7 + -1, var5, var4)) {
                   var17 = true;
                   break;
                }
 
-               if(var7 < 10 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1492(var0, -1 + var7, var6, var14, var5, var4, var13, 95)) {
+               if(var7 < 10 && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1492(var0, -1 + var7, var6, var14, var5, var4, var13, 95)) {
                   var17 = true;
                   break;
                }
             }
 
-            if(var2 != 0 && var10 != 0 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1498(var6, var14, var13, var5, var2, var8, var0, var10)) {
+            if(var2 != 0 && var10 != 0 && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1498(var6, var14, var13, var5, var2, var8, var0, var10)) {
                var17 = true;
                break;
             }

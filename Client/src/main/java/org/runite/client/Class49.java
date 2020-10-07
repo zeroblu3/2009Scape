@@ -45,7 +45,7 @@ final class Class49 {
 
                         for(int var14 = 0; var14 < Class3_Sub24_Sub3.anIntArray3494.length; ++var14) {
                            if(var13 == Class3_Sub24_Sub3.anIntArray3494[var14] && null != var3[var14]) {
-                              Unsorted.method60(var10, 8 * var5, var4, Class86.aClass91Array1182, var6 * 8, (byte)-100, var3[var14], var9, (var12 & 7) * 8, 8 * (var11 & 7), var0);
+                              Unsorted.method60(var10, 8 * var5, var4, AtmosphereParser.aClass91Array1182, var6 * 8, (byte)-100, var3[var14], var9, (var12 & 7) * 8, 8 * (var11 & 7), var0);
                               var7 = true;
                               break;
                            }

@@ -105,11 +105,11 @@ final class Class3_Sub13_Sub11 extends Class3_Sub13 {
 
    static void method220(int var1, int var2) {
       try {
-         Class46.anInt741 = Class115.aClass86ArrayArray1581[var2][var1].anInt1185;
-         anInt3274 = Class115.aClass86ArrayArray1581[var2][var1].anInt1181;
+         Class46.anInt741 = Class115.aAtmosphereParserArrayArray1581[var2][var1].anInt1185;
+         anInt3274 = Class115.aAtmosphereParserArrayArray1581[var2][var1].anInt1181;
 
-         Class86.anInt1191 = Class115.aClass86ArrayArray1581[var2][var1].anInt1178;
-         Class92.setLightPosition((float)Class46.anInt741, (float) anInt3274, (float)Class86.anInt1191);
+         AtmosphereParser.anInt1191 = Class115.aAtmosphereParserArrayArray1581[var2][var1].anInt1178;
+         Class92.setLightPosition((float)Class46.anInt741, (float) anInt3274, (float) AtmosphereParser.anInt1191);
       } catch (RuntimeException var4) {
          throw ClientErrorException.clientError(var4, "fm.C(" + true + ',' + var1 + ',' + var2 + ')');
       }

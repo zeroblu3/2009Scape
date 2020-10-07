@@ -154,7 +154,7 @@ final class Class8 {
             var5 = new Class41(var3, Class101.aClass30_1422, Class163_Sub2.aClass30Array2998[var3], 1000000);
          }
 
-         Unsorted.aClass151_Sub1Array2601[var3] = Unsorted.aClass8_1936.method839(var3, Class86.aClass41_1186, var5);
+         Unsorted.aClass151_Sub1Array2601[var3] = Unsorted.aClass8_1936.method839(var3, AtmosphereParser.aClass41_1186, var5);
          if(var1) {
             Unsorted.aClass151_Sub1Array2601[var3].method2101();
          }

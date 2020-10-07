@@ -716,7 +716,7 @@ final class Class158_Sub1 extends Class158 implements ImageProducer, ImageObserv
           Class3_Sub13_Sub38.anIntArray3456[var14] = var2;
           int var27 = var14 + 1;
           Class45.anIntArray729[var14] = var10;
-          int[][] var17 = Class86.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
+          int[][] var17 = AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
 
           int var18;
           while(var15 != var27) {
@@ -729,18 +729,18 @@ final class Class158_Sub1 extends Class158 implements ImageProducer, ImageObserv
              }
 
              if(var9 != 0) {
-                if((var9 < 5 || 10 == var9) && Class86.aClass91Array1182[WorldListCountry.localPlane].method1488(var4, var12, var13, var0, var9 + -1, 1, var7)) {
+                if((var9 < 5 || 10 == var9) && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1488(var4, var12, var13, var0, var9 + -1, 1, var7)) {
                    var16 = true;
                    break;
                 }
 
-                if(var9 < 10 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1492(var4, -1 + var9, var0, var13, 1, var7, var12, 95)) {
+                if(var9 < 10 && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1492(var4, -1 + var9, var0, var13, 1, var7, var12, 95)) {
                    var16 = true;
                    break;
                 }
              }
 
-             if(var11 != 0 && 0 != var6 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1498(var0, var13, var12, 1, var11, var1, var4, var6)) {
+             if(var11 != 0 && 0 != var6 && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1498(var0, var13, var12, 1, var11, var1, var4, var6)) {
                 var16 = true;
                 break;
              }

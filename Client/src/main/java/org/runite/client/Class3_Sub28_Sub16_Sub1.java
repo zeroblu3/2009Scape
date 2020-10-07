@@ -1,7 +1,9 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL4bc;
+
 import java.nio.ByteBuffer;
-import javax.media.opengl.GL;
+
 
 class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
 
@@ -17,7 +19,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
    private void method644(int var1) {
       if(this.anInt4078 != var1) {
          this.anInt4078 = var1;
-         GL var2 = HDToolKit.gl;
+         GL4bc var2 = HDToolKit.gl;
          if(var1 == 2) {
             var2.glTexParameteri(3553, 10241, 9729);
             var2.glTexParameteri(3553, 10240, 9729);
@@ -34,7 +36,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
          HDToolKit.method1822();
          HDToolKit.bindTexture2D(var3.anInt4077);
          var3.method644(1);
-         javax.media.opengl.GL var4 = HDToolKit.gl;
+         GL4bc var4 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(1);
          var4.glActiveTexture('\u84c1');
@@ -74,7 +76,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
 
    final void method646(int var1, int var2, int var3, int var4, int var5) {
       HDToolKit.method1828();
-      javax.media.opengl.GL var6 = HDToolKit.gl;
+      GL4bc var6 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       float var7 = (float)this.anInt3707 / (float)this.anInt4075;
@@ -104,7 +106,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
          HDToolKit.method1822();
          HDToolKit.bindTexture2D(var9.anInt4077);
          var9.method644(1);
-         javax.media.opengl.GL var10 = HDToolKit.gl;
+         GL4bc var10 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(1);
          var10.glActiveTexture('\u84c1');
@@ -158,7 +160,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       HDToolKit.method1822();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      javax.media.opengl.GL var3 = HDToolKit.gl;
+      GL4bc var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
@@ -181,7 +183,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       HDToolKit.method1822();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      javax.media.opengl.GL var3 = HDToolKit.gl;
+      GL4bc var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
@@ -191,7 +193,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
 
    final void method648(int var1, int var2, int var3, int var4, int var5) {
       HDToolKit.method1822();
-      javax.media.opengl.GL var7 = HDToolKit.gl;
+      GL4bc var7 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(2);
       var1 -= this.anInt3701 << 4;
@@ -236,7 +238,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
             var4 = ((var6 << 16) - var8 + var12 - 1) / var12;
          }
 
-         javax.media.opengl.GL var20 = HDToolKit.gl;
+         GL4bc var20 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(2);
          float var14 = (float)var1;
@@ -262,7 +264,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       HDToolKit.method1822();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      javax.media.opengl.GL var3 = HDToolKit.gl;
+      GL4bc var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
@@ -287,7 +289,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
 
    final void method636(int var1, int var2, int var3, int var4, int var5, int var6) {
       HDToolKit.method1822();
-      javax.media.opengl.GL var7 = HDToolKit.gl;
+      GL4bc var7 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var1 -= this.anInt3701 << 4;
@@ -335,7 +337,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
             var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
          }
 
-         javax.media.opengl.GL var22 = HDToolKit.gl;
+         GL4bc var22 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(1);
          float var15 = (float)var1;
@@ -361,7 +363,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
 
    final void method649(int var1, int var2, int var3, int var4) {
       HDToolKit.method1822();
-      javax.media.opengl.GL var5 = HDToolKit.gl;
+      GL4bc var5 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       float var6 = (float)this.anInt3707 / (float)this.anInt4075;
@@ -409,7 +411,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       }
 
       ByteBuffer var9 = ByteBuffer.wrap(var2);
-      javax.media.opengl.GL var10 = HDToolKit.gl;
+      GL4bc var10 = HDToolKit.gl;
       if(this.anInt4077 == -1) {
          int[] var11 = new int[1];
          var10.glGenTextures(1, var11, 0);
@@ -427,7 +429,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       HDToolKit.method1828();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      javax.media.opengl.GL var4 = HDToolKit.gl;
+      GL4bc var4 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var4.glColor4f(1.0F, 1.0F, 1.0F, (float)var3 / 256.0F);
@@ -439,7 +441,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
    private void method651() {
       float var1 = (float)this.anInt3707 / (float)this.anInt4075;
       float var2 = (float)this.anInt3696 / (float)this.anInt4079;
-      javax.media.opengl.GL var3 = HDToolKit.gl;
+      GL4bc var3 = HDToolKit.gl;
       if(this.anInt4076 == -1) {
          this.anInt4076 = var3.glGenLists(1);
          this.anInt4080 = Class31.anInt582;

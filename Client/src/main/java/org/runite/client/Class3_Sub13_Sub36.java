@@ -118,7 +118,7 @@ public final class Class3_Sub13_Sub36 extends Class3_Sub13 {
             int var13 = Class1.screenUpperY;
             var11 = Class139.screenLowerX;
             Unsorted.anInt3642 = var11 + (var12 - var11) * (-var3 + NPCDefinition.anInt1297) / var4;
-            int var14 = Class86.screenLowerY;
+            int var14 = AtmosphereParser.screenLowerY;
             RenderAnimationDefinition.anInt384 = (-var13 + var14) * (Class38_Sub1.anInt2612 - var5) / var1 + var13;
          } else {
             aBoolean3094 = false;

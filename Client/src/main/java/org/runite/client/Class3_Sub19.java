@@ -84,7 +84,7 @@ final class Class3_Sub19 extends Linkable {
                         int var21 = var3 + var7;
                         var12 = var6;
                         if(22 != var11 && var11 != 29 && 34 != var11 && var11 != 36 && 46 != var11 && var11 != 47 && var11 != 48) {
-                           int[][] var14 = Class86.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
+                           int[][] var14 = AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
 
                            for(int var15 = 0; var15 < 10; ++var15) {
                               int var16 = (int)(Math.random() * 4.0D);

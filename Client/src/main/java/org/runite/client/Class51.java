@@ -1299,7 +1299,7 @@ final class Class51 {
       Class139.screenLowerX = -anInt846;
       Class145.screenUpperX = anInt847 - anInt846;
       Class1.screenUpperY = -anInt835;
-      Class86.screenLowerY = anInt844 - anInt835;
+      AtmosphereParser.screenLowerY = anInt844 - anInt835;
    }
 
    private static void method1142(int[] var0, int[] var1, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14) {
@@ -2458,7 +2458,7 @@ final class Class51 {
       Class139.screenLowerX = -anInt846;
       Class145.screenUpperX = anInt847 - anInt846;
       Class1.screenUpperY = -anInt835;
-      Class86.screenLowerY = anInt844 - anInt835;
+      AtmosphereParser.screenLowerY = anInt844 - anInt835;
    }
 
    private static void method1146(int[] var0, int var1, int var4, int var5, int var6, int var7) {

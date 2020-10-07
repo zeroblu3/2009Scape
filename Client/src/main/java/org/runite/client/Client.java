@@ -416,7 +416,7 @@ public final class Client extends GameShell {
             if (1 == Class158.anInt2014) {
                 ClientCommands.shiftClickEnabled = true;
                 Class92.defaultScreenColorRgb = 16777215;
-                Class92.defaulFogColorRgb = 0;
+                Class92.defaultRegionAmbientRGB = 0;
                 Class15.aShortArrayArray344 = Unsorted.aShortArrayArray1619;
                 Class101.aShortArrayArray1429 = aShortArrayArray2634;
                 Class3_Sub25.aShortArray2548 = Unsorted.aShortArray63;
@@ -456,7 +456,7 @@ public final class Client extends GameShell {
                     }
 
                     aClass30_1572 = new Class30(Class38.aClass87_665.cacheChecksumFile, 6000);
-                    Class86.aClass41_1186 = new Class41(255, Class101.aClass30_1422, aClass30_1572, 500000);
+                    AtmosphereParser.aClass41_1186 = new Class41(255, Class101.aClass30_1422, aClass30_1572, 500000);
                     Unsorted.aClass30_1039 = new Class30(Class38.aClass87_665.randomDatFile, 24);
                     Class38.aClass87_665.cacheIndicesFiles = null;
                     Class38.aClass87_665.cacheChecksumFile = null;
@@ -467,7 +467,7 @@ public final class Client extends GameShell {
                 Unsorted.aClass30_1039 = null;
                 Class101.aClass30_1422 = null;
                 aClass30_1572 = null;
-                Class86.aClass41_1186 = null;
+                AtmosphereParser.aClass41_1186 = null;
             }
 
             Class167.aClass94_2083 = TextCore.RSLoadingPleaseWait;
@@ -551,12 +551,12 @@ public final class Client extends GameShell {
                                 var4.aByteArray2795[0] = 1;
                                 var4.anIntArray2767[0] = var6 + (var4.anInt2819 >> 7);
                                 var4.anIntArray2755[0] = var7 + (var4.anInt2829 >> 7);
-                                Class86.aClass91Array1182[WorldListCountry.localPlane].method1502(var4.anInt2819 >> 7, var4.getSize(), false, 0, var4.getSize(), var4.anInt2829 >> 7);
-                                if (0 <= var4.anIntArray2767[0] && var4.anIntArray2767[0] <= 104 + -var4.getSize() && 0 <= var4.anIntArray2755[0] && var4.anIntArray2755[0] <= 104 - var4.getSize() && Class86.aClass91Array1182[WorldListCountry.localPlane].method1500(var4.anInt2829 >> 7, var4.anIntArray2755[0], var4.anIntArray2767[0], var4.anInt2819 >> 7)) {
+                                AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1502(var4.anInt2819 >> 7, var4.getSize(), false, 0, var4.getSize(), var4.anInt2829 >> 7);
+                                if (0 <= var4.anIntArray2767[0] && var4.anIntArray2767[0] <= 104 + -var4.getSize() && 0 <= var4.anIntArray2755[0] && var4.anIntArray2755[0] <= 104 - var4.getSize() && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1500(var4.anInt2829 >> 7, var4.anIntArray2755[0], var4.anIntArray2767[0], var4.anInt2819 >> 7)) {
                                     if (var4.getSize() > 1) {
                                         for (int var8 = var4.anIntArray2767[0]; var8 < var4.anIntArray2767[0] - -var4.getSize(); ++var8) {
                                             for (int var9 = var4.anIntArray2755[0]; var4.anIntArray2755[0] + var4.getSize() > var9; ++var9) {
-                                                if ((var2 & Class86.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304[var8][var9]) != 0) {
+                                                if ((var2 & AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304[var8][var9]) != 0) {
                                                     continue label191;
                                                 }
                                             }
@@ -571,7 +571,7 @@ public final class Client extends GameShell {
                         Unsorted.method1180((byte) -122, var4);
                         Class17.method904(65536, var4);
                         RenderAnimationDefinition.method900(var4, (byte) 1 ^ -11974);
-                        Class86.aClass91Array1182[WorldListCountry.localPlane].method1489(var4.anInt2819 >> 7, false, (byte) 85, var4.anInt2829 >> 7, var4.getSize(), var4.getSize());
+                        AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1489(var4.anInt2819 >> 7, false, (byte) 85, var4.anInt2829 >> 7, var4.getSize(), var4.getSize());
                     }
                 }
             }
@@ -1406,7 +1406,7 @@ public final class Client extends GameShell {
                         Class68.method1267();
 
                         for (var2 = 0; var2 < 4; ++var2) {
-                            Class86.aClass91Array1182[var2] = new Class91();
+                            AtmosphereParser.aClass91Array1182[var2] = new Class91();
                         }
 
                         LoadingStageNumber = 10;

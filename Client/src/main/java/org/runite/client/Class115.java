@@ -2,7 +2,7 @@ package org.runite.client;
 
 final class Class115 {
 
-   static Class86[][] aClass86ArrayArray1581 = new Class86[13][13];
+   static AtmosphereParser[][] aAtmosphereParserArrayArray1581 = new AtmosphereParser[13][13];
 
 
    static void method1713() {

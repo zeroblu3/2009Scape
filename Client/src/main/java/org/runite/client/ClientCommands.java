@@ -122,7 +122,7 @@ public class ClientCommands {
                 for (var2 = 0; var2 < 4; ++var2) {
                     for (var3 = 1; var3 < 103; ++var3) {
                         for (var4 = 1; var4 < 103; ++var4) {
-                            Class86.aClass91Array1182[var2].anIntArrayArray1304[var3][var4] = 0;
+                            AtmosphereParser.aClass91Array1182[var2].anIntArrayArray1304[var3][var4] = 0;
                         }
                     }
                 }

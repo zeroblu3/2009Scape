@@ -98,7 +98,7 @@ final class Class3_Sub13_Sub33 extends Class3_Sub13 {
       try {
          Class92.setLightParams(Class92.defaultScreenColorRgb, (0.7F + (float)var0 * 0.1F) * 1.1523438F, 0.69921875F, 0.69921875F);
          Class92.setLightPosition(-50.0F, -60.0F, -50.0F);
-         Class92.setFogValues(Class92.defaulFogColorRgb, 0);
+         Class92.setFogValues(Class92.defaultRegionAmbientRGB, 0);
          Class92.method1504();
 
       } catch (RuntimeException var3) {

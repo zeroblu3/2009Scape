@@ -1819,11 +1819,11 @@ public class Unsorted {
                     var8 = var2 + 1;
                 }
 
-                Class20.method910(var4, var1, var2, var7, var8, Class86.aClass91Array1182[var2]);
+                Class20.method910(var4, var1, var2, var7, var8, AtmosphereParser.aClass91Array1182[var2]);
                 if (0 <= var0) {
                     boolean var9 = KeyboardListener.aBoolean1905;
                     KeyboardListener.aBoolean1905 = true;
-                    Class110.method1683(var8, false, var2, false, Class86.aClass91Array1182[var2], var0, var6, var1, var4, var3);
+                    Class110.method1683(var8, false, var2, false, AtmosphereParser.aClass91Array1182[var2], var0, var6, var1, var4, var3);
                     KeyboardListener.aBoolean1905 = var9;
                 }
             }
@@ -2190,12 +2190,12 @@ public class Unsorted {
 
             int var23;
             if (HDToolKit.highDetail && !var1) {
-                Class86 var22 = null;
+                AtmosphereParser var22 = null;
 
                 while (var20.buffer.length > var20.index) {
                     var12 = var20.readUnsignedByte();
                     if (var12 == 0) {
-                        var22 = new Class86(var20);
+                        var22 = new AtmosphereParser(var20);
                     } else {
                         if (var12 != 1) {
 //								throw
@@ -2227,7 +2227,7 @@ public class Unsorted {
                 }
 
                 if (var22 == null) {
-                    var22 = new Class86();
+                    var22 = new AtmosphereParser();
                 }
 
                 for (var12 = 0; var12 < 8; ++var12) {
@@ -2235,7 +2235,7 @@ public class Unsorted {
                         var14 = var12 + (var5 >> 3);
                         var15 = (var3 >> 3) + var23;
                         if (0 <= var14 && var14 < 13 && var15 >= 0 && var15 < 13) {
-                            Class115.aClass86ArrayArray1581[var14][var15] = var22;
+                            Class115.aAtmosphereParserArrayArray1581[var14][var15] = var22;
                         }
                     }
                 }
@@ -2901,12 +2901,12 @@ public class Unsorted {
 
         int var28;
         if (HDToolKit.highDetail && !var10) {
-            Class86 var26 = null;
+            AtmosphereParser var26 = null;
 
             while (var25.buffer.length > var25.index) {
                 var15 = var25.readUnsignedByte();
                 if (var15 == 0) {
-                    var26 = new Class86(var25);
+                    var26 = new AtmosphereParser(var25);
                 } else {
                     if (var15 != 1) {
                         throw new IllegalStateException();
@@ -2942,10 +2942,10 @@ public class Unsorted {
             }
 
             if (null == var26) {
-                var26 = new Class86();
+                var26 = new AtmosphereParser();
             }
 
-            Class115.aClass86ArrayArray1581[var1 >> 3][var4 >> 3] = var26;
+            Class115.aAtmosphereParserArrayArray1581[var1 >> 3][var4 >> 3] = var26;
         }
 
         var14 = 7 + var1;
@@ -3529,7 +3529,7 @@ public class Unsorted {
             int var15 = 0;
             int var27 = var14 + 1;
             Class45.anIntArray729[var14] = var3;
-            int[][] var17 = Class86.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
+            int[][] var17 = AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].anIntArrayArray1304;
 
             int var18;
             while(var15 != var27) {
@@ -3542,18 +3542,18 @@ public class Unsorted {
                 }
 
                 if(var1 != 0) {
-                    if((5 > var1 || var1 == 10) && Class86.aClass91Array1182[WorldListCountry.localPlane].method1488(var4, var12, var13, var8, -1 + var1, 2, var7)) {
+                    if((5 > var1 || var1 == 10) && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1488(var4, var12, var13, var8, -1 + var1, 2, var7)) {
                         var16 = true;
                         break;
                     }
 
-                    if(var1 < 10 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1492(var4, var1 + -1, var8, var13, 2, var7, var12, 88)) {
+                    if(var1 < 10 && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1492(var4, var1 + -1, var8, var13, 2, var7, var12, 88)) {
                         var16 = true;
                         break;
                     }
                 }
 
-                if(0 != var0 && var6 != 0 && Class86.aClass91Array1182[WorldListCountry.localPlane].method1498(var8, var13, var12, 2, var0, var2, var4, var6)) {
+                if(0 != var0 && var6 != 0 && AtmosphereParser.aClass91Array1182[WorldListCountry.localPlane].method1498(var8, var13, var12, 2, var0, var2, var4, var6)) {
                     var16 = true;
                     break;
                 }
@@ -3865,7 +3865,7 @@ public class Unsorted {
                 var8 = var3[var5];
                 if (null != var8) {
                     Class58.method1194();
-                    method777(Class86.aClass91Array1182, var0, -48 + 8 * anInt3606, var7, var6, (Class3_Sub7.anInt2294 + -6) * 8, var8);
+                    method777(AtmosphereParser.aClass91Array1182, var0, -48 + 8 * anInt3606, var7, var6, (Class3_Sub7.anInt2294 + -6) * 8, var8);
                 }
             }
 

@@ -1,7 +1,9 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL4bc;
+
 import java.nio.ByteBuffer;
-import javax.media.opengl.GL;
+
 
 final class Class88 {
 
@@ -37,7 +39,7 @@ final class Class88 {
    }
 
    static void method1455() {
-      GL var0;
+      GL4bc var0;
       int[] var1;
       if(anInt1228 != -1) {
          var0 = HDToolKit.gl;
@@ -79,7 +81,7 @@ final class Class88 {
    }
 
    private static void method1458() {
-      javax.media.opengl.GL var0 = HDToolKit.gl;
+      GL4bc var0 = HDToolKit.gl;
       if(Texture3DEnabled) {
          int[] var1 = new int[1];
          var0.glGenTextures(1, var1, 0);
@@ -107,7 +109,7 @@ final class Class88 {
    }
 
    private static void method1459() {
-      javax.media.opengl.GL var0 = HDToolKit.gl;
+      GL4bc var0 = HDToolKit.gl;
       if(Texture3DEnabled) {
          int[] var1 = new int[1];
          var0.glGenTextures(1, var1, 0);

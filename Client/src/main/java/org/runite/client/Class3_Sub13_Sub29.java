@@ -126,7 +126,7 @@ final class Class3_Sub13_Sub29 extends Class3_Sub13 {
          }
 
          var7 <<= var5;
-         Class86.method1428(var4, var7 & var2 << var5 | ItemDefinition.ram[var4] & ~var7);
+         AtmosphereParser.method1428(var4, var7 & var2 << var5 | ItemDefinition.ram[var4] & ~var7);
       } catch (RuntimeException var8) {
          throw ClientErrorException.clientError(var8, "qg.Q(" + var0 + ',' + false + ',' + var2 + ')');
       }

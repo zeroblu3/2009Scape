@@ -344,7 +344,7 @@ final class Class140_Sub1_Sub2 extends Model {
                   int var21 = var20 + (this.aShort3884 * var2 + this.aShort3892 * var3 >> 16) << 9;
                   if(var21 / var13 > Class1.screenUpperY) {
                      int var22 = var20 + (-this.aShort3884 * var2 + this.aShort3894 * var3 >> 16) << 9;
-                     if(var22 / var13 < Class86.screenLowerY) {
+                     if(var22 / var13 < AtmosphereParser.screenLowerY) {
                         boolean var23 = false;
                         boolean var24 = var14 <= 50;
                         boolean var25 = var24 || this.anInt3900 > 0;

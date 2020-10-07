@@ -1,20 +1,27 @@
 package org.runite.client;
 
+import com.jogamp.nativewindow.awt.AWTGraphicsConfiguration;
+import com.jogamp.nativewindow.awt.JAWTWindow;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.glu.gl2es1.GLUgl2es1;
+import jogamp.newt.awt.NewtFactoryAWT;
 import org.rs09.client.config.GameConfig;
 
 import java.awt.Canvas;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.nio.charset.StandardCharsets;
-import javax.media.opengl.GL;
-import javax.media.opengl.GLCapabilities;
-import javax.media.opengl.GLCapabilitiesChooser;
-import javax.media.opengl.GLContext;
-import javax.media.opengl.GLDrawable;
-import javax.media.opengl.GLDrawableFactory;
-import javax.media.opengl.glu.GLU;
 
 public final class HDToolKit {
+
+   /**
+    * GL4bc related
+    */
+   public static GL4bc gl;
+   private static GLContext glContext;
+   private static GLDrawable glDrawable;
+
+
 
    private static String aString1785;
    private static String aString1786;
@@ -31,10 +38,8 @@ public final class HDToolKit {
    private static float aFloat1797 = 0.0F;
    static boolean aBoolean1798 = true;
    private static boolean viewportSetup = false;
-   private static GLContext aGLContext1800;
    static boolean supportTexture3D;
    private static int anInt1803 = -1;
-   public static GL gl;
    private static boolean aBoolean1805 = true;
    public static boolean highDetail = false;
    private static float[] aFloatArray1808 = new float[16];
@@ -43,7 +48,6 @@ public final class HDToolKit {
    public static int viewHeight;
    private static int anInt1812;
    static boolean supportVertexBufferObject;
-   private static GLDrawable aGLDrawable1815;
    private static boolean aBoolean1816 = true;
    static boolean aBoolean1817;
    static boolean supportVertexProgram;
@@ -120,7 +124,7 @@ public final class HDToolKit {
 
    static void bufferSwap() {
       try {
-         aGLDrawable1815.swapBuffers();
+         glDrawable.swapBuffers();
       } catch (Exception var1) {
       }
 
@@ -235,20 +239,24 @@ public final class HDToolKit {
       gl.glReadBuffer(var0[1]);
    }
 
-   static void method1834(Canvas var0) {
+   static void method1834(Canvas canvas) {
       try {
-         if(!var0.isDisplayable()) {
+         if(!canvas.isDisplayable()) {
             return;
          }
 
-         GLDrawableFactory var1 = GLDrawableFactory.getFactory();
-         GLDrawable var2 = var1.getGLDrawable(var0, null, null);
-         var2.setRealized(true);
-         GLContext var3 = var2.createContext(null);
-         var3.makeCurrent();
-         var3.release();
-         var3.destroy();
-         var2.setRealized(false);
+         GLProfile.initSingleton();
+         GLProfile profile = GLProfile.getDefault();
+         AWTGraphicsConfiguration configuration = AWTGraphicsConfiguration.create(canvas.getGraphicsConfiguration(), null, null);
+         JAWTWindow jawtWindow = NewtFactoryAWT.getNativeWindow(canvas, configuration);
+         GLDrawableFactory glDrawableFactory = GLDrawableFactory.getFactory(profile);
+         GLDrawable glDrawable = glDrawableFactory.createGLDrawable(jawtWindow);
+         glDrawable.setRealized(true);
+         GLContext glContext = glDrawable.createContext(null);
+         glContext.makeCurrent();
+         glContext.release();
+         glContext.destroy();
+         glDrawable.setRealized(false);
       } catch (Throwable var4) {
       }
 
@@ -375,7 +383,7 @@ public final class HDToolKit {
          if(supportVertexBufferObject) {
             try {
                int[] var14 = new int[1];
-               gl.glGenBuffersARB(1, var14, 0);
+               gl.glGenBuffers(1, var14, 0);
             } catch (Throwable var10) {
                return -4;
             }
@@ -401,31 +409,31 @@ public final class HDToolKit {
          gl = null;
       }
 
-      if(aGLContext1800 != null) {
+      if(glContext != null) {
          Class31.method988();
 
          try {
-            if(GLContext.getCurrent() == aGLContext1800) {
-               aGLContext1800.release();
+            if(GLContext.getCurrent() == glContext) {
+               glContext.release();
             }
          } catch (Throwable var3) {
          }
 
          try {
-            aGLContext1800.destroy();
+            glContext.destroy();
          } catch (Throwable var2) {
          }
 
-         aGLContext1800 = null;
+         glContext = null;
       }
 
-      if(aGLDrawable1815 != null) {
+      if(glDrawable != null) {
          try {
-            aGLDrawable1815.setRealized(false);
+            glDrawable.setRealized(false);
          } catch (Throwable var1) {
          }
 
-         aGLDrawable1815 = null;
+         glDrawable = null;
       }
 
       Class68.method1273();
@@ -468,7 +476,7 @@ public final class HDToolKit {
       Class139.screenLowerX = left;
       Class145.screenUpperX = right;
       Class1.screenUpperY = top;
-      Class86.screenLowerY = bottom;
+      AtmosphereParser.screenLowerY = bottom;
    }
 
    private static void method1845(boolean var0) {
@@ -569,26 +577,29 @@ public final class HDToolKit {
       return aFloat1797;
    }
 
-   static void method1853(Canvas var0, int var1) {
+   static void method1853(Canvas canvas, int SceneMSAASamples) {
       try {
-         if(var0.isDisplayable()) {
-            GLCapabilities var2 = new GLCapabilities();
-            if(var1 > 0) {
-               var2.setSampleBuffers(true);
-               var2.setNumSamples(var1);
+         if(canvas.isDisplayable()) {
+            GLProfile.initSingleton();
+            GLProfile profile = GLProfile.getDefault();
+            GLCapabilities glCapabilities = new GLCapabilities(profile);
+            if(SceneMSAASamples > 0) {
+               glCapabilities.setSampleBuffers(true);
+               glCapabilities.setNumSamples(SceneMSAASamples);
             }
 
-            GLDrawableFactory var3 = GLDrawableFactory.getFactory();
-            aGLDrawable1815 = var3.getGLDrawable(var0, var2, null);
-            aGLDrawable1815.setRealized(true);
+            AWTGraphicsConfiguration configuration = AWTGraphicsConfiguration.create(canvas.getGraphicsConfiguration(), glCapabilities, glCapabilities);
+            JAWTWindow jawtWindow = NewtFactoryAWT.getNativeWindow(canvas, configuration);
+            GLDrawableFactory glDrawableFactory = GLDrawableFactory.getFactory(profile);
+            glDrawable = glDrawableFactory.createGLDrawable(jawtWindow);
+            glDrawable.setRealized(true);
             int var4 = 0;
-
             int var5;
             while(true) {
-               aGLContext1800 = aGLDrawable1815.createContext(null);
+               glContext = glDrawable.createContext(null);
 
                try {
-                  var5 = aGLContext1800.makeCurrent();
+                  var5 = glContext.makeCurrent();
                   if(var5 != 0) {
                      break;
                   }
@@ -602,11 +613,11 @@ public final class HDToolKit {
                TimeUtils.sleep(1000L);
             }
 
-            gl = aGLContext1800.getGL();
-            new GLU();
+            gl = (GL4bc) glContext.getGL();
+            new GLUgl2es1();
             highDetail = true;
-            viewWidth = var0.getSize().width;
-            viewHeight = var0.getSize().height;
+            viewWidth = canvas.getSize().width;
+            viewHeight = canvas.getSize().height;
             var5 = method1840();
             if(var5 == 0) {
                method1857();
@@ -616,7 +627,7 @@ public final class HDToolKit {
 
                while(true) {
                   try {
-                     aGLDrawable1815.swapBuffers();
+                     glDrawable.swapBuffers();
                      break;
                   } catch (Exception var7) {
                      if(var4++ > 5) {

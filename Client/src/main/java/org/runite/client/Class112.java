@@ -1,7 +1,9 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL4bc;
+
 import java.nio.ByteBuffer;
-import javax.media.opengl.GL;
+
 
 final class Class112 implements Interface5 {
 
@@ -14,7 +16,7 @@ final class Class112 implements Interface5 {
 
    private void method1699() {
       byte[] var1 = new byte[]{(byte)0, (byte)-1};
-      GL var2 = HDToolKit.gl;
+      GL4bc var2 = HDToolKit.gl;
       int[] var3 = new int[1];
       var2.glGenTextures(1, var3, 0);
       var2.glBindTexture(3552, var3[0]);
@@ -26,7 +28,7 @@ final class Class112 implements Interface5 {
    }
 
    private void method1701() {
-      javax.media.opengl.GL var1 = HDToolKit.gl;
+      GL4bc var1 = HDToolKit.gl;
       this.anInt2177 = var1.glGenLists(2);
       var1.glNewList(this.anInt2177, 4864);
       var1.glTexEnvi(8960, '\u8590', 768);
@@ -94,7 +96,7 @@ final class Class112 implements Interface5 {
    }
 
    public final void method23(int var1) {
-      javax.media.opengl.GL var2 = HDToolKit.gl;
+      GL4bc var2 = HDToolKit.gl;
       var2.glActiveTexture('\u84c1');
       var2.glTexEnvfv(8960, 8705, Unsorted.aFloatArray1934, 0);
       var2.glActiveTexture('\u84c0');
@@ -124,7 +126,7 @@ final class Class112 implements Interface5 {
    }
 
    public final void method22() {
-      javax.media.opengl.GL var1 = HDToolKit.gl;
+      GL4bc var1 = HDToolKit.gl;
       HDToolKit.method1856(2);
       HDToolKit.method1847(2);
       HDToolKit.method1823();

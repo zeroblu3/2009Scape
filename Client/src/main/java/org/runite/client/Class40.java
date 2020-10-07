@@ -183,7 +183,7 @@ final class Class40 {
                Class3_Sub4.initializeScene(HDToolKit.highDetail? GameConfig.RENDER_DISTANCE_TILE_VALUE : 25, var11);
 
                for(var12 = 0; 4 > var12; ++var12) {
-                  Class86.aClass91Array1182[var12].method1496();
+                  AtmosphereParser.aClass91Array1182[var12].method1496();
                }
 
                for(var12 = 0; var12 < 4; ++var12) {
@@ -246,7 +246,7 @@ final class Class40 {
 
                Class3_Sub13_Sub30.method313((byte)90);
                Class163_Sub1.method2210(true);
-               Class158_Sub1.method2189(Class86.aClass91Array1182, false, 66);
+               Class158_Sub1.method2189(AtmosphereParser.aClass91Array1182, false, 66);
                if(HDToolKit.highDetail) {
                   Class68.method1270();
                }
@@ -284,7 +284,7 @@ final class Class40 {
 
                   Class3_Sub13_Sub30.method313((byte)102);
                   Class163_Sub1.method2210(true);
-                  Class158_Sub1.method2189(Class86.aClass91Array1182, true, 112);
+                  Class158_Sub1.method2189(AtmosphereParser.aClass91Array1182, true, 112);
                   Class163_Sub1.method2210(true);
                   Class56.method1188();
                   Class167.method2264(false);

@@ -230,7 +230,7 @@ final class Class167 {
 
          int var1;
          for(var1 = 0; var1 < 4; ++var1) {
-            Class86.aClass91Array1182[var1].method1496();
+            AtmosphereParser.aClass91Array1182[var1].method1496();
          }
 
          Unsorted.method1250(62, false);

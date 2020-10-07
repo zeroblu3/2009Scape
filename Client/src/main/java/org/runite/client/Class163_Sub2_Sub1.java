@@ -94,7 +94,7 @@ final class Class163_Sub2_Sub1 extends Class163_Sub2 {
 
                         for(int var14 = 0; Class3_Sub24_Sub3.anIntArray3494.length > var14; ++var14) {
                            if(var13 == Class3_Sub24_Sub3.anIntArray3494[var14] && var4[var14] != null) {
-                              Class3_Sub13_Sub30.parseObjectMapping(Class86.aClass91Array1182, var5, var4[var14], var9, var10, 8 * var6, var7 * 8, var0, (var11 & 7) * 8, 8 * (7 & var12));
+                              Class3_Sub13_Sub30.parseObjectMapping(AtmosphereParser.aClass91Array1182, var5, var4[var14], var9, var10, 8 * var6, var7 * 8, var0, (var11 & 7) * 8, 8 * (7 & var12));
                               break;
                            }
                         }

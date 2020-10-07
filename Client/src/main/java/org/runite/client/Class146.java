@@ -1,7 +1,9 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL4bc;
+
 import java.awt.Component;
-import javax.media.opengl.GL;
+
 
 abstract class Class146 {
 
@@ -101,7 +103,7 @@ abstract class Class146 {
 
       boolean var22 = Class44.anIntArrayArrayArray723 == Unsorted.anIntArrayArrayArray3605;
       if(HDToolKit.highDetail) {
-         GL var24 = HDToolKit.gl;
+         GL4bc var24 = HDToolKit.gl;
          var24.glPushMatrix();
          var24.glTranslatef((float)(-var0), (float)(-var1), (float)(-var2));
          if(var22) {

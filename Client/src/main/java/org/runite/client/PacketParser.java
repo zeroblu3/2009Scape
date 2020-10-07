@@ -1684,7 +1684,7 @@ public final class PacketParser {
                                                                 nodeModelId = -1;
                                                             }
 
-                                                            Class86.method1427(nodeModelId);
+                                                            AtmosphereParser.method1427(nodeModelId);
                                                             Unsorted.incomingOpcode = -1;
                                                             return true;
                                                         } else if (Unsorted.incomingOpcode == 208) {

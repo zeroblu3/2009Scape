@@ -1,9 +1,10 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL4bc;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.util.ArrayUtils;
 
-import javax.media.opengl.GL;
+
 import java.nio.ByteBuffer;
 import java.util.Objects;
 
@@ -107,7 +108,7 @@ final class Class140_Sub1_Sub1 extends Model {
                      int var24 = var23 + (var13 * var2 + var15 * var3 >> 16) << 9;
                      if(var24 / var18 > Class1.screenUpperY) {
                         int var25 = var23 + (-var13 * var2 + var14 * var3 >> 16) << 9;
-                        if(var25 / var18 < Class86.screenLowerY) {
+                        if(var25 / var18 < AtmosphereParser.screenLowerY) {
                            int var26 = 0;
                            int var27 = 0;
                            if(var1 != 0) {
@@ -271,7 +272,7 @@ final class Class140_Sub1_Sub1 extends Model {
                               }
                            }
 
-                           GL var50 = HDToolKit.gl;
+                           GL4bc var50 = HDToolKit.gl;
                            var50.glPushMatrix();
                            var50.glTranslatef((float)var6, (float)var7, (float)var8);
                            var50.glRotatef((float)var1 * 0.17578125F, 0.0F, 1.0F, 0.0F);
@@ -569,7 +570,7 @@ final class Class140_Sub1_Sub1 extends Model {
 
    final void method1893(int var2, int var3, int var4, int var5, int var6, int var7) {
       if(this.anInt3833 != 0) {
-         javax.media.opengl.GL var10 = HDToolKit.gl;
+         GL4bc var10 = HDToolKit.gl;
          var10.glPushMatrix();
          if(var4 != 0) {
             var10.glRotatef((float)var4 * 0.17578125F, 1.0F, 0.0F, 0.0F);
@@ -2855,7 +2856,7 @@ final class Class140_Sub1_Sub1 extends Model {
    }
 
    private void method1930() {
-      javax.media.opengl.GL var1 = HDToolKit.gl;
+      GL4bc var1 = HDToolKit.gl;
       if(this.anInt3852 != 0) {
          if(this.aByte3836 != 0) {
             this.method1922(true, !this.aClass121_3839.aBoolean1640 && (this.aByte3836 & 1) != 0, !this.aClass121_3814.aBoolean1640 && (this.aByte3836 & 2) != 0, this.aClass121_3815 != null && !this.aClass121_3815.aBoolean1640 && (this.aByte3836 & 4) != 0, false);
@@ -2940,7 +2941,7 @@ final class Class140_Sub1_Sub1 extends Model {
 
          if(this.aClass121_3839.aClass156_1643 == null || this.aClass121_3814.aClass156_1643 == null || Class106.aBoolean1441 && this.aClass121_3815.aClass156_1643 == null || this.aClass121_3817.aClass156_1643 == null) {
             if(HDToolKit.supportVertexBufferObject) {
-               var1.glBindBufferARB('\u8892', 0);
+               var1.glBindBuffer('\u8892', 0);
             }
 
             if(this.aClass121_3839.aClass156_1643 == null) {
@@ -2965,7 +2966,7 @@ final class Class140_Sub1_Sub1 extends Model {
          }
 
          if(this.aClass121_3846.aClass156_1643 == null && HDToolKit.supportVertexBufferObject) {
-            var1.glBindBufferARB('\u8893', 0);
+            var1.glBindBuffer('\u8893', 0);
          }
 
          int var3 = this.anIntArray3840.length - 1;

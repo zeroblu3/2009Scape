@@ -184,7 +184,7 @@ final class Class3_Sub13_Sub6 extends Class3_Sub13 {
                int var6 = -Class131.anInt1716 + 64 * (Class3_Sub24_Sub3.anIntArray3494[var4] >> 8);
                int var7 = (Class3_Sub24_Sub3.anIntArray3494[var4] & 255) * 64 + -Class82.anInt1152;
                Class58.method1194();
-               Class3_Sub15.method374(var6, var0, var5, var7, Class86.aClass91Array1182);
+               Class3_Sub15.method374(var6, var0, var5, var7, AtmosphereParser.aClass91Array1182);
             }
          }
 
