@@ -213,7 +213,8 @@ First follow the [Github-Setup](#github-setup). After you have forked over your 
     * Click on "Github", and you will be asked to login
     * Change your directory to wherever you want the project to load, or keep it default
     * On the right hand side you should see your Github Repository for 2009Scape
-    * Select it and hit "Clone"
+    * Select it and hit "Clone"'
+    * After it clones, located the build.gradle file at the very top level of the project. Right click it and click "import gradle project"
     * The project should instantly start building on import. Give it some time because it is going through and compiling alot of files
     * In Intellij go to File -> Project Structure -> Project and verify your Project SDK is set to JDK "1.8"
     * Setup through Intellij should now be finished!
