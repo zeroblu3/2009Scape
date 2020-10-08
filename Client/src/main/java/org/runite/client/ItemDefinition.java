@@ -828,7 +828,9 @@ final class ItemDefinition {
 			int var2 = 1 + var1;
 			int var3 = (int)(Math.pow(2.0D, (double)var2 / 7.0D) * 300.0D + (double)var2);
 			var0 += var3;
-			anIntArray781[var1] = var0 / 4;
+			int var4 = var0 / 4;
+			anIntArray781[var1] = var4;
+			System.out.println("Xp gained? : " + var4);
 		}
 		aClass94_811 = RSString.parse("green:");
 	}

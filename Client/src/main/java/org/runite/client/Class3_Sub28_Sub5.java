@@ -1,8 +1,5 @@
 package org.runite.client;
-import javafx.animation.Animation;
 import org.rs09.client.Node;
-
-import java.nio.ByteBuffer;
 import java.util.Calendar;
 import java.util.Objects;
 import java.util.TimeZone;

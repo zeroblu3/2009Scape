@@ -61,10 +61,10 @@ final class Class3_Sub20 extends Linkable {
 	         Class3_Sub28_Sub9.method581(CacheIndex.fontsIndex, CacheIndex.spritesIndex);
 	         Sprites.method887(CacheIndex.spritesIndex);
 	         Class3_Sub26.aClass3_Sub28_Sub16_2560 = null;
-	         ISAACCipher.aClass3_Sub28_Sub16_3099 = null;
+	         WorldListEntry.aClass3_Sub28_Sub16_3099 = null;
 	         Class50.aClass3_Sub28_Sub16_824 = null;
-	         ISAACCipher.aClass3_Sub28_Sub16_1339 = null;
-	         ISAACCipher.aClass3_Sub28_Sub16_1457 = null;
+	         WorldListEntry.aClass3_Sub28_Sub16_1339 = null;
+	         WorldListEntry.aClass3_Sub28_Sub16_1457 = null;
 	         if(Class143.loadingStage == 5) {
 	            Class108.method1656(CacheIndex.spritesIndex, (byte)-60);
 	         }

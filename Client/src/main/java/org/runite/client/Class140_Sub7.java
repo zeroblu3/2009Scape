@@ -9,7 +9,6 @@ public final class Class140_Sub7 extends GameObject {
    public static int anInt2934;
    static RSString[] aClass94Array2935 = new RSString[500];
    int anInt2936;
-   public static int anInt2937;
    static int anInt2938;
 
 

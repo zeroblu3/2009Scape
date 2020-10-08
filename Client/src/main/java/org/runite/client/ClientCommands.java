@@ -8,7 +8,6 @@ public class ClientCommands {
     static boolean tweeningEnabled = false;
     static boolean shiftClickEnabled = false;
     static boolean renderInfoOverlayEnabled = false;
-    static boolean openGLDrawRectTestEnabled = false;
     /**
      * Removed out of (depreciated)Properties.java
      */
@@ -104,12 +103,6 @@ public class ClientCommands {
 
             if (command.equalsStringIgnoreCase(TextCore.COMMAND_RENDER_INFO_OFF)) {
                 renderInfoOverlayEnabled = false;
-            }
-            if (command.equalsStringIgnoreCase(TextCore.COMMAND_OPENGL_DRAW_RECT)) {
-                ;
-            }
-            if (command.equalsStringIgnoreCase(TextCore.COMMAND_OPENGL_DRAW_RECT_OFF)) {
-                ;
             }
             if (command.equalsStringIgnoreCase(TextCore.TOGGLE_FK)) {
                 boolean on = !modernHotkeys;

@@ -212,8 +212,6 @@ public class TextCore {
     static RSString COMMAND_RECT_DEBUG = RSString.parse("::rect_debug");
     static RSString COMMAND_RENDER_INFO = RSString.parse("::renderinfo");
     static RSString COMMAND_RENDER_INFO_OFF = RSString.of("::renderinfooff");
-    static RSString COMMAND_OPENGL_DRAW_RECT = RSString.parse("::openglrect");
-    static RSString COMMAND_OPENGL_DRAW_RECT_OFF = RSString.parse("::openglrectoff");
 
     /**
      * Used as text for client commands

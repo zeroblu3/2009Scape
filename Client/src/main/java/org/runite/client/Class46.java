@@ -5,7 +5,6 @@ import java.util.Objects;
 final class Class46 {
 
    static CacheIndex aClass153_737;
-   static int anInt739;
    static int anInt740;
    static int anInt741;
 

@@ -76,7 +76,7 @@ final class Class70 {
             if(var12 != null) {
                var8.anInt2307 = 128 * (var12.size + var0);
                var8.anInt2321 = 128 * (var5 - -var12.size);
-               var8.anInt2332 = ISAACCipher.method1232(var4);
+               var8.anInt2332 = method1232(var4);
                var8.anInt2328 = 128 * var12.anInt1291;
             }
 
@@ -109,4 +109,31 @@ final class Class70 {
       }
    }
 
+    static int method1232(NPC var0) {
+        try {
+            NPCDefinition var2 = var0.definition;
+            if (null != var2.childNPCs) {
+                var2 = var2.method1471((byte) -108);
+                if (var2 == null) {
+                    return -1;
+                }
+            }
+
+            int var3 = var2.anInt1293;
+            RenderAnimationDefinition var4 = var0.method1965();
+            if (var0.anInt2764 == var4.anInt368) {
+                var3 = var2.anInt1262;
+            } else if (var4.anInt393 != var0.anInt2764 && var4.anInt386 != var0.anInt2764 && var0.anInt2764 != var4.anInt375 && var0.anInt2764 != var4.anInt373) {
+                if (var0.anInt2764 == var4.anInt398 || var0.anInt2764 == var4.anInt372 || var4.anInt379 == var0.anInt2764 || var4.anInt406 == var0.anInt2764) {
+                    var3 = var2.anInt1290;
+                }
+            } else {
+                var3 = var2.anInt1276;
+            }
+
+            return var3;
+        } catch (RuntimeException var5) {
+            throw ClientErrorException.clientError(var5, "ij.B(" + (var0 != null ? "{...}" : "null") + ',' + -1 + ')');
+        }
+    }
 }

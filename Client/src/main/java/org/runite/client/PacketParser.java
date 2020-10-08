@@ -656,18 +656,21 @@ public final class PacketParser {
                                                 return true;
                                             } else if (Unsorted.incomingOpcode == 38) {
                                                 Class3_Sub30_Sub1.method819();
-                                                nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedByte128();
-                                                var19 = GraphicDefinition.incomingBuffer.readIntV1();
-                                                modelId = GraphicDefinition.incomingBuffer.readUnsignedByte();
-                                                Class133.anIntArray1743[modelId] = var19;
-                                                Class3_Sub13_Sub15.anIntArray3185[modelId] = nodeModelId;
+                                                nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedByte128();//Level
+                                                var19 = GraphicDefinition.incomingBuffer.readIntV1();//Skillxp
+                                                modelId = GraphicDefinition.incomingBuffer.readUnsignedByte();//Skill ID
+                                                Class133.anIntArray1743[modelId] = var19;//XP for Skill ID
+                                                Class3_Sub13_Sub15.anIntArray3185[modelId] = nodeModelId;//Level for Skill ID
                                                 Class3_Sub20.anIntArray2480[modelId] = 1;
 
                                                 for (counter = 0; 98 > counter; ++counter) {
-                                                    if (ItemDefinition.anIntArray781[counter] <= var19) {
+                                                    if (ItemDefinition.anIntArray781[counter] <= var19) { //Checks xp less than or equal to level 98 or 11805606 xp
                                                         Class3_Sub20.anIntArray2480[modelId] = counter + 2;
                                                     }
                                                 }
+                                                //Calculate xp till next level
+                                                //System.out.println("xp Gained: " + (ItemDefinition.anIntArray781[nodeModelId - 1] - var19));
+
 
                                                 Client.anIntArray3780[Unsorted.bitwiseAnd(31, Class49.anInt815++)] = modelId;
                                                 Unsorted.incomingOpcode = -1;

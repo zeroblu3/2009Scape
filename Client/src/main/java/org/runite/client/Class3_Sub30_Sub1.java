@@ -951,7 +951,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 			}
 
 			for(int var5 = 0; var5 < var4; ++var5) {
-				var3[var2 + var5] = (byte)(this.buffer[this.index++] + -this.isaacCipher.nextOpcode(-9356));
+				var3[var2 + var5] = (byte)(this.buffer[this.index++] + -this.isaacCipher.nextOpcode());
 			}
 
 		} catch (RuntimeException var6) {
@@ -1016,12 +1016,12 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 			System.err.println("Buffer or cipher was null in CLass2_Sub30_Sub1 " + Arrays.toString(buffer) + ", " + isaacCipher);
 			return;
 		}
-		this.buffer[this.index++] = (byte)(opcode + this.isaacCipher.nextOpcode(-9356));
+		this.buffer[this.index++] = (byte)(opcode + this.isaacCipher.nextOpcode());
 	}
 
 	public final int getOpcode() {
 		try {
-			return 255 & this.buffer[this.index++] - this.isaacCipher.nextOpcode(-9356);
+			return 255 & this.buffer[this.index++] - this.isaacCipher.nextOpcode();
 		} catch (RuntimeException var3) {
 			throw ClientErrorException.clientError(var3, "i.P(" + 0 + ')');
 		}

@@ -9,7 +9,6 @@ final class Class99 {
 
    static short[] aShortArray1398;
    static Class33 aClass33_1399;
-   static int anInt1400;
    static RSInterface aClass11_1402;
    static int anInt1403 = -1;
 

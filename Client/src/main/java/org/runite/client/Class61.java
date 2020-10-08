@@ -104,7 +104,7 @@ final class Class61 {
             }
 
             if(var5.anInt2322 != var6) {
-               var8 = ISAACCipher.method1232(var5.aClass140_Sub4_Sub2_2324);
+               var8 = Class70.method1232(var5.aClass140_Sub4_Sub2_2324);
                if(var8 != var5.anInt2332) {
                   if(var5.aClass3_Sub24_Sub1_2312 != null) {
                      Class3_Sub26.aClass3_Sub24_Sub2_2563.method461(var5.aClass3_Sub24_Sub1_2312);

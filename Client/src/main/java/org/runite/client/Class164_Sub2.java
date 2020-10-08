@@ -133,6 +133,7 @@ class Class164_Sub2 extends Class164 {
                   }
 
                   if(6 == var8) {
+                     System.out.println(ItemDefinition.anIntArray781[-1 + Class3_Sub20.anIntArray2480[var4[var6++]]]);
                      var9 = ItemDefinition.anIntArray781[-1 + Class3_Sub20.anIntArray2480[var4[var6++]]];
                   }
 

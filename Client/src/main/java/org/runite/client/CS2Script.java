@@ -985,17 +985,17 @@ final class CS2Script extends Linkable {
                                                       ItemDefinition.intsStack[iStackCounter++] = Unsorted.method2069(l8).size;
                                                       continue;
                                                    }
-                                                   if (opcode == 3305) {
+                                                   if (opcode == 3305) { //Skill update listener (mostly spams health value)
                                                       int i9 = ItemDefinition.intsStack[--iStackCounter];
                                                       ItemDefinition.intsStack[iStackCounter++] = Class3_Sub13_Sub15.anIntArray3185[i9];
                                                       continue;
                                                    }
-                                                   if (opcode == 3306) {
+                                                   if (opcode == 3306) { //Another Skill update listener (spams 10? Possible TOTAL hp)
                                                       int j9 = ItemDefinition.intsStack[--iStackCounter];
                                                       ItemDefinition.intsStack[iStackCounter++] = Class3_Sub20.anIntArray2480[j9];
                                                       continue;
                                                    }
-                                                   if (3307 == opcode) {
+                                                   if (3307 == opcode) { //Hover tooltip for Skill Interface, total xp for selected skill
                                                       int k9 = ItemDefinition.intsStack[--iStackCounter];
                                                       ItemDefinition.intsStack[iStackCounter++] = Class133.anIntArray1743[k9];
                                                       continue;
@@ -2417,18 +2417,18 @@ final class CS2Script extends Linkable {
                                                                         Unsorted.anInt963 = ItemDefinition.intsStack[iStackCounter - -1];
                                                                         MouseListeningClass.anInt1926 = ItemDefinition.intsStack[iStackCounter + 2];
                                                                         Class136.anInt1771 = ItemDefinition.intsStack[3 + iStackCounter];
-                                                                        WorldListCountry.archiveID = ItemDefinition.intsStack[4 + iStackCounter];
-                                                                        Class99.anInt1400 = ItemDefinition.intsStack[5 + iStackCounter];
-                                                                        Class46.anInt739 = ItemDefinition.intsStack[6 + iStackCounter];
-                                                                        Class79.anInt1126 = ItemDefinition.intsStack[7 + iStackCounter];
-                                                                        Class140_Sub7.anInt2937 = ItemDefinition.intsStack[8 + iStackCounter];
-                                                                        ISAACCipher.anInt3351 = ItemDefinition.intsStack[iStackCounter + 9];
+                                                                        WorldListEntry.archiveID = ItemDefinition.intsStack[4 + iStackCounter];
+                                                                        WorldListEntry.anInt1400 = ItemDefinition.intsStack[5 + iStackCounter];
+                                                                        WorldListEntry.anInt739 = ItemDefinition.intsStack[6 + iStackCounter];
+                                                                        WorldListEntry.anInt1126 = ItemDefinition.intsStack[7 + iStackCounter];
+                                                                        WorldListEntry.anInt2937 = ItemDefinition.intsStack[8 + iStackCounter];
+                                                                        WorldListEntry.anInt3351 = ItemDefinition.intsStack[iStackCounter + 9];
                                                                         Class154.anInt1957 = ItemDefinition.intsStack[10 + iStackCounter];
-                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(WorldListCountry.archiveID);
-                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(Class99.anInt1400);
-                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(Class46.anInt739);
-                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(Class79.anInt1126);
-                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(Class140_Sub7.anInt2937);
+                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(WorldListEntry.archiveID);
+                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(WorldListEntry.anInt1400);
+                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(WorldListEntry.anInt739);
+                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(WorldListEntry.anInt1126);
+                                                                        CacheIndex.spritesIndex.retrieveSpriteFile(WorldListEntry.anInt2937);
                                                                         Unsorted.aBoolean1951 = true;
                                                                         continue;
                                                                   }

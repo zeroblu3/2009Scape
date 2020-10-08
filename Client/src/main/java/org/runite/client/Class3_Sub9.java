@@ -65,7 +65,7 @@ final class Class3_Sub9 extends Linkable {
                this.anInt2328 = 128 * this.aClass140_Sub4_Sub1_2327.anInt3969;
             }
          } else {
-            int var6 = ISAACCipher.method1232(this.aClass140_Sub4_Sub2_2324);
+            int var6 = Class70.method1232(this.aClass140_Sub4_Sub2_2324);
             if(var2 != var6) {
                NPCDefinition var4 = this.aClass140_Sub4_Sub2_2324.definition;
                this.anInt2332 = var6;

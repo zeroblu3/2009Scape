@@ -6,7 +6,6 @@ final class Class79 {
    int anInt1123;
    static int anInt1124 = -1;
    int anInt1125;
-   static int anInt1126;
    static int anInt1127 = 0;
    int anInt1128;
 
