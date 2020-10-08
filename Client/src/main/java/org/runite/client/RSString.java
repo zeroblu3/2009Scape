@@ -1029,13 +1029,13 @@ public final class RSString implements Interface3 {
     final Object method1577(Applet var2) throws Throwable {
         try {
             String var3 = new String(this.buffer, 0, this.length);
-            Object var4 = Class42.method1055(var3, var2);
+            /*Object var4 = Class42.method1055(var3, var2);
             if (var4 instanceof String) {
                 byte[] var5 = ((String) var4).getBytes();
                 var4 = Class3_Sub13_Sub3.method178(var5, var5.length, 0);
             }
-
-            return var4;
+*/
+            return null;
         } catch (RuntimeException var6) {
             throw ClientErrorException.clientError(var6, "na.JA(" + -1857 + ',' + (var2 != null ? "{...}" : "null") + ')');
         }

@@ -57,6 +57,7 @@ final class Class104 implements Interface5 {
             }
          } else {
             GameConfig.IP_ADDRESS = var2.address.toString();
+            System.out.println(GameConfig.IP_ADDRESS);
 //            GameLaunch.SETTINGS.setIp(var2.address.toString());
             var2.address.method1568();
             Class38_Sub1.accRegistryIp = GameConfig.IP_MANAGEMENT;
