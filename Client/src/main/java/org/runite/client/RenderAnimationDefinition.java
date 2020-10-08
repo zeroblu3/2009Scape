@@ -41,37 +41,14 @@ final class RenderAnimationDefinition {
     int anInt406 = -1;
     int anInt407 = -1;
 
-    static void method897(int var0, Class3_Sub24_Sub4 var1, CacheIndex var2, CacheIndex var3, CacheIndex var4) {
+    static void method897(Class3_Sub24_Sub4 var1, CacheIndex var2, CacheIndex var3, CacheIndex var4) {
         try {
             Class124.aClass153_1661 = var2;
             Class40.aClass153_679 = var4;
             Class3_Sub28_Sub20.aClass153_3786 = var3;
             Class101.aClass3_Sub24_Sub4_1421 = var1;
         } catch (RuntimeException var6) {
-            throw ClientErrorException.clientError(var6, "ck.C(" + var0 + ',' + (var1 != null ? "{...}" : "null") + ',' + (var2 != null ? "{...}" : "null") + ',' + (var3 != null ? "{...}" : "null") + ',' + (var4 != null ? "{...}" : "null") + ')');
-        }
-    }
-
-    static GraphicDefinition getGraphicDefinition(byte var0, int graphicId) {
-        try {
-            GraphicDefinition def = (GraphicDefinition) Class3_Sub31.aReferenceCache_2604.get((long) graphicId);
-            if (def == null) {
-                byte[] var3 = Class3_Sub13_Sub18.aClass153_3214.getFile(Unsorted.method64(graphicId), Class75.method1338(graphicId, var0 ^ 7));
-                def = new GraphicDefinition();
-                def.graphicId = graphicId;
-                if (var0 != 42) {
-                    getGraphicDefinition((byte) -83, -12);
-                }
-
-                if (null != var3) {
-                    def.parse(new DataBuffer(var3));
-                }
-
-                Class3_Sub31.aReferenceCache_2604.put(def, (long) graphicId);
-            }
-            return def;
-        } catch (RuntimeException var4) {
-            throw ClientErrorException.clientError(var4, "ck.D(" + var0 + ',' + graphicId + ')');
+            throw ClientErrorException.clientError(var6, "ck.C(" + (var1 != null ? "{...}" : "null") + ',' + (var2 != null ? "{...}" : "null") + ',' + (var3 != null ? "{...}" : "null") + ',' + (var4 != null ? "{...}" : "null") + ')');
         }
     }
 
@@ -115,7 +92,7 @@ final class RenderAnimationDefinition {
 
             int var6;
             if (var0.anInt2842 != -1 && var0.anInt2759 <= Class44.anInt719) {
-                var6 = getGraphicDefinition((byte) 42, var0.anInt2842).anInt542;
+                var6 = GraphicDefinition.getGraphicDefinition((byte) 42, var0.anInt2842).anInt542;
                 if (var6 == -1) {
                     var0.anInt2842 = -1;
                 } else {
@@ -351,14 +328,6 @@ final class RenderAnimationDefinition {
 
         } catch (RuntimeException var6) {
             throw ClientErrorException.clientError(var6, "ck.E(" + var1 + ',' + (byte) -106 + ',' + (var3 != null ? "{...}" : "null") + ')');
-        }
-    }
-
-    static RSString method903(RSString[] var0) {
-        if (var0.length >= 2) {
-            return Class67.method1261(0, var0.length, var0);
-        } else {
-            throw new IllegalArgumentException();
         }
     }
 

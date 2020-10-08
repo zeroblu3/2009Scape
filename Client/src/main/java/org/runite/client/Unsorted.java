@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.*;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.rendering.Toolkit;
@@ -496,7 +497,7 @@ public class Unsorted {
     static RSString method802(int var0) {
         try {
 
-            return Class163_Sub2_Sub1.aClass94Array4016[var0].length() > 0 ? RenderAnimationDefinition.method903(new RSString[]{Class140_Sub7.aClass94Array2935[var0], TextCore.Spacer, Class163_Sub2_Sub1.aClass94Array4016[var0]}) : Class140_Sub7.aClass94Array2935[var0];
+            return Class163_Sub2_Sub1.aClass94Array4016[var0].length() > 0 ? RSString.stringCombiner(new RSString[]{Class140_Sub7.aClass94Array2935[var0], TextCore.Spacer, Class163_Sub2_Sub1.aClass94Array4016[var0]}) : Class140_Sub7.aClass94Array2935[var0];
         } catch (RuntimeException var3) {
             throw ClientErrorException.clientError(var3, "wa.RB(" + var0 + ',' + true + ')');
         }
@@ -789,7 +790,7 @@ public class Unsorted {
 
                 boolean var8 = true;
                 if (0 < var5.anInt189) {
-                    var8 = Class3_Sub28_Sub19.method715(var5);
+                    var8 = Class3_Sub30_Sub1.method715(var5);
                 }
 
                 if (var8) {
@@ -2235,7 +2236,7 @@ public class Unsorted {
                         var14 = var12 + (var5 >> 3);
                         var15 = (var3 >> 3) + var23;
                         if (0 <= var14 && var14 < 13 && var15 >= 0 && var15 < 13) {
-                            Class115.aAtmosphereParserArrayArray1581[var14][var15] = var22;
+                            AtmosphereParser.aAtmosphereParserArrayArray1581[var14][var15] = var22;
                         }
                     }
                 }
@@ -2514,27 +2515,27 @@ public class Unsorted {
                                                                 }
                                                             }
 
-                                                            var1 = RenderAnimationDefinition.method903(new RSString[]{var1.substring(0, var3, 0), var4, var1.substring(4 + var3)});
+                                                            var1 = RSString.stringCombiner(new RSString[]{var1.substring(0, var3, 0), var4, var1.substring(4 + var3)});
                                                         }
                                                     }
 
-                                                    var1 = RenderAnimationDefinition.method903(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) -4, 4, var0)), var1.substring(var3 - -2)});
+                                                    var1 = RSString.stringCombiner(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) -4, 4, var0)), var1.substring(var3 - -2)});
                                                 }
                                             }
 
-                                            var1 = RenderAnimationDefinition.method903(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) -109, 3, var0)), var1.substring(2 + var3)});
+                                            var1 = RSString.stringCombiner(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) -109, 3, var0)), var1.substring(2 + var3)});
                                         }
                                     }
 
-                                    var1 = RenderAnimationDefinition.method903(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) 111, 2, var0)), var1.substring(2 + var3)});
+                                    var1 = RSString.stringCombiner(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) 111, 2, var0)), var1.substring(2 + var3)});
                                 }
                             }
 
-                            var1 = RenderAnimationDefinition.method903(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) 23, 1, var0)), var1.substring(var3 + 2)});
+                            var1 = RSString.stringCombiner(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) 23, 1, var0)), var1.substring(var3 + 2)});
                         }
                     }
 
-                    var1 = RenderAnimationDefinition.method903(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) 107, 0, var0)), var1.substring(2 + var3)});
+                    var1 = RSString.stringCombiner(new RSString[]{var1.substring(0, var3, 0), Class154.method2148(Class164_Sub2.method2247((byte) 107, 0, var0)), var1.substring(2 + var3)});
                 }
             }
         } catch (RuntimeException var7) {
@@ -2604,20 +2605,20 @@ public class Unsorted {
                         RSString var5 = var0.NPCName;
                         if (0 != var0.anInt1260) {
                             RSString var6 = Class158.anInt2014 != 1 ? TextCore.HasLevel : TextCore.HasRating;
-                            var5 = RenderAnimationDefinition.method903(new RSString[]{var5, Player.combatLevelColor(var0.anInt1260, (byte) -122, Class102.player.COMBAT_LEVEL), TextCore.LEFT_PARENTHESES, var6, Class72.method1298(var0.anInt1260), TextCore.RIGHT_PARENTHESES});
+                            var5 = RSString.stringCombiner(new RSString[]{var5, Player.combatLevelColor(var0.anInt1260, (byte) -122, Class102.player.COMBAT_LEVEL), TextCore.LEFT_PARENTHESES, var6, RSString.stringAnimator(var0.anInt1260), TextCore.RIGHT_PARENTHESES});
                         }
 
                         if (Class164_Sub1.anInt3012 == 1) {
-                            Class3_Sub24_Sub4.method1177(Class99.anInt1403, (long) var3, (byte) -125, RenderAnimationDefinition.method903(new RSString[]{RenderAnimationDefinition.aClass94_378, ColorCore.TextColor, var5}), var1, (short) 26, TextCore.HasUse, var4);
+                            Class3_Sub24_Sub4.method1177(Class99.anInt1403, (long) var3, (byte) -125, RSString.stringCombiner(new RSString[]{RenderAnimationDefinition.aClass94_378, ColorCore.TextColor, var5}), var1, (short) 26, TextCore.HasUse, var4);
                         } else if (GameObject.aBoolean1837) {
                             Class3_Sub28_Sub9 var12 = -1 == anInt1038 ? null : Class61.method1210(anInt1038);
                             if ((2 & Class164.anInt2051) != 0 && (var12 == null || var0.method1475(anInt1038, var12.anInt3614) != var12.anInt3614)) {
-                                Class3_Sub24_Sub4.method1177(anInt1887, (long) var3, (byte) -93, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_676, ColorCore.TextColor, var5}), var1, (short) 45, Class3_Sub28_Sub9.aClass94_3621, var4);
+                                Class3_Sub24_Sub4.method1177(anInt1887, (long) var3, (byte) -93, RSString.stringCombiner(new RSString[]{TextCore.aClass94_676, ColorCore.TextColor, var5}), var1, (short) 45, Class3_Sub28_Sub9.aClass94_3621, var4);
                             }
                         } else {
                             RSString[] var11 = var0.options;
                             if (Class123.aBoolean1656) {
-                                var11 = Class3_Sub31.method822(var11);
+                                var11 = Class3_Sub31.optionsArrayStringConstructor(var11);
                             }
 
                             int var7;
@@ -2654,7 +2655,7 @@ public class Unsorted {
                                             var8 = 2;
                                         }
 
-                                        Class3_Sub24_Sub4.method1177(var9, (long) var3, (byte) -103, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, var8, var11[var7], var4);
+                                        Class3_Sub24_Sub4.method1177(var9, (long) var3, (byte) -103, RSString.stringCombiner(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, var8, var11[var7], var4);
                                     }
                                 }
                             }
@@ -2693,15 +2694,15 @@ public class Unsorted {
                                             var13 += var14;
                                         }
 
-                                        Class3_Sub24_Sub4.method1177(var0.anInt1298, (long) var3, (byte) -128, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, var13, var11[var7], var4);
+                                        Class3_Sub24_Sub4.method1177(var0.anInt1298, (long) var3, (byte) -128, RSString.stringCombiner(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, var13, var11[var7], var4);
                                     }
                                 }
                             }
 
                             if (GameConfig.NPC_DEBUG_ENABLED) {
-                                Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, RSString.parse("Examine" + "<br>" + " ID: (X" + var0.npcId + "(Y"), var4);
+                                Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RSString.stringCombiner(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, RSString.parse("Examine" + "<br>" + " ID: (X" + var0.npcId + "(Y"), var4);
                             } else {
-                                Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RenderAnimationDefinition.method903(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, TextCore.HasExamine, var4);
+                                Class3_Sub24_Sub4.method1177(Class131.anInt1719, (long) var3, (byte) -73, RSString.stringCombiner(new RSString[]{ColorCore.NPCRightClickColor, var5}), var1, (short) 1007, TextCore.HasExamine, var4);
                             }
                         }
 
@@ -2945,7 +2946,7 @@ public class Unsorted {
                 var26 = new AtmosphereParser();
             }
 
-            Class115.aAtmosphereParserArrayArray1581[var1 >> 3][var4 >> 3] = var26;
+            AtmosphereParser.aAtmosphereParserArrayArray1581[var1 >> 3][var4 >> 3] = var26;
         }
 
         var14 = 7 + var1;
@@ -4034,7 +4035,7 @@ public class Unsorted {
                                         continue;
                                     }
 
-                                    Class3_Sub8.method125(var12, (byte) 59, var14, var13, var11);
+                                    Class3_Sub8.displayMinimap(var12, (byte) 59, var14, var13, var11);
                                     if (HDToolKit.highDetail) {
                                         Class22.setClipping(var0, var6, var4, var7);
                                     } else {
@@ -4083,7 +4084,7 @@ public class Unsorted {
 
                                 if (var11.anInt189 == 1339) {
                                     if (var11.method855()) {
-                                        Class91.method1493(var13, var14, var11, var12);
+                                        Class91.drawCompass(var13, var14, var11, var12);
                                         if (HDToolKit.highDetail) {
                                             Class22.setClipping(var0, var6, var4, var7);
                                         } else {
@@ -4106,7 +4107,7 @@ public class Unsorted {
                                 }
 
                                 if (var11.anInt189 == 1401) {
-                                    Class1.method72(var13, var11.height, var11.width, var14);
+                                    Class1.worldMapMinimap(var13, var11.height, var11.width, var14);
                                     aBooleanArray3674[var12] = true;
                                     Class163_Sub1_Sub1.aBooleanArray4008[var12] = true;
                                     if (HDToolKit.highDetail) {
@@ -4127,52 +4128,75 @@ public class Unsorted {
                                 }
 
                                 if (var11.anInt189 == 1405) {
-                                    if (!ClientCommands.fpsOverlayEnabled) {
-                                        continue;
-                                    }
-
-                                    var20 = var11.width + var13;
-                                    var21 = 15 + var14;
-                                    Class126.aClass3_Sub28_Sub17_1669.method688(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3196, Class72.method1298(AnimationDefinition.anInt1862)}), var20, var21, 16776960, -1);
-                                    var21 += 15;
-                                    Runtime var57 = Runtime.getRuntime();
-                                    var23 = (int) ((var57.totalMemory() + -var57.freeMemory()) / 1024L);
-                                    var24 = 16776960;
-                                    if (var23 > 65536) {
-                                        var24 = 16711680;
-                                    }
-
-                                    Class126.aClass3_Sub28_Sub17_1669.method688(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_4057, Class72.method1298(var23), TextCore.Memoryk}), var20, var21, var24, -1);
-                                    var21 += 15;
-                                    if (HDToolKit.highDetail) {
+                                    if (ClientCommands.fpsOverlayEnabled) {
+                                        var20 = var11.width + var13;
+                                        var21 = 15 + var14;
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_3196, RSString.stringAnimator(AnimationDefinition.anInt1862)}), var20, var21, 16776960, -1);//Class72.stringAnimator(AnimationDefinition.anInt1862)}), var20, var21, 16776960, -1);
+                                        var21 += 15;
+                                        Runtime var57 = Runtime.getRuntime();
+                                        var23 = (int) ((var57.totalMemory() + -var57.freeMemory()) / 1024L);
                                         var24 = 16776960;
-                                        var25 = (Class31.anInt580 + Class31.anInt585 + Class31.memory2D) / 1024;
-                                        if (65536 < var25) {
+                                        if (var23 > 65536) {
                                             var24 = 16711680;
                                         }
 
-                                        Class126.aClass3_Sub28_Sub17_1669.method688(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_1622, Class72.method1298(var25), TextCore.Memoryk}), var20, var21, var24, -1);
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_4057, RSString.stringAnimator(var23), TextCore.Memoryk}), var20, var21, var24, -1);
                                         var21 += 15;
+                                        if (HDToolKit.highDetail) {
+                                            var24 = 16776960;
+                                            var25 = (Class31.anInt580 + Class31.anInt585 + Class31.memory2D) / 1024;
+                                            if (65536 < var25) {
+                                                var24 = 16711680;
+                                            }
+
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_1622, RSString.stringAnimator(var25), TextCore.Memoryk}), var20, var21, var24, -1);
+                                            var21 += 15;
+                                        }
+
+                                        var24 = 16776960;
+                                        var25 = 0;
+                                        var47 = 0;
+                                        var26 = 0;
+
+                                        for (var28 = 0; var28 < 29; ++var28) { //TODO:
+                                            var25 += aClass151_Sub1Array2601[var28].method2108();
+                                            var26 += aClass151_Sub1Array2601[var28].method2102();
+                                            var47 += aClass151_Sub1Array2601[var28].method2106();
+                                        }
+
+                                        var29 = 10000 * var26 / var25;
+                                        var28 = var47 * 100 / var25;
+                                        RSString var55 = RSString.stringCombiner(new RSString[]{TextCore.aClass94_436, Class3_Sub23.method407(0, true, 2, (long) var29), TextCore.aClass94_2498, RSString.stringAnimator(var28), TextCore.aClass94_148});
+                                        Class3_Sub13.aClass3_Sub28_Sub17_2379.method688(var55, var20, var21, var24, -1);
+                                        aBooleanArray3674[var12] = true;
+                                        Class163_Sub1_Sub1.aBooleanArray4008[var12] = true;
+                                        continue;
                                     }
-
-                                    var24 = 16776960;
-                                    var25 = 0;
-                                    var47 = 0;
-                                    var26 = 0;
-
-                                    for (var28 = 0; var28 < 29; ++var28) { //TODO:
-                                        var25 += aClass151_Sub1Array2601[var28].method2108();
-                                        var26 += aClass151_Sub1Array2601[var28].method2102();
-                                        var47 += aClass151_Sub1Array2601[var28].method2106();
+                                    if (ClientCommands.renderInfoOverlayEnabled) {
+                                        int vendorColor;
+                                        String vendor = HDToolKit.gl.glGetString(GL.GL_VENDOR);
+                                        if (vendor.contains("NVIDIA")) {
+                                            vendorColor = 7780608;
+                                        } else if (vendor.contains("AMD")) {
+                                            vendorColor = 15539236;
+                                        } else if (vendor.contains("INTEL")) {
+                                            vendorColor = 29125;
+                                        } else {
+                                            vendorColor = 16776960;
+                                        }
+                                        var20 = var11.width + var13;
+                                        var21 = 15 + var14;
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(JoglVersion.getInstance().getImplementationVendor()), var20, var21, 16776960, 7);
+                                        var21 += 15;
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_VERSION)), var20, var21, 16776960, 7);
+                                        var21 += 15;
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(vendor), var20, var21, vendorColor, 4);
+                                        var21 += 15;
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_RENDERER)), var20, var21, 16776960, 7);
+                                        continue;
                                     }
-
-                                    var29 = 10000 * var26 / var25;
-                                    var28 = var47 * 100 / var25;
-                                    RSString var55 = RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_436, Class3_Sub23.method407(0, true, 2, (long) var29), TextCore.aClass94_2498, Class72.method1298(var28), TextCore.aClass94_148});
-                                    Class3_Sub13.aClass3_Sub28_Sub17_2379.method688(var55, var20, var21, var24, -1);
-                                    aBooleanArray3674[var12] = true;
-                                    Class163_Sub1_Sub1.aBooleanArray4008[var12] = true;
                                     continue;
+
                                 }
 
                                 if (var11.anInt189 == 1406) {
@@ -4372,16 +4396,16 @@ public class Unsorted {
 
                                         if (var15 != 0) {
                                             if (var11.aBoolean226) {
-                                                Toolkit.getActiveToolkit().fillRect(var13, var14, var11.width, var11.height, var20, 256 - (var15 & 255));
+                                                Toolkit.getActiveToolkit().fillRect(var13, var14, var11.width, var11.height, var20, 256 - (var15 & 255));//Background for mage book
                                             } else if (HDToolKit.highDetail) {
                                                 Class22.method928(var13, var14, var11.width, var11.height, var20, 256 + -(var15 & 255));
                                             } else {
                                                 Class74.method1315(var13, var14, var11.width, var11.height, var20, -(var15 & 255) + 256);
                                             }
                                         } else if (var11.aBoolean226) {
-                                            Toolkit.getActiveToolkit().method934(var13, var14, var11.width, var11.height, var20);
+                                            Toolkit.getActiveToolkit().method934(var13, var14, var11.width, var11.height, var20);//Fill Rectangle for skill hover
                                         } else {
-                                            Toolkit.getActiveToolkit().drawRect(var13, var14, var11.width, var11.height, var20, 255);
+                                            Toolkit.getActiveToolkit().drawRect(var13, var14, var11.width, var11.height, var20, 255);//Background border for mage book
                                         }
 
                                     } else {
@@ -4415,7 +4439,7 @@ public class Unsorted {
                                                     }
 
                                                     if ((var50.stackingType == 1 || var11.anInt271 != 1) && var11.anInt271 != -1) {
-                                                        var45 = RenderAnimationDefinition.method903(new RSString[]{ColorCore.ItemInterfaceColor, var45, TextCore.aClass94_2306, Class36.method1013((byte) -125, var11.anInt271)});
+                                                        var45 = RSString.stringCombiner(new RSString[]{ColorCore.ItemInterfaceColor, var45, TextCore.aClass94_2306, Class36.method1013((byte) -125, var11.anInt271)});
                                                     }
                                                 }
 
@@ -4437,7 +4461,6 @@ public class Unsorted {
                                             if (var11.usingScripts) {
                                                 if (var11.anInt192 == -1) {
                                                     var37 = var11.method866(false);
-                                                    //TODO: this is where I get ma stuff
                                                 } else {
                                                     var37 = Class114.method1707(var11.anInt288, var11.anInt192, var11.aBoolean227, var11.anInt271, var11.anInt287);
                                                 }
@@ -4666,11 +4689,11 @@ public class Unsorted {
                                                                 var42 = Class38.getItemDefinition(var11.itemAmounts[var21] + -1);
                                                                 RSString var40;
                                                                 if (1 != var42.stackingType && 1 == var11.itemIds[var21]) {
-                                                                    var40 = RenderAnimationDefinition.method903(new RSString[]{
+                                                                    var40 = RSString.stringCombiner(new RSString[]{
                                                                             ColorCore.ItemInterfaceColor, var42.name, TextCore.aClass94_2584
                                                                     });
                                                                 } else {
-                                                                    var40 = RenderAnimationDefinition.method903(new RSString[]{
+                                                                    var40 = RSString.stringCombiner(new RSString[]{
                                                                             ColorCore.ItemInterfaceColor, var42.name, TextCore.aClass94_2306, Class36.method1013((byte) -100, var11.itemIds[var21])
                                                                     });
                                                                 }

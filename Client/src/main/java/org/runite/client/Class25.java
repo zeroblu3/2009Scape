@@ -11,7 +11,6 @@ final class Class25 {
    int anInt482;
    int anInt483;
    int anInt484;
-
    int anInt487;
    static boolean aBoolean488 = true;
    int anInt489;

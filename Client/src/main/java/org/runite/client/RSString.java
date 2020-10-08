@@ -67,6 +67,22 @@ public final class RSString implements Interface3 {
         return jagString.intern();
     }
 
+    static RSString stringCombiner(RSString[] var0) {
+        if (var0.length >= 2) {
+            return Class67.method1261(0, var0.length, var0);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    static RSString stringAnimator(int var1) {
+       try {
+          return Unsorted.method1723((byte)-117, false, var1);
+       } catch (RuntimeException var3) {
+          throw ClientErrorException.clientError(var3, "jj.C(" + var1 + ')');
+       }
+    }
+
     public final URL toURL() throws MalformedURLException {
         return new URL(new String(this.buffer, 0, this.length));
     }

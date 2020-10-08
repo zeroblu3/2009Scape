@@ -22,7 +22,7 @@ final class Class53 {
             int var8 = Math.min(var5.width / 2, var5.height / 2);
 
             if(var8 * var8 >= var7) {
-               Class38_Sub1.method1030(var5, Class129_Sub1.aClass3_Sub28_Sub16Array2690[var0], var4, var3, var1, var2);
+               Class38_Sub1.minimapIcons(var5, Class129_Sub1.aClass3_Sub28_Sub16Array2690[var0], var4, var3, var1, var2);
             } else {
                var8 -= 10;
                int var9 = 2047 & Class3_Sub13_Sub8.anInt3102 + GraphicDefinition.CAMERA_DIRECTION;

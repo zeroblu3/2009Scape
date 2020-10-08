@@ -114,7 +114,7 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
       }
    }
 
-   static void method468(int var0) {
+   static void method468() {
       try {
          Class88.method1456();
          Unsorted.anInterface5Array70 = new Interface5[7];
@@ -123,9 +123,9 @@ final class Class3_Sub24_Sub3 extends Class3_Sub24 {
          Unsorted.anInterface5Array70[3] = new Class165();
          Unsorted.anInterface5Array70[4] = new Class112();
          Unsorted.anInterface5Array70[5] = new Class104();
-         Unsorted.anInterface5Array70[var0] = new Class147();
+         Unsorted.anInterface5Array70[6] = new Class147();
       } catch (RuntimeException var2) {
-         throw ClientErrorException.clientError(var2, "te.T(" + var0 + ')');
+         throw ClientErrorException.clientError(var2, "te.T(" + ')');
       }
    }
 

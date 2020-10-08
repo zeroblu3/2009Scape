@@ -22,6 +22,29 @@ public final class GraphicDefinition {
 	static int anInt548 = 0;
 	static volatile int anInt549 = 0;
 
+	static GraphicDefinition getGraphicDefinition(byte var0, int graphicId) {
+		try {
+			GraphicDefinition def = (GraphicDefinition) Class3_Sub31.aReferenceCache_2604.get((long) graphicId);
+			if (def == null) {
+				byte[] var3 = Class3_Sub13_Sub18.aClass153_3214.getFile(Unsorted.method64(graphicId), Class75.method1338(graphicId, var0 ^ 7));
+				def = new GraphicDefinition();
+				def.graphicId = graphicId;
+				if (var0 != 42) {
+					getGraphicDefinition((byte) -83, -12);
+				}
+
+				if (null != var3) {
+					def.parse(new DataBuffer(var3));
+				}
+
+				Class3_Sub31.aReferenceCache_2604.put(def, (long) graphicId);
+			}
+			return def;
+		} catch (RuntimeException var4) {
+			throw ClientErrorException.clientError(var4, "ck.D(" + var0 + ',' + graphicId + ')');
+		}
+	}
+
 	final void parse(DataBuffer var1) {
 		try {
 
@@ -87,7 +110,7 @@ public final class GraphicDefinition {
 
 	final Model method966(int var1, int var3, int var4) {
 		try {
-			Model var5 = (Model)Class27.aReferenceCache_511.get((long)this.graphicId);
+			Model var5 = (Model)Class27.aReferenceCache_511.get(this.graphicId);
             if(var5 == null) {
                 Model_Sub1 var6 = Model_Sub1.method2015(Unsorted.aClass153_4048, this.anInt541);
                 if(null == var6) {
@@ -108,7 +131,7 @@ public final class GraphicDefinition {
                 }
 
                 var5 = var6.method2008(64 - -this.anInt538, this.anInt537 + 850, -30, -50, -30);
-                Class27.aReferenceCache_511.put(var5, (long)this.graphicId);
+                Class27.aReferenceCache_511.put(var5, this.graphicId);
             }
 
             Model var9;

@@ -27,7 +27,7 @@ final class WorldMap extends Node {
             }
 
             /**
-             * This block is dealing with minimap zoom
+             * This block is dealing with world map zoom
              */
             if(anInt2737 == 10) {
                Class3_Sub13_Sub21.anInt3256 = Unsorted.aClass3_Sub28_Sub3_2600.anInt3555 >> 6 << 6;
@@ -112,13 +112,13 @@ final class WorldMap extends Node {
                   Class75_Sub4.method1355();
                } else if (anInt2737 == 60) {
                   if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Stage 60: String given: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString());
-                  if (aClass153_3210.method2135(RenderAnimationDefinition.method903(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}))) {
-                     if (!aClass153_3210.method2127(RenderAnimationDefinition.method903(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}))) {
+                  if (aClass153_3210.method2135(RSString.stringCombiner(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}))) {
+                     if (!aClass153_3210.method2127(RSString.stringCombiner(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}))) {
                         return;
                      }
 
                      if (GameConfig.WORLD_MAP_DEBUG) System.out.println("World Map Debug: World Map Class119.aClass131_1624: " + Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561.properlyCapitalize().toString() + ", " + TextCore.HasLabels.properlyCapitalize().toString());
-                     Class119.aClass131_1624 = Class81.getWorldMapArchive(RenderAnimationDefinition.method903(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}), aClass153_3210);
+                     Class119.aClass131_1624 = Class81.getWorldMapArchive(RSString.stringCombiner(new RSString[]{Unsorted.aClass3_Sub28_Sub3_2600.aClass94_3561, TextCore.HasLabels}), aClass153_3210);
                   } else {
                      Class119.aClass131_1624 = new Class131(0);
                   }
@@ -274,7 +274,7 @@ final class WorldMap extends Node {
                 if (ClientCommands.fpsOverlayEnabled) {
                     int var10 = -8 + var2 - -var3;
                     int var9 = -5 + (var0 - -var4);
-                    Class126.aClass3_Sub28_Sub17_1669.method688(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_985, Class72.method1298(AnimationDefinition.anInt1862)}), var9, var10, 16776960, -1);
+                    Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_985, RSString.stringAnimator(AnimationDefinition.anInt1862)}), var9, var10, 16776960, -1);
                     Runtime var11 = Runtime.getRuntime();
                     int var12 = (int) ((var11.totalMemory() - var11.freeMemory()) / 1024L);
                     int var13 = 16776960;
@@ -283,7 +283,7 @@ final class WorldMap extends Node {
                         var13 = 16711680;
                     }
 
-                    Class126.aClass3_Sub28_Sub17_1669.method688(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_1630, Class72.method1298(var12), TextCore.aClass94_3055}), var9, var10, var13, -1);
+                    Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_1630, RSString.stringAnimator(var12), TextCore.aClass94_3055}), var9, var10, var13, -1);
                 }
                 /* * * * * * * */
 

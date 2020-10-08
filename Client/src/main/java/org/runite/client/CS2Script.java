@@ -23,6 +23,7 @@ final class CS2Script extends Linkable {
     static short aShort1444 = 256;
     static RSInterface aClass11_1749;
     static boolean aBoolean2705 = true;
+    static int anInt3775 = 0;
     RSInterface aClass11_2438;
    RSString aClass94_2439;
    static int anInt2440 = 0;
@@ -1070,17 +1071,17 @@ final class CS2Script extends Linkable {
                                                       continue;
                                                    }
                                                    if (3323 == opcode) {
-                                                      if (Class3_Sub28_Sub19.anInt3775 >= 5 && Class3_Sub28_Sub19.anInt3775 <= 9)
+                                                      if (anInt3775 >= 5 && anInt3775 <= 9)
                                                             ItemDefinition.intsStack[iStackCounter++] = 1;
                                                       else
                                                             ItemDefinition.intsStack[iStackCounter++] = 0;
                                                       continue;
                                                    }
                                                    if (opcode == 3324) {
-                                                      if (Class3_Sub28_Sub19.anInt3775 < 5 || Class3_Sub28_Sub19.anInt3775 > 9)
+                                                      if (anInt3775 < 5 || anInt3775 > 9)
                                                             ItemDefinition.intsStack[iStackCounter++] = 0;
                                                       else
-                                                            ItemDefinition.intsStack[iStackCounter++] = Class3_Sub28_Sub19.anInt3775;
+                                                            ItemDefinition.intsStack[iStackCounter++] = anInt3775;
                                                       continue;
                                                    }
                                                    if (3325 == opcode) {
@@ -2378,7 +2379,7 @@ final class CS2Script extends Linkable {
                                                                            GameObject.graphicsSettings(false, Unsorted.anInt2577, -1, -1);
                                                                         boolean flag5 = 1 == ItemDefinition.intsStack[--iStackCounter];
                                                                         RSString class94_25 = ItemDefinition.stringsStack[--sStackCounter];
-                                                                        RSString class94_64 = RenderAnimationDefinition.method903(new RSString[]{
+                                                                        RSString class94_64 = RSString.stringCombiner(new RSString[]{
                                                                               RSInterface.method856(), class94_25
                                                                         });
                                                                         if (null == GameShell.frame && (!flag5 || Signlink.anInt1214 == 3 || !Signlink.osName.startsWith("win") || Class106.hasInternetExplorer6)) {
@@ -3244,8 +3245,8 @@ final class CS2Script extends Linkable {
                                                 if (4100 == opcode) {
                                                    RSString class94_29 = ItemDefinition.stringsStack[--sStackCounter];
                                                    int k62 = ItemDefinition.intsStack[--iStackCounter];
-                                                   ItemDefinition.stringsStack[sStackCounter++] = RenderAnimationDefinition.method903(new RSString[]{
-                                                            class94_29, Class72.method1298(k62)
+                                                   ItemDefinition.stringsStack[sStackCounter++] = RSString.stringCombiner(new RSString[]{
+                                                            class94_29, RSString.stringAnimator(k62)
                                                    });
                                                    continue;
                                                 }
@@ -3253,7 +3254,7 @@ final class CS2Script extends Linkable {
                                                    sStackCounter -= 2;
                                                    RSString class94_57 = ItemDefinition.stringsStack[sStackCounter + 1];
                                                    RSString class94_30 = ItemDefinition.stringsStack[sStackCounter];
-                                                   ItemDefinition.stringsStack[sStackCounter++] = RenderAnimationDefinition.method903(new RSString[]{
+                                                   ItemDefinition.stringsStack[sStackCounter++] = RSString.stringCombiner(new RSString[]{
                                                             class94_30, class94_57
                                                    });
                                                    continue;
@@ -3261,7 +3262,7 @@ final class CS2Script extends Linkable {
                                                 if (4102 == opcode) {
                                                    RSString class94_31 = ItemDefinition.stringsStack[--sStackCounter];
                                                    int l62 = ItemDefinition.intsStack[--iStackCounter];
-                                                   ItemDefinition.stringsStack[sStackCounter++] = RenderAnimationDefinition.method903(new RSString[]{
+                                                   ItemDefinition.stringsStack[sStackCounter++] = RSString.stringCombiner(new RSString[]{
                                                             class94_31, Class61.method1218(l62)
                                                    });
                                                    continue;
@@ -3278,8 +3279,8 @@ final class CS2Script extends Linkable {
                                                    int k78 = Class3_Sub28_Sub9.aCalendar3616.get(Calendar.DATE);
                                                    int k80 = Class3_Sub28_Sub9.aCalendar3616.get(Calendar.MONTH);
                                                    int i82 = Class3_Sub28_Sub9.aCalendar3616.get(Calendar.YEAR);
-                                                   ItemDefinition.stringsStack[sStackCounter++] = RenderAnimationDefinition.method903(new RSString[]{
-                                                            Class72.method1298(k78), TextCore.aClass94_1326, TextCore.MonthsOfTheYear[k80], TextCore.aClass94_1326, Class72.method1298(i82)
+                                                   ItemDefinition.stringsStack[sStackCounter++] = RSString.stringCombiner(new RSString[]{
+                                                            RSString.stringAnimator(k78), TextCore.aClass94_1326, TextCore.MonthsOfTheYear[k80], TextCore.aClass94_1326, RSString.stringAnimator(i82)
                                                    });
                                                    continue;
                                                 }
@@ -3295,7 +3296,7 @@ final class CS2Script extends Linkable {
                                                 }
                                                 if (opcode == 4106) {
                                                    int i41 = ItemDefinition.intsStack[--iStackCounter];
-                                                   ItemDefinition.stringsStack[sStackCounter++] = Class72.method1298(i41);
+                                                   ItemDefinition.stringsStack[sStackCounter++] = RSString.stringAnimator(i41);
                                                    continue;
                                                 }
                                                 if (opcode == 4107) {

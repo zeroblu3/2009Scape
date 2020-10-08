@@ -595,7 +595,7 @@ final class Class1 {
         }
     }
 
-    static void method72(int var0, int var1, int var2, int var4) {
+    static void worldMapMinimap(int var0, int var1, int var2, int var4) {
         try {
             if (HDToolKit.highDetail) {
                 Class22.setClipping(var0, var4, var2 + var0, var1 + var4);

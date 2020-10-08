@@ -27,7 +27,7 @@ final class Class3_Sub9 extends Linkable {
 
    static Class3_Sub28_Sub5 method133(int var0) {
       try {
-         Class3_Sub28_Sub5 var2 = (Class3_Sub28_Sub5)Class159.aReferenceCache_2016.get((long)var0);
+         Class3_Sub28_Sub5 var2 = (Class3_Sub28_Sub5)Class159.aReferenceCache_2016.get(var0);
          if(var2 == null) {
             var2 = Unsorted.method1089(Class131.aClass153_1723, Class7.aClass153_2160, var0);
             if(null != var2) {

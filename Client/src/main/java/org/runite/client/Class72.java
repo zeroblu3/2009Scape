@@ -18,7 +18,7 @@ final class Class72 {
 
    static void method1293() {
       try {
-         if(!Class3_Sub28_Sub19.aBoolean3779 && Class44.anInt718 != 2) {
+         if(!Client.aBoolean3779 && Class44.anInt718 != 2) {
             try {
                TextCore.aClass94_38.method1577(Class126.aClient1671);
             } catch (Throwable var2) {
@@ -199,14 +199,6 @@ final class Class72 {
          return MouseListeningClass.aFloatArray1919;
       } catch (RuntimeException var7) {
          throw ClientErrorException.clientError(var7, "jj.A(" + (byte) -50 + ')');
-      }
-   }
-
-   static RSString method1298(int var1) {
-      try {
-         return Unsorted.method1723((byte)-117, false, var1);
-      } catch (RuntimeException var3) {
-         throw ClientErrorException.clientError(var3, "jj.C(" + var1 + ')');
       }
    }
 

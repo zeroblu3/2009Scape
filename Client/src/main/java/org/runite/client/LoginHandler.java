@@ -123,7 +123,7 @@ class LoginHandler {
                   Unsorted.aClass3_Sub30_Sub1_2942.writeShort(Class3_Sub13_Sub1.outgoingBuffer.index + 163 - -Class3_Sub13_Sub33.method326((byte)111, Class163_Sub2.aClass94_2996));
                   Unsorted.aClass3_Sub30_Sub1_2942.writeInt(GameConfig.CLIENT_BUILD);
                   Unsorted.aClass3_Sub30_Sub1_2942.writeByte(Class7.anInt2161);
-                  Unsorted.aClass3_Sub30_Sub1_2942.writeByte(!Class3_Sub28_Sub19.aBoolean3779?0:1);
+                  Unsorted.aClass3_Sub30_Sub1_2942.writeByte(!Client.aBoolean3779?0:1);
                   Unsorted.aClass3_Sub30_Sub1_2942.writeByte(1);
                   Unsorted.aClass3_Sub30_Sub1_2942.writeByte(Class83.method1411(0));
                   Unsorted.aClass3_Sub30_Sub1_2942.writeShort(Class23.anInt454);
@@ -262,7 +262,7 @@ class LoginHandler {
                   Class3_Sub15.activeConnection.readBytes(GraphicDefinition.incomingBuffer.buffer, 0, 14);
                   GraphicDefinition.incomingBuffer.index = 0;
                   Class3_Sub13_Sub26.rights = GraphicDefinition.incomingBuffer.readUnsignedByte();
-                  Class3_Sub28_Sub19.anInt3775 = GraphicDefinition.incomingBuffer.readUnsignedByte();
+                  CS2Script.anInt3775 = GraphicDefinition.incomingBuffer.readUnsignedByte();
                   Class3_Sub15.aBoolean2433 = GraphicDefinition.incomingBuffer.readUnsignedByte() == 1;
                   Class121.aBoolean1641 = 1 == GraphicDefinition.incomingBuffer.readUnsignedByte();
                   Unsorted.aBoolean4063 = GraphicDefinition.incomingBuffer.readUnsignedByte() == 1;
@@ -273,7 +273,7 @@ class LoginHandler {
                   Unsorted.isMember = GraphicDefinition.incomingBuffer.readUnsignedByte() == 1;
                   Class113.method1702(Unsorted.isMember);
                   Class8.method845(Unsorted.isMember);
-                  if(!Class3_Sub28_Sub19.aBoolean3779) {
+                  if(!Client.aBoolean3779) {
                      if((!Class3_Sub15.aBoolean2433 || Unsorted.aBoolean4063) && !Class3_Sub13_Sub29.disableGEBoxes) {
                         try {
                            TextCore.aClass94_516.method1577(Class38.aClass87_665.applet);

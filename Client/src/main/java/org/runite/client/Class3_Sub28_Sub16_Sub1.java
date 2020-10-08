@@ -31,7 +31,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       }
    }
 
-   final void method645(int var1, int var2, Class3_Sub28_Sub16_Sub1 var3) {
+   final void drawMinimapIcons(int interfaceWidth, int interfaceHeight, Class3_Sub28_Sub16_Sub1 var3) {
       if(var3 != null) {
          HDToolKit.method1822();
          HDToolKit.bindTexture2D(var3.anInt4077);
@@ -44,28 +44,28 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
          var4.glBindTexture(3553, var3.anInt4077);
          var4.glTexEnvi(8960, '\u8571', 7681);
          var4.glTexEnvi(8960, '\u8580', '\u8578');
-         float var5 = (float)(var1 - Class22.anInt449) / (float)var3.anInt4075;
-         float var6 = (float)(var2 - Class22.anInt448) / (float)var3.anInt4079;
-         float var7 = (float)(var1 + this.anInt3707 - Class22.anInt449) / (float)var3.anInt4075;
-         float var8 = (float)(var2 + this.anInt3696 - Class22.anInt448) / (float)var3.anInt4079;
-         var1 += this.anInt3701;
-         var2 += this.anInt3698;
+         float var5 = (float)(interfaceWidth - Class22.anInt449) / (float)var3.anInt4075;
+         float var6 = (float)(interfaceHeight - Class22.anInt448) / (float)var3.anInt4079;
+         float var7 = (float)(interfaceWidth + this.anInt3707 - Class22.anInt449) / (float)var3.anInt4075;
+         float var8 = (float)(interfaceHeight + this.anInt3696 - Class22.anInt448) / (float)var3.anInt4079;
+         interfaceWidth += this.anInt3701;
+         interfaceHeight += this.anInt3698;
          var4.glBegin(6);
          var4.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
          float var9 = (float)this.anInt3707 / (float)this.anInt4075;
          float var10 = (float)this.anInt3696 / (float)this.anInt4079;
          var4.glMultiTexCoord2f('\u84c1', var7, var6);
          var4.glTexCoord2f(var9, 0.0F);
-         var4.glVertex2f((float)(var1 + this.anInt3707), (float)(HDToolKit.viewHeight - var2));
+         var4.glVertex2f((float)(interfaceWidth + this.anInt3707), (float)(HDToolKit.viewHeight - interfaceHeight));
          var4.glMultiTexCoord2f('\u84c1', var5, var6);
          var4.glTexCoord2f(0.0F, 0.0F);
-         var4.glVertex2f((float)var1, (float)(HDToolKit.viewHeight - var2));
+         var4.glVertex2f((float)interfaceWidth, (float)(HDToolKit.viewHeight - interfaceHeight));
          var4.glMultiTexCoord2f('\u84c1', var5, var8);
          var4.glTexCoord2f(0.0F, var10);
-         var4.glVertex2f((float)var1, (float)(HDToolKit.viewHeight - (var2 + this.anInt3696)));
+         var4.glVertex2f((float)interfaceWidth, (float)(HDToolKit.viewHeight - (interfaceHeight + this.anInt3696)));
          var4.glMultiTexCoord2f('\u84c1', var7, var8);
          var4.glTexCoord2f(var9, var10);
-         var4.glVertex2f((float)(var1 + this.anInt3707), (float)(HDToolKit.viewHeight - (var2 + this.anInt3696)));
+         var4.glVertex2f((float)(interfaceWidth + this.anInt3707), (float)(HDToolKit.viewHeight - (interfaceHeight + this.anInt3696)));
          var4.glEnd();
          var4.glTexEnvi(8960, '\u8571', 8448);
          var4.glTexEnvi(8960, '\u8580', 5890);
@@ -101,7 +101,7 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       var6.glEnd();
    }
 
-   final void method647(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, Class3_Sub28_Sub16_Sub1 var9) {
+   final void drawMinimapRegion(int x, int y, int width, int height, int playerRelativeX, int playerRelativeY, int regionRotation, int zoom, Class3_Sub28_Sub16_Sub1 var9) {
       if(var9 != null) {
          HDToolKit.method1822();
          HDToolKit.bindTexture2D(var9.anInt4077);
@@ -114,22 +114,22 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
          var10.glBindTexture(3553, var9.anInt4077);
          var10.glTexEnvi(8960, '\u8571', 7681);
          var10.glTexEnvi(8960, '\u8580', '\u8578');
-         int var11 = -var3 / 2;
-         int var12 = -var4 / 2;
+         int var11 = -width / 2;
+         int var12 = -height / 2;
          int var13 = -var11;
          int var14 = -var12;
-         int var15 = (int)(Math.sin((double)var7 / 326.11D) * 65536.0D);
-         int var16 = (int)(Math.cos((double)var7 / 326.11D) * 65536.0D);
-         var15 = var15 * var8 >> 8;
-         var16 = var16 * var8 >> 8;
-         int var17 = (var5 << 16) + var12 * var15 + var11 * var16;
-         int var18 = (var6 << 16) + (var12 * var16 - var11 * var15);
-         int var19 = (var5 << 16) + var12 * var15 + var13 * var16;
-         int var20 = (var6 << 16) + (var12 * var16 - var13 * var15);
-         int var21 = (var5 << 16) + var14 * var15 + var11 * var16;
-         int var22 = (var6 << 16) + (var14 * var16 - var11 * var15);
-         int var23 = (var5 << 16) + var14 * var15 + var13 * var16;
-         int var24 = (var6 << 16) + (var14 * var16 - var13 * var15);
+         int var15 = (int)(Math.sin((double)regionRotation / 326.11D) * 65536.0D);
+         int var16 = (int)(Math.cos((double)regionRotation / 326.11D) * 65536.0D);
+         var15 = var15 * zoom >> 8;
+         var16 = var16 * zoom >> 8;
+         int var17 = (playerRelativeX << 16) + var12 * var15 + var11 * var16;
+         int var18 = (playerRelativeY << 16) + (var12 * var16 - var11 * var15);
+         int var19 = (playerRelativeX << 16) + var12 * var15 + var13 * var16;
+         int var20 = (playerRelativeY << 16) + (var12 * var16 - var13 * var15);
+         int var21 = (playerRelativeX << 16) + var14 * var15 + var11 * var16;
+         int var22 = (playerRelativeY << 16) + (var14 * var16 - var11 * var15);
+         int var23 = (playerRelativeX << 16) + var14 * var15 + var13 * var16;
+         int var24 = (playerRelativeY << 16) + (var14 * var16 - var13 * var15);
          float var25 = (float)var9.anInt3707 / (float)var9.anInt4075;
          float var26 = (float)var9.anInt3696 / (float)var9.anInt4079;
          var10.glBegin(6);
@@ -138,16 +138,16 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
          float var28 = (float)(65536 * this.anInt4079);
          var10.glMultiTexCoord2f('\u84c1', var25, 0.0F);
          var10.glTexCoord2f((float)var19 / var27, (float)var20 / var28);
-         var10.glVertex2f((float)(var1 + var3), (float)(HDToolKit.viewHeight - var2));
+         var10.glVertex2f((float)(x + width), (float)(HDToolKit.viewHeight - y));
          var10.glMultiTexCoord2f('\u84c1', 0.0F, 0.0F);
          var10.glTexCoord2f((float)var17 / var27, (float)var18 / var28);
-         var10.glVertex2f((float)var1, (float)(HDToolKit.viewHeight - var2));
+         var10.glVertex2f((float)x, (float)(HDToolKit.viewHeight - y));
          var10.glMultiTexCoord2f('\u84c1', 0.0F, var26);
          var10.glTexCoord2f((float)var21 / var27, (float)var22 / var28);
-         var10.glVertex2f((float)var1, (float)(HDToolKit.viewHeight - (var2 + var4)));
+         var10.glVertex2f((float)x, (float)(HDToolKit.viewHeight - (y + height)));
          var10.glMultiTexCoord2f('\u84c1', var25, var26);
          var10.glTexCoord2f((float)var23 / var27, (float)var24 / var28);
-         var10.glVertex2f((float)(var1 + var3), (float)(HDToolKit.viewHeight - (var2 + var4)));
+         var10.glVertex2f((float)(x + width), (float)(HDToolKit.viewHeight - (y + height)));
          var10.glEnd();
          var10.glTexEnvi(8960, '\u8571', 8448);
          var10.glTexEnvi(8960, '\u8580', 5890);
@@ -200,7 +200,6 @@ class Class3_Sub28_Sub16_Sub1 extends Class3_Sub28_Sub16 {
       var2 -= this.anInt3698 << 4;
       var7.glTranslatef((float)var3 / 16.0F, (float)HDToolKit.viewHeight - (float)var4 / 16.0F, 0.0F);
       var7.glRotatef((float)(-var5) * 0.005493164F, 0.0F, 0.0F, 1.0F);
-
        var7.glTranslatef((float)(-var1) / 16.0F, (float)var2 / 16.0F, 0.0F);
       var7.glCallList(this.anInt4076);
       var7.glLoadIdentity();

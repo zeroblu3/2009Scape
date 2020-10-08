@@ -5,6 +5,7 @@ import org.rs09.client.data.HashTable;
 final class AtmosphereParser {
 
     static HashTable aHashTable_3679 = new HashTable(16);
+    static AtmosphereParser[][] aAtmosphereParserArrayArray1581 = new AtmosphereParser[13][13];
     int anInt1175;
     int anInt1177;
     int anInt1178;

@@ -70,7 +70,7 @@ final class Class21 {
          Class3_Sub31 var4 = new Class3_Sub31();
          var4.anInt2603 = walkable;
          var4.anInt2602 = interfaceId;
-         Class3_Sub13_Sub17.aHashTable_3208.put((long)interfaceHash, var4);
+         Class3_Sub13_Sub17.aHashTable_3208.put(interfaceHash, var4);
          Class3_Sub13_Sub13.method232(interfaceId);
          RSInterface var5 = Class7.getRSInterface(interfaceHash);
          if(var5 == null) {

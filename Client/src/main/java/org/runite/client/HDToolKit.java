@@ -711,7 +711,7 @@ public final class HDToolKit {
       gl.glBindTexture(3553, anInt1810);
       gl.glTexImage2D(3553, 0, 4, 1, 1, 0, 6408, 5121, IntBuffer.wrap(new int[]{-1}));
       Class68.method1276();
-      Class3_Sub24_Sub3.method468(6);
+      Class3_Sub24_Sub3.method468();
    }
 
 }

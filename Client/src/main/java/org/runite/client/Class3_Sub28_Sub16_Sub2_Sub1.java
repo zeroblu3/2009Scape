@@ -605,7 +605,7 @@ final class Class3_Sub28_Sub16_Sub2_Sub1 extends Class3_Sub28_Sub16_Sub2 {
       }
    }
 
-   final void method664(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int[] var9, int[] var10) {
+   final void drawMinimapRegion(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int[] var9, int[] var10) {
       try {
          int var11 = -var3 / 2;
          int var12 = -var4 / 2;

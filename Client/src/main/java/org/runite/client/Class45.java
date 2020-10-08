@@ -60,9 +60,9 @@ final class Class45 {
 						var3.textCycle = 150;
 						var3.textColor = var4 >> 8;
 						if (chatIcon == 2) {
-							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:1, message, (RSString)null, RenderAnimationDefinition.method903(new RSString[]{RSString.parse("<img=" + (chatIcon-1) + ">"), var3.getName()}));
+							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:1, message, (RSString)null, RSString.stringCombiner(new RSString[]{RSString.parse("<img=" + (chatIcon-1) + ">"), var3.getName()}));
 						} else if (chatIcon == 1) {
-							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:1, message, (RSString)null, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_592, var3.getName()}));
+							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:1, message, (RSString)null, RSString.stringCombiner(new RSString[]{TextCore.aClass94_592, var3.getName()}));
 						} else {
 							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:2, message, (RSString)null, var3.getName());
 						}
@@ -174,7 +174,7 @@ final class Class45 {
 
 				chatIcon = GraphicDefinition.incomingBuffer.readIntV2();
 				boolean var21 = true;
-				if(var4 != -1 && var3.anInt2842 != -1 && Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var4).anInt542).anInt1857 < Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542).anInt1857) {
+				if(var4 != -1 && var3.anInt2842 != -1 && Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var4).anInt542).anInt1857 < Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542).anInt1857) {
 					var21 = false;
 				}
 
@@ -190,7 +190,7 @@ final class Class45 {
 					var3.anInt2799 = chatIcon >> 16;
 					var3.anInt2826 = 1;
 					if(var3.anInt2842 != -1 && Class44.anInt719 == var3.anInt2759) {
-						var7 = RenderAnimationDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542;
+						var7 = GraphicDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542;
 						if(var7 != -1) {
 							AnimationDefinition var24 = Client.getAnimationDefinition(var7);
 							if(var24.frames != null) {

@@ -4,7 +4,6 @@ import org.rs09.client.Node;
 
 final class Class3_Sub28_Sub8 extends Node {
 
-   static int anInt3609;
    static Class113[] aClass113Array3610;
    static int anInt3611;
    byte[] aByteArray3612;
@@ -39,7 +38,7 @@ final class Class3_Sub28_Sub8 extends Node {
    static void method575(CacheIndex var0, int var1) {
       try {
          if(var1 != -1) {
-            method575((CacheIndex)null, -38);
+            method575(null, -38);
          }
 
          Class3_Sub23.aClass153_2536 = var0;

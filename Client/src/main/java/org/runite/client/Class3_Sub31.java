@@ -23,15 +23,15 @@ final class Class3_Sub31 extends Linkable {
       }
    }
 
-   static RSString[] method822(RSString[] var1) {
+   static RSString[] optionsArrayStringConstructor(RSString[] var1) {
       try {
          RSString[] var2 = new RSString[5];
 
           for(int var3 = 0; var3 < 5; ++var3) {
-            var2[var3] = RenderAnimationDefinition.method903(new RSString[]{
-                    Class72.method1298(var3), TextCore.aClass94_3577});
+            var2[var3] = RSString.stringCombiner(new RSString[]{
+                    RSString.stringAnimator(var3), TextCore.aClass94_3577});
             if(var1 != null && null != var1[var3]) {
-               var2[var3] = RenderAnimationDefinition.method903(new RSString[]{var2[var3], var1[var3]});
+               var2[var3] = RSString.stringCombiner(new RSString[]{var2[var3], var1[var3]});
             }
          }
 

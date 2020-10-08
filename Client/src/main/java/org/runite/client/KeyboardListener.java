@@ -1,4 +1,5 @@
 package org.runite.client;
+import org.rs09.client.config.GameConfig;
 import org.rs09.client.console.DeveloperConsole;
 import org.rs09.client.data.ReferenceCache;
 
@@ -60,7 +61,6 @@ final class KeyboardListener implements KeyListener, FocusListener {
    public final synchronized void keyPressed(KeyEvent var1) {
       try {
 //         System.out.println("Key code: " + var1.getKeyCode());
-
          switch (var1.getKeyCode())
          {
             case 16:
@@ -73,10 +73,10 @@ final class KeyboardListener implements KeyListener, FocusListener {
                DeveloperConsole.INSTANCE.toggle();
                return;
          }
-         if (DeveloperConsole.INSTANCE.getOpen()) {
-            DeveloperConsole.INSTANCE.handleKeyDown(var1);
-            return;
-         }
+//         if (DeveloperConsole.INSTANCE.getOpen()) {
+//            DeveloperConsole.INSTANCE.handleKeyDown(var1);
+//            return;
+//         }
 
          if(null != Class3_Sub13_Sub3.aClass148_3049) {
             Class3_Sub13_Sub33.anInt3398 = 0;
@@ -167,7 +167,24 @@ final class KeyboardListener implements KeyListener, FocusListener {
          DeveloperConsole.INSTANCE.handleKeyPressed(var1);
          return;
       }
-
+      if(var1.isAltDown()){
+         if(var1.getKeyChar()=='n'){
+            GameConfig.NPC_DEBUG_ENABLED = !GameConfig.NPC_DEBUG_ENABLED;
+            Class3_Sub30_Sub1.addChatMessage(TextCore.clientDebugNotifier, 0, RSString.parse("NPC debug context " + GameConfig.NPC_DEBUG_ENABLED), -1);
+            return;
+         }
+         if(var1.getKeyChar()=='o'){
+            GameConfig.OBJECT_DEBUG_ENABLED = !GameConfig.OBJECT_DEBUG_ENABLED;
+            Class3_Sub30_Sub1.addChatMessage(TextCore.clientDebugNotifier, 0, RSString.parse("Object debug context " + GameConfig.NPC_DEBUG_ENABLED), -1);
+            return;
+         }
+         if(var1.getKeyChar()=='i'){
+            GameConfig.ITEM_DEBUG_ENABLED = !GameConfig.ITEM_DEBUG_ENABLED;
+            Class3_Sub30_Sub1.addChatMessage(TextCore.clientDebugNotifier, 0, RSString.parse("Item debug context " + GameConfig.NPC_DEBUG_ENABLED), -1);
+            return;
+         }
+         return;
+      }
       try {
     	 
          if(Class3_Sub13_Sub3.aClass148_3049 != null) {

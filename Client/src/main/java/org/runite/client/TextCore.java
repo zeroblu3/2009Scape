@@ -210,6 +210,10 @@ public class TextCore {
     static RSString COMMAND_ERROR_TEST = RSString.parse("::errortest");
     static RSString COMMAND_SET_PARTICLES = RSString.parse("::setparticles");
     static RSString COMMAND_RECT_DEBUG = RSString.parse("::rect_debug");
+    static RSString COMMAND_RENDER_INFO = RSString.parse("::renderinfo");
+    static RSString COMMAND_RENDER_INFO_OFF = RSString.of("::renderinfooff");
+    static RSString COMMAND_OPENGL_DRAW_RECT = RSString.parse("::openglrect");
+    static RSString COMMAND_OPENGL_DRAW_RECT_OFF = RSString.parse("::openglrectoff");
 
     /**
      * Used as text for client commands
@@ -281,12 +285,15 @@ public class TextCore {
     static RSString aClass94_3133 = RSString.parse(")2");
     static RSString aClass94_422 = RSString.parse("loc");
     static RSString aClass94_3672 = RSString.parse("");
+    static RSString clientDebugNotifier = RSString.parse("<img=2>Client debug notifier");
     static RSString aClass94_3209 = RSString.parse("showingVideoAd");
     static RSString aClass94_592 = RSString.parse("<img=0>");
     static RSString timeZone = RSString.parse(" GMT");
     static RSString aClass94_3190 = RSString.parse("<img=1>");
     static RSString aClass94_3192 = RSString.parse(" ");
     static RSString aClass94_3196 = RSString.parse("Fps:");
+    static RSString openGLVersionText = RSString.parse("Client OpenGL Version:");
+    static RSString graphicsCard = RSString.parse("Graphics Card:");
     static RSString aClass94_3039 = RSString.parse("0");
     static RSString aClass94_3055 = RSString.parse("k");
     static RSString aClass94_3145 = RSString.parse(")1 ");

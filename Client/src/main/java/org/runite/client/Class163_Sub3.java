@@ -65,14 +65,14 @@ final class Class163_Sub3 extends Class163 {
                int var4;
                for(var4 = 0; Class8.anInt104 > var4; ++var4) {
                   if(var0 == Class50.aLongArray826[var4]) {
-                     Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{var3, TextCore.HasFriendsAlready}), -1);
+                     Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, RSString.stringCombiner(new RSString[]{var3, TextCore.HasFriendsAlready}), -1);
                      return;
                   }
                }
 
                for(var4 = 0; var4 < Class3_Sub28_Sub5.anInt3591; ++var4) {
                   if(Class114.ignores[var4] == var0) {
-                     Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.HasPleaseRemove, var3, TextCore.HasIgnoreToFriends}), -1);
+                     Class3_Sub30_Sub1.addChatMessage(TextCore.aClass94_3672, 0, RSString.stringCombiner(new RSString[]{TextCore.HasPleaseRemove, var3, TextCore.HasIgnoreToFriends}), -1);
                      return;
                   }
                }

@@ -77,7 +77,7 @@ final class Class8 {
       try {
          int var9 = 3 & var3;
          if(var1 >= -1) {
-            TextCore.aClass94_106 = (RSString)null;
+            TextCore.aClass94_106 = null;
          }
 
          int var10;
@@ -126,7 +126,7 @@ final class Class8 {
             var21 = Class44.anIntArrayArrayArray723[1 + var8];
          }
 
-         Class136 var22 = var0.method1696(var3, var16, var18, var5, var19, var21, false, (LDIndexedSprite)null, (byte)-69, true, var17);
+         Class136 var22 = var0.method1696(var3, var16, var18, var5, var19, var21, false, null, (byte)-69, true, var17);
          Class141.method2047(Objects.requireNonNull(var22).aClass109_Sub1_1770, -var4 + var16, var20, var17 + -var2);
       } catch (RuntimeException var23) {
          throw ClientErrorException.clientError(var23, "al.K(" + (var0 != null?"{...}":"null") + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ',' + var8 + ')');

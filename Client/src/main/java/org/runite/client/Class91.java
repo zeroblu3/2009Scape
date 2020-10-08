@@ -804,7 +804,7 @@ final class Class91 {
       }
    }
 
-   static void method1493(int var0, int var1, RSInterface var2, int var3) {
+   static void drawCompass(int var0, int var1, RSInterface var2, int var3) {
       try {
          if(HDToolKit.highDetail) {
             Class22.setClipping(var0, var1, var2.width + var0, var2.height + var1);
@@ -820,7 +820,7 @@ final class Class91 {
                Class74.method1332(var0, var1, var2.anIntArray207, var2.anIntArray291);
             }
          } else if(HDToolKit.highDetail) {
-            ((Class3_Sub28_Sub16_Sub1)Class57.aClass3_Sub28_Sub16_895).method647(var0, var1, var2.width, var2.height, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, 256, (Class3_Sub28_Sub16_Sub1)var2.method866(false));
+            ((Class3_Sub28_Sub16_Sub1)Class57.aClass3_Sub28_Sub16_895).drawMinimapRegion(var0, var1, var2.width, var2.height, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, 256, (Class3_Sub28_Sub16_Sub1)var2.method866(false));
          } else {
             ((Class3_Sub28_Sub16_Sub2)Class57.aClass3_Sub28_Sub16_895).method667(var0, var1, var2.width, var2.height, Class57.aClass3_Sub28_Sub16_895.anInt3707 / 2, Class57.aClass3_Sub28_Sub16_895.anInt3696 / 2, GraphicDefinition.CAMERA_DIRECTION, var2.anIntArray207, var2.anIntArray291);
          }

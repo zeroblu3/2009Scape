@@ -126,9 +126,9 @@ final class Class3_Sub28_Sub1 extends Node {
       try {
          RSString var1;
          if(Class164_Sub1.anInt3012 == 1 && Class3_Sub13_Sub34.anInt3415 < 2) {
-            var1 = RenderAnimationDefinition.method903(new RSString[]{TextCore.HasUse, TextCore.Spacer, RenderAnimationDefinition.aClass94_378, TextCore.aClass94_1724});
+            var1 = RSString.stringCombiner(new RSString[]{TextCore.HasUse, TextCore.Spacer, RenderAnimationDefinition.aClass94_378, TextCore.aClass94_1724});
          } else if(GameObject.aBoolean1837 && 2 > Class3_Sub13_Sub34.anInt3415) {
-            var1 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub28_Sub9.aClass94_3621, TextCore.Spacer, TextCore.aClass94_676, TextCore.aClass94_1724});
+            var1 = RSString.stringCombiner(new RSString[]{Class3_Sub28_Sub9.aClass94_3621, TextCore.Spacer, TextCore.aClass94_676, TextCore.aClass94_1724});
          } else if(ClientCommands.shiftClickEnabled && ObjectDefinition.aBooleanArray1490[81] && Class3_Sub13_Sub34.anInt3415 > 2) {
             var1 = Unsorted.method802(Class3_Sub13_Sub34.anInt3415 + -2);
          } else {
@@ -136,8 +136,8 @@ final class Class3_Sub28_Sub1 extends Node {
          }
 
          if(Class3_Sub13_Sub34.anInt3415 > 2) {
-            var1 = RenderAnimationDefinition.method903(new RSString[] {
-                    var1, Class1.aClass94_58, Class72.method1298(Class3_Sub13_Sub34.anInt3415 - 2), TextCore.HasMoreOptions
+            var1 = RSString.stringCombiner(new RSString[] {
+                    var1, Class1.aClass94_58, RSString.stringAnimator(Class3_Sub13_Sub34.anInt3415 - 2), TextCore.HasMoreOptions
             });
 //            System.out.println(var1.toString());
          }

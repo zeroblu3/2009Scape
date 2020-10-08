@@ -34,7 +34,7 @@ final class Class3_Sub8 extends Linkable {
       }
    }
 
-   static void method125(int var0, byte var1, int var2, int var3, RSInterface var4) {
+   static void displayMinimap(int var0, byte var1, int var2, int var3, RSInterface var4) {
       try {
          Class58.method1194();
          if(HDToolKit.highDetail) {
@@ -44,13 +44,13 @@ final class Class3_Sub8 extends Linkable {
          }
 
          if(2 != Class161.anInt2028 && 5 != Class161.anInt2028 && Class49.aClass3_Sub28_Sub16_812 != null) {
-            int var19 = Class3_Sub13_Sub8.anInt3102 + GraphicDefinition.CAMERA_DIRECTION & 2047;
-            int var6 = Class102.player.anInt2819 / 32 + 48;
-            int var7 = -(Class102.player.anInt2829 / 32) + 464;
+            int var19 = Class3_Sub13_Sub8.anInt3102 + GraphicDefinition.CAMERA_DIRECTION & 2047;//Region Rotation (relative to player camera)
+            int var6 = Class102.player.anInt2819 / 32 + 48;//Minimap X Axis (relative to player) Used as offset
+            int var7 = -(Class102.player.anInt2829 / 32) + 464;//Minimap Y Axis (relative to player) Used as offset
             if(HDToolKit.highDetail) {
-               ((Class3_Sub28_Sub16_Sub1)Class49.aClass3_Sub28_Sub16_812).method647(var3, var2, var4.width, var4.height, var6, var7, var19, Class164_Sub2.anInt3020 + 256, (Class3_Sub28_Sub16_Sub1)var4.method866(false));
+               ((Class3_Sub28_Sub16_Sub1)Class49.aClass3_Sub28_Sub16_812).drawMinimapRegion(var3, var2, var4.width, var4.height, var6, var7, var19, Class164_Sub2.anInt3020 + 256, (Class3_Sub28_Sub16_Sub1)var4.method866(false));
             } else {
-               ((Class3_Sub28_Sub16_Sub2)Class49.aClass3_Sub28_Sub16_812).method664(var3, var2, var4.width, var4.height, var6, var7, var19, 256 - -Class164_Sub2.anInt3020, var4.anIntArray207, var4.anIntArray291);
+               ((Class3_Sub28_Sub16_Sub2)Class49.aClass3_Sub28_Sub16_812).drawMinimapRegion(var3, var2, var4.width, var4.height, var6, var7, var19, 256 - -Class164_Sub2.anInt3020, var4.anIntArray207, var4.anIntArray291);
             }
 
             int var9;
@@ -117,7 +117,7 @@ final class Class3_Sub8 extends Linkable {
                   }
                }
 
-               Class38_Sub1.method1030(var4, Class140_Sub4.aClass3_Sub28_Sub16Array2839[var20.MapIcon], var11, var10, var2, var3);
+               Class38_Sub1.minimapIcons(var4, Class140_Sub4.aClass3_Sub28_Sub16Array2839[var20.MapIcon], var11, var10, var2, var3);
             }
 
             for(var9 = 0; 104 > var9; ++var9) {
@@ -126,7 +126,7 @@ final class Class3_Sub8 extends Linkable {
                   if(null != var25) {
                      var12 = 2 + var9 * 4 + -(Class102.player.anInt2819 / 32);
                      var13 = -(Class102.player.anInt2829 / 32) + 2 + 4 * var10;
-                     Class38_Sub1.method1030(var4, Unsorted.aClass3_Sub28_Sub16Array1136[0], var13, var12, var2, var3);
+                     Class38_Sub1.minimapIcons(var4, Unsorted.aClass3_Sub28_Sub16Array1136[0], var13, var12, var2, var3);
                   }
                }
             }
@@ -143,9 +143,9 @@ final class Class3_Sub8 extends Linkable {
                      var12 = var21.anInt2819 / 32 - Class102.player.anInt2819 / 32;
                      var13 = var21.anInt2829 / 32 + -(Class102.player.anInt2829 / 32);
                      if(var22.anInt1283 == -1) {
-                        Class38_Sub1.method1030(var4, Unsorted.aClass3_Sub28_Sub16Array1136[1], var13, var12, var2, var3);
+                        Class38_Sub1.minimapIcons(var4, Unsorted.aClass3_Sub28_Sub16Array1136[1], var13, var12, var2, var3);
                      } else {
-                        Class38_Sub1.method1030(var4, Class140_Sub4.aClass3_Sub28_Sub16Array2839[var22.anInt1283], var13, var12, var2, var3);
+                        Class38_Sub1.minimapIcons(var4, Class140_Sub4.aClass3_Sub28_Sub16Array2839[var22.anInt1283], var13, var12, var2, var3);
                      }
                   }
                }
@@ -181,13 +181,13 @@ final class Class3_Sub8 extends Linkable {
                   }
 
                   if(var28) {
-                     Class38_Sub1.method1030(var4, Unsorted.aClass3_Sub28_Sub16Array1136[3], var12, var11, var2, var3);
+                     Class38_Sub1.minimapIcons(var4, Unsorted.aClass3_Sub28_Sub16Array1136[3], var12, var11, var2, var3);
                   } else if(var31) {
-                     Class38_Sub1.method1030(var4, Unsorted.aClass3_Sub28_Sub16Array1136[5], var12, var11, var2, var3);
+                     Class38_Sub1.minimapIcons(var4, Unsorted.aClass3_Sub28_Sub16Array1136[5], var12, var11, var2, var3);
                   } else if (var32) {
-                     Class38_Sub1.method1030(var4, Unsorted.aClass3_Sub28_Sub16Array1136[4], var12, var11, var2, var3);
+                     Class38_Sub1.minimapIcons(var4, Unsorted.aClass3_Sub28_Sub16Array1136[4], var12, var11, var2, var3);
                   } else {
-                     Class38_Sub1.method1030(var4, Unsorted.aClass3_Sub28_Sub16Array1136[2], var12, var11, var2, var3);
+                     Class38_Sub1.minimapIcons(var4, Unsorted.aClass3_Sub28_Sub16Array1136[2], var12, var11, var2, var3);
                   }
                }
             }
@@ -226,7 +226,7 @@ final class Class3_Sub8 extends Linkable {
             if(Class65.anInt987 != 0) {
                var9 = 4 * Class65.anInt987 + (2 - Class102.player.anInt2819 / 32);
                var10 = 2 + 4 * Class45.anInt733 - Class102.player.anInt2829 / 32;
-               Class38_Sub1.method1030(var4, Class45.aClass3_Sub28_Sub16_736, var10, var9, var2, var3);
+               Class38_Sub1.minimapIcons(var4, Class45.aClass3_Sub28_Sub16_736, var10, var9, var2, var3);
             }
             Toolkit.getActiveToolkit().method934(-1 + (var3 - -(var4.width / 2)), -1 + var2 - -(var4.height / 2), 3, 3, 16777215);
 

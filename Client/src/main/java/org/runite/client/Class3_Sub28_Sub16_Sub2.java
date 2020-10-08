@@ -981,7 +981,7 @@ public class Class3_Sub28_Sub16_Sub2 extends Class3_Sub28_Sub16 {
       this.anInt3698 = this.anInt3706 - this.anInt3696 - this.anInt3698;
    }
 
-   void method664(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int[] var9, int[] var10) {
+   void drawMinimapRegion(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int[] var9, int[] var10) {
       try {
          int var11 = -var3 / 2;
          int var12 = -var4 / 2;
@@ -1032,49 +1032,49 @@ public class Class3_Sub28_Sub16_Sub2 extends Class3_Sub28_Sub16 {
       }
    }
 
-   final void method666(int var1, int var2, int[] var3, int[] var4) {
+   final void drawMinimapIcons(int interfaceWidth, int interfaceHeight, int[] var3, int[] var4) {
       if(Toolkit.JAVA_TOOLKIT.clipBottom - Toolkit.JAVA_TOOLKIT.clipTop == var3.length) {
-         var1 += this.anInt3701;
-         var2 += this.anInt3698;
+         interfaceWidth += this.anInt3701;
+         interfaceHeight += this.anInt3698;
          int var5 = 0;
          int var6 = this.anInt3696;
          int var7 = this.anInt3707;
          int var8 = Toolkit.JAVA_TOOLKIT.width - var7;
          int var9 = 0;
-         int var10 = var1 + var2 * Toolkit.JAVA_TOOLKIT.width;
+         int var10 = interfaceWidth + interfaceHeight * Toolkit.JAVA_TOOLKIT.width;
          int var11;
-         if(var2 < Toolkit.JAVA_TOOLKIT.clipTop) {
-            var11 = Toolkit.JAVA_TOOLKIT.clipTop - var2;
+         if(interfaceHeight < Toolkit.JAVA_TOOLKIT.clipTop) {
+            var11 = Toolkit.JAVA_TOOLKIT.clipTop - interfaceHeight;
             var6 -= var11;
-            var2 = Toolkit.JAVA_TOOLKIT.clipTop;
+            interfaceHeight = Toolkit.JAVA_TOOLKIT.clipTop;
             var5 += var11 * var7;
             var10 += var11 * Toolkit.JAVA_TOOLKIT.width;
          }
 
-         if(var2 + var6 > Toolkit.JAVA_TOOLKIT.clipBottom) {
-            var6 -= var2 + var6 - Toolkit.JAVA_TOOLKIT.clipBottom;
+         if(interfaceHeight + var6 > Toolkit.JAVA_TOOLKIT.clipBottom) {
+            var6 -= interfaceHeight + var6 - Toolkit.JAVA_TOOLKIT.clipBottom;
          }
 
-         if(var1 < Toolkit.JAVA_TOOLKIT.clipLeft) {
-            var11 = Toolkit.JAVA_TOOLKIT.clipLeft - var1;
+         if(interfaceWidth < Toolkit.JAVA_TOOLKIT.clipLeft) {
+            var11 = Toolkit.JAVA_TOOLKIT.clipLeft - interfaceWidth;
             var7 -= var11;
-            var1 = Toolkit.JAVA_TOOLKIT.clipLeft;
+            interfaceWidth = Toolkit.JAVA_TOOLKIT.clipLeft;
             var5 += var11;
             var10 += var11;
             var9 += var11;
             var8 += var11;
          }
 
-         if(var1 + var7 > Toolkit.JAVA_TOOLKIT.clipRight) {
-            var11 = var1 + var7 - Toolkit.JAVA_TOOLKIT.clipRight;
+         if(interfaceWidth + var7 > Toolkit.JAVA_TOOLKIT.clipRight) {
+            var11 = interfaceWidth + var7 - Toolkit.JAVA_TOOLKIT.clipRight;
             var7 -= var11;
             var9 += var11;
             var8 += var11;
          }
 
          if(var7 > 0 && var6 > 0) {
-            var11 = var1 - Toolkit.JAVA_TOOLKIT.clipLeft;
-            int var12 = var2 - Toolkit.JAVA_TOOLKIT.clipTop;
+            var11 = interfaceWidth - Toolkit.JAVA_TOOLKIT.clipLeft;
+            int var12 = interfaceHeight - Toolkit.JAVA_TOOLKIT.clipTop;
 
             for(int var13 = var12; var13 < var12 + var6; ++var13) {
                int var14 = var3[var13];

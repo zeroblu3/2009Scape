@@ -42,7 +42,7 @@ final class Class154 {
 
              return TextCore.aClass94_1687;
          } else {
-            return Class72.method1298(var0);
+            return RSString.stringAnimator(var0);
          }
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "vf.C(" + var0 + ',' + (byte) -78 + ')');

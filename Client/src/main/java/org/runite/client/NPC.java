@@ -88,7 +88,7 @@ final class NPC extends Class140_Sub4 {
 
                 var6 = GraphicDefinition.incomingBuffer.readIntLE();
                 boolean var7 = true;
-                if(var5 != -1 && npc.anInt2842 != -1 && Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, var5).anInt542).anInt1857 < Client.getAnimationDefinition(RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542).anInt1857) {
+                if(var5 != -1 && npc.anInt2842 != -1 && Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var5).anInt542).anInt1857 < Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542).anInt1857) {
                    var7 = false;
                 }
 
@@ -104,7 +104,7 @@ final class NPC extends Class140_Sub4 {
                    }
 
                    if(npc.anInt2842 != -1 && Class44.anInt719 == npc.anInt2759) {
-                      int var8 = RenderAnimationDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542;
+                      int var8 = GraphicDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542;
                       if(var8 != -1) {
                          AnimationDefinition var9 = Client.getAnimationDefinition(var8);
                          if(var9.frames != null) {
@@ -231,7 +231,7 @@ final class NPC extends Class140_Sub4 {
 					this.method1969((byte)115, var15, var1);
 					var17 = null;
 					if(this.anInt2842 != -1 && -1 != this.anInt2805) {
-						GraphicDefinition var21 = RenderAnimationDefinition.getGraphicDefinition((byte)42, this.anInt2842);
+						GraphicDefinition var21 = GraphicDefinition.getGraphicDefinition((byte)42, this.anInt2842);
 						var17 = var21.method966(this.anInt2826, this.anInt2805, this.anInt2761);
 						if(var17 != null) {
 							var17.method1897(0, -this.anInt2799, 0);

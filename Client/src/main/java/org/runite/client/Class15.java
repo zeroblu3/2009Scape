@@ -266,7 +266,7 @@ final class Class15 implements Runnable {
          int var7 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.HOUR_OF_DAY);
          int var8 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.MINUTE);
          int var9 = Class3_Sub28_Sub5.aCalendar3581.get(Calendar.SECOND);
-         return RenderAnimationDefinition.method903(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], TextCore.aClass94_3145, Class72.method1298(var4 / 10), Class72.method1298(var4 % 10), TextCore.aClass94_2025, TextCore.MonthsOfTheYear[var5], TextCore.aClass94_2025, Class72.method1298(var6), TextCore.aClass94_465, Class72.method1298(var7 / 10), Class72.method1298(var7 % 10), TextCore.char_colon, Class72.method1298(var8 / 10), Class72.method1298(var8 % 10), TextCore.char_colon, Class72.method1298(var9 / 10), Class72.method1298(var9 % 10), TextCore.timeZone});
+         return RSString.stringCombiner(new RSString[]{TextCore.DaysOfTheWeek[var3 + -1], TextCore.aClass94_3145, RSString.stringAnimator(var4 / 10), RSString.stringAnimator(var4 % 10), TextCore.aClass94_2025, TextCore.MonthsOfTheYear[var5], TextCore.aClass94_2025, RSString.stringAnimator(var6), TextCore.aClass94_465, RSString.stringAnimator(var7 / 10), RSString.stringAnimator(var7 % 10), TextCore.char_colon, RSString.stringAnimator(var8 / 10), RSString.stringAnimator(var8 % 10), TextCore.char_colon, RSString.stringAnimator(var9 / 10), RSString.stringAnimator(var9 % 10), TextCore.timeZone});
       } catch (RuntimeException var10) {
          throw ClientErrorException.clientError(var10, "cj.F(" + var0 + ')');
       }

@@ -116,9 +116,9 @@ final class Class40 {
          }
 
          if(Class3_Sub13_Sub35.aClass131_3421 == null) {
-            if(null != Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264 && CacheIndex.worldmapIndex.method2135(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}))) {
-               if(CacheIndex.worldmapIndex.method2127(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}))) {
-                  Class3_Sub13_Sub35.aClass131_3421 = Class81.getWorldMapArchive(RenderAnimationDefinition.method903(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}), CacheIndex.worldmapIndex);
+            if(null != Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264 && CacheIndex.worldmapIndex.method2135(RSString.stringCombiner(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}))) {
+               if(CacheIndex.worldmapIndex.method2127(RSString.stringCombiner(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}))) {
+                  Class3_Sub13_Sub35.aClass131_3421 = Class81.getWorldMapArchive(RSString.stringCombiner(new RSString[]{Class3_Sub13_Sub21.aClass3_Sub28_Sub3_3264.aClass94_3561, TextCore.HasPlayerLabels}), CacheIndex.worldmapIndex);
                } else {
                   var1 = false;
                   ++anInt3293;
@@ -164,7 +164,7 @@ final class Class40 {
 
              if(var1) {
                if(Class163_Sub2_Sub1.anInt4019 != 0) {
-                  Class3_Sub13.method164((byte)-24, true, RenderAnimationDefinition.method903(new RSString[]{TextCore.LoadingPleaseWait2, TextCore.aClass94_2707}));
+                  Class3_Sub13.method164((byte)-24, true, RSString.stringCombiner(new RSString[]{TextCore.LoadingPleaseWait2, TextCore.aClass94_2707}));
                }
 
                Class58.method1194();
@@ -323,8 +323,8 @@ final class Class40 {
                   for(int var8 = var4 - 1; var5 - -1 >= var8; ++var8) {
                      for(int var9 = -1 + var6; var7 - -1 >= var9; ++var9) {
                         if(var4 > var8 || var8 > var5 || var6 > var9 || var9 > var7) {
-                           CacheIndex.landscapesIndex.method2124(-124, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3807, Class72.method1298(var8), TextCore.aClass94_3161, Class72.method1298(var9)}));
-                           CacheIndex.landscapesIndex.method2124(-123, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2029, Class72.method1298(var8), TextCore.aClass94_3161, Class72.method1298(var9)}));
+                           CacheIndex.landscapesIndex.method2124(-124, RSString.stringCombiner(new RSString[]{TextCore.aClass94_3807, RSString.stringAnimator(var8), TextCore.aClass94_3161, RSString.stringAnimator(var9)}));
+                           CacheIndex.landscapesIndex.method2124(-123, RSString.stringCombiner(new RSString[]{TextCore.aClass94_2029, RSString.stringAnimator(var8), TextCore.aClass94_3161, RSString.stringAnimator(var9)}));
                         }
                      }
                   }

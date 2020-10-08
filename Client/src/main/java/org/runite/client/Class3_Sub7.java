@@ -36,13 +36,13 @@ final class Class3_Sub7 extends Linkable {
    static RSString itemStackColor(int var0, int var1) {
       try {
          if(100000 > var1) {
-            return RenderAnimationDefinition.method903(new RSString[]{ColorCore.DefaultStackColor, Class72.method1298(var1), TextCore.aClass94_1076});
+            return RSString.stringCombiner(new RSString[]{ColorCore.DefaultStackColor, RSString.stringAnimator(var1), TextCore.aClass94_1076});
          } else {
             if(var0 != 1000) {
                itemStackColor(-54, 54);
             }
 
-            return var1 >= 10000000?RenderAnimationDefinition.method903(new RSString[]{ColorCore.MillionStackColor, Class72.method1298(var1 / 1000000), TextCore.MillionM, TextCore.aClass94_1076}):RenderAnimationDefinition.method903(new RSString[]{ColorCore.ThousandStackColor, Class72.method1298(var1 / 1000), TextCore.ThousandK, TextCore.aClass94_1076});
+            return var1 >= 10000000? RSString.stringCombiner(new RSString[]{ColorCore.MillionStackColor, RSString.stringAnimator(var1 / 1000000), TextCore.MillionM, TextCore.aClass94_1076}): RSString.stringCombiner(new RSString[]{ColorCore.ThousandStackColor, RSString.stringAnimator(var1 / 1000), TextCore.ThousandK, TextCore.aClass94_1076});
          }
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "eb.C(" + var0 + ',' + var1 + ')');

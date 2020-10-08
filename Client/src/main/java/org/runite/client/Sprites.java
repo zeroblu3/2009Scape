@@ -137,7 +137,7 @@ final class Sprites {
       }
    }
 
-   static int method228(CacheIndex var0, CacheIndex var1, boolean var2) {
+   static int method228(CacheIndex var0, CacheIndex var1) {
        try {
            int var3 = 0;
            if (var0.retrieveSpriteFile(p11FullSpriteArchive)) {
@@ -167,7 +167,7 @@ final class Sprites {
 
            return var3;
        } catch (RuntimeException var4) {
-           throw ClientErrorException.clientError(var4, "fn.B(" + (var0 != null ? "{...}" : "null") + ',' + (var1 != null ? "{...}" : "null") + ',' + var2 + ')');
+           throw ClientErrorException.clientError(var4, "fn.B(" + (var0 != null ? "{...}" : "null") + ',' + (var1 != null ? "{...}" : "null") + ')');
        }
    }
 

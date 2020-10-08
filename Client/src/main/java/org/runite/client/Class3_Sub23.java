@@ -75,7 +75,7 @@ final class Class3_Sub23 extends Linkable {
 
          int var11;
          for(var11 = 0; var2 > var11; ++var11) {
-            Objects.requireNonNull(var10).append(Class72.method1298((int)(var3 % 10L)));
+            Objects.requireNonNull(var10).append(RSString.stringAnimator((int)(var3 % 10L)));
             var3 /= 10L;
          }
 
@@ -90,7 +90,7 @@ final class Class3_Sub23 extends Linkable {
                   var12.append(var8);
                }
 
-               Objects.requireNonNull(var12).append(Class72.method1298((int)(var3 % 10L)));
+               Objects.requireNonNull(var12).append(RSString.stringAnimator((int)(var3 % 10L)));
                ++var11;
             }
 
@@ -101,7 +101,7 @@ final class Class3_Sub23 extends Linkable {
              var10.append(var7);
           }
 
-          return RenderAnimationDefinition.method903(new RSString[]{var6, Objects.requireNonNull(var9).method1544(true), var10.method1544(true)});
+          return RSString.stringCombiner(new RSString[]{var6, Objects.requireNonNull(var9).method1544(true), var10.method1544(true)});
       } catch (RuntimeException var13) {
          throw ClientErrorException.clientError(var13, "oj.C(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + 2 + ')');
       }

@@ -296,7 +296,7 @@ final class Player extends Class140_Sub4 {
                this.method1969((byte)110, var15, var1);
                var23 = null;
                if(!this.aBoolean3968 && this.anInt2842 != -1 && this.anInt2805 != -1) {
-                  GraphicDefinition var26 = RenderAnimationDefinition.getGraphicDefinition((byte)42, this.anInt2842);
+                  GraphicDefinition var26 = GraphicDefinition.getGraphicDefinition((byte)42, this.anInt2842);
                   var23 = var26.method966(this.anInt2826, this.anInt2805, this.anInt2761);
                   if(var23 != null) {
                      var23.method1897(0, -this.anInt2799, 0);
@@ -419,11 +419,11 @@ final class Player extends Class140_Sub4 {
          RSString var2 = this.displayName;
 
          if(Class3_Sub30_Sub1.aClass94Array3802 != null) {
-            var2 = RenderAnimationDefinition.method903(new RSString[]{Class3_Sub30_Sub1.aClass94Array3802[this.anInt3958], var2});
+            var2 = RSString.stringCombiner(new RSString[]{Class3_Sub30_Sub1.aClass94Array3802[this.anInt3958], var2});
          }
 
          if(null != Unsorted.aClass94Array45) {
-            var2 = RenderAnimationDefinition.method903(new RSString[]{var2, Unsorted.aClass94Array45[this.anInt3958]});
+            var2 = RSString.stringCombiner(new RSString[]{var2, Unsorted.aClass94Array45[this.anInt3958]});
          }
 
          return var2;

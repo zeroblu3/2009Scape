@@ -1,11 +1,13 @@
 package org.runite.client;
 
 import org.rs09.client.Linkable;
+import org.rs09.client.data.NodeCache;
 
 final class Class3_Sub20 extends Linkable {
 
    static int[] anIntArray2480 = new int[25];
     static RSString aClass94_3220;
+    static NodeCache aClass47_3801 = new NodeCache(4);
 
     int anInt2483;
    static int wlPacketIndex = 0;
@@ -33,7 +35,7 @@ final class Class3_Sub20 extends Linkable {
 	         Class49.aClass3_Sub28_Sub16_812 = null;
 	         Class58.anInt909 = -1;
 	         Class3_Sub13_Sub30.method313((byte)55);
-	         Class3_Sub28_Sub21.aClass47_3801.clear();
+	         aClass47_3801.clear();
 	         ObjectDefinition.aClass136_1413 = new Class136();
 	         ((Class102)Class51.anInterface2_838).method1618();
 	         Class68.anInt1032 = 0;

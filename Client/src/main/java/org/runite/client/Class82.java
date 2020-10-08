@@ -323,7 +323,7 @@ final class Class82 {
                         }
 
                         Class75_Sub3.aClass3_Sub28_Sub16Array2656[((Class140_Sub4)var8).anIntArray2815[var19]].method643(-12 + var2 + Class32.anInt590, var0 + anInt2208 - 12);
-                        Class3_Sub13.aClass3_Sub28_Sub17_2379.method699(Class72.method1298(((Class140_Sub4)var8).anIntArray2836[var19]), -1 + Class32.anInt590 + var2, 3 + anInt2208 + var0, 16777215, 0);
+                        Class3_Sub13.aClass3_Sub28_Sub17_2379.method699(RSString.stringAnimator(((Class140_Sub4)var8).anIntArray2836[var19]), -1 + Class32.anInt590 + var2, 3 + anInt2208 + var0, 16777215, 0);
                      }
                   }
                }

@@ -1,6 +1,8 @@
 package org.runite.client;
+import javafx.animation.Animation;
 import org.rs09.client.Node;
 
+import java.nio.ByteBuffer;
 import java.util.Calendar;
 import java.util.Objects;
 import java.util.TimeZone;
@@ -125,122 +127,122 @@ final class Class3_Sub28_Sub5 extends Node {
       }
    }
 
-   /*
-    * public static void decodeNew(int file) {
-		try {
-			ByteBuffer buffer = buffers[file];
 
-			if (buffer != null) {
+//    public static void decodeNew(int file) {
+//		try {
+//			ByteBuffer buffer = buffers[file];
+//
+//			if (buffer != null) {
+//
+//				buffer.position(1);
+//
+//				int skin_id = buffer.getShort() & 0xFFFF;
+//
+//				if (skin_id == 0) {
+//					return;
+//				}
+//
+//				Skins skin = new Skins(0, SignLink.cache.read(1, skin_id).getData());
+//
+//				ByteBuffer parent = ByteBuffer.wrap(buffer.array());
+//
+//				parent.position(3);//skip the first 3 bytes, like the 666 client does.
+//
+//				int children = parent.get() & 0xFF;
+//
+//				Animation[] headers = new Animation[children];
+//
+//				ByteBuffer child = ByteBuffer.wrap(parent.array());
+//				child.position(parent.position() + children);
+//
+//
+//				int vertice_amt = 0;
+//				int unflagged_vertex = -1;
+//				int flagged_vertex = -1;
+//
+//				for (int i = 0; i < children; i++) {
+//
+//					Animation animation = headers[i] = new Animation();
+//
+//					int type = skin.anIntArray646[i];
+//
+//					if (type == 0) {
+//						unflagged_vertex = i;
+//					}
+//
+//					int flags = child.get() & 0xFF;
+//
+//					if (flags <= 0) {
+//						continue;
+//					}
+//
+//					if (type == 0) {
+//						flagged_vertex = i;
+//					}
+//
+//					vertex_offset_copy[vertice_amt] = i;
+//
+//					int static_frame = type == 3 || type == 10 ? 128 : 0;
+//
+//					x_buff_copy[vertice_amt] = (flags & 0x1) != 0 ? BufferUtils.getUnsignedSmart(child) : static_frame;
+//					y_buff_copy[vertice_amt] = (flags & 0x2) != 0 ? BufferUtils.getUnsignedSmart(child) : static_frame;
+//					z_buff_copy[vertice_amt] = (flags & 0x4) != 0 ? BufferUtils.getUnsignedSmart(child) : static_frame;
+//
+//					xyz_flag_copy[vertice_amt] = (byte) (flags >>> 3 & 0x3);
+//
+//					if (type == 2 || type == 9) {
+//						x_buff_copy[vertice_amt] = x_buff_copy[vertice_amt] << 2 & 0x3fff;
+//						y_buff_copy[vertice_amt] = y_buff_copy[vertice_amt] << 2 & 0x3fff;
+//						z_buff_copy[vertice_amt] = z_buff_copy[vertice_amt] << 2 & 0x3fff;
+//					}
+//
+//					if (type == 1 || type == 2 || type == 3 && (unflagged_vertex > flagged_vertex)) {
+//						skin_vertices[vertice_amt] = unflagged_vertex;
+//						flagged_vertex = unflagged_vertex;
+//					} else {
+//						skin_vertices[vertice_amt] = -1;
+//					}
+//
+//					if (type == 5) {
+//						animation.aBoolean688 = true;
+//					} else if (type == 7) {
+//						animation.aBoolean684 = true;
+//					} else if (type == 8 || type == 9 || type == 10) {
+//						animation.aBoolean681 = true;
+//					}
+//
+//					vertice_amt++;
+//				}
+//
+//				//resize arrays and copy into them.
+//
+//				for (Animation animation : headers) {
+//					animation.vertices = vertice_amt;
+//					animation.xBuffer = new int[vertice_amt];
+//					animation.yBuffer = new int[vertice_amt];
+//					animation.zBuffer = new int[vertice_amt];
+//					animation.skinVertices = new int[vertice_amt];
+//					animation.xyzFlags = new int[vertice_amt];
+//					animation.vertexOffsets = new int[vertice_amt];
+//
+//					for (int vextex = 0; vextex < vertice_amt; vextex++) {
+//						animation.xBuffer[vextex] = x_buff_copy[vextex];
+//						animation.yBuffer[vextex] = y_buff_copy[vextex];
+//						animation.zBuffer[vextex] = z_buff_copy[vextex];
+//						animation.skinVertices[vextex] = skin_vertices[vextex];
+//						animation.xyzFlags[vextex] = xyz_flag_copy[vextex];
+//						animation.vertexOffsets[vextex] = vertex_offset_copy[vextex];
+//					}
+//				}
+//				cache[file] = headers;
+//			} else {
+//				System.out.println("[Animation] Unrecognized skeleton file request.");
+//			}
+//		} catch (Exception exception) {
+//			exception.printStackTrace();
+//		}
+//	}
 
-				buffer.position(1);
-
-				int skin_id = buffer.getShort() & 0xFFFF;
-
-				if (skin_id == 0) {
-					return;
-				}
-
-				Skins skin = new Skins(0, SignLink.cache.read(1, skin_id).getData());
-
-				ByteBuffer parent = ByteBuffer.wrap(buffer.array());
-
-				parent.position(3);//skip the first 3 bytes, like the 666 client does.
-
-				int children = parent.get() & 0xFF;
-
-				Animation[] headers = new Animation[children];
-
-				ByteBuffer child = ByteBuffer.wrap(parent.array());
-				child.position(parent.position() + children);
-
-
-				int vertice_amt = 0;
-				int unflagged_vertex = -1;
-				int flagged_vertex = -1;
-
-				for (int i = 0; i < children; i++) {
-
-					Animation animation = headers[i] = new Animation();
-
-					int type = skin.anIntArray646[i];
-
-					if (type == 0) {
-						unflagged_vertex = i;
-					}
-
-					int flags = child.get() & 0xFF;
-
-					if (flags <= 0) {
-						continue;
-					}
-
-					if (type == 0) {
-						flagged_vertex = i;
-					}
-
-					vertex_offset_copy[vertice_amt] = i;
-
-					int static_frame = type == 3 || type == 10 ? 128 : 0;
-
-					x_buff_copy[vertice_amt] = (flags & 0x1) != 0 ? BufferUtils.getUnsignedSmart(child) : static_frame;
-					y_buff_copy[vertice_amt] = (flags & 0x2) != 0 ? BufferUtils.getUnsignedSmart(child) : static_frame;
-					z_buff_copy[vertice_amt] = (flags & 0x4) != 0 ? BufferUtils.getUnsignedSmart(child) : static_frame;
-
-					xyz_flag_copy[vertice_amt] = (byte) (flags >>> 3 & 0x3);
-
-					if (type == 2 || type == 9) {
-						x_buff_copy[vertice_amt] = x_buff_copy[vertice_amt] << 2 & 0x3fff;
-						y_buff_copy[vertice_amt] = y_buff_copy[vertice_amt] << 2 & 0x3fff;
-						z_buff_copy[vertice_amt] = z_buff_copy[vertice_amt] << 2 & 0x3fff;
-					}
-
-					if (type == 1 || type == 2 || type == 3 && (unflagged_vertex > flagged_vertex)) {
-						skin_vertices[vertice_amt] = unflagged_vertex;
-						flagged_vertex = unflagged_vertex;
-					} else {
-						skin_vertices[vertice_amt] = -1;
-					}
-
-					if (type == 5) {
-						animation.aBoolean688 = true;
-					} else if (type == 7) {
-						animation.aBoolean684 = true;
-					} else if (type == 8 || type == 9 || type == 10) {
-						animation.aBoolean681 = true;
-					}
-
-					vertice_amt++;
-				}
-
-				//resize arrays and copy into them.
-
-				for (Animation animation : headers) {
-					animation.vertices = vertice_amt;
-					animation.xBuffer = new int[vertice_amt];
-					animation.yBuffer = new int[vertice_amt];
-					animation.zBuffer = new int[vertice_amt];
-					animation.skinVertices = new int[vertice_amt];
-					animation.xyzFlags = new int[vertice_amt];
-					animation.vertexOffsets = new int[vertice_amt];
-
-					for (int vextex = 0; vextex < vertice_amt; vextex++) {
-						animation.xBuffer[vextex] = x_buff_copy[vextex];
-						animation.yBuffer[vextex] = y_buff_copy[vextex];
-						animation.zBuffer[vextex] = z_buff_copy[vextex];
-						animation.skinVertices[vextex] = skin_vertices[vextex];
-						animation.xyzFlags[vextex] = xyz_flag_copy[vextex];
-						animation.vertexOffsets[vextex] = vertex_offset_copy[vextex];
-					}
-				}
-				cache[file] = headers;
-			} else {
-				System.out.println("[Animation] Unrecognized skeleton file request.");
-			}
-		} catch (Exception exception) {
-			exception.printStackTrace();
-		}
-	}
-    */
    //Animation header
    Class3_Sub28_Sub5(CacheIndex cacheIndex0, CacheIndex var2, int frame) {
       try {

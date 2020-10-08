@@ -192,7 +192,7 @@ final class Class30 {
 
    static void method979(int var0, int var1, int var2) {
       try {
-         RSString var4 = RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_853, Class72.method1298(var2), TextCore.aClass94_3268, Class72.method1298(var0 >> 6), TextCore.aClass94_3268, Class72.method1298(var1 >> 6), TextCore.aClass94_3268, Class72.method1298(var0 & 63), TextCore.aClass94_3268, Class72.method1298(63 & var1)});
+         RSString var4 = RSString.stringCombiner(new RSString[]{TextCore.aClass94_853, RSString.stringAnimator(var2), TextCore.aClass94_3268, RSString.stringAnimator(var0 >> 6), TextCore.aClass94_3268, RSString.stringAnimator(var1 >> 6), TextCore.aClass94_3268, RSString.stringAnimator(var0 & 63), TextCore.aClass94_3268, RSString.stringAnimator(63 & var1)});
 
           ClientCommands.ClientCommands(var4);
       } catch (RuntimeException var5) {

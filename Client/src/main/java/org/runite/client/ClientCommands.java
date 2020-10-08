@@ -7,6 +7,8 @@ public class ClientCommands {
     static boolean fpsOverlayEnabled = false;
     static boolean tweeningEnabled = false;
     static boolean shiftClickEnabled = false;
+    static boolean renderInfoOverlayEnabled = false;
+    static boolean openGLDrawRectTestEnabled = false;
     /**
      * Removed out of (depreciated)Properties.java
      */
@@ -28,7 +30,7 @@ public class ClientCommands {
 
                 runtime = Runtime.getRuntime();
                 var3 = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-                Class3_Sub30_Sub1.addChatMessage(null, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.memoryEquals, Class72.method1298(var3), TextCore.Memoryk}), -1);
+                Class3_Sub30_Sub1.addChatMessage(null, 0, RSString.stringCombiner(new RSString[]{TextCore.memoryEquals, RSString.stringAnimator(var3), TextCore.Memoryk}), -1);
             }
 
             int var4;
@@ -41,7 +43,7 @@ public class ClientCommands {
 
                 runtime = Runtime.getRuntime();
                 var3 = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
-                Class3_Sub30_Sub1.addChatMessage(null, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.memoryBeforeCleanup, Class72.method1298(var3), TextCore.Memoryk}), -1);
+                Class3_Sub30_Sub1.addChatMessage(null, 0, RSString.stringCombiner(new RSString[]{TextCore.memoryBeforeCleanup, RSString.stringAnimator(var3), TextCore.Memoryk}), -1);
                 Class3_Sub1.method90(1);
                 clearClientCacheMemory();
 
@@ -50,11 +52,11 @@ public class ClientCommands {
                 }
 
                 var3 = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
-                Class3_Sub30_Sub1.addChatMessage(null, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2033, Class72.method1298(var3), TextCore.Memoryk}), -1);
+                Class3_Sub30_Sub1.addChatMessage(null, 0, RSString.stringCombiner(new RSString[]{TextCore.aClass94_2033, RSString.stringAnimator(var3), TextCore.Memoryk}), -1);
             }
 
             if (command.equalsStringIgnoreCase(TextCore.COMMAND_PC_CACHE_SIZE)) {
-                Class3_Sub30_Sub1.addChatMessage(null, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_442, Class72.method1298(Unsorted.method1727((byte) 123))}), -1);
+                Class3_Sub30_Sub1.addChatMessage(null, 0, RSString.stringCombiner(new RSString[]{TextCore.aClass94_442, RSString.stringAnimator(Unsorted.method1727((byte) 123))}), -1);
             }
 
             if (HDToolKit.highDetail && command.equalsStringIgnoreCase(TextCore.COMMAND_GRAPHICS_CARD_MEMORY)) {
@@ -95,6 +97,19 @@ public class ClientCommands {
 
             if (command.equalsStringIgnoreCase(TextCore.COMMAND_TOGGLE_FPSOFF)) {
                 fpsOverlayEnabled = false;
+            }
+            if (command.equalsStringIgnoreCase(TextCore.COMMAND_RENDER_INFO)) {
+                renderInfoOverlayEnabled = true;
+            }
+
+            if (command.equalsStringIgnoreCase(TextCore.COMMAND_RENDER_INFO_OFF)) {
+                renderInfoOverlayEnabled = false;
+            }
+            if (command.equalsStringIgnoreCase(TextCore.COMMAND_OPENGL_DRAW_RECT)) {
+                ;
+            }
+            if (command.equalsStringIgnoreCase(TextCore.COMMAND_OPENGL_DRAW_RECT_OFF)) {
+                ;
             }
             if (command.equalsStringIgnoreCase(TextCore.TOGGLE_FK)) {
                 boolean on = !modernHotkeys;
@@ -144,7 +159,7 @@ public class ClientCommands {
 
             if (command.startsWith(TextCore.COMMAND_RECT_DEBUG)) {
                 Client.rectDebugInt = command.substring(12).trim(1).parseInt();
-                Class3_Sub30_Sub1.addChatMessage(null, 0, RenderAnimationDefinition.method903(new RSString[]{TextCore.rectDebugEquals, Class72.method1298(Client.rectDebugInt)}), -1);
+                Class3_Sub30_Sub1.addChatMessage(null, 0, RSString.stringCombiner(new RSString[]{TextCore.rectDebugEquals, RSString.stringAnimator(Client.rectDebugInt)}), -1);
             }
 
             if (command.equalsStringIgnoreCase(TextCore.COMMAND_QA_OP_TEST)) {

@@ -19,7 +19,7 @@ final class Class17 {
                   var5 = -var3.anInt2829 + var1.anInt2829;
                   var4 = -var3.anInt2819 + var1.anInt2819;
                   if(0 != var4 || 0 != var5) {
-                     var1.anInt2806 = (int)(Math.atan2((double)var4, (double)var5) * 325.949D) & 2047;
+                     var1.anInt2806 = (int)(Math.atan2(var4, var5) * 325.949D) & 2047;
                   }
                }
             }

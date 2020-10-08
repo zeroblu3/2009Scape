@@ -198,7 +198,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 				if(var4 == 1006) {
 					var13 = Class7.getRSInterface(var3);
 					if(null != var13 && var13.itemIds[var2] >= 100000) {
-						addChatMessage(TextCore.aClass94_3672, 0, RenderAnimationDefinition.method903(new RSString[]{Class72.method1298(var13.itemIds[var2]), TextCore.aClass94_3777, Class38.getItemDefinition(var5).name}), -1);
+						addChatMessage(TextCore.aClass94_3672, 0, RSString.stringCombiner(new RSString[]{RSString.stringAnimator(var13.itemIds[var2]), TextCore.aClass94_3777, Class38.getItemDefinition(var5).name}), -1);
 					} else {
 						Class3_Sub13_Sub1.outgoingBuffer.putOpcode(92);
 						Class3_Sub13_Sub1.outgoingBuffer.writeShort128LE(var5);
@@ -416,9 +416,9 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 						}
 
 						if(var13.usingScripts) {
-							TextCore.aClass94_676 = RenderAnimationDefinition.method903(new RSString[]{var13.aClass94_277, ColorCore.ContextColor });
+							TextCore.aClass94_676 = RSString.stringCombiner(new RSString[]{var13.aClass94_277, ColorCore.ContextColor });
 						} else {
-							TextCore.aClass94_676 = RenderAnimationDefinition.method903(new RSString[]{RSString.parse("<col=00ff00>"), var13.aClass94_243, ColorCore.ContextColor });
+							TextCore.aClass94_676 = RSString.stringCombiner(new RSString[]{RSString.parse("<col=00ff00>"), var13.aClass94_243, ColorCore.ContextColor });
 						}
 					}
 
@@ -591,7 +591,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 						var13 = Class7.getRSInterface(var3);
 						boolean var15 = true;
 						if(0 < Objects.requireNonNull(var13).anInt189) {
-							var15 = Class3_Sub28_Sub19.method715(var13);
+							var15 = method715(var13);
 						}
 
 						if(var15) {
@@ -699,7 +699,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 							Class164_Sub1.anInt3012 = 1;
 							Class164.anInt2050 = var5;
 							Class20.method909(var13);
-							RenderAnimationDefinition.aClass94_378 = RenderAnimationDefinition.method903(new RSString[]{
+							RenderAnimationDefinition.aClass94_378 = RSString.stringCombiner(new RSString[]{
 									ColorCore.ContextColor2, Class38.getItemDefinition(var5).name, ColorCore.ContextColor
 							});
 
@@ -852,7 +852,20 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 		}
 	}
 
-	final void setBitAccess(byte var1) {
+    static boolean method715(RSInterface var1) {
+       try {
+          if(205 == var1.anInt189) {
+             Class159.anInt2023 = 250;
+             return true;
+          } else {
+             return false;
+          }
+       } catch (RuntimeException var3) {
+          throw ClientErrorException.clientError(var3, "ud.B(" + 205 + ',' + "null" + ')');
+       }
+    }
+
+    final void setBitAccess(byte var1) {
 		try {
 			this.headiconsPrayerSpriteArchive6 = this.index * 8;
 		} catch (RuntimeException var3) {
@@ -871,7 +884,7 @@ public final class Class3_Sub30_Sub1 extends DataBuffer {
 				Class3_Sub13_Sub32.aBoolean3387 = false;
 			}
 
-			AtmosphereParser var5 = Class115.aAtmosphereParserArrayArray1581[var3][var1];
+			AtmosphereParser var5 = AtmosphereParser.aAtmosphereParserArrayArray1581[var3][var1];
 			float var7 = ((float)var2 * 0.1F + 0.7F) * var5.aFloat1187;
 			float var8 = var5.aFloat1190;
 			int var6 = var5.anInt1177;

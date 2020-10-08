@@ -64,10 +64,10 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                   anInt2246 = 0;
                   ++anInt1616;
                   anInt3375 = 1;
-                  if(Class123.anInt1658 == Class3_Sub28_Sub19.anInt3773) {
+                  if(Class123.anInt1658 == Client.anInt3773) {
                      Class123.anInt1658 = Class53.anInt867;
                   } else {
-                     Class123.anInt1658 = Class3_Sub28_Sub19.anInt3773;
+                     Class123.anInt1658 = Client.anInt3773;
                   }
                }
 
@@ -144,10 +144,10 @@ final class Class163_Sub1_Sub1 extends Class163_Sub1 {
                }
 
                if(anInt1616 < 1) {
-                  if(Class123.anInt1658 == Class3_Sub28_Sub19.anInt3773) {
+                  if(Class123.anInt1658 == Client.anInt3773) {
                      Class123.anInt1658 = Class53.anInt867;
                   } else {
-                     Class123.anInt1658 = Class3_Sub28_Sub19.anInt3773;
+                     Class123.anInt1658 = Client.anInt3773;
                   }
 
                   anInt3375 = 1;

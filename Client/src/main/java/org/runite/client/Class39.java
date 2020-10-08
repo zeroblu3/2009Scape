@@ -93,10 +93,10 @@ final class Class39 {
 					Class3_Sub24_Sub3.anIntArray3494[var6] = var14;
 					int var16 = var14 & 255;
 					var15 = ('\uff6c' & var14) >> 8;
-				Client.anIntArray2200[var6] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3807, Class72.method1298(var15), TextCore.aClass94_3161, Class72.method1298(var16)}));
-				Class101.anIntArray1426[var6] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2029, Class72.method1298(var15), TextCore.aClass94_3161, Class72.method1298(var16)}));
-				Class3_Sub13_Sub15.anIntArray3181[var6] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_1333, Class72.method1298(var15), TextCore.aClass94_3161, Class72.method1298(var16)}));
-				Class3_Sub28_Sub5.anIntArray3587[var6] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298(var15), TextCore.aClass94_3161, Class72.method1298(var16)}));
+				Client.anIntArray2200[var6] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.aClass94_3807, RSString.stringAnimator(var15), TextCore.aClass94_3161, RSString.stringAnimator(var16)}));
+				Class101.anIntArray1426[var6] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.aClass94_2029, RSString.stringAnimator(var15), TextCore.aClass94_3161, RSString.stringAnimator(var16)}));
+				Class3_Sub13_Sub15.anIntArray3181[var6] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.aClass94_1333, RSString.stringAnimator(var15), TextCore.aClass94_3161, RSString.stringAnimator(var16)}));
+				Class3_Sub28_Sub5.anIntArray3587[var6] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.HasULLookUp, RSString.stringAnimator(var15), TextCore.aClass94_3161, RSString.stringAnimator(var16)}));
 				++var6;
 				}
 							}
@@ -153,10 +153,10 @@ final class Class39 {
 							Class3_Sub28_Sub5.anIntArray3587[var3] = -1;
 						} else {
 							Class3_Sub24_Sub3.anIntArray3494[var3] = var11;
-							Client.anIntArray2200[var3] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_3807, Class72.method1298(var9), TextCore.aClass94_3161, Class72.method1298(var10)}));
-							Class101.anIntArray1426[var3] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_2029, Class72.method1298(var9), TextCore.aClass94_3161, Class72.method1298(var10)}));
-							Class3_Sub13_Sub15.anIntArray3181[var3] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.aClass94_1333, Class72.method1298(var9), TextCore.aClass94_3161, Class72.method1298(var10)}));
-							Class3_Sub28_Sub5.anIntArray3587[var3] = CacheIndex.landscapesIndex.getArchiveForName(RenderAnimationDefinition.method903(new RSString[]{TextCore.HasULLookUp, Class72.method1298(var9), TextCore.aClass94_3161, Class72.method1298(var10)}));
+							Client.anIntArray2200[var3] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.aClass94_3807, RSString.stringAnimator(var9), TextCore.aClass94_3161, RSString.stringAnimator(var10)}));
+							Class101.anIntArray1426[var3] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.aClass94_2029, RSString.stringAnimator(var9), TextCore.aClass94_3161, RSString.stringAnimator(var10)}));
+							Class3_Sub13_Sub15.anIntArray3181[var3] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.aClass94_1333, RSString.stringAnimator(var9), TextCore.aClass94_3161, RSString.stringAnimator(var10)}));
+							Class3_Sub28_Sub5.anIntArray3587[var3] = CacheIndex.landscapesIndex.getArchiveForName(RSString.stringCombiner(new RSString[]{TextCore.HasULLookUp, RSString.stringAnimator(var9), TextCore.aClass94_3161, RSString.stringAnimator(var10)}));
 						}
 
 						++var3;
@@ -246,7 +246,7 @@ final class Class39 {
 
 			for(int var2 = 0; var2 < 13; ++var2) {
 				for(int var3 = 0; var3 < 13; ++var3) {
-					Class115.aAtmosphereParserArrayArray1581[var2][var3] = var1;
+					AtmosphereParser.aAtmosphereParserArrayArray1581[var2][var3] = var1;
 				}
 			}
 
