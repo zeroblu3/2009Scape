@@ -1,6 +1,6 @@
 package org.rs09.client.net.game.inbound
 
-import org.runite.jagex.DataBuffer
+import org.runite.client.DataBuffer
 
 interface GamePacketDecoder {
     fun decode(buffer: DataBuffer)

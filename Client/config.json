@@ -1,5 +1,9 @@
 {
-  "ip_address": "localhost",
+  "ip_address": "play.2009scape.org",
+  "ip_management" : "play.2009scape.org",
+  "server_port": 43594,
+  "wl_port": 5555,
+  "world": 1,
 
   "customization": {
     "login_theme": "newbie melody",
@@ -20,8 +24,16 @@
       },
       "styles": {
         "Presets provide default customizations.": "rs3, classic, or custom. custom allows you to define your own values above. Classic is standard 2009.",
-        "presets": "rs3",
+        "presets": "classic",
         "rs3border": true
+      }
+    },
+    "rendering_options": {
+      "technical": {
+        "render_distance_increase": false
+      },
+      "skybox": {
+        "skybox_color" : "Coming in a future update..."
       }
     }
   },

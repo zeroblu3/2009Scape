@@ -148,7 +148,7 @@ public final class LumbridgeGuideDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 100:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "First I must warn you to take every precaution to", "keep your " + GameWorld.getName() + " password and PIN secure. The", "most important thing to remember is to never give your", "password to, or share you account with, anyone.");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "First I must warn you to take every precaution to", "keep your " + GameWorld.getSettings().getName() + " password and PIN secure. The", "most important thing to remember is to never give your", "password to, or share you account with, anyone.");
 			stage = 101;
 			break;
 		case 101:

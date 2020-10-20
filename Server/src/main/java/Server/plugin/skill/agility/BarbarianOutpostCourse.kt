@@ -81,7 +81,7 @@ class BarbarianOutpostCourse
             player.packetDispatch.sendMessage("You cannot do that from here.")
             return
         }
-        if (ropeDelay > GameWorld.getTicks()) {
+        if (ropeDelay > GameWorld.ticks) {
             player.packetDispatch.sendMessage("The rope is being used.")
             return
         }
@@ -89,7 +89,7 @@ class BarbarianOutpostCourse
             AgilityHandler.fail(player, 0, Location.create(2549, 9951, 0), null, getHitAmount(player), "You slip and fall to the pit bellow.")
             return
         }
-        ropeDelay = GameWorld.getTicks() + 2
+        ropeDelay = GameWorld.ticks + 2
         player.packetDispatch.sendObjectAnimation(`object`, Animation.create(497), true)
         AgilityHandler.forceWalk(player, 0, player.location, Location.create(2551, 3549, 0), Animation.create(751), 50, 22.0, "You skillfully swing across.", 1)
     }

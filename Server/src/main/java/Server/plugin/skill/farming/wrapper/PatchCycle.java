@@ -78,11 +78,9 @@ public final class PatchCycle implements SavingModule {
 
 	@Override
 	public void save(ByteBuffer buffer) {
-		SavedData.save(buffer, compostThreshold, 1);
-		SavedData.save(buffer, growthTime, 3);
-		SavedData.save(buffer, harvestAmount, 4);
-		SavedData.save(buffer, protection, 6);
-		buffer.put((byte) 0);
+		/**
+		 * Binary saving has been deprecated, for actual save location start at PlayerSaver.kt, saveFarming()
+		 */
 	}
 
 	@Override

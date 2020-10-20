@@ -67,7 +67,7 @@ public class RunecraftingPlugin extends OptionHandler {
 			player.lock(4);
 			player.getInterfaceManager().openOverlay(new Component(115));
 			PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 1));
-			GameWorld.Pulser.submit(new Pulse(4, player) {
+			GameWorld.getPulser().submit(new Pulse(4, player) {
 
 				@Override
 				public boolean pulse() {

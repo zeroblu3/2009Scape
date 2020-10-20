@@ -181,9 +181,9 @@ class StarSpriteDialogue(player: Player? = null) : DialoguePlugin(player) {
                     npc("I have rewarded you by making it so you can mine", "extra ore for the next 15 minutes. Also, have $cosmicRunes", "cosmic runes, $astralRunes astral runes, $goldOre gold ore and $coins", "coins.")
                     player.setAttribute("SS Mining Bonus", System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(15))
                     player.getSavedData().getGlobalData().setStarSpriteDelay(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1))
-                    val endTick = GameWorld.getTicks() + 1500
+                    val endTick = GameWorld.ticks + 1500
                     player.setAttribute("SS Mining Bonus", endTick)
-                    val orePulse = DoubleOrePulse(player, endTick, GameWorld.getTicks())
+                    val orePulse = DoubleOrePulse(player, endTick, GameWorld.ticks)
                     orePulse.run()
                 }
                 stage = 52

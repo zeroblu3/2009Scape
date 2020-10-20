@@ -24,7 +24,7 @@ class DisconnectionQueue {
      * Updates all entries.
      */
     fun update() {
-        if (queue.isEmpty() || GameWorld.getTicks() % 3 != 0 && !GameWorld.getSettings().isDevMode) {
+        if (queue.isEmpty() || GameWorld.ticks % 3 != 0 && GameWorld.settings?.isDevMode != true) {
             return
         }
         //make a copy of current entries as to avoid concurrency exceptions
@@ -169,7 +169,7 @@ class DisconnectionQueue {
          * @param clear If the player should be cleared.
          */
         init {
-            timeStamp = GameWorld.getTicks()
+            timeStamp = GameWorld.ticks
         }
     }
 

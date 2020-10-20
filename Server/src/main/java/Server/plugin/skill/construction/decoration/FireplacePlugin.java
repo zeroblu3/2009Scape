@@ -45,7 +45,7 @@ public final class FireplacePlugin extends OptionHandler {
 		final GameObject obj = (GameObject) node.asObject();
 		player.lock(2);
 		player.animate(ANIMATION);
-		GameWorld.Pulser.submit(new Pulse(2, player) {
+		GameWorld.getPulser().submit(new Pulse(2, player) {
 			@Override
 			public boolean pulse() {
 				if (!obj.isActive()) {

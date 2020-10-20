@@ -163,7 +163,7 @@ public abstract class AntiMacroNPC extends AbstractNPC {
 	 */
 	public void teleport() {
 		player.lock();
-		GameWorld.Pulser.submit(new Pulse(1, player) {
+		GameWorld.getPulser().submit(new Pulse(1, player) {
 			int count;
 
 			@Override

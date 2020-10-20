@@ -69,7 +69,7 @@ public class SheepPoisonHandler extends PluginInteraction {
             @Override
             public boolean pulse() {
                 p.faceLocation(n.getLocation());
-                GameWorld.Pulser.submit(deathPulse);
+                GameWorld.getPulser().submit(deathPulse);
                 return true;
             }
         });

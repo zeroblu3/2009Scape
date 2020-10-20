@@ -266,7 +266,7 @@ public class ProfessorOddensteinPlugin extends DialoguePlugin {
 				player.getPacketDispatch().sendMessage("and a can of oil to the professor.");
 				player.getPacketDispatch().sendMessage("Oddenstein starts up the machine.");
 				final NPC chicken = Repository.findNPC(288);
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int counter = 0;
 
 					@Override

@@ -212,7 +212,7 @@ public final class CommunicationInfo {
 					return true;
 				}
 			};
-			GameWorld.Pulser.submit(lootSharePulse);
+			GameWorld.getPulser().submit(lootSharePulse);
 		}
 	}
 

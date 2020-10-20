@@ -9,14 +9,14 @@ import plugin.worldevents.WorldEvents
 class PenguinHNSEvent : WorldEvent("penguin-hns"){
     val manager = PenguinManager()
     var lastTrigger: Int = 0
-    var tickDelay = if(GameWorld.getSettings().isDevMode) 100 else 100000
+    var tickDelay = if(GameWorld.settings?.isDevMode == true) 100 else 100000
 
     override fun checkActive(): Boolean {
         return true //this event is always active.
     }
 
     override fun checkTrigger(): Boolean {
-        return GameWorld.getTicks() - lastTrigger >= tickDelay
+        return GameWorld.ticks - lastTrigger >= tickDelay
     }
 
     override fun initialize() {
@@ -33,7 +33,7 @@ class PenguinHNSEvent : WorldEvent("penguin-hns"){
     override fun fireEvent() {
         log("Reshuffling Penguins...")
         manager.rebuildVars()
-        lastTrigger = GameWorld.getTicks()
+        lastTrigger = GameWorld.ticks
         log("Penguins Reshuffled.")
     }
 

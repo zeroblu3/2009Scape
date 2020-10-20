@@ -1,6 +1,6 @@
 package org.rs09.client.net
 
-import org.runite.jagex.TimeUtils
+import org.runite.client.TimeUtils
 import java.io.InputStream
 
 class DummyInputStream : InputStream() {

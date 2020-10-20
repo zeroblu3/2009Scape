@@ -1,7 +1,7 @@
 package org.rs09.client.filestore.compression
 
 import org.rs09.client.DataBuffer
-import org.runite.jagex.Bzip2Decompressor
+import org.runite.client.Bzip2Decompressor
 
 object Container {
     private const val NONE = 0

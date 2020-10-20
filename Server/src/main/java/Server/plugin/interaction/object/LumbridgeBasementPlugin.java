@@ -91,7 +91,7 @@ public class LumbridgeBasementPlugin extends OptionHandler {
 			final Location first = f;
 			final Location second = s;
 			player.lock();
-			GameWorld.Pulser.submit(new Pulse(2, player) {
+			GameWorld.getPulser().submit(new Pulse(2, player) {
 				int counter = 1;
 
 				@Override

@@ -100,7 +100,7 @@ public final class DoorActionHandler {
 		if (entity instanceof Player) {
 			((Player) entity).getAudioManager().send(new Audio(3419));
 		}
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			boolean opened = false;
 
 			@Override
@@ -337,7 +337,7 @@ public final class DoorActionHandler {
 		entity.addExtension(LogoutTask.class, new LocationLogoutTask(4, loc));
 		object.setCharge(IN_USE_CHARGE);
 		second.setCharge(IN_USE_CHARGE);
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			boolean opened = false;
 
 			@Override

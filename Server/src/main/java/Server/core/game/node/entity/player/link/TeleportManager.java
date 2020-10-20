@@ -116,7 +116,7 @@ public class TeleportManager {
 		} else {
 			entity.lock(12);
 			entity.getImpactHandler().setDisabledTicks(teleportType == -1 ? 5 : 12);
-			GameWorld.Pulser.submit(currentTeleport);
+			GameWorld.getPulser().submit(currentTeleport);
 		}
 		if (entity instanceof Player) {
 			((Player) entity).getInterfaceManager().close();

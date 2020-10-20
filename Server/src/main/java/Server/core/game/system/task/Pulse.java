@@ -58,7 +58,7 @@ public abstract class Pulse implements Runnable {
 	@Override
 	public void run() {
 		if(update()){
-			GameWorld.TASKS.remove(this);
+			//GameWorld.TASKS.remove(this);
 		}
 	}
 

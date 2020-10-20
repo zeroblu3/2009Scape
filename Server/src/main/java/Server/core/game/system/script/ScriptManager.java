@@ -70,7 +70,7 @@ public final class ScriptManager {
 	public static void load() {
 		amount = 0;
 		load(new File(ServerConstants.SCRIPTS_PATH));
-		SystemLogger.log("Parsed " + amount + " " + GameWorld.getName() + " script" + (amount == 1 ? "" : "s") + "...");
+		SystemLogger.log("Parsed " + amount + " " + GameWorld.getSettings().getName() + " script" + (amount == 1 ? "" : "s") + "...");
 	}
 
 	/**

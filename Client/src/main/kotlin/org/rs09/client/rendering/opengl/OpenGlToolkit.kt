@@ -2,7 +2,7 @@ package org.rs09.client.rendering.opengl
 
 import org.rs09.client.rendering.Toolkit
 import org.rs09.client.rendering.opengl.enums.GLBeginMode
-import org.runite.jagex.HDToolKit
+import org.runite.client.HDToolKit
 
 class OpenGlToolkit: Toolkit() {
 
@@ -10,7 +10,7 @@ class OpenGlToolkit: Toolkit() {
         HDToolKit.method1835()
         val var6 = x.toFloat()
         val var7 = var6 + w.toFloat()
-        val var8 = (HDToolKit.height - y).toFloat()
+        val var8 = (HDToolKit.viewHeight - y).toFloat()
         val var9 = var8 - h.toFloat()
         val var10 = HDToolKit.gl
 
@@ -27,7 +27,7 @@ class OpenGlToolkit: Toolkit() {
         HDToolKit.method1835()
         val startX = x.toFloat() + 0.3f
         val endX = startX + w.toFloat()
-        val yPos = HDToolKit.height.toFloat() - (y.toFloat() + 0.3f)
+        val yPos = HDToolKit.viewHeight.toFloat() - (y.toFloat() + 0.3f)
         val gl = HDToolKit.gl
 
         gl.glBegin(GLBeginMode.LINES)
@@ -40,7 +40,7 @@ class OpenGlToolkit: Toolkit() {
     override fun drawVerticalLine(x: Int, y: Int, h: Int, rgb: Int) {
         HDToolKit.method1835()
         val var4 = x.toFloat() + .3f
-        val var5 = HDToolKit.height.toFloat() - (y.toFloat() + 0.3f)
+        val var5 = HDToolKit.viewHeight.toFloat() - (y.toFloat() + 0.3f)
         val var6 = var5 - h.toFloat()
         val var7 = HDToolKit.gl
 
@@ -55,7 +55,7 @@ class OpenGlToolkit: Toolkit() {
         HDToolKit.method1835()
         val var5 = x.toFloat() + 0.3f
         val var6 = var5 + (w.toFloat() - 1)
-        val var7 = (HDToolKit.height.toFloat() - (y.toFloat() + 0.3f))
+        val var7 = (HDToolKit.viewHeight.toFloat() - (y.toFloat() + 0.3f))
         val var8 = var7 - (h.toFloat() - 1)
         val var9 = HDToolKit.gl
 
@@ -72,7 +72,7 @@ class OpenGlToolkit: Toolkit() {
         HDToolKit.method1835()
         val var5 = x.toFloat()
         val var6 = var5 + w.toFloat()
-        val var7 = (HDToolKit.height - y).toFloat()
+        val var7 = (HDToolKit.viewHeight - y).toFloat()
         val var8 = var7 - h.toFloat()
         val var9 = HDToolKit.gl
 

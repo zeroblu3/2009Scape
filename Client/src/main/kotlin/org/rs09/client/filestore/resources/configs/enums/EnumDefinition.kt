@@ -4,7 +4,7 @@ import org.rs09.client.Linkable
 import org.rs09.client.LinkableInt
 import org.rs09.client.Node
 import org.rs09.client.data.HashTable
-import org.runite.jagex.*
+import org.runite.client.*
 
 class EnumDefinition : Node() {
     companion object {

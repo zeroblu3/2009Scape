@@ -310,7 +310,7 @@ public class ChristmasEvent extends HolidayEvent {
 				player.lock(16);
 				player.animate(Animation.create(7535));
 				player.sendMessage("You shake the snow globe.");
-				GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
 					int ticks;
 					@Override
 					public boolean pulse() {
@@ -376,7 +376,7 @@ public class ChristmasEvent extends HolidayEvent {
 					int distance = (int) Location.getDistance(player.getLocation(), target.getLocation());
 					int projectileSpeed = delay + speed + distance * 5;
 					double hitDelay = projectileSpeed * .02857;
-					GameWorld.Pulser.submit(new Pulse((int) hitDelay, target) {
+					GameWorld.getPulser().submit(new Pulse((int) hitDelay, target) {
 						@Override
 						public boolean pulse() {
 							target.getImpactHandler().manualHit(player, node instanceof NPC ? 1 : 0, HitsplatType.MISS);
@@ -448,7 +448,7 @@ public class ChristmasEvent extends HolidayEvent {
 					HolidayEvent.getCurrent().setStage(player, 2);
 				}
 				if (!weapon) {
-					GameWorld.Pulser.submit(new Pulse(200) {
+					GameWorld.getPulser().submit(new Pulse(200) {
 						@Override
 						public boolean pulse() {
 							snowman.clear();

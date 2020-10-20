@@ -43,7 +43,7 @@ public final class RickTurpentineNPC extends AntiMacroNPC {
 	@Override
 	public void handlePlayerLeave() {
 		sendChat("What a dismal little spot this is");
-		GameWorld.Pulser.submit(new Pulse(3) {
+		GameWorld.getPulser().submit(new Pulse(3) {
 			@Override
 			public boolean pulse() {
 				clear();

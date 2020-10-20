@@ -33,8 +33,8 @@ class XteaParser {
         for(config in configlist){
             val e = config as JSONObject
             val id = e["regionId"].toString().toInt()
-            val token = StringTokenizer(e["keys"].toString(),",")
-            REGION_XTEA.put(id, intArrayOf(token.nextToken().toInt(), token.nextToken().toInt(), token.nextToken().toInt(), token.nextToken().toInt()))
+            val keys = e["keys"].toString().split(",").map(String::toInt)
+            REGION_XTEA[id] = intArrayOf(keys[0],keys[1],keys[2],keys[3])
             count++
         }
         SystemLogger.log("[Config Parser]: Parsed $count region keys.")

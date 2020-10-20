@@ -94,7 +94,7 @@ public class ResourceAIPManager {
     }
 
     public void pulse(Player player) {
-        GameWorld.Pulser.submit(new Pulse(1) {
+        GameWorld.getPulser().submit(new Pulse(1) {
             @Override
             public boolean pulse() {
 

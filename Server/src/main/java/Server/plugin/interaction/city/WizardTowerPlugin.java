@@ -469,7 +469,7 @@ public final class WizardTowerPlugin extends OptionHandler {
 						player.lock(7);
 						npc.faceLocation(Location.create(3102, 3163, 2));
 						npc.animate(ANIMATION);
-						GameWorld.Pulser.submit(new Pulse(3, player) {
+						GameWorld.getPulser().submit(new Pulse(3, player) {
 							@Override
 							public boolean pulse() {
 								quest.finish(player);
@@ -1254,7 +1254,7 @@ public final class WizardTowerPlugin extends OptionHandler {
 				close();
 				npc.graphics(GRAPHIC);
 				player.lock(3);
-				GameWorld.Pulser.submit(new Pulse(2) {
+				GameWorld.getPulser().submit(new Pulse(2) {
 					@Override
 					public boolean pulse() {
 						interpreter.sendDialogues(npc, null, "Ok, I have retrieved it. Luckily it doesn't appear to", "have been damaged. Now please take it to Aubury, ", "and try not to lose it again.");

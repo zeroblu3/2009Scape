@@ -74,7 +74,7 @@ public final class BarcrawlDialogue extends DialoguePlugin {
                 player.getInventory().remove(type.getCoins());
                 player.getBarcrawlManager().complete(type.ordinal());
                 player.lock(6);
-                GameWorld.Pulser.submit(new Pulse(6, player) {
+                GameWorld.getPulser().submit(new Pulse(6, player) {
                     @Override
                     public boolean pulse() {
                         type.message(player, false);

@@ -144,6 +144,21 @@ public final class PlayerSQLManager {
 		return true;
 	}
 
+	public static Response updatePassword(String name, String pass) throws SQLException{
+		if (!SQLManager.isInitialized()) {
+			return Response.INVALID_CREDENTIALS;
+		}
+		Connection connection = SQLManager.getConnection();
+		if (connection == null) {
+			return Response.INVALID_LOGIN_SERVER;
+		}
+		PreparedStatement statement;
+		statement = connection.prepareStatement("UPDATE " + "members" + " SET password='" + pass + "' WHERE " + "username" + "='" + name.toLowerCase() + "' LIMIT 1");
+		boolean Success = statement.execute();
+		if(Success) return Response.SUCCESSFUL;
+		return null;
+	}
+
 	/**
 	 * Checks if a username & password are correct.
 	 * @param name the name.

@@ -62,7 +62,7 @@ class ShootingStarMiningPulse(player: Player?, node: GameObject?, val star: Shoo
         if (!checkReward()) {
             return false
         }
-        if (GameWorld.getSettings().isDevMode) {
+        if (GameWorld.settings?.isDevMode == true) {
             star.dustLeft = 1
         }
         star.decDust()

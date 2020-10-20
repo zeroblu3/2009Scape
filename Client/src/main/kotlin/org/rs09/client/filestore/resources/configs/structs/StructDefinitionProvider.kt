@@ -1,7 +1,7 @@
 package org.rs09.client.filestore.resources.configs.structs
 
-import org.runite.jagex.CacheIndex
-import org.runite.jagex.DataBuffer
+import org.runite.client.CacheIndex
+import org.runite.client.DataBuffer
 import org.rs09.client.data.NodeCache
 
 object StructDefinitionProvider {

@@ -2,18 +2,19 @@ apply plugin: 'application'
 
 archivesBaseName = 'client'
 
-mainClassName = 'org.runite.Client'
+mainClassName = 'org.rs09.client.GameLaunch'
 
 dependencies {
     implementation 'com.github.Vatuu:discord-rpc:1.6.2'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
-    implementation files('libs/clientlibs.jar')
+    implementation files('libs/gluegen-rt.jar')
+    implementation files('libs/jogl-all.jar')
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.runite.Client'
+        attributes 'Main-Class': 'org.rs09.client.GameLaunch'
     }
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }

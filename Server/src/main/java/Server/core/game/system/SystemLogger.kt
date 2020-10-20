@@ -25,7 +25,7 @@ object SystemLogger {
         if (message == null) {
             return
         }
-        println("[" + dateFormat.format(Date()) + "][" + GameWorld.getName() + "]: " + message)
+        println("[" + dateFormat.format(Date()) + "][" + GameWorld.settings?.name + "]: " + message)
     }
 
     /**
@@ -61,7 +61,7 @@ object SystemLogger {
         if (message == null) {
             return
         }
-        System.err.println("[" + dateFormat.format(Date()) + "][" + GameWorld.getName() + "]: " + message)
+        System.err.println("[" + dateFormat.format(Date()) + "][" + GameWorld.settings?.name + "]: " + message)
     }
 
     /**

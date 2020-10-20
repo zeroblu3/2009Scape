@@ -27,7 +27,7 @@ class TriviaManager : ManagerPlugin(){
     val DELAY = 30
 
     override fun tick() {
-        if(continuous && !hasSession && GameWorld.getTicks() > nextQuestion){
+        if(continuous && !hasSession && GameWorld.ticks > nextQuestion){
             getNewQuestion()
             announce()
         }
@@ -106,7 +106,7 @@ class TriviaManager : ManagerPlugin(){
             endSession()
             val item = RandomFunction.rollWeightedChanceTable(rewards)
             player?.inventory?.add(item!!)
-            nextQuestion = GameWorld.getTicks() + DELAY;
+            nextQuestion = GameWorld.ticks + DELAY;
         }
     }
 

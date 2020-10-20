@@ -55,7 +55,7 @@ public class YanilleGrapple extends OptionHandler {
         }
 
         player.lock();
-        GameWorld.Pulser.submit(new Pulse(1, player) {
+        GameWorld.getPulser().submit(new Pulse(1, player) {
             int counter = 1;
 
             @Override

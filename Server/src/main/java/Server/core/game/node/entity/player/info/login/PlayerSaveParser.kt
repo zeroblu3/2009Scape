@@ -12,6 +12,9 @@ import core.game.node.entity.player.link.music.MusicEntry
 import core.game.node.entity.state.EntityState
 import core.game.system.SystemLogger
 import core.game.world.GameWorld
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
@@ -38,37 +41,44 @@ class PlayerSaveParser(val player: Player) {
         }
     }
 
-    fun parse() {
+     fun parse() = runBlocking {
         if(read) {
-            parseCore()
-            parseSkills()
-            parseSettings()
-            parseSlayer()
-            parseQuests()
-            parseAppearance()
-            parseGrave()
-            parseSpellbook()
-            parseGrandExchange()
-            parseSavedData()
-            //TODO: PARSE PREVIOUS COMMUNICATION INFO (FOR SOME FUCKING REASON XD)
-            parseAutocastSpell()
-            parseFarming()
-            parseConfigs()
-            parseMonitor()
-            parseMusic()
-            parseFamiliars()
-            parseBarCrawl()
-            parseStates()
-            parseAntiMacro()
-            parseTT()
-            parseBankPin()
-            parseHouse()
-            parseAchievements()
-            parseIronman()
-            parseEmoteManager()
-            parseStatistics()
-            parseBrawlingGloves()
-            parseAttributes()
+          launch {
+              parseCore()
+              parseSkills()
+              parseSettings()
+              parseSlayer()
+              parseQuests()
+              parseAppearance()
+              parseGrave()
+          }
+           launch {
+               parseSpellbook()
+               parseGrandExchange()
+               parseSavedData()
+               parseAutocastSpell()
+               parseFarming()
+               parseConfigs()
+               parseMonitor()
+           }
+            launch {
+                parseMusic()
+                parseFamiliars()
+                parseBarCrawl()
+                parseStates()
+                parseAntiMacro()
+                parseTT()
+                parseBankPin()
+            }
+            launch {
+                parseHouse()
+                parseAchievements()
+                parseIronman()
+                parseEmoteManager()
+                parseStatistics()
+                parseBrawlingGloves()
+                parseAttributes()
+            }
             parsePouches()
         }
     }
@@ -328,8 +338,8 @@ class PlayerSaveParser(val player: Player) {
         player.skills.parse(skillData)
         player.skills.experienceGained = saveFile!!["totalEXP"].toString().toDouble()
         player.skills.experienceMutiplier = saveFile!!["exp_multiplier"].toString().toDouble()
-        if(GameWorld.getSettings().default_xp_rate != 5.0){
-            player.skills.experienceMutiplier = GameWorld.getSettings().default_xp_rate
+        if(GameWorld.settings?.default_xp_rate != 5.0){
+            player.skills.experienceMutiplier = GameWorld.settings?.default_xp_rate!!
         }
         if(saveFile!!.containsKey("milestone")){
             val milestone: JSONObject = saveFile!!["milestone"] as JSONObject

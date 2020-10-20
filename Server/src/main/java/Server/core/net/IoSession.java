@@ -213,7 +213,7 @@ public class IoSession {
 			channel.socket().close();
 			if (object instanceof Player) {
 				final Player p = getPlayer();
-				GameWorld.Pulser.submit(new Pulse(0) {
+				GameWorld.getPulser().submit(new Pulse(0) {
 					@Override
 					public boolean pulse() {
 						if (p.isActive() && !p.getSession().active) {

@@ -26,7 +26,7 @@ public class FenceInteraction extends PluginInteraction {
         player.getPulseManager().run(new MovementPulse(player, node.asObject().getLocation().transform(player.getLocation().getX() == node.getLocation().getX() ? 0 : -1, 0, 0)) {
             @Override
             public boolean pulse() {
-                GameWorld.submit(new SqueezePulse(player));
+                GameWorld.getPulser().submit(new SqueezePulse(player));
                 return true;
             }
         }, "movement");

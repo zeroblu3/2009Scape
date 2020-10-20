@@ -336,7 +336,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 					switch (stage) {
 					case 0:
 						close();
-						GameWorld.Pulser.submit(new Pulse(1, player, fluffy) {
+						GameWorld.getPulser().submit(new Pulse(1, player, fluffy) {
 							int counter = 0;
 
 							@Override
@@ -375,7 +375,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 						PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.POSITION, x, y, height, 1, 100));
 						PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.ROTATION, x + 1000, y + 13, height, 1, 100));
 						player.faceLocation(cutscene.getBase().transform(44, 50, 1));
-						GameWorld.Pulser.submit(new Pulse(1, player, fluffy) {
+						GameWorld.getPulser().submit(new Pulse(1, player, fluffy) {
 							int counter = 0;
 
 							@Override
@@ -400,7 +400,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 						break;
 					case 6:
 						close();
-						GameWorld.Pulser.submit(new Pulse(1, player, fluffy) {
+						GameWorld.getPulser().submit(new Pulse(1, player, fluffy) {
 							int counter = 0;
 
 							@Override
@@ -439,7 +439,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 						break;
 					case 8:
 						end();
-						GameWorld.Pulser.submit(new Pulse(2) {
+						GameWorld.getPulser().submit(new Pulse(2) {
 							@Override
 							public boolean pulse() {
 								player.animate(Animation.create(827));
@@ -507,7 +507,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 						PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.POSITION, x, y, height, 1, 95));
 						PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.ROTATION, x + 1000, y + 17, height, 1, 95));
 						wolf = player.getFamiliarManager().getFamiliar();
-						GameWorld.Pulser.submit(new Pulse(1, player, fluffy) {
+						GameWorld.getPulser().submit(new Pulse(1, player, fluffy) {
 							int counter;
 
 							@Override
@@ -536,7 +536,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 						if (player.getInventory().remove(HOWL_SCROLL)) {
 							player.getDialogueInterpreter().setDialogue(this);
 							player.getDialogueInterpreter().getDialogue().setStage(8);
-							GameWorld.Pulser.submit(new Pulse(1, player, fluffy, wolf) {
+							GameWorld.getPulser().submit(new Pulse(1, player, fluffy, wolf) {
 								int counter;
 
 								@Override

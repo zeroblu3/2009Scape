@@ -88,7 +88,7 @@ public final class KittenInteractDialogue extends DialoguePlugin {
 					final Path path = Pathfinder.find(player.getFamiliarManager().getFamiliar(), rat);
 					path.walk(player.getFamiliarManager().getFamiliar());
 					rat.sendChat("Eeek!");
-					GameWorld.Pulser.submit(new Pulse(5) {
+					GameWorld.getPulser().submit(new Pulse(5) {
 
 						@Override
 						public boolean pulse() {

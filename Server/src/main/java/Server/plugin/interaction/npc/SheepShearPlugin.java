@@ -64,7 +64,7 @@ public final class SheepShearPlugin extends OptionHandler {
 			sheep.transform(5153);
 			player.getPacketDispatch().sendMessage("You get some wool.");
 			player.getInventory().add(new Item(1737, 1));// 5160
-			GameWorld.Pulser.submit(new Pulse(80, sheep) {
+			GameWorld.getPulser().submit(new Pulse(80, sheep) {
 				@Override
 				public boolean pulse() {
 					sheep.reTransform();

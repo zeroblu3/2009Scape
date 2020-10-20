@@ -158,7 +158,7 @@ public final class Settings {
 				}
 			};
 			pulse.setTicksPassed(1);
-			GameWorld.Pulser.submit(pulse);
+			GameWorld.getPulser().submit(pulse);
 			player.setAttribute("energy-restore", pulse);
 		}
 	}

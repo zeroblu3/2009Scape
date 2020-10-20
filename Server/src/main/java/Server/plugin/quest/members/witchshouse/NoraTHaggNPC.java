@@ -90,7 +90,7 @@ public class NoraTHaggNPC extends AbstractNPC {
 
     private void sendTeleport(final Player player) {
         player.lock();
-        GameWorld.Pulser.submit(new Pulse(1) {
+        GameWorld.getPulser().submit(new Pulse(1) {
             int delay = 0;
 
             @Override
