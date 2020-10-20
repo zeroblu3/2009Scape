@@ -17,5 +17,4 @@ jar {
         attributes 'Main-Class': 'org.rs09.client.GameLaunch'
     }
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-
 }

@@ -2,7 +2,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/woahscam/2009Scape">
+  <a href="https://github.com/2009scape/2009Scape">
     <img src="https://i.imgur.com/RsfVfkB.png" alt="Logo" width="300" height="67">
   </a>
   <h3 align="center">An open source MMORPG emulation server</h3>
@@ -19,12 +19,11 @@
     ·
     <a href="https://github.com/2009scape/2009Scape/projects">Bug Board</a>
   </p>
-<h3>ATTENTION: Starting October 5th, 2020 the development team will no longer be providing support for setting up your own server. Do not ping or private message Developers asking how to build the project. This in-depth guide will be continually updated if the building process changes. Because of our current team size we are focusing all of our efforts on the development of features and bugfixes for the live server.</h3>
+<h3>ATTENTION: Starting October 5th, 2020 the development team will no longer be providing support for setting up your own server. Do not ping or private message Developers asking how to build the project. This in-depth guide will be continually updated if the building process changes. We are focusing all of our efforts on the development of features and bugfixes for the live server.</h3>
 </p>
 
 
 ## Table of Contents
-
 * [Live Server Information](#live-server-information)
 * [About the Project](#about-the-project)
 * [Contributing](#contributing)
@@ -213,7 +212,8 @@ First follow the [Github-Setup](#github-setup). After you have forked over your 
     * Click on "Github", and you will be asked to login
     * Change your directory to wherever you want the project to load, or keep it default
     * On the right hand side you should see your Github Repository for 2009Scape
-    * Select it and hit "Clone"
+    * Select it and hit "Clone"'
+    * After it clones, located the build.gradle file at the very top level of the project. Right click it and click "import gradle project"
     * The project should instantly start building on import. Give it some time because it is going through and compiling alot of files
     * In Intellij go to File -> Project Structure -> Project and verify your Project SDK is set to JDK "1.8"
     * Setup through Intellij should now be finished!
@@ -252,12 +252,9 @@ We use the AGPL 3.0 license, which can be found <a href="https://www.gnu.org/lic
 ### Contact
 
 <h4>Reminder: Developer support for setting up your own server ended October 5th, 2020. Do not ping/dm developers about setting up your server. If you can not figure out how to build the project feel free to ask inside of #help-me-pls and another community member may be able to help you out.</h4>
-
-Questions or concerns that are project specific? Join our <a href="https://discord.gg/43YPGND">Discord.</a> You can either message me directly, woahscam#8535, or ask in the #help-me-pls section for community help. 
+Questions or concerns that are project specific? Join our <a href="https://discord.gg/43YPGND">Discord</a> and either message me directly, @ woahscam#8535 on Discord, or ask in the #help-me-pls section for community help. 
 
 
 
 [license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational
 [license-url]: https://www.gnu.org/licenses/agpl-3.0.en.html
-
-
