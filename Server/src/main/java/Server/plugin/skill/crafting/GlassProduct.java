@@ -6,7 +6,7 @@ package plugin.skill.crafting;
  */
 public enum GlassProduct {
 	
-	VIAL(38, 229, 1, 33, 35), ORB(39, 567, 1, 46, 52.5), BEER(40, 1919, 1, 1, 17.5), CANDLE(41, 4527, 1, 4, 19), OIL_LAMP(42, 4522, 1, 12, 25), FISHBOWL(44, 6667, 1, 42, 42.5), LANTERN_LENS(43, 4542, 1, 49, 55), LIGHT_ORB(45, 10973, 1, 87, 70);
+	VIAL(38, 229, 1, 33, 35), ORB(39, 567, 1, 46, 52.5), BEER(40, 1919, 1, 1, 17.5), CANDLE(41, 4527, 1, 4, 19), OIL_LAMP(42, 4525, 1, 12, 25), FISHBOWL(44, 6667, 1, 42, 42.5), LANTERN_LENS(43, 4542, 1, 49, 55), LIGHT_ORB(45, 10973, 1, 87, 70);
 
 	/**
 	 * Represents the button pressed.
