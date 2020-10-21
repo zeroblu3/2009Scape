@@ -81,7 +81,7 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
             player.packetDispatch.sendString("<col=8A0808>" + "Players" + "</col>", 275, 2)
             val builder = StringBuilder("<br>")
             var count = 0
-            for (p in Repository.getPlayers()) {
+            for (p in Repository.players) {
                 if (count > 45) {
                     builder.append("<br>Max amount we can show on this interface.")
                     break

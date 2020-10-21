@@ -80,7 +80,7 @@ class AIPCommandPlugin : CommandPlugin() {
                 return true
             }
             "clearaips" -> {
-                for (p in Repository.getPlayers()) {
+                for (p in Repository.players) {
                     if (p.isArtificial) {
                         p.clear()
                     }

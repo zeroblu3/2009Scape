@@ -26,7 +26,7 @@ public class RPSManagerPlugin extends ManagerPlugin {
 
     public void registerChallenge(RPSChallenge challenge){
         currentChallenges.add(challenge);
-        Player p = Repository.PLAYER_NAMES.get(challenge.getChallengedPlayer());
+        Player p = Repository.getPlayerByName(challenge.getChallengedPlayer());
         int i =0;
         SystemLogger.log(p.getUsername());
         p.sendMessage(challenge.getInitiatingPlayer() + " has challenged you to a game of rock, paper, scissors!");

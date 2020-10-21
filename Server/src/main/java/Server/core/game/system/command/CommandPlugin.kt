@@ -90,7 +90,7 @@ abstract class CommandPlugin : Plugin<Any?> {
          * @return The player.
          */
         @JvmStatic
-        fun getTarget(name: String?, load: Boolean): Player {
+        fun getTarget(name: String?, load: Boolean): Player? {
             return Repository.getPlayer(name, load)
         }
 
@@ -100,7 +100,7 @@ abstract class CommandPlugin : Plugin<Any?> {
          * @return The player.
          */
 		@JvmStatic
-		fun getTarget(name: String?): Player {
+		fun getTarget(name: String?): Player? {
             return Repository.getPlayer(name, false)
         }
     }

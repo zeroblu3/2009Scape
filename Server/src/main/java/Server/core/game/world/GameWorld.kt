@@ -82,9 +82,9 @@ object GameWorld {
         ticks++
         if (ticks % 50 == 0) {
             TaskExecutor.execute {
-                val player = Repository.getPlayers()
+                val player = Repository.players
                 try {
-                    player.stream().filter { obj: Player? -> Objects.nonNull(obj) }.filter { p: Player -> !p.isArtificial && p.isPlaying }.forEach { p: Player? -> Repository.getDisconnectionQueue().save(p!!, false) }
+                    player.stream().filter { obj: Player? -> Objects.nonNull(obj) }.filter { p: Player -> !p.isArtificial && p.isPlaying }.forEach { p: Player? -> Repository.disconnectionQueue.save(p!!, false) }
                 } catch (t: Throwable) {
                     t.printStackTrace()
                 }

@@ -47,8 +47,8 @@ public class RPSChallenge {
     public void acceptChallenge(){
         accepted = true;
         Item[] items = new Item[]{new Item(ItemNames.ROCK_4043), new Item(ItemNames.NEWSPAPER_11169), new Item(ItemNames.SHEARS_1735)};
-        p1 = Repository.PLAYER_NAMES.get(initiatingPlayer.toLowerCase());
-        p2 = Repository.PLAYER_NAMES.get(challengedPlayer.toLowerCase());
+        p1 = Repository.getPlayerByName(initiatingPlayer.toLowerCase());
+        p2 = Repository.getPlayerByName(challengedPlayer.toLowerCase());
         SkillDialogueHandler handler1 = new SkillDialogueHandler(p1, SkillDialogueHandler.SkillDialogue.THREE_OPTION,items){
             @Override
             public void create(int amount, int index) {

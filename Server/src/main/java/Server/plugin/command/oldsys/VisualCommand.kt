@@ -387,9 +387,9 @@ class VisualCommand : CommandPlugin() {
             }
             "toreg" -> {
                 o = Repository.getPlayer(args!![1])
-                o.ironmanManager.mode = IronmanMode.NONE
+                o?.ironmanManager?.mode = IronmanMode.NONE
                 player!!.sendMessage("done...")
-                o.sendMessage("<col=FF0000>You are no longer an ironman. Log out to see the ironman icon disappear.</col>")
+                o?.sendMessage("<col=FF0000>You are no longer an ironman. Log out to see the ironman icon disappear.</col>")
             }
             "clearpatches" -> {
                 if (args!!.size > 1) {

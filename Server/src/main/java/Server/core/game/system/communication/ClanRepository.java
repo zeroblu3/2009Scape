@@ -106,7 +106,7 @@ public final class ClanRepository {
 				player.getPacketDispatch().sendMessage("You are temporarily banned from this clan channel.:clan:");
 				return false;
 			}
-			Player o = Repository.getPlayer(owner);
+			Player o = Repository.getPlayerByName(owner);
 			if (o != null) {
 				if (o.getCommunication().getBlocked().contains(player.getName())) {
 					player.getPacketDispatch().sendMessage("You do not have a high enough rank to join this clan channel.:clan:");
@@ -370,7 +370,7 @@ public final class ClanRepository {
 		if (clan != null) {
 			return clan;
 		}
-		Player player = Repository.getPlayer(owner);
+		Player player = Repository.getPlayerByName(owner);
 		PlayerDetails details = player != null ? player.getDetails() : null;
 		if (details == null) {
 			details = PlayerDetails.getDetails(owner);

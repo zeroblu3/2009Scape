@@ -311,7 +311,7 @@ public final class MSPacketRepository {
 			Player player = null;
 			switch (response) {
 				case ALREADY_ONLINE:
-					player = Repository.getPlayer(username);
+					player = Repository.getPlayerByName(username);
 					if (player == null || player.getSession().isActive() || !player.getSession().getAddress().equals(details.getSession().getAddress())) {
 						details.getSession().write(response, true);
 						break;
@@ -358,7 +358,7 @@ public final class MSPacketRepository {
 	private static void handlePlayerMessage(IoBuffer buffer) {
 		String name = buffer.getString();
 		String message = buffer.getString();
-		Player player = Repository.getPlayer(name);
+		Player player = Repository.getPlayerByName(name);
 		if (player != null && player.isActive()) {
 			player.getPacketDispatch().sendMessage(message);
 		}
@@ -371,7 +371,7 @@ public final class MSPacketRepository {
 	 */
 	private static void handleContactInformation(IoBuffer buffer) {
 		String username = buffer.getString();
-		Player player = Repository.getPlayer(username);
+		Player player = Repository.getPlayerByName(username);
 		if (player == null || !player.isActive()) {
 			return;
 		}
@@ -406,7 +406,7 @@ public final class MSPacketRepository {
 		String contactName = buffer.getString();
 		boolean block = buffer.get() == 1;
 		int type = buffer.get();
-		Player player = Repository.getPlayer(username);
+		Player player = Repository.getPlayerByName(username);
 		if (player == null || !player.isActive()) {
 			return;
 		}
@@ -462,7 +462,7 @@ public final class MSPacketRepository {
 		int type = buffer.get() & 0xFF;
 		int icon = buffer.get() & 0xFF;
 		String message = buffer.getString();
-		Player player = Repository.getPlayer(username);
+		Player player = Repository.getPlayerByName(username);
 		if (player == null || !player.isActive()) {
 			return;
 		}
@@ -500,7 +500,7 @@ public final class MSPacketRepository {
 			clan.getRanks().put(name, ClanRank.values()[buffer.get() & 0xFF]);
 			ClanEntry entry = new ClanEntry(name, worldId);
 			if (worldId == GameWorld.getSettings().getWorldId()) {
-				Player player = Repository.getPlayer(name);
+				Player player = Repository.getPlayerByName(name);
 				entry.setPlayer(player);
 				if (player != null) {
 					player.getCommunication().setClan(clan);
@@ -522,7 +522,7 @@ public final class MSPacketRepository {
 	 */
 	private static void handleLeaveClan(IoBuffer buffer) {
 		String name = buffer.getString();
-		Player player = Repository.getPlayer(name);
+		Player player = Repository.getPlayerByName(name);
 		if (player == null || !player.isActive()) {
 			return;
 		}
@@ -544,7 +544,7 @@ public final class MSPacketRepository {
 		int size = buffer.get() & 0xFF;
 		for (int i = 0; i < size; i++) {
 			String username = buffer.getString();
-			Player player = Repository.getPlayer(username);
+			Player player = Repository.getPlayerByName(username);
 			if (player == null) {
 				continue;
 			}
@@ -597,14 +597,14 @@ public final class MSPacketRepository {
 		long duration = buffer.getLong();
 		switch (type) {
 			case 0:
-				Player player = Repository.getPlayer(key);
+				Player player = Repository.getPlayerByName(key);
 				if (player != null && player.isActive()) {
 					player.getPacketDispatch().sendMessages((duration > 0L ? new String[]{"You have been muted.", "To prevent further mutes please read the rules."} : new String[]{"You have been unmuted."}));
 				}
 				player.getDetails().setMuteTime(duration);
 				break;
 			case 1:
-				player = Repository.getPlayer(key);
+				player = Repository.getPlayerByName(key);
 				if (player != null && player.isActive() && duration > System.currentTimeMillis()) {
 					player.getSession().disconnect();
 				}
@@ -637,7 +637,7 @@ public final class MSPacketRepository {
 				}
 				break;
 			case 6:
-				player = Repository.getPlayer(key);
+				player = Repository.getPlayerByName(key);
 				if (player != null) {
 					player.getPacketDispatch().sendLogout();
 					player.clear(true);
