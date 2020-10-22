@@ -83,7 +83,7 @@ public class BlackJackCommands extends CommandPlugin {
                                 }
                                 List<Player> INVITED = new ArrayList<>();
                                 for(int i = 3; i < args.length; i++){
-                                    Player p = Repository.PLAYER_NAMES.get(args[i].toLowerCase());
+                                    Player p = Repository.getPlayerByName(args[i].toLowerCase());
                                     if(p == null){
                                         player.sendMessage("Invalid player name: " + args[i]);
                                         return true;

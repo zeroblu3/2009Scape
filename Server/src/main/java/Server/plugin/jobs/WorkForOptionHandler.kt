@@ -10,7 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
+import core.plugin.PluginManager
 import core.tools.ItemNames
+import plugin.dialogue.DialoguePlugin
 
 /**
  * Handles the work-for actions for the NPCs
@@ -26,11 +28,11 @@ class WorkForOptionHandler : OptionHandler() {
             ItemNames.MITHRIL_WARHAMMER
     )
     val gatheringMap = hashMapOf<Int,List<GatheringJobs>>(
-            0 to listOf(GatheringJobs.AIR_RUNE,GatheringJobs.COWHIDES,GatheringJobs.RUNE_ESS,GatheringJobs.WATER_RUNE),
+            0 to listOf(GatheringJobs.AIR_RUNE,GatheringJobs.COWHIDES,GatheringJobs.WATER_RUNE),
             922 to listOf(GatheringJobs.ASHES,GatheringJobs.AIR_RUNE,GatheringJobs.WATER_RUNE),
             3807 to listOf(GatheringJobs.COWHIDES),
-            4899 to listOf(GatheringJobs.CAKE,GatheringJobs.ANCHOVY_PIZZA,GatheringJobs.COOKED_CRAYFISH,GatheringJobs.COOKED_SALMON,GatheringJobs.COOKED_TROUT,GatheringJobs.MEAT_PIE,GatheringJobs.MEAT_PIZZA,GatheringJobs.PLAIN_PIZZA),
-            4901 to listOf(GatheringJobs.RAW_CRAYFISH,GatheringJobs.RAW_SALMON,GatheringJobs.RAW_SHRIMP,GatheringJobs.RAW_TROUT),
+            4899 to listOf(GatheringJobs.CAKE,GatheringJobs.ANCHOVY_PIZZA,GatheringJobs.COOKED_SALMON,GatheringJobs.COOKED_TROUT,GatheringJobs.MEAT_PIE,GatheringJobs.MEAT_PIZZA,GatheringJobs.PLAIN_PIZZA),
+            4901 to listOf(GatheringJobs.RAW_SALMON,GatheringJobs.RAW_SHRIMP,GatheringJobs.RAW_TROUT),
             4902 to listOf(GatheringJobs.COPPER_ORE,GatheringJobs.TIN_ORE,GatheringJobs.COAL,GatheringJobs.IRON_ORE,GatheringJobs.SILVER_ORE,GatheringJobs.GOLD_ORE),
             4903 to listOf(GatheringJobs.SILVER_ORE),
             4904 to listOf(GatheringJobs.BRONZE_BAR,GatheringJobs.IRON_BAR,GatheringJobs.STEEL_BAR),
@@ -64,6 +66,7 @@ class WorkForOptionHandler : OptionHandler() {
         NPCDefinition.forId(922).handlers["option:work-for"] = this
         NPCDefinition.forId(705).handlers["option:work-for"] = this
         NPCDefinition.forId(0).handlers["option:work-for"] = this
+        PluginManager.definePlugin(CancelJobDialogue())
         return this
     }
 
@@ -113,5 +116,56 @@ class WorkForOptionHandler : OptionHandler() {
             return false
         }
         return true
+    }
+
+    class CancelJobDialogue(player: Player? = null) : DialoguePlugin(player){
+        var amount = 0
+        override fun newInstance(player: Player?): DialoguePlugin {
+            return CancelJobDialogue(player)
+        }
+
+        override fun open(vararg args: Any?): Boolean {
+            amount = args[1] as Int
+            player ?: return false
+            npc("Would you like to cancel your job?","It will cost 500 coins.")
+            stage = 0
+            return true
+        }
+
+        override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+            when(stage){
+                0 -> options("Yes, please.","No, thanks.").also { stage++ }
+                1 -> when(buttonId){
+                    1 -> player("Yes, please.").also{ stage = 10 }
+                    2 -> player("No, thanks.").also { stage = 20 }
+                }
+
+                10 -> npc("Alright then, hand over the money.").also { stage++ }
+                11 -> if(player.inventory.contains(995,500)){
+                    player("Here you go.")
+                    player.inventory.remove(Item(995,500))
+                    player.removeAttribute("jobs:id")
+                    player.removeAttribute("jobs:amount")
+                    player.removeAttribute("jobs:original_amount")
+                    player.removeAttribute("jobs:type")
+                    stage = 1000
+                } else {
+                    player("Oh, I don't seem to have the money...")
+                    stage++
+                }
+
+                12 -> npc("Ah, that sucks! Get to work.","You still need to gather $amount more.").also { stage = 1000 }
+
+                20 -> npc("Alright then, get to work!","You still need to gather $amount more.").also { stage = 1000 }
+
+                1000 -> end()
+            }
+            return true
+        }
+
+        override fun getIds(): IntArray {
+            return intArrayOf(9987215) //Random number to avoid colliding with other dialogues
+        }
+
     }
 }

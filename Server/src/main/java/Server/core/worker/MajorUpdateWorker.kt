@@ -38,7 +38,7 @@ class MajorUpdateWorker {
             }
             launch {
                 GameWorld.pulse()
-                Repository.getDisconnectionQueue().update()
+                Repository.disconnectionQueue.update()
             }
             Managers.tick()
         }

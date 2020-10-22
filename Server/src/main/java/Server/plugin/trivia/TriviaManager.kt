@@ -110,7 +110,7 @@ class TriviaManager : ManagerPlugin(){
         }
     }
 
-    fun announce(){Repository.sendNews(question?.question)}
+    fun announce(){Repository.sendNews(question?.question ?: "The void fails to summon forth a question.")}
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         return this

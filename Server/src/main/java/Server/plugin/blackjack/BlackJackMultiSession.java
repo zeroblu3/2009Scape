@@ -98,7 +98,7 @@ public class BlackJackMultiSession extends BlackJackSession{
                 }
                 return;
             } else {
-                Repository.getPlayer(victor).getInventory().add(new Item(995,pot));
+                Repository.getPlayerByName(victor).getInventory().add(new Item(995,pot));
                 return;
             }
         }
