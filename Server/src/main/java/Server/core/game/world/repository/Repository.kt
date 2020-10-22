@@ -5,7 +5,6 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import java.util.concurrent.CopyOnWriteArrayList
 import java.util.HashMap
-import core.game.world.repository.DisconnectionQueue
 import kotlin.jvm.JvmOverloads
 import core.game.world.map.RegionManager
 import core.game.node.entity.player.info.PlayerDetails
@@ -148,34 +147,6 @@ object Repository {
             }
         }
         return null
-    }
-
-    /**
-     * Gets the player by the name,
-     * @param name the name.
-     * @return `True` if online.
-     */
-    fun getPlayer(name: String?): Player? {
-        return getPlayer(name, false)
-    }
-
-    /**
-     * Get a player by their name.
-     * @param name The players name.
-     * @param load If the file should be loaded.
-     * @return The player.
-     */
-    fun getPlayer(name: String?, load: Boolean): Player? {
-        if (name == null) {
-            return null
-        }
-        var player = playerNames[name.toLowerCase().replace(" ".toRegex(), "_")]
-        if (player == null && load) {
-            val details = PlayerDetails.getDetails(name) ?: return null
-            player = Player(details)
-            PlayerParser.parse(player)
-        }
-        return player
     }
 
     /**

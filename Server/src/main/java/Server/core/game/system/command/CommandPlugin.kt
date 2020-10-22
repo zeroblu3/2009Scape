@@ -91,7 +91,7 @@ abstract class CommandPlugin : Plugin<Any?> {
          */
         @JvmStatic
         fun getTarget(name: String?, load: Boolean): Player? {
-            return Repository.getPlayer(name, load)
+            return Repository.getPlayerByName(name)
         }
 
         /**
@@ -101,7 +101,7 @@ abstract class CommandPlugin : Plugin<Any?> {
          */
 		@JvmStatic
 		fun getTarget(name: String?): Player? {
-            return Repository.getPlayer(name, false)
+            return Repository.getPlayerByName(name)
         }
     }
 }

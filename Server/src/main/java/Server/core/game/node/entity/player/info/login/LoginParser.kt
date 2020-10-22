@@ -106,7 +106,7 @@ class LoginParser(
             override fun pulse(): Boolean {
                 try {
                     if (details.session.isActive) {
-                        val p = Repository.getPlayer(player.name)
+                        val p = Repository.getPlayerByName(player.name)
                         if (p != null) {
                             p.clear()
                             Repository.playerNames.remove(p.name)
@@ -192,7 +192,7 @@ class LoginParser(
         if (SystemManager.isUpdating()) {
             return flag(Response.UPDATING)
         }
-        if (Repository.getPlayer(details.username).also { gamePlayer = it } != null && gamePlayer!!.session.isActive) {
+        if (Repository.getPlayerByName(details.username).also { gamePlayer = it } != null && gamePlayer!!.session.isActive) {
             log("Already online (other)")
             return flag(Response.ALREADY_ONLINE)
         }

@@ -9,7 +9,6 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
 import core.game.node.entity.player.link.audio.Audio
-import core.game.system.SystemLogger.log
 import core.game.system.command.CommandPlugin
 import core.game.system.command.CommandSet
 import core.game.system.task.Pulse
@@ -386,14 +385,14 @@ class VisualCommand : CommandPlugin() {
                 return true
             }
             "toreg" -> {
-                o = Repository.getPlayer(args!![1])
+                o = Repository.getPlayerByName(args!![1])
                 o?.ironmanManager?.mode = IronmanMode.NONE
                 player!!.sendMessage("done...")
                 o?.sendMessage("<col=FF0000>You are no longer an ironman. Log out to see the ironman icon disappear.</col>")
             }
             "clearpatches" -> {
                 if (args!!.size > 1) {
-                    o = Repository.getPlayer(args[1])
+                    o = Repository.getPlayerByName(args[1])
                 }
                 if (o != null) {
                     for (wrapper in o.farmingManager.patches) {
