@@ -10845,10 +10845,28 @@
         "maxAmount": "1"
       },
       {
-        "minAmount": "3",
+        "minAmount": "1",
         "weight": "5",
         "id": "1383",
-        "maxAmount": "3"
+        "maxAmount": "1"
+      },
+      {
+        "minAmount": "1",
+        "weight": "10",
+        "id": "581",
+        "maxAmount": "1"
+      },
+      {
+        "minAmount": "1",
+        "weight": "10",
+        "id": "1017",
+        "maxAmount": "1"
+      },
+      {
+        "minAmount": "1",
+        "weight": "1",
+        "id": "987",
+        "maxAmount": "1"
       }
     ],
     "charm": [],
