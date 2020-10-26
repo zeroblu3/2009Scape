@@ -24417,7 +24417,14 @@
         "maxAmount": "1"
       }
     ],
-    "default": []
+    "default": [
+      {
+        "minAmount": "1",
+        "weight": "100",
+        "id": "526",
+        "maxAmount": "1"
+      }
+    ]
   },
   {
     "ids": "1600,1601,1602,1603",
