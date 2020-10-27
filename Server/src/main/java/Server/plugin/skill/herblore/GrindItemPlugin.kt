@@ -3,6 +3,7 @@ package plugin.skill.herblore
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
+import core.game.system.SystemLogger
 import core.game.world.update.flag.context.Animation
 import core.net.packet.PacketRepository
 import core.net.packet.context.ChildPositionContext
@@ -53,9 +54,9 @@ class GrindItemPlugin : UseWithHandler(233) {
                     override fun reward(): Boolean {
                         if(player.inventory.remove(node)){
                             player.inventory.add(GrindingItem.forItem(node).product)
-                            amt--
                         }
-                        return amt == 0
+                        amt--
+                        return amt <= 0
                     }
                 })
             }
