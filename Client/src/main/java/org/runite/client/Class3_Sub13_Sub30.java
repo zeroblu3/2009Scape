@@ -104,7 +104,7 @@ final class Class3_Sub13_Sub30 extends Class3_Sub13 {
          Class163_Sub2_Sub1.method2220();
          Class3_Sub10.method139(69);
          Class3_Sub26.method512();
-         Class104.method1626((byte)-128);
+         WaterfallShader.method1626((byte)-128);
          Class3_Sub13_Sub3.method182();
          Class145.method2077();
          Class25.method959();

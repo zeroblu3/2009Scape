@@ -429,8 +429,8 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
                   MouseListeningClass.method2087();
                   Class115.method1713();
                   Class3_Sub8.method132((byte)-92);
-                  ++Class3_Sub28_Sub16.anInt3699;
-                  if(Class3_Sub28_Sub16.anInt3699 > 750) {
+                  ++AbstractSprite.anInt3699;
+                  if(AbstractSprite.anInt3699 > 750) {
                      breakClientConnection();
                   } else {
                      Class38.method1028();

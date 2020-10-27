@@ -1199,7 +1199,7 @@ final class Class3_Sub24_Sub4 extends Class3_Sub24 {
       try {
          Class8.anInt101 = var1;
          Class3_Sub28_Sub8.anInt3611 = 20;
-         Class3_Sub28_Sub16.anInt3704 = 3;
+         AbstractSprite.anInt3704 = 3;
       } catch (RuntimeException var3) {
          throw ClientErrorException.clientError(var3, "va.FA(" + (byte) -53 + ',' + var1 + ')');
       }

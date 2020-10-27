@@ -23,7 +23,7 @@ final class Class21 {
          Class38_Sub1.anInt2617 = 0;
          Class24.anInt469 = -1;
          GraphicDefinition.incomingBuffer.index = 0;
-         Class3_Sub28_Sub16.anInt3699 = 0;
+         AbstractSprite.anInt3699 = 0;
          Unsorted.incomingOpcode = -1;
 
          int var1;

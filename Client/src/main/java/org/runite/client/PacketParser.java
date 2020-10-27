@@ -1007,7 +1007,7 @@ public final class PacketParser {
                                                         var6 = GraphicDefinition.incomingBuffer.readUnsignedByte();
                                                         var30 = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                                         Class146.updateInterfacePacketCounter(nodeModelId);
-                                                        Class104.aBooleanArray2169[var19] = true;
+                                                        WaterfallShader.aBooleanArray2169[var19] = true;
                                                         Class3_Sub13_Sub32.anIntArray3383[var19] = modelId;
                                                         Class166.anIntArray2073[var19] = counter;
                                                         Class3_Sub13_Sub29.anIntArray3359[var19] = var6;
@@ -1155,7 +1155,7 @@ public final class PacketParser {
                                                         var19 = nodeModelId >> 6;
                                                         var48.anInt1360 = nodeModelId & 63;
                                                         var48.anInt1351 = GraphicDefinition.incomingBuffer.readUnsignedByte();
-                                                        if (var48.anInt1351 >= 0 && Class166.aClass3_Sub28_Sub16Array2072.length > var48.anInt1351) {
+                                                        if (var48.anInt1351 >= 0 && Class166.aAbstractSpriteArray2072.length > var48.anInt1351) {
                                                             if (var48.anInt1360 == 1 || 10 == var48.anInt1360) {
                                                                 var48.anInt1359 = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                                                 GraphicDefinition.incomingBuffer.index += 3;

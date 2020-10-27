@@ -400,7 +400,7 @@ public final class AnimationDefinition {
 			Class38_Sub1.anInt2617 = 0;
 			Class3_Sub13_Sub1.outgoingBuffer.index = 0;
 			LinkableRSString.anInt2582 = -1;
-			Class3_Sub28_Sub16.anInt3699 = 0;
+			AbstractSprite.anInt3699 = 0;
 			GraphicDefinition.incomingBuffer.index = 0;
 
 			int var1;

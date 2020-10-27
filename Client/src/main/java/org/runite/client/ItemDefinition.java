@@ -830,7 +830,6 @@ final class ItemDefinition {
 			var0 += var3;
 			int var4 = var0 / 4;
 			anIntArray781[var1] = var4;
-			System.out.println("Xp gained? : " + var4);
 		}
 		aClass94_811 = RSString.parse("green:");
 	}

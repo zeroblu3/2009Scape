@@ -36,7 +36,7 @@ public class Unsorted {
     static int anInt3695;
     static int anInt1042;
     static CacheIndex aClass153_1043;
-    static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array996;
+    static AbstractSprite[] aAbstractSpriteArray996;
     static int maskUpdateCount = 0;
     static int anInt998 = 0;
     static int anInt999 = -1;
@@ -71,7 +71,7 @@ public class Unsorted {
     public static boolean[] aBooleanArray1712 = new boolean[100];
     public static ReferenceCache aReferenceCache_1131 = new ReferenceCache(5);
     public static ReferenceCache aReferenceCache_1135 = new ReferenceCache(4);
-    public static Class3_Sub28_Sub16[] aClass3_Sub28_Sub16Array1136;
+    public static AbstractSprite[] aAbstractSpriteArray1136;
     public static int anInt1137 = 2;
     public static int[] anIntArray1138;
     public static int anInt3625 = 3;
@@ -129,7 +129,7 @@ public class Unsorted {
     public static int anInt65;
     public static boolean isMember = false;
     public static int anInt67;
-    public static Interface5[] anInterface5Array70;
+    public static ShaderInterface[] anShaderInterfaceArray70;
     public static boolean aBoolean742 = false;
     public static ReferenceCache aReferenceCache_743 = new ReferenceCache(20);
     public static CacheIndex quickChatMessages;
@@ -402,7 +402,7 @@ public class Unsorted {
         }
     }
 
-    static Class3_Sub28_Sub16 method1570(int var0, byte var1, boolean var2, int var3, boolean var4, int var5, int var6, boolean var7) {
+    static AbstractSprite method1570(int var0, byte var1, boolean var2, int var3, boolean var4, int var5, int var6, boolean var7) {
         try {
             ItemDefinition item = Class38.getItemDefinition(var3);
             if (var6 > 1 && item.anIntArray804 != null) {
@@ -487,7 +487,7 @@ public class Unsorted {
                 Class74.setClipping(var14);
                 Class51.method1134();
                 Class51.aBoolean843 = true;
-                return (Class3_Sub28_Sub16) (HDToolKit.highDetail && !var2 ? new Class3_Sub28_Sub16_Sub1(var15) : var15);
+                return (AbstractSprite) (HDToolKit.highDetail && !var2 ? new HDSprite(var15) : var15);
             }
         } catch (RuntimeException var20) {
             throw ClientErrorException.clientError(var20, "na.WA(" + var0 + ',' + var1 + ',' + var2 + ',' + var3 + ',' + var4 + ',' + var5 + ',' + var6 + ',' + var7 + ')');
@@ -706,7 +706,7 @@ public class Unsorted {
             Class99.aClass33_1399 = null;
             Class75_Sub2.aClass33_2637 = null;
             Class119.aClass33_1626 = null;
-            Class36.aClass3_Sub28_Sub16_637 = null;
+            Class36.aAbstractSprite_637 = null;
             Class82.anInt1150 = -1;
             WorldMap.aClass3_Sub28_Sub16_Sub2_3221 = null;
         } catch (RuntimeException var3) {
@@ -777,7 +777,7 @@ public class Unsorted {
 
     public static void method66(RSString var0, int var1, int var2, byte var3, int var4) {
         try {
-            RSInterface var5 = Class3_Sub28_Sub16.method638(var4, var1);
+            RSInterface var5 = AbstractSprite.method638(var4, var1);
             if (null != var5) {
                 if (var5.anObjectArray314 != null) {
                     CS2Script var6 = new CS2Script();
@@ -2990,7 +2990,7 @@ public class Unsorted {
     public static void method383(int var0, int var1) {
         try {
             if (var1 == Class23.anInt453 && var1 != 0) {
-                Interface5 var2 = anInterface5Array70[var1];
+                ShaderInterface var2 = anShaderInterfaceArray70[var1];
                 var2.method23(Class3_Sub13_Sub21.anInt3263);
             }
 
@@ -3020,7 +3020,7 @@ public class Unsorted {
         }
     }
 
-    public static Class3_Sub28_Sub16 method602(int var0, CacheIndex var1) {
+    public static AbstractSprite method602(int var0, CacheIndex var1) {
         try {
             //  System.out.println("Class3_sub28_Sub16 " + var1);
             if (Class75_Sub4.method1351(var1, 0, var0, (byte) -18 ^ 30885)) {
@@ -4065,7 +4065,7 @@ public class Unsorted {
                                     var28 = Class102.player.anInt2819 + var26 >> 7;
                                     var29 = -var47 + Class102.player.anInt2829 >> 7;
                                     if (GameObject.aBoolean1837 && 0 != (Class164.anInt2051 & 64)) {
-                                        RSInterface var53 = Class3_Sub28_Sub16.method638(Class3_Sub30_Sub1.anInt872, RSInterface.anInt278);
+                                        RSInterface var53 = AbstractSprite.method638(Class3_Sub30_Sub1.anInt872, RSInterface.anInt278);
                                         if (null == var53) {
                                             Class25.method958((byte) -91);
                                         } else {
@@ -4201,7 +4201,7 @@ public class Unsorted {
 
                                 if (var11.anInt189 == 1406) {
                                     ClientErrorException.anInt2115 = var14;
-                                    Class3_Sub28_Sub16.aClass11_3708 = var11;
+                                    AbstractSprite.aClass11_3708 = var11;
                                     Class3_Sub13_Sub23_Sub1.anInt4041 = var13;
                                     continue;
                                 }
@@ -4284,7 +4284,7 @@ public class Unsorted {
 
                                                 if (var11.itemAmounts[var20] <= 0) {
                                                     if (null != var11.anIntArray197 && var20 < 20) {
-                                                        Class3_Sub28_Sub16 var58 = var11.method859(var20);
+                                                        AbstractSprite var58 = var11.method859(var20);
                                                         if (null == var58) {
                                                             if (GameShell.aBoolean6) {
                                                                 Class20.method909(var11);
@@ -4296,7 +4296,7 @@ public class Unsorted {
                                                 } else {
                                                     var47 = var11.itemAmounts[var20] + -1;
                                                     if (var0 < 32 + var23 && var4 > var23 && var24 - -32 > var6 && var7 > var24 || var11 == Class67.aClass11_1017 && var20 == PacketParser.anInt86) {
-                                                        Class3_Sub28_Sub16 var54;
+                                                        AbstractSprite var54;
                                                         if (Class164_Sub1.anInt3012 == 1 && Class3_Sub30_Sub1.anInt1473 == var20 && Class3_Sub28_Sub18.anInt3764 == var11.componentHash) {
                                                             var54 = Class114.method1707(2, var47, var11.aBoolean227, var11.itemIds[var20], 0);
                                                         } else {
@@ -4457,7 +4457,7 @@ public class Unsorted {
                                                 Class20.method909(var11);
                                             }
                                         } else if (5 == var11.type) {
-                                            Class3_Sub28_Sub16 var37;
+                                            AbstractSprite var37;
                                             if (var11.usingScripts) {
                                                 if (var11.anInt192 == -1) {
                                                     var37 = var11.method866(false);
@@ -4479,7 +4479,7 @@ public class Unsorted {
                                                             Class22.method931(var13, var14, var11.width + var13, var11.height + var14);
                                                             var39 = Class140_Sub6.method2021((byte) -94, var37.anInt3707);
                                                             var46 = Class140_Sub6.method2021((byte) -113, var37.anInt3696);
-                                                            Class3_Sub28_Sub16_Sub1 var27 = (Class3_Sub28_Sub16_Sub1) var37;
+                                                            HDSprite var27 = (HDSprite) var37;
                                                             if (var39 && var46) {
                                                                 if (var15 == 0) {
                                                                     var27.method649(var13, var14, var23, var24);
