@@ -14265,6 +14265,12 @@
         "weight": "5",
         "id": "434",
         "maxAmount": "1"
+      },
+      {
+        "minAmount": "1",
+        "weight": "5",
+        "id": "579",
+        "maxAmount": "1"
       }
     ],
     "charm": [],
