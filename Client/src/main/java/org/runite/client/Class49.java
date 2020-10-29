@@ -195,7 +195,7 @@ final class Class49 {
                Class38_Sub1.anInt2612 = Class38_Sub1.anInt2614;
             }
 
-            Class3_Sub13_Sub34.anInt3415 = 1;
+            Unsorted.menuOptionCount = 1;
             Class140_Sub7.aClass94Array2935[0] = TextCore.HasCancel;
             Class163_Sub2_Sub1.aClass94Array4016[0] = TextCore.aClass94_3672;
             Class3_Sub13_Sub7.aShortArray3095[0] = 1005;

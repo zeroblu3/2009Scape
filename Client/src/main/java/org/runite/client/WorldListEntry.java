@@ -117,8 +117,8 @@ final class WorldListEntry extends Class44 {
             var5 = Class126.anInt1676;
             int var7;
             int var8;
-            for (var7 = 0; Class3_Sub13_Sub34.anInt3415 > var7; ++var7) {
-                var8 = (-var7 + Class3_Sub13_Sub34.anInt3415 - 1) * 15 + var2 + 35;
+            for (var7 = 0; Unsorted.menuOptionCount > var7; ++var7) {
+                var8 = (-var7 + Unsorted.menuOptionCount - 1) * 15 + var2 + 35;
                 if (var1 < var5 && var5 < var1 - -var3 && -13 + var8 < var6 && var8 + 3 > var6) {
                     Toolkit.getActiveToolkit().fillRect(var1, var8 - 13, var3, 16, MouseListeningClass.anInt1926, -Class136.anInt1771 + 256);
                 }
@@ -168,8 +168,8 @@ final class WorldListEntry extends Class44 {
                 Class3_Sub26.aAbstractSprite_2560.method641(var1 + var3 - Class3_Sub26.aAbstractSprite_2560.anInt3707, var2 - -var4 + -Class3_Sub26.aAbstractSprite_2560.anInt3696);
             }
 
-            for (var7 = 0; var7 < Class3_Sub13_Sub34.anInt3415; ++var7) {
-                var8 = 15 * (Class3_Sub13_Sub34.anInt3415 - 1 + -var7) + var2 + 35;
+            for (var7 = 0; var7 < Unsorted.menuOptionCount; ++var7) {
+                var8 = 15 * (Unsorted.menuOptionCount - 1 + -var7) + var2 + 35;
                 var9 = anInt3351;
                 if (var1 < var5 && var3 + var1 > var5 && var6 > var8 - 13 && var8 - -3 > var6) {
                     var9 = Class154.anInt1957;

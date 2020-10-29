@@ -833,9 +833,4 @@ final class ItemDefinition {
 		}
 		aClass94_811 = RSString.parse("green:");
 	}
-
-	public int getShiftClickActionIndex() {
-		return (inventoryOptions != null)
-				? ("Drop".equalsIgnoreCase(inventoryOptions[4].toString()) ? 4 : -1) : -1;
-	}
 }

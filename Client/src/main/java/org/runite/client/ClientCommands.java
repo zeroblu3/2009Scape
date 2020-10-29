@@ -7,6 +7,7 @@ public class ClientCommands {
     static boolean fpsOverlayEnabled = false;
     static boolean tweeningEnabled = false;
     static boolean shiftClickEnabled = false;
+    static boolean canDrop = false;
     static boolean renderInfoOverlayEnabled = false;
     /**
      * Removed out of (depreciated)Properties.java

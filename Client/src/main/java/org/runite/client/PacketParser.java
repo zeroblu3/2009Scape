@@ -1790,9 +1790,9 @@ public final class PacketParser {
                         } else if (Client.method42(Class56.aClass11_886) != null) {
                             System.out.println("Shouldn't be sending packet, enabled to fix banking tabs though.");
                         }
-                    } else if ((Unsorted.anInt998 == 1 || Class3_Sub13_Sub39.method353(-1 + Class3_Sub13_Sub34.anInt3415, ~-1)) && Class3_Sub13_Sub34.anInt3415 > 2) {
+                    } else if ((Unsorted.anInt998 == 1 || Class3_Sub13_Sub39.method353(-1 + Unsorted.menuOptionCount, ~-1)) && Unsorted.menuOptionCount > 2) {
                         Class132.method1801();
-                    } else if (Class3_Sub13_Sub34.anInt3415 > 0) {
+                    } else if (Unsorted.menuOptionCount > 0) {
                         Class3_Sub13_Sub8.method203(96);
                     }
 

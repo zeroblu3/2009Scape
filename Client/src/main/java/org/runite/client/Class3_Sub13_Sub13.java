@@ -632,9 +632,9 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
                                  Class3_Sub13_Sub1.outgoingBuffer.putShortA(anInt2701);
                                  Class3_Sub13_Sub1.outgoingBuffer.write128Byte(var18);
                               }
-                           } else if((Unsorted.anInt998 == 1 || Class3_Sub13_Sub39.method353(-1 + Class3_Sub13_Sub34.anInt3415, 0)) && Class3_Sub13_Sub34.anInt3415 > 2) {
+                           } else if((Unsorted.anInt998 == 1 || Class3_Sub13_Sub39.method353(-1 + Unsorted.menuOptionCount, 0)) && Unsorted.menuOptionCount > 2) {
                               Class132.method1801();
-                           } else if(Class3_Sub13_Sub34.anInt3415 > 0) {
+                           } else if(Unsorted.menuOptionCount > 0) {
                               Class3_Sub13_Sub8.method203(56);
                            }
 

@@ -165,7 +165,7 @@ public class Unsorted {
     static int anInt1165 = -1;
     static byte[][][] aByteArrayArrayArray1774;
     static int[][] anIntArrayArray2039 = new int[][]{{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}, {12, 8, 4, 0, 13, 9, 5, 1, 14, 10, 6, 2, 15, 11, 7, 3}, {15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0}, {3, 7, 11, 15, 2, 6, 10, 14, 1, 5, 9, 13, 0, 4, 8, 12}};
-
+    static int menuOptionCount = 0;
 
 
     static void method2086() {
@@ -2595,7 +2595,7 @@ public class Unsorted {
     // @Splinter
     public static void drawNpcRightClickOptions(NPCDefinition var0, int var1, int var2, int var3, int var4) {
         try {
-            if (Class3_Sub13_Sub34.anInt3415 < 400) {
+            if (menuOptionCount < 400) {
                 if (var0.childNPCs != null) {
                     var0 = var0.method1471((byte) 66);
                 }
@@ -4224,7 +4224,7 @@ public class Unsorted {
 
                             if (!Class38_Sub1.aBoolean2615) {
                                 if (var11.type == 0 && var11.aBoolean219 && NPCDefinition.anInt1297 >= var16 && var17 <= Class38_Sub1.anInt2612 && NPCDefinition.anInt1297 < var18 && Class38_Sub1.anInt2612 < var19 && !ClientCommands.commandQaOpEnabled) {
-                                    Class3_Sub13_Sub34.anInt3415 = 1;
+                                    menuOptionCount = 1;
                                     Class114.anIntArray1578[0] = Class3_Sub28_Sub5.anInt3590;
                                     Class140_Sub7.aClass94Array2935[0] = TextCore.HasCancel;
                                     Class163_Sub2_Sub1.aClass94Array4016[0] = TextCore.aClass94_3672;
@@ -4260,7 +4260,7 @@ public class Unsorted {
                                 if (var36 != null) {
                                     if (var36.anInt2603 == 0 && !Class38_Sub1.aBoolean2615 && NPCDefinition.anInt1297 >= var16 && Class38_Sub1.anInt2612 >= var17 && NPCDefinition.anInt1297 < var18 && Class38_Sub1.anInt2612 < var19 && !ClientCommands.commandQaOpEnabled) {
                                         Class140_Sub7.aClass94Array2935[0] = TextCore.HasCancel;
-                                        Class3_Sub13_Sub34.anInt3415 = 1;
+                                        menuOptionCount = 1;
                                         Class114.anIntArray1578[0] = Class3_Sub28_Sub5.anInt3590;
                                         Class3_Sub13_Sub7.aShortArray3095[0] = 1005;
                                         Class163_Sub2_Sub1.aClass94Array4016[0] = TextCore.aClass94_3672;
