@@ -3939,7 +3939,7 @@ public class Unsorted {
 
                         int var14 = var1 + var11.anInt210;
                         int var15 = var11.anInt223;
-                        int var13 = var11.anInt306 - -var2;
+                        int var13 = var11.anInt306 + var2;
                         if (ClientCommands.commandQaOpEnabled && (0 != Client.method44(var11).anInt2205 || var11.type == 0) && var15 > 127) {
                             var15 = 127;
                         }
@@ -4173,30 +4173,45 @@ public class Unsorted {
                                         continue;
                                     }
                                     if (ClientCommands.renderInfoOverlayEnabled) {
-                                        int vendorColor;
-                                        String vendor = HDToolKit.gl.glGetString(GL.GL_VENDOR);
-                                        if (vendor.contains("NVIDIA")) {
-                                            vendorColor = 7780608;
-                                        } else if (vendor.contains("AMD")) {
-                                            vendorColor = 15539236;
-                                        } else if (vendor.contains("INTEL")) {
-                                            vendorColor = 29125;
+                                        if (HDToolKit.highDetail) {
+                                            int vendorColor;
+                                            String vendor = HDToolKit.gl.glGetString(GL.GL_VENDOR);
+                                            if (vendor.contains("NVIDIA")) {
+                                                vendorColor = 7780608;
+                                            } else if (vendor.contains("AMD")) {
+                                                vendorColor = 15539236;
+                                            } else if (vendor.contains("INTEL")) {
+                                                vendorColor = 29125;
+                                            } else {
+                                                vendorColor = 16776960;
+                                            }
+                                            var20 = var11.width + var13;
+                                            var21 = 15 + var14;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(JoglVersion.getInstance().getImplementationVendor()), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_VERSION)), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(vendor), var20, var21, vendorColor, 4);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_RENDERER)), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse("Oncard Geometry: " + Class31.anInt585), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse("Oncard 2D: " + Class31.memory2D), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse("Oncard Texture: " + Class31.anInt580), var20, var21, 16776960, 7);
                                         } else {
-                                            vendorColor = 16776960;
+                                            var20 = var11.width + var13;
+                                            var21 = 15 + var14;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse("Java Toolkit"), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(System.getProperty("java.vendor")), var20, var21, 16776960, 7);
+                                            var21 += 15;
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(System.getProperty("java.version")), var20, var21, 16776960, 7);
                                         }
-                                        var20 = var11.width + var13;
-                                        var21 = 15 + var14;
-                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(JoglVersion.getInstance().getImplementationVendor()), var20, var21, 16776960, 7);
-                                        var21 += 15;
-                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_VERSION)), var20, var21, 16776960, 7);
-                                        var21 += 15;
-                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(vendor), var20, var21, vendorColor, 4);
-                                        var21 += 15;
-                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_RENDERER)), var20, var21, 16776960, 7);
                                         continue;
                                     }
                                     continue;
-
                                 }
 
                                 if (var11.anInt189 == 1406) {
