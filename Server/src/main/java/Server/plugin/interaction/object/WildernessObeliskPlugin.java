@@ -71,7 +71,7 @@ public final class WildernessObeliskPlugin extends OptionHandler {
 			}
 		}
 		player.getAudioManager().send(204);
-		GameWorld.Pulser.submit(new Pulse(6, player) {
+		GameWorld.getPulser().submit(new Pulse(6, player) {
 			@Override
 			public boolean pulse() {
 				final Location center = stationObelisk.getLocation();

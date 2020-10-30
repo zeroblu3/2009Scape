@@ -24,7 +24,7 @@ class DisconnectionQueue {
      * Updates all entries.
      */
     fun update() {
-        if (queue.isEmpty() || GameWorld.getTicks() % 3 != 0 && !GameWorld.getSettings().isDevMode) {
+        if (queue.isEmpty() || GameWorld.ticks % 3 != 0 && GameWorld.settings?.isDevMode != true) {
             return
         }
         //make a copy of current entries as to avoid concurrency exceptions
@@ -49,9 +49,9 @@ class DisconnectionQueue {
         if (entry.isClear) {
             player.clear()
         }
-        Repository.getPlayerNames().remove(player.name)
-        Repository.getLobbyPlayers().remove(player)
-        Repository.getPlayers().remove(player)
+        Repository.playerNames.remove(player.name)
+        Repository.lobbyPlayers.remove(player)
+        Repository.players.remove(player)
         Repository.LOGGED_IN_PLAYERS.remove(player.details.username)
         log("Player cleared. Removed ${player.details.username}")
         log("Remaining Queue:")
@@ -169,7 +169,7 @@ class DisconnectionQueue {
          * @param clear If the player should be cleared.
          */
         init {
-            timeStamp = GameWorld.getTicks()
+            timeStamp = GameWorld.ticks
         }
     }
 

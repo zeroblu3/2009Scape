@@ -117,7 +117,7 @@ public final class EvilTwinRandomEvent extends AntiMacroEvent {
 		molly.face(player);
 		player.lock(4);
 		player.setAttribute("ame:location", player.getLocation());
-		GameWorld.Pulser.submit(new Pulse(3) {
+		GameWorld.getPulser().submit(new Pulse(3) {
 			@Override
 			public boolean pulse() {
 				teleport(player, molly, hash);
@@ -228,7 +228,7 @@ public final class EvilTwinRandomEvent extends AntiMacroEvent {
 						player.lock(10);
 						player.getLocks().lockComponent(15);
 						updateCraneCam(10, 4);
-						GameWorld.Pulser.submit(new Pulse(5, player) {
+						GameWorld.getPulser().submit(new Pulse(5, player) {
 							int cycle = 0;
 
 							@Override
@@ -394,7 +394,7 @@ public final class EvilTwinRandomEvent extends AntiMacroEvent {
 	 * @param direction The current direction.
 	 */
 	private void moveCrane(final Direction direction) {
-		GameWorld.Pulser.submit(new Pulse(1, player) {
+		GameWorld.getPulser().submit(new Pulse(1, player) {
 			@Override
 			public boolean pulse() {
 				if (!direction.canMove(currentCrane.getLocation().transform(direction))) {

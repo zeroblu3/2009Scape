@@ -91,7 +91,7 @@ public final class QuizMasterDialogue extends DialoguePlugin {
 			stage = 2;
 			return true;
 		}
-		npc("WELCOME to the GREATEST QUIZ SHOW in the", "whole of " + GameWorld.getName() + ".", "<col=7f0000>O <col=6f000f>D <col=5f001f>D <col=4f002f>O <col=3f003f>N <col=2f004f>E <col=1f005f>O <col=0f006f>U <col=00007f>T");
+		npc("WELCOME to the GREATEST QUIZ SHOW in the", "whole of " + GameWorld.getSettings().getName() + ".", "<col=7f0000>O <col=6f000f>D <col=5f001f>D <col=4f002f>O <col=3f003f>N <col=2f004f>E <col=1f005f>O <col=0f006f>U <col=00007f>T");
 		return true;
 	}
 

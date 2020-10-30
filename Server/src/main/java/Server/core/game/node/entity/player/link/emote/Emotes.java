@@ -50,8 +50,10 @@ public enum Emotes {
     SHRUG(8, Animation.create(2113)),
     CHEER(9, Animation.create(862)),
     BECKON(10, Animation.create(864)),
-    LAUGH(11, Animation.create(2109)),
-    JUMP_FOR_JOY(12, Animation.create(861)),
+	//Switch laugh id 11, to 12, and switch Jump id 12 to 11. Id's were mismatched.
+	//This caused the LAUGH to proc JUMP_FOR_JOY and JUMP_FOR_JOY to proc LAUGH! :)
+	JUMP_FOR_JOY(11, Animation.create(2109)),
+	LAUGH(12, Animation.create(861)),
     YAWN(13, Animation.create(2111)) {
         @Override
         public void play(Player player) {
@@ -157,7 +159,7 @@ public enum Emotes {
     GIVE_THANKS(46, "This emote can be unlocked by playing a Thanksgiving holiday event.") {
         @Override
         public void play(final Player player) {
-            GameWorld.Pulser.submit(new Pulse(1, player) {
+			GameWorld.getPulser().submit(new Pulse(1, player) {
                 int counter;
 
                 @Override

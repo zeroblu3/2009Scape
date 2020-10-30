@@ -137,7 +137,7 @@ public final class RottenPotatoPlugin extends OptionHandler {
 									player.getAntiMacroHandler().fireEvent(event.getName());
 									return true;
 								}
-								Player p = Repository.getPlayer(name);
+								Player p = Repository.getPlayerByName(name);
 								if (p == null) {
 									player.getPacketDispatch().sendMessage("Player unavailable - " + name + ".");
 								} else {
@@ -380,7 +380,7 @@ public final class RottenPotatoPlugin extends OptionHandler {
 			player.setAttribute("runscript", new RunScript() {
 				@Override
 				public boolean handle() {
-					final Player target = Repository.getPlayer((String) getValue());
+					final Player target = Repository.getPlayerByName((String) getValue());
 					if (target == null || !target.isActive()) {
 						player.getPacketDispatch().sendMessage("That player is offline, or has privacy mode enabled.");
 						return true;

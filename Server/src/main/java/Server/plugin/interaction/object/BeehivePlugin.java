@@ -26,7 +26,7 @@ public class BeehivePlugin extends OptionHandler {
         if (!player.getInventory().containsItem(REPELLANT)) {
             player.getPacketDispatch().sendMessage("The bees fly out of the hive and sting you!");
             player.getImpactHandler().manualHit(player, 2, ImpactHandler.HitsplatType.NORMAL, 1);
-            GameWorld.Pulser.submit(new Pulse(2, player) {
+            GameWorld.getPulser().submit(new Pulse(2, player) {
                 @Override
                 public boolean pulse() {
                     player.getPacketDispatch().sendMessage("Maybe you can clear them out somehow.");

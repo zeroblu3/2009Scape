@@ -137,7 +137,7 @@ public final class RellekkaZone extends MapZone implements Plugin<Object> {
 		player.lock();
 		player.getInterfaceManager().open(new Component(224));
 		player.addExtension(LogoutTask.class, new LocationLogoutTask(5, destination));
-		GameWorld.Pulser.submit(new Pulse(1, player) {
+		GameWorld.getPulser().submit(new Pulse(1, player) {
 			int count;
 
 			@Override

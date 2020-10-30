@@ -1,8 +1,8 @@
 package org.rs09.client.net
 
-import org.runite.jagex.Class64
-import org.runite.jagex.Signlink
-import org.runite.jagex.TimeUtils
+import org.runite.client.Class64
+import org.runite.client.Signlink
+import org.runite.client.TimeUtils
 import java.io.EOFException
 import java.io.IOException
 import java.io.InputStream

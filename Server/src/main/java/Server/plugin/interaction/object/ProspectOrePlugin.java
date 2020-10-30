@@ -26,7 +26,7 @@ public class ProspectOrePlugin extends OptionHandler {
 		final GameObject object = (GameObject) node;
 		int tut_stage = TutorialSession.getExtension(player).getStage();
 		if (tut_stage == 31 && object.getId() == 3043) {
-			GameWorld.Pulser.submit(new Pulse(1) {
+			GameWorld.getPulser().submit(new Pulse(1) {
 				int count = 0;
 
 				@Override
@@ -43,7 +43,7 @@ public class ProspectOrePlugin extends OptionHandler {
 			});
 		}
 		if (tut_stage == 33 && object.getId() == 3042) {
-			GameWorld.Pulser.submit(new Pulse(1) {
+			GameWorld.getPulser().submit(new Pulse(1) {
 				int count = 0;
 
 				@Override

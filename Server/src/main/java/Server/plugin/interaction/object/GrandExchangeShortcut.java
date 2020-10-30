@@ -55,7 +55,7 @@ public final class GrandExchangeShortcut extends OptionHandler {
 		final GameObject o = (GameObject) node;
 		if (o.getId() == 9311) {
 			ForceMovement.run(player, Location.create(3138, 3516, 0), o.getLocation(), CLIMB_DOWN);
-			GameWorld.Pulser.submit(new Pulse(1, player) {
+			GameWorld.getPulser().submit(new Pulse(1, player) {
 				int count;
 
 				@Override
@@ -76,7 +76,7 @@ public final class GrandExchangeShortcut extends OptionHandler {
 			});
 		} else {
 			ForceMovement.run(player, Location.create(3144, 3514, 0), o.getLocation(), CLIMB_DOWN);
-			GameWorld.Pulser.submit(new Pulse(1, player) {
+			GameWorld.getPulser().submit(new Pulse(1, player) {
 				int count;
 
 				@Override

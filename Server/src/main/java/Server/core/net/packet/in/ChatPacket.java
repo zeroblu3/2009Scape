@@ -43,7 +43,7 @@ public class ChatPacket implements IncomingPacket {
 			}
 			player.getMonitor().log(message, PlayerMonitor.PUBLIC_CHAT_LOG);
 			ChatMessage ctx = new ChatMessage(player, message, effects, numChars);
-			GameWorld.FastPulser.submit(new Pulse(0, player) {
+			GameWorld.getPulser().submit(new Pulse(0, player) {
 				@Override
 				public boolean pulse() {
 					player.getUpdateMasks().register(new ChatFlag(ctx));

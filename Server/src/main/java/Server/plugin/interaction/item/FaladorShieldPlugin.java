@@ -58,7 +58,7 @@ public class FaladorShieldPlugin extends OptionHandler {
                 }
                 return true;
             case "operate":
-                GameWorld.Pulser.submit(getPulse(player, level));
+                GameWorld.getPulser().submit(getPulse(player, level));
                 break;
         }
         return true;

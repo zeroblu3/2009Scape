@@ -82,7 +82,7 @@ public class GraveStoneNPC extends AbstractNPC {
 	@Override
 	public void init() {
 		super.init();
-		Player player = Repository.getPlayer(owner);
+		Player player = Repository.getPlayerByName(owner);
 		if (player != null) {
 			HintIconManager.registerHintIcon(player, this);
 		}
@@ -118,7 +118,7 @@ public class GraveStoneNPC extends AbstractNPC {
 	@Override
 	public void clear() {
 		super.clear();
-		Player player = Repository.getPlayer(owner);
+		Player player = Repository.getPlayerByName(owner);
 		if (player != null) {
 			player.getHintIconManager().clear();
 		}
@@ -287,7 +287,7 @@ public class GraveStoneNPC extends AbstractNPC {
 	 * @param message the message.
 	 */
 	private void message(String message) {
-		Player o = Repository.getPlayer(owner);
+		Player o = Repository.getPlayerByName(owner);
 		if (o != null && o.isActive()) {
 			o.sendMessage(message);
 		}

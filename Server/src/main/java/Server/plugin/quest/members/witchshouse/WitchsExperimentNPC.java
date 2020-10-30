@@ -114,7 +114,7 @@ public class WitchsExperimentNPC extends AbstractNPC {
             npc.getPulseManager().clear();
             npc.getWalkingQueue().reset();
             player.setAttribute("/save:witchs_house:experiment_id",this.id);
-            GameWorld.Pulser.submit(new Pulse(1, npc, player) {
+            GameWorld.getPulser().submit(new Pulse(1, npc, player) {
                 int counter;
 
                 @Override

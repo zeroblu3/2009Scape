@@ -18,7 +18,7 @@ public class PKZoneManager extends ManagerPlugin {
     @Override
     public void tick() {
         if(GameWorld.getTicks() > nextCheck) {
-            for (Player p : Repository.PLAYER_NAMES.values()) {
+            for (Player p : Repository.getPlayerNames().values()) {
                 if (p == null) {
                     continue;
                 }

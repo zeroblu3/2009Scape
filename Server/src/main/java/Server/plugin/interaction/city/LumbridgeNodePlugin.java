@@ -73,7 +73,7 @@ public final class LumbridgeNodePlugin extends OptionHandler {
             case 37335:
                 if (!FLAG_IN_USE) {
                     FLAG_IN_USE = true;
-                    GameWorld.Pulser.submit(new Pulse(1, player) {
+				GameWorld.getPulser().submit(new Pulse(1, player) {
                         int counter = 0;
 
                         @Override

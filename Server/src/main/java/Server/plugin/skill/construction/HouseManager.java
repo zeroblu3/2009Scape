@@ -205,7 +205,7 @@ public final class HouseManager implements SavingModule {
 		player.getConfigManager().set(262, getRoomAmount());
 		player.getAudioManager().send(new Audio(984));
 //		player.getMusicPlayer().unlock(454, true);
-		GameWorld.Pulser.submit(new Pulse(1, player) {
+		GameWorld.getPulser().submit(new Pulse(1, player) {
 			@Override
 			public boolean pulse() {
 				if (hasServant()){

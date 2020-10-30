@@ -198,7 +198,7 @@ public final class BarcrawlPlugin extends OptionHandler {
 					player.getPacketDispatch().sendMessages("The barmaid giggles.", "The barmaid signs your card.");
 				} else {
 					PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.SHAKE, 4, 4, 1, 4, 4));
-					GameWorld.Pulser.submit(new Pulse(3, player) {
+					GameWorld.getPulser().submit(new Pulse(3, player) {
 						@Override
 						public boolean pulse() {
 							PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.RESET, 4, 4, 1, 4, 4));

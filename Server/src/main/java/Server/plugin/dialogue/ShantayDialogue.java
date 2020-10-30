@@ -161,7 +161,7 @@ public final class ShantayDialogue extends DialoguePlugin {
 			player.getPacketDispatch().sendMessage("The guards arrest you and place you in the jail.");
 			close();
 			player.lock(10);
-			GameWorld.Pulser.submit(new Pulse(3, player) {
+			GameWorld.getPulser().submit(new Pulse(3, player) {
 				@Override
 				public boolean pulse() {
 					player.setAttribute("/save:shantay-jail", true);

@@ -63,7 +63,7 @@ class TeleportCommandSet : CommandSet(Command.Privilege.ADMIN){
                 return@define
             }
             val n = args.slice(1 until args.size).joinToString("_")
-            val target = Repository.getPlayer(n)
+            val target = Repository.getPlayerByName(n)
             if (target == null) {
                 reject(player,"syntax error: name")
                 return@define
@@ -85,7 +85,7 @@ class TeleportCommandSet : CommandSet(Command.Privilege.ADMIN){
                 return@define
             }
             val n = args.slice(1 until args.size).joinToString("_")
-            val target = Repository.getPlayer(n)
+            val target = Repository.getPlayerByName(n)
             if (target == null) {
                 reject(player,"syntax error: name")
                 return@define

@@ -165,7 +165,7 @@ public final class DoricDialogue extends DialoguePlugin {
 			end();
 			break;
 		case 50:
-			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I make pickaxes. I am the best maker of pickaxes in the", "whole of " + GameWorld.getName() + ".");
+			interpreter.sendDialogues(npc, FacialExpression.OLD_NORMAL, "I make pickaxes. I am the best maker of pickaxes in the", "whole of " + GameWorld.getSettings().getName() + ".");
 			stage = 51;
 			break;
 		case 51:

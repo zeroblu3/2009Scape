@@ -55,7 +55,7 @@ public final class VoidFamiliarNPC implements Plugin<Object> {
 	public boolean callToArms(Familiar familiar, FamiliarSpecial special) {
 		final Player owner = familiar.getOwner();
 		owner.lock();
-		GameWorld.Pulser.submit(new Pulse(1, owner) {
+		GameWorld.getPulser().submit(new Pulse(1, owner) {
 			int counter;
 
 			@Override

@@ -50,7 +50,7 @@ public final class CanafisWereWolfPlugin extends OptionHandler {
 			newN.setRespawn(false);
 			newN.setAttribute("original", n.getId());
 			newN.setAttribute("loc", n.getProperties().getSpawnLocation());
-			GameWorld.Pulser.submit(new Pulse(2) {
+			GameWorld.getPulser().submit(new Pulse(2) {
 				@Override
 				public boolean pulse() {
 					newN.getProperties().getCombatPulse().attack(player);

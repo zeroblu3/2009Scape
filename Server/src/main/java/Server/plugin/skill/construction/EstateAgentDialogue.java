@@ -53,7 +53,7 @@ public final class EstateAgentDialogue extends DialoguePlugin {
     @Override
     public boolean open(Object... args) {
         npc = (NPC) args[0];
-        npc("Hello. Welcome to the " + GameWorld.getName() + " Housing Agency! What", "can I do for you?");
+        npc("Hello. Welcome to the " + GameWorld.getSettings().getName() + " Housing Agency! What", "can I do for you?");
         stage = 0;
         return true;
     }
@@ -314,7 +314,7 @@ public final class EstateAgentDialogue extends DialoguePlugin {
                 stage++;
                 break;
             case 61:
-                npc("They created several folded-space regions across", "" + GameWorld.getName() + ". Each one contains hundreds of small plots", "where people can build houses.");
+                npc("They created several folded-space regions across", "" + GameWorld.getSettings().getName() + ". Each one contains hundreds of small plots", "where people can build houses.");
                 stage++;
                 break;
             case 62:
@@ -326,7 +326,7 @@ public final class EstateAgentDialogue extends DialoguePlugin {
                 stage++;
                 break;
             case 64:
-                npc("There are various other people across " + GameWorld.getName() + " who can", "help you furnish your house. You should start buying", "planks from the sawmill operator in Varrock.");
+                npc("There are various other people across " + GameWorld.getSettings().getName() + " who can", "help you furnish your house. You should start buying", "planks from the sawmill operator in Varrock.");
                 stage = 150;
                 break;
 

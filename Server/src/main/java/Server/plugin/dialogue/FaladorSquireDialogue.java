@@ -521,7 +521,7 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
                             }
                             break;
                         case 160:
-                            npc("I'm not a hundred percent sure the Imcando tribe", "exists anymore. I should think Reldo, the palace", "librarian in Varrock, will know; he has done a lot of", "research on the races of " + GameWorld.getName() + ".");
+                            npc("I'm not a hundred percent sure the Imcando tribe", "exists anymore. I should think Reldo, the palace", "librarian in Varrock, will know; he has done a lot of", "research on the races of " + GameWorld.getSettings().getName() + ".");
                             stage = 161;
                             break;
                         case 161:

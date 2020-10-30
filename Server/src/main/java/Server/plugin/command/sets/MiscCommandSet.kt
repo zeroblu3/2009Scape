@@ -81,12 +81,12 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
             player.packetDispatch.sendString("<col=8A0808>" + "Players" + "</col>", 275, 2)
             val builder = StringBuilder("<br>")
             var count = 0
-            for (p in Repository.getPlayers()) {
+            for (p in Repository.players) {
                 if (count > 45) {
                     builder.append("<br>Max amount we can show on this interface.")
                     break
                 }
-                if (p == null || p.isAdmin && !GameWorld.getSettings().isDevMode && !player.isAdmin || p.isArtificial) {
+                if (p == null || p.isAdmin && GameWorld.settings?.isDevMode != true && !player.isAdmin || p.isArtificial) {
                     continue
                 }
                 builder.append(red + "<img=" + (Rights.getChatIcon(p) - 1) + ">" + p.username + if(rights > 0) " [ip=" + p.details.ipAddress + ", name=" + p.details.compName + "]<br><br>" else "<br><br>")

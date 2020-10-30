@@ -80,7 +80,7 @@ public final class ObjectBuilder {
 		RegionManager.getRegionChunk(remove.getLocation()).flag(new ObjectUpdateFlag(remove, true));
 		RegionManager.getRegionChunk(construct.getLocation()).flag(new ObjectUpdateFlag(construct, false));
 		if (restoreTicks > 0) {
-			GameWorld.Pulser.submit(new Pulse(restoreTicks) {
+			GameWorld.getPulser().submit(new Pulse(restoreTicks) {
 				@Override
 				public boolean pulse() {
 					return replaceClientSide(construct, remove, -1);
@@ -147,7 +147,7 @@ public final class ObjectBuilder {
 				return true;
 			}
 		});
-		GameWorld.Pulser.submit(constructed.getRestorePulse());
+		GameWorld.getPulser().submit(constructed.getRestorePulse());
 		return true;
 	}
 
@@ -175,7 +175,7 @@ public final class ObjectBuilder {
 		LandscapeParser.addGameObject(constructed);
 		update(constructed);
 		if (ticks > -1) {
-			GameWorld.Pulser.submit(new Pulse(ticks, object) {
+			GameWorld.getPulser().submit(new Pulse(ticks, object) {
 				@Override
 				public boolean pulse() {
 					remove(constructed);
@@ -242,7 +242,7 @@ public final class ObjectBuilder {
 	 */
 	public static boolean remove(final GameObject object, int respawnTicks) {
 		if (remove(object)) {
-			GameWorld.Pulser.submit(new Pulse(respawnTicks) {
+			GameWorld.getPulser().submit(new Pulse(respawnTicks) {
 
 				@Override
 				public boolean pulse() {

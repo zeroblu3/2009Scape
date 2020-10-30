@@ -785,7 +785,7 @@ public class NPC extends Entity {
 
 	/**
 	 * Sets the name.
-	 * @param name
+	 * @param @name
 	 */
 	public void setName(String name) {
 		this.name = name;

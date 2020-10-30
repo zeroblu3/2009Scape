@@ -110,7 +110,7 @@ public final class InformationclerkMuseumDialogue extends DialoguePlugin {
                 stage = 153;
                 break;
             case 180:
-                npc("Why, yes. The Natural History exhibit has displays of", "various creatures you can find around " + GameWorld.getName() + ".");
+                npc("Why, yes. The Natural History exhibit has displays of", "various creatures you can find around " + GameWorld.getSettings().getName() + ".");
                 stage = 181;
                 break;
             case 181:

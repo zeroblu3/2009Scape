@@ -24,7 +24,6 @@
 
 
 ## Table of Contents
-
 * [Live Server Information](#live-server-information)
 * [About the Project](#about-the-project)
 * [Contributing](#contributing)

@@ -111,7 +111,7 @@ class GroundSpawnLoader {
             get() {
                 val minimum = respawnRate and 0xFFFF
                 val maximum = respawnRate shr 16 and 0xFFFF
-                val playerRatio = ServerConstants.MAX_PLAYERS / Repository.getPlayers().size.toDouble()
+                val playerRatio = ServerConstants.MAX_PLAYERS / Repository.players.size.toDouble()
                 return (minimum + (maximum - minimum) / playerRatio).toInt()
             }
 

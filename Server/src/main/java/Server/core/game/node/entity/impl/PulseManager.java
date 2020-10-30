@@ -35,9 +35,9 @@ public final class PulseManager {
 		pulse.start();
 		if (pulse.isRunning()) {
 			if (fast) {
-				GameWorld.FastPulser.submit(current = pulse);
+				GameWorld.getPulser().submit(current = pulse);
 			} else {
-				GameWorld.Pulser.submit(current = pulse);
+				GameWorld.getPulser().submit(current = pulse);
 			}
 		}
 	}

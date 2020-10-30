@@ -149,7 +149,7 @@ public final class LostFoundRandomEvent extends AntiMacroEvent {
 				GameObject object = (GameObject) node;
 				player.lock(2);
 				if (isOddAppendage(player, object)) {
-					GameWorld.Pulser.submit(new Pulse(4) {
+					GameWorld.getPulser().submit(new Pulse(4) {
 						@Override
 						public boolean pulse() {
 							player.getDialogueInterpreter().sendPlainMessage(false, "The Abyssal Services Department apologises for the inconvenience.");

@@ -216,7 +216,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 						stage = 10;
 						break;
 					case 2:
-						npc("I am the easter bunny, and since it is easter", "I must begin handing out chocolate eggs to all", "of " + GameWorld.getName() + ".");
+						npc("I am the easter bunny, and since it is easter", "I must begin handing out chocolate eggs to all", "of " + GameWorld.getSettings().getName() + ".");
 						stage = 20;
 						break;
 					case 3:
@@ -230,7 +230,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 					}
 					break;
 				case 10:
-					npc("Being the easter bunny is no simple task and", "I have found myself very overwhelmed this year.", "I have no clue how I must deliver all of these basket", "of eggs to all the people of " + GameWorld.getName() + ".");
+					npc("Being the easter bunny is no simple task and", "I have found myself very overwhelmed this year.", "I have no clue how I must deliver all of these basket", "of eggs to all the people of " + GameWorld.getSettings().getName() + ".");
 					stage = 21;
 					break;
 				case 20:
@@ -287,7 +287,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 						}
 					};
 					player.setAttribute("egg-pulse", pulse);
-					GameWorld.Pulser.submit(pulse);
+					GameWorld.getPulser().submit(pulse);
 					break;
 				case 30:
 					npc("No you fool! I am an easter bunny!!");
@@ -342,7 +342,7 @@ public class BasketofEggsEvent extends HolidayEvent {
 						}
 					};
 					player.setAttribute("egg-pulse", pulse);
-					GameWorld.Pulser.submit(pulse);
+					GameWorld.getPulser().submit(pulse);
 					break;
 				case 4:
 					end();
