@@ -81,9 +81,10 @@ public final class EmoteCluePlugin extends EmoteClueScroll {
 		// 2nd plane for ardy mill
 		register(new EmoteCluePlugin("ardgoune-mill-clap", 2691, ClueLevel.EASY, emote, new int[][] { { 640 }, { 4300 }, { 5525 } }, "Clap on the top level of the<br>mill, north of East Ardougne.<br>Equip a blue gnome robe top,<br>HAM robe bottom and an<br>unenchanted tiara.", new ZoneBorders(2628, 3382, 2636, 3390, 2)));
 		register(new EmoteCluePlugin("seers-court-clap", 2692, ClueLevel.MEDIUM, emote, Emotes.SPIN, new int[][] { { 3200 }, { 4093 }, { 1643 } }, "Clap in Seers court house.<br>Spin before you talk to me.<br>Equip an adamant halberd,<br>blue mystic robe bottom and<br>a diamond ring.", new ZoneBorders(2732, 3467, 2739, 3471)));
-		emote = Emotes.CRY;
-		register(new EmoteCluePlugin("catherby-range-cry", 2693, ClueLevel.MEDIUM, emote, Emotes.BOW, new int[][] { { 630 }, { 1131 }, { 2961 } }, "Cry in the Catherby<br>Ranging shop. Bow before you talk to me.<br>Equip blue gnome<br>boots, a hard leather<br>body and an<br>unblessed silver<br>sickle.", new ZoneBorders(2821, 3441, 2825, 3445)));
-		register(new EmoteCluePlugin("catherby-shore-cry", 2694, ClueLevel.MEDIUM, emote, Emotes.LAUGH, new int[][] { { 1183 }, { 8872 }, { 1121 } }, "Cry on the shore of<br>Catherby beach.<br>Laugh before you talk to me.<br>Equip an adamant sq<br>shield, a bone dagger<br>and mithril platebody.", new ZoneBorders(2849, 3423, 2857, 3430), new ZoneBorders(2845, 3428, 2852, 3430)));
+		//Fix clue remove vexia
+		//emote = Emotes.CRY;
+		register(new EmoteCluePlugin("catherby-range-cry", 2693, ClueLevel.MEDIUM, Emotes.CRY, Emotes.BOW, new int[][] { { 630 }, { 1131 }, { 2961 } }, "Cry in the Catherby<br>Ranging shop. Bow before you talk to me.<br>Equip blue gnome<br>boots, a hard leather<br>body and an<br>unblessed silver<br>sickle.", new ZoneBorders(2821, 3441, 2825, 3445)));
+		register(new EmoteCluePlugin("catherby-shore-cry", 2694, ClueLevel.MEDIUM, Emotes.CRY, Emotes.LAUGH, new int[][] { { 1183 }, { 8872 }, { 1121 } }, "Cry on the shore of<br>Catherby beach.<br>Laugh before you talk to me.<br>Equip an adamant sq<br>shield, a bone dagger<br>and mithril platebody.", new ZoneBorders(2849, 3423, 2857, 3430), new ZoneBorders(2845, 3428, 2852, 3430)));
 		emote = Emotes.DANCE;
 		register(new EmoteCluePlugin("draynor-cross-dance", 2695, ClueLevel.EASY, emote, new int[][] { { 1101 }, { 1637 }, { 839 } }, "Dance at the<br>crossroads north of<br>Draynor.<br>Equip an iron chain<br>body, a sapphire ring<br>and a longbow.", new ZoneBorders(3109, 3293, 3110, 3296), new ZoneBorders(3108, 3294, 3111, 3295)));
 		register(new EmoteCluePlugin("fally-party-dance", 2696, ClueLevel.EASY, emote, new int[][] { { 1157 }, { 1119 }, { 1081 } }, "Dance in the Party<br>Room.<br>Equip a steel full<br>helmet, steel<br>platebody and an iron<br>plateskirt.", new ZoneBorders(3041, 3372, 3050, 3384), new ZoneBorders(3051, 3371, 3054, 3385), new ZoneBorders(3073, 3371, 3040, 3385)));
@@ -94,12 +95,19 @@ public final class EmoteCluePlugin extends EmoteClueScroll {
 		register(new EmoteCluePlugin("cat-entrance-dance", 2701, ClueLevel.HARD, emote, new int[][] { { 2570 }, { 1704 }, { 1317 } }, "Dance at the<br>cat-doored pyramid in<br>Sophanem. Beware of double agents!<br>Equip a ring of life,<br>an uncharged amulet<br>of glory and an adamant two-handed<br>sword.", new ZoneBorders(3293, 2781, 3296, 2782)));
 		emote = Emotes.HEADBANG;
 		register(new EmoteCluePlugin("al-kharid-headbang", 2702, ClueLevel.EASY, emote, new int[][] { { 1833 }, { 1059 }, { 1061 } }, "Headbang in the mine north of Al<br>Kharid.<br>Equip a desert shirt, leather gloves and<br>leather boots.", new ZoneBorders(3297, 3286, 3301, 3316)));
-		emote = Emotes.JUMP_FOR_JOY;
-		register(new EmoteCluePlugin("beehive-jump", 2703, ClueLevel.EASY, emote, new int[][] { { 1833 }, { 648 }, { 1353 } }, "Jump for joy at the beehives.<br>Equip a desert shirt, green<br>gnome robe bottoms and a<br>steel axe.", new ZoneBorders(2762, 3439, 2764, 3441)));
-		register(new EmoteCluePlugin("yanille-jump", 2704, ClueLevel.MEDIUM, emote, Emotes.JIG, new int[][] { { 1757 }, { 1145 }, { 6324 } }, "Jump for joy in Yanille<br>bank. Dance a jig before you<br>talk to me.<br>Equip a brown apron,<br>adamantite medium helmet<br>and snakeskin chaps.", new ZoneBorders(2609, 3088, 2614, 3097)));
-		register(new EmoteCluePlugin("tzhaar-jump", 2705, ClueLevel.MEDIUM, emote, Emotes.SHRUG, new int[][] { { 1295 }, { 2499 }, { 4095 } }, "Jump for joy in the TzHaar<br>sword shop. Shrug before you<br>talk to me.<br>Equip a Steel longsword,<br>Blue D'hide body and blue<br>mystic gloves.", new ZoneBorders(2477, 5144, 2480, 5147)));
-		emote = Emotes.LAUGH;
-		register(new EmoteCluePlugin("jokul-tent-laugh", 2706, ClueLevel.HARD, emote, new int[][] { { 1163 }, { 2493 }, { 1393 } }, "Laugh in the Jokul's tent in the<br>Mountain Camp.<br>Beware of double agents! Equip a<br>rune full helmet, blue dragonhide<br>chaps and a fire battlestaff.", new ZoneBorders(2811, 3678, 2813, 3682)));
+		//Removed Vexia code that bricked emotes for certain clues.
+		//Fixed JFJ and Laugh Clues
+		//When Vexia emote is removed below.
+		//emote = Emotes.JUMP_FOR_JOY;
+		register(new EmoteCluePlugin("beehive-jump", 2703, ClueLevel.EASY, Emotes.JUMP_FOR_JOY, new int[][] { { 1833 }, { 648 }, { 1353 } }, "Jump for joy at the beehives.<br>Equip a desert shirt, green<br>gnome robe bottoms and a<br>steel axe.", new ZoneBorders(2762, 3439, 2764, 3441)));
+		// And emote, is replaced with what it is shortcutting Emotes.JUMP_FOR_JOY
+		// the clues work perfect. It seems to only be a problem with multiple emote clues.
+		// If you look around EmoteCluePlugin you will see there are multiple emote, shortcuts
+		// I do not know what should be done as there are so many.
+		register(new EmoteCluePlugin("yanille-jump", 2704, ClueLevel.MEDIUM, Emotes.JUMP_FOR_JOY, Emotes.JIG, new int[][] { { 1757 }, { 1145 }, { 6324 } }, "Jump for joy in Yanille<br>bank. Dance a jig before you<br>talk to me.<br>Equip a brown apron,<br>adamantite medium helmet<br>and snakeskin chaps.", new ZoneBorders(2609, 3088, 2614, 3097)));
+		register(new EmoteCluePlugin("tzhaar-jump", 2705, ClueLevel.MEDIUM, Emotes.JUMP_FOR_JOY, Emotes.SHRUG, new int[][] { { 1295 }, { 2499 }, { 4095 } }, "Jump for joy in the TzHaar<br>sword shop. Shrug before you<br>talk to me.<br>Equip a Steel longsword,<br>Blue D'hide body and blue<br>mystic gloves.", new ZoneBorders(2477, 5144, 2480, 5147)));
+		//Removed Vexia code that bricked emotes for certain clues.
+		register(new EmoteCluePlugin("jokul-tent-laugh", 2706, ClueLevel.HARD, Emotes.LAUGH, new int[][] { { 1163 }, { 2493 }, { 1393 } }, "Laugh in the Jokul's tent in the<br>Mountain Camp.<br>Beware of double agents! Equip a<br>rune full helmet, blue dragonhide<br>chaps and a fire battlestaff.", new ZoneBorders(2811, 3678, 2813, 3682)));
 		emote = Emotes.PANIC;
 		register(new EmoteCluePlugin("limestone-mine-panic", 2707, ClueLevel.EASY, emote, new int[][] { { 1075 }, { 1269 }, { 1141 } }, "Panic in the<br>Limestone Mine.<br>Equip bronze<br>platelegs, a steel<br>pickaxe and a steel<br>medium helmet.", new ZoneBorders(3368, 3496, 3374, 3505)));
 		register(new EmoteCluePlugin("fish-trawler-panic", 2708, ClueLevel.EASY, emote, new int[][] {}, "Panic on the pier<br>where you catch the<br>Fishing trawler.<br>Have nothing equipped<br>at all when you do.", new ZoneBorders(2675, 3162, 2677, 3175)));

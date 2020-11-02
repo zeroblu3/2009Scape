@@ -231,7 +231,7 @@ public final class AvaDialogue extends DialoguePlugin {
 				stage++;
 				break;
 			case 5:
-				player("Obvious, yes, but why on " + GameWorld.getName() + " would you need", "an undead chicken when there are perfectly good live", "chickens just down the road?");
+				player("Obvious, yes, but why on " + GameWorld.getSettings().getName() + " would you need", "an undead chicken when there are perfectly good live", "chickens just down the road?");
 				stage++;
 				break;
 			case 6:
@@ -251,7 +251,7 @@ public final class AvaDialogue extends DialoguePlugin {
 				stage++;
 				break;
 			case 10:
-				npc("We'll need a magnet next, one with purely natural", "fields and made from a carefully selected iron bar. A", "firm impact when the iron is parallel to " + GameWorld.getName() + "'s", "field will stabilise this field in the rod.");
+				npc("We'll need a magnet next, one with purely natural", "fields and made from a carefully selected iron bar. A", "firm impact when the iron is parallel to " + GameWorld.getSettings().getName() + "'s", "field will stabilise this field in the rod.");
 				stage++;
 				break;
 			case 11:
@@ -303,7 +303,7 @@ public final class AvaDialogue extends DialoguePlugin {
 				stage++;
 				break;
 			case 5:
-				npc("The plan is that the chicken will operate the magnet to", "attract bits of iron and steel, maybe even your own", "recently fired arrows. There are plenty of totally lost", "arrowheads lying about in the Fields of " + GameWorld.getName() + ", I");
+				npc("The plan is that the chicken will operate the magnet to", "attract bits of iron and steel, maybe even your own", "recently fired arrows. There are plenty of totally lost", "arrowheads lying about in the Fields of " + GameWorld.getSettings().getName() + ", I");
 				stage++;
 				break;
 			case 6:

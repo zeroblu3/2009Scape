@@ -97,6 +97,7 @@ public class ItemActionPacket implements IncomingPacket {
 				used = with;
 				with = item;
 			}
+			player.debug("USED: " + used + " WITH: " + with);
 			event = new NodeUsageEvent(player, interfaceId1, used, with);
 			if(PluginInteractionManager.handle(player,event)){
 				return;

@@ -96,7 +96,7 @@ public class VarrockEastBartenderDialogue extends DialoguePlugin {
 
 			break;
 		case 160:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "This world around us... is a computer game.... called", "" + GameWorld.getName() + ".");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "This world around us... is a computer game.... called", "" + GameWorld.getSettings().getName() + ".");
 			stage = 161;
 			break;
 		case 161:

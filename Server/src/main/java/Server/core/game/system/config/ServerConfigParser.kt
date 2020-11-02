@@ -41,7 +41,7 @@ class ServerConfigParser(path: String) {
     private fun parseGameSettings(){
         data ?: return
         val gsData = data!!["GameSettings"] as JSONObject
-        GameWorld.setSettings(GameSettings.parse(gsData))
+        GameWorld.settings = GameSettings.parse(gsData)
     }
 
     private fun parseServerSettings(){

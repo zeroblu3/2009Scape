@@ -40,7 +40,8 @@ class LarryHandler(player: Player? = null) : DialoguePlugin(player){
             10 -> npc("Yes, but I will have to write it down","for you so these penguins don't overhear.").also { GameWorld.submit(HintPulse()); stage = 1000 }
 
             //Point turn-in
-            20 -> npc("Sure thing, what would you like to be","rewarded with?").also { stage++ }
+            20 -> if(player.getAttribute("phns:points",0) > 0) npc("Sure thing, what would you like to be","rewarded with?").also { stage++ } else npc("Uh, you don't have any points","to turn in.").also{stage = 1000}
+
             21 -> options("Coins","Experience").also { stage++ }
             22 -> when(buttonId){
                 1 -> player.inventory.add(Item(995, 6500 * player.getAttribute("phns:points",0))).also { player("Thanks!"); player.removeAttribute("phns:points");stage = 1000 }

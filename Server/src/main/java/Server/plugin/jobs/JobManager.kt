@@ -52,7 +52,7 @@ object JobManager {
         val jobId = player.getAttribute("jobs:id",0)
         if(type == 0){
             val it = Item(GatheringJobs.values()[jobId].itemId)
-            val amount = player.inventory.getAmount(it)
+            var amount = player.inventory.getAmount(it)
             val needed = player.getAttribute("jobs:amount",0)
             if(amount < needed){
                 player.dialogueInterpreter.sendItemMessage(GatheringJobs.values()[jobId].itemId,"You still need to gather ${needed - amount} more.")
@@ -60,6 +60,7 @@ object JobManager {
                 player.setAttribute("jobs:amount",needed - amount)
                 return
             }
+            if(amount > needed) amount = needed
             player.inventory.remove(Item(it.id,amount))
         } else {
             val needed = player.getAttribute("jobs:amount",0)

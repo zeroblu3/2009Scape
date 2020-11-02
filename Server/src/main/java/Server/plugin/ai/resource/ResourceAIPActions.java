@@ -21,7 +21,7 @@ public class ResourceAIPActions {
 		}
 		for (int aip_index = 0; aip_index < resource_players.size(); aip_index++) {
 			final AIPlayer bot = resource_players.get(aip_index);
-			GameWorld.Pulser.submit(new Pulse(1, bot) {
+			GameWorld.getPulser().submit(new Pulse(1, bot) {
 				int ticks;
 				int ov;
 				@Override

@@ -5,6 +5,8 @@ import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
 import core.game.system.SystemLogger
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import plugin.interaction.item.brawling_gloves.BrawlingGloves
@@ -25,41 +27,55 @@ import javax.script.ScriptEngineManager
  * @author Ceikry
  */
 class PlayerSaver (val player: Player){
-    fun save() {
+    private fun populate(): JSONObject = runBlocking{
         val saveFile = JSONObject()
-        saveCoreData(saveFile)
-        saveSkills(saveFile)
-        saveSettings(saveFile)
-        saveSlayer(saveFile)
-        saveQuests(saveFile)
-        saveAppearance(saveFile)
-        saveSpellbook(saveFile)
-        saveGraveType(saveFile)
-        saveGrandExchangeData(saveFile)
-        saveSavedData(saveFile)
-        saveAutocast(saveFile)
-        saveFarming(saveFile)
-        saveConfigs(saveFile)
-        savePlayerMonitor(saveFile)
-        saveMusicPlayer(saveFile)
-        saveFamiliarManager(saveFile)
-        saveBarCrawl(saveFile)
-        saveStateManager(saveFile)
-        saveAntiMacroHandler(saveFile)
-        saveTreasureTrails(saveFile)
-        saveBankPinData(saveFile)
-        saveHouseData(saveFile)
-        saveAchievementData(saveFile)
-        saveIronManData(saveFile)
-        saveEmoteData(saveFile)
-        saveStatManager(saveFile)
-        saveBrawlingGloves(saveFile)
-        saveAttributes(saveFile)
+        val a = launch {
+            saveCoreData(saveFile)
+            saveSkills(saveFile)
+            saveSettings(saveFile)
+            saveSlayer(saveFile)
+            saveQuests(saveFile)
+            saveAppearance(saveFile)
+            saveSpellbook(saveFile)
+        }
+        val b = launch {
+            saveGraveType(saveFile)
+            saveGrandExchangeData(saveFile)
+            saveSavedData(saveFile)
+            saveAutocast(saveFile)
+            saveFarming(saveFile)
+            saveConfigs(saveFile)
+            savePlayerMonitor(saveFile)
+        }
+        val c = launch {
+            saveMusicPlayer(saveFile)
+            saveFamiliarManager(saveFile)
+            saveBarCrawl(saveFile)
+            saveStateManager(saveFile)
+            saveAntiMacroHandler(saveFile)
+            saveTreasureTrails(saveFile)
+            saveBankPinData(saveFile)
+        }
+        val d = launch {
+            saveHouseData(saveFile)
+            saveAchievementData(saveFile)
+            saveIronManData(saveFile)
+            saveEmoteData(saveFile)
+            saveStatManager(saveFile)
+            saveBrawlingGloves(saveFile)
+            saveAttributes(saveFile)
+        }
+        a.join()
+        b.join()
+        c.join()
+        d.join()
         savePouches(saveFile)
-
+        saveFile
+    }
+    fun save() = runBlocking {
         val manager = ScriptEngineManager()
         val scriptEngine = manager.getEngineByName("JavaScript")
-        scriptEngine.put("jsonString", saveFile.toJSONString())
+        scriptEngine.put("jsonString", populate().toJSONString())
         scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
         val prettyPrintedJson = scriptEngine["result"] as String
 

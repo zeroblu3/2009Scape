@@ -61,7 +61,7 @@ public final class ExperimentSession {
 			npc.getProperties().getCombatPulse().attack(player);
 			return;
 		}
-		GameWorld.Pulser.submit(new Pulse(1, player) {
+		GameWorld.getPulser().submit(new Pulse(1, player) {
 			int count;
 
 			@Override

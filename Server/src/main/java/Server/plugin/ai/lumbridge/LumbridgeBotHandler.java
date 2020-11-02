@@ -13,7 +13,7 @@ public class LumbridgeBotHandler {
     public static void immersiveLumbridge()
     {
         //Generate a few random bots here and there
-        System.out.println("[" + GameWorld.getName() + "]: LumbridgeBotHandler: Initialized dead idlers.");
+        System.out.println("[" + GameWorld.getSettings().getName() + "]: LumbridgeBotHandler: Initialized dead idlers.");
         generateDeadIdlers();
     }
 

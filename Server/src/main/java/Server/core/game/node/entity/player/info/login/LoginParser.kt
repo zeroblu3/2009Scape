@@ -106,15 +106,15 @@ class LoginParser(
             override fun pulse(): Boolean {
                 try {
                     if (details.session.isActive) {
-                        if (Repository.PLAYER_NAMES[player.name] != null) {
-                            val p = Repository.PLAYER_NAMES[player.name]
-                            p!!.clear()
-                            Repository.getPlayerNames().remove(p.name)
-                            Repository.getLobbyPlayers().remove(p)
-                            Repository.getPlayers().remove(p)
+                        val p = Repository.getPlayerByName(player.name)
+                        if (p != null) {
+                            p.clear()
+                            Repository.playerNames.remove(p.name)
+                            Repository.lobbyPlayers.remove(p)
+                            Repository.players.remove(p)
                         }
-                        if (!Repository.getPlayers().contains(player)) {
-                            Repository.getPlayers().add(player)
+                        if (!Repository.players.contains(player)) {
+                            Repository.players.add(player)
                         }
                         player.details.session.setObject(player)
                         flag(Response.SUCCESSFUL)
@@ -123,12 +123,12 @@ class LoginParser(
                         player.monitor.log(player.details.serial, PlayerMonitor.ADDRESS_LOG)
                         player.monitor.log(player.details.macAddress, PlayerMonitor.ADDRESS_LOG)
                     } else {
-                        Repository.getPlayerNames().remove(player.name)
+                        Repository.playerNames.remove(player.name)
                         MSPacketRepository.sendPlayerRemoval(player.name)
                     }
                 } catch (t: Throwable) {
                     t.printStackTrace()
-                    Repository.getPlayerNames().remove(player.name)
+                    Repository.playerNames.remove(player.name)
                     MSPacketRepository.sendPlayerRemoval(player.name)
                 }
                 return true
@@ -142,7 +142,7 @@ class LoginParser(
      */
     private val worldInstance: Player?
         private get() {
-            var player = Repository.getDisconnectionQueue()[details.username]
+            var player = Repository.disconnectionQueue[details.username]
             if (player == null) {
                 player = gamePlayer
             }
@@ -155,18 +155,18 @@ class LoginParser(
      * @param type The login type.
      */
     private fun reconnect(player: Player, type: LoginType) {
-        Repository.getDisconnectionQueue().remove(details.username)
+        Repository.disconnectionQueue.remove(details.username)
         player.initReconnect()
         player.isActive = true
         flag(Response.SUCCESSFUL)
         player.updateSceneGraph(true)
         player.configManager.init()
         LoginConfiguration.configureGameWorld(player)
-        Repository.getPlayerNames()[player.name] = player
+        Repository.playerNames[player.name] = player
         GameWorld.Pulser.submit(object : Pulse(1) {
             override fun pulse(): Boolean {
-                if (!Repository.getPlayers().contains(player)) {
-                    Repository.getPlayers().add(player)
+                if (!Repository.players.contains(player)) {
+                    Repository.players.add(player)
                 }
                 return true
             }
@@ -192,7 +192,7 @@ class LoginParser(
         if (SystemManager.isUpdating()) {
             return flag(Response.UPDATING)
         }
-        if (Repository.getPlayer(details.username).also { gamePlayer = it } != null && gamePlayer!!.session.isActive) {
+        if (Repository.getPlayerByName(details.username).also { gamePlayer = it } != null && gamePlayer!!.session.isActive) {
             log("Already online (other)")
             return flag(Response.ALREADY_ONLINE)
         }
@@ -224,6 +224,6 @@ class LoginParser(
      * @param type The login type.
      */
     init {
-        timeStamp = GameWorld.getTicks()
+        timeStamp = GameWorld.ticks
     }
 }

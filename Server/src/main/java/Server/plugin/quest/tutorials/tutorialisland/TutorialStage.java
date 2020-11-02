@@ -27,7 +27,7 @@ public enum TutorialStage {
 				player.getProperties().setTeleportLocation(Location.create(3094, 3107, 0));
 				player.getInterfaceManager().hideTabs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 				player.setAttribute("tut-island:hi_slot", HintIconManager.registerHintIcon(player, Repository.findNPC(945)));
-				GameWorld.Pulser.submit(new Pulse(1) {
+				GameWorld.getPulser().submit(new Pulse(1) {
 					@Override
 					public boolean pulse() {
 						CharacterDesign.open(player);
@@ -35,7 +35,7 @@ public enum TutorialStage {
 					}
 				});
 			}
-			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Getting started", "To start the tutorial use your left mouse button to click on the", GameWorld.getName() + " Guide in this room. He is indicated by a flashing", "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view."));
+			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Getting started", "To start the tutorial use your left mouse button to click on the", GameWorld.getSettings().getName() + " Guide in this room. He is indicated by a flashing", "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view."));
 		}
 	},
 	STAGE_1(1) {
@@ -59,7 +59,7 @@ public enum TutorialStage {
 				player.getConfigManager().set(1021, 0);
 			}
 			player.setAttribute("tut-island:hi_slot", HintIconManager.registerHintIcon(player, Repository.findNPC(945)));
-			Component.setUnclosable(player, player.getDialogueInterpreter().sendScrollMessageWithBlueTitle("Player controls", "On the side panel you can now see a variety of options from", "changing the brightness of the screen and the volume of", "music, to selecting whether your player should accept help", "from other players. Don't worry about these too much for now,", "they will become clearer as you explore the game. Talk to the", GameWorld.getName() + " Guide to continue."));
+			Component.setUnclosable(player, player.getDialogueInterpreter().sendScrollMessageWithBlueTitle("Player controls", "On the side panel you can now see a variety of options from", "changing the brightness of the screen and the volume of", "music, to selecting whether your player should accept help", "from other players. Don't worry about these too much for now,", "they will become clearer as you explore the game. Talk to the", GameWorld.getSettings().getName() + " Guide to continue."));
 		}
 	},
 	STAGE_3(3) {
@@ -231,7 +231,7 @@ public enum TutorialStage {
 				player.getConfigManager().set(406, 3);
 			}
 			player.setAttribute("tut-island:hi_slot", HintIconManager.registerHintIcon(player, Location.create(3089, 3091, 0), 1, -1, player.getHintIconManager().freeSlot(), 75, 4));
-			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Well done, you've just cooked your first " + GameWorld.getName() + " meal.", "If you'd like a recap on anything you've learnt so far, speak to", "the Survival Expert. You can now move on to the next", "instructor. Click on the gate shown and follow the path.", "Remember, you can move the camera with the arrow keys."));
+			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Well done, you've just cooked your first " + GameWorld.getSettings().getName() + " meal.", "If you'd like a recap on anything you've learnt so far, speak to", "the Survival Expert. You can now move on to the next", "instructor. Click on the gate shown and follow the path.", "Remember, you can move the camera with the arrow keys."));
 		}
 	},
 	STAGE_17(17) {
@@ -739,7 +739,7 @@ public enum TutorialStage {
 			}
 			player.getConfigManager().set(406, 14);
 			player.setAttribute("tut-island:hi_slot", HintIconManager.registerHintIcon(player, RegionManager.getObject(Location.create(3122, 3124, 0))));
-			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Banking.", "Follow the path and you will come to the front of a building.", "This is the 'Bank of " + GameWorld.getName() + "' where you can store all your", "most valued items. To open your bank box just right click on an", "open booth indicated and select use."));
+			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Banking.", "Follow the path and you will come to the front of a building.", "This is the 'Bank of " + GameWorld.getSettings().getName() + "' where you can store all your", "most valued items. To open your bank box just right click on an", "open booth indicated and select use."));
 		}
 	},
 	STAGE_57(57) {

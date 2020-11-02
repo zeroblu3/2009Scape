@@ -35,7 +35,7 @@ public final class DigSpadeHandler {
 		player.animate(ANIMATION);
 		player.lock(1);
 		if (action != null) {
-			GameWorld.Pulser.submit(new Pulse(1, player) {
+			GameWorld.getPulser().submit(new Pulse(1, player) {
 				@Override
 				public boolean pulse() {
 					action.run(player);

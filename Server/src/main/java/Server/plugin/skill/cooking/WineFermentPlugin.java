@@ -55,7 +55,7 @@ public final class WineFermentPlugin extends UseWithHandler {
 		}
 		if (player.getInventory().remove(GRAPES, JUG_OF_WATER)) {
 			player.getInventory().add(UNFERMENTED_WINE);
-			GameWorld.Pulser.submit(new WineFermentingPulse(1, player));
+			GameWorld.getPulser().submit(new WineFermentingPulse(1, player));
 		}
 		return true;
 	}

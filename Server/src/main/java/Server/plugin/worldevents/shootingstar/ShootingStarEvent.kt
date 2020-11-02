@@ -13,7 +13,7 @@ import plugin.worldevents.WorldEvents
  */
 class ShootingStarEvent : WorldEvent("shooting-stars") {
     val star = ShootingStar()
-    val tickDelay = if(GameWorld.getSettings().isDevMode) 200 else 25000
+    val tickDelay = if(GameWorld.settings?.isDevMode == true) 200 else 25000
 
 
     override fun initialize() {

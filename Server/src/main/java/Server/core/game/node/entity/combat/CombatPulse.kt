@@ -118,7 +118,7 @@ class CombatPulse(
         }
         combatTimeOut = 0
         entity.face(victim)
-        if (nextAttack <= GameWorld.getTicks()) {
+        if (nextAttack <= GameWorld.ticks) {
             victim ?: return false
             val v: Entity = victim!!
             var handler = temporaryHandler
@@ -297,7 +297,7 @@ class CombatPulse(
      * @param ticks The amount of ticks.
      */
     fun setNextAttack(ticks: Int) {
-        nextAttack = GameWorld.getTicks() + ticks
+        nextAttack = GameWorld.ticks + ticks
     }
 
     /**
@@ -336,7 +336,7 @@ class CombatPulse(
 
     override fun stop() {
         super.stop()
-        entity!!.setAttribute("combat-stop", GameWorld.getTicks())
+        entity!!.setAttribute("combat-stop", GameWorld.ticks)
         if (victim != null) {
             lastVictim = victim
         }

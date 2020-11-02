@@ -32,9 +32,9 @@ class UpdateSequence
      * @return `True` if we should continue.
      */
     fun start() {
-        lobbyList = Repository.getLobbyPlayers()
+        lobbyList = Repository.lobbyPlayers
         playersList = renderablePlayers
-        npcList = Repository.getRenderableNpcs()
+        npcList = Repository.renderableNpcs
         lobbyList!!.map{ PacketRepository.send(ClearMinimapFlag::class.java, PlayerContext(it)) }
         playersList!!.map{player ->
             try {

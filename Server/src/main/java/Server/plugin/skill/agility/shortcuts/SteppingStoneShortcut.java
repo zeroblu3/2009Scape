@@ -33,7 +33,7 @@ public class SteppingStoneShortcut extends AgilityShortcut {
 	public void run(final Player player, GameObject object, String option, boolean failed) {
 		final int offset = player.getLocation().getX() == 3149 ? 1 : -1;
 		player.lock();
-		GameWorld.Pulser.submit(new Pulse(2, player) {
+		GameWorld.getPulser().submit(new Pulse(2, player) {
 			int counter = 1;
 
 			@Override

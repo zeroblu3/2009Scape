@@ -36,7 +36,7 @@ class ShootingStarOptionHandler : OptionHandler() {
             "observe" -> if (star.isSpawned) {
                 player.dialogueInterpreter.sendDialogue("A shooting star (Level " + (star.level.ordinal + 1).toString() + ")", "is currently crashed near the " + star.location + ".")
             } else {
-                val tickDiff = (if (GameWorld.getSettings().isDevMode) 200 else 7200) - star.ticks
+                val tickDiff = (if (GameWorld.settings?.isDevMode == true) 200 else 7200) - star.ticks
                 val seconds = Math.ceil((tickDiff.toFloat() / 1000.toFloat()) * 600.toDouble()).toInt()
                 val hours = TimeUnit.SECONDS.toHours(seconds.toLong()).toInt()
                 val minutes = TimeUnit.SECONDS.toMinutes(seconds.toLong()).toInt()

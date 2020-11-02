@@ -3,7 +3,7 @@ package org.rs09.client.net.game
 import org.rs09.client.net.game.inbound.ConsoleAutocompletionPacketDecoder
 import org.rs09.client.net.game.inbound.ConsoleMessageDecoder
 import org.rs09.client.net.game.inbound.GamePacketDecoder
-import org.runite.jagex.*
+import org.runite.client.*
 import java.io.IOException
 
 object PacketDecoder {

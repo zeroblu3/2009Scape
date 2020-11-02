@@ -121,7 +121,7 @@ public class GraveyardZone extends MTAZone {
 			if (!PULSE.isRunning()) {
 				PULSE.restart();
 				PULSE.start();
-				GameWorld.Pulser.submit(PULSE);
+				GameWorld.getPulser().submit(PULSE);
 			}
 		}
 		return super.enter(e);

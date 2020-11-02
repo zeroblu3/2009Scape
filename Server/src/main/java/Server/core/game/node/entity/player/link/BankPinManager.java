@@ -351,7 +351,7 @@ public class BankPinManager implements SavingModule {
 			return;
 		}
 		tempPin = "";
-		player.getPacketDispatch().sendString("Bank of " + GameWorld.getName(), 13, 31);
+		player.getPacketDispatch().sendString("Bank of " + GameWorld.getSettings().getName(), 13, 31);
 		if (!hasPin()) {
 			player.getPacketDispatch().sendInterfaceConfig(13, 29, true);
 			player.getPacketDispatch().sendString("Please choose a new FOUR DIGIT PIN using the buttons below.", 13, 28);

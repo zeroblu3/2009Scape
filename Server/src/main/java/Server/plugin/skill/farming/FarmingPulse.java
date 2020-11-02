@@ -25,7 +25,7 @@ public final class FarmingPulse extends Pulse implements CallBack {
 
 	@Override
 	public boolean call() {
-		GameWorld.Pulser.submit(this);
+		GameWorld.getPulser().submit(this);
 		return true;
 	}
 

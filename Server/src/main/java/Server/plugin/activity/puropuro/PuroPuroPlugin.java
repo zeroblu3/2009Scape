@@ -97,7 +97,7 @@ public final class PuroPuroPlugin extends MapZone implements Plugin<Object> {
 			spawnWheat();
 			PULSE.restart();
 			PULSE.start();
-			GameWorld.Pulser.submit(PULSE);
+			GameWorld.getPulser().submit(PULSE);
 		}
 		return super.enter(e);
 	}
@@ -161,7 +161,7 @@ public final class PuroPuroPlugin extends MapZone implements Plugin<Object> {
 			player.sendMessage("You use your strength to push through the wheat. It's hard work though.");
 		}
 		player.setAttribute("cantMove", true);
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			@Override
 			public boolean pulse() {
 				ForceMovement.run(player, player.getLocation(), dest, Animation.create(6594), Animation.create(6594), Direction.getLogicalDirection(player.getLocation(), object.getLocation()), 3, 3);

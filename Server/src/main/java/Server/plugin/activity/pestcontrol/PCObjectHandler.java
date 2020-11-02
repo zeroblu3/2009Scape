@@ -98,8 +98,8 @@ public final class PCObjectHandler extends OptionHandler {
 			}
 			switch (object.getId()) {
 			case 14315: // Novice
-                if (!GameWorld.PCBotsSpawned && !player.isArtificial()) { //First person to join gets bots to play with
-                	GameWorld.PCBotsSpawned = true;
+                if (!GameWorld.getPCBotsSpawned() && !player.isArtificial()) { //First person to join gets bots to play with
+                	GameWorld.setPCBotsSpawned(true);
 					for (int pestBotsAmount = 0; pestBotsAmount < 23; pestBotsAmount++) {
 						PvMBotsBuilder.createPestControlTestBot(new Location(2657, 2640));
 					}

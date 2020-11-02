@@ -226,7 +226,7 @@ public final class SorceressElementalNPC extends AbstractNPC {
 	 */
 	public void sendTeleport(final Player player) {
 		player.lock();
-		GameWorld.Pulser.submit(new Pulse(1) {
+		GameWorld.getPulser().submit(new Pulse(1) {
 			int delay = 0;
 
 			@Override

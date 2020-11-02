@@ -212,7 +212,7 @@ public final class CommunicationInfo {
 					return true;
 				}
 			};
-			GameWorld.Pulser.submit(lootSharePulse);
+			GameWorld.getPulser().submit(lootSharePulse);
 		}
 	}
 
@@ -253,7 +253,7 @@ public final class CommunicationInfo {
 		PacketRepository.send(ContactPackets.class, new ContactContext(player, ContactContext.UPDATE_STATE_TYPE));
 		PacketRepository.send(ContactPackets.class, new ContactContext(player, ContactContext.IGNORE_LIST_TYPE));
 		for (String name : contacts.keySet()) {
-			Player p = Repository.getPlayer(name);
+			Player p = Repository.getPlayerByName(name);
 			int worldId = 0;
 			if (p != null && showActive(player, p)) {
 				worldId = GameWorld.getSettings().getWorldId();
@@ -312,7 +312,7 @@ public final class CommunicationInfo {
 		if (!player.getDetails().getCommunication().contacts.containsKey(target)) {
 			return;
 		}
-		Player p = Repository.getPlayer(target);
+		Player p = Repository.getPlayerByName(target);
 		if (p == null || !p.isActive() || !showActive(p, player)) {
 			player.getPacketDispatch().sendMessage("That player is currently offline.");
 			return;
@@ -349,7 +349,7 @@ public final class CommunicationInfo {
 			clan.rank(contact, ClanRank.FRIEND);
 		}
 		info.contacts.put(contact, new Contact(contact));
-		Player target = Repository.getPlayer(contact);
+		Player target = Repository.getPlayerByName(contact);
 		if (target != null) {
 			if (showActive(player, target)) {
 				PacketRepository.send(ContactPackets.class, new ContactContext(player, contact, GameWorld.getSettings().getWorldId()));
@@ -373,7 +373,7 @@ public final class CommunicationInfo {
 		CommunicationInfo info = player.getDetails().getCommunication();
 		if (block) {
 			info.blocked.remove(contact);
-			Player target = Repository.getPlayer(contact);
+			Player target = Repository.getPlayerByName(contact);
 			if (target != null && hasContact(target, player.getName())) {
 				int worldId = 0;
 				if (showActive(target, player)) {
@@ -388,7 +388,7 @@ public final class CommunicationInfo {
 				clan.rank(contact, ClanRank.NONE);
 			}
 			if (player.getSettings().getPrivateChatSetting() == 1) {
-				Player target = Repository.getPlayer(contact);
+				Player target = Repository.getPlayerByName(contact);
 				if (target != null) {
 					PacketRepository.send(ContactPackets.class, new ContactContext(target, player.getName(), 0));
 				}
@@ -415,7 +415,7 @@ public final class CommunicationInfo {
 			return;
 		}
 		info.blocked.add(contact);
-		Player target = Repository.getPlayer(contact);
+		Player target = Repository.getPlayerByName(contact);
 		if (target != null && hasContact(target, player.getName())) {
 			PacketRepository.send(ContactPackets.class, new ContactContext(target, player.getName(), 0));
 		}
@@ -461,7 +461,7 @@ public final class CommunicationInfo {
 	 * @return {@code True} if so.
 	 */
 	public static boolean showActive(Player player, String name) {
-		Player p = Repository.getPlayer(name);
+		Player p = Repository.getPlayerByName(name);
 		if (p != null) {
 			return showActive(player, p);
 		}

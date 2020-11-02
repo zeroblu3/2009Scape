@@ -11,7 +11,7 @@ import plugin.dialogue.DialoguePlugin
 @InitializablePlugin
 class ReggieDialogue(player: Player? = null) : DialoguePlugin(player){
     override fun open(vararg args: Any?): Boolean {
-        if(GameWorld.getSettings().allow_token_purchase){
+        if(GameWorld.settings?.allow_token_purchase == true){
             options("Can I see your shop?","Nevermind.","Can I buy some tokens?")
         } else {
             options("Can I see your shop?","Nevermind.")

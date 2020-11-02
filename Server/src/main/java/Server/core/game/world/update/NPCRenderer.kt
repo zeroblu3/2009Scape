@@ -72,7 +72,7 @@ object NPCRenderer {
             buffer.putBits(14, npc.id)
             buffer.putBits(5, offsetX)
             if (npc.aggressiveHandler != null) {
-                npc.aggressiveHandler.playerTolerance[player.index] = GameWorld.getTicks()
+                npc.aggressiveHandler.playerTolerance[player.index] = GameWorld.ticks
             }
             localNPCs.add(npc)
         }

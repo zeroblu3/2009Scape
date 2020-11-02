@@ -199,7 +199,7 @@ public final class CyclopesRoom extends MapZone implements Plugin<Object> {
 		if (!PULSE.isRunning()) {
 			PULSE.restart();
 			PULSE.start();
-			GameWorld.Pulser.submit(PULSE);
+			GameWorld.getPulser().submit(PULSE);
 		}
 	}
 

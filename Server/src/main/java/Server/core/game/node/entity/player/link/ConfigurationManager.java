@@ -139,7 +139,7 @@ public final class ConfigurationManager implements SavingModule {
 	 */
 	public void set(final int id, final int value, int delay) {
 		set(id, value);
-		GameWorld.Pulser.submit(new Pulse(delay, player) {
+		GameWorld.getPulser().submit(new Pulse(delay, player) {
 			@Override
 			public boolean pulse() {
 				set(id, 0);

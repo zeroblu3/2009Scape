@@ -90,13 +90,13 @@ public final class LadyKeliDialogue extends DialoguePlugin {
 				stage = 1;
 				break;
 			case 1:
-				interpreter.sendOptions("Select an Option", "Heard of you? You are famous in " + GameWorld.getName() + "!", "I have heard a little, but I think Katrine is tougher.", "I have heard rumours that you kill people.", "No I have never really heard of you.");
+				interpreter.sendOptions("Select an Option", "Heard of you? You are famous in " + GameWorld.getSettings().getName() + "!", "I have heard a little, but I think Katrine is tougher.", "I have heard rumours that you kill people.", "No I have never really heard of you.");
 				stage = 2;
 				break;
 			case 2:
 				switch (buttonId) {
 				case 1:
-					interpreter.sendDialogues(player, null, "The great Lady Keli, of course I have heard of you.", "You are famous in " + GameWorld.getName() + "!");
+					interpreter.sendDialogues(player, null, "The great Lady Keli, of course I have heard of you.", "You are famous in " + GameWorld.getSettings().getName() + "!");
 					stage = 10;
 					break;
 				case 2:

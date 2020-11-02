@@ -64,7 +64,7 @@ public class GuardDialoguePlugin extends DialoguePlugin {
 			if (!read) {
 				npc("You must learn about player safety before<br>entering the training centre.");
 			} else {
-				npc("In your travels around " + GameWorld.getName() + ", should you find a", "player who acts in a way that breaks on of our rules,", "you should report them.");
+				npc("In your travels around " + GameWorld.getSettings().getName() + ", should you find a", "player who acts in a way that breaks on of our rules,", "you should report them.");
 			}
 			increment();
 			break;
@@ -73,7 +73,7 @@ public class GuardDialoguePlugin extends DialoguePlugin {
 			stage = read ? 10 : stage + 1;
 			break;
 		case 5:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Each of these gublinches have been caught breaking the", "Rules of " + GameWorld.getName() + ". You should read the plaques on", "each of their cells to learn what they did wrong.");
+			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Each of these gublinches have been caught breaking the", "Rules of " + GameWorld.getSettings().getName() + ". You should read the plaques on", "each of their cells to learn what they did wrong.");
 			increment();
 			break;
 		case 6:
@@ -96,7 +96,7 @@ public class GuardDialoguePlugin extends DialoguePlugin {
 		case 10:
 			if (read) {
 				player.getInterfaceManager().open(new Component(700));
-				GameWorld.Pulser.submit(new Pulse(5) {
+				GameWorld.getPulser().submit(new Pulse(5) {
 
 					@Override
 					public boolean pulse() {

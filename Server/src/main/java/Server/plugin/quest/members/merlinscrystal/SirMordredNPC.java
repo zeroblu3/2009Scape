@@ -61,7 +61,7 @@ public class SirMordredNPC extends AbstractNPC {
 				npc.graphics(Graphics.create(86));
 				npc.moveStep();
 				npc.face(p);
-				GameWorld.Pulser.submit(new Pulse(100, p, npc) {
+				GameWorld.getPulser().submit(new Pulse(100, p, npc) {
 
 					@Override
 					public boolean pulse() {

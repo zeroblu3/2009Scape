@@ -75,6 +75,7 @@ public class ObjectParser extends StartupPlugin {
                                     break;
                                 case "se":
                                     dir = 7;
+                                    break;
                                 case "s":
                                     dir = 6;
                                     break;
@@ -105,7 +106,7 @@ public class ObjectParser extends StartupPlugin {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        GameWorld.STARTUP_PLUGINS.add(this);
+        GameWorld.getSTARTUP_PLUGINS().add(this);
         return this;
     }
 

@@ -60,7 +60,7 @@ public class ClanPacketHandler implements IncomingPacket {
 				break;
 			}
 			clan = player.getCommunication().getClan();
-			Player target = Repository.getPlayer(name);
+			Player target = Repository.getPlayerByName(name);
 			if (clan == null || target == null) {
 				break;
 			}

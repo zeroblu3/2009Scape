@@ -73,7 +73,7 @@ public final class FinancialAdvisorDialogue extends DialoguePlugin {
 				stage = 5;
 				break;
 			case 5:
-				interpreter.sendDialogues(npc, null, "Now, the next way to earn money quickly is by quests", "Many people on " + GameWorld.getName() + " have things they need", "doing, which they will reward you for.");
+				interpreter.sendDialogues(npc, null, "Now, the next way to earn money quickly is by quests", "Many people on " + GameWorld.getSettings().getName() + " have things they need", "doing, which they will reward you for.");
 				stage = 6;
 				break;
 			case 6:

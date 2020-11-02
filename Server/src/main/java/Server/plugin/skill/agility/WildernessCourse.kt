@@ -155,7 +155,7 @@ class WildernessCourse
             player.packetDispatch.sendMessage("You cannot do that from here.")
             return
         }
-        if (ropeDelay > GameWorld.getTicks()) {
+        if (ropeDelay > GameWorld.ticks) {
             player.packetDispatch.sendMessage("The rope is being used.")
             return
         }
@@ -163,7 +163,7 @@ class WildernessCourse
             AgilityHandler.fail(player, 0, Location.create(3005, 10357, 0), null, getHitAmount(player), "You slip and fall to the pit bellow.")
             return
         }
-        ropeDelay = GameWorld.getTicks() + 2
+        ropeDelay = GameWorld.ticks + 2
         player.packetDispatch.sendObjectAnimation(`object`, Animation.create(497), true)
         AgilityHandler.forceWalk(player, 1, player.location, Location.create(3005, 3958, 0), Animation.create(751), 50, 20.0, "You skillfully swing across.", 1)
     }
