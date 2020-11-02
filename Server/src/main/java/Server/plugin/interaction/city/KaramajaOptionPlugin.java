@@ -263,7 +263,7 @@ public final class KaramajaOptionPlugin extends OptionHandler {
                             return true;
                         }
                     };
-                    GameWorld.Pulser.submit(palmPulse);
+                    GameWorld.getPulser().submit(palmPulse);
                 } else {
                     player.getPacketDispatch().sendMessage("You don't have enough inventory space.");
                 }

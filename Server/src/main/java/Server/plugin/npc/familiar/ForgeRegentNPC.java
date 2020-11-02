@@ -143,7 +143,7 @@ public class ForgeRegentNPC extends Familiar {
 			familiar.animate(FIREMAKE_ANIMATION);
 			if (player.getInventory().remove(event.getUsedItem())) {
 				final GroundItem ground = GroundItemManager.create(event.getUsedItem(), familiar.getLocation(), player);
-				GameWorld.Pulser.submit(new Pulse(ticks, player, familiar) {
+				GameWorld.getPulser().submit(new Pulse(ticks, player, familiar) {
 					@Override
 					public boolean pulse() {
 						if (!ground.isActive()) {
