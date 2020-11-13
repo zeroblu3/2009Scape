@@ -17,6 +17,7 @@ final class WorldListEntry extends Class44 {
     static int anInt739;
     static int anInt1126;
     static int archiveID;
+    static int worldListArraySize;
     RSString activity;
    int worldId;
    static boolean aBoolean2623 = true;
@@ -46,9 +47,9 @@ final class WorldListEntry extends Class44 {
          }
 
          Class53.worldListOffset = buffer.getSmart();
-         Class100.worldListArraySize = buffer.getSmart();
+         worldListArraySize = buffer.getSmart();
          Class57.activeWorldListSize = buffer.getSmart();
-         Class117.worldList = new WorldListEntry[-Class53.worldListOffset + Class100.worldListArraySize + 1];
+         Class117.worldList = new WorldListEntry[-Class53.worldListOffset + worldListArraySize + 1];
 
          for(var3 = 0; var3 < Class57.activeWorldListSize; ++var3) {
             int worldId = buffer.getSmart();

@@ -89,7 +89,7 @@ final class Class136 {
          if(var1 == -7) {
             Class129_Sub1.anIntArray2696 = new int[var0];
             Class159.anIntArray2021 = new int[var0];
-            AnimationDefinition.anIntArray1871 = new int[var0];
+            SequenceDefinition.anIntArray1871 = new int[var0];
             Player.anIntArray3959 = new int[var0];
             Unsorted.anIntArray686 = new int[var0];
          }

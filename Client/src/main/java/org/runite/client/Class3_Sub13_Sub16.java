@@ -20,7 +20,7 @@ final class Class3_Sub13_Sub16 extends Class3_Sub13 {
          this.aShortArray3200 = new short[512];
           if(0 < this.anInt3193) {
              for(int var3 = 0; 512 > var3; ++var3) {
-                this.aShortArray3200[var3] = (short)Class100.method1603((byte)23, this.anInt3193, var2);
+                this.aShortArray3200[var3] = (short) Class3_Sub13.method1603((byte)23, this.anInt3193, var2);
              }
           }
 

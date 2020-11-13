@@ -139,7 +139,7 @@ final class ObjectDefinition {
    final ObjectDefinition method1685(int var1) {
       try {
          if(var1 != 0) {
-            this.method1697(-92, 83, (LDIndexedSprite)null, -13, (AnimationDefinition)null, 18, (int[][])((int[][])null), true, 114, 123, (int[][])((int[][])null), 118, 85, -116);
+            this.method1697(-92, 83, (LDIndexedSprite)null, -13, (SequenceDefinition)null, 18, (int[][])((int[][])null), true, 114, 123, (int[][])((int[][])null), 118, 85, -116);
          }
 
          int var2 = -1;
@@ -626,6 +626,18 @@ final class ObjectDefinition {
          }
       }
 
+      if (GameConfig.CHRISTMAS_EVENT_ENABLED) {
+         //TODO: Add more christmas trees
+         if (objectId == 1278) {
+            this.models = new int[0];
+            this.models = new int[]{1681};
+         }
+         if (objectId == 1276) {
+            this.models = new int[0];
+            this.models = new int[]{1682};
+         }
+      }
+
       if (GameConfig.OBJECT_DEBUG_ENABLED) {
          if (options[0] == null && options[1] == null && options[2] == null && options[3] == null && options[4] == null) {
             options[0] = RSString.parse("Viewing object");
@@ -910,7 +922,7 @@ final class ObjectDefinition {
       }
    }
 
-   final Class136 method1697(int var1, int var2, LDIndexedSprite var3, int var4, AnimationDefinition var5, int var6, int[][] var7, boolean var8, int var9, int var10, int[][] var11, int var12, int var13, int var14) {
+   final Class136 method1697(int var1, int var2, LDIndexedSprite var3, int var4, SequenceDefinition var5, int var6, int[][] var7, boolean var8, int var9, int var10, int[][] var11, int var12, int var13, int var14) {
       try {
          if(var10 != 8308) {
             this.hasModels();

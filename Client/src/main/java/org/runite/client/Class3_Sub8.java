@@ -332,7 +332,7 @@ final class Class3_Sub8 extends Linkable {
 
    static WorldListEntry getWorld(int var0, int index) {
       try {
-         if(Class30.loadedWorldList && Class53.worldListOffset <= index && Class100.worldListArraySize >= index) {
+         if(Class30.loadedWorldList && Class53.worldListOffset <= index && WorldListEntry.worldListArraySize >= index) {
             GameConfig.WORLD = index;
             return Class117.worldList[index - Class53.worldListOffset];
          } else {

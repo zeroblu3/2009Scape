@@ -51,12 +51,12 @@ public final class Class3_Sub13_Sub22 extends Class3_Sub13 {
                   if(var6 == -1) {
                      var2.aClass145Array2809[var9] = null;
                   } else {
-                     AnimationDefinition var10 = Client.getAnimationDefinition(var6);
+                     SequenceDefinition var10 = SequenceDefinition.getAnimationDefinition(var6);
                      Class145 var12 = var2.aClass145Array2809[var9];
-                     int var11 = var10.anInt1845;
+                     int var11 = var10.delayType;
                      if(null != var12) {
                         if(var12.animationId != var6) {
-                           if(Client.getAnimationDefinition(var12.animationId).anInt1857 <= var10.anInt1857) {
+                           if(SequenceDefinition.getAnimationDefinition(var12.animationId).forcedPriority <= var10.forcedPriority) {
                               var12 = var2.aClass145Array2809[var9] = null;
                            }
                         } else if(var11 == 0) {

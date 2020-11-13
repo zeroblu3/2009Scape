@@ -1,4 +1,5 @@
 package org.runite.client;
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 
 import java.nio.FloatBuffer;
@@ -10,7 +11,7 @@ final class Class127_Sub1 extends LoginHandler {
 
 
    static void method1755() {
-      GL4bc var0 = HDToolKit.gl;
+      GL2 var0 = HDToolKit.gl;
       if(var0.isExtensionAvailable("GL_ARB_point_parameters")) {
          float[] var1 = new float[]{1.0F, 0.0F, 5.0E-4F};
          var0.glPointParameterfv('\u8129', var1, 0);

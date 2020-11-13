@@ -302,7 +302,7 @@ class LoginHandler {
                   Class3_Sub15.activeConnection.readBytes(GraphicDefinition.incomingBuffer.buffer, 0, Unsorted.incomingPacketLength);
                   Class158.anInt2005 = 2;
                   loginStage = 0;
-                  AnimationDefinition.resetAll();
+                  SequenceDefinition.resetAll();
                   Unsorted.anInt3606 = -1;
                   Class39.updateSceneGraph(dynamic);
                   Unsorted.incomingOpcode = -1;

@@ -629,7 +629,7 @@ public final class RSInterface {
         this.itemIds[var1] = var4;
     }
 
-    final Model method865(int var1, AnimationDefinition var2, int var3, int var4, int var5, boolean var6, Class52 var7) {
+    final Model method865(int var1, SequenceDefinition var2, int var3, int var4, int var5, boolean var6, Class52 var7) {
         try {
             GameShell.aBoolean6 = false;
             int var8;
@@ -687,7 +687,7 @@ public final class RSInterface {
                             return var17;
                         }
                     } else if (var8 == 6) {
-                        var10 = Unsorted.method522(var9).method1476((Class145[]) null, 0, (byte) -120, 0, var1, var5, var3, (AnimationDefinition) null, 0, var2);
+                        var10 = Unsorted.method522(var9).method1476((Class145[]) null, 0, (byte) -120, 0, var1, var5, var3, (SequenceDefinition) null, 0, var2);
                         if (null == var10) {
                             GameShell.aBoolean6 = true;
                             return null;

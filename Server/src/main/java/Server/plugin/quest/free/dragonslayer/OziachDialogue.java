@@ -260,7 +260,8 @@ public final class OziachDialogue extends DialoguePlugin {
 				break;
 			case 6:
 				end();
-				if (player.getInventory().remove(DragonSlayer.ELVARG_HEAD) && !player.getQuestRepository().getQuest("Dragon Slayer").isCompleted(player)) {
+				int heads = player.getInventory().getAmount(DragonSlayer.ELVARG_HEAD);
+				if (player.getInventory().remove(new Item(DragonSlayer.ELVARG_HEAD.getId(),heads)) && !player.getQuestRepository().getQuest("Dragon Slayer").isCompleted(player)) {
 					quest.finish(player);
 				}
 				break;

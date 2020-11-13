@@ -88,7 +88,7 @@ final class NPC extends Class140_Sub4 {
 
                 var6 = GraphicDefinition.incomingBuffer.readIntLE();
                 boolean var7 = true;
-                if(var5 != -1 && npc.anInt2842 != -1 && Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var5).anInt542).anInt1857 < Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542).anInt1857) {
+                if(var5 != -1 && npc.anInt2842 != -1 && SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var5).anInt542).forcedPriority < SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542).forcedPriority) {
                    var7 = false;
                 }
 
@@ -106,7 +106,7 @@ final class NPC extends Class140_Sub4 {
                    if(npc.anInt2842 != -1 && Class44.anInt719 == npc.anInt2759) {
                       int var8 = GraphicDefinition.getGraphicDefinition((byte)42, npc.anInt2842).anInt542;
                       if(var8 != -1) {
-                         AnimationDefinition var9 = Client.getAnimationDefinition(var8);
+                         SequenceDefinition var9 = SequenceDefinition.getAnimationDefinition(var8);
                          if(var9.frames != null) {
                             Unsorted.method1470(npc.anInt2829, var9, 183921384, npc.anInt2819, false, 0);
                          }
@@ -201,8 +201,8 @@ final class NPC extends Class140_Sub4 {
 	final void animate(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9, int var11, Class127_Sub1 var12) {
 		try {
 			if(this.definition != null) {
-				AnimationDefinition var13 = this.anInt2771 != -1 && this.anInt2828 == 0 ?Client.getAnimationDefinition(this.anInt2771):null;
-				AnimationDefinition var14 = -1 != this.anInt2764 && (this.method1965().anInt368 != this.anInt2764 || var13 == null)?Client.getAnimationDefinition(this.anInt2764):null;
+				SequenceDefinition var13 = this.anInt2771 != -1 && this.anInt2828 == 0 ? SequenceDefinition.getAnimationDefinition(this.anInt2771):null;
+				SequenceDefinition var14 = -1 != this.anInt2764 && (this.method1965().anInt368 != this.anInt2764 || var13 == null)? SequenceDefinition.getAnimationDefinition(this.anInt2764):null;
 				Model var15 = this.definition.method1476(this.aClass145Array2809, this.anInt2793, (byte)-116, this.anInt2813, this.anInt2776, this.anInt2760, this.anInt2832, var14, this.anInt2802, var13);
 				if(var15 != null) {
 					this.anInt2820 = var15.method1871();

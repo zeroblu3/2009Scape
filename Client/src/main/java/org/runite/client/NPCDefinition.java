@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public final class NPCDefinition {
 
-   static AnimationDefinition[] aClass142Array1168 = new AnimationDefinition[14];
+   static SequenceDefinition[] aClass142Array1168 = new SequenceDefinition[14];
     static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array3041 = new Class3_Sub28_Sub5[14];
     static CacheIndex aClass153_3173;
     static Class3_Sub28_Sub5[] aClass3_Sub28_Sub5Array4031 = new Class3_Sub28_Sub5[14];
@@ -152,7 +152,7 @@ public final class NPCDefinition {
       }
    }
 
-   final Model method1476(Class145[] var1, int var2, byte var3, int var4, int var5, int var6, int var7, AnimationDefinition var8, int var9, AnimationDefinition var10) {
+   final Model method1476(Class145[] var1, int var2, byte var3, int var4, int var5, int var6, int var7, SequenceDefinition var8, int var9, SequenceDefinition var10) {
       try {
          if(this.childNPCs == null) {
             Model var11 = (Model)CS2Script.aReferenceCache_2442.get((long)this.npcId);
@@ -294,7 +294,7 @@ public final class NPCDefinition {
             var16 = null != var1?var1.length:0;
             for(var17 = 0; var17 < var16; ++var17) {
                if(var1[var17] != null) {
-                  AnimationDefinition def = Client.getAnimationDefinition(var1[var17].animationId);
+                  SequenceDefinition def = SequenceDefinition.getAnimationDefinition(var1[var17].animationId);
                   if(null != def.frames) {
                      aClass142Array1168[var17] = def;
                      var20 = var1[var17].anInt1891;
@@ -544,7 +544,7 @@ public final class NPCDefinition {
       }
    }
 
-   final Model getChatModel(AnimationDefinition var1, int var2, int var3, int var4, int var5) {
+   final Model getChatModel(SequenceDefinition var1, int var2, int var3, int var4, int var5) {
       try {
          if(this.childNPCs == null) {
             if(null == this.anIntArray1250) {

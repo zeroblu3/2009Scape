@@ -46,7 +46,7 @@ object JobManager {
     }
 
     @JvmStatic
-    fun rewardPlayer(player: Player){
+    fun rewardPlayer(player: Player, npc: NPC){
         val amt = player.getAttribute("jobs:original_amount",0)
         val type = player.getAttribute("jobs:type",0)
         val jobId = player.getAttribute("jobs:id",0)
@@ -54,6 +54,10 @@ object JobManager {
             val it = Item(GatheringJobs.values()[jobId].itemId)
             var amount = player.inventory.getAmount(it)
             val needed = player.getAttribute("jobs:amount",0)
+            if(amount == 0){
+                player.dialogueInterpreter.open(9987215,npc)
+                return
+            }
             if(amount < needed){
                 player.dialogueInterpreter.sendItemMessage(GatheringJobs.values()[jobId].itemId,"You still need to gather ${needed - amount} more.")
                 player.inventory.remove(Item(it.id,amount))

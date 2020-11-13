@@ -303,7 +303,7 @@ final class Class3_Sub13_Sub27 extends Class3_Sub13 {
                }
 
                if(0 != var18) {
-                  Class100 var19 = Class158_Sub1.method629(-1 + (255 & var18));
+                  MapUnderlayColorDefinition var19 = Class158_Sub1.method629(-1 + (255 & var18));
                   var15[var16][var17] = (1 + var19.anInt1412 << 16) - -var19.anInt1414;
                }
             }

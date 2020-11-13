@@ -186,8 +186,8 @@ final class WorldMap extends Node {
       try {
 
          if(var3.anInt2771 == var2 && var2 != -1) {
-            AnimationDefinition var4 = Client.getAnimationDefinition(var2);
-            int var5 = var4.anInt1845;
+            SequenceDefinition var4 = SequenceDefinition.getAnimationDefinition(var2);
+            int var5 = var4.delayType;
             if(1 == var5) {
                var3.anInt2828 = var1;
                var3.anInt2760 = 0;
@@ -200,7 +200,7 @@ final class WorldMap extends Node {
             if(var5 == 2) {
                var3.anInt2773 = 0;
             }
-         } else if(-1 == var2 || var3.anInt2771 == -1 || Client.getAnimationDefinition(var2).anInt1857 >= Client.getAnimationDefinition(var3.anInt2771).anInt1857) {
+         } else if(-1 == var2 || var3.anInt2771 == -1 || SequenceDefinition.getAnimationDefinition(var2).forcedPriority >= SequenceDefinition.getAnimationDefinition(var3.anInt2771).forcedPriority) {
             var3.anInt2776 = 1;
             var3.anInt2832 = 0;
             var3.anInt2828 = var1;
@@ -209,7 +209,7 @@ final class WorldMap extends Node {
             var3.anInt2760 = 0;
             var3.anInt2771 = var2;
             if(var3.anInt2771 != -1) {
-               Unsorted.method1470(var3.anInt2829, Client.getAnimationDefinition(var3.anInt2771), 183921384, var3.anInt2819, var3 == Class102.player, var3.anInt2832);
+               Unsorted.method1470(var3.anInt2829, SequenceDefinition.getAnimationDefinition(var3.anInt2771), 183921384, var3.anInt2819, var3 == Class102.player, var3.anInt2832);
             }
          }
 
@@ -274,7 +274,7 @@ final class WorldMap extends Node {
                 if (ClientCommands.fpsOverlayEnabled) {
                     int var10 = -8 + var2 - -var3;
                     int var9 = -5 + (var0 - -var4);
-                    Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_985, RSString.stringAnimator(AnimationDefinition.anInt1862)}), var9, var10, 16776960, -1);
+                    Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_985, RSString.stringAnimator(SequenceDefinition.anInt1862)}), var9, var10, 16776960, -1);
                     Runtime var11 = Runtime.getRuntime();
                     int var12 = (int) ((var11.totalMemory() - var11.freeMemory()) / 1024L);
                     int var13 = 16776960;

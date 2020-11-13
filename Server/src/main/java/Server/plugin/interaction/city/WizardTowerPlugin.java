@@ -71,7 +71,6 @@ public final class WizardTowerPlugin extends OptionHandler {
 		ObjectDefinition.forId(32015).getHandlers().put("option:climb-up", this);
 		NPCDefinition.forId(300).getHandlers().put("option:teleport", this);
 		ObjectDefinition.forId(11993).getHandlers().put("option:open", this);
-                ObjectDefinition.forId(37668).getHandlers().put("option:taunt-through", this);
 		PluginManager.definePlugin(new WizardtowerWizardNPC());
 		PluginManager.definePlugin(new WizardTowerDialogue());
 		PluginManager.definePlugin(new WizardMisgogDialogue());
@@ -122,16 +121,6 @@ public final class WizardTowerPlugin extends OptionHandler {
                 } else {
                     DoorActionHandler.handleDoor(player, (GameObject) node);
                 }
-                break;
-            case "taunt-through":
-                player.getPacketDispatch().sendMessage("You taunt the demon, making it growl.");
-                List<NPC> localNpcs = RegionManager.getLocalNpcs(player);
-                for (NPC npc : localNpcs) {
-                    if (npc.getId() == 82) {
-                        npc.sendChat("Graaaagh!", 1);
-                    }
-                }
-                player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 1, 13);
                 break;
         }
         return true;

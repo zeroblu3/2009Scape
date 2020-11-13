@@ -21,7 +21,7 @@ class LightSourceLighter : UseWithHandler(590,36,38){
      * 38 + tinderbox = 32
      *
      * For torches:
-     * 596 + tinderbox = 597
+     * 596 + tinderbox = 594
      *
      * For Candle lanterns:
      * 4529 + tinderbox = 4531

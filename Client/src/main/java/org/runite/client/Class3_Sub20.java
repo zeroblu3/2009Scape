@@ -113,7 +113,7 @@ final class Class3_Sub20 extends Linkable {
 
    static void method392(CacheIndex var0, CacheIndex var1, CacheIndex var3) {
       try {
-         AnimationDefinition.aClass153_1860 = var1;
+         SequenceDefinition.aClass153_1860 = var1;
         // int var4 = -110 / ((-7 - var2) / 43);
          Class7.aClass153_2160 = var0;
          Class131.aClass153_1723 = var3;

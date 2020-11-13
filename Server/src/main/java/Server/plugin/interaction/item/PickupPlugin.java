@@ -6,6 +6,7 @@ import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItem;
+import core.game.system.SystemLogger;
 import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
@@ -28,7 +29,7 @@ public final class PickupPlugin extends OptionHandler {
 	public boolean handle(final Player player, Node node, String option) {
 		if (player.getAttributes().containsKey("pickup"))
 		    return false;	
-		player.setAttribute("pickup", "true");
+		//player.setAttribute("pickup", "true");
 		boolean handleResult = PickupHandler.take(player, (GroundItem) node);
 		player.removeAttribute("pickup");
 		return handleResult;

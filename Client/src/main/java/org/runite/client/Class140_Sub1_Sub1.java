@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.util.ArrayUtils;
@@ -272,7 +273,7 @@ final class Class140_Sub1_Sub1 extends Model {
                               }
                            }
 
-                           GL4bc var50 = HDToolKit.gl;
+                           GL2 var50 = HDToolKit.gl;
                            var50.glPushMatrix();
                            var50.glTranslatef((float)var6, (float)var7, (float)var8);
                            var50.glRotatef((float)var1 * 0.17578125F, 0.0F, 1.0F, 0.0F);
@@ -570,7 +571,7 @@ final class Class140_Sub1_Sub1 extends Model {
 
    final void method1893(int var2, int var3, int var4, int var5, int var6, int var7) {
       if(this.anInt3833 != 0) {
-         GL4bc var10 = HDToolKit.gl;
+         GL2 var10 = HDToolKit.gl;
          var10.glPushMatrix();
          if(var4 != 0) {
             var10.glRotatef((float)var4 * 0.17578125F, 1.0F, 0.0F, 0.0F);
@@ -2856,7 +2857,7 @@ final class Class140_Sub1_Sub1 extends Model {
    }
 
    private void method1930() {
-      GL4bc var1 = HDToolKit.gl;
+      GL2 var1 = HDToolKit.gl;
       if(this.anInt3852 != 0) {
          if(this.aByte3836 != 0) {
             this.method1922(true, !this.aClass121_3839.aBoolean1640 && (this.aByte3836 & 1) != 0, !this.aClass121_3814.aBoolean1640 && (this.aByte3836 & 2) != 0, this.aClass121_3815 != null && !this.aClass121_3815.aBoolean1640 && (this.aByte3836 & 4) != 0, false);

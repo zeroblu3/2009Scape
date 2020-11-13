@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 
 import java.nio.ByteBuffer;
@@ -18,7 +19,7 @@ final class Class125 implements ShaderInterface {
 
    public final void method21() {
       if(this.anInt2186 >= 0) {
-         GL4bc var1 = HDToolKit.gl;
+         GL2 var1 = HDToolKit.gl;
          var1.glCallList(this.anInt2186 + 1);
       }
    }
@@ -29,7 +30,7 @@ final class Class125 implements ShaderInterface {
 
    public final void method22() {
       if(this.anInt2186 >= 0) {
-         GL4bc var1 = HDToolKit.gl;
+         GL2 var1 = HDToolKit.gl;
          var1.glCallList(this.anInt2186);
          var1.glActiveTexture('\u84c1');
          var1.glMatrixMode(5890);
@@ -65,7 +66,7 @@ final class Class125 implements ShaderInterface {
    }
 
    private void method1749() {
-      GL4bc var1 = HDToolKit.gl;
+      GL2 var1 = HDToolKit.gl;
       this.anInt2186 = var1.glGenLists(2);
       var1.glNewList(this.anInt2186, 4864);
       var1.glActiveTexture('\u84c1');
@@ -98,7 +99,7 @@ final class Class125 implements ShaderInterface {
 
    private void method1750() {
       if(this.anInt2186 >= 0) {
-         GL4bc var1 = HDToolKit.gl;
+         GL2 var1 = HDToolKit.gl;
          int[] var2 = new int[1];
          var1.glBindProgramARB('\u8620', this.anInt2184);
          var1.glProgramStringARB('\u8620', '\u8875', "!!ARBvp1.0\nATTRIB  iPos         = vertex.position;\nATTRIB  iColour      = vertex.color;\nOUTPUT  oPos         = result.position;\nOUTPUT  oColour      = result.color;\nOUTPUT  oTexCoord0   = result.texcoord[0];\nOUTPUT  oTexCoord1   = result.texcoord[1];\nOUTPUT  oFogCoord    = result.fogcoord;\nPARAM   time         = program.local[65];\nPARAM   turbulence   = program.local[64];\nPARAM   lightAmbient = program.local[66]; \nPARAM   pMatrix[4]   = { state.matrix.projection };\nPARAM   mvMatrix[4]  = { state.matrix.modelview };\nPARAM   ivMatrix[4]  = { state.matrix.texture[1] };\nPARAM   fNoise[64]   = { program.local[0..63] };\nTEMP    noise, clipPos, viewPos, worldPos;\nADDRESS noiseAddr;\nDP4   viewPos.x, mvMatrix[0], iPos;\nDP4   viewPos.y, mvMatrix[1], iPos;\nDP4   viewPos.z, mvMatrix[2], iPos;\nDP4   viewPos.w, mvMatrix[3], iPos;\nDP4   worldPos.x, ivMatrix[0], viewPos;\nDP4   worldPos.y, ivMatrix[1], viewPos;\nDP4   worldPos.z, ivMatrix[2], viewPos;\nDP4   worldPos.w, ivMatrix[3], viewPos;\nADD   noise.x, worldPos.x, worldPos.z;SUB   noise.y, worldPos.z, worldPos.x;MUL   noise, noise, 0.0001220703125;\nFRC   noise, noise;\nMUL   noise, noise, 64;\nARL   noiseAddr.x, noise.x;\nMOV   noise.x, fNoise[noiseAddr.x].x;\nARL   noiseAddr.x, noise.y;\nMOV   noise.y, fNoise[noiseAddr.x].y;\nMUL   noise, noise, turbulence.x;\nMAD   oTexCoord0, worldPos.xzww, 0.0078125, noise;\nMOV   oTexCoord0.w, 1;\nMUL   oTexCoord1.xy, worldPos.xzww, 0.0009765625;\nMOV   oTexCoord1.zw, time.xxxw;\nDP4   clipPos.x, pMatrix[0], viewPos;\nDP4   clipPos.y, pMatrix[1], viewPos;\nDP4   clipPos.z, pMatrix[2], viewPos;\nDP4   clipPos.w, pMatrix[3], viewPos;\nMUL   oColour.xyz, iColour, lightAmbient;\nMOV   oColour.w, 1;\nMOV   oFogCoord.x, clipPos.z;\nMOV   oPos, clipPos; \nEND".length(), "!!ARBvp1.0\nATTRIB  iPos         = vertex.position;\nATTRIB  iColour      = vertex.color;\nOUTPUT  oPos         = result.position;\nOUTPUT  oColour      = result.color;\nOUTPUT  oTexCoord0   = result.texcoord[0];\nOUTPUT  oTexCoord1   = result.texcoord[1];\nOUTPUT  oFogCoord    = result.fogcoord;\nPARAM   time         = program.local[65];\nPARAM   turbulence   = program.local[64];\nPARAM   lightAmbient = program.local[66]; \nPARAM   pMatrix[4]   = { state.matrix.projection };\nPARAM   mvMatrix[4]  = { state.matrix.modelview };\nPARAM   ivMatrix[4]  = { state.matrix.texture[1] };\nPARAM   fNoise[64]   = { program.local[0..63] };\nTEMP    noise, clipPos, viewPos, worldPos;\nADDRESS noiseAddr;\nDP4   viewPos.x, mvMatrix[0], iPos;\nDP4   viewPos.y, mvMatrix[1], iPos;\nDP4   viewPos.z, mvMatrix[2], iPos;\nDP4   viewPos.w, mvMatrix[3], iPos;\nDP4   worldPos.x, ivMatrix[0], viewPos;\nDP4   worldPos.y, ivMatrix[1], viewPos;\nDP4   worldPos.z, ivMatrix[2], viewPos;\nDP4   worldPos.w, ivMatrix[3], viewPos;\nADD   noise.x, worldPos.x, worldPos.z;SUB   noise.y, worldPos.z, worldPos.x;MUL   noise, noise, 0.0001220703125;\nFRC   noise, noise;\nMUL   noise, noise, 64;\nARL   noiseAddr.x, noise.x;\nMOV   noise.x, fNoise[noiseAddr.x].x;\nARL   noiseAddr.x, noise.y;\nMOV   noise.y, fNoise[noiseAddr.x].y;\nMUL   noise, noise, turbulence.x;\nMAD   oTexCoord0, worldPos.xzww, 0.0078125, noise;\nMOV   oTexCoord0.w, 1;\nMUL   oTexCoord1.xy, worldPos.xzww, 0.0009765625;\nMOV   oTexCoord1.zw, time.xxxw;\nDP4   clipPos.x, pMatrix[0], viewPos;\nDP4   clipPos.y, pMatrix[1], viewPos;\nDP4   clipPos.z, pMatrix[2], viewPos;\nDP4   clipPos.w, pMatrix[3], viewPos;\nMUL   oColour.xyz, iColour, lightAmbient;\nMOV   oColour.w, 1;\nMOV   oFogCoord.x, clipPos.z;\nMOV   oPos, clipPos; \nEND");
@@ -112,7 +113,7 @@ final class Class125 implements ShaderInterface {
 
    public final void method23(int var1) {
       if(this.anInt2186 >= 0) {
-         GL4bc var2 = HDToolKit.gl;
+         GL2 var2 = HDToolKit.gl;
          var2.glActiveTexture('\u84c1');
          if((var1 & 128) == 0) {
             var2.glEnable(Class88.Texture3DEnabled?'\u806f':3553);
@@ -143,7 +144,7 @@ final class Class125 implements ShaderInterface {
    public Class125() {
        if(HDToolKit.supportVertexProgram && HDToolKit.maxTextureUnits >= 2) {
           int[] var1 = new int[1];
-          GL4bc var2 = HDToolKit.gl;
+          GL2 var2 = HDToolKit.gl;
           var2.glGenProgramsARB(1, var1, 0);
           this.anInt2184 = var1[0];
           int[][] var3 = Class15.method895(0);

@@ -191,7 +191,7 @@ final class Class56 {
       }
 
       if(var10) {
-         AnimationDefinition.aClass25Array1868[Unsorted.anInt3070++] = var20;
+         SequenceDefinition.aClass25Array1868[Unsorted.anInt3070++] = var20;
       }
 
       return true;

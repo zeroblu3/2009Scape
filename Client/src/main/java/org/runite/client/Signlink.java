@@ -1,5 +1,7 @@
 package org.runite.client;
 
+import jogamp.opengl.x11.glx.X11GLXDynamicLibraryBundleInfo;
+
 import java.applet.Applet;
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -35,7 +37,7 @@ public class Signlink implements Runnable {
     public RandomAccessFileWrapper randomDatFile;
     private Display display;
     private static String homeDirectory;
-    private static final Hashtable<String, File> cachedFiles = new Hashtable<>(16);
+    private static final Hashtable<String, File> cachedFiles = new Hashtable<>(18);
     private final String gameName;
     private Class64 aClass64_1213 = null;
     public static int anInt1214 = 1;
@@ -109,8 +111,7 @@ public class Signlink implements Runnable {
 
         String[] var2 = new String[]{"c:/rscache/", "/rscache/", homeDirectory, "c:/windows/", "c:/winnt/", "c:/", "/tmp/", ""};
 
-        for (int var3 = 0; var2.length > var3; ++var3) {
-            String var4 = var2[var3];
+        for (String var4 : var2) {
             if (var4.length() <= 0 || (new File(var4)).exists()) {
                 try {
                     return new RandomAccessFileWrapper(new File(var4, "jagex_" + var1 + "_preferences.dat"), "rw", 10000L);
@@ -177,20 +178,20 @@ public class Signlink implements Runnable {
             }
 
             try {
-                int var2 = var1.anInt975;
-                if (var2 == 1) {
+                int stage = var1.anInt975;
+                if (stage == 1) {
                     if (TimeUtils.time() < aLong1221) {
                         throw new IOException();
                     }
 //               System.out.println("Roar " + (String)var1.anObject977 + ", port " + var1.anInt979);
                     var1.anObject974 = new Socket(InetAddress.getByName((String) var1.anObject977), var1.anInt979);
-                } else if (2 == var2) {
+                } else if (2 == stage) {
                     Thread var16 = new Thread((Runnable) var1.anObject977);
                     var16.setDaemon(true);
                     var16.start();
                     var16.setPriority(var1.anInt979);
                     var1.anObject974 = var16;
-                } else if (var2 == 4) {
+                } else if (stage == 4) {
                     if (TimeUtils.time() < aLong1221) {
                         throw new IOException();
                     }
@@ -198,14 +199,14 @@ public class Signlink implements Runnable {
                     var1.anObject974 = new DataInputStream(((URL) var1.anObject977).openStream());
                 } else {
                     Object[] var3;
-                    if (var2 == 8) {
+                    if (stage == 8) {
                         var3 = (Object[]) var1.anObject977;
                         if (((Class) var3[0]).getClassLoader() == null) {
                             throw new SecurityException();
                         }
 
                         var1.anObject974 = ((Class) var3[0]).getDeclaredMethod((String) var3[1], (Class[]) var3[2]);
-                    } else if (var2 == 9) {
+                    } else if (stage == 9) {
                         var3 = (Object[]) var1.anObject977;
                         if (((Class) var3[0]).getClassLoader() == null) {
                             throw new SecurityException();
@@ -214,30 +215,30 @@ public class Signlink implements Runnable {
                         var1.anObject974 = ((Class) var3[0]).getDeclaredField((String) var3[1]);
                     } else {
                         String var4;
-                        if (var2 == 3) {
+                        if (stage == 3) {
                             if (aLong1221 > TimeUtils.time()) {
                                 throw new IOException();
                             }
 
                             var4 = (var1.anInt979 >> 24 & 255) + "." + (var1.anInt979 >> 16 & 255) + "." + (var1.anInt979 >> 8 & 255) + "." + (255 & var1.anInt979);
                             var1.anObject974 = InetAddress.getByName(var4).getHostName();
-                        } else if (var2 == 5) {
+                        } else if (stage == 5) {
                             var1.anObject974 = this.display.method919(true);
-                        } else if (var2 == 6) {
+                        } else if (stage == 6) {
                             Frame var5 = new Frame("Jagex Full Screen");
                             var1.anObject974 = var5;
                             var5.setResizable(false);
                             this.display.method918(-56, var1.anInt980 & '\uffff', var1.anInt980 >> 16, '\uffff' & var1.anInt979, var5, var1.anInt979 >>> 16);
-                        } else if (var2 == 7) {
+                        } else if (stage == 7) {
                             this.display.method920();
-                        } else if (10 == var2) {
+                        } else if (10 == stage) {
                             Class[] var17 = new Class[]{Class.forName("java.lang.Class"), Class.forName("java.lang.String")};
-                            Runtime var6 = Runtime.getRuntime();
+                            Runtime runtime = Runtime.getRuntime();
                             Method var7;
                             if (!osName.startsWith("mac")) {
                                 var7 = Class.forName("java.lang.Runtime").getDeclaredMethod("loadLibrary0", var17);
                                 var7.setAccessible(true);
-                                var7.invoke(var6, var1.anObject977, "jawt");
+                                var7.invoke(runtime, var1.anObject977, "jawt");
                                 var7.setAccessible(false);
                             }
                             boolean is64Bit = osArchitecture.contains("64");
@@ -245,46 +246,49 @@ public class Signlink implements Runnable {
                             var7 = Class.forName("java.lang.Runtime").getDeclaredMethod("load0", var17);
                             var7.setAccessible(true);
 
-
+                            System.out.println("Signlink - os Name: " + osName);
+                            System.out.println("Signlink - os Arch: " + osArchitecture);
                             if (osName.startsWith("linux") || isSunOS) {
                                 createLibs(isSunOS ? (is64Bit ? 7 : 6) : (is64Bit ? 5 : 4));
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.so").toString());
-//                                Class var8 = ((Class) var1.anObject977).getClassLoader().loadClass("com.sun.opengl.impl.x11.DRIHack");//TODO:
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.so").toString());
+//                                Class var8 = ((Class) var1.anObject977).getClassLoader().loadClass("DRIHack");//TODO:
 //                                var8.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_desktop.so").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_desktop.so").toString());
 //                                var8.getMethod("end", new Class[0]).invoke(null, new Object[0]);
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_x11.so").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_x11.so").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_awt.so").toString());
 
 
                             } else if (osName.startsWith("mac")) {
                                 createLibs(is64Bit ? 2 : 3);
                                 try {
-//                                    var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.jnilib").toString());
-//                                    var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl.jnilib").toString());
+//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.jnilib").toString());
+//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl.jnilib").toString());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-//                                    var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_desktop.jnilib").toString());
-//                                    var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_macosx.jnilib").toString());
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_awt.jnilib").toString());
+//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_desktop.jnilib").toString());
+//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_macosx.jnilib").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_awt.jnilib").toString());
                             } else {
 
                                 if (!osName.startsWith("win")) {
                                     throw new Exception();
                                 }
                                 createLibs(is64Bit ? 1 : 0);
-//                                var7.invoke(var6, new Object[]{var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl.dll").toString()});
-//                                var7.invoke(var6, new Object[]{var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl_awt.dll").toString()});
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl_desktop.dll").toString());
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "gluegen-rt.dll").toString());
-//                                var7.invoke(var6, var1.anObject977, method1448(this.gameName, this.anInt1215, "nativewindow_win32.dll").toString());
+//                                System.out.println("Trying to invoke libs");
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl_desktop.dll").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "gluegen-rt.dll").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "nativewindow_win32.dll").toString());
+//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "nativewindow_awt.dll").toString());
+//                                System.out.println("Invoked libs");
 
                             }
 
                             var7.setAccessible(false);
                         } else {
                             int var18;
-                            if (var2 == 11) {
+                            if (stage == 11) {
                                 Field var20 = Class.forName("java.lang.ClassLoader").getDeclaredField("nativeLibraries");
                                 var20.setAccessible(true);
                                 Vector var24 = (Vector) var20.get(((Class) var1.anObject977).getClassLoader());
@@ -302,22 +306,22 @@ public class Signlink implements Runnable {
                                 }
 
                                 var20.setAccessible(false);
-                            } else if (var2 == 12) {
+                            } else if (stage == 12) {
                                 var4 = (String) var1.anObject977;
                                 var1.anObject974 = method1438(false, var4);
-                            } else if (var2 == 14) {
+                            } else if (stage == 14) {
                                 int var22 = var1.anInt980;
                                 int var23 = var1.anInt979;
                                 this.sensor.moveMouse(var23, var22);
-                            } else if (15 == var2) {
+                            } else if (15 == stage) {
                                 boolean var21 = var1.anInt979 != 0;
                                 Component var27 = (Component) var1.anObject977;
                                 this.sensor.updateComponent(var27, var21);
-                            } else if (17 == var2) {
+                            } else if (17 == stage) {
                                 var3 = (Object[]) var1.anObject977;
                                 this.sensor.setCursor((Component) var3[0], (Point) var3[2], var1.anInt979, var1.anInt980, (int[]) var3[1]);
                             } else {
-                                if (16 != var2) {
+                                if (16 != stage) {
                                     throw new Exception();
                                 }
 
@@ -360,7 +364,7 @@ public class Signlink implements Runnable {
 
     public void createLibs(int archive) throws Throwable {
         System.out.println("creating libs");
-        String joglDesktop = archive < 2 ? "jogl_desktop.dll" : archive < 4 ? "libnativewindow_macosx.jnilib" : "libnativewindow_x11.so";
+        String joglDesktop = archive < 2 ? "jogl_desktop.dll" : archive < 4 ? "libjogl_desktop.jnilib" : "libjogl_desktop.so";
         String gluegen = archive < 2 ? "gluegen-rt.dll" : archive < 4 ? "libgluegen-rt.jnilib" : "libgluegen-rt.so";
         String nativeWindow = archive < 2 ? "nativewindow_win32.dll" : archive < 4 ? "libnativewindow_macosx.jnilib" : "libnativewindow_x11.so";
         String nativeWindowAWT = archive < 2 ? "nativewindow_awt.dll" : archive < 4 ? "libnativewindow_awt.jnilib" : "libnativewindow_awt.so";
@@ -625,18 +629,18 @@ public class Signlink implements Runnable {
 
         try {
             if (applet == null) {
-                setTraversalKeysEnabled = Class.forName("java.awt.Component").getDeclaredMethod("setFocusTraversalKeysEnabled", new Class[]{Boolean.TYPE});
+                setTraversalKeysEnabled = Class.forName("java.awt.Component").getDeclaredMethod("setFocusTraversalKeysEnabled", Boolean.TYPE);
             } else {
-                setTraversalKeysEnabled = applet.getClass().getMethod("setFocusTraversalKeysEnabled", new Class[]{Boolean.TYPE});
+                setTraversalKeysEnabled = applet.getClass().getMethod("setFocusTraversalKeysEnabled", Boolean.TYPE);
             }
         } catch (Exception var11) {
         }
 
         try {
             if (applet == null) {
-                setFocusCycleRoot = Class.forName("java.awt.Container").getDeclaredMethod("setFocusCycleRoot", new Class[]{Boolean.TYPE});
+                setFocusCycleRoot = Class.forName("java.awt.Container").getDeclaredMethod("setFocusCycleRoot", Boolean.TYPE);
             } else {
-                setFocusCycleRoot = applet.getClass().getMethod("setFocusCycleRoot", new Class[]{Boolean.TYPE});
+                setFocusCycleRoot = applet.getClass().getMethod("setFocusCycleRoot", Boolean.TYPE);
             }
         } catch (Exception var10) {
         }
@@ -670,9 +674,9 @@ public class Signlink implements Runnable {
         Thread[] threads = new Thread[1000];
         threadGroup.enumerate(threads);
 
-        for (int i = 0; i < threads.length; ++i) {
-            if (threads[i] != null && threads[i].getName().startsWith("AWT")) {
-                threads[i].setPriority(1);
+        for (Thread value : threads) {
+            if (value != null && value.getName().startsWith("AWT")) {
+                value.setPriority(1);
             }
         }
 

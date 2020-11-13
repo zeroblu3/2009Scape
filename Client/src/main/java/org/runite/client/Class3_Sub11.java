@@ -1,4 +1,5 @@
 package org.runite.client;
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 import org.rs09.client.Linkable;
 import org.rs09.client.data.HashTable;
@@ -234,7 +235,7 @@ final class Class3_Sub11 extends Linkable {
       }
 
       if(aClass3_Sub30_2372.index != 0 || aClass3_Sub30_2362.index != 0) {
-         GL4bc var10 = HDToolKit.gl;
+         GL2 var10 = HDToolKit.gl;
          if(this.anInt2351 == -1 || var3) {
             HDToolKit.bindTexture2D(-1);
             Class3_Sub28_Sub4.method551(0, 0);

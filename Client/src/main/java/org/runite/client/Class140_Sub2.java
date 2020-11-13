@@ -7,7 +7,7 @@ final class Class140_Sub2 extends GameObject {
    private int anInt2706 = 0;
    private final int anInt2708;
    int anInt2710;
-   private AnimationDefinition aClass142_2711;
+   private SequenceDefinition aClass142_2711;
    int anInt2712;
    static boolean aBoolean2713;
    private int anInt2715 = -32768;
@@ -199,7 +199,7 @@ final class Class140_Sub2 extends GameObject {
             this.aBoolean2718 = true;
          } else {
             this.aBoolean2718 = false;
-            this.aClass142_2711 = Client.getAnimationDefinition(var8);
+            this.aClass142_2711 = SequenceDefinition.getAnimationDefinition(var8);
          }
 
       } catch (RuntimeException var9) {

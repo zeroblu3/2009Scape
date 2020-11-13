@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 
 
@@ -141,7 +142,7 @@ final class Class169 {
             var6 += var5 - 128;
          }
 
-         GL4bc var12 = HDToolKit.gl;
+         GL2 var12 = HDToolKit.gl;
          ByteBuffer var13 = ByteBuffer.wrap(aByteArray2111);
          var13.limit(16384);
          HDToolKit.bindTexture2D(this.anInt2108);
@@ -150,7 +151,7 @@ final class Class169 {
    }
 
    final void method2284() {
-      GL4bc var1 = HDToolKit.gl;
+      GL2 var1 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt2108);
       if(this.aClass156_2110 == null) {
          if(HDToolKit.supportVertexBufferObject) {
@@ -178,7 +179,7 @@ final class Class169 {
    }
 
    public Class169() {
-      GL4bc var1 = HDToolKit.gl;
+      GL2 var1 = HDToolKit.gl;
       int[] var2 = new int[1];
       var1.glGenTextures(1, var2, 0);
       this.anInt2108 = var2[0];

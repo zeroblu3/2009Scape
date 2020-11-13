@@ -45,7 +45,7 @@ public final class CaptainShanksDialogue extends DialoguePlugin {
     public boolean open(Object... args) {
         npc = (NPC) args[0];
         npc("Hello there shipmate! I sail to Khazard Port and", "to Port Sarim. Where are you bound?");
-        if (!player.getInventory().containsOneItem(TICKET)) {
+        if (!player.getInventory().containsAtLeastOneItem(TICKET)) {
             stage = -1;
         } else {
             stage = 0;

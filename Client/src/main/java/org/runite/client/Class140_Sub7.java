@@ -141,8 +141,8 @@ public final class Class140_Sub7 extends GameObject {
                   }
 
                   var17 = var12 << 7;
-                  if(var17 < AnimationDefinition.anIntArray1871[var5]) {
-                     AnimationDefinition.anIntArray1871[var5] = var17;
+                  if(var17 < SequenceDefinition.anIntArray1871[var5]) {
+                     SequenceDefinition.anIntArray1871[var5] = var17;
                   } else if(Player.anIntArray3959[var5] < var17) {
                      Player.anIntArray3959[var5] = var17;
                   }
@@ -219,7 +219,7 @@ public final class Class140_Sub7 extends GameObject {
                Class129_Sub1.anIntArray2696[var5] -= 50;
                Class159.anIntArray2021[var5] += 50;
                Player.anIntArray3959[var5] += 50;
-               AnimationDefinition.anIntArray1871[var5] -= 50;
+               SequenceDefinition.anIntArray1871[var5] -= 50;
             }
 
             return true;
@@ -261,7 +261,7 @@ public final class Class140_Sub7 extends GameObject {
 
    final void animate(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9, int var11, Class127_Sub1 var12) {
       try {
-         Model var13 = Class38.getItemDefinition(this.anInt2936).method1110(-1, 0, (AnimationDefinition)null, this.anInt2930, 0);
+         Model var13 = Class38.getItemDefinition(this.anInt2936).method1110(-1, 0, (SequenceDefinition)null, this.anInt2930, 0);
          if(null != var13) {
             var13.animate(var1, var2, var3, var4, var5, var6, var7, var8, var9, var11, var12);
             this.anInt2932 = var13.method1871();

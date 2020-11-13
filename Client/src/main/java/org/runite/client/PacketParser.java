@@ -559,7 +559,7 @@ public final class PacketParser {
                                                 modelId = GraphicDefinition.incomingBuffer.readIntV1();
                                                 counter = GraphicDefinition.incomingBuffer.readUnsignedShortLE128();
                                                 if (modelId >> 30 == 0) {
-                                                    AnimationDefinition var53;
+                                                    SequenceDefinition var53;
                                                     if (modelId >> 29 != 0) {
                                                         var6 = '\uffff' & modelId;
                                                         NPC var62 = NPC.npcs[var6];
@@ -567,7 +567,7 @@ public final class PacketParser {
                                                             if (counter == 65535) {
                                                                 counter = -1;
                                                             }
-                                                            var32 = counter == -1 || -1 == var62.anInt2842 || Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, var62.anInt2842).anInt542).anInt1857 <= Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, counter).anInt542).anInt1857;
+                                                            var32 = counter == -1 || -1 == var62.anInt2842 || SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, var62.anInt2842).anInt542).forcedPriority <= SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, counter).anInt542).forcedPriority;
 
                                                             if (var32) {
                                                                 var62.anInt2761 = 0;
@@ -583,7 +583,7 @@ public final class PacketParser {
                                                                 if (var62.anInt2842 != -1 && Class44.anInt719 == var62.anInt2759) {
                                                                     var33 = GraphicDefinition.getGraphicDefinition((byte) 42, var62.anInt2842).anInt542;
                                                                     if (var33 != -1) {
-                                                                        var53 = Client.getAnimationDefinition(var33);
+                                                                        var53 = SequenceDefinition.getAnimationDefinition(var33);
                                                                         if (null != var53.frames) {
                                                                             Unsorted.method1470(var62.anInt2829, var53, 183921384, var62.anInt2819, false, 0);
                                                                         }
@@ -604,7 +604,7 @@ public final class PacketParser {
                                                             if (counter == '\uffff') {
                                                                 counter = -1;
                                                             }
-                                                            var32 = counter == -1 || var60.anInt2842 == -1 || Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, var60.anInt2842).anInt542).anInt1857 <= Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, counter).anInt542).anInt1857;
+                                                            var32 = counter == -1 || var60.anInt2842 == -1 || SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, var60.anInt2842).anInt542).forcedPriority <= SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte) 42, counter).anInt542).forcedPriority;
 
                                                             if (var32) {
                                                                 var60.anInt2759 = nodeModelId + Class44.anInt719;
@@ -621,7 +621,7 @@ public final class PacketParser {
                                                                 if (var60.anInt2842 != -1 && Class44.anInt719 == var60.anInt2759) {
                                                                     var33 = GraphicDefinition.getGraphicDefinition((byte) 42, var60.anInt2842).anInt542;
                                                                     if (var33 != -1) {
-                                                                        var53 = Client.getAnimationDefinition(var33);
+                                                                        var53 = SequenceDefinition.getAnimationDefinition(var33);
                                                                         if (null != var53.frames) {
                                                                             Unsorted.method1470(var60.anInt2829, var53, 183921384, var60.anInt2819, var60 == Class102.player, 0);
                                                                         }
@@ -1817,5 +1817,15 @@ public final class PacketParser {
        } catch (RuntimeException var6) {
           throw ClientErrorException.clientError(var6, "ke.E(" + var0 + ',' + var1 + ',' + var2 + ',' + var4 + ')');
        }
+    }
+
+    static void method1605(RSString var1, int var2) {
+        try {
+            Class3_Sub13_Sub1.outgoingBuffer.putOpcode(188);
+            Class3_Sub13_Sub1.outgoingBuffer.writeByte128(var2);
+            Class3_Sub13_Sub1.outgoingBuffer.writeLong(var1.toLong());
+        } catch (RuntimeException var4) {
+            throw ClientErrorException.clientError(var4, "ni.B(" + 255 + ',' + (var1 != null ? "{...}" : "null") + ',' + var2 + ')');
+        }
     }
 }

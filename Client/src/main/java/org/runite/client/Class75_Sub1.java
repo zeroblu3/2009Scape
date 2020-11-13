@@ -37,8 +37,8 @@ final class Class75_Sub1 extends Class75 {
                   if(var6 == -1) {
                      var2.aClass145Array2809[var9] = null;
                   } else {
-                     AnimationDefinition var10 = Client.getAnimationDefinition(var6);
-                     int var11 = var10.anInt1845;
+                     SequenceDefinition var10 = SequenceDefinition.getAnimationDefinition(var6);
+                     int var11 = var10.delayType;
                      Class145 var12 = var2.aClass145Array2809[var9];
                      if(var12 != null) {
                         if(var12.animationId == var6) {
@@ -54,7 +54,7 @@ final class Class75_Sub1 extends Class75 {
                            } else if (var11 == 2) {
                               var12.anInt1894 = 0;
                            }
-                        } else if(var10.anInt1857 >= Client.getAnimationDefinition(var12.animationId).anInt1857) {
+                        } else if(var10.forcedPriority >= SequenceDefinition.getAnimationDefinition(var12.animationId).forcedPriority) {
                            var12 = var2.aClass145Array2809[var9] = null;
                         }
                      }

@@ -17,6 +17,8 @@ import plugin.command.CommandMapping
 import plugin.command.CommandSet
 import plugin.creditshop.CreditShop
 import plugin.ge.GEOfferDispatch
+import plugin.ge.OfferState
+import plugin.skill.Skills
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
@@ -115,6 +117,7 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
         define("ge",Command.Privilege.STANDARD) { player, _ ->
             val offers = HashMap<Int,Int>()
             for(offer in GEOfferDispatch.offerMapping.values){
+                if(offer.state != OfferState.PENDING) continue
                 val item = offer.itemId
                 val amount = offer.amount - offer.completedAmount
                 if(offers[item] == null){
@@ -181,6 +184,40 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
             }
         }
 
+
+        /**
+         * Max account stats
+         */
+        define("max"){player,_ ->
+            var index = 0
+            Skills.SKILL_NAME.forEach {
+                player.skills.setStaticLevel(index,99)
+                player.skills.setLevel(index,99)
+                index++
+            }
+            player.skills.updateCombatLevel()
+        }
+
+        /**
+         * Set a specific skill to a specific level
+         */
+        define("setlevel"){player,args ->
+            if(args.size < 2) reject(player,"Usage: ::setlevel skillname level").also { return@define }
+            val skillname = args[1]
+            val desiredLevel: Int? = args[2].toIntOrNull()
+            if(desiredLevel == null){
+                reject(player, "Level must be an integer.")
+                return@define
+            }
+            if(desiredLevel > 99) reject(player,"Level must be 99 or lower.").also { return@define }
+            val skill = Skills.getSkillByName(skillname)
+
+            if(skill < 0) reject(player, "Must use a valid skill name!").also { return@define }
+
+            player.skills.setStaticLevel(skill,desiredLevel)
+            player.skills.setLevel(skill,desiredLevel)
+            player.skills.updateCombatLevel()
+        }
 
     }
 }

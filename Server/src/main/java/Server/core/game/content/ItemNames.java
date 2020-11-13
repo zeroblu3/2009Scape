@@ -1610,8 +1610,8 @@ public class ItemNames {
 	    public static final int RUBY_NECKLACE_NOTED_1661 = 1661;
 	    public static final int DIAMOND_NECKLACE_1662 = 1662;
 	    public static final int DIAMOND_NECKLACE_NOTED_1663 = 1663;
-	    public static final int DRAGON_NECKLACE_1664 = 1664;
-	    public static final int DRAGON_NECKLACE_NOTED_1665 = 1665;
+	    public static final int DRAGONSTONE_NECKLACE_1664 = 1664;
+	    public static final int DRAGONSTONE_NECKLACE_NOTED_1665 = 1665;
 	    public static final int GOLD_AMULET_U_1673 = 1673;
 	    public static final int GOLD_AMULET_U_NOTED_1674 = 1674;
 	    public static final int SAPPHIRE_AMULET_U_1675 = 1675;

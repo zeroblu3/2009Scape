@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-final class Class39 {
+public final class Class39 {
 
 	static int anInt670 = 0;
     static int[][] regionXteaKeys;
     static int currentChunkY;
 
-    static void updateSceneGraph(boolean dynamic) {
+    public static void updateSceneGraph(boolean dynamic) {
 		try {
 			LinkableRSString.isDynamicSceneGraph = dynamic;
 			int sceneX;

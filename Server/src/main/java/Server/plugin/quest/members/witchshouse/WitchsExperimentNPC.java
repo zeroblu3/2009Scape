@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
 import core.plugin.InitializablePlugin;
 
 /**
@@ -37,6 +38,10 @@ public class WitchsExperimentNPC extends AbstractNPC {
     @Override
     public void handleTickActions() {
         super.handleTickActions();
+        if(!p.isActive() || !RegionManager.getLocalPlayers(this).contains(p)){
+            p.removeAttribute("witchs-experiment:npc_spawned");
+            clear();
+        }
         if (!getProperties().getCombatPulse().isAttacking()) {
             getProperties().getCombatPulse().attack(p);
         }

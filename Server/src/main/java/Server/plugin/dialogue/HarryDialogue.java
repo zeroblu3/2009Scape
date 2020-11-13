@@ -45,15 +45,15 @@ public final class HarryDialogue extends DialoguePlugin {
     }
 
     private boolean needsFish() {
-        return player.getInventory().containsOneItem(FISHBOWL_SEAWEED);
+        return player.getInventory().containsAtLeastOneItem(FISHBOWL_SEAWEED);
     }
 
     private boolean needsSeaWeed() {
-        return player.getInventory().containsOneItem(FISHBOWL_WATER);
+        return player.getInventory().containsAtLeastOneItem(FISHBOWL_WATER);
     }
 
     private boolean needsFood() {
-        return player.getInventory().containsOneItem(new int[] {FISHBOWL_SEAWEED, FISHBOWL_BLUE, FISHBOWL_GREEN, FISHBOWL_SPINE});
+        return player.getInventory().containsAtLeastOneItem(new int[] {FISHBOWL_SEAWEED, FISHBOWL_BLUE, FISHBOWL_GREEN, FISHBOWL_SPINE});
     }
 
     @Override

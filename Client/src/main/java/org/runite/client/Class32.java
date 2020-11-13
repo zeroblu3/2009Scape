@@ -63,9 +63,9 @@ final class Class32 {
       if(Class3_Sub28_Sub8.aClass113Array3610 != null) {
       }
 
-      if(AnimationDefinition.aClass25Array1868 != null) {
+      if(SequenceDefinition.aClass25Array1868 != null) {
          for(var0 = 0; var0 < Unsorted.anInt3070; ++var0) {
-            AnimationDefinition.aClass25Array1868[var0] = null;
+            SequenceDefinition.aClass25Array1868[var0] = null;
          }
 
          Unsorted.anInt3070 = 0;

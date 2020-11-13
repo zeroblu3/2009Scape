@@ -19,7 +19,7 @@ final class Class52 {
    boolean aBoolean864;
 
 
-   final Model method1157(int var1, int var2, int var3, int var4, AnimationDefinition var5, int var6, int var7) {
+   final Model method1157(int var1, int var2, int var3, int var4, SequenceDefinition var5, int var6, int var7) {
       try {
 
          long var9 = (long)var3 | (long)(var7 << 16) | (long)var2 << 32;
@@ -182,32 +182,32 @@ final class Class52 {
       }
    }
 
-   final Model method1165(Class145[] var1, int var2, AnimationDefinition var3, AnimationDefinition var4, int var5, int var6, int var7, int var8, int var10, int var11) {
+   final Model method1165(Class145[] var1, int var2, SequenceDefinition var3, SequenceDefinition var4, int var5, int var6, int var7, int var8, int var10, int var11) {
       try {
          if(this.pnpcId == -1) {
             int[] var15 = this.lookInfo;
             long var13 = this.aLong860;
-            if(var4 != null && (var4.anInt1854 >= 0 || var4.anInt1849 >= 0)) {
+            if(var4 != null && (var4.leftHandItem >= 0 || var4.rightHandItem >= 0)) {
                var15 = new int[12];
 
                System.arraycopy(this.lookInfo, 0, var15, 0, 12);
 
-               if(var4.anInt1854 >= 0) {
-                  if(var4.anInt1854 == 65535) {
+               if(var4.leftHandItem >= 0) {
+                  if(var4.leftHandItem == 65535) {
                      var13 ^= -4294967296L;
                      var15[5] = 0;
                   } else {
-                     var15[5] = Class3_Sub13_Sub29.bitwiseOr(1073741824, var4.anInt1854);
+                     var15[5] = Class3_Sub13_Sub29.bitwiseOr(1073741824, var4.leftHandItem);
                      var13 ^= (long)var15[5] << 32;
                   }
                }
 
-               if(var4.anInt1849 >= 0) {
-                  if(var4.anInt1849 == 65535) {
+               if(var4.rightHandItem >= 0) {
+                  if(var4.rightHandItem == 65535) {
                      var15[3] = 0;
                      var13 ^= 4294967295L;
                   } else {
-                     var15[3] = Class3_Sub13_Sub29.bitwiseOr(1073741824, var4.anInt1849);
+                     var15[3] = Class3_Sub13_Sub29.bitwiseOr(1073741824, var4.rightHandItem);
                      var13 ^= (long)var15[3];
                   }
                }
@@ -368,7 +368,7 @@ final class Class52 {
             int var47;
             for(var22 = 0; var22 < var45; ++var22) {
                if(Objects.requireNonNull(var1)[var22] != null) {
-                  AnimationDefinition var41 = Client.getAnimationDefinition(var1[var22].animationId);
+                  SequenceDefinition var41 = SequenceDefinition.getAnimationDefinition(var1[var22].animationId);
                   if(var41.frames != null) {
                      var17 = true;
                      Class123.aClass142Array1654[var22] = var41;
@@ -815,7 +815,7 @@ final class Class52 {
       }
    }
 
-   final Model method1167(int var1, AnimationDefinition var3, int var4, int var5) {
+   final Model method1167(int var1, SequenceDefinition var3, int var4, int var5) {
       try {
          if(this.pnpcId == -1) {
             Model var6 = (Model) Unsorted.aReferenceCache_1131.get(this.aLong860);

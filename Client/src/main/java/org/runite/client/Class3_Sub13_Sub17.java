@@ -19,7 +19,7 @@ final class Class3_Sub13_Sub17 extends Class3_Sub13 {
    static void method247(byte var0) {
       try {
          if(Class140_Sub2.aBoolean2713) {
-            AnimationDefinition.aClass109_1856 = null;
+            SequenceDefinition.aClass109_1856 = null;
             Class140_Sub2.aBoolean2713 = false;
             Class40.aAbstractSprite_680 = null;
          }

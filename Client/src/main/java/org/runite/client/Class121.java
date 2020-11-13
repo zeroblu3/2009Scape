@@ -188,7 +188,7 @@ final class Class121 {
                      Unsorted.aClass44_Sub1Array3201 = new WorldListEntry[Class57.activeWorldListSize];
                      var2 = 0;
 
-                     for(int var3 = Class53.worldListOffset; var3 <= Class100.worldListArraySize; ++var3) {
+                     for(int var3 = Class53.worldListOffset; var3 <= WorldListEntry.worldListArraySize; ++var3) {
                         WorldListEntry var4 = Class3_Sub8.getWorld(91, var3);
                         if(null != var4) {
                            Unsorted.aClass44_Sub1Array3201[var2++] = var4;

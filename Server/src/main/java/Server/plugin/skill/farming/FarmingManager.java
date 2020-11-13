@@ -25,6 +25,8 @@ public final class FarmingManager implements SavingModule {
 	 */
 	private final FarmingEquipment equipment = new FarmingEquipment();
 
+	public PatchWrapper amuletBoundWrapper = null;
+
 	/**
 	 * Represents the managing class of composts.
 	 */
@@ -56,23 +58,7 @@ public final class FarmingManager implements SavingModule {
 
 	@Override
 	public void save(ByteBuffer buffer) {
-		if (equipment.getContainer().itemCount() != 0) {
-			equipment.save(buffer.put((byte) 1));
-		}
-		if (compostManager.getBins().size() != 0) {
-			compostManager.save(buffer.put((byte) 2));
-		}
-		if (patches.size() != 0) {
-			buffer.put((byte) 3);
-			buffer.putInt(patches.size());
-			for (PatchWrapper wrapper : patches) {
-				wrapper.save(buffer);
-			}
-		}
-		if (seedlingManager.getSeedlings().size() > 0) {
-			seedlingManager.save(buffer.put((byte) 4));
-		}
-		buffer.put((byte) 0);
+
 	}
 
 	public void parseWrappers(JSONArray data){
@@ -113,7 +99,7 @@ public final class FarmingManager implements SavingModule {
 				}
 				break;
 			case 4:
-				seedlingManager.parse(buffer);
+			//	seedlingManager.parse(buffer);
 				break;
 			}
 		}

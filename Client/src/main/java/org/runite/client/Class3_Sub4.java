@@ -50,7 +50,7 @@ final class Class3_Sub4 extends Linkable {
 		Class145.aClass113Array1895 = new Class113[500];
 		Class72.anInt1672 = 0;
 		Class81.anIntArrayArrayArray1142 = new int[4][Unsorted.anInt1234 + 1][Class3_Sub13_Sub15.anInt3179 + 1];
-		AnimationDefinition.aClass25Array1868 = new Class25[5000];
+		SequenceDefinition.aClass25Array1868 = new Class25[5000];
 		Unsorted.anInt3070 = 0;
 		Unsorted.aClass25Array4060 = new Class25[100];
 		Class23.aBooleanArrayArray457 = new boolean[Class3_Sub13_Sub39.anInt3466 + Class3_Sub13_Sub39.anInt3466 + 1][Class3_Sub13_Sub39.anInt3466 + Class3_Sub13_Sub39.anInt3466 + 1];

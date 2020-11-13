@@ -93,6 +93,7 @@ public final class GameReadEvent extends IoReadEvent {
 			byte[] data = new byte[size];
 			buffer.get(data);
 			IoBuffer buf = new IoBuffer(opcode, null, ByteBuffer.wrap(data));
+			//SystemLogger.log("Packet opcode " + opcode + "received.");
 			IncomingPacket packet = PacketRepository.getIncoming(opcode);
 			session.setLastPing(System.currentTimeMillis());
 			if (packet == null) {

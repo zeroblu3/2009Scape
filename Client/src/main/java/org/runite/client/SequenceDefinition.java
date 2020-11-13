@@ -3,36 +3,57 @@ package org.runite.client;
 
 import org.rs09.client.data.HashTable;
 
-public final class AnimationDefinition {
+public final class SequenceDefinition {
 
-	int anInt1845 = 2;
+	int delayType = 2;
 	boolean aBoolean1846 = false;
 	static volatile long aLong1847 = 0L;
 	boolean aBoolean1848 = false;
-	int anInt1849 = -1;
-	int anInt1850 = -1;
+	int rightHandItem = -1;
+	int priority = -1;
 	int[] frames;
 	public static CacheIndex aClass153_1852;
-	int anInt1854 = -1;
+	int leftHandItem = -1;
 	boolean[] aBooleanArray1855;
 	static AbstractIndexedSprite aClass109_1856;
-	int anInt1857 = 5;
+	int forcedPriority = 5;
 	boolean aBoolean1859 = false;
 	static CacheIndex aClass153_1860;
-	int anInt1861 = 99;
+	int maxLoops = 99;
 	static int anInt1862 = 0;
 	int animId;
 	int anInt1865 = -1;
-	int anInt1866 = -1;
-	int[][] anIntArrayArray1867;
+	int resetWhenWalk = -1;
+	int[][] sounds;
 	static Class25[] aClass25Array1868;
 	int[] duration;
-	private int[] anIntArray1870;
+	private int[] baseIds;
 	static int[] anIntArray1871 = new int[2];
 	boolean aBoolean1872 = false;
 
+	static SequenceDefinition getAnimationDefinition(int var0) {
+		try {
 
-	final void method2053(DataBuffer var1) {
+			SequenceDefinition var2 = (SequenceDefinition) Class82.aReferenceCache_1146.get(var0);
+			if (var2 == null) {
+				byte[] var3 = aClass153_1860.getFile(Class129.method1765(var0), Class67.method1262(117, var0));
+				var2 = new SequenceDefinition();
+				var2.animId = var0;
+				if (var3 != null) {
+					var2.parseDefinitions(new DataBuffer(var3));
+				}
+
+				var2.method2058();
+				Class82.aReferenceCache_1146.put(var2, var0);
+			}
+			return var2;
+		} catch (RuntimeException var4) {
+			throw ClientErrorException.clientError(var4, "client.D(" + var0 + ',' + (byte) -20 + ')');
+		}
+	}
+
+
+	final void parseDefinitions(DataBuffer var1) {
 		try {
 			//	System.out.print("Animation " + animId + " - parsed [");
 			while(true) {
@@ -42,7 +63,7 @@ public final class AnimationDefinition {
 					return;
 				}
 				//System.out.print(var3 + ", ");
-				this.method2060(var3, var1);
+				this.parseOpcode(var3, var1);
 			}
 		} catch (RuntimeException var4) {
 			throw ClientErrorException.clientError(var4, "tk.I(" + (var1 != null?"{...}":"null") + ',' + (byte) -102 + ')');
@@ -134,17 +155,17 @@ public final class AnimationDefinition {
 				Class3_Sub28_Sub5 var11 = null;
 				int var13 = 0;
 				int var14 = 0;
-				if(null != this.anIntArray1870) {
-					if(var5 < this.anIntArray1870.length) {
-						var13 = this.anIntArray1870[var5];
+				if(null != this.baseIds) {
+					if(var5 < this.baseIds.length) {
+						var13 = this.baseIds[var5];
 						if(var13 != 65535) {
 							var10 = Class3_Sub9.method133(var13 >> 16);
 							var13 &= '\uffff';
 						}
 					}
 
-					if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && -1 != var3 && this.anIntArray1870.length > var3) {
-						var14 = this.anIntArray1870[var3];
+					if((this.aBoolean1846 || ClientCommands.tweeningEnabled) && -1 != var3 && this.baseIds.length > var3) {
+						var14 = this.baseIds[var3];
 						if(var14 != 65535) {
 							var11 = Class3_Sub9.method133(var14 >> 16);
 							var14 &= '\uffff';
@@ -248,19 +269,19 @@ public final class AnimationDefinition {
 
 	final void method2058() {
 		try {
-			if(this.anInt1866 == -1) {
+			if(this.resetWhenWalk == -1) {
 				if(null == this.aBooleanArray1855) {
-					this.anInt1866 = 0;
+					this.resetWhenWalk = 0;
 				} else {
-					this.anInt1866 = 2;
+					this.resetWhenWalk = 2;
 				}
 			}
 
-			if(-1 == this.anInt1850) {
+			if(-1 == this.priority) {
 				if(null == this.aBooleanArray1855) {
-					this.anInt1850 = 0;
+					this.priority = 0;
 				} else {
-					this.anInt1850 = 2;
+					this.priority = 2;
 				}
 			}
 
@@ -300,88 +321,88 @@ public final class AnimationDefinition {
 		}
 	}
 
-	private void method2060(int var1, DataBuffer var3) {
+	private void parseOpcode(int opcode, DataBuffer buffer) {
 		try {
-			int var4;
-			int var5;
-			if(var1 == 1) {
-				var4 = var3.readUnsignedShort();
-				this.duration = new int[var4];
+			int count;
+			int index;
+			if(opcode == 1) {
+				count = buffer.readUnsignedShort();
+				this.duration = new int[count];
 
-				for(var5 = 0; var4 > var5; ++var5) {
-					this.duration[var5] = var3.readUnsignedShort();
+				for(index = 0; count > index; ++index) {
+					this.duration[index] = buffer.readUnsignedShort();
 				}
 
-				this.frames = new int[var4];
+				this.frames = new int[count];
 
-				for(var5 = 0; var4 > var5; ++var5) {
-					this.frames[var5] = var3.readUnsignedShort();
+				for(index = 0; count > index; ++index) {
+					this.frames[index] = buffer.readUnsignedShort();
 				}
 
-				for(var5 = 0; var4 > var5; ++var5) {
-					this.frames[var5] += var3.readUnsignedShort() << 16;
+				for(index = 0; count > index; ++index) {
+					this.frames[index] += buffer.readUnsignedShort() << 16;
 				}
-			} else if(var1 == 2) {
-				this.anInt1865 = var3.readUnsignedShort();
-			} else if(var1 == 3) {
+			} else if(opcode == 2) {
+				this.anInt1865 = buffer.readUnsignedShort();
+			} else if(opcode == 3) {
 				this.aBooleanArray1855 = new boolean[256];
-				var4 = var3.readUnsignedByte();
+				count = buffer.readUnsignedByte();
 
-				for(var5 = 0; var5 < var4; ++var5) {
-					this.aBooleanArray1855[var3.readUnsignedByte()] = true;
+				for(index = 0; index < count; ++index) {
+					this.aBooleanArray1855[buffer.readUnsignedByte()] = true;
 				}
-			} else if (var1 == 4) {
+			} else if (opcode == 4) {
 				this.aBoolean1859 = true;
-			} else if (var1 == 5) {
-				this.anInt1857 = var3.readUnsignedByte();
-			} else if (6 == var1) {
-				this.anInt1854 = var3.readUnsignedShort();
-			} else if (var1 == 7) {
-				this.anInt1849 = var3.readUnsignedShort();
-			} else if (8 == var1) {
-				this.anInt1861 = var3.readUnsignedByte();
-			} else if (9 == var1) {
-				this.anInt1866 = var3.readUnsignedByte();
-			} else if (10 == var1) {
-				this.anInt1850 = var3.readUnsignedByte();
-			} else if (var1 == 11) {
-				this.anInt1845 = var3.readUnsignedByte();
-			} else if (12 == var1) {
-				var4 = var3.readUnsignedByte();
-				this.anIntArray1870 = new int[var4];
+			} else if (opcode == 5) {
+				this.forcedPriority = buffer.readUnsignedByte();
+			} else if (6 == opcode) {
+				this.leftHandItem = buffer.readUnsignedShort();
+			} else if (opcode == 7) {
+				this.rightHandItem = buffer.readUnsignedShort();
+			} else if (8 == opcode) {
+				this.maxLoops = buffer.readUnsignedByte();
+			} else if (9 == opcode) {
+				this.resetWhenWalk = buffer.readUnsignedByte();
+			} else if (10 == opcode) {
+				this.priority = buffer.readUnsignedByte();
+			} else if (opcode == 11) {
+				this.delayType = buffer.readUnsignedByte();
+			} else if (12 == opcode) {
+				count = buffer.readUnsignedByte();
+				this.baseIds = new int[count];
 
-				for (var5 = 0; var5 < var4; ++var5) {
-					this.anIntArray1870[var5] = var3.readUnsignedShort();
+				for (index = 0; index < count; ++index) {
+					this.baseIds[index] = buffer.readUnsignedShort();
 				}
 
-				for (var5 = 0; var5 < var4; ++var5) {
-					this.anIntArray1870[var5] += var3.readUnsignedShort() << 16;
+				for (index = 0; index < count; ++index) {
+					this.baseIds[index] += buffer.readUnsignedShort() << 16;
 				}
-			} else if (13 == var1) {
-				var4 = var3.readUnsignedShort();
-				this.anIntArrayArray1867 = new int[var4][];
+			} else if (13 == opcode) {
+				count = buffer.readUnsignedShort();
+				this.sounds = new int[count][];
 
-				for (var5 = 0; var5 < var4; ++var5) {
-					int var6 = var3.readUnsignedByte();
+				for (index = 0; index < count; ++index) {
+					int var6 = buffer.readUnsignedByte();
 					if (var6 > 0) {
-						this.anIntArrayArray1867[var5] = new int[var6];
-						this.anIntArrayArray1867[var5][0] = var3.readMedium();
+						this.sounds[index] = new int[var6];
+						this.sounds[index][0] = buffer.readMedium();
 
 						for (int var7 = 1; var7 < var6; ++var7) {
-							this.anIntArrayArray1867[var5][var7] = var3.readUnsignedShort();
+							this.sounds[index][var7] = buffer.readUnsignedShort();
 						}
 					}
 				}
-			} else if (var1 == 14) {
+			} else if (opcode == 14) {
 				this.aBoolean1848 = true;
-			} else if (15 == var1) {
+			} else if (15 == opcode) {
 				this.aBoolean1846 = true;
-			} else if (16 == var1) {
+			} else if (16 == opcode) {
 				this.aBoolean1872 = true;
 			}
 
 		} catch (RuntimeException var8) {
-			throw ClientErrorException.clientError(var8, "tk.H(" + var1 + ',' + (byte) -73 + ',' + (var3 != null?"{...}":"null") + ')');
+			throw ClientErrorException.clientError(var8, "tk.H(" + opcode + ',' + (byte) -73 + ',' + (buffer != null?"{...}":"null") + ')');
 		}
 	}
 

@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 
 
@@ -122,7 +123,7 @@ final class Class141 {
    }
 
    static void method2038(int var0, int var1, int var2, boolean[][] var4) {
-      GL4bc var6 = HDToolKit.gl;
+      GL2 var6 = HDToolKit.gl;
       HDToolKit.method1856(1);
       HDToolKit.method1847(1);
       HDToolKit.method1823();

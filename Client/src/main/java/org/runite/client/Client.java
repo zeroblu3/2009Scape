@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import jogamp.opengl.Debug;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.console.DeveloperConsole;
 import org.rs09.client.filestore.resources.configs.enums.EnumDefinitionProvider;
@@ -11,7 +12,6 @@ import org.rs09.client.net.Connection;
 
 import java.awt.*;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
@@ -491,27 +491,6 @@ public final class Client extends GameShell {
     static Class3_Sub1 method44(RSInterface var0) {
         Class3_Sub1 var1 = (Class3_Sub1) Class124.aHashTable_1659.get(((long) var0.componentHash << 32) + (long) var0.anInt191);
         return var1 != null ? var1 : var0.aClass3_Sub1_257;
-    }
-
-    static AnimationDefinition getAnimationDefinition(int var0) {
-        try {
-
-            AnimationDefinition var2 = (AnimationDefinition) Class82.aReferenceCache_1146.get(var0);
-            if (var2 == null) {
-                byte[] var3 = AnimationDefinition.aClass153_1860.getFile(Class129.method1765(var0), Class67.method1262(117, var0));
-                var2 = new AnimationDefinition();
-                var2.animId = var0;
-                if (var3 != null) {
-                    var2.method2053(new DataBuffer(var3));
-                }
-
-                var2.method2058();
-                Class82.aReferenceCache_1146.put(var2, var0);
-            }
-            return var2;
-        } catch (RuntimeException var4) {
-            throw ClientErrorException.clientError(var4, "client.D(" + var0 + ',' + (byte) -20 + ')');
-        }
     }
 
     private void method46(int var2) {

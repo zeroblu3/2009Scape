@@ -67,12 +67,12 @@ public enum SkillcapePerks {
 	public static boolean hasSkillcapePerk(Player player, SkillcapePerks skillcapePerks) {
 		SkillcapePerks perk = skillcapePerks;
 		for (int i : perk.getSkillcapeIds()) {
-			if (player.getEquipment().containsOneItem(i)) {
+			if (player.getEquipment().containsAtLeastOneItem(i)) {
 				return true;
 			}
 		}		
 		for (int j : MAX_CAPE.getSkillcapeIds()) {
-			if (player.getEquipment().containsOneItem(j)) {
+			if (player.getEquipment().containsAtLeastOneItem(j)) {
 				return true;
 			}
 		}

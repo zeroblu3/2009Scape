@@ -53,6 +53,10 @@ public class BallInteraction extends PluginInteraction {
                 player.debug("Unhandled.");
             }
         } else {
+            if(player.getAttribute("witchs-experiment:npc_spawned", false)){
+                player.sendMessage("Finish fighting the experiment first!");
+                return;
+            }
             player.debug("Handled in branch 2.");
             int[] skillsToDecrease = {Skills.DEFENCE, Skills.ATTACK, Skills.STRENGTH, Skills.RANGE, Skills.MAGIC};
             for (int i = 0; i < skillsToDecrease.length; i++) {
@@ -60,6 +64,7 @@ public class BallInteraction extends PluginInteraction {
             }
             player.getPacketDispatch().sendMessage("<col=ff0000>The experiment glares at you, and you feel yourself weaken.</col>");
             new WitchsExperimentNPC(player.getAttribute("witchs_house:experiment_id",897), Location.create(2936, 3463, 0),player).init();
+            player.setAttribute("witchs-experiment:npc_spawned",true);
             handled = true;
         }
     }

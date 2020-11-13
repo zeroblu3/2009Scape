@@ -5,6 +5,7 @@ import core.game.content.EquipSoundsKt;
 import core.game.content.ItemNames;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
+import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.lock.Lock;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.audio.Audio;
@@ -82,6 +83,12 @@ public class EquipHandler extends OptionHandler {
 
 			player.getDialogueInterpreter().close();
 			player.getAudioManager().send(EquipSoundsKt.gibAudio(item.getId()), 1);
+			if(player.getProperties().getAutocastSpell() != null) {
+				player.getProperties().setAutocastSpell(null);
+				WeaponInterface wif = player.getExtension(WeaponInterface.class);
+				wif.selectAutoSpell(-1, true);
+				wif.openAutocastSelect();
+			}
 		}
 		return true;
 	}

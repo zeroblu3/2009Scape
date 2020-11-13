@@ -138,7 +138,7 @@ public final class GraphicDefinition {
             if(this.anInt542 == -1 || var3 == -1) {
                 var9 = var5.method1882(true, true, true);
             } else {
-                var9 = Client.getAnimationDefinition(this.anInt542).method2059(var1, var4, var3, var5);
+                var9 = SequenceDefinition.getAnimationDefinition(this.anInt542).method2059(var1, var4, var3, var5);
             }
 
             if(128 != this.anInt530 || 128 != this.anInt540) {

@@ -3,6 +3,7 @@ import org.rs09.client.Linkable;
 import org.rs09.client.rendering.Toolkit;
 
 import java.awt.Graphics;
+import java.util.Random;
 
 abstract class Class3_Sub13 extends Linkable {
 
@@ -15,8 +16,29 @@ abstract class Class3_Sub13 extends Linkable {
    Class114 aClass114_2382;
    static int anInt2383 = 0;
 
+    static int method1603(byte var0, int var1, Random var2) {
+        try {
+            if (var1 <= 0) {
+                throw new IllegalArgumentException();
+            } else if (Class140_Sub6.method2021((byte) -115, var1)) {
+                return (int) (((long) var2.nextInt() & 4294967295L) * (long) var1 >> 32);
+            } else {
+                int var3 = -((int) (4294967296L % (long) var1)) + Integer.MIN_VALUE;
 
-   final int[] method152(int var1, int var2, int var3) {
+                int var4;
+                do {
+                    var4 = var2.nextInt();
+                } while (var3 <= var4);
+
+                return Class3_Sub13_Sub7.method201(var4, var1, -58);
+            }
+        } catch (RuntimeException var6) {
+            throw ClientErrorException.clientError(var6, "ni.C(" + var0 + ',' + var1 + ',' + (var2 != null ? "{...}" : "null") + ')');
+        }
+    }
+
+
+    final int[] method152(int var1, int var2, int var3) {
       try {
          if(var3 != 32755) {
             anInt2383 = 121;

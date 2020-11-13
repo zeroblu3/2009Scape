@@ -1,11 +1,13 @@
 package core.game.world.map;
 
+import core.game.component.Component;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItem;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
+import core.game.system.SystemLogger;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.build.RegionFlags;
 import core.game.world.update.flag.chunk.ItemUpdateFlag;
@@ -239,7 +241,7 @@ public final class RegionPlane {
 	 * Adds an item to this region.
 	 * @param item The item.
 	 */
-	public void add(Item item) {
+	public void add(GroundItem item) {
 		Location l = item.getLocation();
 		RegionChunk c = getRegionChunk(l.getLocalX() / RegionChunk.SIZE, l.getLocalY() / RegionChunk.SIZE);
 		if (!c.getItems().add(item)) {
@@ -275,22 +277,20 @@ public final class RegionPlane {
 	 * Removes an item from this region.
 	 * @param item The ground item.
 	 */
-	public void remove(Item item) {
+	public void remove(GroundItem item) {
 		Location l = item.getLocation();
 		RegionChunk c = getRegionChunk(l.getLocalX() / RegionChunk.SIZE, l.getLocalY() / RegionChunk.SIZE);
 		if (!c.getItems().remove(item)) {
+			SystemLogger.log("oh fuck");
 			return;
 		}
-		GroundItem g = (GroundItem) item;
-		g.setRemoved(true);
-		g.setDecayTime(-2);
-		if (g.isPrivate()) {
-			if (g.getDropper() != null && g.getDropper().isPlaying() && g.getDropper().getLocation().withinDistance(l)) {
-				PacketRepository.send(ClearGroundItem.class, new BuildItemContext(g.getDropper(), item));
+		if (item.isPrivate()) {
+			if (item.getDropper() != null && item.getDropper().isPlaying() && item.getDropper().getLocation().withinDistance(l)) {
+				PacketRepository.send(ClearGroundItem.class, new BuildItemContext(item.getDropper(), item));
 			}
 			return;
 		}
-		c.flag(new ItemUpdateFlag(g, ItemUpdateFlag.REMOVE_TYPE));
+		c.flag(new ItemUpdateFlag(item, ItemUpdateFlag.REMOVE_TYPE));
 	}
 
 	/**
@@ -384,7 +384,7 @@ public final class RegionPlane {
 	 * @param y The region y-coordinate.
 	 * @return The game object.
 	 */
-	public List<Item> getChunkItems(int x, int y) {
+	public List<GroundItem> getChunkItems(int x, int y) {
 		int chunkX = x / CHUNK_SIZE;
 		int chunkY = y / CHUNK_SIZE;
 		return getRegionChunk(chunkX, chunkY).getItems();

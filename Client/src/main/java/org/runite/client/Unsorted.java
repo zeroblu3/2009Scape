@@ -904,17 +904,17 @@ public class Unsorted {
         }
     }
 
-    public static void method1470(int var0, AnimationDefinition var1, int var2, int var3, boolean var4, int var5) {
+    public static void method1470(int var0, SequenceDefinition var1, int var2, int var3, boolean var4, int var5) {
         try {
             if (Class113.anInt1552 < 50) {
-                if (var1.anIntArrayArray1867 != null && var1.anIntArrayArray1867.length > var5 && null != var1.anIntArrayArray1867[var5]) {
-                    int var6 = var1.anIntArrayArray1867[var5][0];
+                if (var1.sounds != null && var1.sounds.length > var5 && null != var1.sounds[var5]) {
+                    int var6 = var1.sounds[var5][0];
                     int var7 = var6 >> 8;
                     int var10;
-                    if (1 < var1.anIntArrayArray1867[var5].length) {
-                        var10 = (int) ((double) var1.anIntArrayArray1867[var5].length * Math.random());
+                    if (1 < var1.sounds[var5].length) {
+                        var10 = (int) ((double) var1.sounds[var5].length * Math.random());
                         if (0 < var10) {
-                            var7 = var1.anIntArrayArray1867[var5][var10];
+                            var7 = var1.sounds[var5][var10];
                         }
                     }
 
@@ -1141,7 +1141,7 @@ public class Unsorted {
 
     public static void method84(RSString var0, int var1) {
         try {
-            int var2 = Class100.method1602(var0);
+            int var2 = method1602(var0);
             if (var2 != -1) {
                 method565(Class119.aClass131_1624.aShortArray1727[var2], Class119.aClass131_1624.aShortArray1718[var2]);
             }
@@ -1235,8 +1235,8 @@ public class Unsorted {
     public static void method1772(int plane, int animId, int dummy, NPC var3) {
         try {
             if (var3.anInt2771 == animId && -1 != animId) {
-                AnimationDefinition var4 = Client.getAnimationDefinition(animId);
-                int var5 = var4.anInt1845;
+                SequenceDefinition var4 = SequenceDefinition.getAnimationDefinition(animId);
+                int var5 = var4.delayType;
                 if (var5 == 1) {
                     var3.anInt2776 = 1;
                     var3.anInt2832 = 0;
@@ -1249,7 +1249,7 @@ public class Unsorted {
                 if (var5 == 2) {
                     var3.anInt2773 = 0;
                 }
-            } else if (animId == -1 || -1 == var3.anInt2771 || Client.getAnimationDefinition(animId).anInt1857 >= Client.getAnimationDefinition(var3.anInt2771).anInt1857) {
+            } else if (animId == -1 || -1 == var3.anInt2771 || SequenceDefinition.getAnimationDefinition(animId).forcedPriority >= SequenceDefinition.getAnimationDefinition(var3.anInt2771).forcedPriority) {
                 var3.anInt2760 = 0;
                 var3.anInt2771 = animId;
                 var3.anInt2776 = 1;
@@ -1258,7 +1258,7 @@ public class Unsorted {
                 var3.anInt2811 = var3.anInt2816;
                 var3.anInt2832 = 0;
                 if (var3.anInt2771 != -1) {
-                    method1470(var3.anInt2829, Client.getAnimationDefinition(var3.anInt2771), dummy + 183921345, var3.anInt2819, false, var3.anInt2832);
+                    method1470(var3.anInt2829, SequenceDefinition.getAnimationDefinition(var3.anInt2771), dummy + 183921345, var3.anInt2819, false, var3.anInt2832);
                 }
             }
 
@@ -1273,9 +1273,9 @@ public class Unsorted {
 
     public static void method1775() {
         for (int var0 = 0; var0 < anInt3070; ++var0) {
-            Class25 var1 = AnimationDefinition.aClass25Array1868[var0];
+            Class25 var1 = SequenceDefinition.aClass25Array1868[var0];
             Class158.method2186(var1);
-            AnimationDefinition.aClass25Array1868[var0] = null;
+            SequenceDefinition.aClass25Array1868[var0] = null;
         }
 
         anInt3070 = 0;
@@ -1656,6 +1656,7 @@ public class Unsorted {
                 }
 
                 if (0 == var1 && var3 > 0) {
+                    System.out.println("Trying to run method1834 for HD");
                     HDToolKit.method1834(GameShell.canvas);
                 }
 
@@ -2562,7 +2563,7 @@ public class Unsorted {
     public static void method2065(CacheIndex var1, CacheIndex var2) {
         try {
             Class3_Sub13_Sub19.aClass153_3227 = var1;
-            AnimationDefinition.aClass153_1852 = var2;
+            SequenceDefinition.aClass153_1852 = var2;
         } catch (RuntimeException var4) {
             throw ClientErrorException.clientError(var4, "u.D(" + (byte) -125 + ',' + (var1 != null ? "{...}" : "null") + ',' + (var2 != null ? "{...}" : "null") + ')');
         }
@@ -3193,13 +3194,13 @@ public class Unsorted {
                 var1.anInt2824 = 0;
             } else {
                 if (var1.anInt2771 != -1 && 0 == var1.anInt2828) {
-                    AnimationDefinition var3 = Client.getAnimationDefinition(var1.anInt2771);
-                    if (var1.anInt2811 > 0 && var3.anInt1866 == 0) {
+                    SequenceDefinition var3 = SequenceDefinition.getAnimationDefinition(var1.anInt2771);
+                    if (var1.anInt2811 > 0 && var3.resetWhenWalk == 0) {
                         ++var1.anInt2824;
                         return;
                     }
 
-                    if (var1.anInt2811 <= 0 && var3.anInt1850 == 0) {
+                    if (var1.anInt2811 <= 0 && var3.priority == 0) {
                         ++var1.anInt2824;
                         return;
                     }
@@ -4131,7 +4132,7 @@ public class Unsorted {
                                     if (ClientCommands.fpsOverlayEnabled) {
                                         var20 = var11.width + var13;
                                         var21 = 15 + var14;
-                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_3196, RSString.stringAnimator(AnimationDefinition.anInt1862)}), var20, var21, 16776960, -1);//Class72.stringAnimator(AnimationDefinition.anInt1862)}), var20, var21, 16776960, -1);
+                                        Class126.aClass3_Sub28_Sub17_1669.method688(RSString.stringCombiner(new RSString[]{TextCore.aClass94_3196, RSString.stringAnimator(SequenceDefinition.anInt1862)}), var20, var21, 16776960, -1);//Class72.stringAnimator(SequenceDefinition.anInt1862)}), var20, var21, 16776960, -1);
                                         var21 += 15;
                                         Runtime var57 = Runtime.getRuntime();
                                         var23 = (int) ((var57.totalMemory() + -var57.freeMemory()) / 1024L);
@@ -4587,7 +4588,7 @@ public class Unsorted {
                                                 if (var11.anInt192 != -1) {
                                                     var42 = Class38.getItemDefinition(var11.anInt192);
                                                     var42 = var42.method1106(var11.anInt271);
-                                                    AnimationDefinition var52 = var21 == -1 ? null : Client.getAnimationDefinition(var21);
+                                                    SequenceDefinition var52 = var21 == -1 ? null : SequenceDefinition.getAnimationDefinition(var21);
                                                     var38 = var42.method1110(var11.anInt260, var11.anInt267, var52, 1, var11.anInt283);
                                                     if (var38 == null) {
                                                         Class20.method909(var11);
@@ -4596,19 +4597,19 @@ public class Unsorted {
                                                     }
                                                 } else if (5 != var11.modelType) {
                                                     if (var21 == -1) {
-                                                        var38 = var11.method865(-1, (AnimationDefinition) null, -1, 126, 0, var41, Class102.player.class52);
+                                                        var38 = var11.method865(-1, (SequenceDefinition) null, -1, 126, 0, var41, Class102.player.class52);
                                                         if (null == var38 && GameShell.aBoolean6) {
                                                             Class20.method909(var11);
                                                         }
                                                     } else {
-                                                        AnimationDefinition var48 = Client.getAnimationDefinition(var21);
+                                                        SequenceDefinition var48 = SequenceDefinition.getAnimationDefinition(var21);
                                                         var38 = var11.method865(var11.anInt260, var48, var11.anInt283, 127, var11.anInt267, var41, Class102.player.class52);
                                                         if (null == var38 && GameShell.aBoolean6) {
                                                             Class20.method909(var11);
                                                         }
                                                     }
                                                 } else if (-1 == var11.itemId) {
-                                                    var38 = aClass52_1112.method1165((Class145[]) null, -1, (AnimationDefinition) null, (AnimationDefinition) null, 0, -1, 100, 0, -1, -1);
+                                                    var38 = aClass52_1112.method1165((Class145[]) null, -1, (SequenceDefinition) null, (SequenceDefinition) null, 0, -1, 100, 0, -1, -1);
                                                 } else {
                                                     var24 = 2047 & var11.itemId;
                                                     if (Class3_Sub1.localIndex == var24) {
@@ -4616,9 +4617,9 @@ public class Unsorted {
                                                     }
 
                                                     Player var49 = Class3_Sub13_Sub22.players[var24];
-                                                    AnimationDefinition var56 = var21 == -1 ? null : Client.getAnimationDefinition(var21);
+                                                    SequenceDefinition var56 = var21 == -1 ? null : SequenceDefinition.getAnimationDefinition(var21);
                                                     if (null != var49 && (-2048 & var11.itemId) == (int) var49.displayName.toLong() << 11) {
-                                                        var38 = var49.class52.method1165((Class145[]) null, -1, (AnimationDefinition) null, var56, 0, -1, -126, 0, var11.anInt283, 0);
+                                                        var38 = var49.class52.method1165((Class145[]) null, -1, (SequenceDefinition) null, var56, 0, -1, -126, 0, var11.anInt283, 0);
                                                     }
                                                 }
 
@@ -5217,5 +5218,23 @@ public class Unsorted {
        } catch (RuntimeException var2) {
           throw ClientErrorException.clientError(var2, "q.D(" + var0 + ')');
        }
+    }
+
+    static int method1602(RSString var1) {
+        try {
+            if (Class119.aClass131_1624 == null || var1.length() == 0) {
+                return -1;
+            } else {
+                for (int var2 = 0; var2 < Class119.aClass131_1624.anInt1720; ++var2) {
+                    if (Class119.aClass131_1624.aClass94Array1721[var2].method1560(TextCore.aClass94_3192, TextCore.aClass94_4066).method1562((byte) -32, var1)) {
+                        return var2;
+                    }
+                }
+
+                return -1;
+            }
+        } catch (RuntimeException var3) {
+            throw ClientErrorException.clientError(var3, "ni.G(" + 0 + ',' + (var1 != null ? "{...}" : "null") + ')');
+        }
     }
 }

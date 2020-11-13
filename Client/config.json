@@ -1,6 +1,6 @@
 {
-  "ip_address": "play.2009scape.org",
-  "ip_management" : "play.2009scape.org",
+  "ip_address": "localhost",
+  "ip_management" : "localhost",
   "server_port": 43594,
   "wl_port": 5555,
   "world": 1,
@@ -30,7 +30,7 @@
     },
     "rendering_options": {
       "technical": {
-        "render_distance_increase": false
+        "render_distance_increase": true
       },
       "skybox": {
         "skybox_color" : "Coming in a future update..."
@@ -39,7 +39,7 @@
   },
 
   "debug": {
-    "item_debug": false,
+    "item_debug": true,
     "object_debug": false,
     "npc_debug": false,
     "hd_login_region_debug": false,

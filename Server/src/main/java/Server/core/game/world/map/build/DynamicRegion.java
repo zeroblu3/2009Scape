@@ -3,6 +3,7 @@ package core.game.world.map.build;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.music.MusicZone;
+import core.game.node.item.GroundItem;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
@@ -380,7 +381,7 @@ public final class DynamicRegion extends Region {
 				for (RegionChunk[] chunks : getChunks()[plane.getPlane()]) {
 					for (RegionChunk chunk : chunks) {
 						if (chunk != null) {
-							for (Iterator<Item> it = chunk.getItems().iterator(); it.hasNext();) {
+							for (Iterator<GroundItem> it = chunk.getItems().iterator(); it.hasNext();) {
 								GroundItemManager.getItems().remove(it.next());
 							}
 						}

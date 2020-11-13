@@ -13,7 +13,7 @@ import core.plugin.InitializablePlugin
 @InitializablePlugin
 class ElsieDialogue(player: Player? = null) : DialoguePlugin(player) {
     override fun open(vararg args: Any?): Boolean {
-        when (player.inventory.containsOneItem(ItemNames.CUP_OF_TEA_712)) {
+        when (player.inventory.containsAtLeastOneItem(ItemNames.CUP_OF_TEA_712)) {
             true -> npc("Hello dearie! What can old Elsie do for you?").also { stage = 10 }
             false -> npc("Ooh - that looks like a lovely cup of tea, dearie. Is it for", "me?").also { stage = 100 }
         }

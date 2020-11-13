@@ -29,7 +29,7 @@ final class Class140_Sub6 extends GameObject {
    double aDouble2920;
    private double aDouble2921;
    private int anInt2922 = 0;
-   private final AnimationDefinition aClass142_2923;
+   private final SequenceDefinition aClass142_2923;
    int anInt2924;
    int anInt2925;
    static volatile long aLong2926 = 0L;
@@ -256,7 +256,7 @@ final class Class140_Sub6 extends GameObject {
          if(var12 == -1) {
             this.aClass142_2923 = null;
          } else {
-            this.aClass142_2923 = Client.getAnimationDefinition(var12);
+            this.aClass142_2923 = SequenceDefinition.getAnimationDefinition(var12);
          }
 
       } catch (RuntimeException var13) {

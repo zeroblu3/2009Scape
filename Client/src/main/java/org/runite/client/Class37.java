@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.LinkableInt;
@@ -159,7 +160,7 @@ final class Class37 {
    }
 
    final void method1021() {
-      GL4bc var1 = HDToolKit.gl;
+      GL2 var1 = HDToolKit.gl;
       if(HDToolKit.supportVertexBufferObject) {
          this.aClass156_642.method2169();
          var1.glInterleavedArrays(10787, 16, 0L);

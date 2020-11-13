@@ -246,6 +246,7 @@ class PlayerSaveParser(val player: Player) {
 
     fun parseFarming() {
         val farmingData = saveFile!!["farming"] as JSONObject
+
         if (farmingData.containsKey("equipment")) {
             val equipmentData: JSONArray? = farmingData.get("equipment") as JSONArray
             player.farmingManager.equipment.container.parse(equipmentData)
@@ -257,6 +258,13 @@ class PlayerSaveParser(val player: Player) {
         if (farmingData.containsKey("wrappers")) {
             val wrapperData: JSONArray? = farmingData.get("wrappers") as JSONArray
             player.farmingManager.parseWrappers(wrapperData)
+        }
+        if(farmingData.containsKey("seedlings")){
+            val seedlingData = farmingData.get("seedlings") as JSONArray
+            player.farmingManager.seedlingManager.parse(seedlingData)
+        }
+        if(farmingData.containsKey("farmingAmuletWrapperID")){
+            player.farmingManager.amuletBoundWrapper = player.farmingManager.getPatchWrapper(farmingData.get("farmingAmuletWrapperID").toString().toInt())
         }
     }
 

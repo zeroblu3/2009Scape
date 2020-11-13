@@ -251,7 +251,7 @@ public final class WeaponInterface extends Component {
 		if (current != WeaponInterfaces.STAFF) {
 			selectAutoSpell(-1, false);
 			PacketRepository.send(InterfaceConfig.class, new InterfaceConfigContext(player, id, getConfig(current.getAttackStyles().length, current.getInterfaceId()), !specialBar));
-		} else if (current == WeaponInterfaces.STAFF) {
+		} else { //if staff
 			PacketRepository.send(InterfaceConfig.class, new InterfaceConfigContext(player, id, 87, !specialBar));
 		}
 		if (!canAutocast(false)) {

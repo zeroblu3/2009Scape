@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 import org.rs09.client.LinkableInt;
 
@@ -55,7 +56,7 @@ final class Class31 {
    }
 
    static synchronized void method990() {
-      GL4bc var0 = HDToolKit.gl;
+      GL2 var0 = HDToolKit.gl;
       int var1 = 0;
 
       while(true) {

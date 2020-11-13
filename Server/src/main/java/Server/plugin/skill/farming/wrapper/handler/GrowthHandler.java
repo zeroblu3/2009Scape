@@ -1,9 +1,13 @@
 package plugin.skill.farming.wrapper.handler;
 
+import core.game.node.entity.player.Player;
 import core.game.system.SystemLogger;
+import plugin.skill.farming.FarmingAmuletPlugin;
 import plugin.skill.farming.wrapper.PatchCycle;
 
 import java.util.concurrent.TimeUnit;
+
+import static plugin.stringtools.StringToolsKt.colorize;
 
 /**
  * Represents the handler of the growth effect of a patch.
@@ -58,6 +62,12 @@ public final class GrowthHandler {
 	 * @return {@code True} if we should stop.
 	 */
 	public boolean grow() {
+		Player player = cycle.getPlayer();
+		if(player.getInventory().containsAtLeastOneItem(FarmingAmuletPlugin.getAmuletIDs()) || player.getEquipment().containsAtLeastOneItem(FarmingAmuletPlugin.getAmuletIDs())){
+			if(player.getFarmingManager().amuletBoundWrapper == cycle.getWrapper()) {
+				player.sendMessage(colorize("%RYour farming amulet hums."));
+			}
+		}
 		if (cycle.getDiseaseHandler().handle()) {
 			return false;
 		}

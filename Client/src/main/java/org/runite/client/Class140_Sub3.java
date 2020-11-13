@@ -6,7 +6,7 @@ final class Class140_Sub3 extends GameObject {
     static LDIndexedSprite aClass109_Sub1_2631 = null;
     private int anInt2720 = 0;
    private boolean aBoolean2721 = false;
-   private AnimationDefinition aClass142_2722;
+   private SequenceDefinition aClass142_2722;
    private final int anInt2724;
    private int anInt2725 = 0;
    private int anInt2726;
@@ -28,7 +28,7 @@ final class Class140_Sub3 extends GameObject {
    private int anInt2752 = -1;
 
 
-   static Model method1957(int var0, boolean var1, AnimationDefinition var2, int var3, int var4, int var5, int var6, int var7, Model var8, int var9, int var10, int var11, int var12) {
+   static Model method1957(int var0, boolean var1, SequenceDefinition var2, int var3, int var4, int var5, int var6, int var7, Model var8, int var9, int var10, int var11, int var12) {
       try {
          long var14 = ((long)var4 << 48) + (long)(var7 + (var0 << 16) - -(var12 << 24)) + ((long)var6 << 32);
          Model var16 = (Model)Class158_Sub1.aReferenceCache_2982.get(var14);
@@ -318,7 +318,7 @@ final class Class140_Sub3 extends GameObject {
                if(var6 == -1) {
                   this.aClass142_2722 = null;
                } else {
-                  this.aClass142_2722 = Client.getAnimationDefinition(var6);
+                  this.aClass142_2722 = SequenceDefinition.getAnimationDefinition(var6);
                }
 
                if(null != this.aClass142_2722) {
@@ -527,7 +527,7 @@ final class Class140_Sub3 extends GameObject {
          }
 
          if(-1 != animationId) {
-            this.aClass142_2722 = Client.getAnimationDefinition(animationId);
+            this.aClass142_2722 = SequenceDefinition.getAnimationDefinition(animationId);
             this.anInt2726 = 0;
             if(1 >= this.aClass142_2722.frames.length) {
                this.anInt2733 = 0;
@@ -537,7 +537,7 @@ final class Class140_Sub3 extends GameObject {
 
             this.anInt2746 = 1;
             this.anInt2749 = -1 + Class44.anInt719;
-            if(this.aClass142_2722.anInt1845 == 0 && null != var9 && var9 instanceof Class140_Sub3) {
+            if(this.aClass142_2722.delayType == 0 && null != var9 && var9 instanceof Class140_Sub3) {
                Class140_Sub3 var12 = (Class140_Sub3)var9;
                if(this.aClass142_2722 == var12.aClass142_2722) {
                   this.anInt2726 = var12.anInt2726;

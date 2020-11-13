@@ -76,7 +76,7 @@ class WorkForOptionHandler : OptionHandler() {
         var jobId = 0
 
         if(player.getAttribute("jobs:id",-1) != -1){
-            JobManager.rewardPlayer(player)
+            JobManager.rewardPlayer(player,node.asNpc())
             return true
         }
 
@@ -123,13 +123,12 @@ class WorkForOptionHandler : OptionHandler() {
     }
 
     class CancelJobDialogue(player: Player? = null) : DialoguePlugin(player){
-        var amount = 0
         override fun newInstance(player: Player?): DialoguePlugin {
             return CancelJobDialogue(player)
         }
 
         override fun open(vararg args: Any?): Boolean {
-            amount = args[1] as Int
+            npc = args[0] as NPC
             player ?: return false
             npc("Would you like to cancel your job?","It will cost 500 coins.")
             stage = 0
@@ -158,9 +157,9 @@ class WorkForOptionHandler : OptionHandler() {
                     stage++
                 }
 
-                12 -> npc("Ah, that sucks! Get to work.","You still need to gather $amount more.").also { stage = 1000 }
+                12 -> npc("Ah, that sucks! Get to work.").also { stage = 1000 }
 
-                20 -> npc("Alright then, get to work!","You still need to gather $amount more.").also { stage = 1000 }
+                20 -> npc("Alright then, get to work!").also { stage = 1000 }
 
                 1000 -> end()
             }

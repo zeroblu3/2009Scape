@@ -337,6 +337,7 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 					case 1:
 					case 2:
 						interpreter.sendDialogues(npc, FacialExpression.NEUTRAL,"I have changed your Iron Man mode to: ","" + (buttonId == 1 ? "Standard" : "<col=8A0808>Hardcore</col>" + " Ironman mode."));
+						player.getSettings().toggleAcceptAid();
 						player.getIronmanManager().setMode(IronmanMode.values()[buttonId]);
 						player.sendMessage("Your Iron Man status has been changed.");
 						stage = 50;

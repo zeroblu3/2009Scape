@@ -5,7 +5,6 @@ import core.game.component.Component;
 import core.game.content.ItemNames;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
-import core.game.node.entity.impl.ForceMovement;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
@@ -16,10 +15,6 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.context.Graphics;
-import core.net.packet.PacketRepository;
-import core.net.packet.context.MinimapStateContext;
-import core.net.packet.out.MinimapState;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import plugin.skill.Skills;
@@ -78,7 +73,7 @@ public class WaterOrbGrapple extends OptionHandler {
                     }
                 }
 
-                if (!player.getEquipment().containsOneItem(CBOWS) || !player.getEquipment().containsItem(MITH_GRAPPLE)) {
+                if (!player.getEquipment().containsAtLeastOneItem(CBOWS) || !player.getEquipment().containsItem(MITH_GRAPPLE)) {
                     player.getDialogueInterpreter().sendDialogue("You need a Mithril crossbow and a Mithril grapple in order to do this.");
                     return true;
                 }

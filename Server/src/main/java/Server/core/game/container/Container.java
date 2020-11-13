@@ -663,7 +663,7 @@ public class Container {
      * @param itemId
      * @return
      */
-    public boolean containsOneItem(int itemId) {
+    public boolean containsAtLeastOneItem(int itemId) {
         for (Item item : items) {
             if (item != null && item.getId() == itemId && item.getAmount() == 1) {
                 return true;
@@ -677,7 +677,7 @@ public class Container {
      * @param itemIds
      * @return true if at least one item from list of IDs is in the container
      */
-    public boolean containsOneItem(int[] itemIds) {
+    public boolean containsAtLeastOneItem(int[] itemIds) {
         for (int id : itemIds) {
             if (getAmount(id) >= 1)
                 return true;
@@ -685,7 +685,7 @@ public class Container {
         return false;
     }
 
-    public boolean containsOneItem(Item... items) {
+    public boolean containsAtLeastOneItem(Item... items) {
         for (Item item : items) {
             if (containsItem(item)) {
                 return true;
@@ -702,7 +702,7 @@ public class Container {
      */
     public boolean containsAll(int... itemIds) {
         for (int i : itemIds) {
-            if (!containsOneItem(i)) {
+            if (!containsAtLeastOneItem(i)) {
                 return false;
             }
         }

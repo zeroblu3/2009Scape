@@ -24,7 +24,9 @@ class CreditShop : Shop("Credit Shop <3", listOf(
         Item(ItemNames.BLUE_HALLOWEEN_MASK, 100),
         Item(ItemNames.GREEN_HALLOWEEN_MASK,100),
         Item(ItemNames.SANTA_HAT, 100),
-        Item(ItemNames.SCYTHE_10735,100)
+        Item(ItemNames.SCYTHE_10735,100),
+        Item(ItemNames.EASTER_RING_7927,100),
+        Item(ItemNames.EASTER_BASKET_4565,100)
 ).toTypedArray(),false){
     val prices = hashMapOf(
             ItemNames.SANTA_HAT to 35,
@@ -46,7 +48,9 @@ class CreditShop : Shop("Credit Shop <3", listOf(
             13864 to 100,
             13867 to 100,
             10735 to 200,
-            14643 to 125
+            14643 to 125,
+            ItemNames.EASTER_RING_7927 to 100,
+            ItemNames.EASTER_BASKET_4565 to 100
     )
 
     init {

@@ -174,7 +174,7 @@ final class Class45 {
 
 				chatIcon = GraphicDefinition.incomingBuffer.readIntV2();
 				boolean var21 = true;
-				if(var4 != -1 && var3.anInt2842 != -1 && Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var4).anInt542).anInt1857 < Client.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542).anInt1857) {
+				if(var4 != -1 && var3.anInt2842 != -1 && SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var4).anInt542).forcedPriority < SequenceDefinition.getAnimationDefinition(GraphicDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542).forcedPriority) {
 					var21 = false;
 				}
 
@@ -192,7 +192,7 @@ final class Class45 {
 					if(var3.anInt2842 != -1 && Class44.anInt719 == var3.anInt2759) {
 						var7 = GraphicDefinition.getGraphicDefinition((byte)42, var3.anInt2842).anInt542;
 						if(var7 != -1) {
-							AnimationDefinition var24 = Client.getAnimationDefinition(var7);
+							SequenceDefinition var24 = SequenceDefinition.getAnimationDefinition(var7);
 							if(var24.frames != null) {
 								Unsorted.method1470(var3.anInt2829, var24, 183921384, var3.anInt2819, var3 == Class102.player, 0);
 							}

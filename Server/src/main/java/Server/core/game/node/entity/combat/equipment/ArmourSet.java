@@ -191,7 +191,7 @@ public enum ArmourSet {
 		int hits = 0;
 		for (int i = 0; i < sets.length; i++) {
 			for (Item item : sets[i]) {
-				if (p.getEquipment().containsOneItem(item.getId())) {
+				if (p.getEquipment().containsAtLeastOneItem(item.getId())) {
 					hits++;
 					break;
 				}

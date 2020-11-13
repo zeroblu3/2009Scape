@@ -1,5 +1,8 @@
 package core.game.content.global.action;
 
+import core.game.container.impl.EquipmentContainer;
+import core.game.content.ItemNames;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.system.SystemLogger;
 import plugin.dialogue.DialoguePlugin;
 import core.game.container.impl.EquipmentContainer;
@@ -12,7 +15,6 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
-import core.tools.ItemNames;
 
 /**
  * Handles a ladder climbing reward.

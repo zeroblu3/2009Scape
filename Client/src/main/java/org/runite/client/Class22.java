@@ -1,6 +1,7 @@
 package org.runite.client;
 
 import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 
 import java.nio.IntBuffer;
@@ -23,14 +24,14 @@ public final class Class22 {
       anInt448 = 0;
       anInt450 = HDToolKit.viewWidth;
       anInt451 = HDToolKit.viewHeight;
-      GL4bc var0 = HDToolKit.gl;
+      GL2 var0 = HDToolKit.gl;
       var0.glDisable(3089);
       method921();
    }
 
    static void method926(int[] var0, int var1, int var2, int var3, int var4) {
       HDToolKit.method1835();
-      GL4bc var5 = HDToolKit.gl;
+      GL2 var5 = HDToolKit.gl;
       var5.glRasterPos2i(var1, HDToolKit.viewHeight - var2);
       var5.glPixelZoom(1.0F, -1.0F);
       var5.glDisable(3042);
@@ -47,7 +48,7 @@ public final class Class22 {
       float var7 = var6 + (float)(var2 - 1);
       float var8 = (float)HDToolKit.viewHeight - ((float)var1 + 0.3F);
       float var9 = var8 - (float)(var3 - 1);
-      GL4bc var10 = HDToolKit.gl;
+      GL2 var10 = HDToolKit.gl;
       var10.glBegin(GL.GL_LINE_LOOP);
       var10.glColor4ub((byte)(var4 >> 16), (byte)(var4 >> 8), (byte)var4, var5 > 255?-1:(byte)var5);
       var10.glVertex2f(var6, var8);
@@ -89,7 +90,7 @@ public final class Class22 {
          int var23 = var1 + var7 - var16;
          int var24 = var1 + var7 + var15;
          HDToolKit.method1835();
-         GL4bc var25 = HDToolKit.gl;
+         GL2 var25 = HDToolKit.gl;
          var25.glColor3ub((byte)(var4 >> 16), (byte)(var4 >> 8), (byte)var4);
          var25.glBegin(GL.GL_TRIANGLE_FAN);
          if(var12 <= var11) {
@@ -125,7 +126,7 @@ public final class Class22 {
          anInt451 = var3;
       }
 
-      GL4bc var4 = HDToolKit.gl;
+      GL2 var4 = HDToolKit.gl;
       var4.glEnable(3089);
       if(anInt449 <= anInt450 && anInt448 <= anInt451) {
          var4.glScissor(anInt449, HDToolKit.viewHeight - anInt451, anInt450 - anInt449, anInt451 - anInt448);
@@ -146,7 +147,7 @@ public final class Class22 {
       float var6 = (float)var2 + 0.3F;
       float var7 = (float)HDToolKit.viewHeight - ((float)var1 + 0.3F);
       float var8 = (float)HDToolKit.viewHeight - ((float)var3 + 0.3F);
-      GL4bc var9 = HDToolKit.gl;
+      GL2 var9 = HDToolKit.gl;
       var9.glBegin(GL.GL_LINE_LOOP);
       var9.glColor3ub((byte)(var4 >> 16), (byte)(var4 >> 8), (byte)var4);
       var9.glVertex2f(var5, var7);
@@ -175,7 +176,7 @@ public final class Class22 {
       anInt448 = top;
       anInt450 = right;
       anInt451 = bottom;
-      GL4bc var4 = HDToolKit.gl;
+      GL2 var4 = HDToolKit.gl;
       var4.glEnable(3089);
       if(anInt449 <= anInt450 && anInt448 <= anInt451) {
          var4.glScissor(anInt449, HDToolKit.viewHeight - anInt451, anInt450 - anInt449, anInt451 - anInt448);

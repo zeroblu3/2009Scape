@@ -53,7 +53,7 @@ public enum CrestType implements CrestRequirement {
 
         @Override
         public boolean eligible(Player player) {
-            return player.getInventory().containsOneItem(new int[]{
+            return player.getInventory().containsAtLeastOneItem(new int[]{
                     ItemNames.BLACK_TOY_HORSEY_2524,
                     ItemNames.BROWN_TOY_HORSEY_2520,
                     ItemNames.GREY_TOY_HORSEY_2526,

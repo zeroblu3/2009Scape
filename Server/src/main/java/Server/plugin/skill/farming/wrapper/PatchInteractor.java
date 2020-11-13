@@ -4,6 +4,7 @@ import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
 import core.game.world.map.Location;
 import plugin.skill.Skills;
+import plugin.skill.farming.FarmingAmuletPlugin;
 import plugin.skill.farming.FarmingConstant;
 import plugin.skill.farming.FarmingNode;
 import plugin.skill.farming.FarmingPatch;
@@ -112,6 +113,10 @@ public final class PatchInteractor {
 	public void handleToolInteraction(final Item item, String command) {
 		if (item.getId() == FarmingConstant.COMPOST.getId() || item.getId() == FarmingConstant.SUPERCOMPOST.getId()) {
 			applyCompost(item);
+			return;
+		}
+		if(item.getId() > 12607 && item.getId() < 12623){
+			FarmingAmuletPlugin.handle(wrapper,player);
 			return;
 		}
 		final ToolAction action = PatchTool.forItem(item).getAction().newInstance(player, wrapper, item);

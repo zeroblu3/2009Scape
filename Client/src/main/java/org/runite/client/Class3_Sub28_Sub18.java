@@ -1,5 +1,6 @@
 package org.runite.client;
 
+import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL4bc;
 import org.rs09.client.Node;
 
@@ -104,7 +105,7 @@ final class Class3_Sub28_Sub18 extends Node {
 
    Class3_Sub28_Sub18(int var1) {
       try {
-         GL4bc var2 = HDToolKit.gl;
+         GL2 var2 = HDToolKit.gl;
          int[] var3 = new int[1];
          var2.glGenTextures(1, var3, 0);
          this.anInt3759 = var3[0];

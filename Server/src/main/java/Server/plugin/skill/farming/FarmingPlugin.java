@@ -28,7 +28,10 @@ import core.plugin.PluginManager;
 import core.tools.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static plugin.stringtools.StringToolsKt.colorize;
 
 /**
  * Represents the option plugin used to handle farming interactions.
@@ -248,6 +251,7 @@ public final class FarmingPlugin extends OptionHandler {
 			List<Integer> ids = new ArrayList<>();
 			ids.add(6032);// compost
 			ids.add(6034);// super compost
+			for(int ID : FarmingAmuletPlugin.getAmuletIDs()){ids.add(ID);} //Farming Amulets
 			for (PatchTool tool : PatchTool.values()) {
 				for (Item i : tool.getTools()) {
 					ids.add(i.getId());
@@ -602,7 +606,7 @@ public final class FarmingPlugin extends OptionHandler {
 			if (player.getInventory().remove(sapling.getSeed(), event.getUsedItem())) {
 				player.getInventory().add(sapling.getSeedling());
 				player.getPacketDispatch().sendMessage("You sow " + (StringUtils.isPlusN(sapling.getSeed().getName()) ? "an" : "a") + " " + sapling.getSeed().getName().toLowerCase() + " in the plantpot.");
-				player.getPacketDispatch().sendMessage("It needs watering before it will grow.");
+				player.getPacketDispatch().sendMessage(colorize("%RIt needs watering before it will grow."));
 			}
 			return true;
 		}

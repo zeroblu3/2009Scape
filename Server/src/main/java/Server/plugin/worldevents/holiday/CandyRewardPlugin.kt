@@ -10,7 +10,7 @@ import plugin.stringtools.colorize
 
 class CandyRewardPlugin : XPGainPlugin(){
     override fun run(player: Player, skill: Int, amount: Double) {
-        val awardCandy = RandomFunction.random(1,100) >= 95
+        val awardCandy = RandomFunction.random(1,200) == 55
         val candy = Item(14084)
 
         if(awardCandy){

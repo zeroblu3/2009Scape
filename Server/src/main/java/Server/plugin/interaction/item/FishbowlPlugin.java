@@ -151,12 +151,12 @@ public class FishbowlPlugin extends OptionHandler {
                     stage = 2;
                     break;
                 case "feed":
-                    if (player.getInventory().containsOneItem(ItemNames.FISH_FOOD_272) && player.getInventory().remove(new Item(ItemNames.FISH_FOOD_272))) {
+                    if (player.getInventory().containsAtLeastOneItem(ItemNames.FISH_FOOD_272) && player.getInventory().remove(new Item(ItemNames.FISH_FOOD_272))) {
                         player.getInventory().add(new Item(ItemNames.AN_EMPTY_BOX_6675));
                         player.lock(ANIM_FEED.getDuration());
                         player.animate(ANIM_FEED);
                         player.getPacketDispatch().sendMessage("You feed your fish.");
-                    } else if (player.getInventory().containsOneItem(ItemNames.POISONED_FISH_FOOD_274)) {
+                    } else if (player.getInventory().containsAtLeastOneItem(ItemNames.POISONED_FISH_FOOD_274)) {
                         player.getPacketDispatch().sendMessage("You can't poison your own pet!");
                     } else {
                         player.getPacketDispatch().sendMessage("You don't have any fish food.");
@@ -230,7 +230,7 @@ public class FishbowlPlugin extends OptionHandler {
         }
 
         public boolean getFish(final Player player) {
-            if (!player.getInventory().containsOneItem(TINY_NET)) {
+            if (!player.getInventory().containsAtLeastOneItem(TINY_NET)) {
                 player.getPacketDispatch().sendMessage("You see some tiny fish swimming around... but how to catch them?");
                 return true;
             }

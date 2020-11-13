@@ -41,7 +41,7 @@ public final class KuraskNPC extends AbstractNPC {
 		boolean effective = false;
 		if (state.getAttacker() instanceof Player) {
 			final Player player = (Player) state.getAttacker();
-			if ((state.getWeapon() != null && state.getWeapon().getId() == 4158) || (state.getAmmunition() != null && state.getAmmunition().getItemId() == 4160) || (state.getSpell() != null && state.getSpell().getSpellId() == 31 && player.getSpellBookManager().getSpellBook() == SpellBook.MODERN.getInterfaceId())) {
+			if ((state.getWeapon() != null && state.getWeapon().getId() == 4158) || (state.getAmmunition() != null && state.getAmmunition().getItemId() == 4160) || (state.getSpell() != null && state.getSpell().getSpellId() == 31 && player.getSpellBookManager().getSpellBook() == SpellBook.MODERN.getInterfaceId()) || (state.getAmmunition() != null && state.getAmmunition().getItemId() == 881)) {
 				effective = true;
 			}
 		}

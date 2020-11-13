@@ -135,7 +135,7 @@ public final class BKFortressPlugin extends OptionHandler {
 			player.getDialogueInterpreter().open(4605, Repository.findNPC(4605), true, true);
 			break;
 		case 2337:
-			if (!player.getEquipment().containsOneItem(1139) || !player.getEquipment().containsOneItem(1101)) {
+			if (!player.getEquipment().containsAtLeastOneItem(1139) || !player.getEquipment().containsAtLeastOneItem(1101)) {
 				player.getDialogueInterpreter().open(4605, Repository.findNPC(4604), true);
 			} else {
 				DoorActionHandler.handleAutowalkDoor(player, (GameObject) node);

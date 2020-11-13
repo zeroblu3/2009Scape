@@ -23,14 +23,14 @@ final class Class158_Sub1 extends Class158 implements ImageProducer, ImageObserv
    static boolean aBoolean2981 = false;
    static ReferenceCache aReferenceCache_2982 = new ReferenceCache(32);
 
-    static Class100 method629(int var1) {
+    static MapUnderlayColorDefinition method629(int var1) {
        try {
-          Class100 var2 = (Class100)Class44.aReferenceCache_725.get((long)var1);
+          MapUnderlayColorDefinition var2 = (MapUnderlayColorDefinition)Class44.aReferenceCache_725.get((long)var1);
           if(var2 == null) {
              byte[] var3 = Class3_Sub23.aClass153_2536.getFile(1, var1);
-             var2 = new Class100();
+             var2 = new MapUnderlayColorDefinition();
              if(null != var3) {
-                var2.method1601(var1, new DataBuffer(var3));
+                var2.parseUnderlayDefinition(var1, new DataBuffer(var3));
              }
 
              Class44.aReferenceCache_725.put(var2, (long)var1);
@@ -285,7 +285,7 @@ final class Class158_Sub1 extends Class158 implements ImageProducer, ImageObserv
                   if(var37 < 104) {
                      var13 = 255 & Class3_Sub13_Sub36.aByteArrayArrayArray3430[var8][var37][var11];
                      if(var13 > 0) {
-                        Class100 var39 = method629(-1 + var13);
+                        MapUnderlayColorDefinition var39 = method629(-1 + var13);
                         Class129.anIntArray1695[var11] += var39.anInt1408;
                         Unsorted.anIntArray1138[var11] += var39.anInt1406;
                         Class3_Sub31.anIntArray2606[var11] += var39.anInt1417;
@@ -298,7 +298,7 @@ final class Class158_Sub1 extends Class158 implements ImageProducer, ImageObserv
                   if(0 <= var13) {
                      var14 = 255 & Class3_Sub13_Sub36.aByteArrayArrayArray3430[var8][var13][var11];
                      if(var14 > 0) {
-                        Class100 var42 = method629(-1 + var14);
+                        MapUnderlayColorDefinition var42 = method629(-1 + var14);
                         Class129.anIntArray1695[var11] -= var42.anInt1408;
                         Unsorted.anIntArray1138[var11] -= var42.anInt1406;
                         Class3_Sub31.anIntArray2606[var11] -= var42.anInt1417;

@@ -49,28 +49,6 @@ public class WitchsHousePlugin extends OptionHandler {
         boolean readBook = player.getAttribute("readWitchsBook", false);
         boolean magnetAttached = player.getAttribute("attached_magnet", false);
         switch (id) {
-            /*case 2407:
-                player.debug("Killed experiment " + killedExperiment);
-                if (killedExperiment) {
-                    if (player.getInventory().containsItem(BALL)) {
-                        player.sendMessage("You already have the ball.");
-                        return true;
-                    }
-                    PickupHandler.take(player, ball);
-                    player.debug("Using default item handler, option: " + new Option("take", 0));
-                    return true;
-                } else {
-                    if (experimentAlive) {
-                        return true;
-                    }
-                    int[] skillsToDecrease = {Skills.DEFENCE, Skills.ATTACK, Skills.STRENGTH, Skills.RANGE, Skills.MAGIC};
-                    for (int i = 0; i < skillsToDecrease.length; i++) {
-                        player.getSkills().setLevel(i, player.getSkills().getLevel(i) > 5 ? player.getSkills().getLevel(i) - 5 : 1);
-                    }
-                    player.getPacketDispatch().sendMessage("<col=ff0000>The experiment glares at you, and you feel yourself weaken.</col>");
-                    startFight(player);
-                }
-                break;*/
             case 897:
             case 898:
             case 899:

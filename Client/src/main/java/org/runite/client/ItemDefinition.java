@@ -345,7 +345,7 @@ final class ItemDefinition {
 		}
 	}
 
-	final Model method1110(int var2, int var3, AnimationDefinition var4, int var5, int var6) {
+	final Model method1110(int var2, int var3, SequenceDefinition var4, int var5, int var6) {
 		try {
 			if(this.anIntArray804 != null && var5 > 1) {
 				int var7 = -1;

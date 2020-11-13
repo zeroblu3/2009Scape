@@ -97,11 +97,11 @@ class ThormacDialogue(player: Player? = null) : DialoguePlugin(player) {
 
             // after that
             70 -> {
-                if (!player.inventory.containsOneItem(scorpionCages)
-                        && !player.bank.containsOneItem(scorpionCages)) {
+                if (!player.inventory.containsAtLeastOneItem(scorpionCages)
+                        && !player.bank.containsAtLeastOneItem(scorpionCages)) {
                     player("I've lost my cage.")
                     stage = 71
-                } else if (!player.inventory.containsOneItem(scorpionCageFull.id)) {
+                } else if (!player.inventory.containsAtLeastOneItem(scorpionCageFull.id)) {
                     player("I've not caught all the scorpions yet.")
                     stage = 72
                 } else {

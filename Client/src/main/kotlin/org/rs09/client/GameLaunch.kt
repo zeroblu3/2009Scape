@@ -13,7 +13,16 @@ object GameLaunch {
      */
     @JvmStatic
     fun main(args: Array<String>) {
+        for (i in args.indices) {
+            val cmd = args[i].split("=").toTypedArray()
+            when (cmd[0]) {
+                "ip" -> GameConfig.IP_ADDRESS = cmd[1]
+                "world" -> GameConfig.WORLD = cmd[1].toInt()
+                else -> GameConfig.configLocation = cmd[0]
+            }
+        }
         try {
+            System.out.println("Trying to parse config at " + GameConfig.configLocation)
             GameConfig.parse(GameConfig.configLocation)
             GameConfig.implementHoliday()
         } catch (e: Exception){
@@ -21,13 +30,8 @@ object GameLaunch {
             GameConfig.IP_MANAGEMENT = "play.2009scape.org"
             GameConfig.RCM_STYLE_PRESET = "classic"
             GameConfig.RCM_TITLE = "<col=5d5447>Choose Option</col>"
-        }
-        for (i in args.indices) {
-            val cmd = args[i].split("=").toTypedArray()
-            when (cmd[0]) {
-                "ip" -> GameConfig.IP_ADDRESS = cmd[1]
-                "world" -> GameConfig.WORLD = cmd[1].toInt()
-            }
+            GameConfig.RENDER_DISTANCE_INCREASE = true
+            e.printStackTrace()
         }
         /**
          * Launches the client

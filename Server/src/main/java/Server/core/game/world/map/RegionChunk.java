@@ -46,7 +46,7 @@ public class RegionChunk {
 	/**
 	 * The items in this chunk.
 	 */
-	protected List<Item> items;
+	protected List<GroundItem> items;
 	
 	/**
 	 * The game objects in this chunk.
@@ -252,9 +252,9 @@ public class RegionChunk {
 	 * Gets the items.
 	 * @return The items.
 	 */
-	public List<Item> getItems() {
+	public List<GroundItem> getItems() {
 		if (items == null) {
-			items = new ArrayList<>();
+			items = new ArrayList<GroundItem>();
 		}
 		return items;
 	}
@@ -263,7 +263,7 @@ public class RegionChunk {
 	 * Sets the items.
 	 * @param items The items to set.
 	 */
-	public void setItems(List<Item> items) {
+	public void setItems(List<GroundItem> items) {
 		this.items = items;
 	}
 

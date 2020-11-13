@@ -117,7 +117,7 @@ final class Class15 implements Runnable {
                if(var27 > var14) {
                   var15 = 255 & var4[var14][var34];
                   if(var15 > 0) {
-                     Class100 var16 = Class158_Sub1.method629(var15 - 1);
+                     MapUnderlayColorDefinition var16 = Class158_Sub1.method629(var15 - 1);
                      var28[var34] += var16.anInt1408;
                      var29[var34] += var16.anInt1406;
                      var30[var34] += var16.anInt1417;
@@ -130,7 +130,7 @@ final class Class15 implements Runnable {
                if(var15 >= 0) {
                   var35 = var4[var15][var34] & 255;
                   if(0 < var35) {
-                     Class100 var17 = Class158_Sub1.method629(-1 + var35);
+                     MapUnderlayColorDefinition var17 = Class158_Sub1.method629(-1 + var35);
                      var28[var34] -= var17.anInt1408;
                      var29[var34] -= var17.anInt1406;
                      var30[var34] -= var17.anInt1417;

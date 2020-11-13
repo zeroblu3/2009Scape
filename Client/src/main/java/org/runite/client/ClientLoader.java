@@ -58,7 +58,7 @@ public class ClientLoader extends Applet {
 	 * @return the client load.
 	 */
 	public static ClientLoader create() {
-		System.getProperties().put("sun.java2d.noddraw", "true"); //Fixes fullscreen mode 
+		System.setProperty("sun.java2d.noddraw", "true"); //Fixes fullscreen mode
 		loader = new ClientLoader();
 		return loader;
 	}

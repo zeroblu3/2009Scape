@@ -285,17 +285,17 @@ public enum Pets {
 	 */
 	public static boolean hasPet(Player player) {
 		for (int itemId : babyPets.keySet()) {
-			if (player.getInventory().containsOneItem(itemId)) {
+			if (player.getInventory().containsAtLeastOneItem(itemId)) {
 				return true;
 			}
 		}
 		for (int itemId : grownPets.keySet()) {
-			if (player.getInventory().containsOneItem(itemId)) {
+			if (player.getInventory().containsAtLeastOneItem(itemId)) {
 				return true;
 			}
 		}
 		for (int itemId : overgrownPets.keySet()) {
-			if (player.getInventory().containsOneItem(itemId)) {
+			if (player.getInventory().containsAtLeastOneItem(itemId)) {
 				return true;
 			}
 		}

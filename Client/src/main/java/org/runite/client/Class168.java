@@ -21,7 +21,7 @@ final class Class168 {
 
     static void method2270(Class140_Sub4 var0) {
         try {
-            if (Class44.anInt719 == var0.anInt2790 || var0.anInt2771 == -1 || var0.anInt2828 != 0 || Client.getAnimationDefinition(var0.anInt2771).duration[var0.anInt2832] < 1 + var0.anInt2760) {
+            if (Class44.anInt719 == var0.anInt2790 || var0.anInt2771 == -1 || var0.anInt2828 != 0 || SequenceDefinition.getAnimationDefinition(var0.anInt2771).duration[var0.anInt2832] < 1 + var0.anInt2760) {
                 int var2 = var0.anInt2790 + -var0.anInt2800;
                 int var3 = Class44.anInt719 + -var0.anInt2800;
                 int var4 = var0.anInt2784 * 128 + 64 * var0.getSize();

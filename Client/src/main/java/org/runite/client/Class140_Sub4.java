@@ -112,7 +112,7 @@ abstract class Class140_Sub4 extends GameObject {
 
    final void method1967(int var2, int var3, int var4, boolean var5) {
       try {
-         if(this.anInt2771 != -1 && Client.getAnimationDefinition(this.anInt2771).anInt1850 == 1) {
+         if(this.anInt2771 != -1 && SequenceDefinition.getAnimationDefinition(this.anInt2771).priority == 1) {
             this.anInt2771 = -1;
          }
 
@@ -163,7 +163,7 @@ abstract class Class140_Sub4 extends GameObject {
             ++var5;
          }
 
-         if(this.anInt2771 != -1 && 1 == Client.getAnimationDefinition(this.anInt2771).anInt1850) {
+         if(this.anInt2771 != -1 && 1 == SequenceDefinition.getAnimationDefinition(this.anInt2771).priority) {
             this.anInt2771 = -1;
          }
 

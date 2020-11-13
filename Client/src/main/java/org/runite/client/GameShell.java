@@ -58,7 +58,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     static RSString method27(RSString var0) {
         try {
 
-            int var2 = Class100.method1602(var0);
+            int var2 = Unsorted.method1602(var0);
             return var2 != -1 ? Class119.aClass131_1624.aClass94Array1721[var2].method1560(TextCore.aClass94_3192, TextCore.aClass94_4066) : TextCore.aClass94_4049;
         } catch (RuntimeException var3) {
             throw ClientErrorException.clientError(var3, "rc.V(" + (var0 != null ? "{...}" : "null") + ',' + true + ')');
@@ -129,7 +129,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 Class3_Sub13_Sub10.aBoolean3116 = true;
                 Class3_Sub13_Sub6.aBoolean3078 = true;
                 Class3_Sub28_Sub5.forceReplaceCanvasEnable = false;
-                AnimationDefinition.aLong1847 = TimeUtils.time();
+                SequenceDefinition.aLong1847 = TimeUtils.time();
                 ClientCommands.tweeningEnabled = true;
             }
         } catch (RuntimeException var4) {
@@ -187,7 +187,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         if (LinkableRSString.anApplet_Sub1_2588 == this && !Class29.aBoolean554) {
             Class3_Sub13_Sub10.aBoolean3116 = true;
 
-            if (aBoolean1784 && !HDToolKit.highDetail && -AnimationDefinition.aLong1847 + TimeUtils.time() > 1000) {
+            if (aBoolean1784 && !HDToolKit.highDetail && -SequenceDefinition.aLong1847 + TimeUtils.time() > 1000) {
                 Rectangle var2 = g.getClipBounds();
 
                 if (var2 == null || Unsorted.anInt2334 <= var2.width && var2.height >= Class70.anInt1047) {
@@ -311,7 +311,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             anInt950 = 31 & anInt950 + 1;
             if (var4 != 0 && var2 > var4) {
                 int var6 = (int) (var2 + -var4);
-                AnimationDefinition.anInt1862 = (32000 + (var6 >> 1)) / var6;
+                SequenceDefinition.anInt1862 = (32000 + (var6 >> 1)) / var6;
             }
 
             if (50 < Class3_Sub13_Sub25.anInt3313++) {
