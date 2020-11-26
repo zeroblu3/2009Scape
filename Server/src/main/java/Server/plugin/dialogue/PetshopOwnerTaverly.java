@@ -98,6 +98,7 @@ public final class PetshopOwnerTaverly extends DialoguePlugin {
 			stage = 201;
 			break;
 		case 201:
+			end();
 			player.getInterfaceManager().openChatbox(668);
 			stage = 202;
 			break;

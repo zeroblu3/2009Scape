@@ -203,6 +203,10 @@ public final class PacketDispatch {
 		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, npcId, interfaceId, childId));
 	}
 
+	public void sendModelOnInterface(int modelID, int interfaceId, int childId, int zoom){
+		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.MODEL, modelID,zoom,interfaceId,childId,new Object()));
+	}
+
 	/**
 	 * Send the item on interface packet.
 	 * @param itemId The item id.
@@ -372,6 +376,14 @@ public final class PacketDispatch {
 	}
 	public void sendVarClient(int id, int value, boolean cs2) {
 		PacketRepository.send(Config.class, new ConfigContext(player, id, value, cs2));
+	}
+
+	public void sendLeftShiftedVarbit(int varpIndex, int offset, int value){
+		player.getConfigManager().set(varpIndex, (value << offset));
+	}
+
+	public void sendRightShiftedVarbit(int varpIndex, int offset, int value){
+		player.getConfigManager().set(varpIndex, (value >> offset));
 	}
 
 

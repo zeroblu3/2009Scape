@@ -42,6 +42,12 @@ public class InterfaceContainer {
 		return increment();
 	}
 
+	public static int generateOptions(Player player, String[] options, int interfaceIndex, int childIndex, int x, int y, int key){
+		player.getPacketDispatch().sendRunScript(CLIENT_SCRIPT_INDEX, generateScriptArguments(options.length), populateScript(new Object[options.length + 7],options,interfaceIndex << 16 | childIndex, x, y, key));
+		BitregisterAssembler.send(player,interfaceIndex,childIndex,0,28,new BitregisterAssembler(options));
+		return increment();
+	}
+
 	/**
 	 * Generates options for the interface item container.
 	 * @param player The player.

@@ -20,7 +20,6 @@ import plugin.skill.herblore.GrindingItem
  */
 @InitializablePlugin
 class GrindItemPlugin : UseWithHandler(233) {
-    @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any>? {
         for (grind in GrindingItem.values()) {
             for (i in grind.items) {

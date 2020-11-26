@@ -240,8 +240,8 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
             Class3_Sub28_Sub18.aBoolean3769 = false;
             breakClientConnection();
          } else {
-            int var1;
-            for(var1 = 0; var1 < 100 && Class3_Sub13_Sub3.method181(); ++var1) {
+            int queuedVarpIndex;
+            for(queuedVarpIndex = 0; queuedVarpIndex < 100 && Class3_Sub13_Sub3.method181(); ++queuedVarpIndex) {
             }
 
             if(Class143.loadingStage == 30) {
@@ -387,8 +387,8 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
                }
 
                if(Class15.aBoolean346) {
-                  for(var1 = 0; Class3_Sub23.anInt2537 > var1; ++var1) {
-                     var2 = Class133.inputTextCodeArray[var1];
+                  for(queuedVarpIndex = 0; Class3_Sub23.anInt2537 > queuedVarpIndex; ++queuedVarpIndex) {
+                     var2 = Class133.inputTextCodeArray[queuedVarpIndex];
                      if(98 == var2 || var2 == 99 || var2 == 96 || var2 == 97) {
                         Unsorted.aBoolean4068 = true;
                         break;
@@ -440,9 +440,10 @@ final class Class3_Sub13_Sub13 extends Class3_Sub13 {
                         Unsorted.method848();
                      }
 
-                     for(var1 = Class3_Sub5.method115(true); var1 != -1; var1 = Class3_Sub5.method115(false)) {
-                        Class46.method1087(40, var1);
-                        Class44.anIntArray726[Unsorted.bitwiseAnd(Class36.anInt641++, 31)] = var1;
+                     for(queuedVarpIndex = Class3_Sub5.method115(true); queuedVarpIndex != -1; queuedVarpIndex = Class3_Sub5.method115(false)) {
+                        Class46.method1087(40, queuedVarpIndex);
+                        System.out.println("Var 1: " + queuedVarpIndex);
+                        Class44.anIntArray726[Unsorted.bitwiseAnd(Class36.anInt641++, 31)] = queuedVarpIndex;
                      }
 
                      int nodeModelID;

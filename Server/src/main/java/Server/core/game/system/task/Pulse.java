@@ -77,7 +77,13 @@ public abstract class Pulse implements Runnable {
 		}
 		if (++ticksPassed >= delay) {
 			ticksPassed = 0;
-			if (pulse()) {
+			try {
+				if (pulse()) {
+					stop();
+					return true;
+				}
+			} catch (Exception e){
+				e.printStackTrace();
 				stop();
 				return true;
 			}

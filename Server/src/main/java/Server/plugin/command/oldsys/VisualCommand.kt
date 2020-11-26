@@ -239,6 +239,34 @@ class VisualCommand : CommandPlugin() {
                 })
                 return true
             }
+            "loop_iconfig" -> {
+                val st = toInteger(args!![1]!!)
+                val en = if (args.size > 2) toInteger(args[2]!!) else 740
+                GameWorld.Pulser.submit(object : Pulse(3, player) {
+                    var id = 0
+                    override fun pulse(): Boolean {
+//					PacketRepository.send(Interface.class, new InterfaceContext(player, 548, 77, id, false));
+                        player!!.packetDispatch.sendInterfaceConfig(st,id,true)
+                        player.debug("child id: $id")
+                        return ++id >= en
+                    }
+                })
+                return true
+            }
+            "loop_itemoni" -> {
+                val st = toInteger(args!![1]!!)
+                val en = if (args.size > 2) toInteger(args[2]!!) else 740
+                GameWorld.Pulser.submit(object : Pulse(3, player) {
+                    var id = 0
+                    override fun pulse(): Boolean {
+//					PacketRepository.send(Interface.class, new InterfaceContext(player, 548, 77, id, false));
+                        player!!.packetDispatch.sendPlayerOnInterface(st,id)
+                        player.debug("child id: $id")
+                        return ++id >= en
+                    }
+                })
+                return true
+            }
             "loop_config", "config_loop" -> {
                 if (args!!.size < 4) {
                     player!!.debug("syntax error: config-id start end value")

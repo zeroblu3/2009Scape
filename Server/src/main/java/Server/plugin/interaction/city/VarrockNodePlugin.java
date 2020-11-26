@@ -44,7 +44,6 @@ public final class VarrockNodePlugin extends OptionHandler {
 		ObjectDefinition.forId(24428).getHandlers().put("option:walk-down", this);
 		ObjectDefinition.forId(1749).getHandlers().put("option:climb-down", this);
 		ObjectDefinition.forId(23636).getHandlers().put("option:read", this);
-		ObjectDefinition.forId(28094).getHandlers().put("option:open", this);
 		ObjectDefinition.forId(24389).getHandlers().put("option:knock-at", this);
 		ObjectDefinition.forId(9662).getHandlers().put("option:take", this);
 		ObjectDefinition.forId(17974).getHandlers().put("option:climb-up", this);

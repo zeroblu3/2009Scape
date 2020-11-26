@@ -128,8 +128,7 @@ public final class AlchemySpell extends MagicSpell {
 
 			if ((item.getId() == ItemNames.MAGIC_SHORTBOW_861 || item.getId() == ItemNames.MAGIC_SHORTBOW_NOTED_862)
 					&& highAlchemy
-					&& (new ZoneBorders(2721, 3489, 2724, 3493, 0).insideBorder(p)
-					|| new ZoneBorders(2727, 3487, 2730, 3490, 0).insideBorder(p))) {
+					&& new ZoneBorders(2721,3493,2730,3487).insideBorder(p)) {
 				p.getAchievementDiaryManager().finishTask(p, DiaryType.SEERS_VILLAGE, 2, 6);
 			}
 		} else {

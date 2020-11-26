@@ -2,6 +2,7 @@ package core.game.node.entity.player.link.diary;
 
 import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
+import core.game.system.SystemLogger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import plugin.skill.smithing.smelting.Bar;
@@ -36,7 +37,7 @@ public class AchievementDiaryManager implements SavingModule {
 	private final Player player;
 
 	/**
-	 * Constructs a new {@Code AchievementDiary} {@Code Object}
+	 * Constructs a new
 	 * @param player the player.
 	 */
 	public AchievementDiaryManager(Player player) {
@@ -56,9 +57,11 @@ public class AchievementDiaryManager implements SavingModule {
 		for(int i = 0; i < data.size(); i++){
 			JSONObject diary = (JSONObject) data.get(i);
 			String name = (String) diary.keySet().toArray()[0];
+			name = name.replace("_","' ");
+			SystemLogger.log(name);
 			for (int ii = 0; ii < diarys.length; ii++) {
 				if (diarys[ii].getType().getName().equalsIgnoreCase(name)) {
-					diarys[ii].parse((JSONObject) diary.get(name));
+					diarys[ii].parse((JSONObject) diary.get(name.replace("' ","_")));
 				}
 			}
 		}
@@ -102,7 +105,9 @@ public class AchievementDiaryManager implements SavingModule {
 	}
 
 	public void finishTask(Player player, DiaryType type, int level, int index) {
-		getDiary(type).finishTask(player, level, index);
+		if(!player.isArtificial()) {
+			getDiary(type).finishTask(player, level, index);
+		}
 	}
 
 	/**

@@ -17,6 +17,11 @@ import core.tools.StringUtils;
 public final class FletchingPulse extends SkillPulse<Item> {
 
 	/**
+	 * Seers bank zone borders for the diary task
+	 */
+	private static final ZoneBorders bankZone = new ZoneBorders(2721,3493,2730,3487);
+
+	/**
 	 * Represents the animation used in this generic pulse.
 	 */
 	private static final Animation ANIMATION = new Animation(1248);
@@ -61,6 +66,9 @@ public final class FletchingPulse extends SkillPulse<Item> {
 
 	@Override
 	public boolean reward() {
+		if(bankZone.insideBorder(player) && fletch == Fletching.FletchingItems.MAGIC_SHORTBOW) {
+			player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 2);
+		}
 		if (getDelay() == 1) {
 			super.setDelay(4);
 			return false;

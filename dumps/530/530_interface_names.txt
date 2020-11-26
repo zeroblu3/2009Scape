@@ -468,7 +468,7 @@
 474 salamander attack options
 475 chins again
 476 salamanders again
-477 custom fur clothing
+477 custom fur clothingclothin
 478 imp release negotiation form
 479 weird tubes bro
 480	anma_rgb
@@ -752,3 +752,9 @@
 822	luc2_chapter3
 826	luc2_chapter1
 827	luc2_lucien_projectiles
+828 journal with map?
+829 Goblin language further access prohibited
+830 drawings on ice
+831 drawings on ice again
+832 again
+833 again ALL SEEM TO BE FOR BARB ASSAULT

@@ -12,6 +12,7 @@ import core.game.node.entity.player.link.music.MusicEntry
 import core.game.node.entity.state.EntityState
 import core.game.system.SystemLogger
 import core.game.world.GameWorld
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -42,7 +43,7 @@ class PlayerSaveParser(val player: Player) {
         }
     }
 
-    fun parse() = runBlocking {
+    fun parse() = GlobalScope.launch {
         if (read) {
             launch {
                 parseCore()

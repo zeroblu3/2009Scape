@@ -26,8 +26,7 @@ public enum TutorialStage {
 				player.lock(1);
 				player.getProperties().setTeleportLocation(Location.create(3094, 3107, 0));
 				player.getInterfaceManager().hideTabs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
-				player.setAttribute("tut-island:hi_slot", HintIconManager.registerHintIcon(player, Repository.findNPC(945)));
-				GameWorld.getPulser().submit(new Pulse(1) {
+				GameWorld.getPulser().submit(new Pulse(2) {
 					@Override
 					public boolean pulse() {
 						CharacterDesign.open(player);
@@ -35,7 +34,6 @@ public enum TutorialStage {
 					}
 				});
 			}
-			Component.setUnclosable(player, player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Getting started", "To start the tutorial use your left mouse button to click on the", GameWorld.getSettings().getName() + " Guide in this room. He is indicated by a flashing", "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view."));
 		}
 	},
 	STAGE_1(1) {

@@ -167,6 +167,7 @@ public final class RellekkaZone extends MapZone implements Plugin<Object> {
 			ObjectDefinition.forId(4616).getHandlers().put("option:cross", this);
 			ObjectDefinition.forId(4615).getHandlers().put("option:cross", this);
 			ObjectDefinition.forId(5847).getHandlers().put("option:climb-over", this);
+			ObjectDefinition.forId(5008).getHandlers().put("option:enter",this);
 			return this;
 		}
 
@@ -188,6 +189,13 @@ public final class RellekkaZone extends MapZone implements Plugin<Object> {
 					break;
 				}
 				break;
+				case "enter":
+					switch(node.getId()){
+						case 5008:
+							player.getProperties().setTeleportLocation(Location.create(2773, 10162, 0));
+							break;
+					}
+					break;
 			}
 			return true;
 		}

@@ -50,6 +50,10 @@ public enum SummoningScroll {
 		this.items = items;
 	}
 
+	public int getPouch(){
+		return items[0];
+	}
+
 	/**
 	 * Gets the level.
 	 * @return The level.
@@ -98,6 +102,15 @@ public enum SummoningScroll {
 	public static SummoningScroll forId(int id) {
 		for (SummoningScroll scroll : SummoningScroll.values()) {
 			if (scroll.slotId == id) {
+				return scroll;
+			}
+		}
+		return null;
+	}
+
+	public static SummoningScroll forItemId(int id) {
+		for (SummoningScroll scroll : SummoningScroll.values()) {
+			if (scroll.itemId == id) {
 				return scroll;
 			}
 		}

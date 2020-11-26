@@ -8,6 +8,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents an achievement diary.
@@ -19,6 +21,11 @@ public class AchievementDiary implements SavingModule {
 	 * The component id of the diary.
 	 */
 	public static final int DIARY_COMPONENT = 275;
+
+	/**
+	 * Completed levels for this diary
+	 */
+	public static final ArrayList<Integer> completedLevels = new ArrayList<Integer>();
 
 	/**
 	 * Represents the red color code string.
@@ -154,8 +161,11 @@ public class AchievementDiary implements SavingModule {
 		JSONArray completedArray = (JSONArray) data.get("completedLevels");
 		for(int i = 0; i < completedArray.size(); i++){
 			JSONArray level = (JSONArray) completedArray.get(i);
+			boolean completed = true;
 			for(int j = 0; j < level.size(); j++){
 				taskCompleted[i][j] = (boolean) level.get(j);
+				if(!taskCompleted[i][j]){completed = !completed;}
+				completedLevels.add(i);
 			}
 		}
 		JSONArray rewardedArray = (JSONArray) data.get("rewardedLevels");
@@ -237,6 +247,16 @@ public class AchievementDiary implements SavingModule {
 	public void finishTask(Player player, int level, int index) {
 		if (!this.isComplete(level, index)) {
 			this.updateTask(player, level, index, true);
+			boolean complete = true;
+			for(int i = 0; i < taskCompleted[level].length; i++){
+				if(!taskCompleted[level][i]) {
+					complete = false;
+					break;
+				}
+			}
+			if(complete){
+				completedLevels.add(level);
+			} else if(completedLevels.contains(level)) completedLevels.remove(level);
 		}
 	}
 
@@ -252,6 +272,18 @@ public class AchievementDiary implements SavingModule {
 			this.levelRewarded[level] = false;
 		}
 		drawStatus(player);
+	}
+
+	public boolean checkComplete(DiaryLevel level){
+		if(type != DiaryType.LUMBRIDGE && level == DiaryLevel.BEGINNER){
+			return false;
+		}
+
+		if(level == DiaryLevel.BEGINNER){
+			return completedLevels.contains(level.ordinal());
+		}
+
+		return completedLevels.contains(level.ordinal() - 1);
 	}
 
 	/**

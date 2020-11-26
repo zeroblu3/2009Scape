@@ -185,8 +185,8 @@ public class PortalChamberPlugin extends OptionHandler {
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
 			player.setAttribute("con:dp-id", buttonId);
-			//DIRECT_OPTIONS.open(player);
 			end();
+			player.getDialogueInterpreter().open(394857);
 			return true;
 		}
 

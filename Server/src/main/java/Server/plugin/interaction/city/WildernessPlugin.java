@@ -1,6 +1,7 @@
 package plugin.interaction.city;
 
 import core.cache.def.impl.ObjectDefinition;
+import core.game.component.Component;
 import core.game.content.global.action.ClimbActionHandler;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -51,7 +52,11 @@ public final class WildernessPlugin extends OptionHandler {
 			break;
 		case 38811:
 		case 37929:
-			player.teleport(player.getLocation().transform(player.getLocation().getX() < node.getLocation().getX() ? 4 : -4, 0, 0));
+			if(player.getLocation().getX() < node.getLocation().getX()){
+				player.getInterfaceManager().open(new Component(650));
+			} else {
+				player.teleport(player.getLocation().transform(player.getLocation().getX() < node.getLocation().getX() ? 4 : -4, 0, 0));
+			}
 			break;
 		}
 		return true;

@@ -20,26 +20,26 @@ class MajorUpdateWorker {
         started = true
         while(true){
             delay(600L)
-            launch {
-                val rmlist = ArrayList<Pulse>()
-                val list = ArrayList(GameWorld.Pulser.TASKS)
-                for(pulse in list){
-                    try {
-                        if (pulse.update()) rmlist.add(pulse)
-                    } catch (e: Exception){
-                        e.printStackTrace()
-                        rmlist.add(pulse)
-                    }
-                }
-                GameWorld.Pulser.TASKS.removeAll(rmlist)
-                sequence.start()
-                sequence.run()
-                sequence.end()
+            val rmlist = ArrayList<Pulse>()
+            val list = ArrayList(GameWorld.Pulser.TASKS)
+
+            //run our pulses
+            for(pulse in list) {
+                pulse ?: continue
+                if (pulse.update()) rmlist.add(pulse)
             }
-            launch {
-                GameWorld.pulse()
-                Repository.disconnectionQueue.update()
-            }
+
+            //remove all null or finished pulses from the list
+            GameWorld.Pulser.TASKS.removeAll(rmlist)
+            //perform our update sequence where we write masks, etc
+            sequence.start()
+            sequence.run()
+            sequence.end()
+            //increment global ticks variable
+            GameWorld.pulse()
+            //disconnect all players waiting to be disconnected
+            Repository.disconnectionQueue.update()
+            //tick all manager plugins
             Managers.tick()
         }
     }

@@ -9,7 +9,6 @@ import core.game.node.item.Item;
  */
 public enum GrindingItem {
 	UNICORN_HORN(new Item[] { new Item(237) },new Item(235)),
-	CHOCOLATE_BAR(new Item[] { new Item(1973) }, new Item(1975)),
 	KEBBIT_TEETH(new Item[] { new Item(10109) }, new Item(10111)),
 	BIRDS_NEST(new Item[] { new Item(5070), new Item(5071), new Item(5072), new Item(5073), new Item(5074), new Item(5075) }, new Item(6693)),
 	GOAT_HORN(new Item[] { new Item(9735) }, new Item(9736)),

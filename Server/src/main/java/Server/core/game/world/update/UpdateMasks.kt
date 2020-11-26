@@ -194,6 +194,10 @@ class UpdateMasks {
         updating.set(false)
     }
 
+    fun isUpdating(): Boolean {
+        return updating.get()
+    }
+
     /**
      * Checks if an update is required.
      * @return `True` if so.

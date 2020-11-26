@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 /**
  * Represents the poison fish food making plugin.
- * @author afaroutdude
+ * @author afaroutdude, fixed by Ceikry
  */
 @InitializablePlugin
 public final class FishfoodPlugin extends UseWithHandler {
@@ -35,34 +35,34 @@ public final class FishfoodPlugin extends UseWithHandler {
 		FISHBOWL(ItemNames.FISHBOWL, ItemNames.SEAWEED, ItemNames.FISHBOWL_6669, "You place the seaweed in the bowl.");
 
 
-		private final Item used;
-		private final Item with;
-		private final Item product;
+		private final int used;
+		private final int with;
+		private final int product;
 		private final String msg;
 
 		static protected int[] usables = Arrays.stream(FishFoodUses.values())
-				.mapToInt(v -> v.used.getId())
+				.mapToInt(v -> v.used)
 				.toArray();
 
 		FishFoodUses(int used, int with, int product, String msg) {
-			this.used = new Item(used);
-			this.with = new Item(with);
-			this.product = new Item(product);
+			this.used = used;
+			this.with = with;
+			this.product = product;
 			this.msg = msg;
 		}
 
-		protected static Item productFor(Item used, Item with) {
+		protected static Item productFor(int used, int with) {
 			for (FishFoodUses value : values()) {
-				if (value.used.equals(used) && value.with.equals(with)) {
-					return value.product;
+				if (value.used == used && value.with == with) {
+					return new Item(value.product);
 				}
 			}
 			return null;
 		}
 
-		protected static String msgFor(Item used, Item with) {
+		protected static String msgFor(int used, int with) {
 			for (FishFoodUses value : values()) {
-				if (value.used.equals(used) && value.with.equals(with)) {
+				if (value.used == used && value.with == with) {
 					return value.msg;
 				}
 			}
@@ -81,7 +81,7 @@ public final class FishfoodPlugin extends UseWithHandler {
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		for (FishFoodUses value : FishFoodUses.values()) {
-			addHandler(value.with.getId(), ITEM_TYPE, this);
+			addHandler(value.with, ITEM_TYPE, this);
 		}
 		return this;
 	}
@@ -89,14 +89,14 @@ public final class FishfoodPlugin extends UseWithHandler {
 	@Override
 	public boolean handle(NodeUsageEvent event) {
 		final Player player = event.getPlayer();
-		Item used = event.getUsedItem();
-		Item with = event.getBaseItem();
+		int used = event.getUsedItem().getId();
+		int with = event.getBaseItem().getId();
 		Item product = FishFoodUses.productFor(used, with);
 
 		player.getPulseManager().run(new Pulse(1, player) {
 			@Override
 			public boolean pulse() {
-				if (player.getInventory().remove(with, used)) {
+				if (player.getInventory().remove(new Item(with),new Item(used))) {
 					player.animate(new Animation(1309));
 					player.getPacketDispatch().sendMessage(FishFoodUses.msgFor(used, with));
 					player.getInventory().add(product);

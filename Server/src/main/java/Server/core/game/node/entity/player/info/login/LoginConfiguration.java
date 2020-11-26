@@ -21,6 +21,7 @@ import core.net.packet.out.Interface;
 import core.plugin.Plugin;
 import plugin.quest.tutorials.tutorialisland.CharacterDesign;
 import plugin.quest.tutorials.tutorialisland.TutorialSession;
+import plugin.quest.tutorials.tutorialisland.TutorialStage;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,9 +37,6 @@ import java.util.stream.IntStream;
  * @author Emperor
  */
 public final class LoginConfiguration {
-    private static final Item[] STARTER_PACK = new Item[] { new Item(1351, 1), new Item(590, 1), new Item(303, 1), new Item(315, 1), new Item(1925, 1), new Item(1931, 1), new Item(2309, 1), new Item(1265, 1), new Item(1205, 1), new Item(1277, 1), new Item(1171, 1), new Item(841, 1), new Item(882, 25), new Item(556, 25), new Item(558, 15), new Item(555, 6), new Item(557, 4), new Item(559, 2), new Item(5606) };
-    private static final Item[] STARTER_BANK = new Item[] { new Item( 995, 25)};
-
 
     /**
      * The login plugins.
@@ -149,59 +147,11 @@ public final class LoginConfiguration {
 		/*if (GameWorld.getSettings().isPvp()) {
 			player.getPacketDispatch().sendString("", 226, 1);
 		}*/
-        /*TutorialSession.extend(player);
-        if (TutorialSession.getExtension(player).getStage() != 73) {
+        TutorialSession.extend(player);
+        TutorialSession.getExtension(player).init();
+        /*if (TutorialSession.getExtension(player).getStage() != 73) {
             TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);
         }*/
-        if(TutorialSession.getExtension(player).getStage() < 72) {
-            //Removing Tutorial Island properties on the account (?) and sending the Player to Lumbridge
-            player.getMusicPlayer().play(MusicEntry.forId(62));
-            player.removeAttribute("tut-island");
-            player.getConfigManager().set(1021, 0);
-            TutorialSession.getExtension(player).setStage(72);
-            player.getInterfaceManager().closeOverlay();
-
-            //Clears and Resets the Player's account and focuses the default interface to their Inventory
-            player.getInventory().clear();
-            player.getEquipment().clear();
-            player.getBank().clear();
-            player.getInterfaceManager().restoreTabs(); //This still hides the Attack (double swords) in the player menu until Player wields a weapon.
-            player.getInterfaceManager().setViewedTab(3);
-            player.getInventory().add(STARTER_PACK);
-            player.getBank().add(STARTER_BANK);
-
-            //This overwrites the stuck dialogue after teleporting to Lumbridge for some reason
-            //Dialogue from 2007 or thereabouts
-            //Original is five lines, but if the same is done here it will break. Need to find another way of showing all this information.
-            //player.getDialogueInterpreter().sendDialogue("Welcome to Lumbridge! To get more help, simply click on the", "Lumbridge Guide or one of the Tutors - these can be found by looking", "for the question mark icon on your mini-map. If you find you are", "lost at any time, look for a signpost or use the Lumbridge Home Port Spell.");
-            player.getDialogueInterpreter().sendPlaneMessageWithBlueTitle("Welcome to " + GameWorld.getSettings().getName() + "!","To customize your character, speak with","the makeover mage nearby. Hans at the castle","also provides some more options such as ironman,","xp rate settings, and more.");
-
-            //Appending the welcome message and some other stuff
-            player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getSettings().getName() + ".");
-
-
-            player.unlock();
-            if (player.getIronmanManager().isIronman() && player.getSettings().isAcceptAid()) {
-                player.getSettings().toggleAcceptAid();
-            }
-            if (WorldCommunicator.isEnabled()) {
-                MSPacketRepository.sendInfoUpdate(player);
-            }
-            int slot = player.getAttribute("tut-island:hi_slot", -1);
-            if (slot < 0 || slot >= HintIconManager.MAXIMUM_SIZE) {
-                return;
-            }
-
-            player.removeAttribute("tut-island:hi_slot");
-            HintIconManager.removeHintIcon(player, slot);
-            GameWorld.getPulser().submit(new Pulse(1) {
-                @Override
-                public boolean pulse() {
-                    CharacterDesign.open(player);
-                    return true;
-                }
-            });
-        }
     }
 
     /**

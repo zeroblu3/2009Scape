@@ -54,14 +54,14 @@ public final class TutorialSession {
 			setStage(MAX_STAGE + 1);
 			return;
 		}
-		if (getStage() < 26) {
+		/*if (getStage() < 26) {
 			player.getSettings().setRunToggled(true);
-		}
+		}*/
 		delayPulse = new DelayPulse();
-		player.setAttribute("tut-island", true);
-		player.getInterfaceManager().openOverlay(new Component(371));
-		GameWorld.getPulser().submit(delayPulse);
-		PacketRepository.send(InterfaceConfig.class, new InterfaceConfigContext(player, 371, 25, true));
+		//player.setAttribute("tut-island", true);
+		//player.getInterfaceManager().openOverlay(new Component(371));
+		//GameWorld.getPulser().submit(delayPulse);
+		//PacketRepository.send(InterfaceConfig.class, new InterfaceConfigContext(player, 371, 25, true));
 		TutorialStage.load(player, getStage(), true);
 	}
 

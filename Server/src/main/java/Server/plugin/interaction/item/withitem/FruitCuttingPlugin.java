@@ -44,12 +44,12 @@ public final class FruitCuttingPlugin extends UseWithHandler {
 	public boolean handle(NodeUsageEvent event) {
 		final Player player = event.getPlayer();
 		final Fruit fruit = Fruit.forBase(event.getUsedItem());
-		if (fruit == Fruit.BANANA) {
+		if (fruit == Fruit.BANANA || fruit == Fruit.LEMON) {
 			if (player.getInventory().remove(fruit.getBase())) {
 				player.lock(2);
 				player.animate(ANIMATION);
 				player.getInventory().add(fruit.getSliced());
-				player.getPacketDispatch().sendMessage("You deftly chop the bananas into slices.");
+				player.getPacketDispatch().sendMessage("You deftly chop the "+ fruit.name().toLowerCase() + " into slices.");
 			}
 			return true;
 		}
@@ -63,7 +63,10 @@ public final class FruitCuttingPlugin extends UseWithHandler {
 	 * @date 30/11/2013
 	 */
 	public enum Fruit {
-		PINEAPPLE(new Item(2114), new Item(2116), new Item(2118, 4)), BANANA(new Item(1963), null, new Item(3162)), ORANGE(new Item(2108), new Item(2110), new Item(2112));
+		PINEAPPLE(new Item(2114), new Item(2116), new Item(2118, 4)),
+		BANANA(new Item(1963), null, new Item(3162)),
+		LEMON(new Item(2102), null, new Item(2106)),
+		ORANGE(new Item(2108), new Item(2110), new Item(2112));
 
 		/**
 		 * Constructs a new {@code FruitCuttingPlugin.java} {@code Object}.

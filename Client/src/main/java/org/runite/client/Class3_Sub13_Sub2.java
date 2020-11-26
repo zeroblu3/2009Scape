@@ -212,7 +212,7 @@ final class Class3_Sub13_Sub2 extends Class3_Sub13 {
          for(; var1 < Class95.anInt1344; ++var1) {
             Class29 var2 = Class145.method2076(var1);
             if(null != var2 && var2.anInt556 == 0) {
-               Class57.anIntArray898[var1] = 0;
+               Class57.varpArray[var1] = 0;
                ItemDefinition.ram[var1] = 0;
             }
          }

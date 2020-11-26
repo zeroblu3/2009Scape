@@ -33,7 +33,7 @@ class ArmourStand : UseWithHandler(494, 468, 496, 470, 498, 472, 500, 502, 474, 
             baseCost = repairItem.cost * 1.0
             product = repairItem.product
         } else if(BarrowsEquipment.isBarrowsItem(event.used.id)){
-            //BEGIN RETARDED SHIT THANKS TO FUCKING SHIT-FOR-BRAINS FUCKING MORON VEXIA
+            //Begin terrible code thanks to Vexia
             val type = BarrowsEquipment.formatedName(event.used.id)
             val single = BarrowsEquipment.getSingleName(type)
             val equipment = BarrowsEquipment.getEquipmentType(type)
@@ -43,7 +43,7 @@ class ArmourStand : UseWithHandler(494, 468, 496, 470, 498, 472, 500, 502, 474, 
             val fullequip = BarrowsFullEquipment.forName(newewString.toString())
             baseCost = BarrowsEquipment.getFormatedCost(equipment,event.used.asItem()) * 1.0
             product = fullequip.full
-            //END RETARDED SHIT THANKS TO FUCKING SHIT-FOR-BRAINS FUCKING MORON VEXIA
+            //End terrible code thanks to Vexia
         }
 
         if((repairItem == null && baseCost == 0.0)){

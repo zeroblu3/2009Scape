@@ -21,6 +21,7 @@ import core.net.packet.context.ContainerContext;
 import core.net.packet.out.ContainerPacket;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
+import plugin.interaction.npc.BogrogPouchSwapper;
 
 /**
  * Handles the Grand Exchange interface options.
@@ -204,7 +205,7 @@ public class GrandExchangeInterface extends ComponentPlugin {
 		if (item == null) {
 			return;
 		}
-		if (opcode != 127 && inventory && ((set = GEItemSet.forId(item.getId())) == null)) {
+		if (opcode != 127 && inventory && ((set = GEItemSet.forId(item.getId())) == null) && !BogrogPouchSwapper.handle(player,opcode,slot,itemId)) {
 			player.getPacketDispatch().sendMessage("This isn't a set item.");
 			return;
 		}

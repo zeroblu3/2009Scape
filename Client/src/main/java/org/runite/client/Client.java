@@ -1172,6 +1172,7 @@ public final class Client extends GameShell {
                                     label493:
                                     for (var19 = inter.anInt213; var19 < Class36.anInt641; ++var19) {
                                         var29 = Class44.anIntArray726[var19 & 31];
+                                        System.out.println("Var29 " + var29);
 
                                         for (var21 = 0; var21 < inter.anIntArray286.length; ++var21) {
                                             if (inter.anIntArray286[var21] == var29) {

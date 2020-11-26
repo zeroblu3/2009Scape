@@ -166,8 +166,9 @@ class Class3_Sub13_Sub23 extends Class3_Sub13 {
 
    static void method281(int var1, int var2) {
       try {
-         Class57.anIntArray898[var2] = var1;
+         Class57.varpArray[var2] = var1;
          Class3_Sub7 var3 = (Class3_Sub7) AtmosphereParser.aHashTable_3679.get((long)var2);
+         System.out.println("var2 " + var2 + " var3 " + Class57.varpArray[var2]);
          if(null == var3) {
             var3 = new Class3_Sub7(4611686018427387905L);
             AtmosphereParser.aHashTable_3679.put((long)var2, var3);

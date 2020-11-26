@@ -397,7 +397,7 @@ public final class PacketParser {
                                     Class163_Sub3.renderPlayers();
                                     Unsorted.incomingOpcode = -1;
                                     return true;
-                                } else if (Unsorted.incomingOpcode == 48) {
+                                } else if (Unsorted.incomingOpcode == 48) { //UNUSED BY SERVER
                                     nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                     playerName = GraphicDefinition.incomingBuffer.readString();
                                     modelId = GraphicDefinition.incomingBuffer.readUnsignedShortLE128();
@@ -469,7 +469,7 @@ public final class PacketParser {
 
                                         Unsorted.incomingOpcode = -1;
                                         return true;
-                                    } else if (Unsorted.incomingOpcode == 69) {
+                                    } else if (Unsorted.incomingOpcode == 69) { //UNUSED BY SERVER
                                         nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedShortLE128();
                                         var19 = GraphicDefinition.incomingBuffer.readInt();
                                         modelId = GraphicDefinition.incomingBuffer.readUnsignedShort128();
@@ -478,18 +478,18 @@ public final class PacketParser {
 
                                         Unsorted.incomingOpcode = -1;
                                         return true;
-                                    } else if (141 == Unsorted.incomingOpcode) {
+                                    } else if (141 == Unsorted.incomingOpcode) { //UNUSED BY SERVER
                                         var2 = GraphicDefinition.incomingBuffer.readLong();
                                         modelId = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                         var56 = LinkableRSString.method733(modelId).method555(GraphicDefinition.incomingBuffer);
                                         Class3_Sub28_Sub12.sendGameMessage(modelId, 19, var56, null, Objects.requireNonNull(Unsorted.method1052(var2)).method1545());
                                         Unsorted.incomingOpcode = -1;
                                         return true;
-                                    } else if (Unsorted.incomingOpcode == 169) {
+                                    } else if (Unsorted.incomingOpcode == 169) { //UNUSED BY SERVER
                                         Class162.method2204(GraphicDefinition.incomingBuffer);
                                         Unsorted.incomingOpcode = -1;
                                         return true;
-                                    } else if (89 == Unsorted.incomingOpcode) {
+                                    } else if (89 == Unsorted.incomingOpcode) { //UNUSED BY SERVER
                                         Class3_Sub13_Sub2.method176(-117);
                                         Class3_Sub30_Sub1.method819();
                                         Class36.anInt641 += 32;
@@ -553,7 +553,7 @@ public final class PacketParser {
                                             return true;
                                         } else {
                                             int var33;
-                                            if (Unsorted.incomingOpcode == 56) {
+                                            if (Unsorted.incomingOpcode == 56) { //UNUSED
                                                 nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                                 var19 = GraphicDefinition.incomingBuffer.readUnsignedShortLE();
                                                 modelId = GraphicDefinition.incomingBuffer.readIntV1();
@@ -644,7 +644,7 @@ public final class PacketParser {
 
                                                 Unsorted.incomingOpcode = -1;
                                                 return true;
-                                            } else if (Unsorted.incomingOpcode == 207) {
+                                            } else if (Unsorted.incomingOpcode == 207) { //UNUSED
                                                 nodeModelId = GraphicDefinition.incomingBuffer.readIntV2();
                                                 var19 = GraphicDefinition.incomingBuffer.readUnsignedShort128();
                                                 modelId = GraphicDefinition.incomingBuffer.readUnsignedShort();
@@ -724,7 +724,7 @@ public final class PacketParser {
 
                                                 Unsorted.incomingOpcode = -1;
                                                 return true;
-                                            } else if (Unsorted.incomingOpcode == 132) {
+                                            } else if (Unsorted.incomingOpcode == 132) { //UNUSED
                                                 nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                                 var19 = GraphicDefinition.incomingBuffer.readUnsignedShort128();
                                                 modelId = GraphicDefinition.incomingBuffer.readUnsignedShortLE128();
@@ -893,10 +893,10 @@ public final class PacketParser {
 
                                                     Unsorted.incomingOpcode = -1;
                                                     return true;
-                                                } else if (128 == Unsorted.incomingOpcode) {
+                                                } else if (128 == Unsorted.incomingOpcode) { //UNUSED
                                                     for (nodeModelId = 0; nodeModelId < ItemDefinition.ram.length; ++nodeModelId) {
-                                                        if (ItemDefinition.ram[nodeModelId] != Class57.anIntArray898[nodeModelId]) {
-                                                            ItemDefinition.ram[nodeModelId] = Class57.anIntArray898[nodeModelId];
+                                                        if (ItemDefinition.ram[nodeModelId] != Class57.varpArray[nodeModelId]) {
+                                                            ItemDefinition.ram[nodeModelId] = Class57.varpArray[nodeModelId];
                                                             Class46.method1087(98, nodeModelId);
                                                             Class44.anIntArray726[Unsorted.bitwiseAnd(Class36.anInt641++, 31)] = nodeModelId;
                                                         }
@@ -916,7 +916,7 @@ public final class PacketParser {
 
                                                     Unsorted.incomingOpcode = -1;
                                                     return true;
-                                                } else if (247 == Unsorted.incomingOpcode) {
+                                                } else if (247 == Unsorted.incomingOpcode) { //UNUSED
                                                     var2 = GraphicDefinition.incomingBuffer.readLong();
                                                     nameAsLong = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                                     var29 = GraphicDefinition.incomingBuffer.readMedium();
@@ -966,7 +966,7 @@ public final class PacketParser {
                                                     return true;
                                                 } else {
                                                     Class3_Sub31 var26;
-                                                    if (Unsorted.incomingOpcode == 176) {
+                                                    if (Unsorted.incomingOpcode == 176) { //IMISED
                                                         nodeModelId = GraphicDefinition.incomingBuffer.readIntV1();
                                                         var19 = GraphicDefinition.incomingBuffer.readUnsignedShort128();
                                                         modelId = GraphicDefinition.incomingBuffer.readIntV1();
@@ -999,7 +999,7 @@ public final class PacketParser {
 
                                                         Unsorted.incomingOpcode = -1;
                                                         return true;
-                                                    } else if (Unsorted.incomingOpcode == 27) {
+                                                    } else if (Unsorted.incomingOpcode == 27) { //UNUSED
                                                         nodeModelId = GraphicDefinition.incomingBuffer.readUnsignedShort();
                                                         var19 = GraphicDefinition.incomingBuffer.readUnsignedByte();
                                                         modelId = GraphicDefinition.incomingBuffer.readUnsignedByte();

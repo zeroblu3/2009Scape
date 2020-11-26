@@ -1,10 +1,11 @@
 package core.game.system.config
 
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class ConfigParser {
-    fun prePlugin() = runBlocking{
+    fun prePlugin() = GlobalScope.launch{
         launch {
             NPCConfigParser().load()
             ItemConfigParser().load()
@@ -16,7 +17,7 @@ class ConfigParser {
         InterfaceConfigParser().load()
     }
 
-    fun postPlugin() = runBlocking{
+    fun postPlugin() = GlobalScope.launch{
         launch {
             ShopParser().load()
             DropTableParser().load()

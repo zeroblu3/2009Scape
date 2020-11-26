@@ -162,6 +162,10 @@ public final class ConfigurationManager implements SavingModule {
 		}
 	}
 
+	public void forceSet(int id, int value, boolean saved){
+		PacketRepository.send(Config.class, new ConfigContext(player,id,value));
+	}
+
 	/**
 	 * Sends the configuration without caching.
 	 */

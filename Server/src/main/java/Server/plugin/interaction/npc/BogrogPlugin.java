@@ -1,6 +1,9 @@
 package plugin.interaction.npc;
 
 import core.cache.def.impl.NPCDefinition;
+import core.game.component.Component;
+import core.game.container.access.BitregisterAssembler;
+import core.game.container.access.InterfaceContainer;
 import plugin.dialogue.DialoguePlugin;
 import plugin.skill.Skills;
 import core.game.interaction.OptionHandler;
@@ -43,6 +46,9 @@ public final class BogrogPlugin extends OptionHandler {
 		if (player.getSkills().getStaticLevel(Skills.SUMMONING) < 21) {
 			player.sendMessage("You need a Summoning level of at least 21 in order to do that.");
 			return;
+		} else {
+			InterfaceContainer.generateItems(player,player.getInventory().toArray(),new String[] {"Swap X","Swap 10","Swap 5","Swap 1","Value"}, 644,0,7,4,200);
+			player.getInterfaceManager().openSingleTab(new Component(644));
 		}
 	}
 

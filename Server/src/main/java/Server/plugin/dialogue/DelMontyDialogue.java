@@ -40,7 +40,7 @@ public final class DelMontyDialogue extends DialoguePlugin {
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
 		player("Hey kitty!");
-		stage = 100;
+		stage = 1;
 		return true;
 	}
 
