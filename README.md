@@ -252,7 +252,6 @@ We use the AGPL 3.0 license, which can be found <a href="https://www.gnu.org/lic
 ### Contact
 
 <h4>Reminder: Developer support for setting up your own server ended October 5th, 2020. Do not ping/dm developers about setting up your server. If you can not figure out how to build the project feel free to ask inside of #help-me-pls and another community member may be able to help you out.</h4>
-Questions or concerns that are project specific? Join our <a href="https://discord.gg/43YPGND">Discord</a> and either message me directly, @ woahscam#8535 on Discord, or ask in the #help-me-pls section for community help. 
 
 
 
