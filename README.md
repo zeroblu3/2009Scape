@@ -14,8 +14,7 @@
     <a href="https://github.com/2009scape/2009Scape/releases/latest/download/2009Scape.jar">Community Hosted Server</a>
     ·
     <a href="https://discord.gg/43YPGND">Discord Invite</a>
-    ·
-    <a href="https://github.com/2009scape/2009Scape/issues">Report Bug</a>
+    ·    <a href="https://github.com/2009scape/2009Scape/issues">Report Bug</a>
     ·
     <a href="https://github.com/2009scape/2009Scape/projects">Bug Board</a>
   </p>
@@ -191,8 +190,6 @@ First follow the [Github-Setup](#github-setup). After you have forked over your 
 
 ### Project Setup
 
-<h4>Note: If you still have issues during the Project setup stage post your issue to discord under the section #help-me-pls! A fellow member of the community may be able to help!</h4>
-
 1. Open Xampp
     * On Windows make sure you run Xampp as administrator
     * On the left hand side make sure you tick the two "Service" boxes for Apache and MySQL
@@ -251,7 +248,7 @@ We use the AGPL 3.0 license, which can be found <a href="https://www.gnu.org/lic
 
 ### Contact
 
-<h4>Reminder: Developer support for setting up your own server ended October 5th, 2020. Do not ping/dm developers about setting up your server. If you can not figure out how to build the project feel free to ask inside of #help-me-pls and another community member may be able to help you out.</h4>
+<h4>Reminder: Developer support for setting up your own server ended October 5th, 2020. Do not ping/dm developers about setting up your server.</h4>
 
 
 
