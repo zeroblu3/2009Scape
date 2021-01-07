@@ -37,6 +37,8 @@ import core.game.world.update.flag.npc.NPCForceChat;
 import core.game.world.update.flag.npc.NPCSwitchId;
 import core.tools.RandomFunction;
 
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.*;
+
 /**
  * Represents a non-player character.
  * @author Emperor
@@ -513,7 +515,10 @@ public class NPC extends Entity {
 			JobManager.handleDeath(id,(Player) killer);
 		}
 		setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
-		Player p = killer == null || !(killer instanceof Player) ? null : (Player) killer;
+		Player p = !(killer instanceof Player) ? null : (Player) killer;
+		if (p != null) {
+			p.incrementAttribute("/save:" + STATS_BASE + ":" + STATS_ENEMIES_KILLED);
+		}
 		handleDrops(p, killer);
 		if (!isRespawn()) {
 			clear();
