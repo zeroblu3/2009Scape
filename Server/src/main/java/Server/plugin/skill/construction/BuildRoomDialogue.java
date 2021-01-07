@@ -1,9 +1,6 @@
 package plugin.skill.construction;
 
 
-import plugin.dialogue.DialogueInterpreter;
-import plugin.dialogue.DialoguePlugin;
-import plugin.skill.Skills;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.object.GameObject;
@@ -12,6 +9,9 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionChunk;
 import core.plugin.InitializablePlugin;
+import plugin.dialogue.DialogueInterpreter;
+import plugin.dialogue.DialoguePlugin;
+import plugin.skill.Skills;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -64,7 +64,7 @@ public final class BuildRoomDialogue extends DialoguePlugin {
 	 * The room y-coordinate.
 	 */
 	private int roomY;
-	
+
 	/**
 	 * The room z-coordinate (3 for dungeon).
 	 */
@@ -151,7 +151,7 @@ public final class BuildRoomDialogue extends DialoguePlugin {
 				return true;
 			}
 		}
-		options("Build", "Cancel");
+		options("Rotate clockwise", "Rotate anticlockwise", "Build", "Cancel");
 		stage = 1;
 		drawGhostRoom();
 		return true;
@@ -185,35 +185,35 @@ public final class BuildRoomDialogue extends DialoguePlugin {
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
-		case 1:
-			switch (buttonId) {
-			/*case 1:
-			case 2:*/
-/*				rotate(buttonId == 2);
-				options("Build", "Cancel");
-				return true;*/
 			case 1:
-				if (player.getInventory().remove(new Item(995, room.getProperties().getCost()))) {
-					room.setRotation(Direction.NORTH);
-					boolean[] exit = new boolean[exits.length];
-					for (int i = 0; i < exit.length; i++) {
-						exit[(i + index) % exit.length] = exits[i];
-					}
-					BuildingUtils.buildRoom(player, room, roomZ, roomX, roomY, exit, true);
-					end();
-					return true;
+				switch (buttonId) {
+					case 1:
+					case 2:
+						rotate(buttonId == 2);
+						options("Rotate clockwise", "Rotate anticlockwise", "Build", "Cancel");
+						return true;
+					case 3:
+						if (player.getInventory().remove(new Item(995, room.getProperties().getCost()))) {
+							room.setRotation(directions[index]);
+							boolean[] exit = new boolean[exits.length];
+							for (int i = 0; i < exit.length; i++) {
+								exit[(i + index) % exit.length] = exits[i];
+							}
+							BuildingUtils.buildRoom(player, room, roomZ, roomX, roomY, exit, true);
+							end();
+							return true;
+						}
+						interpreter.sendPlainMessage(false, "You need " + room.getProperties().getCost() + " coins to buy this room.");
+						stage = 2;
+						return true;
+					case 4:
+						end();
+						return true;
 				}
-				interpreter.sendPlainMessage(false, "You need " + room.getProperties().getCost() + " coins to buy this room.");
-				stage = 2;
-				return true;
+				break;
 			case 2:
 				end();
 				return true;
-			}
-			break;
-		case 2:
-			end();
-			return true;
 		}
 		return false;
 	}
@@ -225,9 +225,9 @@ public final class BuildRoomDialogue extends DialoguePlugin {
 	private void rotate(boolean counter) {
 		Direction direction = null;
 		while ((direction = directions[index = (index + (counter ? 3 : 1)) % 4]) == null) {
-			
+
 		}
-		room.setRotation(Direction.NORTH);
+		room.setRotation(direction);
 		drawGhostRoom();
 	}
 
@@ -238,7 +238,7 @@ public final class BuildRoomDialogue extends DialoguePlugin {
 		for (GameObject object : boundaries) {
 			ObjectBuilder.remove(object);
 		}
-		int rotation = Direction.NORTH.toInteger();
+		int rotation = directions[index].toInteger();
 		boundaries.clear();
 		Location base = player.getViewport().getRegion().getBaseLocation().transform(roomX << 3, roomY << 3, player.getLocation().getZ());
 		for (int x = 0; x < 8; x++) {

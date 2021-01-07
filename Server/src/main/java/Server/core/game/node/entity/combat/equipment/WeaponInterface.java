@@ -19,6 +19,8 @@ import core.net.packet.out.Interface;
 import core.net.packet.out.InterfaceConfig;
 import core.net.packet.out.StringPacket;
 
+import static core.tools.Interfaces.*;
+
 /**
  * Represents the weapon interface component.
  * @author Emperor
@@ -160,7 +162,7 @@ public final class WeaponInterface extends Component {
 	 * Opens the interface.
 	 */
 	private void open() {
-		ComponentDefinition definition = ComponentDefinition.forId(92);
+		ComponentDefinition definition = ComponentDefinition.forId(WEAPON_FISTS_SEL_92);
 		boolean resizable = player.getInterfaceManager().isResizable();
 		PacketRepository.send(Interface.class, new InterfaceContext(player, definition.getWindowPaneId(resizable), definition.getChildId(resizable), id, definition.isWalkable()));
 		int slot = ensureStyleIndex(player, player.getSettings().getAttackStyleIndex());
@@ -206,10 +208,15 @@ public final class WeaponInterface extends Component {
 	 * @return the config.
 	 */
 	private int getConfig(int buttons, int interfaceId){
-		if(interfaceId == 90){
-			return 87;
+		if(interfaceId == WEAPON_STAFF_SEL_90){
+			return 87;//Return Config
 		}
-		if(interfaceId != 93 && interfaceId != 76 && interfaceId != 79 && interfaceId != 84 && interfaceId != 91){
+		if(interfaceId != WEAPON_WHIP_SEL_93 &&
+                interfaceId != WEAPON_WARHAMMER_SEL_76 &&
+                interfaceId != WEAPON_XBOW_SEL_79 &&
+                interfaceId != WEAPON_HALBERD_SEL_84 &&
+                interfaceId != WEAPON_THROWN_SEL_91)
+		{
 			switch(buttons){
 			case 3:
 				return 13;
@@ -276,7 +283,7 @@ public final class WeaponInterface extends Component {
 		if (current != WeaponInterfaces.STAFF) {
 			slot--;
 		}
-		if (current == WeaponInterfaces.WARHAMMER_MAUL || (current.attackStyles.length > 2 && current.attackStyles[2].bonusType == BONUS_RANGE && current.getInterfaceId() != 91)) {
+		if (current == WeaponInterfaces.WARHAMMER_MAUL || (current.attackStyles.length > 2 && current.attackStyles[2].bonusType == BONUS_RANGE && current.getInterfaceId() != WEAPON_THROWN_SEL_91)) {
 			slot = button == 4 ? 1 : button == 3 ? 2 : 0;
 		} else if (current == WeaponInterfaces.CLAWS) {
 			slot = button == 5 ? 1 : button == 3 ? 3 : slot;
@@ -323,7 +330,7 @@ public final class WeaponInterface extends Component {
 	 * @return The component id for the autocast select tab.
 	 */
 	public int getAutospellId(int spellId) {
-		boolean modern = player.getSpellBookManager().getSpellBook() == 192;
+		boolean modern = player.getSpellBookManager().getSpellBook() == MAGIC_192;
 		int[] data = modern ? MODERN_SPELL_IDS : ANCIENT_SPELL_IDS;
 		if (modern && player.getEquipment().getNew(3).getName().equalsIgnoreCase("Slayer's staff")) {
 			data = SLAYER_STAFF_SPELL_IDS;
@@ -345,7 +352,7 @@ public final class WeaponInterface extends Component {
 	 * @param adjustAttackStyle If the attack style should be adjusted.
 	 */
 	public void selectAutoSpell(int buttonId, boolean adjustAttackStyle) {
-		boolean modern = player.getSpellBookManager().getSpellBook() == 192;
+		boolean modern = player.getSpellBookManager().getSpellBook() == MAGIC_192;
 		int[] data = modern ? MODERN_SPELL_IDS : ANCIENT_SPELL_IDS;
 		if (modern && player.getEquipment().getNew(3).getName().equalsIgnoreCase("Slayer's staff")) {
 			data = SLAYER_STAFF_SPELL_IDS;
@@ -361,8 +368,8 @@ public final class WeaponInterface extends Component {
 		if (current != null) {
 			for (int index = 0; index < data.length; index++) {
 				if (data[index] == current.getSpellId()) {
-					player.getPacketDispatch().sendInterfaceConfig(90, configStart + (2 * index), true);
-					player.getPacketDispatch().sendInterfaceConfig(90, 100 + configStart + (2 * index), true);
+					player.getPacketDispatch().sendInterfaceConfig(WEAPON_STAFF_SEL_90, configStart + (2 * index), true);
+					player.getPacketDispatch().sendInterfaceConfig(WEAPON_STAFF_SEL_90, 100 + configStart + (2 * index), true);
 				}
 			}
 		}
@@ -375,8 +382,8 @@ public final class WeaponInterface extends Component {
 			return;
 		}
 		boolean defensive = player.getSettings().getAttackStyleIndex() == 3;
-		player.getPacketDispatch().sendInterfaceConfig(90, 183, defensive);
-		player.getPacketDispatch().sendInterfaceConfig(90, 83, !defensive);
+		player.getPacketDispatch().sendInterfaceConfig(WEAPON_STAFF_SEL_90, 183, defensive);
+		player.getPacketDispatch().sendInterfaceConfig(WEAPON_STAFF_SEL_90, 83, !defensive);
 		current = (CombatSpell) (modern ? SpellBookManager.SpellBook.MODERN.getSpell(data[buttonId]) : SpellBookManager.SpellBook.ANCIENT.getSpell(data[buttonId]));
 		player.getProperties().setAutocastSpell(current);
 		int configId = configStart + (2 * buttonId);
@@ -410,7 +417,7 @@ public final class WeaponInterface extends Component {
 			if (configId >= 85 || configId <= 65) {
 				return;
 			} else {
-				player.getPacketDispatch().sendInterfaceConfig(90, (defensive ? 100 : 0) + configId, false);
+				player.getPacketDispatch().sendInterfaceConfig(WEAPON_STAFF_SEL_90, (defensive ? 100 : 0) + configId, false);
 			}
 		} else {
 			configId += defensive ? 100 : 0;
@@ -428,7 +435,7 @@ public final class WeaponInterface extends Component {
 				configId = defensive ? 274 : 262;
 				break;
 			}
-			player.getPacketDispatch().sendInterfaceConfig(90, configId, false);
+			player.getPacketDispatch().sendInterfaceConfig(WEAPON_STAFF_SEL_90, configId, false);
 		}
 
 	}
@@ -477,7 +484,7 @@ public final class WeaponInterface extends Component {
 			return false;
 		}
 		boolean ancientStaff = player.getEquipment().getNew(3).getName().contains("ncient staff") || player.getEquipment().getNew(3).getName().contains("uriel's staff");;
-		if ((player.getSpellBookManager().getSpellBook() == 192 && ancientStaff) || (player.getSpellBookManager().getSpellBook() == 193 && !ancientStaff)) {
+		if ((player.getSpellBookManager().getSpellBook() == MAGIC_192 && ancientStaff) || (player.getSpellBookManager().getSpellBook() == MAGIC_ZAROS_193 && !ancientStaff)) {
 			if (message) {
 				player.getPacketDispatch().sendMessage("You can only autocast ancient magicks with an Ancient or Zuriel's staff.");
 			}
@@ -550,124 +557,124 @@ public final class WeaponInterface extends Component {
 		/**
 		 * The unarmed weapon interface (ordinal=0)
 		 */
-		UNARMED(92, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
+		UNARMED(WEAPON_FISTS_SEL_92, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
 		/**
 		 * The staff weapon interface (ordinal=1)
 		 */
-		STAFF(90, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE_CAST, BONUS_MAGIC), new AttackStyle(STYLE_CAST, BONUS_MAGIC)),
+		STAFF(WEAPON_STAFF_SEL_90, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE_CAST, BONUS_MAGIC), new AttackStyle(STYLE_CAST, BONUS_MAGIC)),
 
 		/**
 		 * The (battle) axe weapon interface (ordinal=2)
 		 */
-		AXE(75, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
+		AXE(WEAPON_BAXE_SEL_75, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
 		/**
 		 * The scepter weapon interface (ordinal=3)
 		 */
-		SCEPTER(85, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
+		SCEPTER(WEAPON_SCEPTER_SEL_85, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
 		/**
 		 * The pickaxe weapon interface (ordinal=4)
 		 */
-		PICKAXE(83, new AttackStyle(STYLE_ACCURATE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
+		PICKAXE(WEAPON_PICKAXE_SEL_83, new AttackStyle(STYLE_ACCURATE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
 		/**
 		 * The sword/dagger weapon interface (ordinal=5)
 		 */
-		SWORD_DAGGER(89, new AttackStyle(STYLE_ACCURATE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
+		SWORD_DAGGER(WEAPON_DAGGER_SEL_89, new AttackStyle(STYLE_ACCURATE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
 		/**
 		 * The scimitar/silverlight/silver sickle/... weapon interface
 		 * (ordinal=6)
 		 */
-		SCIMITAR(81, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
+		SCIMITAR(WEAPON_SCIMITAR_SEL_81, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
 		/**
 		 * The 2-h sword weapon interface (ordinal=7)
 		 */
-		TWO_H_SWORD(82, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
+		TWO_H_SWORD(WEAPON_2H_SWORD_SEL_82, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
 		/**
 		 * The mace weapon interface (ordinal=8)
 		 */
-		MACE(88, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
+		MACE(WEAPON_MACE_SEL_88, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
 		/**
 		 * The claws weapon interface (ordinal=9)
 		 */
-		CLAWS(78, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
+		CLAWS(WEAPON_CLAWS_SEL_78, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
 		/**
 		 * The warhammer/maul weapon interface (ordinal=10)
 		 */
-		WARHAMMER_MAUL(76, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
+		WARHAMMER_MAUL(WEAPON_WARHAMMER_SEL_76, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
 		/**
 		 * The abyssal whip weapon interface (ordinal=11)
 		 */
-		WHIP(93, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
+		WHIP(WEAPON_WHIP_SEL_93, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
 		/**
 		 * The flowers weapon interface (ordinal=12)
 		 */
-		FLOWERS(76, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
+		FLOWERS(WEAPON_WARHAMMER_SEL_76, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
 		/**
 		 * The mud pie weapon interface (ordinal=13)
 		 */
-		MUD_PIE(91, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
+		MUD_PIE(WEAPON_THROWN_SEL_91, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
 		/**
 		 * The spear weapon interface (ordinal=14)
 		 */
-		SPEAR(87, new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_CONTROLLED, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
+		SPEAR(WEAPON_SPEAR_SEL_87, new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_CONTROLLED, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
 		/**
 		 * The halberd weapon interface (ordinal=15)
 		 */
-		HALBERD(84, new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
+		HALBERD(WEAPON_HALBERD_SEL_84, new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
 		/**
 		 * The bow weapon interface (ordinal=16)
 		 */
-		BOW(77, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
+		BOW(WEAPON_BOW_SEL_77, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
 		/**
 		 * The crossbow weapon interface (ordinal=17)
 		 */
-		CROSSBOW(79, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
+		CROSSBOW(WEAPON_XBOW_SEL_79, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
 		/**
 		 * The thrown weapons weapon interface (ordinal=18)
 		 */
-		THROWN_WEAPONS(91, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
+		THROWN_WEAPONS(WEAPON_THROWN_SEL_91, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
 		/**
 		 * The thrown weapons weapon interface (ordinal=19)
 		 */
-		CHINCHOMPA(473, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
+		CHINCHOMPA(WEAPON_CHINCHOMPA_SEL_473, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
 		/**
 		 * The fixed device weapon interface (ordinal=20)
 		 */
-		FIXED_DEVICE(80, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH)),
+		FIXED_DEVICE(WEAPON_FIXED_DEVICE_SEL_80, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH)),
 
 		/**
 		 * The salamander weapon interface (ordinal=21)
 		 */
-		SALAMANDER(474, new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_DEFENSIVE_CAST, BONUS_MAGIC)),
+		SALAMANDER(WEAPON_SALAMANDER_SEL_474, new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_DEFENSIVE_CAST, BONUS_MAGIC)),
 
 		/**
 		 * The scythe weapon interface (ordinal=22)
 		 */
-		SCYTHE(86, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
+		SCYTHE(WEAPON_SCYTHE_SEL_86, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
 		/**
 		 * The ivandis flail weapon interface (ordinal=23) TODO: Find correct
 		 * interface id!
 		 */
-		IVANDIS_FLAIL(85, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH));
+		IVANDIS_FLAIL(WEAPON_SCEPTER_SEL_85, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH));
 
 		/**
 		 * The interface id.

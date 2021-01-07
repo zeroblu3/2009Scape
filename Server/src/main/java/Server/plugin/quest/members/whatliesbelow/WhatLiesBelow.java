@@ -1,5 +1,6 @@
 package plugin.quest.members.whatliesbelow;
 
+import core.tools.Items;
 import plugin.skill.Skills;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
@@ -15,65 +16,65 @@ import core.plugin.PluginManager;
 @InitializablePlugin
 public class WhatLiesBelow extends Quest {
 
-	/**
-	 * The name of the quest.
-	 */
-	public static final String NAME = "What Lies Below";
+    /**
+     * The name of the quest.
+     */
+    public static final String NAME = "What Lies Below";
+
+    /**
+     * The bowl item.
+     */
+    public static final Item BOWL = new Item(Items.BOWL_1923);
+
+    /**
+     * The sin keth diary.
+     */
+    public static final Item SIN_KETH_DIARY = new Item(Items.SINKETHS_DIARY_11002);
 
 	/**
 	 * The empty folder item.
 	 */
-	public static final Item EMPTY_FOLDER = new Item(11003);
+	public static final Item EMPTY_FOLDER = new Item(Items.AN_EMPTY_FOLDER_11003);
+
+    /**
+     * The used folder.
+     */
+    public static final Item USED_FOLDER = new Item(Items.USED_FOLDER_11006);
+
+    /**
+     * The full folder.
+     */
+    public static final Item FULL_FOLDER = new Item(Items.FULL_FOLDER_11007);
 
 	/**
 	 * The rats paper item.
 	 */
-	public static final Item RATS_PAPER = new Item(11008);
-
-	/**
-	 * The used folder.
-	 */
-	public static final Item USED_FOLDER = new Item(11006);
-
-	/**
-	 * The full folder.
-	 */
-	public static final Item FULL_FOLDER = new Item(11007);
+	public static final Item RATS_PAPER = new Item(Items.RATS_PAPER_11008);
 
 	/**
 	 * The rats letter.
 	 */
-	public static final Item RATS_LETTER = new Item(11009);
+	public static final Item RATS_LETTER = new Item(Items.RATS_LETTER_11009);
 
-	/**
-	 * The sin keth diary.
-	 */
-	public static final Item SIN_KETH_DIARY = new Item(11002);
+    /**
+     * The suroks letter.
+     */
+    public static final Item SUROKS_LETTER = new Item(Items.SUROKS_LETTER_11010);
 
 	/**
 	 * The wand item.
 	 */
-	public static final Item WAND = new Item(11012);
+	public static final Item WAND = new Item(Items.WAND_11012);
 
 	/**
 	 * The infused item.
 	 */
-	public static final Item INFUSED_WAND = new Item(11013);
-
-	/**
-	 * The bowl item.
-	 */
-	public static final Item BOWL = new Item(1923);
-
-	/**
-	 * The suroks letter.
-	 */
-	public static final Item SUROKS_LETTER = new Item(11010);
+	public static final Item INFUSED_WAND = new Item(Items.INFUSED_WAND_11013);
 
 	/**
 	 * The bacon ring.
 	 */
-	public static final Item BEACON_RING = new Item(11014);
+	public static final Item BEACON_RING = new Item(Items.BEACON_RING_11014);
 
 	/**
 	 * The requirement messages.
@@ -92,8 +93,7 @@ public class WhatLiesBelow extends Quest {
 
 	/**
 	 * Constructs a new {@Code WhatLiesBelow} {@Code Object}
-	 * @param player the player.
-	 */
+     */
 	public WhatLiesBelow() {
 		super(NAME, 136, 135, 1);
 	}
@@ -112,7 +112,7 @@ public class WhatLiesBelow extends Quest {
 			line(player, "<blue>I can start this quest by speaking to <red>Rat Burgiss <blue>on the<n><blue>road south of <red>Varrock.<n><blue>Before I begin I will need to:<n>" + getReqMessage(player), 11);
 			break;
 		case 10:
-			line(player, "<red>Rat<blue>, a trader in Varrock, has asked me to help him with a task.<n><blue>I need to kill <red>outlaws<blue> west of Varrock so that I can collect 5 of <n><blue>Rat's <red>papers<blue>.", 11);
+			line(player, "<red>Rat<blue>, a trader in Varrock, has asked me to help him with a task.<n><blue>I need to kill<red> outlaws <blue>west of Varrock so that I can collect 5 of <n><blue>Rat's <red>papers<blue>.", 11);
 			break;
 		case 20:
 			line(player, "<red>Rat<blue>, a trader in Varrock, has asked me to help him with a task.<n><str>I need to kill outlaws west of Varrock so that I can collect<n><str>5 of Rat's papers.I have delivered Rat's folder to him. Perhaps I<n><str>should speak to him again.<n><blue>I need to deliver <red>Rat's<blue> letter to <red>Surok Magis<n><blue>in <red>Varrock.", 11);

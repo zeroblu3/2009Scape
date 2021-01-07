@@ -36,13 +36,13 @@ class GeneralBotCreator {
             }
             if (!botScript.bot.pulseManager.hasPulseRunning()) {
 
-                if (ticks++ >= RandomFunction.random(90000,120000)) {
+                /*if (ticks++ >= RandomFunction.random(90000,120000)) {
                     AIPlayer.deregister(botScript.bot.uid)
                     ticks = 0
                     SystemLogger.log("Submitting transition pulse from ticks")
                     GameWorld.Pulser.submit(TransitionPulse(botScript))
                     return true
-                }
+                }*/
                 if(!botScript.running) return true //has to be separated this way or it double-submits the respawn pulse.
 
 

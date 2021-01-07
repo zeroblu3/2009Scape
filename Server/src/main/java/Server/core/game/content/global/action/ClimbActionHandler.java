@@ -1,7 +1,7 @@
 package core.game.content.global.action;
 
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.system.SystemLogger;
 import plugin.dialogue.DialoguePlugin;
@@ -209,9 +209,9 @@ public final class ClimbActionHandler {
                 }
                 // falador dark wizards tower proselyte
                 if (destination.equals(2908, 3336, 2)
-                        && player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == ItemNames.PROSELYTE_SALLET_9672
-                        && player.getEquipment().get(EquipmentContainer.SLOT_CHEST).getId() == ItemNames.PROSELYTE_HAUBERK_9674
-                        && player.getEquipment().get(EquipmentContainer.SLOT_LEGS).getId() == ItemNames.PROSELYTE_CUISSE_9676) {
+                        && player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == Items.PROSELYTE_SALLET_9672
+                        && player.getEquipment().get(EquipmentContainer.SLOT_CHEST).getId() == Items.PROSELYTE_HAUBERK_9674
+                        && player.getEquipment().get(EquipmentContainer.SLOT_LEGS).getId() == Items.PROSELYTE_CUISSE_9676) {
                     player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 2, 0);
                 }
                 // falador enter the mining guild

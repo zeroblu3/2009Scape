@@ -1,6 +1,6 @@
 package plugin.skill.cooking.recipe;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import plugin.skill.Skills;
 import plugin.skill.cooking.recipe.Recipe;
 import core.game.interaction.NodeUsageEvent;
@@ -12,9 +12,9 @@ import core.game.node.item.Item;
  */
 public class OomlieWrap extends Recipe {
 
-    private static final Item OOMLIE_WRAP = new Item(ItemNames.WRAPPED_OOMLIE_2341);
-    private static final Item RAW_OOMLIE = new Item(ItemNames.RAW_OOMLIE_2337);
-    private static final Item PALM_LEAF = new Item(ItemNames.PALM_LEAF_2339);
+    private static final Item OOMLIE_WRAP = new Item(Items.WRAPPED_OOMLIE_2341);
+    private static final Item RAW_OOMLIE = new Item(Items.RAW_OOMLIE_2337);
+    private static final Item PALM_LEAF = new Item(Items.PALM_LEAF_2339);
 
     @Override
     public void mix(final Player player, final NodeUsageEvent event) {

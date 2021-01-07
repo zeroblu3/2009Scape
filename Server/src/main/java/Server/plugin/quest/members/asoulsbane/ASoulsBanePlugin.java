@@ -1,7 +1,7 @@
 package plugin.quest.members.asoulsbane;
 
 import core.cache.def.impl.ObjectDefinition;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.MovementPulse;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;
@@ -123,7 +123,7 @@ public class ASoulsBanePlugin extends OptionHandler {
 
     public class SoulsBaneRiftRopeHandler extends UseWithHandler {
         public SoulsBaneRiftRopeHandler() {
-            super(ItemNames.ROPE_954);
+            super(Items.ROPE_954);
         }
 
         @Override
@@ -138,7 +138,7 @@ public class ASoulsBanePlugin extends OptionHandler {
             final Quest quest = player.getQuestRepository().getQuest(ASoulsBane.NAME);
             final GameObject object = event.getUsedWith().asObject();
 
-            if (quest.getStage(player) == 5 && usedItem.getId() == ItemNames.ROPE_954) {
+            if (quest.getStage(player) == 5 && usedItem.getId() == Items.ROPE_954) {
                 player.getConfigManager().set(OBJ_CONFIG, player.getConfigManager().get(OBJ_CONFIG) | 1<<11, true);
                 player.getInventory().remove(usedItem);
                 quest.setStage(player, 10);

@@ -7,7 +7,7 @@ import core.game.component.Component;
 import core.game.component.ComponentDefinition;
 import core.game.component.ComponentPlugin;
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.handlers.RangeSwingHandler;
 import core.game.node.entity.npc.AbstractNPC;
@@ -889,8 +889,8 @@ public final class RangingGuildPlugin extends OptionHandler {
                     }
                     break;
                 case 20:
-                    int arrows = player.getInventory().getAmount(ItemNames.BRONZE_ARROW)
-                            + player.getEquipment().getAmount(ItemNames.BRONZE_ARROW);
+                    int arrows = player.getInventory().getAmount(Items.BRONZE_ARROW_882)
+                            + player.getEquipment().getAmount(Items.BRONZE_ARROW_882);
                     if (arrows < 1) {
                         player("Well, I actually don't have any more arrows. Could I", "get some more?");
                         stage = 25;
@@ -1148,8 +1148,8 @@ public final class RangingGuildPlugin extends OptionHandler {
             if (getDelay() == 1) {
                 setDelay(player.getProperties().getAttackSpeed());
             }
-            if (player.getEquipment().remove(new Item(ItemNames.BRONZE_ARROW, 1))) {
-                Projectile p = Ammunition.get(ItemNames.BRONZE_ARROW).getProjectile().transform(player, object.getLocation());
+            if (player.getEquipment().remove(new Item(Items.BRONZE_ARROW_882, 1))) {
+                Projectile p = Ammunition.get(Items.BRONZE_ARROW_882).getProjectile().transform(player, object.getLocation());
                 p.setEndLocation(object.getLocation());
                 p.setEndHeight(25);
                 p.send();

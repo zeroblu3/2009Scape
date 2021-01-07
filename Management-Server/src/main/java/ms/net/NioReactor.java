@@ -90,31 +90,35 @@ public final class NioReactor implements Runnable {
 	public void run() {
 		while (running && Management.active) {
 			try {
-				selector.select();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
-			while (iterator.hasNext()) {
-				SelectionKey key = iterator.next();
-				iterator.remove();
-				try {
-					if (!key.isValid() || !key.channel().isOpen()) {
-						key.cancel();
-						continue;
+				if(selector.select() > 0){
+					Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
+					while (keys.hasNext()) {
+						SelectionKey key = keys.next();
+						keys.remove();
+						try {
+							if (!key.isValid() || !key.channel().isOpen()) {
+								key.cancel();
+								continue;
+							}
+							if (key.isAcceptable()) {
+								eventHandler.accept(key, selector);
+							}
+							if (key.isReadable()) {
+								eventHandler.read(key);
+							}
+							else if (key.isWritable()) {
+								eventHandler.write(key);
+							}
+						} catch (Throwable t) {
+							eventHandler.disconnect(key, t);
+						}
 					}
-					if (key.isAcceptable()) {
-						eventHandler.accept(key, selector);
-					}
-					if (key.isReadable()) {
-						eventHandler.read(key);
-					}
-					else if (key.isWritable()) {
-						eventHandler.write(key);
-					}
-				} catch (Throwable t) {
-					eventHandler.disconnect(key, t);
+				} else {
+					System.out.println("SLEEPING");
+					Thread.sleep(200);
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}

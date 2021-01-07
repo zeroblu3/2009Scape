@@ -55,6 +55,9 @@ public class LogBalanceShortcut extends AgilityShortcut {
 		configure(new LogBalanceShortcut(new int[] { 9322, 9324 }, 48, 1, Location.create(2722, 3592, 0), Location.create(2722, 3596, 0), "walk-across"));
 		configure(new LogBalanceShortcut(new int[] { 35997, 35999 }, 33, 1, Location.create(2602, 3336, 0), Location.create(2598, 3336, 0), "walk-across"));
 		configure(new LogBalanceShortcut(new int[] { 2332 }, 1, 1, Location.create(2910, 3049, 0), Location.create(2906, 3049, 0), "cross"));
+		configure(new LogBalanceShortcut(new int[] { 3933 }, 45, 1, Location.create(2290, 3232, 0), Location.create(2290, 3239, 0), "cross"));
+		configure(new LogBalanceShortcut(new int[] { 3932 }, 45, 1, Location.create(2258, 3250, 0), Location.create(2264, 3250, 0), "cross"));
+		configure(new LogBalanceShortcut(new int[] { 3931 }, 45, 1, Location.create(2202, 3237, 0), Location.create(2196, 3237, 0), "cross"));
 		return this;
 	}
 

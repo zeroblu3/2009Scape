@@ -1,7 +1,7 @@
 package plugin.skill.smithing.smelting;
 
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.content.global.SkillcapePerks;
 import core.game.world.map.Location;
 import plugin.skill.SkillPulse;
@@ -144,7 +144,7 @@ public class SmeltingPulse extends SkillPulse<Item> {
             double xp = bar.getExperience() * amt;
             // Goldsmith gauntlets and/or smithing cape
             if (((player.getEquipment().get(EquipmentContainer.SLOT_HANDS) != null
-                    && player.getEquipment().get(EquipmentContainer.SLOT_HANDS).getId() == ItemNames.GOLDSMITH_GAUNTLETS_776)
+                    && player.getEquipment().get(EquipmentContainer.SLOT_HANDS).getId() == Items.GOLDSMITH_GAUNTLETS_776)
                     || SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.SMITHING))
                     && bar.getProduct().getId() == 2357) {
                 xp = 56.2 * amt;

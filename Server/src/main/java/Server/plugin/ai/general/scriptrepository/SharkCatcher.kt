@@ -13,7 +13,7 @@ import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphics
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import kotlinx.coroutines.delay
 import plugin.ai.AIPlayer
@@ -47,13 +47,11 @@ if (offer.itemId == 383 && offer.amount >= 1000) {
  * Training Wheel Manufacturer @Ceikry
  */
 class SharkCatcher : Script() {
-    private val ANIMATION = Animation(714)
-    //val shark = ItemNames.RAW_SHARK
+    //val shark = Items.RAW_SHARK
     val pause = (1000..3000)
-    val limit = 2000
+    val limit = 5000
     var myCounter = 0
     //val fishzone = ZoneBorders(2597, 3410, 2612, 3426)
-    private val GRAPHICS = Graphics(308, 100, 50)
     internal enum class Sets(val equipment: List<Item>) {
         SET_1(listOf(Item(10721), Item(8283), Item(10412), Item(10414), Item(88), Item(1007))),
         SET_2(listOf(Item(10721), Item(8283), Item(10412), Item(10414), Item(88), Item(1007))),
@@ -67,26 +65,34 @@ class SharkCatcher : Script() {
     private var tick = 0
 
     override fun tick() {
-        val botAmount = bot.bank.getAmount(383)
+        val fishguild = Location.create(2596, 3410, 0)
+        if (tick++ >= 500){
+            scriptAPI.teleport(fishguild)
+            state = State.FIND_SPOT
+            return
+        }
         when(state){
 
+
             State.BANKING -> {
-                scriptAPI.bankItem(ItemNames.RAW_SHARK)
-                state = if(bot.bank.getAmount(ItemNames.RAW_SHARK) > 500){
-                    State.TELEPORT_GE
+                scriptAPI.bankItem(Items.RAW_SHARK_383)
+                state = if(bot.bank.getAmount(Items.RAW_SHARK_383) > 1000){
+                    State.TELEPORT_GE//.also {println("There are: $total_amount sharks in the GE.") }
                 } else {
                     State.FIND_SPOT
                 }
             }
 
             State.STOP -> {
-                var amount = 0
-                GEOfferDispatch.offerMapping.values.filter { it.itemId == 383 && it.isSell}.map{amount += it.amount}
-                if((amount + botAmount) >= limit && myCounter++ == 300){
+                val botAmount = bot.bank.getAmount(Items.RAW_SHARK_383) + 1
+                var ge_amount = 0 + 1
+                GEOfferDispatch.offerMapping.values.filter{it.itemId == Items.RAW_SHARK_383}.filter{it.isSell}.map{ge_amount += it.amount}
+                val total_amount = (ge_amount + botAmount) + 1
+                    if((total_amount > limit) && myCounter++ == 300){
                         bot.randomWalk(5,5)
                         myCounter = 0
                         return
-                    } else {
+                    } else if (myCounter++ == 300){
                         myCounter = 0
                         State.TELE_FISH
                     }
@@ -105,8 +111,8 @@ class SharkCatcher : Script() {
                 }
 
             State.FISHING -> {
-
                 if (Random.nextBoolean()) {
+                    tick = 0
                     val spot = scriptAPI.getNearestNode(334, false)
                     spot!!.interaction.handle(bot, spot.interaction[2])
                     state = State.FIND_BANK
@@ -158,35 +164,22 @@ class SharkCatcher : Script() {
             }
 
             State.SELL_GE -> {
-                var amount = 0
-                GEOfferDispatch.offerMapping.values.filter { it.itemId == 383 && it.isSell}.map{amount += it.amount}
-                if((amount + botAmount) >= limit){
-                        state = State.STOP
-                    } else{
-                        scriptAPI.walkTo(Location.create(3164, 3487, 0))
-                        scriptAPI.sellOnGE(ItemNames.RAW_SHARK)
-                        state = State.TELE_FISH
-                    }
-
-
+                val botAmount = bot.bank.getAmount(Items.RAW_SHARK_383) + 1
+                var ge_amount = 0 + 1
+                GEOfferDispatch.offerMapping.values.filter{it.itemId == Items.RAW_SHARK_383}.filter{it.isSell}.map{ge_amount += it.amount}
+                val total_amount = (ge_amount + botAmount) + 1
+                if(total_amount > limit){
+                    state = State.STOP//.also { println("STOPPING") }
+                } else {
+                    scriptAPI.walkTo(Location.create(3164, 3487, 0))
+                    scriptAPI.sellOnGE(Items.RAW_SHARK_383)
+                    state = State.TELE_FISH
+                }
             }
 
             State.TELE_FISH -> {
-                if(tick++ == 10) {
-                    bot.lock()
-                    bot.visualize(ANIMATION, GRAPHICS)
-                    bot.impactHandler.disabledTicks = 4
-                    val location = Location.create(2596, 3410, 0)
-                    GameWorld.Pulser.submit(object : Pulse(12, bot) {
-                        override fun pulse(): Boolean {
-                            bot.unlock()
-                            bot.properties.teleportLocation = location
-                            bot.animator.reset()
-                            state = State.FIND_SPOT
-                            return true
-                        }
-                    })
-                }
+                scriptAPI.teleport(fishguild)
+                state = State.FIND_SPOT
             }
 
 

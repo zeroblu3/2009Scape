@@ -1,7 +1,7 @@
 package plugin.quest.members.merlinscrystal;
 
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.player.link.diary.DiaryType;
 import plugin.dialogue.DialoguePlugin;
 import core.game.node.entity.npc.NPC;
@@ -88,7 +88,7 @@ public class TheLadyOfTheLake extends DialoguePlugin {
                 if (player.getAchievementDiaryManager().getDiary(DiaryType.SEERS_VILLAGE).isComplete(2)
 						&& player.getEquipment().get(EquipmentContainer.SLOT_HAT) != null
 						&& player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == 14631
-						&& (player.getInventory().containsAtLeastOneItem(ItemNames.EXCALIBUR_35) || player.getEquipment().containsAtLeastOneItem(ItemNames.EXCALIBUR_35))) {
+						&& (player.getInventory().containsAtLeastOneItem(Items.EXCALIBUR_35) || player.getEquipment().containsAtLeastOneItem(Items.EXCALIBUR_35))) {
                 	stage = 110;
 				} else {
 					stage = 145;
@@ -111,12 +111,12 @@ public class TheLadyOfTheLake extends DialoguePlugin {
 				stage++;
 				break;
 			case 114:
-				interpreter.sendItemMessage(ItemNames.EXCALIBUR_35, "The Lady of the Lake reaches out and touches the", "blade Excalibur which seems to vibrate with new power.");
-				if (player.getInventory().containsAtLeastOneItem(ItemNames.EXCALIBUR_35)) {
-					player.getInventory().remove(new Item(ItemNames.EXCALIBUR_35));
+				interpreter.sendItemMessage(Items.EXCALIBUR_35, "The Lady of the Lake reaches out and touches the", "blade Excalibur which seems to vibrate with new power.");
+				if (player.getInventory().containsAtLeastOneItem(Items.EXCALIBUR_35)) {
+					player.getInventory().remove(new Item(Items.EXCALIBUR_35));
 					player.getInventory().add(new Item(14632));
-				} else if (player.getEquipment().containsAtLeastOneItem(ItemNames.EXCALIBUR_35)) {
-					player.getEquipment().remove(new Item(ItemNames.EXCALIBUR_35));
+				} else if (player.getEquipment().containsAtLeastOneItem(Items.EXCALIBUR_35)) {
+					player.getEquipment().remove(new Item(Items.EXCALIBUR_35));
 					player.getEquipment().add(new Item(14632), true, false);
 				}
 				stage++;

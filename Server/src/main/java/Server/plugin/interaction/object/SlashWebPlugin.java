@@ -3,7 +3,7 @@ package plugin.interaction.object;
 import core.cache.def.impl.ObjectDefinition;
 import core.game.container.Container;
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.combat.equipment.WeaponInterface;
@@ -83,7 +83,7 @@ public final class SlashWebPlugin extends OptionHandler {
 				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 0, 17);
 			}
 			// Escape from the spider lair in Varrock Sewers with some red<br><br>spiders eggs
-			if (object.getId() == 29354 && player.getInventory().containsAtLeastOneItem(ItemNames.RED_SPIDERS_EGGS) && player.getLocation().getY() <= 9897) {
+			if (object.getId() == 29354 && player.getInventory().containsAtLeastOneItem(Items.RED_SPIDERS_EGGS_223) && player.getLocation().getY() <= 9897) {
 				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 1, 4);
 			}
 		} else {

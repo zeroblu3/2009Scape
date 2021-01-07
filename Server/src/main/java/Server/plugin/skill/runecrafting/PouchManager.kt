@@ -4,7 +4,7 @@ import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.SystemLogger
-import core.tools.ItemNames
+import core.tools.Items
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import plugin.skill.Skills
@@ -18,10 +18,10 @@ import plugin.stringtools.colorize
 class PouchManager(val player: Player) {
 
     val pouches = hashMapOf(
-            ItemNames.SMALL_POUCH_5509 to RCPouch(3,1),
-            ItemNames.MEDIUM_POUCH_5510 to RCPouch(6,25),
-            ItemNames.LARGE_POUCH_5512 to RCPouch(9,50),
-            ItemNames.GIANT_POUCH_5514 to RCPouch(12,75)
+            Items.SMALL_POUCH_5509 to RCPouch(3,1),
+            Items.MEDIUM_POUCH_5510 to RCPouch(6,25),
+            Items.LARGE_POUCH_5512 to RCPouch(9,50),
+            Items.GIANT_POUCH_5514 to RCPouch(12,75)
     )
 
     /**
@@ -39,8 +39,8 @@ class PouchManager(val player: Player) {
         var amt = amount
         val pouch = pouches[pouchId]
         val otherEssence = when(essence){
-            ItemNames.RUNE_ESSENCE -> ItemNames.PURE_ESSENCE_7936
-            ItemNames.PURE_ESSENCE_7936 -> ItemNames.RUNE_ESSENCE
+            Items.RUNE_ESSENCE_1436 -> Items.PURE_ESSENCE_7936
+            Items.PURE_ESSENCE_7936 -> Items.RUNE_ESSENCE_1436
             else -> 0
         }
         pouch ?: return

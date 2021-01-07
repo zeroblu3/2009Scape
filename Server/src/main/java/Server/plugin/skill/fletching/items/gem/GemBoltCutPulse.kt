@@ -3,7 +3,7 @@ package plugin.skill.fletching.items.gem
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.skill.fletching.Fletching.GemBolts
 import plugin.skill.SkillPulse
 import plugin.skill.Skills
@@ -50,7 +50,7 @@ class GemBoltCutPulse
         if (++ticks % 5 != 0) {
             return false
         }
-        val reward = if (gem.gem == ItemNames.OYSTER_PEARLS) Item(gem.tip, 24) else Item(gem.tip, 12)
+        val reward = if (gem.gem == Items.OYSTER_PEARLS_413) Item(gem.tip, 24) else Item(gem.tip, 12)
         if (player.inventory.remove(Item(gem.gem))) {
             player.inventory.add(reward)
             player.skills.addExperience(Skills.FLETCHING, gem.experience, true)

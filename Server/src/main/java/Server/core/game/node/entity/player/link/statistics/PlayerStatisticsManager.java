@@ -98,10 +98,10 @@ public class PlayerStatisticsManager implements SavingModule {
 			player.getPacketDispatch().sendString("", 275, i);
 		}
 		// Title
-		//14 Ult IM
-		//13 IM
-		//15 HCIM
-		player.getPacketDispatch().sendString("" + (target.getRights() == Rights.ADMINISTRATOR ? "<img=1>" : (target.getRights() == Rights.PLAYER_MODERATOR ? "<img=0>" : (target.getIronmanManager().getMode() == IronmanMode.STANDARD ? "<img=13>" : (target.getIronmanManager().getMode() == IronmanMode.ULTIMATE ? "<img=14>" : (target.getIronmanManager().getMode() == IronmanMode.HARDCORE ? "<img=15>" : ""))))) + "<col=ae1515>" + target.getUsername() + "</col>'s stats.", 275, 2);
+		//6 Ult IM
+		//4 IM
+		//5 HCIM
+		player.getPacketDispatch().sendString("" + (target.getRights() == Rights.ADMINISTRATOR ? "<img=1>" : (target.getRights() == Rights.PLAYER_MODERATOR ? "<img=0>" : (target.getIronmanManager().getMode() == IronmanMode.STANDARD ? "<img=4>" : (target.getIronmanManager().getMode() == IronmanMode.ULTIMATE ? "<img=6>" : (target.getIronmanManager().getMode() == IronmanMode.HARDCORE ? "<img=5>" : ""))))) + "<col=ae1515>" + target.getUsername() + "</col>'s stats.", 275, 2);
 
 		// Content
 		int lineId = 11;

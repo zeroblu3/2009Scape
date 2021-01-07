@@ -1,6 +1,6 @@
 package plugin.activity.gnomecooking.battas
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
@@ -29,7 +29,7 @@ class GnomeBattaDishFiller : UseWithHandler(GIANNE_DOUGH) {
         val with = event.usedWith
         player.inventory.remove(used.asItem())
         player.inventory.remove(with.asItem())
-        player.inventory.add(Item(ItemNames.RAW_BATTA_2250))
+        player.inventory.add(Item(Items.RAW_BATTA_2250))
         return true
     }
 

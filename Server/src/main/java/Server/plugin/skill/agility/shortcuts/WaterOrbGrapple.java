@@ -2,7 +2,7 @@ package plugin.skill.agility.shortcuts;
 
 import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
@@ -40,10 +40,10 @@ public class WaterOrbGrapple extends OptionHandler {
     }
 
     private static final int[] CBOWS = new int[]{
-            ItemNames.MITH_CROSSBOW_9181,
-            ItemNames.ADAMANT_CROSSBOW_9183,
-            ItemNames.RUNE_CROSSBOW_9185,
-            ItemNames.DORGESHUUN_CROSSBOW_8880
+            Items.MITH_CROSSBOW_9181,
+            Items.ADAMANT_CROSSBOW_9183,
+            Items.RUNE_CROSSBOW_9185,
+            Items.DORGESHUUN_CBOW_8880
     };
     private static final Item MITH_GRAPPLE = new Item(9419);
 

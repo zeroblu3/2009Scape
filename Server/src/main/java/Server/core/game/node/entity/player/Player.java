@@ -107,6 +107,8 @@ import core.tools.StringUtils;
 import plugin.activity.pyramidplunder.PlunderObjectManager;
 import plugin.interaction.item.brawling_gloves.BrawlingGlovesManager;
 
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.STATS_BASE;
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.STATS_DEATHS;
 import static plugin.stringtools.StringToolsKt.colorize;
 
 /**
@@ -617,6 +619,8 @@ public class Player extends Entity {
 
 		packetDispatch.sendTempMusic(90);
 		if (!getZoneMonitor().handleDeath(killer) && (!getProperties().isSafeZone() && getZoneMonitor().getType() != ZoneType.SAFE.getId()) && getDetails().getRights() != Rights.ADMINISTRATOR) {
+			int deaths = getAttribute(STATS_BASE+":"+STATS_DEATHS,0);
+			setAttribute("/save:"+STATS_BASE+":"+STATS_DEATHS,++deaths);
 			GroundItemManager.create(new Item(526), getLocation(), k);
 			final Container[] c = DeathTask.getContainers(this);
 			boolean gravestone = graveManager.generateable() && getIronmanManager().getMode() != IronmanMode.ULTIMATE;

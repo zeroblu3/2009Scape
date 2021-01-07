@@ -1,6 +1,6 @@
 package plugin.quest.members.merlinscrystal;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
 import plugin.dialogue.DialoguePlugin;
@@ -17,7 +17,7 @@ import core.game.node.entity.player.link.quest.Quest;
  * @version 2.0
  */
 public final class KingArthurDialogue extends DialoguePlugin {
-    final static Item POISON_CHALICE = new Item(ItemNames.POISON_CHALICE_197);
+    final static Item POISON_CHALICE = new Item(Items.POISON_CHALICE_197);
 
     /**
      * Constructs a new {@code KingArthurDialogue} {@code Object}.

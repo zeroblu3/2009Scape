@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.skill.Skills
 
 private const val WIZARD_BLIZZARD = 2054
@@ -74,7 +74,7 @@ class GnomeCocktailInterface : ComponentPlugin() {
         }
 
         player.inventory.remove(*cocktail.requiredItems)
-        player.inventory.remove(Item(ItemNames.COCKTAIL_SHAKER_2025))
+        player.inventory.remove(Item(Items.COCKTAIL_SHAKER_2025))
         player.inventory.add(Item(cocktail.product))
         player.skills.addExperience(Skills.COOKING,cocktail.experience)
         player.interfaceManager.close()
@@ -86,13 +86,13 @@ class GnomeCocktailInterface : ComponentPlugin() {
     }
 
     internal enum class FruitCocktail(val levelReq: Int, val experience: Double, val product: Int, val requiredItems: Array<Item>){
-        FRUIT_BLAST(6,50.0,9568, arrayOf(Item(ItemNames.PINEAPPLE),Item(ItemNames.LEMON_2102),Item(ItemNames.ORANGE_2108))),
-        PINEAPPLE_PUNCH(8,70.0,9569, arrayOf(Item(ItemNames.PINEAPPLE,2),Item(ItemNames.LEMON_2102),Item(ItemNames.ORANGE_2108))),
-        WIZARD_BLIZZARD(18,110.0, 9566, arrayOf(Item(ItemNames.VODKA_2015,2),Item(ItemNames.GIN_2019),Item(ItemNames.LIME_2120),Item(ItemNames.LEMON_2102),Item(ItemNames.ORANGE_2108))),
-        SHORT_GREEN_GUY(20,120.0,9567, arrayOf(Item(ItemNames.VODKA_2015),Item(ItemNames.LIME_2120,3))),
-        DRUNK_DRAGON(32,160.0,9574, arrayOf(Item(ItemNames.VODKA_2015),Item(ItemNames.GIN_2019),Item(ItemNames.DWELLBERRIES_2126))),
-        CHOC_SATURDAY(33,170.0,9571, arrayOf(Item(ItemNames.WHISKY_2017),Item(ItemNames.CHOCOLATE_BAR_1973),Item(ItemNames.EQUA_LEAVES_2128),Item(ItemNames.BUCKET_OF_MILK_1927))),
-        BLURBERRY_SPEC(37,180.0,9570, arrayOf(Item(ItemNames.VODKA_2015),Item(ItemNames.BRANDY_2021),Item(ItemNames.GIN_2019),Item(ItemNames.LEMON_2102,2),Item(ItemNames.ORANGE_2108)))
+        FRUIT_BLAST(6,50.0,9568, arrayOf(Item(Items.PINEAPPLE_2114),Item(Items.LEMON_2102),Item(Items.ORANGE_2108))),
+        PINEAPPLE_PUNCH(8,70.0,9569, arrayOf(Item(Items.PINEAPPLE_2114,2),Item(Items.LEMON_2102),Item(Items.ORANGE_2108))),
+        WIZARD_BLIZZARD(18,110.0, 9566, arrayOf(Item(Items.VODKA_2015,2),Item(Items.GIN_2019),Item(Items.LIME_2120),Item(Items.LEMON_2102),Item(Items.ORANGE_2108))),
+        SHORT_GREEN_GUY(20,120.0,9567, arrayOf(Item(Items.VODKA_2015),Item(Items.LIME_2120,3))),
+        DRUNK_DRAGON(32,160.0,9574, arrayOf(Item(Items.VODKA_2015),Item(Items.GIN_2019),Item(Items.DWELLBERRIES_2126))),
+        CHOC_SATURDAY(33,170.0,9571, arrayOf(Item(Items.WHISKY_2017),Item(Items.CHOCOLATE_BAR_1973),Item(Items.EQUA_LEAVES_2128),Item(Items.BUCKET_OF_MILK_1927))),
+        BLURBERRY_SPEC(37,180.0,9570, arrayOf(Item(Items.VODKA_2015),Item(Items.BRANDY_2021),Item(Items.GIN_2019),Item(Items.LEMON_2102,2),Item(Items.ORANGE_2108)))
     }
 
 }

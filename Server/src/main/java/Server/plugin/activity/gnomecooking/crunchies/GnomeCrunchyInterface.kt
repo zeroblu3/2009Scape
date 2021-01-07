@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.skill.Skills
 
 private const val TOAD_CRUNCHIES = 9538
@@ -42,7 +42,7 @@ class GnomeCrunchyInterface : ComponentPlugin() {
             return
         }
 
-        if(!player.inventory.containsItem(Item(ItemNames.GNOME_SPICE_2169))){
+        if(!player.inventory.containsItem(Item(Items.GNOME_SPICE_2169))){
             player.dialogueInterpreter.sendDialogue("You need some gnome spice to make these.")
             return
         }
@@ -82,10 +82,10 @@ class GnomeCrunchyInterface : ComponentPlugin() {
     }
 
     internal enum class HalfMadeCrunchy(val product: Int,val reqLevel: Int, val requiredItems: Array<Item>){
-        CHOCCHIP(9577, 16, arrayOf(Item(ItemNames.CHOCOLATE_BAR_1973,2))),
-        SPICY(9579, 12, arrayOf(Item(ItemNames.EQUA_LEAVES_2128,2))),
-        TOAD(9581, 10, arrayOf(Item(ItemNames.TOADS_LEGS_2152,1))),
-        WORM(9583, 14, arrayOf(Item(ItemNames.EQUA_LEAVES_2128),Item(ItemNames.KING_WORM_2162,2)))
+        CHOCCHIP(9577, 16, arrayOf(Item(Items.CHOCOLATE_BAR_1973,2))),
+        SPICY(9579, 12, arrayOf(Item(Items.EQUA_LEAVES_2128,2))),
+        TOAD(9581, 10, arrayOf(Item(Items.TOADS_LEGS_2152,2))),
+        WORM(9583, 14, arrayOf(Item(Items.EQUA_LEAVES_2128),Item(Items.KING_WORM_2162,2)))
     }
 
 }

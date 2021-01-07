@@ -7,20 +7,20 @@ import core.game.node.item.Item;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
-import core.tools.ItemNames;
+import core.tools.Items;
 
 import java.util.HashMap;
 
 @InitializablePlugin
 public class SheepHerder extends Quest {
-    public static Item CATTLE_PROD = new Item(ItemNames.CATTLEPROD_278);
+    public static Item CATTLE_PROD = new Item(Items.CATTLEPROD_278);
     public static Item POISON = new Item(279);
     public static Item PLAGUE_TOP = new Item(284);
     public static Item PLAGUE_BOTTOM = new Item(285);
-    public static Item RED_SHEEP_BONES = new Item(ItemNames.SHEEP_BONES_1_280);
-    public static Item GREEN_SHEEP_BONES = new Item(ItemNames.SHEEP_BONES_2_281);
-    public static Item BLUE_SHEEP_BONES = new Item(ItemNames.SHEEP_BONES_3_282);
-    public static Item YELLOW_SHEEP_BONES = new Item(ItemNames.SHEEP_BONES_4_283);
+    public static Item RED_SHEEP_BONES = new Item(Items.SHEEP_BONES_1_280);
+    public static Item GREEN_SHEEP_BONES = new Item(Items.SHEEP_BONES_2_281);
+    public static Item BLUE_SHEEP_BONES = new Item(Items.SHEEP_BONES_3_282);
+    public static Item YELLOW_SHEEP_BONES = new Item(Items.SHEEP_BONES_4_283);
     public static int RED_SHEEP = 2345;
     public static int GREEN_SHEEP = 2346;
     public static int BLUE_SHEEP = 2347;

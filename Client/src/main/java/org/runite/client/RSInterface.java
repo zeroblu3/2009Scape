@@ -1017,8 +1017,8 @@ public final class RSInterface {
                     if (null == var3) {
                         GameShell.aBoolean6 = true;
                     } else {
-                        var3.method697(var1, (int[]) null);
-                        Unsorted.aReferenceCache_743.put(var3, (long) this.anInt270);
+                        var3.method697(var1, null);
+                        Unsorted.aReferenceCache_743.put(var3, this.anInt270);
                     }
 
                 }

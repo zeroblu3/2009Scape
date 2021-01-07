@@ -4,7 +4,7 @@ import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
@@ -55,8 +55,8 @@ class VarrockSmither : Script() {
 
     init {
         skills[Skills.SMITHING] = RandomFunction.random(33,99)
-        inventory.add(Item(ItemNames.HAMMER))
-        inventory.add(Item(ItemNames.STEEL_BAR,27))
+        inventory.add(Item(Items.HAMMER_2347))
+        inventory.add(Item(Items.STEEL_BAR_2353,27))
     }
 
     enum class State {

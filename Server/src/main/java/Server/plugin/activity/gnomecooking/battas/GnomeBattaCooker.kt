@@ -1,6 +1,6 @@
 package plugin.activity.gnomecooking.battas
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.player.Player
@@ -17,7 +17,7 @@ import plugin.skill.Skills
  * @author Ceikry
  */
 @InitializablePlugin
-class GnomeBattaCooker : UseWithHandler(ItemNames.RAW_BATTA_2250,9478,9480,9482,9483,9485) {
+class GnomeBattaCooker : UseWithHandler(Items.RAW_BATTA_2250,9478,9480,9482,9483,9485) {
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(17131, OBJECT_TYPE,this)
         addHandler(2728, OBJECT_TYPE,this)
@@ -29,7 +29,7 @@ class GnomeBattaCooker : UseWithHandler(ItemNames.RAW_BATTA_2250,9478,9480,9482,
         val player = event.player
         val used = event.used
         val product = when(used.id){
-            ItemNames.RAW_BATTA_2250 -> Item(ItemNames.HALF_BAKED_BATTA_2249)
+            Items.RAW_BATTA_2250 -> Item(Items.HALF_BAKED_BATTA_2249)
             9478 -> Item(9479)
             9480 -> Item(9481)
             9483 -> Item(9484)

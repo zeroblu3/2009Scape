@@ -7,7 +7,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 
 @InitializablePlugin
 class ChocolateBarCutter : UseWithHandler(946){
@@ -23,7 +23,7 @@ class ChocolateBarCutter : UseWithHandler(946){
             val cut_animation = Animation(1989)
             override fun pulse(): Boolean {
                 super.setDelay(4)
-                val amount = player.inventory.getAmount(ItemNames.CHOCOLATE_BAR_1973)
+                val amount = player.inventory.getAmount(Items.CHOCOLATE_BAR_1973)
                 if(amount > 0) player.inventory.remove(Item(1973)).also { player.animator.animate(cut_animation); player.inventory.add(Item(1975)) }
                 return amount <= 0
             }

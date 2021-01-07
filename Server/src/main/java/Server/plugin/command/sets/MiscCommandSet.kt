@@ -198,6 +198,22 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
             player.skills.updateCombatLevel()
         }
 
+        define("noobme"){ player,_ ->
+            var index = 0
+            Skills.SKILL_NAME.forEach {
+                if (index == Skills.HITPOINTS) {
+                    player.skills.setStaticLevel(index,10)
+                    player.skills.setLevel(index,10)
+                    index++
+                } else {
+                    player.skills.setStaticLevel(index,1)
+                    player.skills.setLevel(index,1)
+                    index++
+                }
+            }
+            player.skills.updateCombatLevel()
+        }
+
         /**
          * Set a specific skill to a specific level
          */

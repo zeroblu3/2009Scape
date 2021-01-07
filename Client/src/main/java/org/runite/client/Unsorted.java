@@ -1,6 +1,5 @@
 package org.runite.client;
 
-import com.jogamp.opengl.*;
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.data.HashTable;
 import org.rs09.client.rendering.Toolkit;
@@ -396,7 +395,7 @@ public class Unsorted {
     static LDIndexedSprite method1539(int var2, CacheIndex var3) {
         try {
             //  System.out.println("RSString " + var2);
-            return Class75_Sub4.method1351(var3, 0, var2, -30901) ? Class77.method1364() : null;
+            return Class75_Sub4.method1351(var3, 0, var2) ? Class77.method1364() : null;
         } catch (RuntimeException var5) {
             throw ClientErrorException.clientError(var5, "na.MA(" + 0 + ',' + true + ',' + var2 + ',' + (var3 != null ? "{...}" : "null") + ')');
         }
@@ -2298,7 +2297,7 @@ public class Unsorted {
 
     public static Class3_Sub28_Sub17 method1300(int var1, CacheIndex var3, CacheIndex var4) {
         System.out.println("Class 73 " + var1);
-        return !Class75_Sub4.method1351(var3, 0, var1, -30901) ? null : method880(var4.getFile(var1, 0));
+        return !Class75_Sub4.method1351(var3, 0, var1) ? null : method880(var4.getFile(var1, 0));
     }
 
     public static void method1301(int plane, int regionY, int regionX, int sceneY, boolean var4, int sceneX) {
@@ -3024,7 +3023,7 @@ public class Unsorted {
     public static AbstractSprite method602(int var0, CacheIndex var1) {
         try {
             //  System.out.println("Class3_sub28_Sub16 " + var1);
-            if (Class75_Sub4.method1351(var1, 0, var0, (byte) -18 ^ 30885)) {
+            if (Class75_Sub4.method1351(var1, 0, var0)) {
                 return Class43.method1062((byte) -18 + 103);
             } else {
                 return null;
@@ -4176,7 +4175,7 @@ public class Unsorted {
                                     if (ClientCommands.renderInfoOverlayEnabled) {
                                         if (HDToolKit.highDetail) {
                                             int vendorColor;
-                                            String vendor = HDToolKit.gl.glGetString(GL.GL_VENDOR);
+                                            String vendor = HDToolKit.gl.glGetString(7936);
                                             if (vendor.contains("NVIDIA")) {
                                                 vendorColor = 7780608;
                                             } else if (vendor.contains("AMD")) {
@@ -4188,13 +4187,11 @@ public class Unsorted {
                                             }
                                             var20 = var11.width + var13;
                                             var21 = 15 + var14;
-                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(JoglVersion.getInstance().getImplementationVendor()), var20, var21, 16776960, 7);
-                                            var21 += 15;
-                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_VERSION)), var20, var21, 16776960, 7);
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(7938)), var20, var21, 16776960, 7);
                                             var21 += 15;
                                             Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(vendor), var20, var21, vendorColor, 4);
                                             var21 += 15;
-                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(GL.GL_RENDERER)), var20, var21, 16776960, 7);
+                                            Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse(HDToolKit.gl.glGetString(7937)), var20, var21, 16776960, 7);
                                             var21 += 15;
                                             Class126.aClass3_Sub28_Sub17_1669.method688(RSString.parse("Oncard Geometry: " + Class31.anInt585), var20, var21, 16776960, 7);
                                             var21 += 15;
@@ -4397,38 +4394,74 @@ public class Unsorted {
                                             }
                                         }
                                     } else if (3 == var11.type) {
-                                        // TODO DRAWRECT
-                                        if (Class3_Sub28_Sub12.method609(var11, 26)) {
-                                            var20 = var11.anInt253;
-                                            if (Class107.aClass11_1453 == var11 && 0 != var11.anInt222) {
-                                                var20 = var11.anInt222;
+                                        if(!Class3_Sub28_Sub12.method609(var11,26)) {
+                                            var20 = var11.anInt218;
+                                            if(var11 == Class107.aClass11_1453 && 0 != var11.anInt228) {
+                                                var20 = var11.anInt228;
                                             }
                                         } else {
-                                            var20 = var11.anInt218;
-                                            if (var11 == Class107.aClass11_1453 && 0 != var11.anInt228) {
-                                                var20 = var11.anInt228;
+                                            var20 = var11.anInt253;
+                                            if(Class107.aClass11_1453 == var11 && 0 != var11.anInt222) {
+                                                var20 = var11.anInt222;
                                             }
                                         }
 
-                                        if (var15 != 0) {
-                                            if (var11.aBoolean226) {
-                                                Toolkit.getActiveToolkit().fillRect(var13, var14, var11.width, var11.height, var20, 256 - (var15 & 255));//Background for mage book
-                                            } else if (HDToolKit.highDetail) {
+                                        if (-1 != ~var15) {
+                                            if(var11.aBoolean226) {
+                                                if(HDToolKit.highDetail) {
+                                                    Toolkit.OPENGL_TOOLKIT.fillRect(var13, var14, var11.width, var11.height, var20, 256 + -(255 & var15));//Background for mage book
+                                                } else {
+                                                    Toolkit.JAVA_TOOLKIT.fillRect(var13, var14, var11.width, var11.height, var20, 256 + -(255 & var15));
+                                                }
+                                            } else if(HDToolKit.highDetail) {
                                                 Class22.method928(var13, var14, var11.width, var11.height, var20, 256 + -(var15 & 255));
                                             } else {
                                                 Class74.method1315(var13, var14, var11.width, var11.height, var20, -(var15 & 255) + 256);
                                             }
-                                        } else if (var11.aBoolean226) {
-                                            Toolkit.getActiveToolkit().method934(var13, var14, var11.width, var11.height, var20);//Fill Rectangle for skill hover
+                                        } else if(var11.aBoolean226) {
+                                            if (HDToolKit.highDetail) {
+                                                Toolkit.OPENGL_TOOLKIT.method934(var13, var14, var11.width, var11.height, var20);
+                                            } else {
+                                                Toolkit.JAVA_TOOLKIT.fillRect(var13, var14, var11.width, var11.height, var20, 255);
+                                            }
+                                            //Toolkit.getActiveToolkit().method934(var13, var14, var11.width, var11.height, var20);//Fill Rectangle for skill hover
+                                        } else if(HDToolKit.highDetail){
+                                            Toolkit.OPENGL_TOOLKIT.drawRect(var13, var14, var11.width, var11.height, var20, 255);//Background border for mage book
                                         } else {
-                                            Toolkit.getActiveToolkit().drawRect(var13, var14, var11.width, var11.height, var20, 255);//Background border for mage book
+                                            Toolkit.JAVA_TOOLKIT.drawRect(var13, var14, var11.width, var11.height, var20, 255);
                                         }
+                                        // TODO DRAWRECT
+//                                        if (Class3_Sub28_Sub12.method609(var11, 26)) {
+//                                            var20 = var11.anInt253;
+//                                            if (Class107.aClass11_1453 == var11 && 0 != var11.anInt222) {
+//                                                var20 = var11.anInt222;
+//                                            }
+//                                        } else {
+//                                            var20 = var11.anInt218;
+//                                            if (var11 == Class107.aClass11_1453 && 0 != var11.anInt228) {
+//                                                var20 = var11.anInt228;
+//                                            }
+//                                        }
+//
+//                                        if (var15 != 0) {
+//                                            if (var11.aBoolean226) {
+//                                                Toolkit.getActiveToolkit().fillRect(var13, var14, var11.width, var11.height, var20, 256 - (var15 & 255));//Background for mage book
+//                                            } else if (HDToolKit.highDetail) {
+//                                                Class22.method928(var13, var14, var11.width, var11.height, var20, 256 + -(var15 & 255));
+//                                            } else {
+//                                                Class74.method1315(var13, var14, var11.width, var11.height, var20, -(var15 & 255) + 256);
+//                                            }
+//                                        } else if (var11.aBoolean226) {
+//                                            Toolkit.getActiveToolkit().method934(var13, var14, var11.width, var11.height, var20);//Fill Rectangle for skill hover
+//                                        } else {
+//                                            Toolkit.getActiveToolkit().drawRect(var13, var14, var11.width, var11.height, var20, 255);//Background border for mage book
+//                                        }
 
                                     } else {
                                         Class3_Sub28_Sub17 var34;
                                         if (var11.type == 4) {
                                             // TODO RSInterfaceRenderText
-                                            var34 = var11.method868(Class3_Sub13_Sub22.aClass109Array3270);
+                                            var34 = var11.method868(Class3_Sub13_Sub22.nameIconsSpriteArray);
                                             if (var34 != null) {
                                                 RSString var45 = var11.text;
                                                 if (Class3_Sub28_Sub12.method609(var11, 97)) {
@@ -4689,7 +4722,7 @@ public class Unsorted {
                                                 }
                                             } else {
                                                 if (var11.type == 7) {
-                                                    var34 = var11.method868(Class3_Sub13_Sub22.aClass109Array3270);
+                                                    var34 = var11.method868(Class3_Sub13_Sub22.nameIconsSpriteArray);
                                                     if (var34 == null) {
                                                         if (GameShell.aBoolean6) {
                                                             Class20.method909(var11);
@@ -4982,7 +5015,7 @@ public class Unsorted {
     public static Class3_Sub28_Sub16_Sub2 method562(CacheIndex var0, int var2) {
        try {
          //  System.out.println("Class 3_Sub28_Sub16_Sub2 " + var2);
-          return Class75_Sub4.method1351(var0, 0, var2, -30901)? Class3_Sub28_Sub9.method578() :null;
+          return Class75_Sub4.method1351(var0, 0, var2)? Class3_Sub28_Sub9.method578() :null;
        } catch (RuntimeException var5) {
           throw ClientErrorException.clientError(var5, "gf.O(" + (var0 != null?"{...}":"null") + ',' + 0 + ',' + var2 + ',' + (byte) 39 + ')');
        }

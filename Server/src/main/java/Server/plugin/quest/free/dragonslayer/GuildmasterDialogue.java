@@ -195,7 +195,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 				end();
 				break;
 			case 1020:
-				npc("Thalzar was the most paranoid of the three wizards. He", "hid his map piece and took the secret f its location to", "his grave.");
+				npc("Thalzar was the most paranoid of the three wizards. He", "hid his map piece and took the secret of its location to", "his grave.");
 				stage = 1021;
 				break;
 			case 1021:
@@ -210,7 +210,7 @@ public final class GuildmasterDialogue extends DialoguePlugin {
 				stage = 1031;
 				break;
 			case 1031:
-				npc("Unfortunately, goblin raiders killer her and stole", "everything. One of the goblins from the Goblin Village", "probably has the map piece now.");
+				npc("Unfortunately, goblin raiders killed her and stole", "everything. One of the goblins from the Goblin Village", "probably has the map piece now.");
 				stage = 1032;
 				break;
 			case 1032:

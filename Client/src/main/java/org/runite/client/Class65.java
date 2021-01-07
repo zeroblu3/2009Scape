@@ -164,7 +164,7 @@ final class Class65 {
          Class126.aClass3_Sub28_Sub17_1669 = null;
          Class75_Sub3.aAbstractSpriteArray2656 = null;
          aAbstractSpriteArray1825 = null;
-         Class3_Sub13_Sub22.aClass109Array3270 = null;
+         Class3_Sub13_Sub22.nameIconsSpriteArray = null;
          Class157.aClass3_Sub28_Sub17_Sub1_2000 = null;
          Sprites.aClass3_Sub28_Sub16_Sub2Array2140 = null;
          Class140_Sub4.aAbstractSpriteArray2839 = null;

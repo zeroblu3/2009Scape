@@ -176,7 +176,7 @@ final class Class3_Sub13_Sub23_Sub1 extends Class3_Sub13_Sub23 {
    static AbstractSprite[] method286(int var2, CacheIndex var3) {
       try {
          //System.out.println("Class3_Sub13_Sub_23_Sub1 " + var2);
-         return !Class75_Sub4.method1351(var3, 0, var2, -30901)?null:Class15.method891(~4);
+         return !Class75_Sub4.method1351(var3, 0, var2)?null:Class15.method891(~4);
       } catch (RuntimeException var5) {
          throw ClientErrorException.clientError(var5, "kd.F(" + -1 + ',' + 0 + ',' + var2 + ',' + (var3 != null?"{...}":"null") + ')');
       }

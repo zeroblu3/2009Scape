@@ -1,7 +1,7 @@
 package plugin.interaction.object;
 
 import core.cache.def.impl.ObjectDefinition;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.combat.ImpactHandler;
@@ -16,9 +16,9 @@ import core.plugin.Plugin;
 
 @InitializablePlugin
 public class BeehivePlugin extends OptionHandler {
-    private static final Item REPELLANT = new Item(ItemNames.INSECT_REPELLENT_28);
-    private static final Item BUCKET = new Item(ItemNames.BUCKET_1925);
-    private static final Item BUCKET_OF_WAX = new Item(ItemNames.BUCKET_OF_WAX_30);
+    private static final Item REPELLANT = new Item(Items.INSECT_REPELLENT_28);
+    private static final Item BUCKET = new Item(Items.BUCKET_1925);
+    private static final Item BUCKET_OF_WAX = new Item(Items.BUCKET_OF_WAX_30);
     private static final Item HONEYCOMB = new Item(12156);
 
     @Override

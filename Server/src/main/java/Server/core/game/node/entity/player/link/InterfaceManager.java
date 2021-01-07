@@ -2,7 +2,6 @@ package core.game.node.entity.player.link;
 
 import core.game.component.Component;
 import core.game.component.InterfaceType;
-import plugin.quest.tutorials.tutorialisland.TutorialSession;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.net.packet.PacketRepository;
@@ -11,6 +10,9 @@ import core.net.packet.context.WindowsPaneContext;
 import core.net.packet.out.CloseInterface;
 import core.net.packet.out.Interface;
 import core.net.packet.out.WindowsPane;
+import plugin.quest.tutorials.tutorialisland.TutorialSession;
+
+import static core.tools.Interfaces.*;
 
 /**
  * Manages a player's interfaces.
@@ -22,17 +24,20 @@ public final class InterfaceManager {
 	/**
 	 * The default windows pane.
 	 */
-	public static final int WINDOWS_PANE = 548;
+	public static final int WINDOWS_PANE = TOPLEVEL_548;
 
 	/**
 	 * The default chat box interface.
 	 */
-	public static final int DEFAULT_CHATBOX = 137;
+	public static final int DEFAULT_CHATBOX = CHATDEFAULT_137;
 
 	/**
 	 * The default tabs.
 	 */
-	public static final int[] DEFAULT_TABS = { 92, 320, 274, 149, 387, 271, 192, 662, 550, 551, 589, 261, 464, 187, 182 };
+	public static final int[] DEFAULT_TABS = { WEAPON_FISTS_SEL_92, STATS_320, QUESTJOURNAL_V2_274,
+            INVENTORY_149, WORNITEMS_387, PRAYER_271, MAGIC_192, LORE_STATS_SIDE_662,
+            FRIENDS2_550, IGNORE2_551, CLANJOIN_589, OPTIONS_261, EMOTES_464,
+            MUSIC_V3_187, LOGOUT_182 };
 
 	/**
 	 * The player.
@@ -73,6 +78,11 @@ public final class InterfaceManager {
 	 * The overlay component.
 	 */
 	private Component overlay;
+
+	/**
+	 * The wilderness overlay component
+	 */
+	private Component wildyOverlay;
 
 	/**
 	 * The currently opened tab's index.
@@ -191,7 +201,7 @@ public final class InterfaceManager {
 	 */
 	public boolean isWalkable() {
 		if (opened != null) {
-			if (opened.getId() == 389) {
+			if (opened.getId() == OBJDIALOG_389) {
 				return false;
 			}
 			if (opened.getDefinition().isWalkable()) {
@@ -396,22 +406,22 @@ public final class InterfaceManager {
 		}
 		//sendTab(16, 747); // Summoning bar
 		openTab(0, inter); // Attack
-		openTab(1, new Component(320)); // Skills
-		openTab(2, new Component(274)); // Quest
-		openTab(3, new Component(149)); // inventory
-		openTab(4, new Component(387)); // Equipment
-		openTab(5, new Component(271)); // Prayer
+		openTab(1, new Component(STATS_320)); // Skills
+		openTab(2, new Component(QUESTJOURNAL_V2_274)); // Quest
+		openTab(3, new Component(INVENTORY_149)); // inventory
+		openTab(4, new Component(WORNITEMS_387)); // Equipment
+		openTab(5, new Component(PRAYER_271)); // Prayer
 		openTab(6, new Component(player.getSpellBookManager().getSpellBook())); // Magic
 		if (player.getFamiliarManager().hasFamiliar()) {
-			openTab(7, new Component(662)); // summoning.
+			openTab(7, new Component(LORE_STATS_SIDE_662)); // summoning.
 		}
-		openTab(8, new Component(550)); // Friends
-		openTab(9, new Component(551)); // Ignores
-		openTab(10, new Component(589)); // Clan chat
-		openTab(11, new Component(261)); // Settings
-		openTab(12, new Component(464)); // Emotes
-		openTab(13, new Component(187)); // Music
-		openTab(14, new Component(182)); // Logout
+		openTab(8, new Component(FRIENDS2_550)); // Friends
+		openTab(9, new Component(IGNORE2_551)); // Ignores
+		openTab(10, new Component(CLANJOIN_589)); // Clan chat
+		openTab(11, new Component(OPTIONS_261)); // Settings
+		openTab(12, new Component(EMOTES_464)); // Emotes
+		openTab(13, new Component(MUSIC_V3_187)); // Music
+		openTab(14, new Component(LOGOUT_182)); // Logout
 		if (player.getProperties().getAutocastSpell() != null) {
 			inter.selectAutoSpell(inter.getAutospellId(player.getProperties().getAutocastSpell().getSpellId()), true);
 		}
@@ -422,15 +432,15 @@ public final class InterfaceManager {
 	 */
 	public void openInfoBars() {
 		//Hp orb
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 13 : 70, 748, true));
+		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 13 : 70, TOPSTAT_HITPOINTS_748, true));
 		//Prayer orb
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 14 : 71, 749, true));
+		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 14 : 71, TOPSTAT_PRAYER_749, true));
 		//Energy orb
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, 750, true));
+		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, TOPSTAT_RUN_750, true));
 		//Summoning bar
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, 747, true));	
+		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, TOPSTAT_LORE_747, true));
 		//Split PM
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, 754, true));
+		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, PMCHAT_754, true));
 	}
 
 	/**
@@ -441,21 +451,21 @@ public final class InterfaceManager {
 		if (inter != null) {
 			close(inter); // Attack
 		}
-		close(new Component(320)); // Skills
-		close(new Component(274)); // Quest
-		close(new Component(259)); // Diary
-		close(new Component(149)); // inventory
-		close(new Component(387)); // Equipment
-		close(new Component(271)); // Prayer
+		close(new Component(STATS_320)); // Skills
+		close(new Component(QUESTJOURNAL_V2_274)); // Quest
+		close(new Component(AREA_TASK_259)); // Diary
+		close(new Component(INVENTORY_149)); // inventory
+		close(new Component(WORNITEMS_387)); // Equipment
+		close(new Component(PRAYER_271)); // Prayer
 		close(new Component(player.getSpellBookManager().getSpellBook()));
-		close(new Component(662)); // summoning.
-		close(new Component(550)); // Friends
-		close(new Component(551)); // Ignores
-		close(new Component(589)); // Clan chat
-		close(new Component(261)); // Settings
-		close(new Component(464)); // Emotes
-		close(new Component(187)); // Music
-		close(new Component(182)); // Logout
+		close(new Component(LORE_STATS_SIDE_662)); // summoning.
+		close(new Component(FRIENDS2_550)); // Friends
+		close(new Component(IGNORE2_551)); // Ignores
+		close(new Component(CLANJOIN_589)); // Clan chat
+		close(new Component(OPTIONS_261)); // Settings
+		close(new Component(EMOTES_464)); // Emotes
+		close(new Component(MUSIC_V3_187)); // Music
+		close(new Component(LOGOUT_182)); // Logout
 	}
 
 	/**
@@ -464,7 +474,7 @@ public final class InterfaceManager {
 	 * @param component The component.
 	 */
 	public void openTab(int slot, Component component) {
-		if (component.getId() == 92 && !(component instanceof WeaponInterface)) {
+		if (component.getId() == WEAPON_FISTS_SEL_92 && !(component instanceof WeaponInterface)) {
 			throw new IllegalStateException("Attack tab can only be instanced as " + WeaponInterface.class.getCanonicalName() + "!");
 		}
 		if (component.getDefinition().getTabIndex() != slot) {
@@ -506,9 +516,9 @@ public final class InterfaceManager {
 	public void openChatbox(Component component) {
 		if (component.getId() == DEFAULT_CHATBOX) {
 			if (chatbox == null || (chatbox.getId() != DEFAULT_CHATBOX && chatbox.getDefinition().getType() == InterfaceType.CHATBOX)) {
-				PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, 751, true));
-				PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, 752, true));
-				PacketRepository.send(Interface.class, new InterfaceContext(player, InterfaceType.CHATBOX.getFixedPaneId(), InterfaceType.CHATBOX.getFixedChildId(), 137, true));
+				PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, FILTERBUTTONS_751, true));
+				PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, CHATTOP_752, true));
+				PacketRepository.send(Interface.class, new InterfaceContext(player, InterfaceType.CHATBOX.getFixedPaneId(), InterfaceType.CHATBOX.getFixedChildId(), CHATDEFAULT_137, true));
 			}
 			chatbox = component;
 			player.getConfigManager().set(334, 1);
@@ -532,11 +542,11 @@ public final class InterfaceManager {
 	public void switchWindowMode(int windowMode) {
 		if (windowMode != player.getSession().getClientInfo().getWindowMode()) {
 			player.getSession().getClientInfo().setWindowMode(windowMode);
-			openWindowsPane(new Component(isResizable() ? 746 : 548));
+			openWindowsPane(new Component(isResizable() ? TOPLEVEL_FULLSCREEN_746 : TOPLEVEL_548));
 			openDefaultTabs();
 			openInfoBars();
-			PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, 751, true));
-			PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, 752, true));
+			PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, FILTERBUTTONS_751, true));
+			PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, CHATTOP_752, true));
 		}
 	}
 
@@ -566,7 +576,7 @@ public final class InterfaceManager {
 				return c;
 			}
 		}
-		if (componentId == 751 || componentId == 750 || componentId == 747) {
+		if (componentId == FILTERBUTTONS_751 || componentId == TOPSTAT_RUN_750 || componentId == TOPSTAT_LORE_747) {
 			//Chatbox settings, run orb & summoning orb.
 			return new Component(componentId);
 		}
@@ -623,6 +633,23 @@ public final class InterfaceManager {
 			overlay.getDefinition().setWalkable(true);
 		}
 		overlay.open(player);
+	}
+
+	/**
+	 * Opens the wilderness overlay.
+	 * @param component The component.
+	 */
+	public void openWildernessOverlay(Component component) {
+		if (wildyOverlay != null && !wildyOverlay.close(player)) {
+			return;
+		}
+		wildyOverlay = component;
+		if (wildyOverlay.getDefinition().getType() != InterfaceType.WILDERNESS_OVERLAY) {
+			System.err.println("Set interface type to WILDERNESS_OVERLAY for component " + component.getId() + ", definition requires updating!");
+			wildyOverlay.getDefinition().setType(InterfaceType.WILDERNESS_OVERLAY);
+			wildyOverlay.getDefinition().setWalkable(true);
+		}
+		wildyOverlay.open(player);
 	}
 
 	/**
@@ -744,7 +771,7 @@ public final class InterfaceManager {
 	 */
 	public int getWindowPaneId() {
 		if (windowsPane == null) {
-			return 548;
+			return TOPLEVEL_548;
 		}
 		return windowsPane.getId();
 	}

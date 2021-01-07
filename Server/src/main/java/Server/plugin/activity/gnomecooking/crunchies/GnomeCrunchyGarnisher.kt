@@ -1,6 +1,6 @@
 package plugin.activity.gnomecooking.crunchies
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
@@ -16,9 +16,9 @@ import plugin.skill.Skills
 @InitializablePlugin
 class GnomeCrunchyGarnisher : UseWithHandler(9578,9580,9582,9584) {
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(ItemNames.CHOCOLATE_DUST_1975, ITEM_TYPE,this)
-        addHandler(ItemNames.GNOME_SPICE_2169, ITEM_TYPE, this)
-        addHandler(ItemNames.EQUA_LEAVES_2128, ITEM_TYPE, this)
+        addHandler(Items.CHOCOLATE_DUST_1975, ITEM_TYPE,this)
+        addHandler(Items.GNOME_SPICE_2169, ITEM_TYPE, this)
+        addHandler(Items.EQUA_LEAVES_2128, ITEM_TYPE, this)
         return this
     }
 
@@ -29,24 +29,24 @@ class GnomeCrunchyGarnisher : UseWithHandler(9578,9580,9582,9584) {
         val with = event.usedWith.asItem()
 
         val product = when(with.id){
-            ItemNames.CHOCOLATE_DUST_1975 -> {
+            Items.CHOCOLATE_DUST_1975 -> {
                 when(used.id){
-                    9578 -> ItemNames.CHOCCHIP_CRUNCHIES_2209
+                    9578 -> Items.CHOCCHIP_CRUNCHIES_2209
                     else -> -1
                 }
             }
 
-            ItemNames.GNOME_SPICE_2169 -> {
+            Items.GNOME_SPICE_2169 -> {
                 when(used.id){
-                    9584 -> ItemNames.WORM_CRUNCHIES_2205
-                    9580 -> ItemNames.SPICY_CRUNCHIES_2213
+                    9584 -> Items.WORM_CRUNCHIES_2205
+                    9580 -> Items.SPICY_CRUNCHIES_2213
                     else -> -1
                 }
             }
 
-            ItemNames.EQUA_LEAVES_2128 -> {
+            Items.EQUA_LEAVES_2128 -> {
                 when(used.id){
-                    9582 -> ItemNames.TOAD_CRUNCHIES_2217
+                    9582 -> Items.TOAD_CRUNCHIES_2217
                     else -> -1
                 }
             }
@@ -57,7 +57,7 @@ class GnomeCrunchyGarnisher : UseWithHandler(9578,9580,9582,9584) {
         if(product == -1) return false
 
         player.inventory.remove(used)
-        if(with.id != ItemNames.GNOME_SPICE_2169)
+        if(with.id != Items.GNOME_SPICE_2169)
             player.inventory.remove(with)
         player.inventory.add(Item(product))
         player.skills.addExperience(Skills.COOKING,64.0)

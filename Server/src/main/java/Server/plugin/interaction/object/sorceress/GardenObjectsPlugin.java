@@ -123,7 +123,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 						else if (delay == 4) {
 							player.unlock();
 							player.removeExtension(LogoutTask.class);
-							player.getPacketDispatch().sendMessage("An elemental force enamating from the garden teleports you away.");
+							player.getPacketDispatch().sendMessage("An elemental force emanating from the garden teleports you away.");
 							PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 0));
 							player.getInterfaceManager().close();
 							player.getInterfaceManager().closeOverlay();
@@ -202,7 +202,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 		    player.getProperties().setTeleportLocation(Location.create(herbDef.getRespawn()));
 		else if (delay == 4) {
 		    player.unlock();
-		    player.getPacketDispatch().sendMessage("An elemental force emnating from the garden teleports you away.");
+		    player.getPacketDispatch().sendMessage("An elemental force emanating from the garden teleports you away.");
 		    PacketRepository.send(MinimapState.class, new MinimapStateContext(player, 0));
 		    player.getInterfaceManager().close();
 			player.getInterfaceManager().closeOverlay();
@@ -827,7 +827,7 @@ public final class GardenObjectsPlugin extends OptionHandler {
 					end();
 					break;
 				case 0:
-					interpreter.sendDialogues(npc, null, "A print of the key in soft clay and a bronzr bar.", "Then, collect tthe key from Leela.");
+					interpreter.sendDialogues(npc, null, "A print of the key in soft clay and a bronze bar.", "Then, collect the key from Leela.");
 					stage = 1;
 					break;
 				case 1:

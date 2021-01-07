@@ -1,6 +1,6 @@
 package plugin.interaction.item.withobject;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.player.Player;
@@ -23,7 +23,7 @@ public class HairdresserCheesePlugin extends UseWithHandler {
      * Constructs a new {@code EctophialFillPlugin} {@code Object}
      */
     public HairdresserCheesePlugin() {
-        super(ItemNames.CHEESE_1985);
+        super(Items.CHEESE_1985);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class HairdresserCheesePlugin extends UseWithHandler {
         GameWorld.getPulser().submit(new Pulse(3, player) {
             @Override
             public boolean pulse() {
-                if (player.getInventory().remove(new Item(ItemNames.CHEESE_1985))) {
+                if (player.getInventory().remove(new Item(Items.CHEESE_1985))) {
                     player.sendMessage("You throw the cheese to Ridgeley, for which he appears grateful.");
                     player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR,0, 6);
                 }

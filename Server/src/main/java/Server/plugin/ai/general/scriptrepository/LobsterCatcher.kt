@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphics
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import plugin.ai.AIPlayer
 import plugin.ge.GEOfferDispatch
@@ -36,6 +36,8 @@ class LobsterCatcher : Script() {
 
     }
 
+    private var bots = 0
+    private var lobstopper = false
 
     private var state = State.FIND_SPOT
     private var tick = 0
@@ -44,11 +46,11 @@ class LobsterCatcher : Script() {
 
 
             State.BANKING -> {
-                scriptAPI.bankItem(ItemNames.RAW_LOBSTER)
-                state = if(bot.bank.getAmount(ItemNames.RAW_LOBSTER) > 100){
+                scriptAPI.bankItem(Items.RAW_LOBSTER_377)
+                state = if(bot.bank.getAmount(Items.RAW_LOBSTER_377) > 100){
                     State.TELEPORT_GE
                 } else {
-                    State.FIND_SPOT
+                    State.IDLE
                 }
             }
 
@@ -79,7 +81,6 @@ class LobsterCatcher : Script() {
                     bot.walkingQueue.reset()
                     state = State.FISHING
                 } else {
-                    //Change location to fishing guild
                     if (bot.location.x < 2837) {
                         Pathfinder.find(bot, Location.create(2837, 3435, 0)).walk(bot)
                     } else {
@@ -90,7 +91,6 @@ class LobsterCatcher : Script() {
 
 
             State.FIND_BANK -> {
-                //Change location to fishing guild
                 val bank = scriptAPI.getNearestGameObject(bot.location, 2213)
                 class BankingPulse : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
                     override fun pulse(): Boolean {
@@ -102,7 +102,6 @@ class LobsterCatcher : Script() {
                 if(bank != null){
                     bot.pulseManager.run(BankingPulse())
                 } else {
-                    //Change location to fishing guild
                     if (bot.location.x > 2837) {
                         Pathfinder.find(bot, Location.create(2837, 3435, 0)).walk(bot)
                     } else if (bot.location.x > 2821) {
@@ -121,45 +120,22 @@ class LobsterCatcher : Script() {
 
 
             State.SELL_GE -> {
-                val botAmount = bot.bank.getAmount(377)
-                var amount = 0
-                GEOfferDispatch.offerMapping.values.filter { it.itemId == 377 && it.isSell}.map{amount += it.amount}
-                if(amount + botAmount >= limit){
-                        state = State.STOP
-                    } else {
-                        scriptAPI.sellOnGE(ItemNames.RAW_LOBSTER)
-                        state = State.TELE_CATH
-                    }
-
+                scriptAPI.sellOnGE(Items.RAW_LOBSTER_377)
+                state = State.TELE_CATH
             }
 
-            State.STOP -> {
-                val botAmount = bot.bank.getAmount(377)
-                var amount = 0
-                GEOfferDispatch.offerMapping.values.filter { it.itemId == 377 && it.isSell}.map{amount += it.amount}
-                if(amount + botAmount >= limit){
-                        bot.randomWalk(5,5)
-                        State.STOP
-                    } else {
-                        State.TELE_CATH
-                    }
-
-            }
-
-            //Change location to fishing guild
             State.TELE_CATH -> {
                 if(tick++ == 10) {
                     bot.lock()
                     bot.visualize(ANIMATION, GRAPHICS)
                     bot.impactHandler.disabledTicks = 4
-                    //Change location to fishing guild
                     val location = Location.create(2819, 3437, 0)
                     GameWorld.Pulser.submit(object : Pulse(4, bot) {
                         override fun pulse(): Boolean {
                             bot.unlock()
                             bot.properties.teleportLocation = location
                             bot.animator.reset()
-                            state = State.FIND_SPOT
+                            state = State.IDLE
                             return true
                         }
                     })
@@ -172,10 +148,10 @@ class LobsterCatcher : Script() {
 
 
     init {
-        val setUp = RandomFunction.random(Sets.values().size)
-        equipment.addAll(Sets.values()[setUp].equipment)
-        inventory.add(Item(301))
-        skills[Skills.FISHING] = 40
+            val setUp = RandomFunction.random(Sets.values().size)
+            equipment.addAll(Sets.values()[setUp].equipment)
+            inventory.add(Item(301))
+            skills[Skills.FISHING] = 40
     }
 
     enum class State{
@@ -186,14 +162,20 @@ class LobsterCatcher : Script() {
         TELEPORT_GE,
         SELL_GE,
         TELE_CATH,
-        STOP,
         IDLE
     }
-    //Change location to fishing guild
+
     override fun newInstance(): Script {
-        val script = LobsterCatcher()
-        script.bot = AIPlayer(bot.startLocation)
-        script.state = State.FIND_SPOT
-        return script
+        if (!lobstopper && bots <= 0) {
+            val script = LobsterCatcher()
+            script.bot = AIPlayer(bot.startLocation)
+            script.state = State.FIND_SPOT
+            bots = 1
+            return script
+        }else if (tick++ == 6000 && lobstopper) {
+            tick = 0
+            lobstopper = false
+        }
+        return newInstance()
     }
 }

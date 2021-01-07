@@ -184,15 +184,20 @@ public abstract class MovementPulse extends Pulse {
         }
         findPath();
         if (mover.getLocation().equals(interactLocation)) {
-            if (near || pulse()) {
-                if (mover instanceof Player) {
-                    if (near) {
-                        ((Player) mover).getPacketDispatch().sendMessage("I can't reach that.");
+            try {
+                if (near || pulse()) {
+                    if (mover instanceof Player) {
+                        if (near) {
+                            ((Player) mover).getPacketDispatch().sendMessage("I can't reach that.");
+                        }
+                        PacketRepository.send(ClearMinimapFlag.class, new PlayerContext((Player) mover));
                     }
-                    PacketRepository.send(ClearMinimapFlag.class, new PlayerContext((Player) mover));
+                    stop();
+                    return true;
                 }
+            } catch (Exception e){
+                e.printStackTrace();
                 stop();
-                return true;
             }
         }
         return false;

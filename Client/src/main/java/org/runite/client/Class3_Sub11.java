@@ -1,10 +1,10 @@
 package org.runite.client;
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
-import org.rs09.client.Linkable;
-import org.rs09.client.data.HashTable;
-import org.rs09.client.LinkableInt;
 
+import org.rs09.client.Linkable;
+import org.rs09.client.LinkableInt;
+import org.rs09.client.data.HashTable;
+
+import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -235,7 +235,7 @@ final class Class3_Sub11 extends Linkable {
       }
 
       if(aClass3_Sub30_2372.index != 0 || aClass3_Sub30_2362.index != 0) {
-         GL2 var10 = HDToolKit.gl;
+         GL var10 = HDToolKit.gl;
          if(this.anInt2351 == -1 || var3) {
             HDToolKit.bindTexture2D(-1);
             Class3_Sub28_Sub4.method551(0, 0);
@@ -246,7 +246,7 @@ final class Class3_Sub11 extends Linkable {
           int var11 = this.aBoolean2347?40:36;
          if(this.aClass156_2363 == null) {
             if(HDToolKit.supportVertexBufferObject) {
-               var10.glBindBuffer('\u8892', 0);
+               var10.glBindBufferARB('\u8892', 0);
             }
 
             this.aByteBuffer2345.position(0);
@@ -283,7 +283,7 @@ final class Class3_Sub11 extends Linkable {
          }
 
           if(HDToolKit.supportVertexBufferObject) {
-            var10.glBindBuffer('\u8893', 0);
+            var10.glBindBufferARB('\u8893', 0);
          }
 
          if(aClass3_Sub30_2372.index != 0) {

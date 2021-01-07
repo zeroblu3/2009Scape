@@ -19,6 +19,8 @@ public final class InteractionOptionContext implements Context {
 	 */
 	private final int index;
 
+	private boolean remove = false;
+
 	/**
 	 * The name.
 	 */
@@ -34,11 +36,23 @@ public final class InteractionOptionContext implements Context {
 		this.player = player;
 		this.index = index;
 		this.name = name;
+		this.remove = false;
+	}
+
+	public InteractionOptionContext(Player player, int index, String name, boolean remove){
+		this.player = player;
+		this.index = index;
+		this.name = name;
+		this.remove = remove;
 	}
 
 	@Override
 	public Player getPlayer() {
 		return player;
+	}
+
+	public boolean isRemove() {
+		return remove;
 	}
 
 	/**

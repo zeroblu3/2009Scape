@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
+import core.tools.Items;
 
 import java.util.HashMap;
 
@@ -21,6 +22,11 @@ public final class EmptyOptionPlugin extends OptionHandler {
 	public static final String BUCKET_EMPTY_MSG = "You empty the contents of the bucket onto the floor.";
 	@Override
 	public boolean handle(Player player, Node node, String option) {
+	    if (node.getName().contains("potion")) {
+            player.getInventory().remove(node.asItem());
+            player.getInventory().add(EmptyItem.getEmpty(91));
+            return true;
+        }
 		if(EmptyItem.emptyItemMap.get(node.getId()) != null){
 			player.getInventory().remove(node.asItem());
 			player.getInventory().add(EmptyItem.getEmpty(node.getId()));
@@ -54,7 +60,8 @@ public final class EmptyOptionPlugin extends OptionHandler {
 		VIAL_OF_WATER(227, VIAL, "You empty the vial."),
 		BOWL_OF_SAND(1921, 1923, "You empty the contents of the bowl onto the floor."),
 		JUG_OF_WATER(1937, 1935, "You empty the contents of the jug onto the floor."),
-		BURNT_PIE(2329, 2313, "You empty the pie dish.");
+		BURNT_PIE(2329, 2313, "You empty the pie dish."),
+        POTION(91, VIAL,null);
 
 		int fullId, emptyId;
 		String emptyMessage;

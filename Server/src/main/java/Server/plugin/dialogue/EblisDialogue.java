@@ -4,7 +4,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.game.node.entity.player.Player;
-import core.tools.ItemNames;
+import core.tools.Items;
 
 /**
  * Handles Eblis's dialogue.
@@ -79,11 +79,11 @@ public class EblisDialogue extends DialoguePlugin {
 				stage = 11;
 				break;
 			case 11:
-				if(!player.getInventory().contains(ItemNames.COINS,80000)){
+				if(!player.getInventory().contains(Items.COINS_995,80000)){
 					npc("Oi vey... you dont have enough..");
 				} else {
-					player.getInventory().remove(new Item(ItemNames.COINS,80000));
-					player.getInventory().add(new Item(ItemNames.ANCIENT_STAFF_4675));
+					player.getInventory().remove(new Item(Items.COINS_995,80000));
+					player.getInventory().add(new Item(Items.ANCIENT_STAFF_4675));
 				}
 				stage = 30;
 				break;

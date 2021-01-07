@@ -11,7 +11,7 @@ import plugin.dialogue.FacialExpression
 import core.tools.RandomFunction
 import core.game.content.global.SkillingPets
 import core.game.container.impl.EquipmentContainer
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.world.map.path.Pathfinder
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.content.global.SkillcapePerks
@@ -25,6 +25,8 @@ import plugin.skill.gather.SkillingResource
 import core.game.node.item.ChanceItem
 import core.game.node.entity.npc.drop.DropFrequency
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.info.stats.STATS_BASE
+import core.game.node.entity.player.info.stats.STATS_ROCKS
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
@@ -152,12 +154,12 @@ class MiningSkillPulse(private val player: Player, private val node: Node) : Pul
                 player.skills.addExperience(Skills.MINING, experience, true)
 
                 //Handle bracelet of clay
-                if(reward == ItemNames.CLAY_434){
+                if(reward == Items.CLAY_434){
                     val bracelet = player.equipment.get(EquipmentContainer.SLOT_HANDS)
-                    if(bracelet != null && bracelet.id == ItemNames.BRACELET_OF_CLAY_11074){
+                    if(bracelet != null && bracelet.id == Items.BRACELET_OF_CLAY_11074){
                         if(bracelet.charge > 28) bracelet.charge = 28
                         bracelet.charge--
-                        reward = ItemNames.SOFT_CLAY_1761
+                        reward = Items.SOFT_CLAY_1761
                         player.sendMessage("Your bracelet of clay softens the clay for you.")
                         if(bracelet.charge <= 0){
                             player.sendMessage("Your bracelet of clay crumbles to dust.")
@@ -175,6 +177,8 @@ class MiningSkillPulse(private val player: Player, private val node: Node) : Pul
                 }
                 //give the reward
                 player.inventory.add(Item(reward, rewardAmount))
+                var rocksMined = player.getAttribute("$STATS_BASE:$STATS_ROCKS",0)
+                player.setAttribute("/save:$STATS_BASE:$STATS_ROCKS",++rocksMined)
 
                 //calculate bonus gem for mining
                 if (!isMiningEssence) {
@@ -245,15 +249,15 @@ class MiningSkillPulse(private val player: Player, private val node: Node) : Pul
         //checks for varrock armor from varrock diary and rolls chance at extra ore
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK).level != -1) {
             when (reward) {
-                ItemNames.CLAY_434, ItemNames.COPPER_ORE, ItemNames.TIN_ORE, ItemNames.LIMESTONE_3211, ItemNames.BLURITE_ORE_668, ItemNames.IRON_ORE, ItemNames.ELEMENTAL_ORE_2892, ItemNames.SILVER_ORE_442, ItemNames.COAL -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(100) <= 10) {
+                Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(100) <= 10) {
                     amount += 1
                     player.sendMessage("The Varrock armour allows you to mine an additional ore.")
                 }
-                ItemNames.GOLD_ORE, ItemNames.GRANITE_500G_6979, ItemNames.GRANITE_2KG_6981, ItemNames.GRANITE_5KG_6983, ItemNames.MITHRIL_ORE -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(100) <= 10) {
+                Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(100) <= 10) {
                     amount += 1
                     player.sendMessage("The Varrock armour allows you to mine an additional ore.")
                 }
-                ItemNames.ADAMANTITE_ORE -> if (player.achievementDiaryManager.armour >= 2 && RandomFunction.random(100) <= 10) {
+                Items.ADAMANTITE_ORE_449 -> if (player.achievementDiaryManager.armour >= 2 && RandomFunction.random(100) <= 10) {
                     amount += 1
                     player.sendMessage("The Varrock armour allows you to mine an additional ore.")
                 }
@@ -293,47 +297,47 @@ class MiningSkillPulse(private val player: Player, private val node: Node) : Pul
      */
     private fun applyAchievementTask(reward: Int) {
         // Mine some Iron in the south east mining patch near Varrock
-        if (reward == ItemNames.IRON_ORE && player.location.withinDistance(Location.create(3285, 3363, 0))) {
+        if (reward == Items.IRON_ORE_440 && player.location.withinDistance(Location.create(3285, 3363, 0))) {
             player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, 2)
         }
 
         // Mine some limestone near Paterdomus, the temple to the east<br><br>of Varrock
-        if (reward == ItemNames.LIMESTONE_3211 && player.location.withinDistance(Location.create(3372, 3500, 0))) {
+        if (reward == Items.LIMESTONE_3211 && player.location.withinDistance(Location.create(3372, 3500, 0))) {
             player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, 15)
         }
 
         // Mine some gold from the rocks on the north-west<br><br>peninsula of Karamja
-        if (reward == ItemNames.GOLD_ORE && player.location.withinDistance(Location.create(2733, 3225, 0))) {
+        if (reward == Items.GOLD_ORE_444 && player.location.withinDistance(Location.create(2733, 3225, 0))) {
             player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 0, 2)
         }
 
         // Mine a red topaz from a gem rock
-        if (reward == ItemNames.UNCUT_RED_TOPAZ_1629 && (player.viewport.region.id == 11310 || player.viewport.region.id == 11410)) {
+        if (reward == Items.UNCUT_RED_TOPAZ_1629 && (player.viewport.region.id == 11310 || player.viewport.region.id == 11410)) {
             player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 1, 18)
         }
 
         // Mine some clay in the Mining patch north of the Champions'<br><br>Guild
-        if (reward == ItemNames.CLAY_434 && player.viewport.region.id == 12596) {
+        if (reward == Items.CLAY_434 && player.viewport.region.id == 12596) {
             player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 0, 5)
         }
 
         // Mine some copper in the Mining spot to the south-east of<br><br>Lumbridge Swamp
-        if (reward == ItemNames.COPPER_ORE && player.viewport.region.id == 12849) {
+        if (reward == Items.COPPER_ORE_436 && player.viewport.region.id == 12849) {
             player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 0, 12)
         }
 
         // Mine some iron ore from the Al Kharid Mining spot
-        if (reward == ItemNames.IRON_ORE && player.viewport.region.id == 13107) {
+        if (reward == Items.IRON_ORE_440 && player.viewport.region.id == 13107) {
             player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 1, 0)
         }
 
         // Mine some silver from the mining spot north of Al Kharid
-        if (reward == ItemNames.SILVER_ORE_442 && player.viewport.region.id == 13107) {
+        if (reward == Items.SILVER_ORE_442 && player.viewport.region.id == 13107) {
             player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 2, 10)
         }
 
         // Mine some coal in the Mining spot south-west of Lumbridge<br><br>Swamp
-        if (reward == ItemNames.COAL && player.viewport.region.id == 12593) {
+        if (reward == Items.COAL_453 && player.viewport.region.id == 12593) {
             player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 2, 11)
         }
     }

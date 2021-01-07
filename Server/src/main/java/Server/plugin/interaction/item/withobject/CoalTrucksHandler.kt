@@ -12,7 +12,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
-import core.tools.ItemNames
+import core.tools.Items
 import java.util.*
 
 /**
@@ -46,7 +46,7 @@ class CoalTrucksHandler : OptionHandler() {
 
                 if(toRemove > coalInTruck) toRemove = coalInTruck
 
-                player.inventory.add(Item(ItemNames.COAL,toRemove))
+                player.inventory.add(Item(Items.COAL_453,toRemove))
 
                 coalInTruck -= toRemove
                 player.setAttribute("/save:coal-truck-inventory", coalInTruck)
@@ -64,7 +64,7 @@ class CoalTrucksHandler : OptionHandler() {
         return true
     }
 
-    inner class useCoalWithTruck : UseWithHandler(ItemNames.COAL) {
+    inner class useCoalWithTruck : UseWithHandler(Items.COAL_453) {
         override fun newInstance(arg: Any?): Plugin<Any>? {
             addHandler(2114, OBJECT_TYPE, this)
             return this
@@ -74,7 +74,7 @@ class CoalTrucksHandler : OptionHandler() {
             val player = event.player
             var coalInTruck = player.getAttribute("coal-truck-inventory", 0)
 
-            var coalInInventory = player.inventory.getAmount(ItemNames.COAL)
+            var coalInInventory = player.inventory.getAmount(Items.COAL_453)
 
             if(coalInInventory + coalInTruck >= 120){
                 coalInInventory = 120 - coalInTruck
@@ -87,7 +87,7 @@ class CoalTrucksHandler : OptionHandler() {
                 }
             }
 
-            player.inventory.remove(Item(ItemNames.COAL,coalInInventory))
+            player.inventory.remove(Item(Items.COAL_453,coalInInventory))
             coalInTruck += coalInInventory
 
             player.setAttribute("/save:coal-truck-inventory",coalInTruck)

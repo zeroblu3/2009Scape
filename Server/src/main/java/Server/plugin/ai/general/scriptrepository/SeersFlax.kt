@@ -6,7 +6,7 @@ import core.game.node.item.Item
 import core.game.system.SystemLogger
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
 import plugin.skill.crafting.spinning.SpinningItem
@@ -23,7 +23,7 @@ class SeersFlax : Script(){
             State.PICKING -> {
                 val flax = scriptAPI.getNearestNode(2646,true)
                 flax?.interaction?.handle(bot,flax.interaction[1])
-                if(bot.inventory.getAmount(ItemNames.FLAX_1779) > 25){
+                if(bot.inventory.getAmount(Items.FLAX_1779) > 25){
                     state = State.TO_SPINNER
                 }
             }
@@ -58,7 +58,7 @@ class SeersFlax : Script(){
             }
 
             State.SPINNING -> {
-                bot.pulseManager.run(SpinningPulse(bot, Item(ItemNames.FLAX_1779),bot.inventory.getAmount(ItemNames.FLAX_1779),SpinningItem.FLAX))
+                bot.pulseManager.run(SpinningPulse(bot, Item(Items.FLAX_1779),bot.inventory.getAmount(Items.FLAX_1779),SpinningItem.FLAX))
                 state = State.FIND_BANK
             }
 
@@ -89,8 +89,8 @@ class SeersFlax : Script(){
                     bot.pulseManager.run(object: MovementPulse(bot,bank, DestinationFlag.OBJECT){
                         override fun pulse(): Boolean {
                             bot.faceLocation(bank.location)
-                            scriptAPI.bankItem(ItemNames.BOW_STRING_1777)
-                            if(bot.bank.getAmount(ItemNames.BOW_STRING_1777) > 500){
+                            scriptAPI.bankItem(Items.BOW_STRING_1777)
+                            if(bot.bank.getAmount(Items.BOW_STRING_1777) > 500){
                                 SystemLogger.log("Should tele")
                                 state = State.TELE_GE
                                 return true
@@ -119,7 +119,7 @@ class SeersFlax : Script(){
             }
 
             State.SELL_GE -> {
-                scriptAPI.sellOnGE(ItemNames.BOW_STRING_1777,250)
+                scriptAPI.sellOnGE(Items.BOW_STRING_1777)
                 state = State.TELE_CAMELOT
             }
 

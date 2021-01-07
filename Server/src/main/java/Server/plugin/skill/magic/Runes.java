@@ -2,6 +2,7 @@ package plugin.skill.magic;
 
 import core.game.node.entity.combat.equipment.SpellType;
 import core.game.node.item.Item;
+import core.tools.Items;
 
 /**
  * Represents the <b>Constants</b> of runes.
@@ -79,16 +80,16 @@ public enum Runes {
 			}
 		}
 		if (rune == Runes.AIR_RUNE) {
-			if (weapon.getId() == 1381 || weapon.getId() == 1397) // air staff
+			if (weapon.getId() == Items.STAFF_OF_AIR_1381 || weapon.getId() == Items.AIR_BATTLESTAFF_1397) // air staff
 				return true;
 		} else if (rune == Runes.WATER_RUNE) {
-			if (weapon.getId() == 1383 || weapon.getId() == 1395) // water staff
+			if (weapon.getId() == Items.STAFF_OF_WATER_1383 || weapon.getId() == Items.WATER_BATTLESTAFF_1395) // water staff
 				return true;
 		} else if (rune == Runes.EARTH_RUNE) {
-			if (weapon.getId() == 1385 || weapon.getId() == 1399) // earth staff
+			if (weapon.getId() == Items.STAFF_OF_EARTH_1385 || weapon.getId() == Items.EARTH_BATTLESTAFF_1399) // earth staff
 				return true;
 		} else if (rune == Runes.FIRE_RUNE) {
-			if (weapon.getId() == 1387 || weapon.getId() == 1393) // fire staff
+			if (weapon.getId() == Items.STAFF_OF_FIRE_1387 || weapon.getId() == Items.FIRE_BATTLESTAFF_1393) // fire staff
 				return true;
 		}
 		return false;

@@ -1,7 +1,7 @@
 package plugin.interaction.object;
 
 import core.cache.def.impl.ObjectDefinition;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;
 import core.game.interaction.UseWithHandler;
@@ -21,8 +21,8 @@ import core.plugin.PluginManager;
  */
 @InitializablePlugin
 public final class SinclairFlourBarrelPlugin extends OptionHandler {
-    private final static Item EMPTY_POT = new Item(ItemNames.POT_1931);
-    private static final Item FLOUR = new Item(ItemNames.POT_OF_FLOUR);
+    private final static Item EMPTY_POT = new Item(Items.EMPTY_POT_1931);
+    private static final Item FLOUR = new Item(Items.POT_OF_FLOUR_1933);
 
     @Override
     public boolean handle(Player player, Node node, String option) {

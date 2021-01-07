@@ -19,7 +19,6 @@ class ShootingStarOptionHandler : OptionHandler() {
             ObjectDefinition.forId(star.objectId).handlers["option:mine"] = this
             ObjectDefinition.forId(star.objectId).handlers["option:prospect"] = this
         }
-        ObjectDefinition.forId(13656).handlers["option:observe"] = this
         return this
     }
 

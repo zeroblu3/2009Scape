@@ -1,6 +1,6 @@
 package plugin.interaction.item.withnpc;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.npc.NPC;
@@ -15,7 +15,7 @@ import core.plugin.Plugin;
  */
 @InitializablePlugin
 public final class KingArthurPoisonChalicePlugin extends UseWithHandler {
-    private static final Item POISON_CHALICE = new Item(ItemNames.POISON_CHALICE_197);
+    private static final Item POISON_CHALICE = new Item(Items.POISON_CHALICE_197);
 
     /**
      * Constructs a new {@code LadyKeliRopePlugin} {@code Object}.

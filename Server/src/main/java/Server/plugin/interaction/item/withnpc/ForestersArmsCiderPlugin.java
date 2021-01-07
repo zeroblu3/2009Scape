@@ -1,6 +1,6 @@
 package plugin.interaction.item.withnpc;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.npc.NPC;
@@ -17,13 +17,13 @@ import core.plugin.Plugin;
  */
 @InitializablePlugin
 public final class ForestersArmsCiderPlugin extends UseWithHandler {
-    private static final Item CIDER = new Item(ItemNames.CIDER_5763);
+    private static final Item CIDER = new Item(Items.CIDER_5763);
 
     /**
      * Constructs a new {@code LadyKeliRopePlugin} {@code Object}.
      */
     public ForestersArmsCiderPlugin() {
-        super(ItemNames.CIDER_5763);
+        super(Items.CIDER_5763);
     }
 
     @Override

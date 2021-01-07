@@ -9,7 +9,7 @@ import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.plugin.PluginManager;
-import core.game.content.ItemNames;
+import core.tools.Items;
 
 @InitializablePlugin
 public final class SecurityGuardPlugin extends OptionHandler {
@@ -44,9 +44,9 @@ public final class SecurityGuardPlugin extends OptionHandler {
 		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
-			if (player.getInventory().hasSpaceFor(new Item(ItemNames.SECURITY_BOOK_9003))) {
+			if (player.getInventory().hasSpaceFor(new Item(Items.SECURITY_BOOK_9003))) {
 				npc("Here's a Security book for you.", "Have a nice day.");
-				player.getInventory().add(new Item(ItemNames.SECURITY_BOOK_9003));
+				player.getInventory().add(new Item(Items.SECURITY_BOOK_9003));
 			} else {
 				npc("Have a nice day.");
 			}

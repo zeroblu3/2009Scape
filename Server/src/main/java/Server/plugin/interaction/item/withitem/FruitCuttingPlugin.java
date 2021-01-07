@@ -1,6 +1,7 @@
 package plugin.interaction.item.withitem;
 
 import core.game.component.Component;
+import core.tools.Items;
 import plugin.dialogue.DialoguePlugin;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
@@ -65,7 +66,8 @@ public final class FruitCuttingPlugin extends UseWithHandler {
 	public enum Fruit {
 		PINEAPPLE(new Item(2114), new Item(2116), new Item(2118, 4)),
 		BANANA(new Item(1963), null, new Item(3162)),
-		LEMON(new Item(2102), null, new Item(2106)),
+		LEMON(new Item(2102), new Item(Items.LEMON_CHUNKS_2104), new Item(2106)),
+		LIME(new Item(Items.LIME_2120),new Item(Items.LIME_CHUNKS_2122), new Item(Items.LIME_SLICES_2124)),
 		ORANGE(new Item(2108), new Item(2110), new Item(2112));
 
 		/**

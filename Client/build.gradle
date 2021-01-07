@@ -8,8 +8,7 @@ dependencies {
     implementation 'com.github.Vatuu:discord-rpc:1.6.2'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
-    implementation files('libs/gluegen-rt.jar')
-    implementation files('libs/jogl-all.jar')
+    implementation files('libs/clientlibs.jar')
 }
 
 jar {

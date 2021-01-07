@@ -1,6 +1,6 @@
 package plugin.skill.fletching.items.arrow;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import plugin.skill.SkillPulse;
 import plugin.skill.Skills;
 import core.game.node.entity.player.Player;
@@ -15,23 +15,23 @@ public final class HeadlessArrowPulse extends SkillPulse<Item> {
 	/**
 	 * Represents the headless arrow item.
 	 */
-	private final Item HEADLESS_ARROW = new Item(ItemNames.HEADLESS_ARROW_53);
+	private final Item HEADLESS_ARROW = new Item(Items.HEADLESS_ARROW_53);
 
 	/**
 	 * Represents the arrow shaft item.
 	 */
-	private final Item ARROW_SHAFT = new Item(ItemNames.ARROW_SHAFT_52);
+	private final Item ARROW_SHAFT = new Item(Items.ARROW_SHAFT_52);
 
 	/**
 	 * Represents the feather items.
 	 */
 	private static final Item[] FEATHER = new Item[] {
-			new Item(ItemNames.FEATHER),
-			new Item(ItemNames.STRIPY_FEATHER_10087),
-			new Item(ItemNames.RED_FEATHER_10088),
-			new Item(ItemNames.BLUE_FEATHER_10089),
-			new Item(ItemNames.YELLOW_FEATHER_10090),
-			new Item(ItemNames.ORANGE_FEATHER_10091)
+			new Item(Items.FEATHER_314),
+			new Item(Items.STRIPY_FEATHER_10087),
+			new Item(Items.RED_FEATHER_10088),
+			new Item(Items.BLUE_FEATHER_10089),
+			new Item(Items.YELLOW_FEATHER_10090),
+			new Item(Items.ORANGE_FEATHER_10091)
 	};
 
 	/**

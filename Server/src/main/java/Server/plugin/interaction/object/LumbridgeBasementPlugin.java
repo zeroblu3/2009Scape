@@ -112,10 +112,12 @@ public class LumbridgeBasementPlugin extends OptionHandler {
 		case "enter":
 			switch (node.getId()) {
 			case 32944:
+				//Location.create(3353,3951,0)
 				player.teleport(Location.create(3219, 9532, 2));
 				break;
 			case 6658:
-				player.teleport(Location.create(3226, 9542, 0));
+				//Location.create(3226, 9542, 0)
+				player.teleport(Location.create(3353, 3950, 0));
 				break;
 			}
 			break;

@@ -1,6 +1,6 @@
 package plugin.ai.general.scriptrepository
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.item.Item
@@ -42,8 +42,8 @@ class SeersMagicTrees : Script(){
                     bot.pulseManager.run(object: MovementPulse(bot,bank, DestinationFlag.OBJECT){
                         override fun pulse(): Boolean {
                             bot.faceLocation(bank.location)
-                            scriptAPI.bankItem(ItemNames.MAGIC_LOGS_1513)
-                            if(bot.bank.getAmount(ItemNames.MAGIC_LOGS_1513) > 50){
+                            scriptAPI.bankItem(Items.MAGIC_LOGS_1513)
+                            if(bot.bank.getAmount(Items.MAGIC_LOGS_1513) > 50){
                                 state = State.TELE_GE
                                 return true
                             }
@@ -73,7 +73,7 @@ class SeersMagicTrees : Script(){
 
             State.SELL_GE -> {
                 state = State.TELE_SEERS
-                scriptAPI.sellOnGE(ItemNames.MAGIC_LOGS_1513,750)
+                scriptAPI.sellOnGE(Items.MAGIC_LOGS_1513)
             }
 
             State.TELE_SEERS -> {
@@ -84,7 +84,7 @@ class SeersMagicTrees : Script(){
     }
 
     init {
-        inventory.add(Item(ItemNames.RUNE_AXE))
+        inventory.add(Item(Items.RUNE_AXE_1359))
         skills[Skills.WOODCUTTING] = RandomFunction.random(75,99)
     }
 

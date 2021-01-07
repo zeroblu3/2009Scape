@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
 import core.plugin.PluginManager
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.dialogue.DialoguePlugin
 
 /**
@@ -22,11 +22,11 @@ import plugin.dialogue.DialoguePlugin
 @InitializablePlugin
 class WorkForOptionHandler : OptionHandler() {
     val possibleWeaponLooks = arrayListOf(
-            ItemNames.BRONZE_SCIMITAR,
-            ItemNames.STEEL_SCIMITAR,
-            ItemNames.RUNE_SCIMITAR,
-            ItemNames.BRONZE_MACE,
-            ItemNames.MITHRIL_WARHAMMER
+            Items.BRONZE_SCIMITAR_1321,
+            Items.STEEL_SCIMITAR_1325,
+            Items.RUNE_SCIMITAR_1333,
+            Items.BRONZE_MACE_1422,
+            Items.MITHRIL_WARHAMMER_1343
     )
     val gatheringMap = hashMapOf<Int,List<GatheringJobs>>(
             0 to listOf(GatheringJobs.AIR_RUNE,GatheringJobs.COWHIDES,GatheringJobs.WATER_RUNE),

@@ -5,9 +5,8 @@ package core.game.node.entity.player.link;
  * @author Vexia
  */
 public enum IronmanMode {
-	//TODO: add HCIM logo to cache/wherever else it needs to go
 	// HARDCORE_DEAD has to be before Ultimate so that it does not adopt it's restrictions (on the basis of >= in IronmanManager.java?)
-	NONE(-1), STANDARD(14), HARDCORE(16), ULTIMATE(15);
+	NONE(-1), STANDARD(5), HARDCORE(6), ULTIMATE(7);
 
 	/**
 	 * The icon id.

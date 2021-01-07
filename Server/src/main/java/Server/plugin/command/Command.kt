@@ -1,6 +1,7 @@
 package plugin.command
 
 import core.game.node.entity.player.Player
+import core.game.world.GameWorld
 import plugin.stringtools.colorize
 
 /**
@@ -10,7 +11,7 @@ import plugin.stringtools.colorize
 class Command(val name: String, val privilege: Privilege, val handle: (Player, Array<String>) -> Unit) {
     fun attemptHandling(player: Player, args: Array<String>?){
         args ?: return
-        if(player.rights.ordinal >= privilege.ordinal){
+        if(player.rights.ordinal >= privilege.ordinal || GameWorld.settings?.isDevMode == true){
             handle(player,args)
         }
     }

@@ -20,6 +20,7 @@ import core.net.packet.IoBuffer;
 import core.net.packet.PacketRepository;
 import core.net.packet.context.PlayerContext;
 import core.net.packet.out.ClearMinimapFlag;
+import plugin.interaction.player.PeltOptionPlugin;
 import plugin.quest.PluginInteractionManager;
 
 import java.util.List;
@@ -42,79 +43,81 @@ public final class InteractionPacket implements IncomingPacket {
 			return;
 		}
 		player.getInterfaceManager().closeChatbox();
-		switch (buffer.opcode()) {
-		case 78: // NPC reward 1
-			int index = buffer.getLEShort();
-			handleNPCInteraction(player, 0, index);
-			break;
-		case 3: // NPC reward 2
-			index = buffer.getLEShortA();
-			handleNPCInteraction(player, 1, index);
-			break;
-		case 148: // NPC reward 3
-			index = buffer.getShortA();
-			handleNPCInteraction(player, 2, index);
-			break;
-		case 30: // NPC reward 4
-			index = buffer.getShort();
-			handleNPCInteraction(player, 3, index);
-			break;
-		case 218: // NPC reward 5
-			index = buffer.getLEShort();
-			handleNPCInteraction(player, 4, index);
-			break;
-		case 254: // Object reward 1
-			int x = buffer.getLEShort();
-			int objectId = buffer.getShortA() & 0xFFFF;
-			int y = buffer.getShort();
-			handleObjectInteraction(player, 0, x, y, objectId);
-			break;
-		case 194: // Object reward 2
-			y = buffer.getLEShortA();
-			x = buffer.getLEShort();
-			objectId = buffer.getShort() & 0xFFFF;
-			handleObjectInteraction(player, 1, x, y, objectId);
-			break;
-		case 84: // Object reward 3
-			objectId = buffer.getLEShortA() & 0xFFFF;
-			y = buffer.getLEShortA();
-			x = buffer.getLEShort();
-			handleObjectInteraction(player, 2, x, y, objectId);
-			break;
-		case 152: // Object reward 4 TODO
-			objectId = buffer.getLEShortA() & 0xFFFF;
-			x = buffer.getLEShort();
-			y = buffer.getLEShortA();
-			handleObjectInteraction(player, 3, x, y, objectId);
-			break;
-		case 247://Object reward 4
-			y = buffer.getLEShort() & 0xFFFF;
-			x = buffer.getLEShortA();
-			objectId = buffer.getShort() & 0xFFFF;
-			handleObjectInteraction(player, 3, x, y, objectId);
-			break;
-		case 170: // Object reward 5
-			objectId = buffer.getLEShortA() & 0xFFFF;
-			x = buffer.getLEShortA();
-			y = buffer.getLEShortA();
-			handleObjectInteraction(player, 4, x, y, objectId);
-			break;
-		case 68: // Player reward 1 - Challenge
-			index = buffer.getLEShortA();
-			handlePlayerInteraction(player, 0, index);
-			break;
+		player.debug("Received " + buffer.opcode());
+		try {
+			switch (buffer.opcode()) {
+				case 78: // NPC reward 1
+					int index = buffer.getLEShort();
+					handleNPCInteraction(player, 0, index);
+					break;
+				case 3: // NPC reward 2
+					index = buffer.getLEShortA();
+					handleNPCInteraction(player, 1, index);
+					break;
+				case 148: // NPC reward 3
+					index = buffer.getShortA();
+					handleNPCInteraction(player, 2, index);
+					break;
+				case 30: // NPC reward 4
+					index = buffer.getShort();
+					handleNPCInteraction(player, 3, index);
+					break;
+				case 218: // NPC reward 5
+					index = buffer.getLEShort();
+					handleNPCInteraction(player, 4, index);
+					break;
+				case 254: // Object reward 1
+					int x = buffer.getLEShort();
+					int objectId = buffer.getShortA() & 0xFFFF;
+					int y = buffer.getShort();
+					handleObjectInteraction(player, 0, x, y, objectId);
+					break;
+				case 194: // Object reward 2
+					y = buffer.getLEShortA();
+					x = buffer.getLEShort();
+					objectId = buffer.getShort() & 0xFFFF;
+					handleObjectInteraction(player, 1, x, y, objectId);
+					break;
+				case 84: // Object reward 3
+					objectId = buffer.getLEShortA() & 0xFFFF;
+					y = buffer.getLEShortA();
+					x = buffer.getLEShort();
+					handleObjectInteraction(player, 2, x, y, objectId);
+					break;
+				case 152: // Object reward 4 TODO
+					objectId = buffer.getLEShortA() & 0xFFFF;
+					x = buffer.getLEShort();
+					y = buffer.getLEShortA();
+					handleObjectInteraction(player, 3, x, y, objectId);
+					break;
+				case 247://Object reward 4
+					y = buffer.getLEShort() & 0xFFFF;
+					x = buffer.getLEShortA();
+					objectId = buffer.getShort() & 0xFFFF;
+					handleObjectInteraction(player, 3, x, y, objectId);
+					break;
+				case 170: // Object reward 5
+					objectId = buffer.getLEShortA() & 0xFFFF;
+					x = buffer.getLEShortA();
+					y = buffer.getLEShortA();
+					handleObjectInteraction(player, 4, x, y, objectId);
+					break;
+				case 68: // Player reward 1 - Challenge
+					index = buffer.getLEShortA();
+					handlePlayerInteraction(player, 0, index);
+					break;
 		/*case : // Player reward 2 TODO
 			index = buffer.getLEShort();
 			handlePlayerInteraction(player, 1, index);
 			break;*/
-		case 71: // Player reward 3 - follow
-			index = buffer.getLEShortA();
-			handlePlayerInteraction(player, 2, index);
-			break;
-		case 180: // Player reward 4 - trade
-			index = buffer.getLEShortA();
-			handlePlayerInteraction(player, 3, index);
-			break;
+				case 71: // Player reward 3 - follow
+					index = buffer.getLEShortA();
+					handlePlayerInteraction(player, 2, index);
+					break;
+				case 180: // Player reward 4 - trade
+					index = buffer.getLEShortA();
+					handlePlayerInteraction(player, 3, index);
+					break;
 		/*case : // Player reward 5 TODO
 			index = buffer.getLEShortA();
 			handlePlayerInteraction(player, 4, index);
@@ -123,26 +126,29 @@ public final class InteractionPacket implements IncomingPacket {
 			index = buffer.getShort();
 			handlePlayerInteraction(player, 5, index);
 			break;*/
-		case 114: // Player reward 7 - req assistance
-			index = buffer.getLEShortA();
-			handlePlayerInteraction(player, 6, index);
-			break;
-		case 175: // Player reward 8 - "whack" (also "control" for AIPs)
-			index = buffer.getShortA();
-			handlePlayerInteraction(player, 7, index);
-			break;
-		case 66: // Ground item reward 1
-			x = buffer.getLEShort();
-			int itemId = buffer.getShort();
-			y = buffer.getLEShortA();
-			handleGroundItemInteraction(player, 2, itemId, Location.create(x, y, player.getLocation().getZ()));
-			break;
-		case 33: // Ground item reward 2
-			itemId = buffer.getShort();
-			x = buffer.getShort();
-			y = buffer.getLEShort();
-			handleGroundItemInteraction(player, 3, itemId, Location.create(x, y, player.getLocation().getZ()));
-			break;
+				case 114: // Player reward 7 - req assistance
+					index = buffer.getLEShortA();
+					handlePlayerInteraction(player, 6, index);
+					break;
+				case 175: // Player reward 8 - "whack" (also "control" for AIPs)
+					index = buffer.getShortA();
+					handlePlayerInteraction(player, 7, index);
+					break;
+				case 66: // Ground item reward 1
+					x = buffer.getLEShort();
+					int itemId = buffer.getShort();
+					y = buffer.getLEShortA();
+					handleGroundItemInteraction(player, 2, itemId, Location.create(x, y, player.getLocation().getZ()));
+					break;
+				case 33: // Ground item reward 2
+					itemId = buffer.getShort();
+					x = buffer.getShort();
+					y = buffer.getLEShort();
+					handleGroundItemInteraction(player, 3, itemId, Location.create(x, y, player.getLocation().getZ()));
+					break;
+			}
+		} catch (Exception e){
+			e.printStackTrace();
 		}
 	}
 
@@ -279,6 +285,10 @@ public final class InteractionPacket implements IncomingPacket {
 			return;
 		}
 		final Option option = player.getInteraction().get(optionIndex);
+		//Handling for "Pelt" option
+		if(option.getName().toLowerCase().equals("pelt")){
+
+		}
 		if (option == null) {
 			PacketRepository.send(ClearMinimapFlag.class, new PlayerContext(player));
 			return;

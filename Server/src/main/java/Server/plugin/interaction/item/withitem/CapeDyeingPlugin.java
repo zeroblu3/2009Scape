@@ -1,6 +1,6 @@
 package plugin.interaction.item.withitem;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.content.global.Dyes;
 import core.game.content.global.action.SpecialLadders;
 import core.game.interaction.NodeUsageEvent;
@@ -51,7 +51,7 @@ public final class CapeDyeingPlugin extends UseWithHandler {
 		if (!cape.equals(dyedCape) && player.getInventory().containsItems(dye, cape) && player.getInventory().remove(dye, cape)) {
 			player.getInventory().add(dyedCape);
 			if (dye.equals(Dyes.BLACK.getItem())) {
-				player.getInventory().add(new Item(ItemNames.VIAL));
+				player.getInventory().add(new Item(Items.VIAL_229));
 			}
 			if (dye.equals(Dyes.PINK.getItem()) && !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,5)) {
 				player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).updateTask(player,2,5,true);

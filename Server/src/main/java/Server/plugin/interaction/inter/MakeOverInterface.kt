@@ -3,7 +3,7 @@ package plugin.interaction.inter
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.appearance.Gender
 import core.game.node.item.Item
@@ -37,7 +37,7 @@ class MakeOverInterface : ComponentPlugin(){
         player.packetDispatch.sendAnimationInterface(FacialExpression.SILENT.animationId,component.id, FEMALE_CHILD_ID)
 
         //Check for makeover voucher and then change interface text if it's there
-        if(player.inventory.containsAtLeastOneItem(ItemNames.MAKEOVER_VOUCHER_5606)){
+        if(player.inventory.containsAtLeastOneItem(Items.MAKEOVER_VOUCHER_5606)){
             player.packetDispatch.sendString("USE MAKEOVER VOUCHER",component.id, TEXT_CHILD)
         }
 
@@ -96,8 +96,8 @@ class MakeOverInterface : ComponentPlugin(){
         if(newColor == player.appearance.skin.color && Gender.values()[newGender] == player.appearance.gender){
             player.interfaceManager.close()
         } else {
-            val currency = if(player.inventory.containsAtLeastOneItem(ItemNames.MAKEOVER_VOUCHER_5606)){
-                Item(ItemNames.MAKEOVER_VOUCHER_5606,1)
+            val currency = if(player.inventory.containsAtLeastOneItem(Items.MAKEOVER_VOUCHER_5606)){
+                Item(Items.MAKEOVER_VOUCHER_5606,1)
             } else Item(995,3000)
 
             if(player.inventory.containsItem(currency)){

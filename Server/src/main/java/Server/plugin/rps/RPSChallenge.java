@@ -6,7 +6,7 @@ import core.game.node.item.Item;
 import core.game.system.SystemLogger;
 import core.game.world.repository.Repository;
 import core.game.world.update.flag.context.Animation;
-import core.tools.ItemNames;
+import core.tools.Items;
 import plugin.dialogue.SkillDialogueHandler;
 
 public class RPSChallenge {
@@ -46,7 +46,7 @@ public class RPSChallenge {
 
     public void acceptChallenge(){
         accepted = true;
-        Item[] items = new Item[]{new Item(ItemNames.ROCK_4043), new Item(ItemNames.NEWSPAPER_11169), new Item(ItemNames.SHEARS_1735)};
+        Item[] items = new Item[]{new Item(Items.ROCK_4043), new Item(Items.NEWSPAPER_11169), new Item(Items.SHEARS_1735)};
         p1 = Repository.getPlayerByName(initiatingPlayer.toLowerCase());
         p2 = Repository.getPlayerByName(challengedPlayer.toLowerCase());
         SkillDialogueHandler handler1 = new SkillDialogueHandler(p1, SkillDialogueHandler.SkillDialogue.THREE_OPTION,items){

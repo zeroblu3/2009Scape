@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.npc.NPC;
@@ -107,7 +107,7 @@ public final class JiminuaDialogue extends DialoguePlugin {
 
     private static final class JiminuaUnnoteHandler extends UseWithHandler {
         public JiminuaUnnoteHandler() {
-            super(ItemNames.PURE_ESSENCE_NOTED);
+            super(Items.PURE_ESSENCE_7937);
         }
 
         @Override
@@ -119,9 +119,9 @@ public final class JiminuaDialogue extends DialoguePlugin {
         @Override
         public boolean handle(NodeUsageEvent event) {
             Player player = event.getPlayer();
-            assert (event.getUsedItem().getId() == ItemNames.PURE_ESSENCE_NOTED);
-            int ess = player.getInventory().getAmount(ItemNames.PURE_ESSENCE_NOTED);
-            int coins = player.getInventory().getAmount(ItemNames.COINS);
+            assert (event.getUsedItem().getId() == Items.PURE_ESSENCE_7937);
+            int ess = player.getInventory().getAmount(Items.PURE_ESSENCE_7937);
+            int coins = player.getInventory().getAmount(Items.COINS_995);
             int freeSpace = player.getInventory().freeSlots();
 
             if (ess == 0) {
@@ -136,9 +136,9 @@ public final class JiminuaDialogue extends DialoguePlugin {
             }
 
             int unnote = Math.min(Math.min(freeSpace, ess), coins / 2);
-            player.getInventory().remove(new Item(ItemNames.PURE_ESSENCE_NOTED, unnote));
-            player.getInventory().remove(new Item(ItemNames.COINS, 2 * unnote));
-            player.getInventory().add(new Item(ItemNames.PURE_ESSENCE_7936, unnote));
+            player.getInventory().remove(new Item(Items.PURE_ESSENCE_7937, unnote));
+            player.getInventory().remove(new Item(Items.COINS_995, 2 * unnote));
+            player.getInventory().add(new Item(Items.PURE_ESSENCE_7936, unnote));
             player.getPacketDispatch().sendMessage("You hand Jiminua some notes and coins, and she hands you back pure essence.");
             return true;
         }

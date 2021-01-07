@@ -6,7 +6,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.stringtools.colorize
 
 /**
@@ -26,14 +26,14 @@ class RunePouchPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        val rEssAmt = player.inventory.getAmount(ItemNames.RUNE_ESSENCE)
-        val pEssAmt = player.inventory.getAmount(ItemNames.PURE_ESSENCE_7936)
+        val rEssAmt = player.inventory.getAmount(Items.RUNE_ESSENCE_1436)
+        val pEssAmt = player.inventory.getAmount(Items.PURE_ESSENCE_7936)
         var preferenceFlag = 0 //0 -> rune ess, 1 -> pure ess
         if(rEssAmt - pEssAmt == 0 && option == "fill") return true
         if(rEssAmt > pEssAmt) preferenceFlag = 0 else preferenceFlag = 1
 
         val essence = Item(
-                if(preferenceFlag == 0) ItemNames.RUNE_ESSENCE else ItemNames.PURE_ESSENCE_7936,
+                if(preferenceFlag == 0) Items.RUNE_ESSENCE_1436 else Items.PURE_ESSENCE_7936,
                 if(preferenceFlag == 0) rEssAmt else pEssAmt
         )
 

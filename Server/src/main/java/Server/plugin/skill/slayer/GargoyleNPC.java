@@ -107,7 +107,7 @@ public final class GargoyleNPC extends AbstractNPC {
 				player.getPacketDispatch().sendMessage("The gargoyle isn't weak enough to be harmed by the hammer.");
 			} else {
 				player.getPacketDispatch().sendMessage("The gargoyle cracks apart.");
-				npc.getImpactHandler().manualHit(npc, npc.getSkills().getLifepoints(), HitsplatType.NORMAL);
+				npc.getImpactHandler().manualHit(player, npc.getSkills().getLifepoints(), HitsplatType.NORMAL);
 			}
 			return true;
 		}

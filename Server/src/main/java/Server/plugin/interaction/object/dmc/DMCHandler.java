@@ -146,9 +146,16 @@ public final class DMCHandler {
 				player.getPacketDispatch().sendMessage("Your cannon is out of cannonballs.");
 				return;
 			}
-			if (player.getInventory().remove(new Item(2, amount))) {
-				cannonballs = amount;
-				player.getPacketDispatch().sendMessage("You load the cannon with " + amount + " cannonballs.");
+			int toUse = 30 - cannonballs;
+			if(toUse > amount){
+				toUse = amount;
+			}
+			if(toUse > 0){
+				cannonballs = toUse;
+				player.getPacketDispatch().sendMessage("You load the cannon with " + toUse + " cannonballs.");
+				player.getInventory().remove(new Item(2, toUse));
+			} else {
+				player.sendMessage("Your cannon is already fully loaded.");
 			}
 		}
 		firingPulse.restart();

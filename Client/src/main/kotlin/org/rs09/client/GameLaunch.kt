@@ -9,7 +9,6 @@ object GameLaunch {
      * The main method.
      * r @param args the arguments casted on runtime.
      * r_game
-     *
      */
     @JvmStatic
     fun main(args: Array<String>) {
@@ -25,12 +24,16 @@ object GameLaunch {
             System.out.println("Trying to parse config at " + GameConfig.configLocation)
             GameConfig.parse(GameConfig.configLocation)
             GameConfig.implementHoliday()
+            GameConfig.extendRenderDistance()
         } catch (e: Exception){
             GameConfig.IP_ADDRESS = "play.2009scape.org"
             GameConfig.IP_MANAGEMENT = "play.2009scape.org"
             GameConfig.RCM_STYLE_PRESET = "classic"
             GameConfig.RCM_TITLE = "<col=5d5447>Choose Option</col>"
+            GameConfig.HOLIDAYS_ENABLED = true
+            GameConfig.implementHoliday()
             GameConfig.RENDER_DISTANCE_INCREASE = true
+            GameConfig.extendRenderDistance()
             e.printStackTrace()
         }
         /**

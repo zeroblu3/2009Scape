@@ -1,10 +1,10 @@
 package org.runite.client;
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
+
+
 import org.rs09.client.config.GameConfig;
 
 
-
+import javax.media.opengl.GL;
 import java.util.Objects;
 
 final class WaterfallShader implements ShaderInterface {
@@ -87,7 +87,7 @@ final class WaterfallShader implements ShaderInterface {
 
    public final void method23(int var1) {
       try {
-         GL2 var2 = HDToolKit.gl;
+         GL var2 = HDToolKit.gl;
          float var4 = (float)(1 + (var1 >> 3 & 3)) * 0.01F;
          float var3 = -0.01F * (float)(1 + (var1 & 3));
          float var5 = 0 == (var1 & 64)?4.8828125E-4F:9.765625E-4F;
@@ -138,7 +138,7 @@ final class WaterfallShader implements ShaderInterface {
 
    public final void method21() {
       try {
-         GL2 var1 = HDToolKit.gl;
+         GL var1 = HDToolKit.gl;
          var1.glCallList(1 + this.listId);
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "ob.A()");
@@ -147,7 +147,7 @@ final class WaterfallShader implements ShaderInterface {
 
    public final void method22() {
       try {
-         GL2 var1 = HDToolKit.gl;
+         GL var1 = HDToolKit.gl;
          var1.glCallList(this.listId);
       } catch (RuntimeException var2) {
          throw ClientErrorException.clientError(var2, "ob.D()");
@@ -170,7 +170,7 @@ final class WaterfallShader implements ShaderInterface {
 
    private void method1631() {
       try {
-         GL2 var2 = HDToolKit.gl;
+         GL var2 = HDToolKit.gl;
          this.listId = var2.glGenLists(2);
          var2.glNewList(this.listId, 4864);//COMPILE
          var2.glActiveTexture('\u84c1');//TEXTURE1

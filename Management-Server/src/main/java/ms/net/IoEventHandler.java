@@ -63,7 +63,9 @@ public final class IoEventHandler {
 		ByteBuffer buffer = ByteBuffer.allocate(100_000);
 		IoSession session = (IoSession) key.attachment();
 		if (channel.read(buffer) == -1) {
-			throw new IOException("An existing connection was disconnected!");
+			System.out.println("Existing session disconnected - likely portscanner or server status checker.");
+			key.cancel();
+			return;
 		}
 		buffer.flip();
 		if (session == null) {

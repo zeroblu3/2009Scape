@@ -4,7 +4,7 @@ import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
 import core.plugin.PluginManifest;
-import core.tools.ItemNames;
+import core.tools.Items;
 import core.tools.RandomFunction;
 import plugin.drops.DropPlugin;
 import plugin.drops.DropPlugins;
@@ -38,7 +38,7 @@ public class MysteryBoxDropper extends DropPlugin {
         boolean willDrop = RandomFunction.random(chance) == RandomFunction.random(chance);
         drops.clear();
         if(willDrop){
-            drops.add(new Item(ItemNames.MYSTERY_BOX_6199));
+            drops.add(new Item(Items.MYSTERY_BOX_6199));
         }
         return drops;
     }

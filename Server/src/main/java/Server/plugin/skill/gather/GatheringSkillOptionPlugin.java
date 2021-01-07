@@ -22,6 +22,7 @@ public final class GatheringSkillOptionPlugin extends OptionHandler {
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
 		ObjectDefinition.setOptionHandler("chop-down", this);
 		ObjectDefinition.setOptionHandler("chop down", this);
+        ObjectDefinition.setOptionHandler("cut down", this);
 		ObjectDefinition.setOptionHandler("mine", this);
 		return this;
 	}

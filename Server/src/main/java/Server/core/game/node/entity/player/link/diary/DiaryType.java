@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link.diary;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.item.Item;
 
 /**
@@ -63,9 +63,9 @@ public enum DiaryType {
             // Karamja gloves 1-3
             // 1k xp 30+, 5k xp any?, 10k xp any?
             new Item[][]{
-                    {new Item(ItemNames.KARAMJA_GLOVES_1_11136), new Item(ItemNames.ANTIQUE_LAMP_11137)},
-                    {new Item(ItemNames.KARAMJA_GLOVES_2_11138), new Item(ItemNames.ANTIQUE_LAMP_11139)},
-                    {new Item(ItemNames.KARAMJA_GLOVES_3_11140), new Item(ItemNames.ANTIQUE_LAMP_11141)}
+                    {new Item(Items.KARAMJA_GLOVES_1_11136), new Item(Items.ANTIQUE_LAMP_11137)},
+                    {new Item(Items.KARAMJA_GLOVES_2_11138), new Item(Items.ANTIQUE_LAMP_11139)},
+                    {new Item(Items.KARAMJA_GLOVES_3_11140), new Item(Items.ANTIQUE_LAMP_11141)}
             },
             "To start marking off tasks in your journal, speak to Pirate<br><br>Jackie the Fruit in Brimhaven, Kaleb Paramay in Shilo<br><br>Village or one of the Jungle Foresters north of the<br><br>Kharazi Jungle.",
             new int[]{1055, 512, 401}

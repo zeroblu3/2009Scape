@@ -1,6 +1,6 @@
 package plugin.activity.gnomecooking.bowls
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.player.Player
@@ -13,7 +13,7 @@ import core.plugin.Plugin
 import plugin.skill.Skills
 
 @InitializablePlugin
-class GnomeBowlCooker : UseWithHandler(ItemNames.RAW_GNOMEBOWL_2178,9558,9559,9561,9563) {
+class GnomeBowlCooker : UseWithHandler(Items.RAW_GNOMEBOWL_2178,9558,9559,9561,9563) {
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(17131, OBJECT_TYPE,this)
         addHandler(2728, OBJECT_TYPE,this)
@@ -25,9 +25,9 @@ class GnomeBowlCooker : UseWithHandler(ItemNames.RAW_GNOMEBOWL_2178,9558,9559,95
         val player = event.player
         val used = event.used
         val product = when(used.id){
-            ItemNames.RAW_GNOMEBOWL_2178 -> Item(ItemNames.HALF_BAKED_BOWL_2177)
+            Items.RAW_GNOMEBOWL_2178 -> Item(Items.HALF_BAKED_BOWL_2177)
             9558 -> Item(9560)
-            9559 -> Item(ItemNames.TANGLED_TOADS_LEGS_2187)
+            9559 -> Item(Items.TANGLED_TOADS_LEGS_2187)
             9561 -> Item(9562)
             9563 -> Item(9564)
             else -> Item(0)
@@ -46,7 +46,7 @@ class GnomeBowlCooker : UseWithHandler(ItemNames.RAW_GNOMEBOWL_2178,9558,9559,95
                     2 -> {
                         if(player.inventory.containsItem(raw)) {
                             if(product.id > 2180){
-                                player.inventory.add(Item(ItemNames.GNOMEBOWL_MOULD_2166))
+                                player.inventory.add(Item(Items.GNOMEBOWL_MOULD_2166))
                             }
                             player.inventory.remove(raw)
                             player.inventory.add(product)

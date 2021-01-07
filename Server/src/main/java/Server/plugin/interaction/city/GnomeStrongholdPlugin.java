@@ -42,8 +42,8 @@ public final class GnomeStrongholdPlugin extends OptionHandler {
 		case 9317:
 			final boolean scale = player.getLocation().getY() <= object.getLocation().getY();
 			final Location end = object.getLocation().transform(scale ? 3 : -3, scale ? 6 : -6, 0);
-			if (player.getSkills().getStaticLevel(Skills.AGILITY) < 50) {
-				player.getPacketDispatch().sendMessage("You must be level 50 agility or higher to climb down the rocks.");
+			if (player.getSkills().hasLevel(Skills.AGILITY, 37)) {
+				player.getPacketDispatch().sendMessage("You must be level 37 agility or higher to climb down the rocks.");
 				break;
 			}
 			if (!scale) {

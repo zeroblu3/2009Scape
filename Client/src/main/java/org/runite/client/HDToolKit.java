@@ -1,32 +1,9 @@
 package org.runite.client;
 
-import com.jogamp.nativewindow.NativeSurface;
-import com.jogamp.nativewindow.NativeWindow;
-import com.jogamp.nativewindow.NativeWindowFactory;
-import com.jogamp.nativewindow.awt.AWTGraphicsConfiguration;
-import com.jogamp.nativewindow.awt.AWTGraphicsScreen;
-import com.jogamp.nativewindow.awt.JAWTWindow;
-import com.jogamp.newt.NewtFactory;
-import com.jogamp.newt.awt.NewtCanvasAWT;
-import com.jogamp.newt.event.awt.AWTAdapter;
-import com.jogamp.newt.event.awt.AWTKeyAdapter;
-import com.jogamp.newt.event.awt.AWTMouseAdapter;
-import com.jogamp.newt.opengl.GLWindow;
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.glu.GLU;
-import com.jogamp.opengl.glu.gl2.GLUgl2;
-import com.jogamp.opengl.glu.gl2es1.GLUgl2es1;
-import com.jogamp.opengl.util.GLDrawableUtil;
-import jogamp.nativewindow.NativeWindowFactoryImpl;
-import jogamp.nativewindow.jawt.JAWTFactory;
-import jogamp.newt.awt.NewtFactoryAWT;
-import jogamp.opengl.Debug;
-import jogamp.opengl.GLDebugMessageHandler;
-import jogamp.opengl.GLDrawableFactoryImpl;
-import org.junit.Assert;
 import org.rs09.client.config.GameConfig;
 
+import javax.media.opengl.*;
+import javax.media.opengl.glu.GLU;
 import java.awt.*;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
@@ -37,7 +14,7 @@ public final class HDToolKit {
     /**
      * JOGL GL4bc related
      */
-    public static GL2 gl;
+    public static GL gl;
     private static GLContext glContext;
     private static GLDrawable glDrawable;
 
@@ -270,17 +247,14 @@ public final class HDToolKit {
             if (!canvas.isDisplayable()) {
                 return;
             }
-            GLCapabilities glCapabilities = new GLCapabilities(GLProfile.getDefault());
-            AWTGraphicsConfiguration configuration = AWTGraphicsConfiguration.create(canvas.getGraphicsConfiguration(), glCapabilities, glCapabilities);
-            NativeWindow nativeWindow = NativeWindowFactory.getNativeWindow(canvas, configuration);
-            GLDrawableFactory glDrawableFactory = GLDrawableFactory.getDesktopFactory();
-            GLDrawable gldrawable = glDrawableFactory.createGLDrawable(nativeWindow);
-            gldrawable.setRealized(true);
-            GLContext glcontext = gldrawable.createContext(null);
-            glcontext.makeCurrent();
-            glcontext.release();
-            glcontext.destroy();
-            gldrawable.setRealized(false);
+            javax.media.opengl.GLDrawableFactory var1 = javax.media.opengl.GLDrawableFactory.getFactory();
+            javax.media.opengl.GLDrawable var2 = var1.getGLDrawable(canvas, null, null);
+            var2.setRealized(true);
+            javax.media.opengl.GLContext var3 = var2.createContext(null);
+            var3.makeCurrent();
+            var3.release();
+            var3.destroy();
+            var2.setRealized(false);
         } catch (Throwable var4) {
         }
 
@@ -407,7 +381,7 @@ public final class HDToolKit {
             if (supportVertexBufferObject) {
                 try {
                     int[] var14 = new int[1];
-                    gl.glGenBuffers(1, var14, 0);
+                    gl.glGenBuffersARB(1, var14, 0);
                 } catch (Throwable var10) {
                     return -4;
                 }
@@ -437,7 +411,7 @@ public final class HDToolKit {
             Class31.method988();
 
             try {
-                if (GLContext.getCurrent() == glContext) {
+                if (javax.media.opengl.GLContext.getCurrent() == glContext) {
                     glContext.release();
                 }
             } catch (Throwable var3) {
@@ -606,18 +580,27 @@ public final class HDToolKit {
         try {
             if (canvas.isDisplayable()) {
                 //GLProfile.initSingleton();
-                GLCapabilities glCapabilities = new GLCapabilities(GLProfile.getDefault());
-                System.out.println("Scene MSAASamples = " + SceneMSAASamples);
-                if (SceneMSAASamples > 0) {
-                    glCapabilities.setSampleBuffers(true);
-                    glCapabilities.setNumSamples(SceneMSAASamples);
+//                GLCapabilities glCapabilities = new GLCapabilities(GLProfile.getDefault());
+//                System.out.println("Scene MSAASamples = " + SceneMSAASamples);
+//                if (SceneMSAASamples > 0) {
+//                    glCapabilities.setSampleBuffers(true);
+//                    glCapabilities.setNumSamples(SceneMSAASamples);
+//                }
+//
+//
+//                AWTGraphicsConfiguration configuration = AWTGraphicsConfiguration.create(canvas.getGraphicsConfiguration(), glCapabilities, glCapabilities);
+//                NativeWindow nativeWindow = NativeWindowFactory.getNativeWindow(canvas, configuration);
+//                GLDrawableFactory glDrawableFactory = GLDrawableFactory.getDesktopFactory();
+//                glDrawable = glDrawableFactory.createGLDrawable(nativeWindow);
+//                glDrawable.setRealized(true);
+                GLCapabilities var2 = new GLCapabilities();
+                if(SceneMSAASamples > 0) {
+                    var2.setSampleBuffers(true);
+                    var2.setNumSamples(SceneMSAASamples);
                 }
 
-
-                AWTGraphicsConfiguration configuration = AWTGraphicsConfiguration.create(canvas.getGraphicsConfiguration(), glCapabilities, glCapabilities);
-                NativeWindow nativeWindow = NativeWindowFactory.getNativeWindow(canvas, configuration);
-                GLDrawableFactory glDrawableFactory = GLDrawableFactory.getDesktopFactory();
-                glDrawable = glDrawableFactory.createGLDrawable(nativeWindow);
+                GLDrawableFactory var3 = GLDrawableFactory.getFactory();
+                glDrawable = var3.getGLDrawable(canvas, var2, null);
                 glDrawable.setRealized(true);
 
                 int var4 = 0;
@@ -640,8 +623,8 @@ public final class HDToolKit {
                     TimeUtils.sleep(1000L);
                 }
 
-                gl = glContext.getGL().getGL2();
-                new GLUgl2();
+                gl = glContext.getGL();
+                new GLU();
                 highDetail = true;
                 System.out.println("Setting high detail to " + highDetail);
                 viewWidth = canvas.getSize().width;

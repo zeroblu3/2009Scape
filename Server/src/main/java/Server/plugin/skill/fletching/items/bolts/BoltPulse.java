@@ -1,6 +1,6 @@
 package plugin.skill.fletching.items.bolts;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.world.update.flag.context.Animation;
 import plugin.skill.SkillPulse;
 import plugin.skill.Skills;
@@ -23,12 +23,12 @@ public final class BoltPulse extends SkillPulse<Item> {
 	 * Represents possible feather Items
 	 */
 	private static final Item[] FEATHER = new Item[] {
-			new Item(ItemNames.FEATHER),
-			new Item(ItemNames.STRIPY_FEATHER_10087),
-			new Item(ItemNames.RED_FEATHER_10088),
-			new Item(ItemNames.BLUE_FEATHER_10089),
-			new Item(ItemNames.YELLOW_FEATHER_10090),
-			new Item(ItemNames.ORANGE_FEATHER_10091)
+			new Item(Items.FEATHER_314),
+			new Item(Items.STRIPY_FEATHER_10087),
+			new Item(Items.RED_FEATHER_10088),
+			new Item(Items.BLUE_FEATHER_10089),
+			new Item(Items.YELLOW_FEATHER_10090),
+			new Item(Items.ORANGE_FEATHER_10091)
 	};
 
 	/**

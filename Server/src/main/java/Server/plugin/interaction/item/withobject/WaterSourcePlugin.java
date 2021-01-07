@@ -1,6 +1,6 @@
 package plugin.interaction.item.withobject;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.player.Player;
@@ -74,7 +74,7 @@ public final class WaterSourcePlugin extends UseWithHandler {
 		WATER_SKIN0(new Item(1831), new Item(1823), "You fill the waterskin."),
 		WATER_SKIN1(new Item(1829),new Item(1823),"You fill the waterskin."),
 		WATER_SKIN2(new Item(1827), new Item(1823), "You fill the waterskin."),
-		FISHBOWL(new Item(ItemNames.EMPTY_FISHBOWL_6667), new Item(ItemNames.FISHBOWL));
+		FISHBOWL(new Item(Items.FISHBOWL_6667), new Item(Items.FISHBOWL_6668));
 
 		/**
 		 * Represents the required item.
@@ -118,7 +118,7 @@ public final class WaterSourcePlugin extends UseWithHandler {
 		 */
 		public final void handle(final GameObject object, final Player player) {
 			if (object.getId() == 11661
-					&& required.getId() == ItemNames.BUCKET_1925
+					&& required.getId() == Items.BUCKET_1925
 					&& !player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(0,7)) {
 				player.getPulseManager().run(new Pulse(2, player) {
 					@Override

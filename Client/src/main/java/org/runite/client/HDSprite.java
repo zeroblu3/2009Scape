@@ -1,9 +1,12 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL;
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
 
+
+
+
+import org.rs09.client.rendering.opengl.enums.GLBeginMode;
+
+import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 
 
@@ -21,7 +24,7 @@ class HDSprite extends AbstractSprite {
    private void method644(int var1) {
       if(this.anInt4078 != var1) {
          this.anInt4078 = var1;
-         GL2 var2 = HDToolKit.gl;
+         GL var2 = HDToolKit.gl;
          if(var1 == 2) {
             var2.glTexParameteri(3553, 10241, 9729);
             var2.glTexParameteri(3553, 10240, 9729);
@@ -38,7 +41,7 @@ class HDSprite extends AbstractSprite {
          HDToolKit.method1822();
          HDToolKit.bindTexture2D(var3.anInt4077);
          var3.method644(1);
-         GL2 var4 = HDToolKit.gl;
+         GL var4 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(1);
          var4.glActiveTexture('\u84c1');
@@ -52,7 +55,7 @@ class HDSprite extends AbstractSprite {
          float var8 = (float)(interfaceHeight + this.anInt3696 - Class22.anInt448) / (float)var3.anInt4079;
          interfaceWidth += this.anInt3701;
          interfaceHeight += this.anInt3698;
-         var4.glBegin(GL.GL_TRIANGLE_FAN);
+         var4.glBegin(GLBeginMode.TRIANGLE_FAN);
          var4.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
          float var9 = (float)this.anInt3707 / (float)this.anInt4075;
          float var10 = (float)this.anInt3696 / (float)this.anInt4079;
@@ -78,7 +81,7 @@ class HDSprite extends AbstractSprite {
 
    final void method646(int var1, int var2, int var3, int var4, int var5) {
       HDToolKit.method1828();
-      GL2 var6 = HDToolKit.gl;
+      GL var6 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       float var7 = (float)this.anInt3707 / (float)this.anInt4075;
@@ -90,7 +93,7 @@ class HDSprite extends AbstractSprite {
       int var11 = HDToolKit.viewHeight - var2 - this.anInt3698;
       int var12 = var11 - this.anInt3696 * var5;
       float var13 = (float)var3 / 256.0F;
-      var6.glBegin(GL.GL_TRIANGLE_FAN);
+      var6.glBegin(GLBeginMode.TRIANGLE_FAN);
       var6.glColor4f(1.0F, 1.0F, 1.0F, var13);
       var6.glTexCoord2f(var7, 0.0F);
       var6.glVertex2f((float)var10, (float)var11);
@@ -108,7 +111,7 @@ class HDSprite extends AbstractSprite {
          HDToolKit.method1822();
          HDToolKit.bindTexture2D(var9.anInt4077);
          var9.method644(1);
-         GL2 var10 = HDToolKit.gl;
+         GL var10 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(1);
          var10.glActiveTexture('\u84c1');
@@ -134,7 +137,7 @@ class HDSprite extends AbstractSprite {
          int var24 = (playerRelativeY << 16) + (var14 * var16 - var13 * var15);
          float var25 = (float)var9.anInt3707 / (float)var9.anInt4075;
          float var26 = (float)var9.anInt3696 / (float)var9.anInt4079;
-         var10.glBegin(GL.GL_TRIANGLE_FAN);
+         var10.glBegin(GLBeginMode.TRIANGLE_FAN);
          var10.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
          float var27 = 65536.0F * (float)this.anInt4075;
          float var28 = (float)(65536 * this.anInt4079);
@@ -162,13 +165,13 @@ class HDSprite extends AbstractSprite {
       HDToolKit.method1822();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      GL2 var3 = HDToolKit.gl;
+      GL var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
       float var4 = (float)this.anInt3707 / (float)this.anInt4075;
       float var5 = (float)this.anInt3696 / (float)this.anInt4079;
-      var3.glBegin(GL.GL_TRIANGLE_FAN);
+      var3.glBegin(GLBeginMode.TRIANGLE_FAN);
       var3.glTexCoord2f(0.0F, 0.0F);
       var3.glVertex2f((float)this.anInt3707, 0.0F);
       var3.glTexCoord2f(var4, 0.0F);
@@ -185,7 +188,7 @@ class HDSprite extends AbstractSprite {
       HDToolKit.method1822();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      GL2 var3 = HDToolKit.gl;
+      GL var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
@@ -195,7 +198,7 @@ class HDSprite extends AbstractSprite {
 
    final void method648(int var1, int var2, int var3, int var4, int var5) {
       HDToolKit.method1822();
-      GL2 var7 = HDToolKit.gl;
+      GL var7 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(2);
       var1 -= this.anInt3701 << 4;
@@ -239,7 +242,7 @@ class HDSprite extends AbstractSprite {
             var4 = ((var6 << 16) - var8 + var12 - 1) / var12;
          }
 
-         GL2 var20 = HDToolKit.gl;
+         GL var20 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(2);
          float var14 = (float)var1;
@@ -248,7 +251,7 @@ class HDSprite extends AbstractSprite {
          float var17 = var16 - (float)var4;
          float var18 = (float)this.anInt3707 / (float)this.anInt4075;
          float var19 = (float)this.anInt3696 / (float)this.anInt4079;
-         var20.glBegin(GL.GL_TRIANGLE_FAN);
+         var20.glBegin(GLBeginMode.TRIANGLE_FAN);
          var20.glTexCoord2f(var18, 0.0F);
          var20.glVertex2f(var15, var16);
          var20.glTexCoord2f(0.0F, 0.0F);
@@ -265,7 +268,7 @@ class HDSprite extends AbstractSprite {
       HDToolKit.method1822();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      GL2 var3 = HDToolKit.gl;
+      GL var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
@@ -290,7 +293,7 @@ class HDSprite extends AbstractSprite {
 
    final void method636(int var1, int var2, int var3, int var4, int var5, int var6) {
       HDToolKit.method1822();
-      GL2 var7 = HDToolKit.gl;
+      GL var7 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var1 -= this.anInt3701 << 4;
@@ -338,7 +341,7 @@ class HDSprite extends AbstractSprite {
             var4 = ((var7 << 16) - var9 + var13 - 1) / var13;
          }
 
-         GL2 var22 = HDToolKit.gl;
+         GL var22 = HDToolKit.gl;
          HDToolKit.bindTexture2D(this.anInt4077);
          this.method644(1);
          float var15 = (float)var1;
@@ -348,7 +351,7 @@ class HDSprite extends AbstractSprite {
          float var19 = (float)this.anInt3707 / (float)this.anInt4075;
          float var20 = (float)this.anInt3696 / (float)this.anInt4079;
          float var21 = (float)var5 / 256.0F;
-         var22.glBegin(GL.GL_TRIANGLE_FAN);
+         var22.glBegin(GLBeginMode.TRIANGLE_FAN);
          var22.glColor4f(1.0F, 1.0F, 1.0F, var21);
          var22.glTexCoord2f(var19, 0.0F);
          var22.glVertex2f(var16, var17);
@@ -364,7 +367,7 @@ class HDSprite extends AbstractSprite {
 
    final void method649(int var1, int var2, int var3, int var4) {
       HDToolKit.method1822();
-      GL2 var5 = HDToolKit.gl;
+      GL var5 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       float var6 = (float)this.anInt3707 / (float)this.anInt4075;
@@ -375,7 +378,7 @@ class HDSprite extends AbstractSprite {
       int var9 = var8 + this.anInt3707 * var3;
       int var10 = HDToolKit.viewHeight - var2 - this.anInt3698;
       int var11 = var10 - this.anInt3696 * var4;
-      var5.glBegin(GL.GL_TRIANGLE_FAN);
+      var5.glBegin(GLBeginMode.TRIANGLE_FAN);
       var5.glTexCoord2f(var6, 0.0F);
       var5.glVertex2f((float)var9, (float)var10);
       var5.glTexCoord2f(0.0F, 0.0F);
@@ -412,7 +415,7 @@ class HDSprite extends AbstractSprite {
       }
 
       ByteBuffer var9 = ByteBuffer.wrap(var2);
-      GL2 var10 = HDToolKit.gl;
+      GL var10 = HDToolKit.gl;
       if(this.anInt4077 == -1) {
          int[] var11 = new int[1];
          var10.glGenTextures(1, var11, 0);
@@ -430,7 +433,7 @@ class HDSprite extends AbstractSprite {
       HDToolKit.method1828();
       var1 += this.anInt3701;
       var2 += this.anInt3698;
-      GL2 var4 = HDToolKit.gl;
+      GL var4 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt4077);
       this.method644(1);
       var4.glColor4f(1.0F, 1.0F, 1.0F, (float)var3 / 256.0F);
@@ -442,14 +445,14 @@ class HDSprite extends AbstractSprite {
    private void method651() {
       float var1 = (float)this.anInt3707 / (float)this.anInt4075;
       float var2 = (float)this.anInt3696 / (float)this.anInt4079;
-      GL2 var3 = HDToolKit.gl;
+      GL var3 = HDToolKit.gl;
       if(this.anInt4076 == -1) {
          this.anInt4076 = var3.glGenLists(1);
          this.anInt4080 = Class31.anInt582;
       }
 
       var3.glNewList(this.anInt4076, 4864);
-      var3.glBegin(GL.GL_TRIANGLE_FAN);
+      var3.glBegin(GLBeginMode.TRIANGLE_FAN);
       var3.glTexCoord2f(var1, 0.0F);
       var3.glVertex2f((float)this.anInt3707, 0.0F);
       var3.glTexCoord2f(0.0F, 0.0F);

@@ -1,7 +1,7 @@
 package plugin.dialogue;
 
 import core.Util;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
@@ -151,7 +151,7 @@ public class SirReniteeDialogue extends DialoguePlugin {
                 break;
             case 300:
                 interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Mmm, very well. Changing your crest will cost", "5,000 coins.");
-                if (player.getInventory().getAmount(ItemNames.COINS) < 5000) {
+                if (player.getInventory().getAmount(Items.COINS_995) < 5000) {
                     stage = 302;
                 } else {
                     stage = 305;
@@ -173,8 +173,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                 switch (buttonId) {
                     case 1: {
                         CrestType c = CrestType.ARRAV;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah yes, the shield that you helped to retrieve. You have", "certainly earned the right to wear its symbol.");
                             stage = 40;
@@ -186,8 +186,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 2: {
                         CrestType c = CrestType.ASGARNIA;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah, splendid, splendid. There is no better symbol", "than that of our fair land!");
                             stage = 40;
@@ -199,8 +199,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 3: {
                         CrestType c = CrestType.DORGESHUUN;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah yes, our new neighbours under Lumbridge. I hear", "you were the one who made contact with them, jolly good.");
                             stage = 40;
@@ -212,8 +212,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 4: {
                         CrestType c = CrestType.DRAGON;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "I see you are a mighty dragon-slayer! You have", "certainly earned the right to wear a dragon symbol.");
                             stage = 40;
@@ -233,8 +233,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                 switch (buttonId) {
                     case 1: {
                         CrestType c = CrestType.FAIRY;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hmm, mmm, yes, everyone likes pretty fairies.");
                             stage = 40;
@@ -246,8 +246,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 2: {
                         CrestType c = CrestType.GUTHIX;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Guthix, god of balance! I'm a Saradominist myself,", "you know, but we all find meaning in our own way, what?");
                             stage = 40;
@@ -259,8 +259,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 3: {
                         CrestType c = CrestType.HAM;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Hmm, I'm not sure I like that HAM group, their", "beliefs are a little extreme for me.", "But if that's what you want.");
                             stage = 40;
@@ -272,8 +272,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 4: {
                         CrestType c = CrestType.HORSE;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah, I see you've brought a toy horse for me to see. An",
                                     "interesting beast. Certainly you can use that as your",
@@ -297,8 +297,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                 switch (buttonId) {
                     case 1: {
                         CrestType c = CrestType.JOGRE;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "A Jungle Ogre, eh? Odd beast, very odd.");
                             stage = 40;
@@ -310,8 +310,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 2: {
                         CrestType c = CrestType.KANDARIN;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Our neighbours in the west? Very good, very good.");
                             stage = 40;
@@ -323,8 +323,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 3: {
                         CrestType c = CrestType.MISTHALIN;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah, the fair land of Lumbridge and Varrock.");
                             stage = 40;
@@ -353,7 +353,7 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     case 1:
                         interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "All right.");
                         CrestType c = CrestType.MONEY;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()) {
                             stage = 343;
                         } else {
                             stage = 302;
@@ -367,8 +367,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                 break;
             case 343: {
                 CrestType c = CrestType.MONEY;
-                if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                        && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                        && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                     player.getHouseManager().setCrest(c);
                     interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Thank you very much! You may now use a money-bag", "as your symbol.");
                     stage = 40;
@@ -386,8 +386,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                 switch (buttonId) {
                     case 1: {
                         CrestType c = CrestType.SARADOMIN;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah, the great god Saradomin! May he smile on your house", "as you adorn it with his symbol!");
                             if (!player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR).isComplete(2,1)) {
@@ -402,8 +402,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 2: {
                         CrestType c = CrestType.SKULL;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Of, of course you can have a skull symbol, " + (player.getAppearance().isMale() ? "sir!" : "madam!"));
                             stage = 40;
@@ -415,8 +415,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 3: {
                         CrestType c = CrestType.VARROCK;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ah, Varrock, a fine city!");
                             stage = 40;
@@ -428,8 +428,8 @@ public class SirReniteeDialogue extends DialoguePlugin {
                     }
                     case 4: {
                         CrestType c = CrestType.ZAMORAK;
-                        if (c.eligible(player) && player.getInventory().getAmount(ItemNames.COINS) > c.getCost()
-                                && player.getInventory().remove(new Item(ItemNames.COINS, c.getCost()))) {
+                        if (c.eligible(player) && player.getInventory().getAmount(Items.COINS_995) > c.getCost()
+                                && player.getInventory().remove(new Item(Items.COINS_995, c.getCost()))) {
                             player.getHouseManager().setCrest(c);
                             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "The god of Chaos? It is a terrible thing to worship", "that evil being. But if that is what you wish...");
                             stage = 40;

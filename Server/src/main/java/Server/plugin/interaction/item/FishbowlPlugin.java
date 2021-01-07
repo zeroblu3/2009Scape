@@ -3,7 +3,7 @@ package plugin.interaction.item;
 import core.Util;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.ObjectDefinition;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;
 import core.game.interaction.UseWithHandler;
@@ -29,15 +29,15 @@ import plugin.skill.Skills;
 
 @InitializablePlugin
 public class FishbowlPlugin extends OptionHandler {
-    private final static int FISHBOWL_EMPTY = ItemNames.EMPTY_FISHBOWL_6667;
-    private final static int FISHBOWL_WATER = ItemNames.FISHBOWL;
-    private final static int FISHBOWL_SEAWEED = ItemNames.FISHBOWL_6669;
+    private final static int FISHBOWL_EMPTY = Items.FISHBOWL_6667;
+    private final static int FISHBOWL_WATER = Items.FISHBOWL_6668;
+    private final static int FISHBOWL_SEAWEED = Items.FISHBOWL_6669;
 
-    private final static int FISHBOWL_BLUE = ItemNames.FISHBOWL_6670;
-    private final static int FISHBOWL_GREEN = ItemNames.FISHBOWL_6671;
-    private final static int FISHBOWL_SPINE = ItemNames.FISHBOWL_6672;
+    private final static int FISHBOWL_BLUE = Items.FISHBOWL_6670;
+    private final static int FISHBOWL_GREEN = Items.FISHBOWL_6671;
+    private final static int FISHBOWL_SPINE = Items.FISHBOWL_6672;
 
-    private final static int TINY_NET = ItemNames.TINY_NET_6674;
+    private final static int TINY_NET = Items.TINY_NET_6674;
 
     private final static Animation ANIM_TALK = new Animation(2782);
     private final static Animation ANIM_PLAY = new Animation(2780);
@@ -100,7 +100,7 @@ public class FishbowlPlugin extends OptionHandler {
 
     private final class FeedPetFishHandler extends UseWithHandler {
         public FeedPetFishHandler() {
-            super(ItemNames.FISH_FOOD_272);
+            super(Items.FISH_FOOD_272);
         }
 
         @Override
@@ -151,12 +151,12 @@ public class FishbowlPlugin extends OptionHandler {
                     stage = 2;
                     break;
                 case "feed":
-                    if (player.getInventory().containsAtLeastOneItem(ItemNames.FISH_FOOD_272) && player.getInventory().remove(new Item(ItemNames.FISH_FOOD_272))) {
-                        player.getInventory().add(new Item(ItemNames.AN_EMPTY_BOX_6675));
+                    if (player.getInventory().containsAtLeastOneItem(Items.FISH_FOOD_272) && player.getInventory().remove(new Item(Items.FISH_FOOD_272))) {
+                        player.getInventory().add(new Item(Items.AN_EMPTY_BOX_6675));
                         player.lock(ANIM_FEED.getDuration());
                         player.animate(ANIM_FEED);
                         player.getPacketDispatch().sendMessage("You feed your fish.");
-                    } else if (player.getInventory().containsAtLeastOneItem(ItemNames.POISONED_FISH_FOOD_274)) {
+                    } else if (player.getInventory().containsAtLeastOneItem(Items.POISONED_FISH_FOOD_274)) {
                         player.getPacketDispatch().sendMessage("You can't poison your own pet!");
                     } else {
                         player.getPacketDispatch().sendMessage("You don't have any fish food.");

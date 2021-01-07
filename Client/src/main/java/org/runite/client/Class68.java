@@ -1,9 +1,7 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
 
-
+import javax.media.opengl.GL;
 
 final class Class68 {
 
@@ -298,7 +296,7 @@ final class Class68 {
       if(aBooleanArray1026[var0]) {
          aBooleanArray1026[var0] = false;
          int var1 = var0 + 16384 + 4;
-         GL2 var2 = HDToolKit.gl;
+         GL var2 = HDToolKit.gl;
          var2.glDisable(var1);
       }
    }
@@ -347,7 +345,7 @@ final class Class68 {
    }
 
    static void method1275() {
-      GL2 var0 = HDToolKit.gl;
+      GL var0 = HDToolKit.gl;
 
       int var1;
       for(var1 = 0; var1 < 4; ++var1) {
@@ -375,7 +373,7 @@ final class Class68 {
 
    static void method1277(Class3_Sub2[][][] var2) {
       if(Class106.aBoolean1441) {
-         GL2 var3 = HDToolKit.gl;
+         GL var3 = HDToolKit.gl;
          Class3_Sub28_Sub4.method551(0, 0);
          HDToolKit.method1856(0);
          HDToolKit.method1823();
@@ -461,7 +459,7 @@ final class Class68 {
 
    private static void method1278(int var0, Class43 var1, int var2, int var3, int var4) {
       int var5 = var0 + 16384 + 4;
-      GL2 var6 = HDToolKit.gl;
+      GL var6 = HDToolKit.gl;
       if(!aBooleanArray1026[var0]) {
          var6.glEnable(var5);
          aBooleanArray1026[var0] = true;

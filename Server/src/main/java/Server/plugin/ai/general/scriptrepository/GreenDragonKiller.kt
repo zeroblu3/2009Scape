@@ -19,7 +19,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.impl.WildernessZone
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.AIPlayer
 import plugin.ai.AIRepository
 import plugin.ai.pvmbots.CombatBotAssembler
@@ -41,11 +41,11 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
     var offerMade = false
 
     var food = if (Random.nextBoolean()){
-        ItemNames.LOBSTER
+        Items.LOBSTER_379
     } else if(Random.nextBoolean()){
-        ItemNames.SWORDFISH
+        Items.SWORDFISH_373
     } else {
-        ItemNames.SHARK
+        Items.SHARK_385
     }
 
     var myBorders: ZoneBorders? = null
@@ -283,7 +283,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
             CombatStyle.MAGIC -> MageSwinger(this)
             CombatStyle.RANGE -> RangeSwinger(this)
         }
-        equipment.add(Item(ItemNames.ANTI_DRAGON_SHIELD_1540))
+        equipment.add(Item(Items.ANTI_DRAGON_SHIELD_1540))
         myBorders = westDragons
         skills[Skills.AGILITY] = 99
         bankZone.addException(ZoneBorders(3094, 3492,3094, 3492))

@@ -193,7 +193,7 @@ public final class GameInterface extends ComponentPlugin {
 			player.getPacketDispatch().sendMessage("It wouldn't be very wise opening the world map during combat.");
 			return;
 		}
-		player.getInterfaceManager().openWindowsPane(new Component(755), 2);
+		player.getInterfaceManager().openWindowsPane(new Component(755));
 		int posHash = (player.getLocation().getZ() << 28) | (player.getLocation().getX() << 14) | player.getLocation().getY();
 		player.getPacketDispatch().sendScriptConfigs(622, posHash, "", 0);
 		player.getPacketDispatch().sendScriptConfigs(674, posHash, "", 0);

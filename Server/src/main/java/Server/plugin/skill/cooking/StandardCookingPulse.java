@@ -1,7 +1,7 @@
 package plugin.skill.cooking;
 
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.content.global.SkillcapePerks;
 import core.game.world.map.Location;
 import plugin.quest.tutorials.tutorialisland.TutorialSession;
@@ -113,9 +113,9 @@ public class StandardCookingPulse extends Pulse {
     }
 
     public boolean isBurned(final Player player, final GameObject object, int food) {
-        boolean hasGauntlets = player.getEquipment().containsItem(new Item(ItemNames.COOKING_GAUNTLETS_775));
+        boolean hasGauntlets = player.getEquipment().containsItem(new Item(Items.COOKING_GAUNTLETS_775));
         double burn_stop = (double) CookableItems.getBurnLevel(food);
-        if (hasGauntlets && (food == ItemNames.RAW_SWORDFISH || food == ItemNames.RAW_LOBSTER || food == ItemNames.RAW_SHARK)) {
+        if (hasGauntlets && (food == Items.RAW_SWORDFISH_371 || food == Items.RAW_LOBSTER_377 || food == Items.RAW_SHARK_383)) {
             burn_stop -= 6;
         }
         if (SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.COOKING)) {
@@ -147,22 +147,23 @@ public class StandardCookingPulse extends Pulse {
         }
         //handle special cooking results (spits, cake, etc) that don't justify separate plugin
         switch (initial) {
-            case 9986:
-            case 2876:
-            case 7566:
-            case 9984:
-            case 7724: // spits
+            case Items.RAW_BEAST_MEAT_9986:
+            case Items.RAW_CHOMPY_2876:
+            case Items.RAW_JUBBLY_7566:
+            case Items.SKEWERED_BIRD_MEAT_9984:
+            case Items.RAW_RABBIT_3226: // Iron spits
+            case Items.IRON_SPIT_7225:
                 if (RandomFunction.random(15) == 5) {
                     player.getPacketDispatch().sendMessage("Your iron spit seems to have broken in the proccess.");
                 } else {
-                    if (!player.getInventory().add(new Item(7725))) {
-                        GroundItemManager.create(new Item(7725), player.getLocation(), player);
+                    if (!player.getInventory().add(new Item(Items.IRON_SPIT_7225))) {
+                        GroundItemManager.create(new Item(Items.IRON_SPIT_7225), player.getLocation(), player);
                     }
                 }
                 break;
-            case 1889: //cake
-                if (!player.getInventory().add(new Item(1887))) {
-                    GroundItemManager.create(new Item(1887), player);
+            case Items.UNCOOKED_CAKE_1889: //cake
+                if (!player.getInventory().add(new Item(Items.CAKE_TIN_1887))) {
+                    GroundItemManager.create(new Item(Items.CAKE_TIN_1887), player);
                 }
                 break;
         }
@@ -174,15 +175,15 @@ public class StandardCookingPulse extends Pulse {
                 int playerRegion = player.getViewport().getRegion().getId();
 
                 // Achievement Diary Handling
-                if (productItem.getId() == ItemNames.BASS
+                if (productItem.getId() == Items.BASS_365
                         && playerRegion == 11317
                         && player.getAttribute("diary:seers:bass-caught", false)) {
                     player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 1, 11);
                 }
 
-                if (productItem.getId() == ItemNames.SHARK
+                if (productItem.getId() == Items.SHARK_385
                         && playerRegion == 11317
-                        && player.getEquipment().get(EquipmentContainer.SLOT_HANDS).getId() == ItemNames.COOKING_GAUNTLETS_775
+                        && player.getEquipment().get(EquipmentContainer.SLOT_HANDS).getId() == Items.COOKING_GAUNTLETS_775
                         && !player.getAchievementDiaryManager().hasCompletedTask(DiaryType.SEERS_VILLAGE, 2, 8)) {
                     player.setAttribute("/save:diary:seers:cooked-shark", 1 + player.getAttribute("diary:seers:cooked-shark", 0));
                     if (player.getAttribute("diary:seers:cooked-shark", 0) >= 5) {
@@ -192,12 +193,12 @@ public class StandardCookingPulse extends Pulse {
 
                 // Cook some rat meat on a campfire in Lumbridge Swamp
                 System.out.println(object.getName());
-                if (initialItem.getId() == ItemNames.RAW_RAT_MEAT && object.getName().toLowerCase().contains("fire") && (playerRegion == 12593 || playerRegion == 12849)) {
+                if (initialItem.getId() == Items.RAW_RAT_MEAT_2134 && object.getName().toLowerCase().contains("fire") && (playerRegion == 12593 || playerRegion == 12849)) {
                     player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 1, 10);
                 }
 
                 // Cook a lobster on the range in Lumbridge Castle kitchen
-                if (productItem.getId() == ItemNames.LOBSTER && object.getId() == 114 && player.getLocation().withinDistance(Location.create(3211, 3215, 0))) {
+                if (productItem.getId() == Items.LOBSTER_379 && object.getId() == 114 && player.getLocation().withinDistance(Location.create(3211, 3215, 0))) {
                     player.getAchievementDiaryManager().finishTask(player, DiaryType.LUMBRIDGE, 2, 4);
                 }
 
@@ -212,16 +213,16 @@ public class StandardCookingPulse extends Pulse {
     }
 
     public String getMessage(Item food, Item product, boolean burned) {
-        if (food.getId() == ItemNames.RAW_OOMLIE_2337) {
+        if (food.getId() == Items.RAW_OOMLIE_2337) {
             return "The meat is far too delicate to cook like this. Perhaps you should wrap something around it to protect it from the heat.";
         }
         if (CookableItems.intentionalBurn(food.getId())) {
             return "You deliberately burn the perfectly good piece of meat.";
         }
         switch (product.getId()) {
-            case 9436:
+            case Items.SINEW_9436:
                 return "You dry the meat into sinew.";
-            case 1781:
+            case Items.SODA_ASH_1781:
                 return "You burn the seaweed into soda ash.";
         }
         if (!burned) {

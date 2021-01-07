@@ -1,7 +1,7 @@
 package plugin.ai.general.scriptrepository
 
 import core.game.node.item.Item
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
 import plugin.skill.fletching.Fletching
@@ -14,9 +14,9 @@ class FletchingBankstander : Script(){
         bot.faceLocation(bank?.location)
         state = when(state){
             State.FLETCHING -> {
-                bot.inventory.add(Item(ItemNames.KNIFE))
-                bot.inventory.add(Item(ItemNames.LOGS_1511,27))
-                bot.pulseManager.run(FletchingPulse(bot, Item(ItemNames.LOGS_1511),27,Fletching.FletchingItems.ARROW_SHAFT))
+                bot.inventory.add(Item(Items.KNIFE_946))
+                bot.inventory.add(Item(Items.LOGS_1511,27))
+                bot.pulseManager.run(FletchingPulse(bot, Item(Items.LOGS_1511),27,Fletching.FletchingItems.ARROW_SHAFT))
                 State.BANKING
             }
 

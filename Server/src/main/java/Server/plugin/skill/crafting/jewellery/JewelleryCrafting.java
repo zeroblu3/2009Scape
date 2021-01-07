@@ -46,7 +46,7 @@ public class JewelleryCrafting {
 
 		//Amulet
 		GOLD_AMULET(8, 30, 60, 1673, 2357),
-		SAPPHIRE_AMULET(24, 65, 62, 1675, 1607, 2357),
+		SAPPHIRE_AMULET(24, 63, 62, 1675, 1607, 2357),
 		EMERALD_AMULET(31, 70, 64, 1677, 1605, 2357),
 		RUBY_AMULET(50, 85, 66, 1679, 1603, 2357),
 		DIAMOND_AMULET(70, 100, 68, 1681, 1601, 2357),
@@ -65,10 +65,9 @@ public class JewelleryCrafting {
 		public static HashMap<Integer, JewelleryItem> productMap = new HashMap<>();
 		static{
 			JewelleryItem[] jewelleryArray = JewelleryItem.values();
-			int length = jewelleryArray.length;
-			for(int i = 0; i < length; i++){
-				productMap.putIfAbsent(jewelleryArray[i].sendItem,jewelleryArray[i]);
-			}
+            for (JewelleryItem jewelleryItem : jewelleryArray) {
+                productMap.putIfAbsent(jewelleryItem.sendItem, jewelleryItem);
+            }
 		}
 
 		/**
@@ -92,13 +91,12 @@ public class JewelleryCrafting {
 		private final int level;
 
 		/**
-		 * Represesnts the experience gained.
+		 * Represents the experience gained.
 		 */
 		private final double experience;
 
 		/**
 		 * Constructs a new {@code Jewellery.java} {@code Object}.
-		 * @param mould the mould.
 		 * @param level the level.
 		 * @param experience the experience.
 		 */
@@ -192,7 +190,7 @@ public class JewelleryCrafting {
 			if (!player.getInventory().contains(mouldFor(data.name()), 1)) {
 				length--;
 			}
-			if (length == data.getItems().length && player.getSkills().getLevel(Skills.CRAFTING) > data.getLevel()) {
+			if (length == data.getItems().length && player.getSkills().getLevel(Skills.CRAFTING) >= data.getLevel()) {
 				player.getPacketDispatch().sendItemZoomOnInterface(data.getSendItem(), 170, 446, data.getComponentId());
 			} else {
 				String name = ItemDefinition.forId(data.getSendItem()).getName().toLowerCase();
@@ -213,7 +211,7 @@ public class JewelleryCrafting {
 				if (data == JewelleryItem.DRAGONSTONE_AMULET && !player.getInventory().contains(AMULET_MOULD, 1)) {
 					continue;
 				}
-				if (name.contains("amulet") || name.equalsIgnoreCase("AMULET_MOULD") && !player.getInventory().contains(AMULET_MOULD, 1)) {
+				if (name.contains("amulet") && !player.getInventory().contains(AMULET_MOULD, 1)) {
 					continue;
 				}
 				if (name.contains("bracelet") && !player.getInventory().contains(BRACELET_MOULD, 1)) {

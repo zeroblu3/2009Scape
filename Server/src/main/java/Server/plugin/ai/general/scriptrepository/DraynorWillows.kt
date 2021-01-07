@@ -4,7 +4,7 @@ import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
@@ -26,7 +26,7 @@ class DraynorWillows : Script(){
                     val willowtree = scriptAPI.getNearestNode("willow",true)
                     if(willowtree != null)
                         willowtree.interaction.handle(bot,willowtree.interaction[0])
-                    if(bot.inventory.getAmount(Item(ItemNames.WILLOW_LOGS_1519)) > 22)
+                    if(bot.inventory.getAmount(Item(Items.WILLOW_LOGS_1519)) > 22)
                         state = State.BANKING
                 }
             }
@@ -39,8 +39,8 @@ class DraynorWillows : Script(){
                     if(bank != null){
                         bot.pulseManager.run(object : MovementPulse(bot,bank, DestinationFlag.OBJECT){
                             override fun pulse(): Boolean {
-                                val logs = bot.inventory.getAmount(Item(ItemNames.WILLOW_LOGS_1519))
-                                bot.inventory.remove(Item(ItemNames.WILLOW_LOGS_1519,logs))
+                                val logs = bot.inventory.getAmount(Item(Items.WILLOW_LOGS_1519))
+                                bot.inventory.remove(Item(Items.WILLOW_LOGS_1519,logs))
                                 state = State.CHOPPING
                                 return true
                             }
@@ -55,7 +55,7 @@ class DraynorWillows : Script(){
     }
 
     init {
-        inventory.add(Item(ItemNames.ADAMANT_AXE))
+        inventory.add(Item(Items.ADAMANT_AXE_1357))
         skills[Skills.WOODCUTTING] = 35
     }
 

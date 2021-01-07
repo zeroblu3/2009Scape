@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
@@ -17,7 +17,7 @@ public class GalahadDialogue extends DialoguePlugin {
     /**
      * Represnets the bow item.
      */
-    private final Item TEA = new Item(ItemNames.CUP_OF_TEA_712);
+    private final Item TEA = new Item(Items.CUP_OF_TEA_712);
 
     public GalahadDialogue() {}
 

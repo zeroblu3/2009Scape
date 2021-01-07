@@ -1,9 +1,10 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
 
 
+
+
+import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -142,7 +143,7 @@ final class Class169 {
             var6 += var5 - 128;
          }
 
-         GL2 var12 = HDToolKit.gl;
+         GL var12 = HDToolKit.gl;
          ByteBuffer var13 = ByteBuffer.wrap(aByteArray2111);
          var13.limit(16384);
          HDToolKit.bindTexture2D(this.anInt2108);
@@ -151,11 +152,11 @@ final class Class169 {
    }
 
    final void method2284() {
-      GL2 var1 = HDToolKit.gl;
+      GL var1 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt2108);
       if(this.aClass156_2110 == null) {
          if(HDToolKit.supportVertexBufferObject) {
-            var1.glBindBuffer('\u8892', 0);
+            var1.glBindBufferARB('\u8892', 0);
          }
 
          var1.glInterleavedArrays(10791, 20, this.aByteBuffer2109);
@@ -167,7 +168,7 @@ final class Class169 {
 
       if(this.aClass156_2105 == null) {
           if(HDToolKit.supportVertexBufferObject) {
-             var1.glBindBuffer('\u8893', 0);
+             var1.glBindBufferARB('\u8893', 0);
           }
 
           var1.glDrawElements(4, 384, 5125, this.aByteBuffer2107);
@@ -179,7 +180,7 @@ final class Class169 {
    }
 
    public Class169() {
-      GL2 var1 = HDToolKit.gl;
+      GL var1 = HDToolKit.gl;
       int[] var2 = new int[1];
       var1.glGenTextures(1, var2, 0);
       this.anInt2108 = var2[0];

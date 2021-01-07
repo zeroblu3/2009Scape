@@ -15,7 +15,7 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 import java.util.concurrent.TimeUnit
 
 @InitializablePlugin
@@ -73,9 +73,9 @@ class GutanothChestOptionHandler : OptionHandler(){
         }
 
         enum class Rewards(val id: Int,val type: Type,val message: String){
-            BONES(ItemNames.BONES_2530, Type.ITEM, "Oh! Some bones. Delightful."),
-            EMERALD(ItemNames.EMERALD, Type.ITEM, "Ooh! A lovely emerald!"),
-            ROTTEN_APPLE(ItemNames.ROTTEN_APPLE_1984, Type.ITEM, "Oh, joy, spoiled fruit! My favorite!"),
+            BONES(Items.BONES_2530, Type.ITEM, "Oh! Some bones. Delightful."),
+            EMERALD(Items.EMERALD_1605, Type.ITEM, "Ooh! A lovely emerald!"),
+            ROTTEN_APPLE(Items.ROTTEN_APPLE_1984, Type.ITEM, "Oh, joy, spoiled fruit! My favorite!"),
             CHAOS_DWARF(119, Type.NPC, "You've gotta be kidding me, a dwarf?!"),
             RAT(47, Type.NPC, "Eek!"),
             SCORPION(1477, Type.NPC, "Zoinks!"),

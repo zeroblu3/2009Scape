@@ -1,6 +1,6 @@
 package plugin.skill.cooking;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.item.Item;
 
 import java.util.HashMap;
@@ -84,8 +84,8 @@ public enum CookableItems {
     BOWL_5(7082, 7080, 7094,57, 120, 80),
 
     //Miscellaneous
-    RAW_OOMLIE(ItemNames.RAW_OOMLIE_2337, 0, ItemNames.BURNT_OOMLIE_2426, 50, 0, 999), // always burns
-    OOMLIE_WRAP(ItemNames.COOKED_OOMLIE_WRAP_2343, ItemNames.WRAPPED_OOMLIE_2341, ItemNames.BURNT_OOMLIE_WRAP_2345, 50, 110, 999);
+    RAW_OOMLIE(Items.RAW_OOMLIE_2337, 0, Items.BURNT_OOMLIE_2426, 50, 0, 999), // always burns
+    OOMLIE_WRAP(Items.COOKED_OOMLIE_WRAP_2343, Items.WRAPPED_OOMLIE_2341, Items.BURNT_OOMLIE_WRAP_2345, 50, 110, 999);
 
     public static HashMap<Integer,CookableItems>cookingMap = new HashMap<>();
     public static HashMap<Integer, CookableItems>intentionalBurnMap = new HashMap<>();

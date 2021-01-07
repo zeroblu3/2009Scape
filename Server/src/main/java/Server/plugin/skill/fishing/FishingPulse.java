@@ -18,6 +18,9 @@ import core.game.world.map.path.Pathfinder;
 import core.game.world.update.flag.context.Animation;
 import core.tools.RandomFunction;
 
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.STATS_BASE;
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.STATS_FISH;
+
 /**
  * Handles a fishing pulse.
  *
@@ -146,6 +149,8 @@ public final class FishingPulse extends SkillPulse<NPC> {
                 SkillingPets.checkPetDrop(player, SkillingPets.HERON);
                 final Item item = fish.getItem();
                 player.getInventory().add(item);
+                int fishCaught = player.getAttribute(STATS_BASE + ":" + STATS_FISH,0);
+                player.setAttribute("/save:" + STATS_BASE + ":" + STATS_FISH,++fishCaught);
                 player.getSkills().addExperience(Skills.FISHING, fish.getExperience(), true);
                 message(2);
                 if (TutorialSession.getExtension(player).getStage() == 13) {

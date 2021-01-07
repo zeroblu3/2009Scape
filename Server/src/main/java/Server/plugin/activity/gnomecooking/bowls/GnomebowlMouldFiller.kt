@@ -5,7 +5,7 @@ import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 
 private const val GNOME_BOWL_MOLD = 2166
 private const val GIANNE_DOUGH = 2171
@@ -24,7 +24,7 @@ class GnomebowlMouldFiller : UseWithHandler(GIANNE_DOUGH) {
         val with = event.usedWith.asItem()
         player.inventory.remove(used)
         player.inventory.remove(with)
-        player.inventory.add(Item(ItemNames.RAW_GNOMEBOWL_2178))
+        player.inventory.add(Item(Items.RAW_GNOMEBOWL_2178))
         return true
     }
 

@@ -1,6 +1,6 @@
 package plugin.consumable;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.state.EntityState;
 import core.game.world.update.flag.context.Animation;
@@ -117,7 +117,7 @@ public enum Consumables {
 	POTATO_WITH_CHEESE(new Food(new int[] {6705}, new HealingEffect(9))),
 	EGG_POTATO(new Food(new int[] {7056}, new HealingEffect(11))),
 	MUSHROOMS_AND_ONIONS(new Food(new int[] {7066, 1923}, new HealingEffect(11))),
-	MUSHROOM_POTATO(new Food(new int[] {7058, 1923}, new HealingEffect(20))),
+	MUSHROOM_POTATO(new Food(new int[] {7058}, new HealingEffect(20))),
 	TUNA_AND_CORN(new Food(new int[] {7068, 1923}, new HealingEffect(13))),
 	TUNA_POTATO(new Food(new int[] {7060}, new HealingEffect(22))),
 	ONION(new Food(new int[] {1957}, new HealingEffect(2), "It's always sad to see a grown man/woman cry.")),
@@ -286,7 +286,7 @@ public enum Consumables {
 	ROLL(new Food(new int[] {6963}, new HealingEffect(6))),
 	TCHIKI_MONKEY_NUTS(new Food(new int[] {7573}, new HealingEffect(5), "You eat the Tchiki monkey nuts. They taste nutty.")),
 	TCHIKI_MONKEY_PASTE(new Food(new int[] {7575}, new HealingEffect(5), "You eat the Tchiki monkey nut paste. It sticks to the roof of your mouth.")),
-	OOMLIE_WRAP(new Food(new int[] {ItemNames.COOKED_OOMLIE_WRAP_2343}, new MultiEffect(new HealingEffect(14), new AchievementEffect(DiaryType.KARAMJA, 2, 2)))),
+	OOMLIE_WRAP(new Food(new int[] {Items.COOKED_OOMLIE_WRAP_2343}, new MultiEffect(new HealingEffect(14), new AchievementEffect(DiaryType.KARAMJA, 2, 2)))),
 
 	/** Special Events */
 	PUMPKIN(new Food(new int[] {1959}, new HealingEffect(14))),

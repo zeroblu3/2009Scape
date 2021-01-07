@@ -1,8 +1,11 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL;
-import com.jogamp.opengl.GL2;
 
+
+
+import org.rs09.client.rendering.opengl.enums.GLBeginMode;
+
+import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 
 
@@ -44,7 +47,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
          var4 += (this.anInt2681 - this.width) * 4;
       }
       ByteBuffer byteBuffer = ByteBuffer.wrap(var3);
-      GL2 gl = HDToolKit.gl;
+      GL gl = HDToolKit.gl;
       if(this.anInt2675 == -1) {
          int[] var12 = new int[1];
          gl.glGenTextures(1, var12, 0);
@@ -62,7 +65,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
       HDToolKit.method1828();
       var1 += this.anInt1470;
       var2 += this.anInt1464;
-      GL2 var4 = HDToolKit.gl;
+      GL var4 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt2675);
       this.method1679();
       var4.glColor4f(1.0F, 1.0F, 1.0F, (float)var3 / 256.0F);
@@ -74,7 +77,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
    private void method1679() {
       if(this.anInt2677 != 1) {
          this.anInt2677 = 1;
-         GL2 var2 = HDToolKit.gl;
+         GL var2 = HDToolKit.gl;
           var2.glTexParameteri(3553, 10241, 9728);
           var2.glTexParameteri(3553, 10240, 9728);
 
@@ -85,7 +88,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
       HDToolKit.method1822();
       var1 += this.anInt1470;
       var2 += this.anInt1464;
-      GL2 var3 = HDToolKit.gl;
+      GL var3 = HDToolKit.gl;
       HDToolKit.bindTexture2D(this.anInt2675);
       this.method1679();
       var3.glTranslatef((float)var1, (float)(HDToolKit.viewHeight - var2), 0.0F);
@@ -111,14 +114,14 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
    private void method1680() {
       float var1 = (float)this.width / (float)this.anInt2681;
       float var2 = (float)this.height / (float)this.anInt2680;
-      GL2 var3 = HDToolKit.gl;
+      GL var3 = HDToolKit.gl;
       if(this.anInt2676 == -1) {
          this.anInt2676 = var3.glGenLists(1);
          this.anInt2679 = Class31.anInt582;
       }
 
       var3.glNewList(this.anInt2676, 4864);
-      var3.glBegin(GL.GL_TRIANGLE_FAN);
+      var3.glBegin(GLBeginMode.TRIANGLE_FAN);
       var3.glTexCoord2f(var1, 0.0F);
       var3.glVertex2f((float)this.width, 0.0F);
       var3.glTexCoord2f(0.0F, 0.0F);

@@ -3,7 +3,7 @@ package core.game.content.global.shop;
 import core.cache.def.impl.ItemDefinition;
 import core.game.container.Container;
 import core.game.container.ContainerType;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
@@ -26,17 +26,17 @@ public class Shop {
      * Represents the general store items.
      */
     public final static Item[] GENERAL_STORE_ITEMS = new Item[]{
-            new Item(ItemNames.POT_1931,5),
-            new Item(ItemNames.JUG_1935,5),
-            new Item(ItemNames.SHEARS_1735,2),
-            new Item(ItemNames.BUCKET_1925,3),
-            new Item(ItemNames.BOWL_1923,2),
-            new Item(ItemNames.CAKE_TIN_1887,2),
-            new Item(ItemNames.TINDERBOX,2),
-            new Item(ItemNames.CHISEL_1755,2),
-            new Item(ItemNames.HAMMER,5),
-            new Item(ItemNames.NEWCOMER_MAP_550,5),
-            new Item(ItemNames.SECURITY_BOOK_9003,5)
+            new Item(Items.EMPTY_POT_1931,5),
+            new Item(Items.JUG_1935,5),
+            new Item(Items.SHEARS_1735,2),
+            new Item(Items.BUCKET_1925,3),
+            new Item(Items.BOWL_1923,2),
+            new Item(Items.CAKE_TIN_1887,2),
+            new Item(Items.TINDERBOX_590,2),
+            new Item(Items.CHISEL_1755,2),
+            new Item(Items.HAMMER_2347,5),
+            new Item(Items.NEWCOMER_MAP_550,5),
+            new Item(Items.SECURITY_BOOK_9003,5)
     };
     /**
      * Represents the coins item.
@@ -333,13 +333,13 @@ public class Shop {
             }
 
             // Achievement Diary Handlers
-            if (add.getId() == ItemNames.BLACK_CHAINBODY && getTitle().equalsIgnoreCase("Wayne's Chains") && !player.getAttribute("diary:falador:black-chain-bought", false)) {
+            if (add.getId() == Items.BLACK_CHAINBODY_1107 && getTitle().equalsIgnoreCase("Wayne's Chains") && !player.getAttribute("diary:falador:black-chain-bought", false)) {
                 player.setAttribute("/save:diary:falador:black-chain-bought", true);
             }
             if (add.getId() == 12622 && getTitle().equalsIgnoreCase("Sarah's Farming Shop")) {
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 0, 0);
             }
-            if (add.getId() == ItemNames.CANDLE_36 && getTitle().equalsIgnoreCase("Candle Shop")) {
+            if (add.getId() == Items.CANDLE_36 && getTitle().equalsIgnoreCase("Candle Shop")) {
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 0, 9);
             }
             if (getTitle().equalsIgnoreCase("Ranging Guild Ticket Exchange")) {

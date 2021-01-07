@@ -106,6 +106,9 @@ class FairyRingInterface : ComponentPlugin(){
         val code = "${RING_1[ring1index]}${RING_2[ring2index]}${RING_3[ring3index]}"
         val ring: FairyRing? = FairyRing.valueOf(code.toUpperCase())
         var tile = ring?.tile
+        if(ring == FairyRing.CIP){
+            player.dialogueInterpreter.sendDialogue("The ring seems to reject you.")
+        }
         if (ring == null || tile == null) {
             val center = Location(2412, 4434, 0)
             tile = if (RandomFunction.random(2) == 1) {
@@ -155,10 +158,10 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
     BIS(Location.create(2635, 3266, 0), "Kandarin: Ardougne Zoo unicorns", 33),
     BJR(null, "Other Realms: Realm of the Fisher King", 36),
     BKP(Location.create(2385, 3035, 0), "Feldip Hills: South of Castle Wars", 38),
-    BKQ(null, "Other realms: Enchanted Valley", 39),//Location.create(3041, 4532, 0) MISSING XTEAS
+    BKQ(Location.create(3041, 4532, 0), "Other realms: Enchanted Valley", 39),
     BKR(Location.create(3469, 3431, 0), "Morytania: Mort Myre, south of Canifis", 40),
     BLR(Location.create(2740, 3351, 0), "Kandarin: Legends' Guild", 44),
-    CIP(Location.create(2513, 3884, 0), "Islands: Miscellania", 46),
+    CIP(null, "Islands: Miscellania", 46), //Location.create(2513, 3884, 0)
     CIQ(Location.create(2528, 3127, 0), "Kandarin: North-west of Yanille", 47),
     CJR(Location.create(2705, 3576, 0), "Kandarin: Sinclair Mansion", 52),
     CKP(Location.create(2075, 4848, 0), "Other realms: Cosmic Entity's plane", 54),

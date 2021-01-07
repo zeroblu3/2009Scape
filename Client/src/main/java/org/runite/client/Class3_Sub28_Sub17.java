@@ -96,7 +96,7 @@ public abstract class Class3_Sub28_Sub17 extends Node {
                     } else {
                         if (!var9.equalsString(aClass94_3743)) {
                             if (var9.startsWith(aClass94_3739)) {
-                                try {
+                                try {//TODO: Chat image?...
                                     var10 = var9.substring(4).parseInt();
                                     AbstractIndexedSprite var15 = this.aClass109Array3740[var10];
                                     int var12 = this.anIntArray3723 != null ? this.anIntArray3723[var10] : var15.anInt1467;
@@ -228,7 +228,7 @@ public abstract class Class3_Sub28_Sub17 extends Node {
                         } else {
                             if (!var8.equalsString(aClass94_3743)) {
                                 if (var8.startsWith(aClass94_3739)) {
-                                    try {
+                                    try {//No clue
                                         int var9 = var8.substring(4).parseInt();
                                         var4 += this.aClass109Array3740[var9].anInt1469;
                                         var3 = 0;

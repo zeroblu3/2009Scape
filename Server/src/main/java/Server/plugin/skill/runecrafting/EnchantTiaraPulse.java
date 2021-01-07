@@ -1,6 +1,6 @@
 package plugin.skill.runecrafting;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.impl.Animator;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.world.update.flag.context.Animation;

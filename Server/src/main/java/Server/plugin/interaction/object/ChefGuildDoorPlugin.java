@@ -1,7 +1,7 @@
 package plugin.interaction.object;
 
 import core.cache.def.impl.ObjectDefinition;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.content.global.action.DoorActionHandler;
 import core.game.node.item.Item;
 import plugin.skill.Skills;
@@ -21,9 +21,9 @@ import core.plugin.Plugin;
  */
 @InitializablePlugin
 public final class ChefGuildDoorPlugin extends OptionHandler {
-    private static final Item CHEFS_HAT = new Item(ItemNames.CHEFS_HAT);
-    private static final Item COOKING_CAPE = new Item(ItemNames.COOKING_CAPE_9801);
-    private static final Item COOKING_CAPE_T = new Item(ItemNames.COOKING_CAPET_9802);
+    private static final Item CHEFS_HAT = new Item(Items.CHEFS_HAT_1949);
+    private static final Item COOKING_CAPE = new Item(Items.COOKING_CAPE_9801);
+    private static final Item COOKING_CAPE_T = new Item(Items.COOKING_CAPET_9802);
     private static final Item VARROCK_ARMOUR_3 = new Item(11758);
     private static final Item[] ENTRANCE_ITEMS = {CHEFS_HAT, COOKING_CAPE, COOKING_CAPE_T, VARROCK_ARMOUR_3};
     private static final int CHEF_NPC = 847;

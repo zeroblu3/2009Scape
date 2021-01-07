@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.npc.NPC;
@@ -20,12 +20,12 @@ import core.tools.RandomFunction;
 @InitializablePlugin
 public class RomilyWeaklaxDialogue extends DialoguePlugin {
     private enum PieReward {
-        APPLE(ItemNames.APPLE_PIE_2323, 84),
-        REDBERRY(ItemNames.REDBERRY_PIE_2325, 90),
-        MEAT(ItemNames.MEAT_PIE_2327, 96),
-        GARDEN(ItemNames.GARDEN_PIE_7178, 112),
-        FISH(ItemNames.FISH_PIE_7188, 125),
-        ADMIRAL(ItemNames.ADMIRAL_PIE_7198, 387);
+        APPLE(Items.APPLE_PIE_2323, 84),
+        REDBERRY(Items.REDBERRY_PIE_2325, 90),
+        MEAT(Items.MEAT_PIE_2327, 96),
+        GARDEN(Items.GARDEN_PIE_7178, 112),
+        FISH(Items.FISH_PIE_7188, 125),
+        ADMIRAL(Items.ADMIRAL_PIE_7198, 387);
 
         int id, reward;
 
@@ -79,7 +79,7 @@ public class RomilyWeaklaxDialogue extends DialoguePlugin {
 
         if (args.length > 1) {
         	Item usedWith = (Item) args[1];
-        	if (usedWith.getId() == ItemNames.WILD_PIE_7208) {
+        	if (usedWith.getId() == Items.WILD_PIE_7208) {
         		npc("Is that a wild pie for me?"); // TODO not accurate dialogue, unfortunately offscreen in this video https://www.youtube.com/watch?v=FjlLZnDxofY
         		stage = 100;
         		return true;
@@ -209,7 +209,7 @@ public class RomilyWeaklaxDialogue extends DialoguePlugin {
 				break;
 			case 101:
 				npc("Oh, how splendid! Let me take that from you then.");
-				player.getInventory().remove(new Item(ItemNames.WILD_PIE_7208));
+				player.getInventory().remove(new Item(Items.WILD_PIE_7208));
 				player.getAchievementDiaryManager().finishTask(player, DiaryType.VARROCK, 2, 5);
 				stage++;
 				break;
@@ -234,7 +234,7 @@ public class RomilyWeaklaxDialogue extends DialoguePlugin {
 
     public static final class RomilyWildPieHandler extends UseWithHandler {
     	public RomilyWildPieHandler() {
-    		super(ItemNames.WILD_PIE_7208);
+    		super(Items.WILD_PIE_7208);
 		}
 
 		@Override

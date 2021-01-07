@@ -1,6 +1,7 @@
 package plugin.ai.general
 
 import core.cache.def.impl.ItemDefinition
+import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.Node
 import core.game.node.`object`.GameObject
@@ -18,7 +19,7 @@ import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphics
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import plugin.ai.AIRepository
 import plugin.barbtraining.fishing.getNewLoc
@@ -365,14 +366,18 @@ class ScriptAPI(private val bot: Player) {
     fun sellOnGE(id: Int){
         class toCounterPulse : MovementPulse(bot, Location.create(3165, 3487, 0)){
             override fun pulse(): Boolean {
+                var actualId = id
                 val itemAmt = bot.bank.getAmount(id)
                 val offeredValue = checkPriceOverrides(id) ?: ItemDefinition.forId(id).value
-                BotGrandExchange.sellOnGE(id, offeredValue, itemAmt)
+                if(ItemDefinition.forId(id).noteId == id){
+                    actualId = Item(id).noteChange
+                }
+                BotGrandExchange.sellOnGE(actualId, offeredValue, itemAmt)
                 SystemLogger.log("Offered $itemAmt")
                 bot.bank.remove(Item(id, itemAmt))
                 bot.bank.refresh()
-                SystemLogger.log("Banked fish: " + bot.bank.getAmount(ItemNames.RAW_SWORDFISH))
-                SystemLogger.log("Banked fish: " + bot.bank.getAmount(ItemNames.RAW_LOBSTER))
+                SystemLogger.log("Banked fish: " + bot.bank.getAmount(Items.RAW_SWORDFISH_371))
+                SystemLogger.log("Banked fish: " + bot.bank.getAmount(Items.RAW_LOBSTER_377))
                 return true
             }
         }
@@ -388,9 +393,9 @@ class ScriptAPI(private val bot: Player) {
             override fun pulse(): Boolean {
                 for(item in bot.bank.toArray()) {
                     item ?: continue
-                    if (item.id == ItemNames.LOBSTER) continue
-                    if (item.id == ItemNames.SWORDFISH) continue
-                    if (item.id == ItemNames.SHARK) continue
+                    if (item.id == Items.LOBSTER_379) continue
+                    if (item.id == Items.SWORDFISH_373) continue
+                    if (item.id == Items.SHARK_385) continue
                     if(!item.definition.isTradeable) {continue}
                     val itemAmt = item.amount
                     val offeredValue = checkPriceOverrides(item.id) ?: item.definition.value
@@ -405,24 +410,26 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function to sell an item with given ID on the GE with the given price(value)
-     * @param id the ID of the item to sell on the GE, pulls from the bot's bank.
-     * @param value the price to sell the item at.
-     * @author Ceikry
+     * Function to sell all items in a bot's bank on the Grand Exchange, if they are tradable.
+     * @author Ceikry & Kermit
      */
-    fun sellOnGE(id: Int, value: Int){
-        class toCounterPulseWithPrice : MovementPulse(bot, Location.create(3165, 3487, 0)){
+    fun sellAllOnGeAdv(){
+        val ge: GameObject? = getNearestNode("Desk", true) as GameObject?
+        class toCounterPulseAll : MovementPulse(bot, ge, DestinationFlag.OBJECT) {
             override fun pulse(): Boolean {
-                val itemAmt = bot.bank.getAmount(id)
-                val offeredValue = checkPriceOverrides(id) ?: value
-                SystemLogger.log("Offered $itemAmt")
-                BotGrandExchange.sellOnGE(id, offeredValue, itemAmt)
-                bot.bank.remove(Item(id, itemAmt))
-                bot.bank.refresh()
+                for(item in bot.bank.toArray()) {
+                    item ?: continue
+                    if(!item.definition.isTradeable) {continue}
+                    val itemAmt = item.amount
+                    val offeredValue = checkPriceOverrides(item.id) ?: item.definition.value
+                    BotGrandExchange.sellOnGE(item.id, offeredValue, itemAmt)
+                    bot.bank.remove(item)
+                    bot.bank.refresh()
+                }
                 return true
             }
         }
-        bot.pulseManager.run(toCounterPulseWithPrice())
+        bot.pulseManager.run(toCounterPulseAll())
     }
 
     /**
@@ -559,28 +566,30 @@ class ScriptAPI(private val bot: Player) {
      */
     fun checkPriceOverrides(id: Int): Int?{
         return when(id){
-            ItemNames.DRAGON_BONES -> 1250
-            ItemNames.GREEN_DRAGONHIDE_1753 -> 550
-            ItemNames.BOW_STRING_1777 -> 250
-            ItemNames.MAGIC_LOGS_1513 -> 450
-            ItemNames.GRIMY_RANARR -> 1214
-            ItemNames.GRIMY_AVANTOE -> 453
-            ItemNames.GRIMY_CADANTINE -> 232
-            ItemNames.GRIMY_DWARF_WEED -> 86
-            ItemNames.GRIMY_GUAM -> 50
-            ItemNames.GRIMY_HARRALANDER -> 115
-            ItemNames.GRIMY_IRIT -> 860
-            ItemNames.GRIMY_KWUARM -> 334
-            ItemNames.GRIMY_LANTADYME -> 115
-            ItemNames.GRIMY_MARRENTILL -> 250
-            ItemNames.LOBSTER -> 268
-            ItemNames.RAW_LOBSTER -> 265
-            ItemNames.LOOP_HALF_OF_KEY -> 5250
-            ItemNames.TOOTH_HALF_OF_KEY -> 4263
-            ItemNames.SWORDFISH -> 400
-            ItemNames.RAW_SWORDFISH -> 390
-            ItemNames.SHARK -> 720
-            ItemNames.RAW_SHARK -> 710
+            Items.PURE_ESSENCE_7936 -> 50
+            Items.BOW_STRING_1777 -> 250
+            Items.MAGIC_LOGS_1513 -> 750
+            Items.COWHIDE_1739 -> 250
+            Items.DRAGON_BONES_536 -> 1250
+            Items.GREEN_DRAGONHIDE_1753 -> 550
+            Items.GRIMY_RANARR_207 -> 1214
+            Items.GRIMY_AVANTOE_211 -> 453
+            Items.GRIMY_CADANTINE_215 -> 232
+            Items.GRIMY_DWARF_WEED_217 -> 86
+            Items.GRIMY_GUAM_199 -> 50
+            Items.GRIMY_HARRALANDER_205 -> 115
+            Items.GRIMY_IRIT_209 -> 860
+            Items.GRIMY_KWUARM_213 -> 334
+            Items.GRIMY_LANTADYME_2485 -> 115
+            Items.GRIMY_MARRENTILL_201 -> 250
+            Items.LOBSTER_379 -> 268
+            Items.RAW_LOBSTER_377 -> 265
+            Items.LOOP_HALF_OF_A_KEY_987 -> 5250
+            Items.TOOTH_HALF_OF_A_KEY_985-> 4263
+            Items.SWORDFISH_373 -> 400
+            Items.RAW_SWORDFISH_371 -> 390
+            Items.SHARK_385 -> 720
+            Items.RAW_SHARK_383 -> 710
             else -> null
         }
     }

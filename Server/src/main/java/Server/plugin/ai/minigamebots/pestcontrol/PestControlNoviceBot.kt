@@ -22,7 +22,10 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)){
     val myBoat = BoatInfo.NOVICE
     val combathandler = CombatState(this)
 
+    var time = 0
+
     enum class State {
+        REFRESH,
         OUTSIDE_GANGPLANK,
         WAITING_IN_BOAT,
         PLAY_GAME,
@@ -51,15 +54,17 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)){
     override fun tick() {
         super.tick()
         tick++
+        time++
         movetimer--
         if (movetimer <= 0) {
             movetimer = 0
             customState = state.toString() + movetimer
             when (state) {
-                State.GET_TO_PC -> toPC
+                State.GET_TO_PC -> toPC()
                 State.OUTSIDE_GANGPLANK -> enterBoat()
                 State.WAITING_IN_BOAT -> idleInBoat()
                 State.PLAY_GAME -> attackNPCs()
+                State.REFRESH -> toPC()
             }
         }
     }
@@ -72,8 +77,11 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)){
             if (PestControlHelper.isInPestControlInstance(this)) {
                 return State.PLAY_GAME
             }
-             if (PestControlHelper.outsideGangplankContainsLoc(this.getLocation())) {
+            if (PestControlHelper.outsideGangplankContainsLoc(this.getLocation())) {
                  return State.OUTSIDE_GANGPLANK
+            }
+            if (time == 1200) {
+                 return State.GET_TO_PC
             }
              return State.GET_TO_PC
 
@@ -101,6 +109,7 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)){
      fun idleInBoat() {
          justStartedGame = true
          openedGate = false
+         time = 0
         if (!prayer.active.isEmpty()) {
             prayer.reset()
         }
@@ -160,16 +169,27 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)){
         insideBoatWalks = 3
     }
 
-
-     val toPC: Unit
-         get() {
-            val test = getClosestNodeWithEntry(30, myBoat.ladderId)
-            if (test == null) {
-                this.teleport(PestControlHelper.PestControlLanderNovice)
-            } else {
-                test.interaction.handle(this, test.interaction[0])
-            }
-        }
+    var switch = false
+     fun toPC() {
+        time = 0
+         if (!switch){
+             this.teleport(PestControlHelper.PestControlLanderNovice)//.also { println("I was stuck ${this.username}") }
+             switch = true
+             return
+         }
+         if (switch) {
+             val test = getClosestNodeWithEntry(30, myBoat.ladderId)
+             if (test == null) {
+                 switch = false
+                 this.teleport(PestControlHelper.PestControlLanderNovice)
+                 State.OUTSIDE_GANGPLANK
+             } else {
+                 switch = false
+                 test.interaction.handle(this, test.interaction[0])
+                 State.OUTSIDE_GANGPLANK
+             }
+         }
+     }
 
     companion object {
          fun legitimizeLocation(l: Location): Location {

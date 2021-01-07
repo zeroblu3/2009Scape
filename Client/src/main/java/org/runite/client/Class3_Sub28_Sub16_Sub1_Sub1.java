@@ -1,8 +1,9 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
 
+
+
+import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 
 
@@ -33,7 +34,7 @@ final class Class3_Sub28_Sub16_Sub1_Sub1 extends HDSprite {
       }
 
       ByteBuffer var9 = ByteBuffer.wrap(var2);
-      GL2 var10 = HDToolKit.gl;
+      GL var10 = HDToolKit.gl;
       if(this.anInt4077 == -1) {
          int[] var11 = new int[1];
          var10.glGenTextures(1, var11, 0);

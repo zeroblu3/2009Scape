@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.AchievementDiary;
@@ -17,7 +17,7 @@ import core.game.node.item.Item;
 @InitializablePlugin
 public class StankersDialogue extends DialoguePlugin {
 
-    private final Item POISON_CHALICE = new Item(ItemNames.POISON_CHALICE_197);
+    private final Item POISON_CHALICE = new Item(Items.POISON_CHALICE_197);
 
     public StankersDialogue() {}
 

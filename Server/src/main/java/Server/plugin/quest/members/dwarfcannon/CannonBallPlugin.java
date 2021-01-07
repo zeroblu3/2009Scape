@@ -1,5 +1,6 @@
 package plugin.quest.members.dwarfcannon;
 
+import core.tools.Items;
 import plugin.dialogue.SkillDialogueHandler;
 import plugin.dialogue.SkillDialogueHandler.SkillDialogue;
 import plugin.skill.SkillPulse;
@@ -26,7 +27,7 @@ public class CannonBallPlugin extends UseWithHandler {
 	 * Constructs a new {@Code CannonBallPlugin} {@Code Object}
 	 */
 	public CannonBallPlugin() {
-		super(2353);
+		super(Items.STEEL_BAR_2353);
 	}
 
 	@Override
@@ -94,7 +95,7 @@ public class CannonBallPlugin extends UseWithHandler {
 				player.getDialogueInterpreter().sendDialogue("You need a Smithing level of at least 35 in order to do this.");
 				return false;
 			}
-			if (!player.getInventory().contains(4, 1)) {
+			if (!player.getInventory().contains(Items.AMMO_MOULD_4, 1)) {
 				player.getDialogueInterpreter().sendDialogue("You need an ammo mould in order to make a cannon ball.");
 				return false;
 			}
@@ -107,9 +108,9 @@ public class CannonBallPlugin extends UseWithHandler {
 
 		@Override
 		public void animate() {
-			if (ticks == 0 || ticks % 5 == 0) {
+			if (ticks == 0 || ticks % 6 == 0) {
 				player.sendMessage("You heat the steel bar into a liquid state.");
-				player.animate(Animation.create(899));
+				player.animate(Animation.create(827)); //Bone burying animation (2009 used the same animation as burying bones)
 			} else if (ticks % 3 == 0) {
 				player.sendMessage("You pour the molten metal into your cannonball mould.");
 			}
@@ -117,14 +118,14 @@ public class CannonBallPlugin extends UseWithHandler {
 
 		@Override
 		public boolean reward() {
-			if (++ticks % 5 != 0) {
+			if (++ticks % 6 != 0) {
 				return false;
 			}
 			amount--;
 			if (player.getInventory().remove(node)) {
-				player.getInventory().add(new Item(2, 4));
+				player.getInventory().add(new Item(Items.CANNONBALL_2, 4));
 				player.getSkills().addExperience(Skills.SMITHING, 25.6, true);
-				player.sendMessage("You remove the cannonballs from the mould.");
+				player.sendMessage("The molten metal cools slowly to form 4 cannonballs.");
 			}
 			return amount <= 0;
 		}

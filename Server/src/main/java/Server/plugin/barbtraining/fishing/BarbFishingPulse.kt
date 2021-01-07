@@ -4,7 +4,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import plugin.skill.SkillPulse
 import plugin.skill.Skills
@@ -36,7 +36,7 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player,NPC(1176)) {
             player.sendMessage("You don't have enough space in your inventory.")
             return false
         }
-        if(!(player.inventory.containsItem(Item(ItemNames.FEATHER)) || player.inventory.containsItem(Item(ItemNames.FISH_OFFCUTS_11334)))){
+        if(!(player.inventory.containsItem(Item(Items.FEATHER_314)) || player.inventory.containsItem(Item(Items.FISH_OFFCUTS_11334)))){
             player.sendMessage("You don't have any bait with which to fish.")
             return false
         }
@@ -64,8 +64,8 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player,NPC(1176)) {
             else -> 0
         })
         if(success){
-            if(!player.inventory.remove(Item(ItemNames.FISH_OFFCUTS_11334))) {
-                player.inventory.remove(Item(ItemNames.FEATHER))
+            if(!player.inventory.remove(Item(Items.FISH_OFFCUTS_11334))) {
+                player.inventory.remove(Item(Items.FEATHER_314))
             }
             player.inventory.add(reward)
             player.skills.addExperience(Skills.FISHING,fishXP[index].toDouble())

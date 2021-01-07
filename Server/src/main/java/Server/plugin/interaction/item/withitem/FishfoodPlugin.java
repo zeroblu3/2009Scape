@@ -1,6 +1,6 @@
 package plugin.interaction.item.withitem;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.player.Player;
@@ -22,17 +22,17 @@ public final class FishfoodPlugin extends UseWithHandler {
 	/**
 	 * Represents the poisoned fish food item.
 	 */
-	private static final int FISH_FOOD = ItemNames.FISH_FOOD_272;
-	private static final int POISON = ItemNames.POISON_273;
-	private static final int POISONED_FISH_FOOD = ItemNames.POISONED_FISH_FOOD_274;
+	private static final int FISH_FOOD = Items.FISH_FOOD_272;
+	private static final int POISON = Items.POISON_273;
+	private static final int POISONED_FISH_FOOD = Items.POISONED_FISH_FOOD_274;
 
 	protected enum FishFoodUses{
 		POISONED(POISON, FISH_FOOD, POISONED_FISH_FOOD, "You poison the fish food."),
-		GUAMBOX(ItemNames.GROUND_GUAM_6681, ItemNames.AN_EMPTY_BOX_6675, ItemNames.GUAM_IN_A_BOX_6677, "You put the ground Guam into the box."),
-		SEAWEEDBOX(ItemNames.GROUND_SEAWEED_6683, ItemNames.AN_EMPTY_BOX_6675, ItemNames.SEAWEED_IN_A_BOX_6679, "You put the ground Seaweed into the box."),
-		FOOD1(ItemNames.GROUND_SEAWEED_6683, ItemNames.GUAM_IN_A_BOX_6677, FISH_FOOD, "You put the ground Seaweed into the box and make Fish Food."),
-		FOOD2(ItemNames.GROUND_GUAM_6681, ItemNames.SEAWEED_IN_A_BOX_6679, FISH_FOOD, "You put the ground Guam into the box and make Fish Food."),
-		FISHBOWL(ItemNames.FISHBOWL, ItemNames.SEAWEED, ItemNames.FISHBOWL_6669, "You place the seaweed in the bowl.");
+		GUAMBOX(Items.GROUND_GUAM_6681, Items.AN_EMPTY_BOX_6675, Items.GUAM_IN_A_BOX_6677, "You put the ground Guam into the box."),
+		SEAWEEDBOX(Items.GROUND_SEAWEED_6683, Items.AN_EMPTY_BOX_6675, Items.SEAWEED_IN_A_BOX_6679, "You put the ground Seaweed into the box."),
+		FOOD1(Items.GROUND_SEAWEED_6683, Items.GUAM_IN_A_BOX_6677, FISH_FOOD, "You put the ground Seaweed into the box and make Fish Food."),
+		FOOD2(Items.GROUND_GUAM_6681, Items.SEAWEED_IN_A_BOX_6679, FISH_FOOD, "You put the ground Guam into the box and make Fish Food."),
+		FISHBOWL(Items.FISHBOWL_6668, Items.SEAWEED_401, Items.FISHBOWL_6669, "You place the seaweed in the bowl.");
 
 
 		private final int used;

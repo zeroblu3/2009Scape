@@ -1,8 +1,10 @@
 package core.game.content.global.action;
 
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.EquipSoundsKt;
-import core.game.content.ItemNames;
+import core.game.interaction.Interaction;
+import core.game.interaction.Option;
+import core.net.packet.out.InteractionOption;
+import core.tools.Items;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.combat.equipment.WeaponInterface;
@@ -11,10 +13,12 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.audio.Audio;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Plugin;
+import plugin.interaction.player.PeltOptionPlugin;
 
 /**
  * Represents the equipment equipping handler plugin.
@@ -74,7 +78,13 @@ public class EquipHandler extends OptionHandler {
 				player.getBrawlingGlovesManager().registerGlove(item.getId());
 			}
 
-			if (item.getId() == ItemNames.BLACK_CHAINBODY
+			if(item.getId() == Items.SNOWBALL_11951){
+				player.getInteraction().set(new Option("Pelt",0).setHandler(new PeltOptionPlugin()));
+			} else {
+				Interaction.sendOption(player,0,"null");
+			}
+
+			if (item.getId() == Items.BLACK_CHAINBODY_1107
 					&& player.getAttribute("diary:falador:black-chain-bought", false)
 					&& new ZoneBorders(2969, 3310, 2975, 3314, 0).insideBorder(player)) {
 				player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR, 0, 2);
@@ -82,7 +92,7 @@ public class EquipHandler extends OptionHandler {
 
 
 			player.getDialogueInterpreter().close();
-			player.getAudioManager().send(EquipSoundsKt.gibAudio(item.getId()), 1);
+			player.getAudioManager().send(item.getDefinition().getConfiguration(ItemConfigParser.EQUIP_AUDIO, 2244));
 			if(player.getProperties().getAutocastSpell() != null) {
 				player.getProperties().setAutocastSpell(null);
 				WeaponInterface wif = player.getExtension(WeaponInterface.class);

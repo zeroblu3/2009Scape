@@ -57,7 +57,11 @@ public class ItemActionPacket implements IncomingPacket {
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId, item, npc);
-			UseWithHandler.run(event);
+			try {
+				UseWithHandler.run(event);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 			return;
 		case 248: // Item on Player
 			int playerIndex = buffer.getLEShortA();
@@ -74,7 +78,11 @@ public class ItemActionPacket implements IncomingPacket {
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId, item, target);
-			UseWithHandler.run(event);
+			try {
+				UseWithHandler.run(event);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 			return;
 		case 27://Item on Item
 			usedSlot = buffer.getShort();
@@ -103,7 +111,11 @@ public class ItemActionPacket implements IncomingPacket {
 				return;
 			}
 			event = new NodeUsageEvent(player, interfaceId1, used, with);
-			UseWithHandler.run(event);
+			try {
+				UseWithHandler.run(event);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 			break;
 		case 134://Item on Object
 			int x = buffer.getShortA();
@@ -136,8 +148,11 @@ public class ItemActionPacket implements IncomingPacket {
 				new ItemOnBankBooth().handle(event);
 				return;
 			}
-			UseWithHandler.run(event);
-			return;
+			try {
+				UseWithHandler.run(event);
+			} catch (Exception e){
+				e.printStackTrace();
+			}			return;
 		default:
 			SystemLogger.error("Error in Item Action Packet! Unhandled opcode = " + buffer.opcode());
 			return;

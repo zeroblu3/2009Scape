@@ -9,6 +9,7 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
 import core.game.node.item.Item;
+import core.game.system.SystemLogger;
 import core.plugin.Plugin;
 import core.plugin.InitializablePlugin;
 import core.plugin.PluginManager;
@@ -40,6 +41,10 @@ public final class DwarfMultiCannonPlugin extends OptionHandler {
 				if (handler != null && handler.getCannon() == event.getUsedWith()) {
 					int maxAmount = 30;
 					int amount = maxAmount - handler.getCannonballs();
+					if(amount < 0 || amount > 30) {
+						handler.setCannonballs(0);
+						amount = maxAmount - handler.getCannonballs();
+					}
 					if (amount > 0) {
 						if (amount > event.getUsedItem().getAmount()) {
 							amount = event.getUsedItem().getAmount();

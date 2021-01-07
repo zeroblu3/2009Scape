@@ -347,7 +347,7 @@ public final class Class24 {
                int var5 = Class168.aClass3_Sub28_Sub17_2096.method683(var4, 4 + var3, var2 - -15, aRandom3088, Class38_Sub1.anInt2618);
                Class75.method1340(4 + var3, Class168.aClass3_Sub28_Sub17_2096.method682(var4) + var5, var2, 15);
             } else {
-               Class3_Sub28_Sub17 var7 = var0.method868(Class3_Sub13_Sub22.aClass109Array3270);
+               Class3_Sub28_Sub17 var7 = var0.method868(Class3_Sub13_Sub22.nameIconsSpriteArray);
                if(null == var7) {
                   var7 = Class168.aClass3_Sub28_Sub17_2096;
                }

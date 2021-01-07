@@ -33,7 +33,7 @@ class ShopParser{
             val e = config as JSONObject
             val id = e["id"].toString().toInt()
             val title = e["title"].toString()
-            val general = e["general"].toString().toBoolean()
+            val general = e["general_store"].toString().toBoolean()
             val stock = parseStock(e["stock"].toString()).toTypedArray()
             val npcs = if(e["npcs"].toString().isNotBlank()) e["npcs"].toString().split(",").map { it.toInt() }.toIntArray() else intArrayOf()
             val currency = e["currency"].toString().toInt()

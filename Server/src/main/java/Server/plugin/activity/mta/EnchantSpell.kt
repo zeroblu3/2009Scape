@@ -1,6 +1,6 @@
 package plugin.activity.mta
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.equipment.SpellType
@@ -110,18 +110,18 @@ class EnchantSpell : MagicSpell {
         SpellBook.MODERN.register(5, EnchantSpell(7, 17.5,
                 hashMapOf(
                         //Begin Jewelry Enchantments
-                        ItemNames.SAPPHIRE_RING_1637 to Item(ItemNames.RING_OF_RECOIL_2550),
-                        ItemNames.SAPPHIRE_NECKLACE_1656 to Item(ItemNames.GAMES_NECKLACE8_3853),
-                        ItemNames.SAPPHIRE_AMULET_1694 to Item(ItemNames.AMULET_OF_MAGIC_1727),
-                        ItemNames.SAPPHIRE_BRACELET_11072 to Item(ItemNames.BRACELET_OF_CLAY_11074),
+                        Items.SAPPHIRE_RING_1637 to Item(Items.RING_OF_RECOIL_2550),
+                        Items.SAPPHIRE_NECKLACE_1656 to Item(Items.GAMES_NECKLACE8_3853),
+                        Items.SAPPHIRE_AMULET_1694 to Item(Items.AMULET_OF_MAGIC_1727),
+                        Items.SAPPHIRE_BRACELET_11072 to Item(Items.BRACELET_OF_CLAY_11074),
                         //Begin MTA-specific enchantments
-                        ItemNames.CUBE_6899 to Item(ItemNames.ORB_6902),
-                        ItemNames.CYLINDER_6898 to Item(ItemNames.ORB_6902),
-                        ItemNames.ICOSAHEDRON_6900 to Item(ItemNames.ORB_6902),
-                        ItemNames.PENTAMID_6901 to Item(ItemNames.ORB_6902),
-                        ItemNames.DRAGONSTONE_6903 to Item(ItemNames.ORB_6902)
+                        Items.CUBE_6899 to Item(Items.ORB_6902),
+                        Items.CYLINDER_6898 to Item(Items.ORB_6902),
+                        Items.ICOSAHEDRON_6900 to Item(Items.ORB_6902),
+                        Items.PENTAMID_6901 to Item(Items.ORB_6902),
+                        Items.DRAGONSTONE_6903 to Item(Items.ORB_6902)
                 ),
-                arrayOf(Item(ItemNames.COSMIC_RUNE,1), Item(ItemNames.WATER_RUNE,1))))
+                arrayOf(Item(Items.COSMIC_RUNE_564,1), Item(Items.WATER_RUNE_555,1))))
 
         /**
          * Enchant Emerald Jewelry (Lvl-2 Enchant)
@@ -129,16 +129,16 @@ class EnchantSpell : MagicSpell {
         SpellBook.MODERN.register(16, EnchantSpell(27, 37.0,
                 hashMapOf(
                         //Begin Jewelry Enchantments
-                        ItemNames.EMERALD_RING_1639 to Item(ItemNames.RING_OF_DUELING8_2552),
-                        ItemNames.EMERALD_NECKLACE_1658 to Item(ItemNames.BINDING_NECKLACE_5521),
-                        ItemNames.EMERALD_AMULET_1696 to Item(ItemNames.AMULET_OF_DEFENCE_1729),
-                        ItemNames.EMERALD_BRACELET_11076 to Item(ItemNames.CASTLE_WARS_BRACELET3_11079),
+                        Items.EMERALD_RING_1639 to Item(Items.RING_OF_DUELLING8_2552),
+                        Items.EMERALD_NECKLACE_1658 to Item(Items.BINDING_NECKLACE_5521),
+                        Items.EMERALD_AMULET_1696 to Item(Items.AMULET_OF_DEFENCE_1729),
+                        Items.EMERALD_BRACELET_11076 to Item(Items.CASTLEWAR_BRACE3_11080),
                         //Begin MTA-Specific Enchantments
-                        ItemNames.CUBE_6899 to Item(ItemNames.ORB_6902),
-                        ItemNames.CYLINDER_6898 to Item(ItemNames.ORB_6902),
-                        ItemNames.ICOSAHEDRON_6900 to Item(ItemNames.ORB_6902),
-                        ItemNames.PENTAMID_6901 to Item(ItemNames.ORB_6902),
-                        ItemNames.DRAGONSTONE_6903 to Item(ItemNames.ORB_6902)
+                        Items.CUBE_6899 to Item(Items.ORB_6902),
+                        Items.CYLINDER_6898 to Item(Items.ORB_6902),
+                        Items.ICOSAHEDRON_6900 to Item(Items.ORB_6902),
+                        Items.PENTAMID_6901 to Item(Items.ORB_6902),
+                        Items.DRAGONSTONE_6903 to Item(Items.ORB_6902)
                 ),
                 arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.AIR_RUNE.id, 3))))
 
@@ -148,16 +148,16 @@ class EnchantSpell : MagicSpell {
         SpellBook.MODERN.register(28, EnchantSpell(49, 59.0,
                 hashMapOf(
                         //Begin Jewelry Enchantments
-                        ItemNames.RUBY_RING_1641 to Item(ItemNames.RING_OF_FORGING_2568),
-                        ItemNames.RUBY_NECKLACE_1660 to Item(ItemNames.DIGSITE_PENDANT_5_11194),
-                        ItemNames.RUBY_AMULET_1698 to Item(ItemNames.AMULET_OF_STRENGTH_1725),
-                        ItemNames.RUBY_BRACELET_11085 to Item(ItemNames.INOCULATION_BRACELET_11088),
+                        Items.RUBY_RING_1641 to Item(Items.RING_OF_FORGING_2568),
+                        Items.RUBY_NECKLACE_1660 to Item(Items.DIGSITE_PENDANT_5_11194),
+                        Items.RUBY_AMULET_1698 to Item(Items.AMULET_OF_STRENGTH_1725),
+                        Items.RUBY_BRACELET_11085 to Item(Items.INOCULATION_BRACE_11088),
                         //Begin MTA-Specific Enchantments
-                        ItemNames.CUBE_6899 to Item(ItemNames.ORB_6902),
-                        ItemNames.CYLINDER_6898 to Item(ItemNames.ORB_6902),
-                        ItemNames.ICOSAHEDRON_6900 to Item(ItemNames.ORB_6902),
-                        ItemNames.PENTAMID_6901 to Item(ItemNames.ORB_6902),
-                        ItemNames.DRAGONSTONE_6903 to Item(ItemNames.ORB_6902)
+                        Items.CUBE_6899 to Item(Items.ORB_6902),
+                        Items.CYLINDER_6898 to Item(Items.ORB_6902),
+                        Items.ICOSAHEDRON_6900 to Item(Items.ORB_6902),
+                        Items.PENTAMID_6901 to Item(Items.ORB_6902),
+                        Items.DRAGONSTONE_6903 to Item(Items.ORB_6902)
                 ),
                 arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 5))))
 
@@ -166,16 +166,16 @@ class EnchantSpell : MagicSpell {
          */
         SpellBook.MODERN.register(36, EnchantSpell(57, 67.0,
                 hashMapOf(
-                        ItemNames.DIAMOND_RING_1643 to Item(ItemNames.RING_OF_LIFE),
-                        ItemNames.DIAMOND_NECKLACE_1662 to Item(ItemNames.PHOENIX_NECKLACE_11090),
-                        ItemNames.DIAMOND_AMULET_1700 to Item(ItemNames.AMULET_OF_POWER),
-                        ItemNames.DIAMOND_BRACELET_11092 to Item(ItemNames.ABYSSAL_BRACELET1_11103),
+                        Items.DIAMOND_RING_1643 to Item(Items.RING_OF_LIFE_2570),
+                        Items.DIAMOND_NECKLACE_1662 to Item(Items.PHOENIX_NECKLACE_11090),
+                        Items.DIAMOND_AMULET_1700 to Item(Items.AMULET_OF_POWER_1731),
+                        Items.DIAMOND_BRACELET_11092 to Item(Items.FORINTHRY_BRACE5_11096),
                         //Begin MTA-Specific Enchantments
-                        ItemNames.CUBE_6899 to Item(ItemNames.ORB_6902),
-                        ItemNames.CYLINDER_6898 to Item(ItemNames.ORB_6902),
-                        ItemNames.ICOSAHEDRON_6900 to Item(ItemNames.ORB_6902),
-                        ItemNames.PENTAMID_6901 to Item(ItemNames.ORB_6902),
-                        ItemNames.DRAGONSTONE_6903 to Item(ItemNames.ORB_6902)
+                        Items.CUBE_6899 to Item(Items.ORB_6902),
+                        Items.CYLINDER_6898 to Item(Items.ORB_6902),
+                        Items.ICOSAHEDRON_6900 to Item(Items.ORB_6902),
+                        Items.PENTAMID_6901 to Item(Items.ORB_6902),
+                        Items.DRAGONSTONE_6903 to Item(Items.ORB_6902)
                 ),
                 arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 10))))
 
@@ -185,16 +185,16 @@ class EnchantSpell : MagicSpell {
         SpellBook.MODERN.register(51, EnchantSpell(68, 78.0,
                 hashMapOf(
                         //Begin Jewelry Enchantment
-                        ItemNames.DRAGONSTONE_RING_1645 to Item(14646),
-                        ItemNames.DRAGONSTONE_NECKLACE_1664 to Item(ItemNames.SKILLS_NECKLACE6_11968),
-                        ItemNames.DRAGONSTONE_AMULET_1702 to Item(ItemNames.AMULET_OF_GLORY6_11978),
-                        ItemNames.DRAGONSTONE_BRACELET_11115 to Item(ItemNames.COMBAT_BRACELET6_11972),
+                        Items.DRAGONSTONE_RING_1645 to Item(14646),
+                        Items.DRAGON_NECKLACE_1664 to Item(Items.SKILLS_NECKLACE4_11105),
+                        Items.DRAGONSTONE_AMMY_1702 to Item(Items.AMULET_OF_GLORY4_1712),
+                        Items.DRAGON_BRACELET_11115 to Item(Items.COMBAT_BRACELET4_11118),
                         //Begin MTA-Specific Enchantments
-                        ItemNames.CUBE_6899 to Item(ItemNames.ORB_6902),
-                        ItemNames.CYLINDER_6898 to Item(ItemNames.ORB_6902),
-                        ItemNames.ICOSAHEDRON_6900 to Item(ItemNames.ORB_6902),
-                        ItemNames.PENTAMID_6901 to Item(ItemNames.ORB_6902),
-                        ItemNames.DRAGONSTONE_6903 to Item(ItemNames.ORB_6902)
+                        Items.CUBE_6899 to Item(Items.ORB_6902),
+                        Items.CYLINDER_6898 to Item(Items.ORB_6902),
+                        Items.ICOSAHEDRON_6900 to Item(Items.ORB_6902),
+                        Items.PENTAMID_6901 to Item(Items.ORB_6902),
+                        Items.DRAGONSTONE_6903 to Item(Items.ORB_6902)
                 ),
                 arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.WATER_RUNE.id, 15), Item(Runes.EARTH_RUNE.id, 15))))
 
@@ -204,16 +204,16 @@ class EnchantSpell : MagicSpell {
         SpellBook.MODERN.register(61, EnchantSpell(87, 97.0,
                 hashMapOf(
                         //Begin Jewelry Enchantments
-                        ItemNames.ONYX_RING_6575 to Item(ItemNames.RING_OF_STONE_6583),
-                        ItemNames.ONYX_NECKLACE_6577 to Item(ItemNames.BERSERKER_NECKLACE_11128),
-                        ItemNames.ONYX_AMULET_6581 to Item(ItemNames.AMULET_OF_FURY_6585),
-                        ItemNames.ONYX_BRACELET_11130 to Item(ItemNames.REGEN_BRACELET_11133),
+                        Items.ONYX_RING_6575 to Item(Items.RING_OF_STONE_6583),
+                        Items.ONYX_NECKLACE_6577 to Item(Items.BERSERKER_NECKLACE_11128),
+                        Items.ONYX_AMULET_6581 to Item(Items.AMULET_OF_FURY_6585),
+                        Items.ONYX_BRACELET_11130 to Item(Items.REGEN_BRACELET_11133),
                         //Begin MTA-Specific Enchantments
-                        ItemNames.CUBE_6899 to Item(ItemNames.ORB_6902),
-                        ItemNames.CYLINDER_6898 to Item(ItemNames.ORB_6902),
-                        ItemNames.ICOSAHEDRON_6900 to Item(ItemNames.ORB_6902),
-                        ItemNames.PENTAMID_6901 to Item(ItemNames.ORB_6902),
-                        ItemNames.DRAGONSTONE_6903 to Item(ItemNames.ORB_6902)
+                        Items.CUBE_6899 to Item(Items.ORB_6902),
+                        Items.CYLINDER_6898 to Item(Items.ORB_6902),
+                        Items.ICOSAHEDRON_6900 to Item(Items.ORB_6902),
+                        Items.PENTAMID_6901 to Item(Items.ORB_6902),
+                        Items.DRAGONSTONE_6903 to Item(Items.ORB_6902)
                 ),
                 arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 20), Item(Runes.EARTH_RUNE.id, 20))))
         return this

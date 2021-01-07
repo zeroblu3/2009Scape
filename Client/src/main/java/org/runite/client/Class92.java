@@ -1,9 +1,10 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
+
+
 import org.rs09.client.config.GameConfig;
 
+import javax.media.opengl.GL;
 
 
 final class Class92 {
@@ -26,7 +27,7 @@ final class Class92 {
 
 
    static void method1504() {
-      GL2 gl = HDToolKit.gl;
+      GL gl = HDToolKit.gl;
       gl.glLightfv(16384, 4611, light0Position, 0);
       gl.glLightfv(16385, 4611, light1Position, 0);
    }
@@ -41,7 +42,7 @@ final class Class92 {
             lightModelAmbient = ambientMod;
             light0Diffuse = l0Diffuse;
             light1Diffuse = l1Diffuse;
-            final GL2 gl = HDToolKit.gl;
+            final GL gl = HDToolKit.gl;
             final float red = (color >> 16 & 0xff) / 255.0F;
             final float green = (color >> 8 & 0xff) / 255.0F;
             final float blue = (color & 0xff) / 255.0F;
@@ -58,7 +59,7 @@ final class Class92 {
       if(fogColorRGB != fogCol || fogOffset != fogOff) {
          fogColorRGB = fogCol;
          fogOffset = fogOff;
-         final GL2 gl = HDToolKit.gl;
+         final GL gl = HDToolKit.gl;
          byte lowestFogStart = 50;
          //short baseFogStart = 3584; This is unused because it was originally this but to avoid math jagex simplified it.
          fogColor[0] = (fogCol >> 16 & 0xff) / 255.0F;
@@ -103,7 +104,7 @@ final class Class92 {
    }
 
    static void method1511() {
-      final GL2 gl = HDToolKit.gl;
+      final GL gl = HDToolKit.gl;
       gl.glColorMaterial(1028, 5634);//FRONT, AMBIENT_AND_DIFFUSE
       gl.glEnable(2903);//COLOR_MATERIAL
       final float[] light0Params = { 0.0F, 0.0F, 0.0F, 1.0F };
@@ -122,7 +123,7 @@ final class Class92 {
          var0 = fogColor;
       }
 
-      GL2 gl = HDToolKit.gl;
+      GL gl = HDToolKit.gl;
       gl.glFogfv(2918, var0, 0);
    }
 

@@ -4,7 +4,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.skill.Skills
 
 /**
@@ -15,7 +15,7 @@ import plugin.skill.Skills
  */
 class FishCuttingPulse(val player: Player, val fish: Int) : Pulse(0){
     fun checkRequirements(): Boolean {
-        if(!(player.inventory.freeSlots() >= 2 || (player.inventory.freeSlots() >= 1 && player.inventory.containsItem(Item(ItemNames.FISH_OFFCUTS_11334))))){
+        if(!(player.inventory.freeSlots() >= 2 || (player.inventory.freeSlots() >= 1 && player.inventory.containsItem(Item(Items.FISH_OFFCUTS_11334))))){
             player.sendMessage("You do not have enough space to do that.")
             return false
         }
@@ -26,11 +26,11 @@ class FishCuttingPulse(val player: Player, val fish: Int) : Pulse(0){
         player.animator.animate(Animation(1248))
         player.inventory.remove(Item(fish))
 
-        player.inventory.add(Item(ItemNames.FISH_OFFCUTS_11334))
+        player.inventory.add(Item(Items.FISH_OFFCUTS_11334))
 
         player.inventory.add(Item(when(fish){
-            11328, 11330 -> ItemNames.ROE_11324
-            11332 -> ItemNames.CAVIAR_11326
+            11328, 11330 -> Items.ROE_11324
+            11332 -> Items.CAVIAR_11326
             else -> 0
         }))
 

@@ -35,7 +35,7 @@ public final class HouseManager implements SavingModule {
 	 * The current region.
 	 */
 	private DynamicRegion region;
-	
+
 	/**
 	 * The current region.
 	 */
@@ -55,7 +55,7 @@ public final class HouseManager implements SavingModule {
 	 * The house zone.
 	 */
 	private final HouseZone zone = new HouseZone(this);
-	
+
 	/**
 	 * The player's house rooms.
 	 */
@@ -85,7 +85,7 @@ public final class HouseManager implements SavingModule {
 	 * The player's crest.
 	 */
 	private CrestType crest = CrestType.ASGARNIA;
-	
+
 	/**
 	 * Constructs a new {@code HouseManager} {@code Object}.
 	 */
@@ -185,7 +185,7 @@ public final class HouseManager implements SavingModule {
 	public void enter(final Player player, boolean buildingMode, boolean teleport) {
 		enter(player, buildingMode);
 	}
-	
+
 	/**
 	 * Enter's the player's house.
 	 * @param player
@@ -256,24 +256,24 @@ public final class HouseManager implements SavingModule {
 		}
 	}
 
-    /**
-     * Reloads the house.
-     * @param player The player.
-     * @param buildingMode If building mode should be enabled.
-     */
-    public void reload(Player player, boolean buildingMode) {
-        DynamicRegion r = region;
-        if ((player.getViewport().getRegion() == dungeon)) {
-            r = dungeon;
-        }
-        int diffX = player.getLocation().getX() - r.getBaseLocation().getX();
-        int diffY = player.getLocation().getY() - r.getBaseLocation().getY();
-        int diffZ = player.getLocation().getZ() - r.getBaseLocation().getZ();
-        region = null;
-        dungeon = null;
-        enter(player, buildingMode, false);
-        player.getProperties().setTeleportLocation((player.getViewport().getRegion() == dungeon ? dungeon : region).getBaseLocation().transform(diffX, diffY, diffZ));
-    }
+	/**
+	 * Reloads the house.
+	 * @param player The player.
+	 * @param buildingMode If building mode should be enabled.
+	 */
+	public void reload(Player player, boolean buildingMode) {
+		DynamicRegion r = region;
+		if ((player.getViewport().getRegion() == dungeon)) {
+			r = dungeon;
+		}
+		int diffX = player.getLocation().getX() - r.getBaseLocation().getX();
+		int diffY = player.getLocation().getY() - r.getBaseLocation().getY();
+		int diffZ = player.getLocation().getZ() - r.getBaseLocation().getZ();
+		region = null;
+		dungeon = null;
+		enter(player, buildingMode, false);
+		player.getProperties().setTeleportLocation((player.getViewport().getRegion() == dungeon ? dungeon : region).getBaseLocation().transform(diffX, diffY, diffZ));
+	}
 
 	/**
 	 * Expels the guests from the house.
@@ -418,7 +418,7 @@ public final class HouseManager implements SavingModule {
 						room.loadDecorations(3, copy, this);
 					} else {
 						dungeon.replaceChunk(0, x, y, buildingMode ? null : defaultChunk.copy(dungeon.getPlanes()[0]), from);
-					} 
+					}
 				}
 			}
 			region.link(dungeon);
@@ -426,7 +426,7 @@ public final class HouseManager implements SavingModule {
 		ZoneBuilder.configure(zone);
 		return region;
 	}
-	
+
 	/**
 	 * Configures the rooftops.
 	 */
@@ -472,9 +472,29 @@ public final class HouseManager implements SavingModule {
 		}
 		int chunkX = object.getLocation().getChunkOffsetX();
 		int chunkY = object.getLocation().getChunkOffsetY();
+		switch(room.getRotation()){
+			case WEST: {
+				int tempChunk = chunkY;
+				chunkY = 7 - chunkX;
+				chunkX = tempChunk;
+				break;
+			}
+			case EAST: {
+				//x = y, y = x, x = 7 - y
+				int tempChunk = chunkX;
+				chunkX = 7 - chunkY;
+				chunkY = tempChunk;
+				break;
+			}
+			case SOUTH: {
+				chunkY = 7 - chunkY;
+				break;
+			}
+		}
+		SystemLogger.log("Trying chunkx: " + chunkX + " chunky: " + chunkY);
 		for (Hotspot h : room.getHotspots()) {
-			System.out.println(h.getHotspot().getObjectId(style) + ", " +h.getChunkX() + ", " +chunkX+", "+h.getChunkY()+", "+chunkY);
-			if (h.getChunkX() == chunkX && h.getChunkY() == chunkY && h.getHotspot().getObjectId(style) == object.getId()) {
+			SystemLogger.log("Hotspot Name: Hotspot chunkx 2: " + h.getChunkX2() + " hotspot chunky 2: " + h.getChunkY2() );
+			if ((h.getChunkX() == chunkX || h.getChunkX2() == chunkX) && (h.getChunkY() == chunkY || h.getChunkY2() == chunkY) && h.getHotspot().getObjectId(style) == object.getId()) {
 				return h;
 			}
 		}
@@ -492,7 +512,7 @@ public final class HouseManager implements SavingModule {
 		Room room = rooms[z][roomX][roomY];
 		return room != null && !room.getProperties().isRoof();
 	}
-	
+
 	/**
 	 * Enters the dungeon.
 	 * @param player The player.
@@ -505,7 +525,7 @@ public final class HouseManager implements SavingModule {
 		int diffY = player.getLocation().getLocalY();
 		player.getProperties().setTeleportLocation(dungeon.getBaseLocation().transform(diffX, diffY, 0));
 	}
-	
+
 	/**
 	 * Checks if an exit exists on the given room.
 	 * @param roomX The x-coordinate of the room.
@@ -605,7 +625,7 @@ public final class HouseManager implements SavingModule {
 	 * @param player The player.
 	 * @return The maximum amount of rooms.
 	 */
-	public int getMaximumRooms(Player player) { 
+	public int getMaximumRooms(Player player) {
 		int level = player.getSkills().getStaticLevel(Skills.CONSTRUCTION);
 		if (level >= 99) return 30;
 		if (level >= 96) return 29;
@@ -646,7 +666,7 @@ public final class HouseManager implements SavingModule {
 	public boolean isInHouse(Player player) {
 		return isLoaded() && (player.getViewport().getRegion() == region || player.getViewport().getRegion() == dungeon);
 	}
-	
+
 	/**
 	 * Checks if the player is in his dungeon.
 	 * @param player The player.

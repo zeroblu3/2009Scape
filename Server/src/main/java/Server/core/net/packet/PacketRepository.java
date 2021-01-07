@@ -153,7 +153,7 @@ public final class PacketRepository {
 	    INCOMING_PACKETS.put(233, packet);
 		INCOMING_PACKETS.put(231, packet = new SlotSwitchPacket());
 		INCOMING_PACKETS.put(79, packet);
-		INCOMING_PACKETS.put(167, new QuickChatPacket());	
+		INCOMING_PACKETS.put(167, new QuickChatPacketHandler());
 		INCOMING_PACKETS.put(201, packet = new CommunicationPacket());
 		INCOMING_PACKETS.put(120, packet);
 		INCOMING_PACKETS.put(57, packet);

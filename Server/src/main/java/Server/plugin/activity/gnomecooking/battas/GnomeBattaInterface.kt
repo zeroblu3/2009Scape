@@ -3,7 +3,7 @@ package plugin.activity.gnomecooking.battas
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
@@ -51,7 +51,7 @@ class GnomeBattaInterface : ComponentPlugin() {
     }
 
     private fun attemptMake(batta: CookedProduct, player: Player){
-        if(!player.inventory.containsItem(Item(ItemNames.GNOME_SPICE_2169)) && (batta == CookedProduct.HALF_MADE_TO || batta == CookedProduct.HALF_MADE_WO) ){
+        if(!player.inventory.containsItem(Item(Items.GNOME_SPICE_2169)) && (batta == CookedProduct.HALF_MADE_TO || batta == CookedProduct.HALF_MADE_WO) ){
             player.dialogueInterpreter.sendDialogue("You need gnome spices for this.")
             return
         }
@@ -75,18 +75,18 @@ class GnomeBattaInterface : ComponentPlugin() {
         }
 
         player.inventory.remove(*batta.requiredItems)
-        player.inventory.remove(Item(ItemNames.HALF_BAKED_BATTA_2249))
+        player.inventory.remove(Item(Items.HALF_BAKED_BATTA_2249))
         player.inventory.add(Item(batta.product))
         player.skills.addExperience(Skills.COOKING,batta.experience)
         player.interfaceManager.close()
     }
 
     internal enum class CookedProduct(val product: Int,val levelReq: Int, val experience: Double, val requiredItems: Array<Item>){
-        HALF_MADE_CT(9478,29,40.0, arrayOf(Item(ItemNames.TOMATO), Item(ItemNames.CHEESE_1985))),
-        HALF_MADE_FR(9480,25,40.0, arrayOf(Item(ItemNames.EQUA_LEAVES_2128,4), Item(ItemNames.LIME_CHUNKS_2122), Item(ItemNames.ORANGE_CHUNKS_2110), Item(ItemNames.PINEAPPLE_CHUNKS_2116))),
-        HALF_MADE_TO(9482,26,40.0, arrayOf(Item(ItemNames.EQUA_LEAVES_2128), Item(ItemNames.CHEESE_1985), Item(ItemNames.TOADS_LEGS_2152))),
-        HALF_MADE_VE(9483,28,40.0, arrayOf(Item(ItemNames.TOMATO,2), Item(ItemNames.CHEESE_1985), Item(ItemNames.DWELLBERRIES_2126), Item(ItemNames.ONION_1957), Item(ItemNames.CABBAGE))),
-        HALF_MADE_WO(9485,27,40.0, arrayOf(Item(ItemNames.KING_WORM_2162), Item(ItemNames.CHEESE_1985)))
+        HALF_MADE_CT(9478,29,40.0, arrayOf(Item(Items.TOMATO_1982), Item(Items.CHEESE_1985))),
+        HALF_MADE_FR(9480,25,40.0, arrayOf(Item(Items.EQUA_LEAVES_2128,4), Item(Items.LIME_CHUNKS_2122), Item(Items.ORANGE_CHUNKS_2110), Item(Items.PINEAPPLE_CHUNKS_2116))),
+        HALF_MADE_TO(9482,26,40.0, arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.CHEESE_1985), Item(Items.TOADS_LEGS_2152))),
+        HALF_MADE_VE(9483,28,40.0, arrayOf(Item(Items.TOMATO_1982,2), Item(Items.CHEESE_1985), Item(Items.DWELLBERRIES_2126), Item(Items.ONION_1957), Item(Items.CABBAGE_1965))),
+        HALF_MADE_WO(9485,27,40.0, arrayOf(Item(Items.KING_WORM_2162), Item(Items.CHEESE_1985)))
     }
 
     override fun newInstance(arg: Any?): Plugin<Any> {

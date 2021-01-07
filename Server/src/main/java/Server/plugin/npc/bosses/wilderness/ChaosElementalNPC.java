@@ -39,6 +39,14 @@ public class ChaosElementalNPC extends AbstractNPC {
 		super(id, location);
 	}
 
+	@Override
+	public void tick() {
+		super.tick();
+		if(!isActive()){
+			getProperties().getCombatPulse().stop();
+		}
+	}
+
 	/**
 	 * Constructs a new {@Code ChaosElementalNPC} {@Code Object}
 	 */

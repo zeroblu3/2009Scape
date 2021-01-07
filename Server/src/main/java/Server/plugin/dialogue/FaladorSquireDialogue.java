@@ -62,7 +62,7 @@ public final class FaladorSquireDialogue extends DialoguePlugin {
         quest = player.getQuestRepository().getQuest("The Knight's Sword");
         interpreter.sendOptions("What do you want to do?", "Chat", "Talk about the Falador Achievement Diary");
         stage = -1;
-		AchievementDiary diary = player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR);
+        diary = player.getAchievementDiaryManager().getDiary(DiaryType.FALADOR);
 		replacementReward = diary.isLevelRewarded(level)
 				&& diary.isComplete(level, true)
 				&& !player.hasItem(diary.getType().getRewards(level)[0]);

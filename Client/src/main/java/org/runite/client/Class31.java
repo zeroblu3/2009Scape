@@ -1,9 +1,10 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
+
+
 import org.rs09.client.LinkableInt;
 
+import javax.media.opengl.GL;
 
 
 final class Class31 {
@@ -56,14 +57,14 @@ final class Class31 {
    }
 
    static synchronized void method990() {
-      GL2 var0 = HDToolKit.gl;
+      GL var0 = HDToolKit.gl;
       int var1 = 0;
 
       while(true) {
          LinkableInt var2 = (LinkableInt)aClass61_581.method1220();
          if(var2 == null) {
             if(var1 > 0) {
-               var0.glDeleteBuffers(var1, anIntArray589, 0);
+               var0.glDeleteBuffersARB(var1, anIntArray589, 0);
                var1 = 0;
             }
 
@@ -114,7 +115,7 @@ final class Class31 {
          anIntArray589[var1++] = (int)var2.linkableKey;
          anInt585 -= var2.value;
          if(var1 == 1000) {
-            var0.glDeleteBuffers(var1, anIntArray589, 0);
+            var0.glDeleteBuffersARB(var1, anIntArray589, 0);
             var1 = 0;
          }
       }

@@ -1,6 +1,6 @@
 package org.runite.client;
 
-import jogamp.opengl.Debug;
+
 import org.rs09.client.config.GameConfig;
 import org.rs09.client.console.DeveloperConsole;
 import org.rs09.client.filestore.resources.configs.enums.EnumDefinitionProvider;

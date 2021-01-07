@@ -1378,7 +1378,10 @@ public class ItemDefinition extends Definition<Item> {
 		if (hasDestroyAction() && !getName().contains("impling jar")) {
 			return false;
 		}
-		return !unnoted || getConfiguration(ItemConfigParser.TRADEABLE, false) || GrandExchangeDatabase.getDatabase().get(getId()) != null;
+		if (!getConfiguration(ItemConfigParser.TRADEABLE, false)) {
+			return false;
+		}
+		return !unnoted || GrandExchangeDatabase.getDatabase().get(getId()) != null;
 	}
 
 	/**

@@ -3,7 +3,7 @@ package plugin.interaction.city;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.ObjectDefinition;
 import core.game.component.Component;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import plugin.dialogue.FacialExpression;
@@ -243,7 +243,7 @@ public final class KaramajaOptionPlugin extends OptionHandler {
                 }
                 break;
             case "shake":
-                if (player.getInventory().hasSpaceFor(new Item(ItemNames.PALM_LEAF_2339))) {
+                if (player.getInventory().hasSpaceFor(new Item(Items.PALM_LEAF_2339))) {
                     player.getPacketDispatch().sendMessage("You shake the tree...");
                     ObjectBuilder.replace(node.asObject(), node.asObject().transform(2976), 60); // 35 second cool-down
                     player.lock();
@@ -251,7 +251,7 @@ public final class KaramajaOptionPlugin extends OptionHandler {
                         @Override
                         public boolean pulse() {
                             player.getPacketDispatch().sendMessage("You pick up a fallen palm leaf off of the ground.");
-                            player.getInventory().add(new Item(ItemNames.PALM_LEAF_2339));
+                            player.getInventory().add(new Item(Items.PALM_LEAF_2339));
                             // Collect five palm leaves
                             if (!player.getAchievementDiaryManager().hasCompletedTask(DiaryType.KARAMJA, 2, 7)) {
                             	int palms = player.getAttribute("palms", 0);

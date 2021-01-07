@@ -129,6 +129,9 @@ public class RomeoJuliet extends Quest {
 
 	@Override
 	public void finish(Player player) {
+		if(player.getQuestRepository().getQuest("Romeo & Juliet").isCompleted(player)){
+			return;
+		}
 		super.finish(player);
 		player.getPacketDispatch().sendString("5 Quest Points", 277, 8 + 2);
 		player.getPacketDispatch().sendItemZoomOnInterface(756, 240, 277, 3 + 2);

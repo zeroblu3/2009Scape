@@ -7,7 +7,7 @@ import core.game.system.SystemLogger
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.ZoneBorders
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
 
@@ -51,7 +51,7 @@ class VarrockEssenceMiner : Script(){
             State.MINING -> {
                 val essence = scriptAPI.getNearestNode(2491,true)
                 essence?.interaction?.handle(bot,essence.interaction[0])
-                if(bot.inventory.getAmount(ItemNames.PURE_ESSENCE_7936) > 25)
+                if(bot.inventory.getAmount(Items.PURE_ESSENCE_7936) > 25)
                     state = State.TO_BANK
             }
 
@@ -74,8 +74,8 @@ class VarrockEssenceMiner : Script(){
                     bot.pulseManager.run(object : MovementPulse(bot,bank, DestinationFlag.OBJECT){
                         override fun pulse(): Boolean {
                             bot.faceLocation(bank.location)
-                            scriptAPI.bankItem(ItemNames.PURE_ESSENCE_7936)
-                            if(bot.bank.getAmount(ItemNames.PURE_ESSENCE_7936) > 500){
+                            scriptAPI.bankItem(Items.PURE_ESSENCE_7936)
+                            if(bot.bank.getAmount(Items.PURE_ESSENCE_7936) > 500){
                                 SystemLogger.log("Should tele")
                                 state = State.TELE_GE
                                 return true
@@ -95,7 +95,7 @@ class VarrockEssenceMiner : Script(){
             }
 
             State.SELL_GE -> {
-                scriptAPI.sellOnGE(ItemNames.PURE_ESSENCE_7936,50)
+                scriptAPI.sellOnGE(Items.PURE_ESSENCE_7936)
                 state = State.TO_ESSENCE
             }
 
@@ -113,7 +113,7 @@ class VarrockEssenceMiner : Script(){
     }
 
     init {
-        inventory.add(Item(ItemNames.MITHRIL_PICKAXE))
+        inventory.add(Item(Items.MITHRIL_PICKAXE_1273))
         skills[Skills.MINING] = 45
     }
 

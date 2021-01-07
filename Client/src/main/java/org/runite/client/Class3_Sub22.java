@@ -1,10 +1,11 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
+
+
 import org.rs09.client.Linkable;
 import org.rs09.client.config.GameConfig;
 
+import javax.media.opengl.GL;
 
 
 final class Class3_Sub22 extends Linkable {
@@ -160,7 +161,7 @@ final class Class3_Sub22 extends Linkable {
    }
 
    static void method403() {
-      GL2 var0 = HDToolKit.gl;
+      GL var0 = HDToolKit.gl;
       var0.glDisableClientState('\u8076');
       HDToolKit.method1837(false);
       var0.glDisable(2929);

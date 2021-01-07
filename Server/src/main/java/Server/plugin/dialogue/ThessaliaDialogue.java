@@ -52,7 +52,7 @@ public final class ThessaliaDialogue extends DialoguePlugin {
 				}
 			}
 			else{ //Has some armour equipped
-				interpreter.sendDialogues(npc, FacialExpression.WORRIED, "You can't try them on while wearing armour. Take","it off and speak to me again.");
+				interpreter.sendDialogues(548, FacialExpression.WORRIED, "You can't try them on while wearing armour. Take","it off and speak to me again.");
 				stage = 52;
 			}
 			return true;

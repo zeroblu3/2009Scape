@@ -5,7 +5,7 @@ import core.game.interaction.MovementPulse
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.skillingbot.SkillingBotAssembler
 
 class DraynorFisher  : Script() {
@@ -37,7 +37,7 @@ class DraynorFisher  : Script() {
                             override fun pulse(): Boolean {
                                 bot.inventory.clear()
                                 state = State.FISHING
-                                bot.inventory.add(Item(ItemNames.SMALL_FISHING_NET_303))
+                                bot.inventory.add(Item(Items.SMALL_FISHING_NET_303))
                                 return true
                             }
                         })
@@ -56,7 +56,7 @@ class DraynorFisher  : Script() {
     }
 
     init {
-        inventory.add(Item(ItemNames.SMALL_FISHING_NET_303))
+        inventory.add(Item(Items.SMALL_FISHING_NET_303))
     }
 
     enum class State {

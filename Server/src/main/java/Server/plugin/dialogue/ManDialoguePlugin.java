@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
@@ -15,7 +15,7 @@ import core.tools.RandomFunction;
  */
 @InitializablePlugin
 public class ManDialoguePlugin extends DialoguePlugin {
-    private static final Item CIDER = new Item(ItemNames.CIDER_5763);
+    private static final Item CIDER = new Item(Items.CIDER_5763);
 
     /**
      * The NPC ids that use this dialogue plugin.

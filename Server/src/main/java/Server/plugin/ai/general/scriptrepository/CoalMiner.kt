@@ -7,7 +7,7 @@ import core.game.node.`object`.GameObject
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.zone.ZoneBorders
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.AIPlayer
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
@@ -60,8 +60,8 @@ class CoalMiner() : Script() {
             }
 
             State.BANKING -> {
-                scriptAPI.bankItem(ItemNames.COAL)
-                if(bot.bank.getAmount(ItemNames.COAL) > 10){
+                scriptAPI.bankItem(Items.COAL_453)
+                if(bot.bank.getAmount(Items.COAL_453) > 10){
                     state = State.TO_GE
                 } else {
                     state = State.TO_MINE
@@ -96,7 +96,7 @@ class CoalMiner() : Script() {
             }
 
             State.SELLING -> {
-                scriptAPI.sellOnGE(ItemNames.COAL)
+                scriptAPI.sellOnGE(Items.COAL_453)
                 state = State.GO_BACK
             }
 
@@ -132,7 +132,7 @@ class CoalMiner() : Script() {
     }
 
     init {
-        equipment.add(Item(ItemNames.IRON_PICKAXE))
+        equipment.add(Item(Items.IRON_PICKAXE_1267))
         skills.put(Skills.MINING,75)
     }
 

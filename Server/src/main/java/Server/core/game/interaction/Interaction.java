@@ -62,22 +62,28 @@ public class Interaction {
 	 * @param option The option used.
 	 */
 	public void handle(final Player player, final Option option) {
-		if (player.getLocks().isInteractionLocked()) {
-			return;
-		}
-		boolean hasHandler = option.getHandler() != null;
-		String pulseType = "interaction:" + option.getName() + ":" + node.hashCode();
-		boolean walk = hasHandler && option.getHandler().isWalk();
-		if (!walk && hasHandler && option.getHandler().isWalk(player, node)) {
-			walk = true;
-		}
-		if (!hasHandler || walk) {
-			handleWalkOption(player, option, pulseType);
-		} else if (hasHandler) {
-			player.debug("Option handler being used=" + option.getHandler().getClass().getSimpleName());
-			handleDefaultOption(player, option, pulseType);
-		} else {
-			player.getPulseManager().runUnhandledAction(player, pulseType);
+		try {
+			if (player.getLocks().isInteractionLocked()) {
+				return;
+			}
+			player.debug("Received interaction request " + option.getName());
+			boolean hasHandler = option.getHandler() != null;
+			String pulseType = "interaction:" + option.getName() + ":" + node.hashCode();
+			boolean walk = hasHandler && option.getHandler().isWalk();
+			if (!walk && hasHandler && option.getHandler().isWalk(player, node)) {
+				walk = true;
+			}
+			if (!hasHandler || walk) {
+				handleWalkOption(player, option, pulseType);
+			} else if (hasHandler) {
+				player.debug("Option handler being used=" + option.getHandler().getClass().getSimpleName());
+				handleDefaultOption(player, option, pulseType);
+			} else {
+				player.getPulseManager().runUnhandledAction(player, pulseType);
+			}
+		} catch (Exception e){
+			e.printStackTrace();
+			SystemLogger.error(this.getClass().getName() + e.getMessage());
 		}
 	}
 
@@ -96,15 +102,20 @@ public class Interaction {
 		GameWorld.getPulser().submit(new Pulse(1, player) {
 			@Override
 			public boolean pulse() {
-				if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
-					SystemLogger.log("Interaction locked");
-					return true;
-				}
-				if (option.getHandler() == null || !option.getHandler().handle(player, node, option.getName().toLowerCase())) {
-					player.getPacketDispatch().sendMessage("Nothing interesting happens.");
-				}
-				if (option != null && option.getHandler() != null) {
-					player.debug("Using item handler " + option.getHandler().getClass().getSimpleName());
+				try {
+					if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
+						SystemLogger.log("Interaction locked");
+						return true;
+					}
+					if (option.getHandler() == null || !option.getHandler().handle(player, node, option.getName().toLowerCase())) {
+						player.getPacketDispatch().sendMessage("Nothing interesting happens.");
+					}
+					if (option != null && option.getHandler() != null) {
+						player.debug("Using item handler " + option.getHandler().getClass().getSimpleName());
+					}
+				} catch (Exception e){
+					e.printStackTrace();
+					SystemLogger.error(this.getClass().getName() + e.getMessage());
 				}
 				return true;
 			}
@@ -127,11 +138,16 @@ public class Interaction {
 			player.getPulseManager().run(new MovementPulse(player, node) {
 				@Override
 				public boolean pulse() {
-					player.faceLocation(FaceLocationFlag.getFaceLocation(player, node));
-					if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
-						return true;
+					try {
+						player.faceLocation(FaceLocationFlag.getFaceLocation(player, node));
+						if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
+							return true;
+						}
+						player.getPacketDispatch().sendMessage("Nothing interesting happens.");
+					} catch (Exception e){
+						e.printStackTrace();
+						SystemLogger.error(this.getClass().getName() + e.getMessage());
 					}
-					player.getPacketDispatch().sendMessage("Nothing interesting happens.");
 					return true;
 				}
 			}, "interaction:invalid:" + node.hashCode());
@@ -158,12 +174,17 @@ public class Interaction {
 		player.getPulseManager().run(new MovementPulse(player, node, option.getHandler()) {
 			@Override
 			public boolean pulse() {
-				player.faceLocation(FaceLocationFlag.getFaceLocation(player, node));
-				if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
-					return true;
-				}
-				if (option == null || option.getHandler() == null || !option.getHandler().handle(player, node, option.getName().toLowerCase())) {
-					player.getPacketDispatch().sendMessage("Nothing interesting happens.");
+				try {
+					player.faceLocation(FaceLocationFlag.getFaceLocation(player, node));
+					if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
+						return true;
+					}
+					if (option == null || option.getHandler() == null || !option.getHandler().handle(player, node, option.getName().toLowerCase())) {
+						player.getPacketDispatch().sendMessage("Nothing interesting happens.");
+					}
+				} catch (Exception e){
+					e.printStackTrace();
+					SystemLogger.error(this.getClass().getName() + e.getMessage());
 				}
 				return true;
 			}

@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphics;
 import core.plugin.InitializablePlugin;
 import core.tools.RandomFunction;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,14 +30,14 @@ public class FruitBatNPC extends Forager {
 	 * The random fruit to forage.
 	 */
 	private static final Item[] FRUIT_FORAGE = new Item[] {
-			new Item(ItemNames.PAPAYA_FRUIT_5972),
-			new Item(ItemNames.ORANGE_2108),
-			new Item(ItemNames.PINEAPPLE),
-			new Item(ItemNames.LEMON_2102),
-			new Item(ItemNames.LIME_2120),
-			new Item(ItemNames.STRAWBERRY_5504),
-			new Item(ItemNames.WATERMELON_5982),
-			new Item(ItemNames.COCONUT_5974)
+			new Item(Items.PAPAYA_FRUIT_5972),
+			new Item(Items.ORANGE_2108),
+			new Item(Items.PINEAPPLE_2114),
+			new Item(Items.LEMON_2102),
+			new Item(Items.LIME_2120),
+			new Item(Items.STRAWBERRY_5504),
+			new Item(Items.WATERMELON_5982),
+			new Item(Items.COCONUT_5974)
 	};
 
 	/**
@@ -51,11 +51,11 @@ public class FruitBatNPC extends Forager {
 	 * https://runescape.wiki/w/Money_making_guide/Casting_fruitfall
 	 */
 	private static final WeightedChanceItem[] FRUIT_FALL = new WeightedChanceItem[] {
-			new WeightedChanceItem(ItemNames.ORANGE_2108, 1, 4),
-			new WeightedChanceItem(ItemNames.PINEAPPLE, 1, 3),
-			new WeightedChanceItem(ItemNames.LEMON_2102, 1, 2),
-			new WeightedChanceItem(ItemNames.LIME_2120, 1, 2),
-			new WeightedChanceItem(ItemNames.BANANA, 1, 2),
+			new WeightedChanceItem(Items.ORANGE_2108, 1, 4),
+			new WeightedChanceItem(Items.PINEAPPLE_2114, 1, 3),
+			new WeightedChanceItem(Items.LEMON_2102, 1, 2),
+			new WeightedChanceItem(Items.LIME_2120, 1, 2),
+			new WeightedChanceItem(Items.BANANA_1963, 1, 2),
 			new WeightedChanceItem(0, 1, 4)
 	};
 
@@ -130,7 +130,7 @@ public class FruitBatNPC extends Forager {
 					Collections.shuffle(coords);
 
 					Pair coord = coords.remove(0);
-					GroundItemManager.create(new Item(ItemNames.PAPAYA_FRUIT_5972),
+					GroundItemManager.create(new Item(Items.PAPAYA_FRUIT_5972),
 							owner.getLocation().transform(coord.p1, coord.p2, 0),
 							owner);
 

@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.npc.NPC;
 import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
@@ -14,15 +14,15 @@ import core.game.node.entity.player.Player;
  */
 @InitializablePlugin
 public final class HarryDialogue extends DialoguePlugin {
-	private final static int FISHBOWL_EMPTY = ItemNames.EMPTY_FISHBOWL_6667;
-	private final static int FISHBOWL_WATER = ItemNames.FISHBOWL;
-	private final static int FISHBOWL_SEAWEED = ItemNames.FISHBOWL_6669;
+	private final static int FISHBOWL_EMPTY = Items.FISHBOWL_6667;
+	private final static int FISHBOWL_WATER = Items.FISHBOWL_6668;
+	private final static int FISHBOWL_SEAWEED = Items.FISHBOWL_6669;
 
-	private final static int FISHBOWL_BLUE = ItemNames.FISHBOWL_6670;
-	private final static int FISHBOWL_GREEN = ItemNames.FISHBOWL_6671;
-	private final static int FISHBOWL_SPINE = ItemNames.FISHBOWL_6672;
+	private final static int FISHBOWL_BLUE = Items.FISHBOWL_6670;
+	private final static int FISHBOWL_GREEN = Items.FISHBOWL_6671;
+	private final static int FISHBOWL_SPINE = Items.FISHBOWL_6672;
 
-	private final static int TINY_NET = ItemNames.TINY_NET_6674;
+	private final static int TINY_NET = Items.TINY_NET_6674;
 
     /**
      * Constructs a new {@code HarryDialogue} {@code Object}.
@@ -213,7 +213,7 @@ public final class HarryDialogue extends DialoguePlugin {
                 break;
             case 42:
                 npc("Here. I can hardly charge you for an empty box.");
-                player.getInventory().add(new Item(ItemNames.AN_EMPTY_BOX_6675));
+                player.getInventory().add(new Item(Items.AN_EMPTY_BOX_6675));
                 if (needsFood() && !needsSeaWeed()) {
                     stage++;
                 } else {

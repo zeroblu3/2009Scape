@@ -59,7 +59,7 @@ final class Class45 {
 						var3.textEffect = var4 & 255;
 						var3.textCycle = 150;
 						var3.textColor = var4 >> 8;
-						if (chatIcon == 2) {
+						if (chatIcon >= 2) {
 							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:1, message, (RSString)null, RSString.stringCombiner(new RSString[]{RSString.parse("<img=" + (chatIcon-1) + ">"), var3.getName()}));
 						} else if (chatIcon == 1) {
 							Class3_Sub28_Sub12.sendGameMessage(var13, var8?17:1, message, (RSString)null, RSString.stringCombiner(new RSString[]{TextCore.aClass94_592, var3.getName()}));

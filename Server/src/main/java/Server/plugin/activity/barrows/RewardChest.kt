@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.node.item.WeightedChanceItem
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import java.util.*
 
@@ -22,22 +22,22 @@ object RewardChest {
      */
     private val DROP_TABLE = arrayOf(
             //Weighted total = 3050
-            WeightedChanceItem(ItemNames.COINS,             1, 5306, 950),
-            WeightedChanceItem(ItemNames.MIND_RUNE,        60, 60, 300),
-            WeightedChanceItem(ItemNames.MIND_RUNE,       100, 850, 300),
-            WeightedChanceItem(ItemNames.CHAOS_RUNE,      115, 720, 300),
-            WeightedChanceItem(ItemNames.DEATH_RUNE,       15, 15, 300),
-            WeightedChanceItem(ItemNames.DEATH_RUNE,       70, 230, 300),
-            WeightedChanceItem(ItemNames.BLOOD_RUNE,       35, 230, 300),
-            WeightedChanceItem(ItemNames.BOLT_RACK_4740,   35, 280, 300),
+            WeightedChanceItem(Items.COINS_995,             1, 5306, 950),
+            WeightedChanceItem(Items.MIND_RUNE_558,        60, 60, 300),
+            WeightedChanceItem(Items.MIND_RUNE_558,       100, 850, 300),
+            WeightedChanceItem(Items.CHAOS_RUNE_562,      115, 720, 300),
+            WeightedChanceItem(Items.DEATH_RUNE_560,       15, 15, 300),
+            WeightedChanceItem(Items.DEATH_RUNE_560,       70, 230, 300),
+            WeightedChanceItem(Items.BLOOD_RUNE_565,       35, 230, 300),
+            WeightedChanceItem(Items.BOLT_RACK_4740,   35, 280, 300),
             //Weight total = 975
-            WeightedChanceItem(ItemNames.SUPER_DEFENCE2,    1, 1, 325),
-            WeightedChanceItem(ItemNames.PRAYER_POTION2,    1, 1, 325),
-            WeightedChanceItem(ItemNames.RESTORE_POTION2,   1, 1, 325),
+            WeightedChanceItem(Items.SUPER_DEFENCE2_165,    1, 1, 325),
+            WeightedChanceItem(Items.PRAYER_POTION2_141,    1, 1, 325),
+            WeightedChanceItem(Items.RESTORE_POTION2_129,   1, 1, 325),
             //Weight total = 53
-            WeightedChanceItem(ItemNames.TOOTH_HALF_OF_KEY, 1, 1, 25),
-            WeightedChanceItem(ItemNames.LOOP_HALF_OF_KEY,  1, 1, 25),
-            WeightedChanceItem(ItemNames.DRAGON_MED_HELM,   1, 1, 3),
+            WeightedChanceItem(Items.TOOTH_HALF_OF_A_KEY_985, 1, 1, 25),
+            WeightedChanceItem(Items.LOOP_HALF_OF_A_KEY_987,  1, 1, 25),
+            WeightedChanceItem(Items.DRAGON_MED_HELM_1149,   1, 1, 3),
             //Weight total = 120 BARROWS ITEMS V
             WeightedChanceItem(4708, 1, 1, 5),
             WeightedChanceItem(4710, 1, 1, 5),

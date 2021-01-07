@@ -1,5 +1,6 @@
 package core.game.content.global.action;
 
+import core.game.interaction.DestinationFlag;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.audio.Audio;
@@ -7,6 +8,7 @@ import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.object.Constructed;
 import core.game.node.object.GameObject;
 import core.game.node.object.ObjectBuilder;
+import core.game.system.SystemLogger;
 import core.game.system.config.DoorConfigLoader;
 import core.game.system.task.LocationLogoutTask;
 import core.game.system.task.LogoutTask;
@@ -15,6 +17,7 @@ import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
+import core.game.world.map.path.Pathfinder;
 
 import java.awt.*;
 
@@ -111,9 +114,9 @@ public final class DoorActionHandler {
             public boolean pulse() {
                 if (!opened) {
                     open(object, second, object.getId(), second == null ? -1 : second.getId(), false, 2, false);
-                    Location l = endLocation;
                     entity.getWalkingQueue().reset();
-                    entity.getWalkingQueue().addPath(l.getX(), l.getY());
+                    entity.getWalkingQueue().addPath(endLocation.getX(), endLocation.getY());
+                    SystemLogger.log("Walking to " + endLocation.getX() + "," + endLocation.getY());
                     opened = true;
                     return false;
                 }
@@ -160,8 +163,12 @@ public final class DoorActionHandler {
      * @param object the object.
      * @return the end location.
      */
-    public static Location getEndLocation(Entity entity, GameObject object) {
+    public static Location getEndLocation(Entity entity, GameObject object){
+        return getEndLocation(entity,object,false);
+    }
+    public static Location getEndLocation(Entity entity, GameObject object, Boolean isAutoWalk) {
         Location l = object.getLocation();
+        Location end = DestinationFlag.OBJECT.getDestination(entity,object);
         switch (object.getRotation()) {
             case 0:
                 if (entity.getLocation().getX() >= l.getX()) {
@@ -222,21 +229,33 @@ public final class DoorActionHandler {
         switch (rotation) {
             case 0:
                 if (entity.getLocation().getX() < l.getX()) {
+                    if(Pathfinder.find(entity,l.transform(-1,0,0)).isMoveNear()){
+                        return l.transform(0,0,0);
+                    }
                     return l.transform(-1, 0, 0);
                 }
                 break;
             case 1:
                 if (entity.getLocation().getY() > l.getY()) {
+                    if(Pathfinder.find(entity,l.transform(0,1,0)).isMoveNear()){
+                        return l.transform(0,0,0);
+                    }
                     return l.transform(0, 1, 0);
                 }
                 break;
             case 2:
                 if (entity.getLocation().getX() > l.getX()) {
+                    if(Pathfinder.find(entity,l.transform(1,0,0)).isMoveNear()){
+                        return l.transform(0,0,0);
+                    }
                     return l.transform(1, 0, 0);
                 }
                 break;
             case 3:
                 if (entity.getLocation().getY() < l.getY()) {
+                    if(Pathfinder.find(entity,l.transform(0,-1,0)).isMoveNear()){
+                        return l.transform(0,0,0);
+                    }
                     return l.transform(0, -1, 0);
                 }
                 break;

@@ -1,7 +1,7 @@
 package plugin.dialogue;
 
 import core.game.component.Component;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import plugin.skill.cooking.dairy.DairyChurnPulse;
 import plugin.skill.cooking.dairy.DairyProduct;
 import core.game.node.entity.player.Player;
@@ -20,9 +20,9 @@ public final class DairyChurnDialogue extends DialoguePlugin {
 	 * Represents the item array.
 	 */
 	private static final Item[] ITEMS = new Item[] {
-			new Item(ItemNames.BUCKET_OF_MILK_1927, 1),
-			new Item(ItemNames.POT_OF_CREAM_2130, 1),
-			new Item(ItemNames.PAT_OF_BUTTER_6697, 1)
+			new Item(Items.BUCKET_OF_MILK_1927, 1),
+			new Item(Items.POT_OF_CREAM_2130, 1),
+			new Item(Items.PAT_OF_BUTTER_6697, 1)
 	};
 
 	/**

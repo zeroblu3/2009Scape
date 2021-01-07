@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.Zone
 import core.game.world.map.zone.ZoneBorders
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.AIPlayer
 import plugin.ai.pvmbots.CombatBotAssembler
 import java.net.Proxy
@@ -36,8 +36,8 @@ class CowKiller : Script() {
                 bot.pulseManager.run(object: Pulse(4){
                     override fun pulse(): Boolean {
                         state = State.KILLING
-                        scriptAPI.takeNearestGroundItem(ItemNames.COWHIDE)
-                        state = if(bot.inventory.getAmount(ItemNames.COWHIDE) > 22){
+                        scriptAPI.takeNearestGroundItem(Items.COWHIDE_1739)
+                        state = if(bot.inventory.getAmount(Items.COWHIDE_1739) > 22){
                             State.TO_BANK
                         } else {
                             State.KILLING
@@ -79,8 +79,8 @@ class CowKiller : Script() {
                     val bank = scriptAPI.getNearestNode(36786, true)
                     bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
                         override fun pulse(): Boolean {
-                            scriptAPI.bankItem(ItemNames.COWHIDE)
-                            if (bot.bank.getAmount(ItemNames.COWHIDE) > 75) {
+                            scriptAPI.bankItem(Items.COWHIDE_1739)
+                            if (bot.bank.getAmount(Items.COWHIDE_1739) > 75) {
                                 scriptAPI.teleportToGE()
                                 state = State.TELE_GE
                             } else {
@@ -131,7 +131,7 @@ class CowKiller : Script() {
 
             State.SELL_GE -> {
                 state = State.TELE_LUM
-                scriptAPI.sellOnGE(ItemNames.COWHIDE,250)
+                scriptAPI.sellOnGE(Items.COWHIDE_1739)
             }
 
             State.TELE_LUM -> {

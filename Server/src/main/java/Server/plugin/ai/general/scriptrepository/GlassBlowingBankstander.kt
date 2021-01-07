@@ -1,7 +1,7 @@
 package plugin.ai.general.scriptrepository
 
 import core.game.node.item.Item
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.interaction.inter.GlassInterface
 import plugin.skill.Skills
@@ -14,8 +14,8 @@ class GlassBlowingBankstander : Script(){
         bot.faceLocation(bank?.location)
         state = when(state){
             State.BLOWING -> {
-                bot.inventory.add(Item(ItemNames.GLASSBLOWING_PIPE_1785))
-                bot.inventory.add(Item(ItemNames.MOLTEN_GLASS_1775,27))
+                bot.inventory.add(Item(Items.GLASSBLOWING_PIPE_1785))
+                bot.inventory.add(Item(Items.MOLTEN_GLASS_1775,27))
                 GlassInterface.make(bot,GlassProduct.ORB,27)
                 State.BANKING
             }

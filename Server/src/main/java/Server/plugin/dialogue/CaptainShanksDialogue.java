@@ -1,6 +1,6 @@
 package plugin.dialogue;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.content.global.travel.ship.Ships;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -17,7 +17,7 @@ import core.tools.RandomFunction;
 public final class CaptainShanksDialogue extends DialoguePlugin {
 
     private Item coins;
-    private static final Item TICKET = new Item(ItemNames.SHIP_TICKET_621);
+    private static final Item TICKET = new Item(Items.SHIP_TICKET_621);
 
     /**
      * Constructs a new {@code CaptainBarnabyDialogue} {@code Object}.
@@ -120,13 +120,13 @@ public final class CaptainShanksDialogue extends DialoguePlugin {
                 if (!player.getInventory().containsItem(coins)) {
                     npc("Sorry me old ship mate, but you seem to be", "financially challenged at the moment. Come back", "when your coffers are full!");
                     stage = 999;
-                } else if (!player.getInventory().hasSpaceFor(new Item(ItemNames.SHIP_TICKET_621))) {
+                } else if (!player.getInventory().hasSpaceFor(new Item(Items.SHIP_TICKET_621))) {
                     npc("Sorry me old ship mate, it looks like you haven't", "got enough space for a ticket. Come back when", "you've got rid of some of that junk.");
                     stage = 999;
                 } else {
                     npc("It's a good deal and no mistake. Here you go me old", "shipmate, here's your ticket.");
                     player.getInventory().remove(coins);
-                    player.getInventory().add(new Item(ItemNames.SHIP_TICKET_621));
+                    player.getInventory().add(new Item(Items.SHIP_TICKET_621));
                     stage++;
                 }
                 break;

@@ -252,6 +252,12 @@ class CombatPulse(
         if (victim is Player && (entity.id == 4474 || entity.id == 7891)) {
             return
         }
+        if(entity is Player) {
+            if ((victim.id == 4474 || victim.id == 7891) && entity.asPlayer().properties.combatLevel >= 30){
+                entity.asPlayer().sendMessage("You are too experienced to gain anything from these.")
+                return
+            }
+        }
         if (victim is NPC) {
             if (entity is Player && victim !== this.victim && victim !== lastVictim) {
                 // Loar Shade Transformation Animation

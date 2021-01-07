@@ -1,6 +1,6 @@
 package plugin.skill.herblore;
 
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.item.Item;
 
 /**
@@ -23,7 +23,7 @@ public enum GrindingItem {
 	GARLIC(new Item[] { new Item(1550) }, new Item(4668)),
 	DRAGON_SCALE(new Item[] { new Item(243) }, new Item(241)),
 	ANCHOVIES(new Item[] { new Item(319) }, new Item(11266)),
-	GUAM_LEAF(new Item[] { new Item(ItemNames.GUAM) }, new Item(ItemNames.GROUND_GUAM_6681));
+	GUAM_LEAF(new Item[] { new Item(Items.CLEAN_GUAM_249) }, new Item(Items.GROUND_GUAM_6681));
 
 	/**
 	 * Represents the item to grind.

@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
-import core.tools.ItemNames
+import core.tools.Items
 
 /**
  * Represents the Wyson the gardener dialogue.
@@ -199,13 +199,13 @@ class WysonTheGardenerDialogue : DialoguePlugin {
      * @param nestAmount the amount.
      */
     private fun addRewards() {
-        val moleClaws = player.inventory.getAmount(ItemNames.MOLE_CLAW_7416)
-        val moleSkin = player.inventory.getAmount(ItemNames.MOLE_SKIN_7418)
+        val moleClaws = player.inventory.getAmount(Items.MOLE_CLAW_7416)
+        val moleSkin = player.inventory.getAmount(Items.MOLE_SKIN_7418)
         val nestAmount = moleClaws + moleSkin
 
         //Remove claws and skins
-        player.inventory.remove(Item(ItemNames.MOLE_CLAW_7416,moleClaws))
-        player.inventory.remove(Item(ItemNames.MOLE_SKIN_7418, moleSkin))
+        player.inventory.remove(Item(Items.MOLE_CLAW_7416,moleClaws))
+        player.inventory.remove(Item(Items.MOLE_SKIN_7418, moleSkin))
 
         //Add white lily seeds if the player has the hard diary done
         if(moleSkin > 0 && player.achievementDiaryManager.getDiary(DiaryType.FALADOR).checkComplete(DiaryLevel.HARD)) {

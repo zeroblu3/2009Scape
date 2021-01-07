@@ -3,7 +3,7 @@ package plugin.dialogue
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.activity.gnomecooking.GC_BASE_ATTRIBUTE
 import plugin.activity.gnomecooking.GC_TUT_FIN
 import plugin.activity.gnomecooking.GC_TUT_PROG
@@ -48,7 +48,7 @@ class BlurberryDialogue(player: Player? = null): DialoguePlugin(player) {
             5 -> npc("Here's everything you need.").also { stage++ }
             6 -> {
                 end()
-                val items = arrayOf(Item(ItemNames.KNIFE),Item(ItemNames.COCKTAIL_SHAKER_2025),Item(ItemNames.COCKTAIL_GLASS_2026),Item(ItemNames.PINEAPPLE),Item(ItemNames.LEMON_2102,2), Item(ItemNames.ORANGE_2108))
+                val items = arrayOf(Item(Items.KNIFE_946),Item(Items.COCKTAIL_SHAKER_2025),Item(Items.COCKTAIL_GLASS_2026),Item(Items.PINEAPPLE_2114),Item(Items.LEMON_2102,2), Item(Items.ORANGE_2108))
                 if(player.inventory.hasSpaceFor(*items)){
                     player.inventory.add(*items)
                     player.setAttribute("/save:$GC_BASE_ATTRIBUTE:$GC_TUT_PROG",20)
@@ -58,7 +58,7 @@ class BlurberryDialogue(player: Player? = null): DialoguePlugin(player) {
             }
 
             20 -> {
-                if(player.inventory.containsItem(Item(ItemNames.FRUIT_BLAST_9514))){
+                if(player.inventory.containsItem(Item(Items.FRUIT_BLAST_9514))){
                     player("Yes, yes I have! Here you go.").also { stage++ }
                 } else {
                     player("No I have not.").also { stage = 1000 }
@@ -67,7 +67,7 @@ class BlurberryDialogue(player: Player? = null): DialoguePlugin(player) {
 
             21 -> {
                 player.dialogueInterpreter.sendDialogue("You hand over the fruit blast.")
-                player.inventory.remove(Item(ItemNames.FRUIT_BLAST_2084))
+                player.inventory.remove(Item(Items.FRUIT_BLAST_9514))
                 player.setAttribute("/save:$GC_BASE_ATTRIBUTE:$GC_TUT_PROG",22)
                 stage++
             }

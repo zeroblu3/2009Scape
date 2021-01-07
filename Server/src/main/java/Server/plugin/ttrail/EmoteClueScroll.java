@@ -69,7 +69,11 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 		} else if (emote == commenceEmote) {
 			player.setAttribute("commence-emote", true);
 		}
-		return super.actionButton(player, interfaceId, buttonId, slot, itemId, opcode);
+		if(this.emote == emote) {
+			return super.actionButton(player, interfaceId, buttonId, slot, itemId, opcode);
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -87,11 +91,13 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 	 */
 	public void spawnUri(Player player) {
 		boolean doubleAgent = level == ClueLevel.HARD && player.getAttribute("killed-agent", 0) != clueId;
+		//changed  this
 		int id = 5141;
 		if (doubleAgent) {
 			boolean wilderness = player.getSkullManager().isWilderness();
 			if (wilderness) {
-				id = 5144;
+				id = 5141;
+				doubleAgent = false;
 			} else {
 				id = 5145;
 			}

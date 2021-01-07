@@ -220,23 +220,29 @@ class GameConfig {
                     RCM_BORDER_OPACITY = 255
                 }
             }
-            /** **DO NOT CHANGE THESE NUMBERS UNLESS YOU KNOW WHAT YOU ARE DOING**
-             * Render Distance Overrides
-             *
-             * (Simple formula) Tile amount * 512
-             * Default: 7 * 512 = 3584
-             * Extended(max): 56 * 512 = 28672
-             *
-             * Files + methods effected by these values:
-             * HDToolKit METHOD viewport
-             * Class140_Sub1_Sub1 METHOD animate
-             * Class3_Sub22 METHOD method398 * value as short
-             * Class40 METHOD method1046 * using RENDER_DISTANCE_TILE_VALUE
-             */
-            RENDER_DISTANCE_VALUE = if (RENDER_DISTANCE_INCREASE) 28672F else 3584.0f
-            RENDER_DISTANCE_TILE_VALUE = if (RENDER_DISTANCE_INCREASE) 56 else 28
-            RENDER_DISTANCE_FOG_FIX = if (RENDER_DISTANCE_INCREASE) 28672F else 3328.0f
 
+
+        }
+
+        fun extendRenderDistance() {
+            if (RENDER_DISTANCE_INCREASE) {
+                /** **DO NOT CHANGE THESE NUMBERS UNLESS YOU KNOW WHAT YOU ARE DOING**
+                 * Render Distance Overrides
+                 *
+                 * (Simple formula) Tile amount * 512
+                 * Default: 7 * 512 = 3584
+                 * Extended(max): 56 * 512 = 28672
+                 *
+                 * Files + methods effected by these values:
+                 * HDToolKit METHOD viewport
+                 * Class140_Sub1_Sub1 METHOD animate
+                 * Class3_Sub22 METHOD method398 * value as short
+                 * Class40 METHOD method1046 * using RENDER_DISTANCE_TILE_VALUE
+                 */
+                RENDER_DISTANCE_VALUE = if (RENDER_DISTANCE_INCREASE) 28672F else 3584.0f
+                RENDER_DISTANCE_TILE_VALUE = if (RENDER_DISTANCE_INCREASE) 56 else 28
+                RENDER_DISTANCE_FOG_FIX = if (RENDER_DISTANCE_INCREASE) 28672F else 3328.0f
+            }
         }
 
         /**

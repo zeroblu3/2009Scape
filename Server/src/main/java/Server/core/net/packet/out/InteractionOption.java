@@ -15,7 +15,11 @@ public final class InteractionOption implements OutgoingPacket<InteractionOption
 	public void send(InteractionOptionContext context) {
 		IoBuffer buffer = new IoBuffer(44, PacketHeader.BYTE);
 		buffer.putLEShortA(-1);
-		buffer.put(context.getIndex() == 0 ? 1 : 0);
+		if(context.isRemove()){
+			buffer.put(0);
+		} else {
+			buffer.put(context.getIndex() == 0 ? 1 : 0);
+		}
 		buffer.put(context.getIndex() + 1);
 		buffer.putString(context.getName());
 		context.getPlayer().getSession().write(buffer);

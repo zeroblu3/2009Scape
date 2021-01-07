@@ -30,7 +30,7 @@ final class Sprites {
     private static LDIndexedSprite[] method885(int var1, CacheIndex var2) {
       try {
        //  System.out.println("Class 14 " + var1);
-         return !Class75_Sub4.method1351(var2, 0, var1, -30901)?null: Unsorted.method1281();
+         return !Class75_Sub4.method1351(var2, 0, var1)?null: Unsorted.method1281();
       } catch (RuntimeException var5) {
          throw ClientErrorException.clientError(var5, "cg.C(" + true + ',' + var1 + ',' + (var2 != null?"{...}":"null") + ',' + 0 + ')');
       }
@@ -49,10 +49,10 @@ final class Sprites {
          Class65.aAbstractSpriteArray1825 = Class3_Sub13_Sub23_Sub1.method286(crossSpriteArchive, index8);
          Unsorted.aAbstractSpriteArray1136 = Class3_Sub13_Sub23_Sub1.method286(mapDotsSpriteArchive, index8);
          GameObject.aClass109Array1831 = Class85.method1424(index8, scrollbarSpriteArchive);
-         Class3_Sub13_Sub22.aClass109Array3270 = Class85.method1424(index8, nameIconsSpriteArchive);
-         Class3_Sub13.aClass3_Sub28_Sub17_2379.method697(Class3_Sub13_Sub22.aClass109Array3270, (int[])null);
-         Class126.aClass3_Sub28_Sub17_1669.method697(Class3_Sub13_Sub22.aClass109Array3270, (int[])null);
-         Class168.aClass3_Sub28_Sub17_2096.method697(Class3_Sub13_Sub22.aClass109Array3270, (int[])null);
+         Class3_Sub13_Sub22.nameIconsSpriteArray = Class85.method1424(index8, nameIconsSpriteArchive);
+         Class3_Sub13.aClass3_Sub28_Sub17_2379.method697(Class3_Sub13_Sub22.nameIconsSpriteArray, null);
+         Class126.aClass3_Sub28_Sub17_1669.method697(Class3_Sub13_Sub22.nameIconsSpriteArray, null);
+         Class168.aClass3_Sub28_Sub17_2096.method697(Class3_Sub13_Sub22.nameIconsSpriteArray, null);
          if(HDToolKit.highDetail) {
             Class141.aClass109_Sub1Array1843 = method885(floorShadowSpriteArchive, index8);
 
@@ -173,7 +173,7 @@ final class Sprites {
 
    static int method107(CacheIndex index) {
       try {
-            int var2 = 0;
+            int var2 = 0;//0
             if(index.retrieveSpriteFile(mapFunctionSpriteArchive)) {
                ++var2;
             }

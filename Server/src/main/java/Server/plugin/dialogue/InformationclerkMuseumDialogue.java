@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.InitializablePlugin;
 import core.game.world.GameWorld;
-import core.tools.ItemNames;
+import core.tools.Items;
 
 /**
  * Represents the information clerk museum dialogue plugin
@@ -186,7 +186,7 @@ public final class InformationclerkMuseumDialogue extends DialoguePlugin {
                 switch (buttonId) {
                     case 1:
                         sendDialogue("You reach and take a map of the Museum.");
-                        player.getInventory().add(new Item(ItemNames.MUSEUM_MAP_11184, 1));
+                        player.getInventory().add(new Item(Items.MUSEUM_MAP_11184, 1));
                         stage = 999;
                         break;
                     case 2:

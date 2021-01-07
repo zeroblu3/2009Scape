@@ -3,7 +3,7 @@ package plugin.ai.pvmbots
 import core.game.node.item.Item
 import core.game.system.SystemLogger
 import core.game.world.map.Location
-import core.tools.ItemNames
+import core.tools.Items
 import core.tools.RandomFunction
 import plugin.ai.AIPlayer
 import plugin.skill.Skills
@@ -135,7 +135,7 @@ class CombatBotAssembler {
         equipHighest(bot, PCRANGE_BACK)
         equipHighest(bot, NGLOVES)
         equipHighest(bot, NRBOOTS)
-        bot.equipment.add(Item(ItemNames.BRONZE_BOLTS,100000),13,false,false)
+        bot.equipment.add(Item(Items.BRONZE_BOLTS_877,100000),13,false,false)
         bot.equipment.refresh()
         return bot
     }
@@ -179,7 +179,7 @@ class CombatBotAssembler {
         equipHighest(bot, CAPE)
         equipHighest(bot, NGLOVES)
         equipHighest(bot, NRBOOTS)
-        bot.equipment.add(Item(ItemNames.BRONZE_BOLTS,100000),13,false,false)
+        bot.equipment.add(Item(Items.BRONZE_BOLTS_877,100000),13,false,false)
         bot.equipment.refresh()
         return bot
     }
@@ -197,8 +197,8 @@ class CombatBotAssembler {
         equipHighest(bot, CAPE)
         equipHighest(bot, NGLOVES)
         equipHighest(bot, NRBOOTS)
-        if(crossbow == true) { equipHighest(bot,CROSSBOWS); equipHighest(bot,MELEE_SHIELD); bot.equipment.add(Item(ItemNames.BRONZE_BOLTS,Integer.MAX_VALUE),13,false,false) }
-        else {equipHighest(bot, BOWS); bot.equipment.add(Item(ItemNames.BRONZE_ARROW,Integer.MAX_VALUE),13,false,false) }
+        if(crossbow == true) { equipHighest(bot,CROSSBOWS); equipHighest(bot,MELEE_SHIELD); bot.equipment.add(Item(Items.BRONZE_BOLTS_877,Integer.MAX_VALUE),13,false,false) }
+        else {equipHighest(bot, BOWS); bot.equipment.add(Item(Items.BRONZE_ARROW_882,Integer.MAX_VALUE),13,false,false) }
         bot.equipment.refresh()
     }
 
@@ -249,8 +249,8 @@ class CombatBotAssembler {
         equipHighest(bot, BOOTS)
         equipHighest(bot, RING_ARCH)
         bot.equipment.refresh()
-        if(crossbow == true) { equipHighest(bot,PCCROSSBOWS); equipHighest(bot,MELEE_SHIELD); bot.equipment.add(Item(ItemNames.BRONZE_BOLTS,Integer.MAX_VALUE),13,false,false) }
-        else {equipHighest(bot, PCBOWS); bot.equipment.add(Item(ItemNames.BRONZE_ARROW,Integer.MAX_VALUE),13,false,false) }
+        if(crossbow == true) { equipHighest(bot,PCCROSSBOWS); equipHighest(bot,MELEE_SHIELD); bot.equipment.add(Item(Items.BRONZE_BOLTS_877,Integer.MAX_VALUE),13,false,false) }
+        else {equipHighest(bot, PCBOWS); bot.equipment.add(Item(Items.BRONZE_ARROW_882,Integer.MAX_VALUE),13,false,false) }
         bot.skills.setStaticLevel(Skills.RANGE, 99)
         bot.skills.setLevel(Skills.RANGE, 99)
         bot.equipment.refresh()
@@ -331,8 +331,8 @@ class CombatBotAssembler {
         equipHighest(bot, BOOTS)
         equipHighest(bot, RING_ARCH)
         bot.equipment.refresh()
-        if(crossbow == true) { equipHighest(bot,PCCROSSBOWS); equipHighest(bot,MELEE_SHIELD); bot.equipment.add(Item(ItemNames.BRONZE_BOLTS,Integer.MAX_VALUE),13,false,false) }
-        else {equipHighest(bot, PCBOWS); bot.equipment.add(Item(ItemNames.BRONZE_ARROW,Integer.MAX_VALUE),13,false,false) }
+        if(crossbow == true) { equipHighest(bot,PCCROSSBOWS); equipHighest(bot,MELEE_SHIELD); bot.equipment.add(Item(Items.BRONZE_BOLTS_877,Integer.MAX_VALUE),13,false,false) }
+        else {equipHighest(bot, PCBOWS); bot.equipment.add(Item(Items.BRONZE_ARROW_882,Integer.MAX_VALUE),13,false,false) }
         bot.skills.setStaticLevel(Skills.RANGE, 99)
         bot.skills.setLevel(Skills.RANGE, 99)
         bot.equipment.refresh()

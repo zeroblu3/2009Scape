@@ -1,6 +1,6 @@
 package plugin.ai.general.scriptrepository
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.item.Item
@@ -21,7 +21,7 @@ class GenericSlayerBot : Script() {
     var task = Task.CAVE_CRAWLER //default value to ensure non-nullability
     var assignment = Assignment("",0) //same as above
     var teleportFlag = false //have we teleported?
-    val FOOD_ID = ItemNames.LOBSTER
+    val FOOD_ID = Items.LOBSTER_379
     val varrockBankBorders = ZoneBorders(3184, 3435,3187, 3441)
 
 
@@ -145,7 +145,7 @@ class GenericSlayerBot : Script() {
                         bot.inventory.clear()
                         for(item in inventory)
                             bot.inventory.add(item)
-                        scriptAPI.withdraw(core.tools.ItemNames.LOBSTER,10)
+                        scriptAPI.withdraw(core.tools.Items.LOBSTER_379,10)
                         bot.fullRestore()
 
                         if(assignment.amount <= 0){
@@ -208,7 +208,7 @@ class GenericSlayerBot : Script() {
         if(name.toLowerCase().contains("clue")) return true
         if(!definition.isTradeable) return true
         return when(id){
-            ItemNames.BONES_2530 -> true
+            Items.BONES_2530 -> true
             995 -> true
             else -> false
         }
@@ -233,7 +233,7 @@ class GenericSlayerBot : Script() {
      */
     init {
         skills[Skills.SLAYER] = 99
-        inventory.add(Item(ItemNames.LOBSTER,10))
+        inventory.add(Item(Items.LOBSTER_379,10))
 
     }
 

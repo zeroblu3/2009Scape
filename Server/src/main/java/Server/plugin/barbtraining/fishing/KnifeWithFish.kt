@@ -4,7 +4,7 @@ import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 
 @InitializablePlugin
 /**
@@ -19,7 +19,7 @@ class KnifeWithFish : UseWithHandler(11328,11330,11332){
     }
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(ItemNames.KNIFE, ITEM_TYPE,this)
+        addHandler(Items.KNIFE_946, ITEM_TYPE,this)
         return this
     }
 

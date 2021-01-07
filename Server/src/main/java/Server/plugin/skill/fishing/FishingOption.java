@@ -22,7 +22,7 @@ public enum FishingOption {
 	CAGE(new Item(301), 40, Animation.create(619), null, "cage", Fish.LOBSTER), 
 	HARPOON(new Item(311), 35, Animation.create(618), null, "harpoon", Fish.TUNA, Fish.SWORDFISH),
 	BARB_HARPOON(new Item(10129), 35, Animation.create(618), null, "harpoon", Fish.TUNA, Fish.SWORDFISH), 
-	BIG_NET(new Item(305), 16, Animation.create(620), null, "net", Fish.MACKEREL, Fish.COD, Fish.BASS), 
+	BIG_NET(new Item(305), 16, Animation.create(620), null, "net", Fish.MACKEREL, Fish.COD, Fish.BASS, Fish.SEAWEED),
 	N_HARPOON(new Item(311), 76, Animation.create(618), null, "harpoon", Fish.SHARK), 
 	H_NET(new Item(303), 1, Animation.create(621), null, "net", Fish.MONKFISH),
 	C_CAGE(new Item(301), 85, Animation.create(619), new Item(14943), "cage", Fish.DARK_CRAB);

@@ -1,7 +1,7 @@
 package plugin.dialogue
 
 import core.Util
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
@@ -20,7 +20,7 @@ class GeoffreyDialogue(player: Player? = null) : DialoguePlugin(player) {
                 return true
             }
             // If player cannot receive flax reward
-            if (!player.inventory.hasSpaceFor(Item(ItemNames.FLAX_NOTED, 1))) {
+            if (!player.inventory.hasSpaceFor(Item(Items.FLAX_1780, 1))) {
                 stage = 99
                 return true
             }
@@ -66,7 +66,7 @@ class GeoffreyDialogue(player: Player? = null) : DialoguePlugin(player) {
 
     fun rewardFlax(n: Int, vararg messages: String): Unit {
         npc(*messages)
-        player.inventory.add(Item(ItemNames.FLAX_NOTED, n))
+        player.inventory.add(Item(Items.FLAX_1780, n))
         player.setAttribute("/save:diary:seers:flax-timer", Util.nextMidnight(System.currentTimeMillis()))
         stage = 999
     }

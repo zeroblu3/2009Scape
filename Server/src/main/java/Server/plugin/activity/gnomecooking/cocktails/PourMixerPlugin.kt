@@ -1,7 +1,7 @@
 package plugin.activity.gnomecooking.cocktails
 
 import core.cache.def.impl.ItemDefinition
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
@@ -48,7 +48,7 @@ class PourMixerPlugin : OptionHandler() {
     }
 
     private fun attemptMake(drink: PouredDrink, player: Player, node: Node){
-        if(!player.inventory.containsItem(Item(ItemNames.COCKTAIL_GLASS_2026))){
+        if(!player.inventory.containsItem(Item(Items.COCKTAIL_GLASS_2026))){
             player.dialogueInterpreter.sendDialogue("You need a glass to pour this into.")
             return
         }
@@ -67,20 +67,20 @@ class PourMixerPlugin : OptionHandler() {
 
         player.inventory.remove(*drink.requiredItems)
         player.inventory.remove(node.asItem())
-        player.inventory.remove(Item(ItemNames.COCKTAIL_GLASS_2026))
+        player.inventory.remove(Item(Items.COCKTAIL_GLASS_2026))
         player.inventory.add(Item(drink.product))
-        player.inventory.add(Item(ItemNames.COCKTAIL_SHAKER_2025))
+        player.inventory.add(Item(Items.COCKTAIL_SHAKER_2025))
         player.skills.addExperience(Skills.COOKING,50.0)
     }
 
     internal enum class PouredDrink(val product: Int, val requiredItems: Array<Item>){
-        FRUIT_BLAST(9514, arrayOf(Item(ItemNames.LEMON_SLICES_2106))),
-        PINE_PUNCH(9512, arrayOf(Item(ItemNames.LIME_CHUNKS_2122),Item(ItemNames.PINEAPPLE_CHUNKS_2116),Item(ItemNames.ORANGE_SLICES_2112))),
-        WIZ_BLIZZ(9508, arrayOf(Item(ItemNames.PINEAPPLE_CHUNKS_2116),Item(ItemNames.LIME_SLICES_2124))),
-        SHORT_G_G(9510, arrayOf(Item(ItemNames.LIME_SLICES_2124),Item(ItemNames.EQUA_LEAVES_2128))),
+        FRUIT_BLAST(9514, arrayOf(Item(Items.LEMON_SLICES_2106))),
+        PINE_PUNCH(9512, arrayOf(Item(Items.LIME_CHUNKS_2122),Item(Items.PINEAPPLE_CHUNKS_2116),Item(Items.ORANGE_SLICES_2112))),
+        WIZ_BLIZZ(9508, arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116),Item(Items.LIME_SLICES_2124))),
+        SHORT_G_G(9510, arrayOf(Item(Items.LIME_SLICES_2124),Item(Items.EQUA_LEAVES_2128))),
         DRUNK_DRAG(9575, arrayOf()),
         CHOC_SAT(9572, arrayOf()),
-        BLUR_SPEC(9520, arrayOf(Item(ItemNames.LEMON_CHUNKS_2104),Item(ItemNames.ORANGE_CHUNKS_2110),Item(ItemNames.EQUA_LEAVES_2128),Item(ItemNames.LIME_SLICES_2124))),
+        BLUR_SPEC(9520, arrayOf(Item(Items.LEMON_CHUNKS_2104),Item(Items.ORANGE_CHUNKS_2110),Item(Items.EQUA_LEAVES_2128),Item(Items.LIME_SLICES_2124))),
     }
 
 }

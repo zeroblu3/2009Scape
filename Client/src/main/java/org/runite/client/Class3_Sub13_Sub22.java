@@ -5,7 +5,7 @@ import org.rs09.client.util.ArrayUtils;
 public final class Class3_Sub13_Sub22 extends Class3_Sub13 {
 
    static Player[] players = new Player[2048];
-   public static AbstractIndexedSprite[] aClass109Array3270;
+   public static AbstractIndexedSprite[] nameIconsSpriteArray;
    static long[] aLongArray3271 = new long[500];
    static boolean[] aBooleanArray3272;
    static Class61[][][] aClass61ArrayArrayArray3273 = new Class61[4][104][104];

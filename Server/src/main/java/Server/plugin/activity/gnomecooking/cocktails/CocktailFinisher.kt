@@ -1,7 +1,7 @@
 package plugin.activity.gnomecooking.cocktails
 
 import core.cache.def.impl.ItemDefinition
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
@@ -54,8 +54,8 @@ class CocktailFinisher : OptionHandler() {
     }
 
     internal enum class FinishedDrinks(val product: Int, val requiredItems: Array<Item>){
-        FIN_CHOC_SAT(2074, arrayOf(Item(ItemNames.CHOCOLATE_DUST_1975),Item(ItemNames.POT_OF_CREAM_2130))),
-        FIN_DRUN_DRA(9576, arrayOf(Item(ItemNames.PINEAPPLE_CHUNKS_2116),Item(ItemNames.POT_OF_CREAM_2130)))
+        FIN_CHOC_SAT(2074, arrayOf(Item(Items.CHOCOLATE_DUST_1975),Item(Items.POT_OF_CREAM_2130))),
+        FIN_DRUN_DRA(9576, arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116),Item(Items.POT_OF_CREAM_2130)))
     }
 
 }

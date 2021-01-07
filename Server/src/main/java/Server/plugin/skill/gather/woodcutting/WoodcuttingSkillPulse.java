@@ -2,7 +2,7 @@ package plugin.skill.gather.woodcutting;
 
 import core.cache.def.impl.ItemDefinition;
 import core.game.container.impl.EquipmentContainer;
-import core.tools.ItemNames;
+import core.tools.Items;
 import plugin.dialogue.FacialExpression;
 import core.game.content.global.BirdNest;
 import core.game.content.global.SkillcapePerks;
@@ -26,6 +26,9 @@ import core.game.world.update.flag.context.Animation;
 import core.tools.RandomFunction;
 
 import java.util.concurrent.TimeUnit;
+
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.STATS_BASE;
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.STATS_LOGS;
 
 /**
  * Woodcutting skill pulse
@@ -160,6 +163,8 @@ public class WoodcuttingSkillPulse extends Pulse {
             }
             //give the reward
             player.getInventory().add(new Item(reward, rewardAmount));
+            int cutLogs = player.getAttribute(STATS_BASE + ":" + STATS_LOGS,0);
+            player.setAttribute("/save:" + STATS_BASE + ":" + STATS_LOGS,++cutLogs);
 
             //calculate bonus bird nest for mining
             int chance = 282;
@@ -187,6 +192,11 @@ public class WoodcuttingSkillPulse extends Pulse {
                     PatchWrapper tree = player.getFarmingManager().getPatchWrapper(node.getWrapper().getId());
                     tree.addConfigValue(tree.getNode().getStumpBase());
                     tree.getCycle().setGrowthTime(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(resource.getRespawnDuration() + 10));
+                    //Handling for falador achievement diary
+                    if(resource.getId() == 8513 && player.getLocation().getRegionId() == 11828){
+                        //Chop down a yew tree you grew in falador park
+                        player.getAchievementDiaryManager().finishTask(player,DiaryType.FALADOR,2,3);
+                    }
                     return true;
                 }
                 if (resource.getEmptyId() > -1) {
@@ -222,6 +232,10 @@ public class WoodcuttingSkillPulse extends Pulse {
     private double calculateExperience(int reward, int amount) {
         double experience = resource.getExperience();
 
+        if(player.getLocation().getRegionId() == 10300){
+            return 1.0;
+        }
+
         // Bark
         if (reward == 3239) {
             // If we receive the item, give the full experience points otherwise give the base amount
@@ -252,11 +266,11 @@ public class WoodcuttingSkillPulse extends Pulse {
      */
     private void applyAchievementTask(int reward) {
         // Cut a log from a teak tree
-        if (reward == ItemNames.TEAK_LOGS_6333) {
+        if (reward == Items.TEAK_LOGS_6333) {
             player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 7);
         }
         // Cut a log from a mahogany tree
-        if (reward == ItemNames.MAHOGANY_LOGS_6332) {
+        if (reward == Items.MAHOGANY_LOGS_6332) {
             player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 8);
         }
 

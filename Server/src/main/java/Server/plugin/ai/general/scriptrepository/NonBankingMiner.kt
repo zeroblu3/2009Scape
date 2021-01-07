@@ -1,7 +1,7 @@
 package plugin.ai.general.scriptrepository
 
 import core.game.node.item.Item
-import core.tools.ItemNames
+import core.tools.Items
 import plugin.ai.skillingbot.SkillingBotAssembler
 import plugin.skill.Skills
 
@@ -23,8 +23,8 @@ class NonBankingMiner : Script() {
 
     init {
         skills[Skills.ATTACK] = 99
-        equipment.add(Item(ItemNames.MITHRIL_PICKAXE))
-        inventory.add(Item(ItemNames.MITHRIL_PICKAXE))
+        equipment.add(Item(Items.MITHRIL_PICKAXE_1273))
+        inventory.add(Item(Items.MITHRIL_PICKAXE_1273))
         skills[Skills.MINING] = 50
     }
 }

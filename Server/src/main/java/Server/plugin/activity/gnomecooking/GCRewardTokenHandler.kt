@@ -1,7 +1,7 @@
 package plugin.activity.gnomecooking
 
 import core.cache.def.impl.ItemDefinition
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
@@ -13,8 +13,8 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import plugin.dialogue.DialoguePlugin
 
-val gnomeItems = arrayOf(ItemNames.FRUIT_BATTA_2277, ItemNames.TOAD_BATTA_2255, ItemNames.CHEESE_TOM_BATTA_2259, ItemNames.WORM_BATTA_2253, ItemNames.VEGETABLE_BATTA_2281,
-        ItemNames.CHOCOLATE_BOMB_2185, ItemNames.VEG_BALL_2195, ItemNames.TANGLED_TOADS_LEGS_2187, ItemNames.WORM_HOLE_2191, ItemNames.TOAD_CRUNCHIES_2217, ItemNames.WORM_CRUNCHIES_2205, ItemNames.CHOCCHIP_CRUNCHIES_2209, ItemNames.SPICY_CRUNCHIES_2213)
+val gnomeItems = arrayOf(Items.FRUIT_BATTA_2277, Items.TOAD_BATTA_2255, Items.CHEESE_PLUSTOM_BATTA_2259, Items.WORM_BATTA_2253, Items.VEGETABLE_BATTA_2281,
+        Items.CHOCOLATE_BOMB_2185, Items.VEG_BALL_2195, Items.TANGLED_TOADS_LEGS_2187, Items.WORM_HOLE_2191, Items.TOAD_CRUNCHIES_2217, Items.WORM_CRUNCHIES_2205, Items.CHOCCHIP_CRUNCHIES_2209, Items.SPICY_CRUNCHIES_2213)
 
 @InitializablePlugin
 class GCRewardTokenHandler : OptionHandler() {

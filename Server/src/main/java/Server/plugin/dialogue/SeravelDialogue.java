@@ -3,7 +3,7 @@ package plugin.dialogue;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.plugin.InitializablePlugin;
 
 @InitializablePlugin
@@ -15,7 +15,7 @@ public class SeravelDialogue extends DialoguePlugin {
     }
 
     private static final Item COINS = new Item(995, 20);
-    private static final Item TICKET = new Item(ItemNames.SHIP_TICKET_621);
+    private static final Item TICKET = new Item(Items.SHIP_TICKET_621);
 
     @Override
     public DialoguePlugin newInstance(Player player) {

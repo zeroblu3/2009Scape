@@ -1,18 +1,8 @@
 package org.runite.client;
 
-import jogamp.opengl.x11.glx.X11GLXDynamicLibraryBundleInfo;
-
 import java.applet.Applet;
-import java.awt.Component;
-import java.awt.EventQueue;
-import java.awt.Frame;
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.awt.*;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -250,26 +240,22 @@ public class Signlink implements Runnable {
                             System.out.println("Signlink - os Arch: " + osArchitecture);
                             if (osName.startsWith("linux") || isSunOS) {
                                 createLibs(isSunOS ? (is64Bit ? 7 : 6) : (is64Bit ? 5 : 4));
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.so").toString());
-//                                Class var8 = ((Class) var1.anObject977).getClassLoader().loadClass("DRIHack");//TODO:
-//                                var8.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_desktop.so").toString());
-//                                var8.getMethod("end", new Class[0]).invoke(null, new Object[0]);
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_x11.so").toString());
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_awt.so").toString());
+                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.so").toString());
+                                Class var8 = ((Class) var1.anObject977).getClassLoader().loadClass("com.sun.opengl.impl.x11.DRIHack");
+                                var8.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
+                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl.so").toString());
+                                var8.getMethod("end", new Class[0]).invoke(null, new Object[0]);
+                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_awt.so").toString());
 
 
                             } else if (osName.startsWith("mac")) {
                                 createLibs(is64Bit ? 2 : 3);
                                 try {
-//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libgluegen-rt.jnilib").toString());
-//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl.jnilib").toString());
+                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl.jnilib").toString());
+                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_awt.jnilib").toString());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_desktop.jnilib").toString());
-//                                    var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libnativewindow_macosx.jnilib").toString());
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "libjogl_awt.jnilib").toString());
                             } else {
 
                                 if (!osName.startsWith("win")) {
@@ -277,12 +263,8 @@ public class Signlink implements Runnable {
                                 }
                                 createLibs(is64Bit ? 1 : 0);
 //                                System.out.println("Trying to invoke libs");
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl_desktop.dll").toString());
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "gluegen-rt.dll").toString());
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "nativewindow_win32.dll").toString());
-//                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "nativewindow_awt.dll").toString());
-//                                System.out.println("Invoked libs");
-
+                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl.dll").toString());
+                                var7.invoke(runtime, var1.anObject977, method1448(this.gameName, this.anInt1215, "jogl_awt.dll").toString());
                             }
 
                             var7.setAccessible(false);
@@ -363,66 +345,37 @@ public class Signlink implements Runnable {
     }
 
     public void createLibs(int archive) throws Throwable {
-        System.out.println("creating libs");
-        String joglDesktop = archive < 2 ? "jogl_desktop.dll" : archive < 4 ? "libjogl_desktop.jnilib" : "libjogl_desktop.so";
-        String gluegen = archive < 2 ? "gluegen-rt.dll" : archive < 4 ? "libgluegen-rt.jnilib" : "libgluegen-rt.so";
-        String nativeWindow = archive < 2 ? "nativewindow_win32.dll" : archive < 4 ? "libnativewindow_macosx.jnilib" : "libnativewindow_x11.so";
-        String nativeWindowAWT = archive < 2 ? "nativewindow_awt.dll" : archive < 4 ? "libnativewindow_awt.jnilib" : "libnativewindow_awt.so";
-
-
-        byte[] joglByte = CacheIndex.libIndex.getFile(archive, 0);
-        if (joglByte == null || joglByte.length < 1) {
-            System.err.println("Could not create native lib " + joglDesktop + ", archive=" + archive + "!");
+        String jogl = archive < 2 ? "jogl.dll" : archive < 4 ? "libjogl.jnilib" : "libjogl.so";
+        String joglAwt = archive < 2 ? "jogl_awt.dll" : archive < 4 ? "libjogl_awt.jnilib" : "libjogl_awt.so";
+        byte[] bs = CacheIndex.libIndex.getFile(archive, 0);
+        if (bs == null || bs.length < 1) {
+            System.err.println("Could not create native lib " + joglAwt + ", archive=" + archive + "!");
             return;
         }
-        FileOutputStream fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, joglDesktop));
-        fos.write(joglByte);
+        FileOutputStream fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, joglAwt));
+        fos.write(bs);
         fos.flush();
         fos.close();
-
-        byte[] gluegenByte = CacheIndex.libIndex.getFile(archive, 1);
-        if (gluegenByte == null || gluegenByte.length < 1) {
-            System.err.println("Could not create native lib " + gluegen + ", archive=" + archive + "!");
+        bs = CacheIndex.libIndex.getFile(archive,1);
+        if (bs == null || bs.length < 1) {
+            System.err.println("Could not create native lib " + jogl + ", archive=" + archive + "!");
             return;
         }
-        fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, gluegen));
-        fos.write(gluegenByte);
+        fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, jogl));
+        fos.write(bs);
         fos.flush();
         fos.close();
-
-
-        byte[] windowByte = CacheIndex.libIndex.getFile(archive, 2);
-        if (windowByte == null || windowByte.length < 1) {
-            System.err.println("Could not create native lib " + nativeWindow + ", archive=" + archive + "!");
-            return;
+        if (archive > 3) {
+            bs = CacheIndex.libIndex.getFile(archive,2);
+            if (bs == null || bs.length < 1) {
+                System.err.println("Could not create native lib libgluegen-rt.so, archive=" + archive + "!");
+                return;
+            }
+            fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, "libgluegen-rt.so"));
+            fos.write(bs);
+            fos.flush();
+            fos.close();
         }
-        fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, nativeWindow));
-        fos.write(windowByte);
-        fos.flush();
-        fos.close();
-
-        byte [] windowAWTByte = CacheIndex.libIndex.getFile(archive, 3);
-        if (windowAWTByte == null || windowAWTByte.length < 1) {
-            System.err.println("Could not create nativeWindowAWT lib " + nativeWindowAWT + ", archive=" + archive + "!");
-            return;
-        }
-        fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, nativeWindowAWT));
-        fos.write(windowAWTByte);
-        fos.flush();
-        fos.close();
-
-
-//        if (archive > 3) {
-//            bs = CacheIndex.libIndex.getFile(archive, 2);
-//            if (bs == null || bs.length < 1) {
-//                System.err.println("Could not create native lib libgluegen-rt.so, archive=" + archive + "!");
-//                return;
-//            }
-//            fos = new FileOutputStream(method1448(this.gameName, this.anInt1215, "libgluegen-rt.so"));
-//            fos.write(bs);
-//            fos.flush();
-//            fos.close();
-//        }
     }
 
     public final Class64 method1444(int var1, Class var2) {
@@ -499,7 +452,7 @@ public class Signlink implements Runnable {
         return this.method1435(9, 0, new Object[]{var3, var2}, 0);
     }
 
-    public static File method1448(String gameName, int var1, String filename) throws NoSuchFieldException, IllegalAccessException {
+    public static File method1448(String gameName, int var1, String filename) {
         File cachedFile = cachedFiles.get(filename);
         if (cachedFile == null) {
             String[] basePaths = new String[]{homeDirectory, "c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", "/tmp/", ""};
@@ -508,11 +461,6 @@ public class Signlink implements Runnable {
                 for (String folder : folders) {
                     for (String basePath : basePaths) {
                         String fullPath = basePath + folder + "/" + (gameName != null ? gameName + "/" : "") + filename;
-                        String libraryPath = basePath + folder + "/" + (gameName != null ? gameName + "/" : "");
-                        System.setProperty("java.library.path", libraryPath);
-                        Field fieldSysPath = ClassLoader.class.getDeclaredField("sys_paths");
-                        fieldSysPath.setAccessible(true);
-                        fieldSysPath.set(null,null);
                         RandomAccessFile raf = null;
                         try {
                             File file = new File(fullPath);

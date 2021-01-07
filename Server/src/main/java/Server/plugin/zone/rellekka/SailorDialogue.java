@@ -67,7 +67,7 @@ public final class SailorDialogue extends DialoguePlugin {
 
 	@Override
 	public int[] getIds() {
-		return new int[] { 1385, 1304 };
+		return new int[] { 1304 };
 	}
 
 }

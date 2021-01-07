@@ -1,6 +1,6 @@
 package plugin.dialogue
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
@@ -13,9 +13,9 @@ import core.plugin.InitializablePlugin
 @InitializablePlugin
 class ElsieDialogue(player: Player? = null) : DialoguePlugin(player) {
     override fun open(vararg args: Any?): Boolean {
-        when (player.inventory.containsAtLeastOneItem(ItemNames.CUP_OF_TEA_712)) {
-            true -> npc("Hello dearie! What can old Elsie do for you?").also { stage = 10 }
-            false -> npc("Ooh - that looks like a lovely cup of tea, dearie. Is it for", "me?").also { stage = 100 }
+        when (player.inventory.containsAtLeastOneItem(Items.CUP_OF_TEA_712)) {
+            true -> npc("Ooh - that looks like a lovely cup of tea, dearie. Is it for", "me?").also { stage = 100 }
+            false -> npc("Hello dearie! What can old Elsie do for you?").also { stage = 10 }
         }
         return true
     }
@@ -62,7 +62,7 @@ class ElsieDialogue(player: Player? = null) : DialoguePlugin(player) {
                 }
             102 -> player("Yes, you can have it.").also { stage++ }
             103 -> npc("Ahh, there's nothing like a nice cuppa tea. I know what,", "I'll tell you a story to thank you for the lovely tea...").also {
-                player.inventory.remove(Item(ItemNames.CUP_OF_TEA_712))
+                player.inventory.remove(Item(Items.CUP_OF_TEA_712))
                 player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, 14)
                 stage++
             }

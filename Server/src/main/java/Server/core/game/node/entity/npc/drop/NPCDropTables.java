@@ -83,14 +83,6 @@ public final class NPCDropTables {
 	 */
 	public void drop(NPC npc, Entity looter) {
 		Player p = looter instanceof Player ? (Player) looter : null;
-
-		DropTables table = DropTables.forId(npc.getId());
-		if(table != null){
-			table.getDrops().forEach(drop -> createDrop(drop,p,npc,npc.getDropLocation()));
-			DropPlugins.getDrops(npc.getId()).forEach(drop -> createDrop(drop,p,npc,npc.getDropLocation()));
-			return;
-		}
-
 		if (!charmTable.isEmpty()) {
 			boolean rollCharms = RandomFunction.random(5) == 3;
 			if(rollCharms) {

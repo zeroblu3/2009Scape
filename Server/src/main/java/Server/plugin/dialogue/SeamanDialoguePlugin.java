@@ -1,7 +1,7 @@
 package plugin.dialogue;
 
 import core.game.container.impl.EquipmentContainer;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.content.global.travel.ship.Ships;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -44,7 +44,7 @@ public class SeamanDialoguePlugin extends DialoguePlugin {
     public boolean open(Object... args) {
         npc = (NPC) args[0];
         if (args.length > 1 && player.getQuestRepository().isComplete("Pirate's Treasure")) {
-			if (player.getEquipment().get(EquipmentContainer.SLOT_RING) != null && player.getEquipment().get(EquipmentContainer.SLOT_RING).getId() == ItemNames.RING_OF_CHAROSA_6465) {
+			if (player.getEquipment().get(EquipmentContainer.SLOT_RING) != null && player.getEquipment().get(EquipmentContainer.SLOT_RING).getId() == Items.RING_OF_CHAROSA_6465) {
 				travel();
 			} else if (player.getAchievementDiaryManager().getDiary(DiaryType.KARAMJA).isComplete(0)) {
 				pay(15);
@@ -70,7 +70,7 @@ public class SeamanDialoguePlugin extends DialoguePlugin {
             case 1:
                 boolean charos = false;
                 if (player.getEquipment().get(EquipmentContainer.SLOT_RING) != null) {
-                    charos = player.getEquipment().get(EquipmentContainer.SLOT_RING).getId() == ItemNames.RING_OF_CHAROSA_6465;
+                    charos = player.getEquipment().get(EquipmentContainer.SLOT_RING).getId() == Items.RING_OF_CHAROSA_6465;
                 }
                 if (charos) {
                     interpreter.sendOptions("Select an Option", "Yes, please.", "No, thank you.", "(Charm) Or I could pay you nothing at all...");

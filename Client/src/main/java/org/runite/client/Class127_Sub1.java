@@ -1,7 +1,6 @@
 package org.runite.client;
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
 
+import javax.media.opengl.GL;
 import java.nio.FloatBuffer;
 
 
@@ -11,10 +10,10 @@ final class Class127_Sub1 extends LoginHandler {
 
 
    static void method1755() {
-      GL2 var0 = HDToolKit.gl;
+      GL var0 = HDToolKit.gl;
       if(var0.isExtensionAvailable("GL_ARB_point_parameters")) {
          float[] var1 = new float[]{1.0F, 0.0F, 5.0E-4F};
-         var0.glPointParameterfv('\u8129', var1, 0);
+         var0.glPointParameterfvARB('\u8129', var1, 0);
          FloatBuffer var2 = FloatBuffer.allocate(1);
          var0.glGetFloatv('\u8127', var2);
          float var3 = var2.get(0);
@@ -22,8 +21,8 @@ final class Class127_Sub1 extends LoginHandler {
             var3 = 1024.0F;
          }
 
-         var0.glPointParameterf('\u8126', 1.0F);
-         var0.glPointParameterf('\u8127', var3);
+         var0.glPointParameterfARB('\u8126', 1.0F);
+         var0.glPointParameterfARB('\u8127', var3);
       }
 
       if(var0.isExtensionAvailable("GL_ARB_point_sprite")) {

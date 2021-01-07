@@ -12,7 +12,7 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 
 /**
  * Handles the chopping down of dense jungle, mainly to grant access to the Kharazi Jungle.
@@ -55,10 +55,10 @@ class JungleBushHandler : OptionHandler(){
     }
 
     fun checkRequirement(player: Player): Boolean{
-        val machete = Item(ItemNames.MACHETE_975)
-        val jade_machete = Item(ItemNames.JADE_MACHETE_6315)
-        val opal_machete = Item(ItemNames.OPAL_MACHETE_6313)
-        val red_topaz_machete = Item(ItemNames.RED_TOPAZ_MACHETE_6317)
+        val machete = Item(Items.MACHETE_975)
+        val jade_machete = Item(Items.JADE_MACHETE_6315)
+        val opal_machete = Item(Items.OPAL_MACHETE_6313)
+        val red_topaz_machete = Item(Items.RED_TOPAZ_MACHETE_6317)
         return player.inventory.containsItem(machete) || player.inventory.containsItem(jade_machete) || player.inventory.containsItem(opal_machete) || player.inventory.containsItem(red_topaz_machete)
     }
 }

@@ -9,7 +9,7 @@ import core.game.node.object.GameObject;
 import core.game.world.map.Location;
 import core.plugin.InitializablePlugin;
 import core.plugin.Plugin;
-import core.tools.ItemNames;
+import core.tools.Items;
 import plugin.quest.PluginInteraction;
 import plugin.quest.PluginInteractionManager;
 
@@ -30,12 +30,12 @@ public class GarlicPipeInteraction extends PluginInteraction {
             GameObject usedWith = event.getUsedWith().asObject();
             Item used = event.getUsedItem();
 
-            if(used.getId() == ItemNames.GARLIC_1550 && usedWith.getId() == 41 && usedWith.getLocation().equals(Location.create(2638, 3446, 0)) && player.getQuestRepository().getStage("Fishing Contest") > 0){
+            if(used.getId() == Items.GARLIC_1550 && usedWith.getId() == 41 && usedWith.getLocation().equals(Location.create(2638, 3446, 0)) && player.getQuestRepository().getStage("Fishing Contest") > 0){
                 player.getPulseManager().run(new MovementPulse(player, usedWith.getLocation().transform(0, -1, 0)) {
                     @Override
                     public boolean pulse() {
                         player.getDialogueInterpreter().sendDialogue("You stuff the garlic into the pipe.");
-                        player.getInventory().remove(new Item(ItemNames.GARLIC_1550));
+                        player.getInventory().remove(new Item(Items.GARLIC_1550));
                         player.setAttribute("fishing_contest:garlic",true);
                         return true;
                     }

@@ -1,9 +1,11 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.glu.gl2.GLUgl2;
+
+
 import org.rs09.client.Node;
 
+import javax.media.opengl.GL;
+import javax.media.opengl.glu.GLU;
 import java.nio.ByteBuffer;
 
 final class Class3_Sub28_Sub20 extends Node {
@@ -135,7 +137,7 @@ final class Class3_Sub28_Sub20 extends Node {
    final boolean method719(CacheIndex var1, Interface2 var2, boolean var4) {
       try {
          if(this.aClass82_3790.method1408(var2, var1)) {
-            GL2 var5 = HDToolKit.gl;
+            GL var5 = HDToolKit.gl;
             int var6 = !var4?128:64;
             int var7 = Class27.method961();
             if((1 & var7) == 0) {
@@ -147,7 +149,7 @@ final class Class3_Sub28_Sub20 extends Node {
                   HDToolKit.bindTexture2D(this.anInt3795);
                   ByteBuffer var9 = ByteBuffer.wrap(this.aClass82_3790.method1407(var6, var6, this.aBoolean3800, var2, var1));
                   if(2 == this.anInt3788) {
-                     GLUgl2 var14 = new GLUgl2();
+                      GLU var14 = new GLU();
                      var14.gluBuild2DMipmaps(3553, 6408, var6, var6, 6408, 5121, var9);
                      var5.glTexParameteri(3553, 10241, 9987);
                      var5.glTexParameteri(3553, 10240, 9729);

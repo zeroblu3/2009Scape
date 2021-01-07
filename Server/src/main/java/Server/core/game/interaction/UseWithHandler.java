@@ -94,51 +94,76 @@ public abstract class UseWithHandler implements Plugin<Object> {
      * @param event The event.
      */
     public static void run(final NodeUsageEvent event) {
-        if (event.getPlayer() != null) {
-            event.getPlayer().getInterfaceManager().close();
-        }
-        Node n = event.getUsedWith();
-        List<UseWithHandler> handler = null;
-        if (n instanceof Item) {
-            handler = HANDLERS.get(((Item) event.getUsed()).getId());// fixed.
-            if (handler == null) {
-                handler = HANDLERS.get(((Item) event.getUsedWith()).getId());
+        try {
+            if (event.getPlayer() != null) {
+                event.getPlayer().getInterfaceManager().close();
             }
-        } else if (n instanceof NPC) {
-            handler = HANDLERS.get(((NPC) n).getId() | NPC_TYPE << 16);
-        } else if (n instanceof GameObject) {
-            handler = HANDLERS.get(((GameObject) n).getId() | OBJECT_TYPE << 16);
-        } else if (n instanceof Player) {
-            handler = HANDLERS.get(((Item) event.getUsed()).getId() | PLAYER_TYPE << 16);
-        } else {
-            handler = HANDLERS.get(((NPC) n).getId() | NPC_TYPE << 16);
-        }
-        if (handler == null) {
-            if (n instanceof Item && !(event.getUsed() instanceof Player)) {
-                event.getPlayer().getPulseManager().runUnhandledAction(event.getPlayer());
+            Node n = event.getUsedWith();
+            List<UseWithHandler> handler = null;
+            if (n instanceof Item) {
+                handler = HANDLERS.get(((Item) event.getUsed()).getId());// fixed.
+                if (handler == null) {
+                    handler = HANDLERS.get(((Item) event.getUsedWith()).getId());
+                }
+            } else if (n instanceof NPC) {
+                handler = HANDLERS.get(((NPC) n).getId() | NPC_TYPE << 16);
+            } else if (n instanceof GameObject) {
+                handler = HANDLERS.get(((GameObject) n).getId() | OBJECT_TYPE << 16);
+            } else if (n instanceof Player) {
+                handler = HANDLERS.get(((Item) event.getUsed()).getId() | PLAYER_TYPE << 16);
             } else {
-                event.getPlayer().getPulseManager().run(new MovementPulse(event.getPlayer(), event.getUsedWith()) {
+                handler = HANDLERS.get(((NPC) n).getId() | NPC_TYPE << 16);
+            }
+            if (handler == null) {
+                if (n instanceof Item && !(event.getUsed() instanceof Player)) {
+                    event.getPlayer().getPulseManager().runUnhandledAction(event.getPlayer());
+                } else {
+                    event.getPlayer().getPulseManager().run(new MovementPulse(event.getPlayer(), event.getUsedWith()) {
+                        @Override
+                        public boolean pulse() {
+                            event.getPlayer().debug("Unhandled use with interaction: item used: " + event.getUsed() + " with: " + event.getUsedWith());
+                            event.getPlayer().getPacketDispatch().sendMessage("Nothing interesting happens.");
+                            return true;
+                        }
+                    }, "movement");
+                }
+                return;
+            }
+            final List<UseWithHandler> handlers = handler;
+            if (n instanceof Item && !(event.getUsed() instanceof Player)) {
+                event.getPlayer().getPulseManager().run(new Pulse(1, event.getPlayer(), event.getUsed(), event.getUsedWith()) {
                     @Override
                     public boolean pulse() {
-                        event.getPlayer().debug("Unhandled use with interaction: item used: " + event.getUsed() + " with: " + event.getUsedWith());
-                        event.getPlayer().getPacketDispatch().sendMessage("Nothing interesting happens.");
+                        boolean handled = false;
+                        if (event.getPlayer() != null) {
+                            event.getPlayer().getInterfaceManager().close();
+                        }
+                        for (UseWithHandler h : handlers) {
+                            if (!h.nodeAllowed(((Item) event.getUsedWith()).getId()) && !h.nodeAllowed(event.getUsedItem().getId()) || !h.handle(event)) {// fixed,
+                                continue;
+                            }
+                            event.getPlayer().debug("Handler=" + h.getClass().getSimpleName() + ", used item=" + event.getUsedItem() + ", used with=" + event.getUsedWith());
+                            handled = true;
+                            break;
+                        }
+                        if (!handled) {
+                            event.getPlayer().debug("Handler=none, used item=" + event.getUsedItem());
+                            event.getPlayer().debug("used with=" + event.getUsedWith());
+                            event.getPlayer().getPacketDispatch().sendMessage("Nothing interesting happens.");
+                        }
                         return true;
                     }
-                }, "movement");
+                });
+                return;
             }
-            return;
-        }
-        final List<UseWithHandler> handlers = handler;
-        if (n instanceof Item && !(event.getUsed() instanceof Player)) {
-            event.getPlayer().getPulseManager().run(new Pulse(1, event.getPlayer(), event.getUsed(), event.getUsedWith()) {
+            event.getPlayer().getPulseManager().run(new MovementPulse(event.getPlayer(), event.getUsedWith(), handler.get(0)) {
                 @Override
                 public boolean pulse() {
+                    event.getPlayer().faceLocation(FaceLocationFlag.getFaceLocation(event.getPlayer(), event.getUsedWith()));
                     boolean handled = false;
-                    if (event.getPlayer() != null) {
-                        event.getPlayer().getInterfaceManager().close();
-                    }
+                    Item used = (Item) event.getUsed();
                     for (UseWithHandler h : handlers) {
-                        if (!h.nodeAllowed(((Item) event.getUsedWith()).getId()) && !h.nodeAllowed(event.getUsedItem().getId()) || !h.handle(event)) {// fixed,
+                        if ((used != null && !h.nodeAllowed(used.getId())) || !h.handle(event)) {
                             continue;
                         }
                         event.getPlayer().debug("Handler=" + h.getClass().getSimpleName() + ", used item=" + event.getUsedItem() + ", used with=" + event.getUsedWith());
@@ -146,36 +171,15 @@ public abstract class UseWithHandler implements Plugin<Object> {
                         break;
                     }
                     if (!handled) {
-                        event.getPlayer().debug("Handler=none, used item=" + event.getUsedItem());
-                        event.getPlayer().debug("used with=" + event.getUsedWith());
+                        event.getPlayer().debug("Handler=none, used item=" + event.getUsedItem() + ", used with=" + event.getUsedWith());
                         event.getPlayer().getPacketDispatch().sendMessage("Nothing interesting happens.");
                     }
                     return true;
                 }
-            });
-            return;
+            }, "movement");
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        event.getPlayer().getPulseManager().run(new MovementPulse(event.getPlayer(), event.getUsedWith(), handler.get(0)) {
-            @Override
-            public boolean pulse() {
-                event.getPlayer().faceLocation(FaceLocationFlag.getFaceLocation(event.getPlayer(), event.getUsedWith()));
-                boolean handled = false;
-                Item used = (Item) event.getUsed();
-                for (UseWithHandler h : handlers) {
-                    if ((used != null && !h.nodeAllowed(used.getId())) || !h.handle(event)) {
-                        continue;
-                    }
-                    event.getPlayer().debug("Handler=" + h.getClass().getSimpleName() + ", used item=" + event.getUsedItem() + ", used with=" + event.getUsedWith());
-                    handled = true;
-                    break;
-                }
-                if (!handled) {
-                    event.getPlayer().debug("Handler=none, used item=" + event.getUsedItem() + ", used with=" + event.getUsedWith());
-                    event.getPlayer().getPacketDispatch().sendMessage("Nothing interesting happens.");
-                }
-                return true;
-            }
-        }, "movement");
     }
 
     @Override

@@ -132,7 +132,7 @@ class LecternPlugin : OptionHandler() {
             var counter = 0
             override fun pulse(): Boolean {
                 when(counter++){
-                    0 -> player.animator.animate(Animation(4460)).also { player.lock() }
+                    0 -> player.animator.animate(Animation(3649)).also { player.lock() }
                     8 -> player.interfaceManager.open(Component(400)).also { player.unlock(); return true }
                 }
                 return false

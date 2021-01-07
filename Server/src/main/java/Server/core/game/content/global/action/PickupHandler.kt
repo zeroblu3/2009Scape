@@ -1,6 +1,6 @@
 package core.game.content.global.action
 
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.content.global.GodType
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.audio.Audio
@@ -59,7 +59,7 @@ object PickupHandler {
                 player.animate(Animation.create(535))
             }
 
-            if (item is GroundSpawn && item.getId() == ItemNames.SEAWEED
+            if (item is GroundSpawn && item.getId() == Items.SEAWEED_401
                     && player.zoneMonitor.isInZone("karamja")
                     && !player.achievementDiaryManager.hasCompletedTask(DiaryType.KARAMJA, 0, 7)) {
                 var seaweed = player.getAttribute("seaweed", 0)
@@ -68,7 +68,7 @@ object PickupHandler {
                 player.achievementDiaryManager.updateTask(player, DiaryType.KARAMJA, 0, 7, seaweed >= 5)
             }
             // Collect five palm leaves
-            if (item.getId() == ItemNames.PALM_LEAF_2339 && player.zoneMonitor.isInZone("karamja") && !player.achievementDiaryManager.hasCompletedTask(DiaryType.KARAMJA, 2, 7)) {
+            if (item.getId() == Items.PALM_LEAF_2339 && player.zoneMonitor.isInZone("karamja") && !player.achievementDiaryManager.hasCompletedTask(DiaryType.KARAMJA, 2, 7)) {
                 var palms = player.getAttribute("palms", 0)
                 palms++
                 player.setAttribute("palms", palms)

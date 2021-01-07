@@ -1,7 +1,7 @@
 package plugin.dialogue
 
 import core.game.component.Component
-import core.game.content.ItemNames
+import core.tools.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
@@ -14,17 +14,17 @@ import core.plugin.InitializablePlugin
  */
 @InitializablePlugin
 class ThormacDialogue(player: Player? = null) : DialoguePlugin(player) {
-    val scorpionCageEmpty = Item(ItemNames.SCORPION_CAGE_456)
-    val scorpionCageFull = Item(ItemNames.SCORPION_CAGE_463)
+    val scorpionCageEmpty = Item(Items.SCORPION_CAGE_456)
+    val scorpionCageFull = Item(Items.SCORPION_CAGE_463)
     val scorpionCages: IntArray = intArrayOf(
-        ItemNames.SCORPION_CAGE_456,
-        ItemNames.SCORPION_CAGE_457,
-        ItemNames.SCORPION_CAGE_458,
-        ItemNames.SCORPION_CAGE_459,
-        ItemNames.SCORPION_CAGE_460,
-        ItemNames.SCORPION_CAGE_461,
-        ItemNames.SCORPION_CAGE_462,
-        ItemNames.SCORPION_CAGE_463
+        Items.SCORPION_CAGE_456,
+        Items.SCORPION_CAGE_457,
+        Items.SCORPION_CAGE_458,
+        Items.SCORPION_CAGE_459,
+        Items.SCORPION_CAGE_460,
+        Items.SCORPION_CAGE_461,
+        Items.SCORPION_CAGE_462,
+        Items.SCORPION_CAGE_463
     )
 
     val COMPONENT = Component(332)

@@ -26,7 +26,7 @@ public final class BankContainer extends Container {
 	/**
 	 * The bank container size.
 	 */
-	public static final int SIZE = 800;
+	public static final int SIZE = 496;
 	
 	/**
 	 * The maximum amount of bank tabs
@@ -106,7 +106,7 @@ public final class BankContainer extends Container {
 		player.getInventory().getListeners().add(listener);
 		player.getInventory().refresh();
 		player.getConfigManager().set(1249, lastAmountX);
-		player.getPacketDispatch().sendAccessMask(1278, 73, 762, 0, SIZE);
+		player.getPacketDispatch().sendAccessMask(1278, 73, 762, 0, 496);
 		BitregisterAssembler assembly = new BitregisterAssembler(0, 1, 2, 3, 4, 5);
 		assembly.enableExamineOption();
 		assembly.enableSlotSwitch();

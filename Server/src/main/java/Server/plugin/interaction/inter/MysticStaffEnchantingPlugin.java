@@ -3,7 +3,7 @@ package plugin.interaction.inter;
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;
 import core.game.component.ComponentPlugin;
-import core.game.content.ItemNames;
+import core.tools.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.Plugin;
@@ -23,13 +23,12 @@ public final class MysticStaffEnchantingPlugin extends ComponentPlugin {
     private final int cost = 40000;
 
     protected enum EnchantedStaff {
-        AIR(ItemNames.MYSTIC_AIR_STAFF, ItemNames.AIR_BATTLESTAFF, 21),
-        WATER(ItemNames.MYSTIC_WATER_STAFF, ItemNames.WATER_BATTLESTAFF, 22),
-        EARTH(ItemNames.MYSTIC_EARTH_STAFF, ItemNames.EARTH_BATTLESTAFF, 23),
-        FIRE(ItemNames.MYSTIC_FIRE_STAFF, ItemNames.FIRE_BATTLESTAFF, 24),
-        LAVA(ItemNames.MYSTIC_LAVA_STAFF_3054, ItemNames.LAVA_BATTLESTAFF, 25),
-        MUD(ItemNames.MYSTIC_MUD_STAFF_6563, ItemNames.MUD_BATTLESTAFF, 26),
-        STEAM(ItemNames.MYSTIC_STEAM_STAFF_11789, ItemNames.STEAM_BATTLESTAFF, 27);
+        AIR(Items.MYSTIC_AIR_STAFF_1405, Items.AIR_BATTLESTAFF_1397, 21),
+        WATER(Items.MYSTIC_WATER_STAFF_1403, Items.WATER_BATTLESTAFF_1395, 22),
+        EARTH(Items.MYSTIC_EARTH_STAFF_1407, Items.EARTH_BATTLESTAFF_1399, 23),
+        FIRE(Items.MYSTIC_FIRE_STAFF_1401, Items.FIRE_BATTLESTAFF_1393, 24),
+        LAVA(Items.MYSTIC_LAVA_STAFF_3054, Items.LAVA_BATTLESTAFF_3053, 25),
+        MUD(Items.MYSTIC_MUD_STAFF_6563, Items.MUD_BATTLESTAFF_6562, 26);
 
         public final int enchanted;
         public final int basic;

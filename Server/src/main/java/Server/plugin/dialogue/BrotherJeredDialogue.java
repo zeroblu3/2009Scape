@@ -2,7 +2,7 @@ package plugin.dialogue;
 
 import core.game.content.global.Skillcape;
 import core.game.node.item.Item;
-import core.tools.ItemNames;
+import core.tools.Items;
 import plugin.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.plugin.InitializablePlugin;
@@ -41,7 +41,7 @@ public final class BrotherJeredDialogue extends DialoguePlugin {
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		if(player.getInventory().contains(ItemNames.UNBLESSED_SYMBOL_1716,1)){
+		if(player.getInventory().contains(Items.UNBLESSED_SYMBOL_1716,1)){
 			player("Can you bless this symbol for me?");
 			stage = 10;
 			return true;
@@ -101,8 +101,8 @@ public final class BrotherJeredDialogue extends DialoguePlugin {
 			break;
 		case 11:
 			npc("There we go! I have laid the blessing of","Saradomin upon it.");
-			player.getInventory().remove(new Item(ItemNames.UNBLESSED_SYMBOL_1716));
-			player.getInventory().add(new Item(ItemNames.HOLY_SYMBOL_1718));
+			player.getInventory().remove(new Item(Items.UNBLESSED_SYMBOL_1716));
+			player.getInventory().add(new Item(Items.HOLY_SYMBOL_1718));
 			stage++;
 			break;
 		}

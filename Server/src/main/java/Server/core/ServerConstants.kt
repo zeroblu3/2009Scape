@@ -90,6 +90,9 @@ class ServerConstants {
 		@JvmField
 		var DATABASE_PORT: String? = null
 
+		@JvmField
+		var WRITE_LOGS: Boolean = false
+
 		//location names for the ::to command.
 		val TELEPORT_DESTINATIONS = arrayOf(
 				arrayOf(Location.create(2974, 4383, 2), "corp", "corporal", "corporeal"),
@@ -181,6 +184,12 @@ class ServerConstants {
 			OBJECT_PARSER_PATH = JSONUtils.parsePath(data["object_parser_path"].toString())
 			SCRIPTS_PATH = JSONUtils.parsePath(data["scripts_path"].toString())
 			DIALOGUE_SCRIPTS_PATH = JSONUtils.parsePath(data["dialogue_scripts_path"].toString())
+			if(data.containsKey("logs_path")){
+				LOGS_PATH = data["logs_path"].toString()
+			}
+			if(data.containsKey("writeLogs")){
+				WRITE_LOGS = data["writeLogs"] as Boolean
+			}
 
 			DATABASE_NAME = data["database_name"].toString()
 			DATABASE_USER = data["database_username"].toString()

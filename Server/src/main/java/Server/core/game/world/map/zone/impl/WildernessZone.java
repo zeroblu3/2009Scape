@@ -1,7 +1,13 @@
 package core.game.world.map.zone.impl;
 
 import core.game.component.Component;
+import core.game.container.Container;
+import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.player.link.IronmanMode;
+import core.game.node.item.GroundItem;
 import core.game.system.config.NPCConfigParser;
+import core.game.world.map.zone.ZoneType;
+import core.tools.Items;
 import plugin.ame.AntiMacroNPC;
 import plugin.skill.summoning.familiar.Familiar;
 import core.game.interaction.Option;
@@ -24,6 +30,9 @@ import core.game.world.repository.Repository;
 import core.tools.RandomFunction;
 import plugin.interaction.item.brawling_gloves.BrawlingGloves;
 import plugin.ttrail.UriNPC;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles the wilderness zone.
@@ -85,6 +94,70 @@ public final class WildernessZone extends MapZone {
 		try {
 			if (e instanceof UriNPC) {
 				e.finalizeDeath(killer);
+			}
+			if(e instanceof Player){
+				Player player = e.asPlayer();
+				player.getSettings().setSpecialEnergy(100);
+				player.getSettings().updateRunEnergy(player.getSettings().getRunEnergy() - 100);
+				Player owner = killer instanceof Player ? (Player) killer : player;
+				player.getPacketDispatch().sendMessage("Oh dear, you are dead!");
+				player.getStatisticsManager().getDEATHS().incrementAmount();
+
+				//If player was a Hardcore Ironman, announce that they died
+				if (player.getIronmanManager().getMode().equals(IronmanMode.HARDCORE)){ //if this was checkRestriction, ultimate irons would be moved to HARDCORE_DEAD as well
+					String gender = player.isMale() ? "Man " : "Woman ";
+					Repository.sendNews("Hardcore Iron " + gender + " " + player.getUsername() +" has fallen. Total Level: " + player.getSkills().getTotalLevel()); // Not enough room for XP
+					player.getIronmanManager().setMode(IronmanMode.STANDARD);
+					player.getSavedData().getActivityData().setHardcoreDeath(true);
+					player.sendMessage("You have fallen as a Hardcore Iron Man, your Hardcore status has been revoked.");
+				}
+
+				player.getPacketDispatch().sendTempMusic(90);
+				if (player.getDetails().getRights() != Rights.ADMINISTRATOR) {
+					GroundItemManager.create(new Item(526), player.getLocation(), owner);
+					final Container[] c = DeathTask.getContainers(player);
+					boolean gravestone = player.getGraveManager().generateable() && player.getIronmanManager().getMode() != IronmanMode.ULTIMATE && !(killer instanceof Player);
+					int seconds = player.getGraveManager().getType().getDecay() * 60;
+					int ticks = (1000 * seconds) / 600;
+					List<GroundItem> items = new ArrayList<>();
+					for (Item item : c[1].toArray()) {
+						if (item != null) {
+							GroundItem ground;
+							if (item.hasItemPlugin()) {
+								item = item.getPlugin().getDeathItem(item);
+							}
+							if (!item.getDefinition().isTradeable()) {
+								ground = new GroundItem(item, player.getLocation(), gravestone ? ticks + 100 : 200, player);
+							} else {
+								ground = new GroundItem(item.getDropItem(), player.getLocation(), owner);
+							}
+							items.add(ground);
+							ground.setDropper(owner); //Checking for ironman mode in any circumstance for death items is inaccurate to how it works in both runescapes.
+							GroundItemManager.create(ground);
+						}
+					}
+					player.getEquipment().clear();
+					player.getInventory().clear();
+					if(!player.getSkullManager().isSkulled() || killer instanceof NPC) {
+						player.getInventory().addAll(c[0]);
+					} else {
+						for(Item item : c[0].toArray()){
+							GroundItemManager.create(item,player.getLocation(),owner);
+						}
+					}
+					player.getFamiliarManager().dismiss();
+
+				}
+				player.getSkullManager().setSkulled(false);
+				player.removeAttribute("combat-time");
+				player.getPrayer().reset();
+				player.getAppearance().sync();
+				if (GameWorld.isEconomyWorld() && !player.getSavedData().getGlobalData().isDeathScreenDisabled()) {
+					player.getInterfaceManager().open(new Component(153));
+				}
+				if (!player.getSavedData().getGlobalData().isDeathScreenDisabled()) {
+					player.getInterfaceManager().open(new Component(153));
+				}
 			}
 			if (e instanceof NPC && killer instanceof Player && (e.asNpc().getName().contains("Revenant") || e.asNpc().getName().equals("Chaos elemental"))) {
 				int combatLevel = e.asNpc().getDefinition().getCombatLevel();
@@ -229,7 +302,7 @@ public final class WildernessZone extends MapZone {
 		if (p.getSkullManager().isWildernessDisabled()) {
 			return;
 		}
-		p.getInterfaceManager().openOverlay(new Component(381));
+		p.getInterfaceManager().openWildernessOverlay(new Component(381));
 		p.getSkullManager().setLevel(getWilderness(p));
 		p.getPacketDispatch().sendString("Level: " + p.getSkullManager().getLevel(), 381, 1);
 		p.getInteraction().set(Option._P_ATTACK);

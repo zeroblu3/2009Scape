@@ -8,17 +8,17 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.InitializablePlugin
 import core.plugin.Plugin
-import core.tools.ItemNames
+import core.tools.Items
 
 @InitializablePlugin
 class SandwichLadyInterface  : ComponentPlugin(){
-    val baguette = ItemNames.BAGUETTE_6961
-    val triangle_sandwich = ItemNames.TRIANGLE_SANDWICH_6962
-    val sandwich = ItemNames.SQUARE_SANDWICH_6965
-    val roll = ItemNames.ROLL_6963
-    val pie = ItemNames.MEAT_PIE_2327
-    val kebab = ItemNames.KEBAB_1971
-    val chocobar = ItemNames.CHOCOLATE_BAR_1973
+    val baguette = Items.BAGUETTE_6961
+    val triangle_sandwich = Items.TRIANGLE_SANDWICH_6962
+    val sandwich = Items.SQUARE_SANDWICH_6965
+    val roll = Items.ROLL_6963
+    val pie = Items.MEAT_PIE_2327
+    val kebab = Items.KEBAB_1971
+    val chocobar = Items.CHOCOLATE_BAR_1973
 
     override fun handle(player: Player?, component: Component?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         var item = Item(0)

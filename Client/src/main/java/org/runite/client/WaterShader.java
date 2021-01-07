@@ -1,8 +1,9 @@
 package org.runite.client;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL4bc;
 
+
+
+import javax.media.opengl.GL;
 import java.nio.ByteBuffer;
 
 
@@ -25,7 +26,7 @@ final class WaterShader implements ShaderInterface {
          }
 //         for(int var3 = 0; var3 < 8; pixels[var3++] = (byte)(96 + var3 * 159 / 8)) {
 //         }
-         GL2 var4 = HDToolKit.gl;
+         GL var4 = HDToolKit.gl;
          var4.glGenTextures(1, textures, 0);
          var4.glBindTexture(3552, textures[0]);//TEXTURE_1D
          //                TEXTURE_1D, level0, ALPHA, width8, border0, ALPHA, UNSIGNED_BYTE, pixels.
@@ -42,7 +43,7 @@ final class WaterShader implements ShaderInterface {
 
 
    private void method2251() {
-      GL2 var1 = HDToolKit.gl;
+      GL var1 = HDToolKit.gl;
       this.anInt2193 = var1.glGenLists(2);
       var1.glNewList(this.anInt2193, 4864);
       var1.glActiveTexture('\u84c1');
@@ -110,19 +111,19 @@ final class WaterShader implements ShaderInterface {
    }
 
    static void method2253() {
-      GL2 var0 = HDToolKit.gl;
+      GL var0 = HDToolKit.gl;
       var0.glClientActiveTexture(method2252());
       var0.glDisableClientState('\u8078');
       var0.glClientActiveTexture('\u84c0');
    }
 
    public final void method22() {
-      GL2 var1 = HDToolKit.gl;
+      GL var1 = HDToolKit.gl;
       var1.glCallList(this.anInt2193);
    }
 
    static void method2254() {
-      GL2 var0 = HDToolKit.gl;
+      GL var0 = HDToolKit.gl;
       var0.glClientActiveTexture(method2252());
       var0.glEnableClientState('\u8078');
       var0.glClientActiveTexture('\u84c0');
@@ -133,12 +134,12 @@ final class WaterShader implements ShaderInterface {
    }
 
    public final void method21() {
-      GL2 var1 = HDToolKit.gl;
+      GL var1 = HDToolKit.gl;
       var1.glCallList(this.anInt2193 + 1);
    }
 
    public final void method23(int var1) {
-      GL2 var2 = HDToolKit.gl;
+      GL var2 = HDToolKit.gl;
       var2.glActiveTexture('\u84c1');
       if(!aBoolean2191 && var1 < 0) {
          var2.glDisable(3168);

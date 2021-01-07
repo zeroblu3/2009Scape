@@ -2,15 +2,18 @@ package plugin.skill.farming;
 
 import core.game.component.CloseEvent;
 import core.game.component.Component;
-import core.game.component.InterfaceType;
 import core.game.container.Container;
 import core.game.container.ContainerType;
-import core.game.content.ItemNames;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.login.SavingModule;
 import core.game.node.item.Item;
+import core.tools.Items;
 
 import java.nio.ByteBuffer;
+
+import static core.tools.Interfaces.FARMING_TOOLS_125;
+import static core.tools.Interfaces.FARMING_TOOLS_SIDE_126;
+import static core.tools.Items.*;
 
 /**
  * Represents a managing class used for farming equipment.
@@ -22,36 +25,46 @@ public final class FarmingEquipment implements SavingModule {
 	 * Represents the items to use in the store.
 	 */
 	private static final Item[] ITEMS = new Item[] {
-			new Item(ItemNames.RAKE_5341),
-			new Item(ItemNames.SEED_DIBBER_5343),
-			new Item(ItemNames.SPADE_952),
-			new Item(ItemNames.SECATEURS_5329),
-			new Item(ItemNames.WATERING_CAN_5331),
-			new Item(ItemNames.GARDENING_TROWEL),
-			new Item(ItemNames.BUCKET_1925),
-			new Item(ItemNames.COMPOST_6032),
-			new Item(ItemNames.SUPERCOMPOST_6034)
+			new Item(RAKE_5341),
+			new Item(SEED_DIBBER_5343),
+			new Item(SPADE_952),
+			new Item(SECATEURS_5329),
+			new Item(WATERING_CAN_5331),
+			new Item(GARDENING_TROWEL_5325),
+			new Item(BUCKET_1925),
+			new Item(COMPOST_6032),
+			new Item(SUPERCOMPOST_6034)
 	};
 
 	/**
 	 * Represents the watering cans.
 	 */
-	private static final Item[] WATERING_CANS = new Item[] { new Item(5340), new Item(5339), new Item(5338), new Item(5337), new Item(5336), new Item(5335), new Item(5334), new Item(5333), new Item(5331) };
+	private static final Item[] WATERING_CANS = new Item[] {
+	        new Item(WATERING_CAN8_5340),
+            new Item(WATERING_CAN7_5339),
+            new Item(WATERING_CAN6_5338),
+            new Item(WATERING_CAN5_5337),
+            new Item(WATERING_CAN4_5336),
+            new Item(WATERING_CAN3_5335),
+            new Item(WATERING_CAN2_5334),
+            new Item(WATERING_CAN1_5333),
+            new Item(WATERING_CAN_5331)
+	};
 
 	/**
 	 * Types of storable secateurs
 	 */
-	private static final Item[] SECATEURS = new Item[] { new Item(ItemNames.MAGIC_SECATEURS_7409), new Item(ItemNames.SECATEURS_5329) };
+	private static final Item[] SECATEURS = new Item[] { new Item(MAGIC_SECATEURS_7409), new Item(SECATEURS_5329) };
 
 	/**
 	 * Represents the equipment store component.
 	 */
-	private static final Component STORE_COMPONENT = new Component(125).setCloseEvent(new StoreCloseEvent());
+	private static final Component STORE_COMPONENT = new Component(FARMING_TOOLS_125).setCloseEvent(new StoreCloseEvent());
 
 	/**
 	 * Represents the tab component.
 	 */
-	private static final Component TAB_COMPONENT = new Component(126);
+	private static final Component TAB_COMPONENT = new Component(FARMING_TOOLS_SIDE_126);
 
 	/**
 	 * Represents the config used for the store.
@@ -259,7 +272,7 @@ public final class FarmingEquipment implements SavingModule {
 	 * Gets whether stored secateurs are magic or not
 	 */
 	private boolean getSecateursMagic() {
-		return container.get(3) != null && (container.get(3).getId() == ItemNames.MAGIC_SECATEURS_7409);
+		return container.get(3) != null && (container.get(3).getId() == Items.MAGIC_SECATEURS_7409);
 	}
 
 	/**
