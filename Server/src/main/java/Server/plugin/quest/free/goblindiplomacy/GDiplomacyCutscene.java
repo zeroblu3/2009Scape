@@ -1,5 +1,7 @@
 package plugin.quest.free.goblindiplomacy;
 
+import core.game.component.Component;
+import core.game.node.entity.player.link.emote.Emotes;
 import plugin.activity.ActivityManager;
 import plugin.activity.ActivityPlugin;
 import plugin.activity.CutscenePlugin;
@@ -23,6 +25,7 @@ import core.net.packet.context.CameraContext.CameraType;
 import core.net.packet.out.CameraViewPacket;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
+import plugin.dialogue.FacialExpression;
 
 /**
  * Represents the goblin diplomacy cutscene plugin.
@@ -166,12 +169,22 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 		}
 
 		@Override
+		public Component npc(String... messages) {
+			return npc(FacialExpression.OLD_NORMAL,messages);
+		}
+
+		@Override
 		public boolean open(Object... args) {
 			npc = (NPC) args[0];
 			type = GrubFoot.forConfig(player);
 			dialIndex = RandomFunction.random(DIALOGUES.length);
 			other = Repository.findNPC(npc.getId() == 4494 ? 4493 : 4494);
 			quest = player.getQuestRepository().getQuest(GoblinDiplomacy.NAME);
+			if(player.getQuestRepository().getQuest("Lost Tribe").getStage(player) == 43){
+				player("Have you heard of the Dorgeshuun?");
+				stage = 5000;
+				return true;
+			}
 			switch (quest.getStage(player)) {
 			case 100:
 				npc("Now you've solved out argument we gotta think of", "something else to do.");
@@ -192,6 +205,188 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 
 		@Override
 		public boolean handle(int interfaceId, int buttonId) {
+			if(stage >= 5000){
+				switch (stage){
+					case 5000:
+						npc("Dorgeshuun? That old goblin legend. Lost tribe.");
+						stage++;
+						break;
+					case 5001:
+						sendNormalDialogue(other, FacialExpression.OLD_NORMAL,"In time of much war there many tribes. Big High War","God send Dorgesh-tribe to fight beardy short-people","in mountains.");
+						stage++;
+						break;
+					case 5002:
+						npc("No no, he send them to fight tall people with biting","blades, that what I hear.");
+						stage++;
+						break;
+					case 5003:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"It was beardy short-people, that how legend go.");
+						stage++;
+						break;
+					case 5004:
+						options("Make up your minds!","Do you want me to decide for you again?","It doesn't really matter.");
+						stage++;
+						break;
+					case 5005:
+						switch(buttonId){
+							case 1:
+								player("Make up your minds!");
+								stage = 5010;
+								break;
+							case 2:
+								player("Do you want me to decide for you again?");
+								stage = 5020;
+								break;
+							case 3:
+								player("It doesn't really matter. So what happened to them?");
+								stage = 5030;
+								break;
+						}
+						break;
+					case 5010:
+						npc("It was tall people! That what old storyteller say!");
+						stage++;
+						break;
+					case 5011:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"No, beardy-short-people. That how legend always go,","stupid.");
+						stage++;
+						break;
+					case 5012:
+						npc("You stupid!");
+						stage = 5004;
+						break;
+					case 5020:
+						npc("That most stupid idea yet! If it happen it either happen","one way or the other. You can't just decide whice.");
+						stage++;
+						break;
+					case 5021:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"Yeah even goblins know that.");
+						stage = 5004;
+						break;
+					case 5030:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"Well, they say, 'We not want to fight,' so god punish","them.");
+						stage++;
+						break;
+					case 5031:
+						npc("That silly. No goblin ever say that.");
+						stage++;
+						break;
+					case 5032:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"What happen then?");
+						stage++;
+						break;
+					case 5033:
+						npc("They lose battle, that why god punish them.");
+						stage++;
+						break;
+					case 5034:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"Ha ha! If they lost battle they all be dead!");
+						stage++;
+						break;
+					case 5035:
+						npc("No no, they losing so they run away, and Big High","War God punish them for running away.");
+						stage++;
+						break;
+					case 5036:
+						player("Well, either way they refused to fight.");
+						stage++;
+						break;
+					case 5037:
+						npc("Yeah I suppose so.");
+						stage++;
+						break;
+					case 5038:
+						npc("Anyway, then Big High War God punish them. He turn","their insides to stone.");
+						stage++;
+						break;
+					case 5039:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"Ha ha ha! That silly!");
+						stage++;
+						break;
+					case 5040:
+						npc("Not as silly as green armour! What happen then?");
+						stage++;
+						break;
+					case 5041:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"He put them inside stone! Big hole open in ground and","they all go into cave.");
+						stage++;
+						break;
+					case 5042:
+						npc("That not punishment! Caves nice and cool.");
+						stage++;
+						break;
+					case 5043:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"But then he close cave so they not get out!","You not want to stay in cave all the time.");
+						stage++;
+						break;
+					case 5044:
+						player("Well I found a brooch underground, and I looked up","the symbol and it was the symbol of the Dorgeshuun.");
+						stage++;
+						break;
+					case 5045:
+						npc("That not look like goblin brooch.");
+						stage++;
+						break;
+					case 5046:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"Goblins not wear jewellery.");
+						stage++;
+						break;
+					case 5047:
+						npc("Well if it is Dorgeshuun tribe they not know who won big","wars. You should greet them with goblin victory dance!");
+						stage++;
+						break;
+					case 5048:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"No no, you greet them with goblin tribal bow.");
+						stage++;
+						break;
+					case 5049:
+						npc("Doing bow make you look like a wimp.");
+						stage++;
+						break;
+					case 5050:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"It how tribes greet each other in old days.");
+						stage++;
+						break;
+					case 5051:
+						npc("Only if they wimpy tribes! Goblin salute strong!");
+						stage++;
+						break;
+					case 5052:
+						player("Well, why not show me both greetings?");
+						stage++;
+						break;
+					case 5053:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"That good idea. Watch.");
+						stage++;
+						break;
+					case 5054:
+						interpreter.sendDialogue("The generals show you the goblin bow and","goblin salute emotes.");
+						player.setAttribute("/save:tlt-goblin-emotes",true);
+						player.getEmoteManager().unlock(Emotes.GOBLIN_BOW);
+						player.getEmoteManager().unlock(Emotes.GOBLIN_SALUTE);
+						player.varpManager.get(465).setVarbit(0,7).send(player);
+						player.getQuestRepository().getQuest("Lost Tribe").setStage(player,44);
+						stage++;
+						break;
+					case 5055:
+						player("Thanks.");
+						stage++;
+						break;
+					case 5056:
+						npc("Bye then.");
+						stage++;
+						break;
+					case 5057:
+						sendNormalDialogue(other,FacialExpression.OLD_NORMAL,"Bye.");
+						stage++;
+						break;
+					case 5058:
+						player("Bye.");
+						stage++;
+						break;
+				}
+				return true;
+			}
 			switch (quest.getStage(player)) {
 			case 0:
 				handleStart(buttonId);
