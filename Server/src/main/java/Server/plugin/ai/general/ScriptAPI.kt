@@ -1,6 +1,7 @@
 package plugin.ai.general
 
 import core.cache.def.impl.ItemDefinition
+import core.game.component.Component
 import core.game.interaction.DestinationFlag
 import core.game.interaction.MovementPulse
 import core.game.node.Node
@@ -30,6 +31,7 @@ import plugin.consumable.effects.HealingEffect
 import plugin.ge.GrandExchangeOffer
 import plugin.ge.OfferManager
 import plugin.skill.Skills
+import plugin.stringtools.colorize
 import java.util.*
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
@@ -145,14 +147,22 @@ class ScriptAPI(private val bot: Player) {
     private fun getNearestGroundItem(id: Int): GroundItem? {
         var distance = 11.0
         var closest: GroundItem? = null
-        if(AIRepository.getItems(bot) == null) return null
-        for(item in AIRepository.getItems(bot)!!.filter { it.distance(bot.location) < 10 }){
-            if(item.id == id){
-                //distance = item.distance(bot.location)
-                closest = item
+        if(AIRepository.getItems(bot) != null) {
+            for (item in AIRepository.getItems(bot)!!.filter { it.distance(bot.location) < 10 }) {
+                if (item.id == id) {
+                    //distance = item.distance(bot.location)
+                    closest = item
+                }
+            }
+            if (!GroundItemManager.getItems().contains(closest)) AIRepository.getItems(bot)?.remove(closest).also { return null }
+        } else {
+            val items: ArrayList<GroundItem>? = bot.getAttribute("botting:drops",null)
+            if(items != null){
+                for(item in items.filter { it.distance(bot.location) < 10 }){
+                    if(item.id == id) return item.also { items.remove(item); bot.setAttribute("botting:drops",items) }
+                }
             }
         }
-        if(!GroundItemManager.getItems().contains(closest)) AIRepository.getItems(bot)?.remove(closest).also {return null}
         return closest
     }
 
@@ -577,6 +587,10 @@ class ScriptAPI(private val bot: Player) {
         bot.inventory.add(item)
     }
 
+    fun getOverlay(): BottingOverlay{
+        return BottingOverlay(bot)
+    }
+
     /**
      * Function to check for price overrides.
      * @param id the id to check for overrides for.
@@ -609,6 +623,22 @@ class ScriptAPI(private val bot: Player) {
             Items.SHARK_385 -> 720
             Items.RAW_SHARK_383 -> 710
             else -> null
+        }
+    }
+
+    class BottingOverlay(val player: Player){
+        fun init(){
+            player.interfaceManager.openOverlay(Component(195))
+            player.packetDispatch.sendInterfaceConfig(195,5,true)
+        }
+        fun setTitle(title: String){
+            player.packetDispatch.sendString(colorize("%B$title"),195,7)
+        }
+        fun setTaskLabel(label: String){
+            player.packetDispatch.sendString(colorize("%B$label"),195,8)
+        }
+        fun setAmount(amount: Int){
+            player.packetDispatch.sendString(colorize("%B$amount"),195,9)
         }
     }
 }
