@@ -5,6 +5,10 @@ archivesBaseName = 'server'
 
 mainClassName = 'core.Server'
 
+compileJava {
+    options.encoding = "UTF-8"
+}
+
 compileKotlin {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
