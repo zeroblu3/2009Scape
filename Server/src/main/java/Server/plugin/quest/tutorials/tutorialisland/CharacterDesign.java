@@ -323,7 +323,6 @@ public final class CharacterDesign {
 			player.getInventory().add(STARTER_PACK);
 			player.getBank().add(STARTER_BANK);
 
-			player.getProperties().setTeleportLocation(Location.create(2524, 5002, 0));
 			player.getPulseManager().run(new Pulse(1){
 				@Override
 				public boolean pulse() {

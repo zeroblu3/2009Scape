@@ -24,7 +24,8 @@ public enum TutorialStage {
 		public void run(final Player player) {
 			if (login) {
 				player.lock(1);
-				player.getProperties().setTeleportLocation(Location.create(3094, 3107, 0));
+				// player.getProperties().setTeleportLocation(Location.create(3094, 3107, 0));
+				player.getProperties().setTeleportLocation(Location.create(2524, 5002, 0)); // Since tutorial is disabled...
 				player.getInterfaceManager().hideTabs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 				GameWorld.getPulser().submit(new Pulse(2) {
 					@Override

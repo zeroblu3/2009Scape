@@ -2,6 +2,9 @@ package plugin.dialogue;
 
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.link.IronmanMode;
+import core.game.world.map.Location;
+import core.game.world.map.zone.Zone;
+import core.game.world.map.zone.ZoneBorders;
 import core.plugin.InitializablePlugin;
 import core.game.node.entity.player.Player;
 
@@ -14,6 +17,7 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 
 	private int[] timePlayed = new int[3];
 	private int joinDateDays;
+	private boolean inStartDungeon;
 
 	/**
 	 * Constructs a new {@code HansDialoguePlugin} {@code Object}.
@@ -42,11 +46,19 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 		npc = (NPC) args[0];
 		interpreter.sendDialogues(npc, FacialExpression.NEUTRAL, "Hello. What are you doing here?");
 		stage = 0;
+		if (new ZoneBorders(2528, 5004, 2520, 4997).insideBorder(player.getLocation())) {
+			inStartDungeon = true;
+		}
 		return true;
 	}
 
 	@Override
 	public boolean handle(int interfaceId, int buttonId) {
+
+		if (inStartDungeon && stage == 0) {
+			stage = 1;
+			buttonId = 4;
+		}
 
 		switch (stage) {
 			case 0:
@@ -71,7 +83,11 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 						stage = 50;
 						break;
 					case 4:
-						interpreter.sendOptions("Select an Option", "Have you been here as long as me?", "About my xp rate...", "About Iron Man mode...","About random events...", "Go Back...");
+						if (!inStartDungeon) {
+							interpreter.sendOptions("Select an Option", "Have you been here as long as me?", "About my xp rate...", "About Iron Man mode...","About random events...", "Go Back...");
+						} else {
+							interpreter.sendOptions("Select an Option", "Have you been here as long as me?", "About my xp rate...", "About Iron Man mode...","About random events...");
+						}
 						stage = 10;
 						break;
 				}
@@ -115,7 +131,7 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 				break;
 
 			case 11:
-				if(player.getSkills().experienceMutiplier == 5.0) {
+				if (player.getSkills().experienceMutiplier == 5.0) {
 					player.newPlayer = player.getSkills().getTotalLevel() < 50;
 					options("Change xp rate", "Nevermind.");
 					stage++;
@@ -131,7 +147,8 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 						stage++;
 						break;
 					case 2:
-						stage = 131;
+						npc(FacialExpression.LAUGH, "Haha, alright then!");
+						stage = 50;
 						break;
 				}
 				break;
@@ -183,8 +200,12 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 				stage++;
 				break;
 			case 44:
-				interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "Ahh, I see all the newcomers arriving in Lumbridge, fresh-faced ","and eager for adventure. I remember you...");
-				player.sendMessage("Feature not currently available.");
+				if (!inStartDungeon) {
+					interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "Ahh, I see all the newcomers arriving in Lumbridge, ","fresh-faced and eager for adventure. I remember you...");
+					player.sendMessage("Feature not currently available.");
+				} else {
+					interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "Ahh, I see all the newcomers arriving in Lumbridge, ","fresh-faced and eager for adventure.", "But this is the first time meeting you...");
+				}
 				stage = 50;
 				break;
 				//TODO:
@@ -345,10 +366,12 @@ public final class HansDialoguePlugin extends DialoguePlugin {
 					case 3: //ultimate ironman
 						if (!player.getBank().isEmpty())
 						{
-							interpreter.sendDialogues(npc, FacialExpression.GUILTY, "Sorry, but your bank is has items in it.", "Please empty your bank and speak to me again.");
+							if (!inStartDungeon) {
+								interpreter.sendDialogues(npc, FacialExpression.GUILTY, "Sorry, but your bank is has items in it.", "Please empty your bank and speak to me again.");
+							}
 							stage = 50;
 							break;
-						} else{
+						} else {
 							interpreter.sendDialogues(npc, FacialExpression.NEUTRAL,"I have changed your Iron Man mode to:","<col=ECEBEB>Ultimate</col> Ironman mode.");
 							player.getIronmanManager().setMode(IronmanMode.ULTIMATE);
 							player.sendMessage("Your Iron Man status has been changed.");

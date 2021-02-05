@@ -61,6 +61,20 @@ class MiscCommandSet : CommandSet(Command.Privilege.ADMIN){
         }
 
         /**
+         * Tells the player to use loc
+         */
+        define("pos",Command.Privilege.STANDARD){player,_->
+            player.packetDispatch.sendMessage("Do you mean ::loc?")
+        }
+
+        /**
+         * Tells the player to use loc
+         */
+        define("coords",Command.Privilege.STANDARD){player,_->
+            player.packetDispatch.sendMessage("Do you mean ::loc?")
+        }
+
+        /**
          * Empty a player's inventory
          * ADMIN only (for obvious reasons)
          */
