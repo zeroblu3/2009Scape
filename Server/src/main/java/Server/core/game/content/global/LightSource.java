@@ -2,7 +2,6 @@ package core.game.content.global;
 
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.tools.Items;
 
 import static core.tools.Interfaces.*;
 import static core.tools.Items.*;
@@ -71,9 +70,6 @@ public enum LightSource {
 	 * @return {@code True} if so.
 	 */
 	public static boolean hasActiveLightSource(Player player) {
-		if (SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.FIREMAKING)) {
-			return true;
-		}
 		return getActiveLightSource(player) != null;
 	}
 
@@ -94,9 +90,6 @@ public enum LightSource {
 			if (item != null && (source = forProductId(item.getId())) != null) {
 				return source;
 			}
-		}
-		if (SkillcapePerks.hasSkillcapePerk(player, SkillcapePerks.FIREMAKING)) {
-			return OIL_LANTERN;
 		}
 		return null;
 	}

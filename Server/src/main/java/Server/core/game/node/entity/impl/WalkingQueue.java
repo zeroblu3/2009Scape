@@ -1,12 +1,13 @@
 package core.game.node.entity.impl;
 
-import plugin.skill.Skills;
+import core.game.node.entity.skill.Skills;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.RegionManager;
+import core.game.node.entity.skill.skillcapeperks.SkillcapePerks;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -187,6 +188,13 @@ public final class WalkingQueue {
 			return;
 		}
 		Player p = (Player) entity;
+		if(decrease && SkillcapePerks.isActive(SkillcapePerks.MARATHON_RUNNER,p)){
+			if(p.getAttribute("run-incrementer",0) == 3){
+				p.setAttribute("run-incrementer",0);
+				return;
+			}
+			p.incrementAttribute("run-incrementer");
+		}
 		if (!decrease && p.getSettings().getRunEnergy() >= 100.0) {
 			return;
 		}

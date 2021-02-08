@@ -1,7 +1,7 @@
 package core.game.node.entity;
 
 import core.game.content.holiday.HolidayEvent;
-import plugin.skill.Skills;
+import core.game.node.entity.skill.Skills;
 import core.game.interaction.DestinationFlag;
 import core.game.node.Node;
 import core.game.node.entity.combat.*;
@@ -728,7 +728,7 @@ public abstract class Entity extends Node {
 	 * @param key The attribute name.
 	 */
 	public void incrementAttribute(String key, int amount) {
-		attributes.setAttribute(key, attributes.getAttribute(key, 0) + amount);
+		attributes.setAttribute(key, attributes.getAttribute(key.replace("/save:",""), 0) + amount);
 	}
 
 	/**

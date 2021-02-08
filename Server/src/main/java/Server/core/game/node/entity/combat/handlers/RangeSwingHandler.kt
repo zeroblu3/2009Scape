@@ -2,7 +2,6 @@ package core.game.node.entity.combat.handlers
 
 import core.game.container.Container
 import core.game.container.impl.EquipmentContainer
-import core.game.content.global.SkillcapePerks
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -23,9 +22,9 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Graphics
 import core.tools.RandomFunction
-import plugin.skill.Skills
-import plugin.quest.tutorials.tutorialisland.TutorialSession
-import plugin.quest.tutorials.tutorialisland.TutorialStage
+import core.game.node.entity.skill.Skills
+import core.game.content.quest.tutorials.tutorialisland.TutorialSession
+import core.game.content.quest.tutorials.tutorialisland.TutorialStage
 import java.util.*
 import kotlin.math.ceil
 import kotlin.math.floor
@@ -251,7 +250,10 @@ open class RangeSwingHandler
         if (entity is Player) {
             prayer += entity.prayer.getSkillBonus(Skills.RANGE)
         }
-        val additional = 1.0 // Slayer helmet/salve/...
+        var additional = 1.0 // Slayer helmet/salve/...
+        if(entity is Player && core.game.node.entity.skill.skillcapeperks.SkillcapePerks.isActive(core.game.node.entity.skill.skillcapeperks.SkillcapePerks.ACCURATE_MARKSMAN,entity.asPlayer())){
+            additional += 0.5
+        }
         var styleBonus = 0
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_RANGE_ACCURATE) {
             styleBonus = 3
@@ -402,8 +404,8 @@ open class RangeSwingHandler
             if (e is Player) {
                 val cape = e.equipment[EquipmentContainer.SLOT_CAPE]
                 val weapon = e.equipment[EquipmentContainer.SLOT_WEAPON]
-                if (cape != null && (cape.id == 10498 || cape.id == 10499 || SkillcapePerks.hasSkillcapePerk(e, SkillcapePerks.RANGING)) && weapon != null && weapon.id != 10034 && weapon.id != 10033) {
-                    val rate = if (cape.id == 10498 || SkillcapePerks.hasSkillcapePerk(e, SkillcapePerks.RANGING)) 70 else 80
+                if (cape != null && (cape.id == 10498 || cape.id == 10499) && weapon != null && weapon.id != 10034 && weapon.id != 10033) {
+                    val rate = 80
                     if (RandomFunction.random(100) < rate) {
                         val torso = e.equipment[EquipmentContainer.SLOT_CHEST]
                         val modelId = torso?.definition?.maleWornModelId1 ?: -1

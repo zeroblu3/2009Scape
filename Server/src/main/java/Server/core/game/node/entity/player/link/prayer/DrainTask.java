@@ -4,8 +4,9 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.system.task.NodeTask;
-import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
+import core.tools.RandomFunction;
+import core.game.node.entity.skill.skillcapeperks.SkillcapePerks;
 
 /**
  * Represents an event used to drain prayer points.
@@ -24,6 +25,7 @@ public final class DrainTask extends NodeTask {
 	public boolean exec(Node node, Node... n) {
 		Player player = node.asPlayer();
 		if (player.getPrayer().getActive().isEmpty()) {
+			getPulse().stop();
 			return true;
 		}
 		player.getSkills().decrementPrayerPoints(getDrain(player.getPrayer()));
@@ -77,10 +79,13 @@ public final class DrainTask extends NodeTask {
 		double amountDrain = 0;
 		for (PrayerType type : prayer.getActive()) {
 			double drain = type.getDrain();
-			double bonus = 0.035 * prayer.getPlayer().getProperties().getBonuses()[12];
+			double bonus = (1/30f) * prayer.getPlayer().getProperties().getBonuses()[12];
 			drain = drain * (1 + bonus);
 			drain = 0.6 / drain;
 			amountDrain += drain;
+		}
+		if(SkillcapePerks.isActive(SkillcapePerks.DIVINE_FAVOR,prayer.getPlayer()) && RandomFunction.random(100) <= 10){
+			amountDrain = 0;
 		}
 		return amountDrain;
 	}

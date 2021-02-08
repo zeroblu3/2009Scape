@@ -15,9 +15,10 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.state.EntityState
 import core.game.world.map.path.Pathfinder
 import core.tools.RandomFunction
-import plugin.skill.Skills
-import plugin.quest.tutorials.tutorialisland.TutorialSession
-import plugin.quest.tutorials.tutorialisland.TutorialStage
+import core.game.node.entity.skill.Skills
+import core.game.content.quest.tutorials.tutorialisland.TutorialSession
+import core.game.content.quest.tutorials.tutorialisland.TutorialStage
+import core.game.node.entity.skill.skillcapeperks.SkillcapePerks
 import kotlin.math.floor
 
 /**
@@ -31,7 +32,7 @@ open class MeleeSwingHandler
  */
     : CombatSwingHandler(CombatStyle.MELEE) {
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
-        //Credits wolfenzi, https://www.rune-server.ee/runescape-development/rs2-server/snippets/608720-arios-hybridding-improve.html
+        //Credits wolfenzi, https://www.rune-server.ee/2009scape-development/rs2-server/snippets/608720-arios-hybridding-improve.html
         var distance = if (usingHalberd(entity)) 2 else 1
         var type = InteractionType.STILL_INTERACT
         var goodRange = canMelee(entity, victim, distance)
@@ -142,7 +143,10 @@ open class MeleeSwingHandler
             weaponBonus = (baseLevel - weaponRequirement) * .3
         }
         val style = entity.properties.attackStyle
-        val level = entity.skills.getLevel(Skills.ATTACK)
+        var level = entity.skills.getLevel(Skills.ATTACK)
+        if(entity is Player && SkillcapePerks.isActive(SkillcapePerks.PRECISION_STRIKES,entity.asPlayer())){
+            level += 6
+        }
         var prayer = 1.0
         if (entity is Player) {
             prayer += entity.prayer.getSkillBonus(Skills.ATTACK)
