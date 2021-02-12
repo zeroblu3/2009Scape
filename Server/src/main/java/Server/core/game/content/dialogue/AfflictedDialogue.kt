@@ -14,9 +14,7 @@ import java.util.Arrays
 
 @Initializable
 class AfflictedDialogue : DialoguePlugin {
-    companion object {
-        private val chats = arrayOf("ughugh", "knows'is", "knows'is", "nots", "pirsl", "wot's", "zurgle", "gurghl", "mee's", "seysyi", "sfriess", "says")
-    }
+    private val chats = arrayOf("ughugh", "knows'is", "knows'is", "nots", "pirsl", "wot's", "zurgle", "gurghl", "mee's", "seysyi", "sfriess", "says")
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
