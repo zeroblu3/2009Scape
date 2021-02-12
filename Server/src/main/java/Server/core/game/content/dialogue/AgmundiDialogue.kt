@@ -50,7 +50,6 @@ class AgmundiDialogue(player: Player? = null) : DialoguePlugin(player){
             21 -> npc(FacialExpression.CHILD_NORMAL,"No, not right now... maybe I'll have something",
                 "for you to do later, but nothing at the moment.").also { stage = 99 }
 
-
             99 -> end()
         }
         return true
