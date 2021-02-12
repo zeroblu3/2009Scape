@@ -3,7 +3,6 @@ package core.game.content.dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.tools.RandomFunction
 
 /**
  * @author qmqz
@@ -11,63 +10,14 @@ import core.tools.RandomFunction
 
 @Initializable
 class AfrahDialogue : DialoguePlugin {
-    var dialogue = 0
+
+    companion object {
+        private val conversations = arrayOf (0, 4, 10, 11, 15, 17, 20, 22, 23, 24, 29, 32)
+    }
+
     override fun open(vararg args: Any): Boolean {
-        dialogue = RandomFunction.random(1, 13)
-        when (dialogue) {
-            1 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 0
-            }
-            2 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 2
-            }
-            3 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 4
-            }
-            4 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 10
-            }
-            5 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 11
-            }
-            6 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 15
-            }
-            7 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 17
-            }
-            8 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 20
-            }
-            9 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 22
-            }
-            10 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 23
-            }
-            11 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 24
-            }
-            12 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 29
-            }
-            13 -> {
-                player(FacialExpression.ASKING, "Hi!")
-                stage = 32
-            }
-        }
+        player(FacialExpression.ASKING, "Hi!")
+        stage = conversations.random()
         npc = args[0] as NPC
         return true
     }
@@ -90,7 +40,7 @@ class AfrahDialogue : DialoguePlugin {
                 stage = 99
             }
             2 -> {
-                npc(FacialExpression.ASKING, "I wouldn't want to be the poor guy that has to clean up after the duels.")
+                npc(FacialExpression.ASKING, "I wouldn't want to be the poor guy that has to", "clean up after the duels.")
                 stage++
             }
             3 -> {
@@ -150,7 +100,7 @@ class AfrahDialogue : DialoguePlugin {
                 stage = 99
             }
             17 -> {
-                npc(FacialExpression.ASKING, "Did you know they think this place dates back to the second age?!")
+                npc(FacialExpression.ASKING, "Did you know they think this place dates","back to the second age?!")
                 stage++
             }
             18 -> {
