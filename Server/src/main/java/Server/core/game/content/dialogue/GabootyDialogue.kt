@@ -122,7 +122,6 @@ class GabootyDialogue(player: Player? = null) : DialoguePlugin(player){
 
             90 -> end().also { ShopParser.Companion.openUid(player,226) }
             91 -> end().also { ShopParser.Companion.openUid(player,227) }
-
             99 -> end()
         }
         return true
