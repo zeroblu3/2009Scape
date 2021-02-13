@@ -2032,5 +2032,14 @@
     "npcs": "",
     "currency": "6306",
     "high_alch": "0"
+  },
+  {
+    "id": "227",
+    "title": "Agmundi Quality Clothes",
+    "general_store": "false",
+    "stock": "{5050,3}-{5052,3}-{5038,3}-{5040,3}-{5044,3}-{5046,3}-{5026,3}-{5028,3}-{5032,3}-{5034,3}",
+    "npcs": "2161",
+    "currency": "995",
+    "high_alch": "0"
   }
 ]
