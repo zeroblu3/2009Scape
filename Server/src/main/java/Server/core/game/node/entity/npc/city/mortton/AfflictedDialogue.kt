@@ -1,12 +1,11 @@
-package core.game.content.dialogue
+package core.game.node.entity.npc.city.mortton
 
+import core.game.content.dialogue.DialoguePlugin
+import core.game.content.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.RandomFunction
-import java.util.*
-import java.util.Arrays
-
 
 /**
  * @author qmqz

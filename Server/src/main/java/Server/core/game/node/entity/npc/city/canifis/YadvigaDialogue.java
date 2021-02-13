@@ -1,43 +1,45 @@
-package core.game.content.dialogue;
+package core.game.node.entity.npc.city.canifis;
 
+import core.game.content.dialogue.DialoguePlugin;
+import core.game.content.dialogue.FacialExpression;
 import core.game.node.entity.npc.NPC;
 import core.plugin.Initializable;
 import core.game.node.entity.player.Player;
 
 /**
- * Represents the dialogue plugin used for zahwa.
+ * Represents the yadviga dialogue plugin.
  * @author 'Vexia
  * @version 1.0
  */
 @Initializable
-public final class ZahwaDialogue extends DialoguePlugin {
+public final class YadvigaDialogue extends DialoguePlugin {
 
 	/**
-	 * Constructs a new {@code ZahwaDialogue} {@code Object}.
+	 * Constructs a new {@code YadvigaDialogue} {@code Object}.
 	 */
-	public ZahwaDialogue() {
+	public YadvigaDialogue() {
 		/**
 		 * empty.
 		 */
 	}
 
 	/**
-	 * Constructs a new {@code ZahwaDialogue} {@code Object}.
+	 * Constructs a new {@code YadvigaDialogue} {@code Object}.
 	 * @param player the player.
 	 */
-	public ZahwaDialogue(Player player) {
+	public YadvigaDialogue(Player player) {
 		super(player);
 	}
 
 	@Override
 	public DialoguePlugin newInstance(Player player) {
-		return new ZahwaDialogue(player);
+		return new YadvigaDialogue(player);
 	}
 
 	@Override
 	public boolean open(Object... args) {
 		npc = (NPC) args[0];
-		interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "Hi!");
+		interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Get lost!");
 		stage = 0;
 		return true;
 	}
@@ -46,10 +48,6 @@ public final class ZahwaDialogue extends DialoguePlugin {
 	public boolean handle(int interfaceId, int buttonId) {
 		switch (stage) {
 		case 0:
-			interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Ughhhh....");
-			stage = 1;
-			break;
-		case 1:
 			end();
 			break;
 		}
@@ -58,6 +56,6 @@ public final class ZahwaDialogue extends DialoguePlugin {
 
 	@Override
 	public int[] getIds() {
-		return new int[] { 963 };
+		return new int[] { 6041 };
 	}
 }
