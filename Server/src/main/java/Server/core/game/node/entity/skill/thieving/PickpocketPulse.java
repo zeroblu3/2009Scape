@@ -98,12 +98,11 @@ public final class PickpocketPulse extends SkillPulse<NPC> {
         if (ticks == 0) {
             player.animate(ANIMATION);
         }
-        if (++ticks % 3 != 0) {
+        if (++ticks % 4 != 0) {
             return false;
         }
         final boolean success = success();
         if (success) {
-            player.getLocks().unlockInteraction();
             player.getPacketDispatch().sendMessage(type.getRewardMessage().replace("@name", node.getName().toLowerCase()));
             player.getSkills().addExperience(Skills.THIEVING, type.getExperience(), true);
             List<Item> loot = type.getRandomLoot(player);
