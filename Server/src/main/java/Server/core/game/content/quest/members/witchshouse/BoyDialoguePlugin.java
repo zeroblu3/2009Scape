@@ -35,7 +35,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
         final Quest quest = player.getQuestRepository().getQuest("Witch's House");
         player.debug(quest.isStarted(player) + " " + quest.getStage(player) );
         if (!quest.isStarted(player) && quest.getStage(player) < 10) {
-            player("Hello young man.");
+            player(FacialExpression.HAPPY, "Hello young man.");
             setStage(1);
             return true;
         }
@@ -47,7 +47,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
         if (!player.getInventory().containsItem(BALL)) {
             npc( FacialExpression.OLD_NORMAL, "Have you gotten my ball back yet?");
         } else {
-            player("Hi, I have got your ball back. It was MUCH harder", "than I thought it would be.");
+            player(FacialExpression.NEUTRAL,"Hi, I have got your ball back. It was MUCH harder", "than I thought it would be.");
         }
         setStage(11);
         return true;
@@ -65,13 +65,13 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 next();
                 break;
             case 2:
-                options("What's the matter?", "Well if you're not going to answer then I'll go.");
+                options("What's the matter?", "Well if you're not going to answer, I'll go.");
                 next();
                 break;
             case 3:
                 switch(buttonId) {
                     case 1:
-                        player("What's the matter?");
+                        player(FacialExpression.ASKING, "What's the matter?");
                         setStage(5);
                         break;
                     case 2:
@@ -85,7 +85,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 5:
-                npc(FacialExpression.OLD_NORMAL, "I've kicked my ball over that hedge, into that garden!", "The old lady who lives there is scary... She's locked the","ball in her wooden shed! Can you get my ball back for", "me please?");
+                npc(FacialExpression.CHILD_SAD, "I've kicked my ball over that hedge, into that garden!", "The old lady who lives there is scary... She's locked the","ball in her wooden shed! Can you get my ball back for", "me please?");
                 next();
                 break;
             case 6:
@@ -95,7 +95,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
             case 7:
                 switch(buttonId) {
                     case 1:
-                        player("Ok, I'll see what I can do.");
+                        player(FacialExpression.NEUTRAL, "Ok, I'll see what I can do.");
                         setStage(10);
                         break;
                     case 2:
@@ -113,7 +113,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 10:
-                npc(FacialExpression.OLD_NORMAL, "Thanks mister!");
+                npc(FacialExpression.CHILD_FRIENDLY, "Thanks mister!");
                 finish();
                 quest.start(player);
                 break;
@@ -123,7 +123,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                     next();
                 } else {
                     if (player.getInventory().remove(BALL))
-                        sendDialogue("You give the ball back.");
+                        interpreter.sendItemMessage(BALL, "You give the ball back.");
                     setStage(13);
                 }
                 break;
@@ -132,7 +132,7 @@ public class BoyDialoguePlugin extends DialoguePlugin {
                 finish();
                 break;
             case 13:
-                npc(FacialExpression.OLD_NORMAL, "Thank you so much!");
+                npc(FacialExpression.CHILD_FRIENDLY, "Thank you so much!");
                 next();
                 break;
             case 14:
