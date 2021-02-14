@@ -21,6 +21,7 @@ class GillieGroatsDialogue (player: Player? = null) : DialoguePlugin(player){
             stage = 100
             return true
         }
+        player.sendMessage("LOLL");
         npc(FacialExpression.HAPPY, "Hello, I'm Gillie the Milkmaid. What can I do for you?")
         stage = 0
         return true
@@ -43,11 +44,11 @@ class GillieGroatsDialogue (player: Player? = null) : DialoguePlugin(player){
             12 -> player(FacialExpression.HAPPY,"Thanks.").also { stage = 1000 }
 
             //Can you tell me how to milk a cow?
-            20 -> npc(FacialExpression.FRIENDLY, "It's very easy. First you need an empty bucket to hold", "the milk.").also { stage++ }
-            21 -> npc(FacialExpression.FRIENDLY, "Then find a dairy cow to milk - you can't milk just", "any cow.").also { stage++ }
+            20 -> npc(FacialExpression.HAPPY, "It's very easy. First you need an empty bucket to hold", "the milk.").also { stage++ }
+            21 -> npc(FacialExpression.HAPPY, "Then find a dairy cow to milk - you can't milk just", "any cow.").also { stage++ }
             22 -> player(FacialExpression.ASKING, "How do I find a dairy cow?").also { stage++ }
-            23 -> npc(FacialExpression.FRIENDLY, "They are easy to spot - they are dark brown and", "white, unlike beef cows, which are light brown and white.", "We also tether them to a post to stop them wandering", "around all over the place.").also {stage++ }
-            24 -> npc(FacialExpression.FRIENDLY, "There are a couple very near, in this field.").also { stage++ }
+            23 -> npc(FacialExpression.HAPPY, "They are easy to spot - they are dark brown and", "white, unlike beef cows, which are light brown and white.", "We also tether them to a post to stop them wandering", "around all over the place.").also {stage++ }
+            24 -> npc(FacialExpression.HAPPY, "There are a couple very near, in this field.").also { stage++ }
             25 -> npc(FacialExpression.HAPPY, "Then just milk the cow and your bucket will fill with", "tasty, nutritious milk.").also { stage = 1000 }
 
             //Continuation of attempting to milk a dairy cow without a bucket
