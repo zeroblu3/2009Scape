@@ -21,7 +21,6 @@ class GillieGroatsDialogue (player: Player? = null) : DialoguePlugin(player){
             stage = 100
             return true
         }
-        player.sendMessage("LOLL");
         npc(FacialExpression.HAPPY, "Hello, I'm Gillie the Milkmaid. What can I do for you?")
         stage = 0
         return true
