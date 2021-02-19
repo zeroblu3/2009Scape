@@ -50,7 +50,7 @@ public final class CoordinateCluePlugin extends CoordinateClueScroll {
 		// "04 degrees 05 minutes south<br>04 degrees 24 minutes east"));
 		register(new CoordinateCluePlugin("crandor-coord", 2839, ClueLevel.MEDIUM, new Location(2848, 3297, 0), "04 degrees 13 minutes north<br>12 degrees 45 minutes east"));
 		register(new CoordinateCluePlugin("champions-guild-coord", 2841, ClueLevel.MEDIUM, new Location(3179, 3343, 0), "05 degrees 43 minutes north<br>23 degrees 05 minutes east"));
-		register(new CoordinateCluePlugin("cairn-island-coord", 2843, ClueLevel.HARD, new Location(2764, 2974, 0), "05 degrees 50 minutes south<br>10 degrees 05 minutes east"));
+		register(new CoordinateCluePlugin("cairn-island-coord", 2843, ClueLevel.HARD, new Location(2763, 2973, 0), "05 degrees 50 minutes south<br>10 degrees 05 minutes east"));
 		register(new CoordinateCluePlugin("bandit-camp-coord", 2845, ClueLevel.HARD, new Location(3139, 2969, 0), "06 degrees 00 minutes south<br>21 degrees 48 minutes east"));
 		// register(new CoordinateCluePlugin("east-karamja-coord", 2847,
 		// ClueLevel.HARD, new Location(2924, 2963, 0),
