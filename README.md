@@ -37,6 +37,14 @@
 * [License](#license)
 * [Contact](#contact)
 
+## First, a Thanks
+Thank you to all the people who have contributed to 2009scape so far!
+<a href="https://github.com/2009scape/2009scape/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=2009scape/2009scape" />
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
+
 
 ## Live Server Information
 
