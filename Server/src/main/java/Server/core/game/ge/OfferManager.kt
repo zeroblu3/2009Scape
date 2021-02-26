@@ -281,76 +281,82 @@ class OfferManager : Pulse(), CallBack {
             GE_OFFER_LOCK.lock()
             val root = JSONObject()
             val offers = JSONArray()
-
-            if(OFFER_MAPPING.isEmpty() && BOT_OFFERS.isEmpty()){
-                return
-            }
-
-            for(entry in OFFER_MAPPING){
-                val offer = entry.value
-                if (offer.offerState == OfferState.REMOVED || entry.value.playerUID == PlayerDetails.getDetails("2009scape").uid) {
-                    continue
-                }
-                val o = JSONObject()
-                o["uid"] = entry.key.toString()
-                o["itemId"] = offer.itemID.toString()
-                o["sale"] = offer.sell
-                o["amount"] = offer.amount.toString()
-                o["completedAmount"] = offer.completedAmount.toString()
-                o["offeredValue"] = offer.offeredValue.toString()
-                o["timeStamp"] = offer.timeStamp.toString()
-                o["offerState"] = offer.offerState.ordinal.toString()
-                o["totalCoinExchange"] = offer.totalCoinExchange.toString()
-                o["playerUID"] = offer.playerUID.toString()
-                val withdrawItems = JSONArray()
-                for(item in offer.withdraw){
-                    item ?: continue
-                    val it = JSONObject()
-                    it["id"] = item.id.toString()
-                    it["amount"] = item.amount.toString()
-                    withdrawItems.add(it)
-                }
-                o["withdrawItems"] = withdrawItems
-                offers.add(o)
-            }
-            root["offsetUID"] = offsetUID.toString()
-            root["offers"] = offers
-
             val manager = ScriptEngineManager()
             val scriptEngine = manager.getEngineByName("JavaScript")
-            scriptEngine.put("jsonString", root.toJSONString())
-            scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
-            val prettyPrintedJson = scriptEngine["result"] as String
 
-            val botRoot = JSONObject()
-            val botOffers = JSONArray()
+            if(!OFFER_MAPPING.isEmpty()){
+                for(entry in OFFER_MAPPING){
+                    val offer = entry.value
+                    if (offer.offerState == OfferState.REMOVED || entry.value.playerUID == PlayerDetails.getDetails("2009scape").uid) {
+                        continue
+                    }
+                    val o = JSONObject()
+                    o["uid"] = entry.key.toString()
+                    o["itemId"] = offer.itemID.toString()
+                    o["sale"] = offer.sell
+                    o["amount"] = offer.amount.toString()
+                    o["completedAmount"] = offer.completedAmount.toString()
+                    o["offeredValue"] = offer.offeredValue.toString()
+                    o["timeStamp"] = offer.timeStamp.toString()
+                    o["offerState"] = offer.offerState.ordinal.toString()
+                    o["totalCoinExchange"] = offer.totalCoinExchange.toString()
+                    o["playerUID"] = offer.playerUID.toString()
+                    val withdrawItems = JSONArray()
+                    for(item in offer.withdraw){
+                        item ?: continue
+                        val it = JSONObject()
+                        it["id"] = item.id.toString()
+                        it["amount"] = item.amount.toString()
+                        withdrawItems.add(it)
+                    }
+                    o["withdrawItems"] = withdrawItems
+                    offers.add(o)
+                }
+                root["offsetUID"] = offsetUID.toString()
+                root["offers"] = offers
 
-            for ((item, qty) in BOT_OFFERS) {
-                val o = JSONObject()
-                o["item"] = item
-                o["qty"] = qty
-                botOffers.add(o)
+                scriptEngine.put("jsonString", root.toJSONString())
+                scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
+                val prettyPrintedJson = scriptEngine["result"] as String
+                
+                try {
+                    FileWriter(DB_PATH).use { file ->
+                        file.write(prettyPrintedJson)
+                        file.flush()
+                        file.close()
+                    }
+                
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
-            botRoot["offers"] = botOffers
+            
+            if (!BOT_OFFERS.isEmpty()) {
 
-            scriptEngine.put("jsonString", botRoot.toJSONString())
-            scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
-            val botJson = scriptEngine["result"] as String
+                val botRoot = JSONObject()
+                val botOffers = JSONArray()
 
-
-            try {
-                FileWriter(DB_PATH).use { file ->
-                    file.write(prettyPrintedJson)
-                    file.flush()
-                    file.close()
+                for ((item, qty) in BOT_OFFERS) {
+                    val o = JSONObject()
+                    o["item"] = item
+                    o["qty"] = qty
+                    botOffers.add(o)
                 }
-                FileWriter(BOT_DB_PATH).use { file ->
-                    file.write(botJson)
-                    file.flush()
-                    file.close()
+                botRoot["offers"] = botOffers
+
+                scriptEngine.put("jsonString", botRoot.toJSONString())
+                scriptEngine.eval("result = JSON.stringify(JSON.parse(jsonString), null, 2)")
+                val botJson = scriptEngine["result"] as String
+                
+                try {
+                    FileWriter(BOT_DB_PATH).use { file ->
+                        file.write(botJson)
+                        file.flush()
+                        file.close()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-            } catch (e: Exception) {
-                e.printStackTrace()
             }
             GE_OFFER_LOCK.unlock()
         }
