@@ -95,6 +95,7 @@ public abstract class Quest implements Plugin<Object> {
 	 * @param player The player.
 	 */
 	public void start(Player player) {
+		System.out.println("Setting stage of " + this.index + " to 10");
 		player.getQuestRepository().setStage(this, 10);
 		player.getQuestRepository().syncronizeTab(player);
 	}
