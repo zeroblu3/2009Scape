@@ -182,6 +182,16 @@ public final class QuestRepository implements SavingModule {
         this.points = points;
     }
 
+    public int getQuestCompletedCount() {
+        int count = 0;
+        for (Quest quest : QUESTS.values()) {
+            if (getStage(quest) >= 100) {
+                count ++;
+            }
+        }
+        return count;
+    }
+
     /**
      * Gets the available quest points.
      *
