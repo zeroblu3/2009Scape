@@ -7,11 +7,11 @@
   </a>
   <h3 align="center">An open source MMORPG emulation server</h3>
 
-  <h1 align="center"><a href="https://github.com/2009scape/2009Scape/releases/latest/download/2009Scape.jar"><strong>Play the live server »</strong></a></h1>
+  <h1 align="center"><a href="https://github.com/2009scape/2009Scape/releases"><strong>Play the live server »</strong></a></h1>
   <p align="center">
     <br />
     <br />
-    <a href="https://github.com/2009scape/2009Scape/releases/latest/download/2009Scape.jar">Community Hosted Server</a>
+    <a href="https://github.com/2009scape/2009Scape/releases">Community Hosted Server</a>
     ·
     <a href="https://discord.gg/43YPGND">Discord Invite</a>
     ·    <a href="https://github.com/2009scape/2009Scape/issues">Report Bug</a>
