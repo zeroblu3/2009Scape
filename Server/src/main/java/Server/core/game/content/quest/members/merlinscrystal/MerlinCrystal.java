@@ -83,6 +83,7 @@ public final class MerlinCrystal extends Quest {
 				new CandleMakerDialogue(),
 				new KingArthurDialogue(),
 				new MerlinCrystalOptionPlugin(),
+				new SirGawainDialogue(),
 				new SirKayDialogue(),
 				new SirLancelotDialogue(),
 				new SirLucan(),
