@@ -149,9 +149,6 @@ public final class LoginConfiguration {
         /*if (TutorialSession.getExtension(player).getStage() != 73) {
             TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);
         }*/
-
-        player.setAttribute("/save:" + STATS_BASE + ":" + QUESTS_COMPLETE, player.getQuestRepository().getQuestCompletedCount());
-        player.setAttribute("/save:" + STATS_BASE + ":" + QUEST_POINTS, player.getQuestRepository().getPoints());
     }
 
     /**
