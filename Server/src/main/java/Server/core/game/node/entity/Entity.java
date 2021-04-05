@@ -232,6 +232,23 @@ public abstract class Entity extends Node {
 	}
 
 	/**
+	 * Checks if the source of damage is a harmless npc (Chicken, Rat, etc)
+	 * @return {@code True} if so.
+	 */
+	public Boolean isHarmless()
+	{
+		switch (getId())
+		{
+			case 41:
+			case 1017:
+			case 951:
+			case 47:
+				return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Updates the location of an entity.
 	 * @param last the last location.
 	 */

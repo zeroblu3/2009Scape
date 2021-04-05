@@ -149,6 +149,12 @@ public final class ImpactHandler {
 			impactQueue.add(impact);
 			return impact;
 		}
+		if (source.isHarmless())
+		{
+			Impact impact = new Impact(source, 0, style, HitsplatType.MISS);
+			impactQueue.add(impact);
+			return impact;
+		}
 		hit -= entity.getSkills().hit(hit);
 		if (type == null || type == HitsplatType.NORMAL) {
 			if (hit == 0) {
