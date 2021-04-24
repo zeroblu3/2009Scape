@@ -74,6 +74,7 @@ public final class DialogueInterpreter {
                     new int[] {6, 9},
                     new int[] {7, 10},
                     new int[] {8, 9},
+                    new int[] {9, 10},
             };
 
     /**
