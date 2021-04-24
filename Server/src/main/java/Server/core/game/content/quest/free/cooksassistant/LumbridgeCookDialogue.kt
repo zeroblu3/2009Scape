@@ -123,34 +123,28 @@ class LumbridgeCookDialogue (player: Player? = null) : DialoguePlugin(player){
             //Where do I find these ingredients?
             60 -> options("Where do I find some flour?","How about milk?","And eggs? Where are they found?","Actually, I know where to find this stuff.").also { stage++ }
             61 -> when(buttonId) {
-                1 -> npc(FacialExpression.NEUTRAL,"There is a Mill fairly close, go North and then West.","Mill Lane Mill is just off the road to Draynor. I","usually get my flour from there.").also {stage = 70 }
-                2 -> npc(FacialExpression.NEUTRAL,"There is a cattle field on the other side of the river,","just across the road from the Groats' Farm.").also { stage = 71 }
-                3 -> npc(FacialExpression.NEUTRAL,"I normally get my eggs from the Groats' farm, on the","other side of the river.").also { stage = 73 }
-                4 -> player(FacialExpression.NEUTRAL,"Actually, I know where to find this stuff.").also { stage = 1000 }
+                1 -> npc(FacialExpression.HAPPY,"There is a Mill fairly close, Go North and then West.","Mill Lane Mill is just off the road to Draynor. I","usually get my flour from there.").also {stage = 70 }
+                2 -> npc(FacialExpression.HAPPY,"There is a cattle field on the other side of the river,", "just across the road from the Groats' Farm.").also { stage = 71 }
+                3 -> npc(FacialExpression.HAPPY,"I normally get my eggs from the Groats' farm, on the","other side of the river.").also { stage = 73 }
+                4 -> player(FacialExpression.HAPPY,"Actually, I know where to find this stuff.").also { stage = 1000 }
             }
 
             //Where do I find some flour?
-            70 -> npc(FacialExpression.SUSPICIOUS,"Talk to Millie, she'll help, she's a lovely girl and a fine","Miler. Make sure you take a pot with you for the flour","though, " + if (player.inventory.contains(EMPTY_POT, 1)) "you've got one on you already." else "there should be one on the table in here.").also { stage = 80 }
+            70 -> npc(FacialExpression.HAPPY,"Talk to Millie, she'll help, she's a lovely girl and a fine", "Miller..").also { stage = 80 }
 
             //How about milk?
-            71 -> npc(FacialExpression.SUSPICIOUS,"Talk to Gillie Groats, she looks after the Dairy cows -","she'll tell you everything you need to know about","milking cows!").also { stage++ }
-            72 ->
-                if (player.inventory.contains(EMPTY_BUCKET , 1)) {
-                        npc(FacialExpression.NEUTRAL,"You'll need an empty bucket for the milk itself. I do see", "you've got a bucket with you already luckily!").also { stage = 80 }
-                } else {
-                    npc(FacialExpression.NEUTRAL,"You'll need an empty bucket for the milk itself. The", "general store just north of the castle will sell you one", "for a couple of coins.").also { stage = 80 }
-                }
+            71 -> npc(FacialExpression.HAPPY,"Talk to Gillie Groats, she looks after the Dairy cows -","she'll tell you everything you need to know about","milking cows!").also { stage = 80 }
 
             //And Eggs?
-            73 -> npc(FacialExpression.NEUTRAL,"But any chicken should lay eggs.").also { stage = 80 }
+            73 -> npc(FacialExpression.HAPPY,"But any chicken should lay eggs.").also { stage = 80 }
 
             //Alternative menu for "Where do I find these ingredients?"
             80 -> options("Where do I find some flour?","How about milk?","And eggs? Where are they found?","I've got all the information I need. Thanks.").also { stage++ }
             81 -> when(buttonId) {
-                1 -> npc(FacialExpression.NEUTRAL,"There is a Mill fairly close, go North and then West.","Mill Lane Mill is just off the road to Draynor. I","usually get my flour from there.").also {stage = 70 }
-                2 -> npc(FacialExpression.NEUTRAL,"There is a cattle field on the other side of the river,","just across the road from the Groats' Farm.").also { stage = 71 }
-                3 -> npc(FacialExpression.NEUTRAL,"I normally get my eggs from the Groats' farm, on the","other side of the river.").also { stage = 73 }
-                4 -> player(FacialExpression.NEUTRAL,"I've got all the information I need. Thanks.").also { stage = 1000 }
+                1 -> npc(FacialExpression.HAPPY,"There is a Mill fairly close, Go North and then West.","Mill Lane Mill is just off the road to Draynor. I","usually get my flour from there.").also {stage = 70 }
+                2 -> npc(FacialExpression.HAPPY,"There is a cattle field on the other side of the river,", "just across the road from the Groats' Farm.").also { stage = 71 }
+                3 -> npc(FacialExpression.HAPPY,"I normally get my eggs from the Groats' farm, on the","other side of the river.").also { stage = 73 }
+                4 -> player(FacialExpression.HAPPY,"I've got all the information I need. Thanks.").also { stage = 1000 }
             }
 
             100 ->
