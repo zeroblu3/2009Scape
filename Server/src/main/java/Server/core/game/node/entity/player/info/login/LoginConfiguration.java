@@ -24,6 +24,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.*;
+
 
 /**
  * Sends the login configuration packets.

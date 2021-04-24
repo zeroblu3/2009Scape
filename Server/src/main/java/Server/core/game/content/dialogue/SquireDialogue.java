@@ -5,6 +5,8 @@ import core.game.node.entity.npc.NPC;
 import core.plugin.Initializable;
 import core.game.node.entity.player.Player;
 
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.*;
+
 /**
  * Handles the SquireDialogue dialogue.
  * @author 'Vexia
@@ -34,6 +36,8 @@ public class SquireDialogue extends DialoguePlugin {
 	public boolean open(Object... args) {
 		if (args.length == 3) {
 			int type = (int) args[1];
+			player.incrementAttribute("/save:" + STATS_BASE + ":" + STATS_PEST_CONTROL_ROUNDS_COMPLETED, 1);
+
 			if (type == 0) {// lost
 				interpreter.sendDialogues(3781, FacialExpression.HALF_GUILTY, "The Void Knight was killed, another of our Order has", "fallen and that Island is lost.");
 				stage = 110;

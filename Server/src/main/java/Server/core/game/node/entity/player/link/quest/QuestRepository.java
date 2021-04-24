@@ -9,6 +9,9 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static core.game.node.entity.player.info.stats.StatAttributeKeysKt.*;
 
 /**
  * Manages the systems/players quest repository.
@@ -69,11 +72,17 @@ public final class QuestRepository implements SavingModule {
     public void parse(JSONObject questData){
         points = Integer.parseInt( questData.get("points").toString());
         JSONArray questArray = (JSONArray) questData.get("questStages");
+        player.setAttribute("/save:" + STATS_BASE + ":" + QUESTS_COMPLETE, 0);
         questArray.forEach(quest -> {
             JSONObject q = (JSONObject) quest;
             quests.put(Integer.parseInt( q.get("questId").toString()),Integer.parseInt(q.get("questStage").toString()));
+            if (Integer.parseInt(q.get("questStage").toString()) >= 100) {
+                player.incrementAttribute("/save:" + STATS_BASE + ":" + QUESTS_COMPLETE);
+            }
         });
         syncPoints();
+
+        player.setAttribute("/save:" + STATS_BASE + ":" + QUEST_POINTS, player.getQuestRepository().getPoints());
     }
 
     @Override
